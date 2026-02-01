@@ -1,0 +1,153 @@
+# ============================================
+# 資安週報 - 資料來源設定
+# ============================================
+
+# ------------------------------------------
+# 來源優先級定義
+# ------------------------------------------
+priorities:
+  critical: 100   # CISA KEV、重大漏洞
+  high: 75        # 主要資安新聞
+  medium: 50      # 一般資安新聞
+  low: 25         # 背景資訊
+
+# ------------------------------------------
+# 資料來源
+# ------------------------------------------
+sources:
+
+  # === 國際資安新聞 ===
+  - name: "The Hacker News"
+    type: rss
+    url: "https://feeds.feedburner.com/TheHackersNews"
+    category: news
+    priority: high
+    language: en
+    
+  - name: "BleepingComputer"
+    type: rss
+    url: "https://www.bleepingcomputer.com/feed/"
+    category: news
+    priority: high
+    language: en
+    
+  - name: "Krebs on Security"
+    type: rss
+    url: "https://krebsonsecurity.com/feed/"
+    category: news
+    priority: high
+    language: en
+    
+  - name: "SecurityWeek"
+    type: rss
+    url: "https://feeds.feedburner.com/securityweek"
+    category: news
+    priority: medium
+    language: en
+    
+  - name: "Dark Reading"
+    type: rss
+    url: "https://www.darkreading.com/rss.xml"
+    category: news
+    priority: medium
+    language: en
+
+  # === 台灣/中文來源 ===
+  - name: "iThome 資安"
+    type: rss
+    url: "https://www.ithome.com.tw/rss/security"
+    category: news
+    priority: high
+    language: zh-TW
+    
+  # === 官方公告 ===
+  - name: "CISA Alerts"
+    type: rss
+    url: "https://www.cisa.gov/cybersecurity-advisories/all.xml"
+    category: advisory
+    priority: critical
+    language: en
+    
+  - name: "CISA KEV"
+    type: api
+    endpoint: "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+    category: vulnerability
+    priority: critical
+    language: en
+
+  # === 漏洞資料庫 ===
+  - name: "NVD"
+    type: api
+    endpoint: "https://services.nvd.nist.gov/rest/json/cves/2.0"
+    category: vulnerability
+    priority: high
+    language: en
+    config:
+      min_cvss: 7.0
+      lookback_days: 7
+      
+  - name: "GitHub Security Advisories"
+    type: api
+    endpoint: "https://api.github.com/advisories"
+    category: vulnerability
+    priority: medium
+    language: en
+
+  # === 威脅情報 ===
+  - name: "Mandiant Blog"
+    type: rss
+    url: "https://www.mandiant.com/resources/blog/rss.xml"
+    category: threat_intel
+    priority: high
+    language: en
+    
+  - name: "Microsoft Security Blog"
+    type: rss
+    url: "https://www.microsoft.com/en-us/security/blog/feed/"
+    category: threat_intel
+    priority: high
+    language: en
+
+  # === 廠商公告 ===
+  - name: "Microsoft MSRC"
+    type: rss
+    url: "https://msrc.microsoft.com/blog/feed"
+    category: vendor_advisory
+    priority: high
+    language: en
+
+# ------------------------------------------
+# 篩選規則
+# ------------------------------------------
+filters:
+  # 關鍵字加權（出現時提高優先級）
+  boost_keywords:
+    - "taiwan"
+    - "台灣"
+    - "金融"
+    - "製造"
+    - "政府"
+    - "critical"
+    - "zero-day"
+    - "actively exploited"
+    
+  # 排除關鍵字
+  exclude_keywords:
+    - "sponsored"
+    - "廣告"
+    - "徵才"
+    
+  # CVSS 門檻
+  min_cvss: 7.0
+  
+  # 時間範圍
+  lookback_days: 7
+
+# ------------------------------------------
+# 蒐集設定
+# ------------------------------------------
+collection:
+  max_articles_per_source: 30
+  request_timeout: 30
+  retry_count: 3
+  retry_delay: 5

@@ -1,0 +1,303 @@
+# ============================================
+# 週報寫作風格指南
+# ============================================
+# 本文件定義週報產出的寫作風格，確保報告專業且易讀
+
+# ------------------------------------------
+# 風格定位
+# ------------------------------------------
+positioning:
+  target_audience: 
+    primary: "企業資安主管 (CISO)"
+    secondary: "資安團隊主管、IT 管理階層"
+  
+  tone: 
+    - "專業但不艱澀"
+    - "精準不冗贅"
+    - "客觀不渲染"
+    - "可行動導向"
+  
+  reference_sources:
+    - name: "iThome 資安新聞"
+      url: "https://www.ithome.com.tw/security"
+      note: "台灣主流科技媒體的資安報導風格"
+    - name: "TWCERT/CC 公告"
+      url: "https://www.twcert.org.tw/"
+      note: "官方資安通報的專業用語"
+    - name: "資安人雜誌"
+      note: "深度技術文章的寫作方式"
+
+# ------------------------------------------
+# 核心寫作原則
+# ------------------------------------------
+principles:
+
+  - name: "精準簡潔"
+    description: "用最少的字傳達最重要的資訊"
+    examples:
+      - bad: "根據相關報導指出，該公司疑似可能遭受到了某種形式的網路攻擊"
+        good: "該公司證實遭勒索軟體攻擊"
+      - bad: "這個漏洞的嚴重程度是非常高的，需要特別注意"
+        good: "該漏洞 CVSS 9.8，屬危急等級"
+        
+  - name: "風險導向"
+    description: "聚焦業務影響，技術細節適度"
+    examples:
+      - bad: "攻擊者利用 CVE-2024-1234 的堆溢位漏洞進行記憶體損壞攻擊"
+        good: "該漏洞可讓攻擊者完全控制伺服器，影響所有未更新用戶"
+      - bad: "此惡意程式使用 AES-256 加密演算法"
+        good: "受害者檔案遭加密，目前無免費解密工具"
+        
+  - name: "可行動"
+    description: "每個發現都有明確、具體的建議"
+    examples:
+      - bad: "建議用戶提高警覺"
+        good: "建議立即更新至 v2.1.5，並檢查過去 30 天的異常登入"
+      - bad: "應加強資安防護"
+        good: "啟用 MFA、限制 RDP 存取來源 IP"
+        
+  - name: "客觀中立"
+    description: "基於事實，不誇大不輕描"
+    examples:
+      - bad: "史上最嚴重的資安災難！"
+        good: "該漏洞影響範圍廣泛，已有數百起確認案例"
+      - bad: "可能沒什麼大不了的"
+        good: "目前尚無實際攻擊案例，但建議優先處理"
+
+# ------------------------------------------
+# 避免的 AI 寫作模式
+# ------------------------------------------
+avoid_patterns:
+
+  # 結構性問題
+  - pattern: "首先、其次、再者、最後"
+    reason: "明顯的 AI 生成痕跡，過於制式"
+    alternative: "直接陳述，用段落自然分隔"
+    
+  - pattern: "第一點、第二點、第三點"
+    reason: "除非真的在列舉，否則過於生硬"
+    alternative: "用段落或項目符號"
+
+  # 冗贅開頭
+  - pattern: "在當今這個數位化/資安威脅日益嚴峻的時代"
+    reason: "無意義的開場白"
+    alternative: "直接切入本週發生的事件"
+    
+  - pattern: "隨著...的快速發展"
+    reason: "陳腔濫調"
+    alternative: "直接說明現況"
+
+  # 冗贅結尾
+  - pattern: "總的來說、綜上所述、總而言之"
+    reason: "冗贅的結尾，讀者可以自己總結"
+    alternative: "直接給結論或建議"
+    
+  - pattern: "希望本報告對您有所幫助"
+    reason: "不必要的客套"
+    alternative: "省略，或以行動呼籲結尾"
+
+  # 空洞強調
+  - pattern: "值得注意的是、需要特別強調的是"
+    reason: "如果真的重要，直接說明原因"
+    alternative: "用具體數據或影響說明重要性"
+    
+  - pattern: "不難發現、顯而易見、眾所周知"
+    reason: "空洞的強調詞"
+    alternative: "直接陳述事實"
+    
+  - pattern: "令人擔憂的是、令人震驚的是"
+    reason: "主觀情緒用語"
+    alternative: "用數據說明嚴重程度"
+
+  # 模糊用語
+  - pattern: "可能、或許、也許、似乎"
+    reason: "過度使用會顯得不確定"
+    alternative: "若不確定，明確說明資訊來源的限制"
+    
+  - pattern: "相關、有關、某種"
+    reason: "過於模糊"
+    alternative: "具體說明是什麼"
+
+  # 過度禮貌
+  - pattern: "請容我說明、以下將為您介紹"
+    reason: "過度禮貌，拖慢節奏"
+    alternative: "直接說明"
+
+# ------------------------------------------
+# 句型模板
+# ------------------------------------------
+sentence_templates:
+
+  # 事件描述
+  event_lead:
+    pattern: "[時間] [組織/對象] 遭受 [攻擊類型]，[一句話影響]"
+    examples:
+      - "本週某金融機構遭受 LockBit 勒索軟體攻擊，約 50 萬筆客戶資料恐外洩"
+      - "APT29 鎖定多國政府機關，利用零日漏洞竊取機密文件"
+      - "知名電商平台驚傳資料外洩，波及 200 萬會員"
+      
+  event_impact:
+    pattern: "[影響對象] [影響內容]，[量化數據]"
+    examples:
+      - "受影響用戶約 50 萬人，外洩資料包含姓名、電話、地址"
+      - "攻擊導致服務中斷超過 6 小時，影響全台分行營運"
+      
+  # 漏洞描述
+  vulnerability_alert:
+    pattern: "[產品] 存在 [漏洞類型]（CVE-XXXX），CVSS [分數]"
+    examples:
+      - "Microsoft Exchange 存在 RCE 漏洞（CVE-2024-1234），CVSS 9.8"
+      - "Apache Struts 發現嚴重反序列化漏洞，CVSS 9.1"
+      
+  vulnerability_status:
+    pattern: "[修補狀態]，[利用狀態]"
+    examples:
+      - "官方已釋出修補程式，目前已有實際攻擊案例"
+      - "尚無修補程式，但 PoC 已公開"
+      - "已有修補程式，暫無已知攻擊"
+      
+  # 建議行動
+  recommendation:
+    pattern: "[動作] [對象]，[期限/方式]"
+    examples:
+      - "立即更新所有 Exchange Server 至 2024 年 3 月累積更新"
+      - "檢查過去 30 天的 VPN 登入紀錄，確認無異常存取"
+      - "暫時停用受影響功能，等待官方修補"
+      
+  # 威脅行為者
+  threat_actor:
+    pattern: "[組織名稱]（[別名/歸因國家]）[活動描述]"
+    examples:
+      - "APT29（俄羅斯國家級駭客，又稱 Cozy Bear）本週針對..."
+      - "LockBit 勒索軟體集團聲稱已取得..."
+
+# ------------------------------------------
+# 段落結構
+# ------------------------------------------
+paragraph_structure:
+
+  # 事件報導段落
+  event_section:
+    structure:
+      - element: "lead"
+        description: "一句話說明發生什麼事"
+        length: "30 字以內"
+      - element: "context"
+        description: "背景脈絡和影響範圍"
+        length: "50-80 字"
+      - element: "detail"
+        description: "技術細節（視讀者需要）"
+        length: "50-100 字，可省略"
+      - element: "action"
+        description: "建議行動"
+        length: "30-50 字"
+    example: |
+      俄羅斯 APT29 組織本週針對多國政府機關發動攻擊。
+      
+      攻擊者利用一個 Microsoft Outlook 零日漏洞取得初始存取權限，
+      隨後在內網進行橫向移動，竊取外交相關機密文件。
+      受影響單位包括歐洲多國外交部，損害程度仍在評估中。
+      
+      建議政府機關立即套用 Microsoft 三月份安全更新，
+      並檢視郵件伺服器過去 60 天的異常存取紀錄。
+        
+  # 漏洞通報段落
+  vulnerability_section:
+    structure:
+      - element: "alert"
+        description: "產品、漏洞類型、CVSS"
+        length: "30 字以內"
+      - element: "impact"
+        description: "影響範圍和嚴重程度"
+        length: "30-50 字"
+      - element: "status"
+        description: "修補狀態、攻擊狀態"
+        length: "20-30 字"
+      - element: "action"
+        description: "具體建議"
+        length: "30-50 字"
+
+  # 通用限制
+  constraints:
+    max_paragraph_length: 100  # 中文字數
+    max_sentence_length: 40    # 中文字數
+    paragraphs_per_event: 2-4  # 段落數
+
+# ------------------------------------------
+# 標題風格
+# ------------------------------------------
+title_patterns:
+
+  # 事件標題
+  event:
+    pattern: "[威脅類型/行為者] + [動作] + [目標] + [影響概述]"
+    examples:
+      - "LockBit 勒索軟體攻擊金融機構，50 萬客戶資料恐外洩"
+      - "APT29 鎖定政府機關，利用 Outlook 零日漏洞入侵"
+      - "供應鏈攻擊波及數百企業，惡意套件藏身 npm"
+    avoid:
+      - "【重要】【緊急】【警告】"  # 標點符號強調
+      - "驚！駭客入侵..."          # 聳動用語
+      - "又一起資安事件"            # 無意義描述
+      
+  # 漏洞標題
+  vulnerability:
+    pattern: "[產品] + [漏洞類型] + [CVE] + [嚴重程度]"
+    examples:
+      - "Microsoft Exchange RCE 漏洞（CVE-2024-1234）- 危急"
+      - "Apache Struts 遠端程式碼執行，已遭實際利用"
+      - "Fortinet VPN 驗證繞過漏洞，CVSS 9.6"
+
+  # 趨勢標題
+  trend:
+    pattern: "[觀察] + [趨勢描述]"
+    examples:
+      - "本週觀察：勒索軟體攻擊轉向醫療產業"
+      - "AI 驅動的釣魚攻擊數量上升 40%"
+
+# ------------------------------------------
+# 數字與格式
+# ------------------------------------------
+formatting:
+
+  numbers:
+    - rule: "CVSS 分數保留一位小數"
+      example: "CVSS 9.8"
+    - rule: "金額使用千分位"
+      example: "$1,500,000 美元"
+    - rule: "大數字用萬/億"
+      example: "50 萬筆資料、2.3 億美元"
+    - rule: "百分比用整數，除非差異很小"
+      example: "上升 40%"
+      
+  dates:
+    - rule: "使用明確日期，避免「近日」「日前」"
+      example: "12 月 15 日"
+    - rule: "跨時區事件註明時區"
+      example: "12 月 15 日 14:30 (UTC+8)"
+      
+  cve:
+    - rule: "完整格式"
+      example: "CVE-2024-12345"
+    - rule: "多個 CVE 時列出最嚴重的"
+      example: "CVE-2024-12345 等 5 個漏洞"
+
+# ------------------------------------------
+# 語言偏好
+# ------------------------------------------
+language:
+
+  # 使用主動語態
+  prefer_active_voice:
+    bad: "該系統被攻擊者入侵"
+    good: "攻擊者入侵該系統"
+    
+  # 具體優於抽象
+  prefer_specific:
+    bad: "造成重大損失"
+    good: "損失約 500 萬美元"
+    
+  # 避免雙重否定
+  avoid_double_negative:
+    bad: "並非沒有可能"
+    good: "有可能"
