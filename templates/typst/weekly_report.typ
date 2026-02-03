@@ -130,14 +130,16 @@
     v(2cm)
 
     // 報告期間
-    align(center)[
-      #let period = data.at("period", default: (:))
-      #text(
-        size: sizes.lg,
-        fill: theme.secondary,
-        "報告期間：" + period.at("start", default: "") + " ~ " + period.at("end", default: "")
-      )
-    ]
+    {
+      let period = data.at("period", default: (:))
+      align(center)[
+        #text(
+          size: sizes.lg,
+          fill: theme.secondary,
+          "報告期間：" + period.at("start", default: "") + " ~ " + period.at("end", default: "")
+        )
+      ]
+    }
 
     v(0.5cm)
 
@@ -153,40 +155,43 @@
     v(3cm)
 
     // 摘要區塊
-    #let summary = data.at("summary", default: (:))
-    align(center)[
-      #box(
-        width: 60%,
-        fill: theme.bg-subtle,
-        stroke: 0.5pt + theme.border,
-        radius: 4pt,
-        inset: spacing.lg,
-      )[
-        #grid(
-          columns: (1fr, 1fr, 1fr),
-          gutter: spacing.lg,
-          align: center,
-          [
-            #text(size: sizes.at("2xl"), weight: "bold", fill: theme.primary, str(summary.at("total_events", default: 0)))
-            #v(spacing.xs)
-            #text(size: sizes.sm, fill: theme.muted, "重大事件")
-          ],
-          [
-            #text(size: sizes.at("2xl"), weight: "bold", fill: theme.primary, str(summary.at("total_vulnerabilities", default: 0)))
-            #v(spacing.xs)
-            #text(size: sizes.sm, fill: theme.muted, "高風險漏洞")
-          ],
-          [
-            #let level = summary.at("threat_level", default: "normal")
-            #let color = if level == "elevated" { theme.high } else { theme.low }
-            #let label = if level == "elevated" { "升高" } else { "正常" }
-            #text(size: sizes.at("2xl"), weight: "bold", fill: color, label)
-            #v(spacing.xs)
-            #text(size: sizes.sm, fill: theme.muted, "威脅等級")
-          ],
-        )
+    {
+      let summary = data.at("summary", default: (:))
+      let level = summary.at("threat_level", default: "normal")
+      let threat-color = if level == "elevated" { theme.high } else { theme.low }
+      let threat-label = if level == "elevated" { "升高" } else { "正常" }
+
+      align(center)[
+        #box(
+          width: 60%,
+          fill: theme.bg-subtle,
+          stroke: 0.5pt + theme.border,
+          radius: 4pt,
+          inset: spacing.lg,
+        )[
+          #grid(
+            columns: (1fr, 1fr, 1fr),
+            gutter: spacing.lg,
+            align: center,
+            [
+              #text(size: sizes.at("2xl"), weight: "bold", fill: theme.primary, str(summary.at("total_events", default: 0)))
+              #v(spacing.xs)
+              #text(size: sizes.sm, fill: theme.muted, "重大事件")
+            ],
+            [
+              #text(size: sizes.at("2xl"), weight: "bold", fill: theme.primary, str(summary.at("total_vulnerabilities", default: 0)))
+              #v(spacing.xs)
+              #text(size: sizes.sm, fill: theme.muted, "高風險漏洞")
+            ],
+            [
+              #text(size: sizes.at("2xl"), weight: "bold", fill: threat-color, threat-label)
+              #v(spacing.xs)
+              #text(size: sizes.sm, fill: theme.muted, "威脅等級")
+            ],
+          )
+        ]
       ]
-    ]
+    }
   }
 
   // ========== 目錄 ==========

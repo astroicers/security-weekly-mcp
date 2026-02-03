@@ -30,6 +30,8 @@ sources:
     category: news
     priority: high
     language: en
+    status: disabled  # Cloudflare bot protection, requires browser automation
+    note: "使用 Cloudflare 防護，需要瀏覽器自動化才能存取"
     
   - name: "Krebs on Security"
     type: rss

@@ -112,9 +112,14 @@ def _match_source(query: str, sources: list[dict]) -> list[dict]:
 
 async def _fetch_rss(url: str, days: int, limit: int, keywords: list[str] | None = None) -> list[dict]:
     """從 RSS 來源抓取文章"""
+    # 設定 User-Agent 以避免被某些網站封鎖 (如 BleepingComputer)
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "application/rss+xml, application/xml, text/xml, */*",
+    }
     try:
         async with httpx.AsyncClient(timeout=30.0) as client:
-            response = await client.get(url, follow_redirects=True)
+            response = await client.get(url, headers=headers, follow_redirects=True)
             response.raise_for_status()
             feed = feedparser.parse(response.text)
     except Exception as e:
@@ -273,13 +278,19 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
 
         result = []
         for source in sources:
-            result.append({
+            item = {
                 "name": source.get("name"),
                 "type": source.get("type"),
                 "category": source.get("category"),
                 "priority": source.get("priority"),
-                "language": source.get("language")
-            })
+                "language": source.get("language"),
+            }
+            # 如果有 status 或 note，加入顯示
+            if source.get("status"):
+                item["status"] = source.get("status")
+            if source.get("note"):
+                item["note"] = source.get("note")
+            result.append(item)
 
         return [TextContent(
             type="text",
@@ -294,8 +305,11 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         keywords = arguments.get("keywords")
         requested_sources = arguments.get("sources", [])
 
-        # 過濾 RSS 類型的來源
-        rss_sources = [s for s in all_sources if s.get("type") == "rss"]
+        # 過濾 RSS 類型的來源（排除 disabled 的來源）
+        rss_sources = [
+            s for s in all_sources
+            if s.get("type") == "rss" and s.get("status") != "disabled"
+        ]
 
         # 如果有指定來源，進行比對
         if requested_sources:
