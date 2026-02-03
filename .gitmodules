@@ -1,0 +1,3 @@
+[submodule "packages/glossary"]
+	path = packages/glossary
+	url = git@github.com:astroicers/security-glossary-tw.git

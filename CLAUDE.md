@@ -7,8 +7,8 @@ MCP Server 架構的資安週報與術語庫管理系統。
 ```
 security-weekly-mcp/                    # Monorepo (uv workspace)
 ├── packages/
-│   ├── glossary/                       # 術語庫套件 (437 個術語)
-│   │   ├── src/security_glossary_tw/   # Python 套件
+│   ├── glossary/                       # 術語庫 (Git Submodule)
+│   │   ├── src/security_glossary_tw/   # → astroicers/security-glossary-tw
 │   │   │   ├── glossary.py            # Glossary 主類
 │   │   │   ├── models.py              # Pydantic 資料模型
 │   │   │   ├── matcher.py             # TermMatcher - 術語模糊匹配
@@ -225,17 +225,36 @@ asyncio.run(glossary.call_tool('search_term', {'query': 'APT'}))
 | security-weekly-report | `../security-weekly-report/` | 封存 | 歷史週報 (功能遷至 Skill) |
 | Claude Code Skill | `~/.claude/skills/security-weekly-tw/` | 活躍 | 自然語言介面 |
 
+## 術語庫同步機制
+
+`packages/glossary/` 是 Git Submodule，指向 `astroicers/security-glossary-tw`。
+
+**更新術語庫：**
+```bash
+git submodule update --remote packages/glossary
+```
+
+**初始化 (clone 後)：**
+```bash
+git submodule update --init --recursive
+```
+
+**CI/CD 自動處理：** `.github/workflows/ci.yml` 已設定 `submodules: recursive`
+
 ## 已知問題
 
-1. **Typst 模板語法** - `templates/typst/weekly_report.typ` 在 Typst 0.12.0 有語法問題，需修復 `#let` 在 content block 中的使用
-2. **BleepingComputer RSS** - 返回 403 Forbidden，需要設定 User-Agent
+1. **BleepingComputer RSS** - 使用 Cloudflare 防護，已在 `sources.yaml` 標記為 `status: disabled`
 
 ## 新聞來源 (sources.yaml)
 
-| 類別 | 來源 | 優先級 |
-|------|------|--------|
-| 國際新聞 | The Hacker News, Krebs on Security, SecurityWeek | high |
-| 台灣新聞 | iThome | high |
-| 官方公告 | CISA Alerts, CISA KEV | critical |
-| 漏洞資料 | NVD, GitHub Advisories | high |
-| 威脅情報 | Mandiant, Microsoft Security | high |
+| 類別 | 來源 | 優先級 | 狀態 |
+|------|------|--------|------|
+| 國際新聞 | The Hacker News, Krebs on Security, SecurityWeek, Dark Reading | high | ✅ |
+| 台灣新聞 | iThome 資安 | high | ✅ |
+| 台灣官方 | TWCERT/CC, 資安人 | critical/medium | 手動 |
+| 官方公告 | CISA Alerts, CISA KEV | critical | ✅ |
+| 漏洞資料 | NVD, GitHub Advisories | high | ✅ |
+| 威脅情報 | Mandiant, Microsoft Security | high | ✅ |
+| 廠商公告 | Microsoft MSRC | high | ✅ |
+
+**註：** 部分台灣來源 (TWCERT/CC, 資安人) 無可用 RSS，需手動收集或 web scraping。

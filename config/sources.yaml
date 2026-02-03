@@ -61,7 +61,25 @@ sources:
     category: news
     priority: high
     language: zh-TW
-    
+
+  - name: "TWCERT/CC"
+    type: web
+    url: "https://www.twcert.org.tw/newepaper/index.html"
+    category: advisory
+    priority: critical
+    language: zh-TW
+    note: "台灣電腦網路危機處理暨協調中心 - 需手動或 scraping"
+    status: manual
+
+  - name: "資安人"
+    type: web
+    url: "https://www.informationsecurity.com.tw/"
+    category: news
+    priority: medium
+    language: zh-TW
+    note: "台灣資安媒體 - RSS 需認證"
+    status: manual
+
   # === 官方公告 ===
   - name: "CISA Alerts"
     type: rss
