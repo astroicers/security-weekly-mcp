@@ -74,12 +74,14 @@ async def main():
     # 4. 整理漏洞
     vulnerabilities = []
     for vuln in vuln_data.get("nvd", [])[:10]:
+        affected = vuln.get("affected_products", [])
+        product = affected[0] if affected else "未知產品"
         vulnerabilities.append({
             "cve_id": vuln.get("cve_id", ""),
             "title": vuln.get("description", "")[:100],
             "cvss": vuln.get("cvss_score", 0),
             "severity": _cvss_to_severity(vuln.get("cvss_score", 0)),
-            "affected": vuln.get("affected_products", []),
+            "product": product,
             "recommendation": "請參閱 NVD 更新資訊"
         })
 
@@ -94,9 +96,9 @@ async def main():
             "events": events[:15],  # 最多 15 個事件
             "vulnerabilities": vulnerabilities,
             "action_items": [
-                {"priority": "high", "description": "檢視本週高風險漏洞並評估影響"},
-                {"priority": "medium", "description": "確認系統已套用最新安全更新"},
-                {"priority": "low", "description": "持續監控資安威脅趨勢"}
+                {"priority": "high", "action": "檢視本週高風險漏洞並評估影響"},
+                {"priority": "medium", "action": "確認系統已套用最新安全更新"},
+                {"priority": "low", "action": "持續監控資安威脅趨勢"}
             ]
         }
     )

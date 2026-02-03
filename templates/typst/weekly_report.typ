@@ -331,7 +331,7 @@
 
   // 威脅趨勢
   let trends = data.at("threat_trends", default: (:))
-  if trends.keys().len() > 0 {
+  if type(trends) == dictionary and trends.keys().len() > 0 {
     render-threat-trends(trends)
   }
 
