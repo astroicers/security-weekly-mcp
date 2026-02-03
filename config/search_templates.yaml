@@ -1,0 +1,171 @@
+# ============================================
+# 資安週報 - 搜尋模板設定
+# ============================================
+# 供 Claude Code WebSearch/WebFetch 使用的搜尋查詢模板
+
+# ------------------------------------------
+# 台灣資安新聞搜尋
+# ------------------------------------------
+taiwan_news:
+  description: "台灣資安新聞和事件"
+  queries:
+    - query: "台灣 資安事件 {year}"
+      priority: high
+      category: news
+
+    - query: "site:twcert.org.tw 資安通報"
+      priority: critical
+      category: advisory
+      note: "TWCERT/CC 官方通報"
+
+    - query: "site:informationsecurity.com.tw 資安新聞"
+      priority: medium
+      category: news
+      note: "資安人媒體"
+
+    - query: "site:ithome.com.tw 資安 攻擊"
+      priority: high
+      category: news
+
+    - query: "台灣 勒索軟體 攻擊 {year}"
+      priority: high
+      category: incident
+
+    - query: "台灣 資料外洩 {year}"
+      priority: high
+      category: incident
+
+# ------------------------------------------
+# 漏洞相關搜尋
+# ------------------------------------------
+vulnerabilities:
+  description: "重大漏洞和 CVE 資訊"
+  queries:
+    - query: "CVE {year} critical vulnerability"
+      priority: critical
+      category: vulnerability
+
+    - query: "zero-day vulnerability {year}"
+      priority: critical
+      category: vulnerability
+
+    - query: "actively exploited CVE {year}"
+      priority: critical
+      category: vulnerability
+
+    - query: "{cve_id} exploit proof of concept"
+      priority: high
+      category: vulnerability
+      note: "針對特定 CVE 搜尋 PoC"
+
+    - query: "Microsoft Patch Tuesday {month} {year}"
+      priority: high
+      category: patch
+
+    - query: "Apple security update {year}"
+      priority: medium
+      category: patch
+
+# ------------------------------------------
+# 威脅情報搜尋
+# ------------------------------------------
+threat_intel:
+  description: "威脅情報和 APT 活動"
+  queries:
+    - query: "APT group campaign {year}"
+      priority: high
+      category: threat_intel
+
+    - query: "ransomware gang {year}"
+      priority: high
+      category: threat_intel
+
+    - query: "supply chain attack {year}"
+      priority: high
+      category: threat_intel
+
+    - query: "China APT Taiwan {year}"
+      priority: critical
+      category: threat_intel
+      note: "針對台灣的 APT 活動"
+
+    - query: "North Korea cyber attack {year}"
+      priority: medium
+      category: threat_intel
+
+# ------------------------------------------
+# 產業別搜尋
+# ------------------------------------------
+industry_specific:
+  description: "特定產業資安事件"
+  queries:
+    - query: "金融業 資安 攻擊 台灣 {year}"
+      priority: high
+      category: industry
+      industry: finance
+
+    - query: "製造業 OT 資安 攻擊 {year}"
+      priority: high
+      category: industry
+      industry: manufacturing
+
+    - query: "醫療 資安 攻擊 {year}"
+      priority: medium
+      category: industry
+      industry: healthcare
+
+    - query: "政府機關 資安事件 台灣 {year}"
+      priority: high
+      category: industry
+      industry: government
+
+# ------------------------------------------
+# 網頁抓取目標 (WebFetch)
+# ------------------------------------------
+fetch_targets:
+  description: "需要直接抓取的網頁"
+  urls:
+    - name: "TWCERT/CC 最新消息"
+      url: "https://www.twcert.org.tw/tw/np-131-1.html"
+      type: advisory
+      priority: critical
+      prompt: "提取最新的資安通報標題、日期和摘要"
+
+    - name: "TWCERT/CC 資安電子報"
+      url: "https://www.twcert.org.tw/newepaper/index.html"
+      type: newsletter
+      priority: high
+      prompt: "提取最新一期電子報的主要議題"
+
+    - name: "資安人首頁"
+      url: "https://www.informationsecurity.com.tw/"
+      type: news
+      priority: medium
+      prompt: "提取首頁最新的 5 則資安新聞標題和連結"
+
+    - name: "數位發展部資安公告"
+      url: "https://moda.gov.tw/ACS/security-notice"
+      type: advisory
+      priority: high
+      prompt: "提取最新的資安公告"
+
+# ------------------------------------------
+# 動態搜尋建議
+# ------------------------------------------
+dynamic_suggestions:
+  description: "根據當週熱門議題動態產生的搜尋"
+  rules:
+    - trigger: "ransomware"
+      additional_queries:
+        - "{ransomware_name} decryptor"
+        - "{ransomware_name} IOC indicators"
+
+    - trigger: "CVE-"
+      additional_queries:
+        - "{cve_id} patch available"
+        - "{cve_id} mitigation"
+
+    - trigger: "APT"
+      additional_queries:
+        - "{apt_group} TTPs MITRE"
+        - "{apt_group} recent activity"

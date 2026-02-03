@@ -82,6 +82,31 @@ async def list_tools() -> list[Tool]:
                 "properties": {}
             }
         ),
+        Tool(
+            name="suggest_searches",
+            description="產生 WebSearch/WebFetch 搜尋建議，用於補充 RSS 無法取得的資安新聞",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "category": {
+                        "type": "string",
+                        "enum": ["taiwan_news", "vulnerabilities", "threat_intel", "industry_specific", "all"],
+                        "description": "搜尋類別",
+                        "default": "all"
+                    },
+                    "context": {
+                        "type": "object",
+                        "description": "動態內容（如 cve_id, ransomware_name, apt_group）",
+                        "additionalProperties": {"type": "string"}
+                    },
+                    "include_fetch_targets": {
+                        "type": "boolean",
+                        "description": "是否包含 WebFetch 目標網址",
+                        "default": True
+                    }
+                }
+            }
+        ),
     ]
 
 
@@ -92,6 +117,15 @@ def _load_sources_config() -> dict:
     if sources_file.exists():
         return yaml.safe_load(sources_file.read_text(encoding="utf-8"))
     return {"sources": []}
+
+
+def _load_search_templates() -> dict:
+    """載入搜尋模板設定"""
+    import yaml
+    templates_file = CONFIG_DIR / "search_templates.yaml"
+    if templates_file.exists():
+        return yaml.safe_load(templates_file.read_text(encoding="utf-8"))
+    return {}
 
 
 def _normalize_source_name(name: str) -> str:
@@ -359,6 +393,77 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         kev_cves = {v["cve_id"] for v in result["kev"] if "cve_id" in v}
         for vuln in result["nvd"]:
             vuln["in_kev"] = vuln["cve_id"] in kev_cves
+
+        return [TextContent(
+            type="text",
+            text=json.dumps(result, ensure_ascii=False, indent=2)
+        )]
+
+    elif name == "suggest_searches":
+        category = arguments.get("category", "all")
+        context = arguments.get("context", {})
+        include_fetch_targets = arguments.get("include_fetch_targets", True)
+
+        # 載入搜尋模板
+        search_templates = _load_search_templates()
+        if not search_templates:
+            return [TextContent(type="text", text="找不到搜尋模板配置檔")]
+
+        # 準備動態變數
+        now = datetime.now()
+        variables = {
+            "year": str(now.year),
+            "month": now.strftime("%B"),
+            **context
+        }
+
+        result = {
+            "web_searches": [],
+            "fetch_targets": []
+        }
+
+        # 收集搜尋建議
+        categories_to_process = (
+            [category] if category != "all"
+            else ["taiwan_news", "vulnerabilities", "threat_intel", "industry_specific"]
+        )
+
+        for cat in categories_to_process:
+            cat_data = search_templates.get(cat, {})
+            queries = cat_data.get("queries", [])
+            for q in queries:
+                query_template = q.get("query", "")
+                # 替換變數
+                try:
+                    query = query_template.format(**variables)
+                except KeyError:
+                    # 如果有未提供的變數，跳過此查詢
+                    continue
+
+                result["web_searches"].append({
+                    "query": query,
+                    "priority": q.get("priority", "medium"),
+                    "category": q.get("category", cat),
+                    "note": q.get("note")
+                })
+
+        # 收集 WebFetch 目標
+        if include_fetch_targets:
+            fetch_data = search_templates.get("fetch_targets", {})
+            urls = fetch_data.get("urls", [])
+            for target in urls:
+                result["fetch_targets"].append({
+                    "name": target.get("name"),
+                    "url": target.get("url"),
+                    "type": target.get("type"),
+                    "priority": target.get("priority", "medium"),
+                    "prompt": target.get("prompt")
+                })
+
+        # 按優先級排序
+        priority_order = {"critical": 0, "high": 1, "medium": 2, "low": 3}
+        result["web_searches"].sort(key=lambda x: priority_order.get(x["priority"], 99))
+        result["fetch_targets"].sort(key=lambda x: priority_order.get(x["priority"], 99))
 
         return [TextContent(
             type="text",

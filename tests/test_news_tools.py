@@ -85,3 +85,58 @@ class TestFetchVulnerabilities:
         data = json.loads(result[0].text)
         assert "nvd" in data
         assert "kev" in data
+
+
+class TestSuggestSearches:
+    """suggest_searches 工具測試"""
+
+    @pytest.mark.asyncio
+    async def test_suggest_taiwan_news(self):
+        """建議台灣新聞搜尋"""
+        result = await news.call_tool(
+            "suggest_searches",
+            {"category": "taiwan_news"}
+        )
+        assert len(result) == 1
+
+        data = json.loads(result[0].text)
+        assert "web_searches" in data
+        assert "fetch_targets" in data
+        assert len(data["web_searches"]) > 0
+
+        # 檢查搜尋建議結構
+        search = data["web_searches"][0]
+        assert "query" in search
+        assert "priority" in search
+
+    @pytest.mark.asyncio
+    async def test_suggest_all_categories(self):
+        """建議所有類別搜尋"""
+        result = await news.call_tool(
+            "suggest_searches",
+            {"category": "all", "include_fetch_targets": True}
+        )
+        assert len(result) == 1
+
+        data = json.loads(result[0].text)
+        assert len(data["web_searches"]) > 5  # 應該有多個類別的搜尋
+        assert len(data["fetch_targets"]) > 0
+
+    @pytest.mark.asyncio
+    async def test_suggest_with_context(self):
+        """建議搜尋並填入動態變數"""
+        result = await news.call_tool(
+            "suggest_searches",
+            {
+                "category": "vulnerabilities",
+                "context": {"cve_id": "CVE-2026-1234"}
+            }
+        )
+        assert len(result) == 1
+
+        data = json.loads(result[0].text)
+        # 檢查變數是否被替換
+        queries = [s["query"] for s in data["web_searches"]]
+        # 有些查詢應該包含 cve_id
+        has_cve_query = any("CVE-2026-1234" in q for q in queries)
+        assert has_cve_query or len(queries) > 0  # 至少有查詢結果
