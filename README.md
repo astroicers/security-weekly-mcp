@@ -340,7 +340,16 @@ CI/CD 已設定 `submodules: recursive`，自動處理。
 | 專案 | 說明 |
 |------|------|
 | [security-glossary-tw](https://github.com/astroicers/security-glossary-tw) | 術語庫獨立倉庫 |
-| [Claude Code Skill](~/.claude/skills/security-weekly-tw/) | 自然語言介面 |
+| [Claude Code Skill](skill/) | 自然語言介面（位於 `skill/` 目錄） |
+
+### Claude Code Skill 設定
+
+Skill 已包含在本專案的 `skill/` 目錄中，使用 symlink 連結：
+
+```bash
+# 建立 symlink（如果尚未存在）
+ln -s /path/to/security-weekly-mcp/skill ~/.claude/skills/security-weekly-tw
+```
 
 ---
 
