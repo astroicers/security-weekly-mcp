@@ -43,7 +43,7 @@ security-weekly-mcp/                    # Monorepo (uv workspace)
 └── uv.lock                             # 依賴鎖定
 ```
 
-## MCP 工具 (12 個)
+## MCP 工具 (13 個)
 
 ### 術語庫工具
 
@@ -63,6 +63,7 @@ security-weekly-mcp/                    # Monorepo (uv workspace)
 | `fetch_security_news` | 收集資安新聞 | RSS (13+ 來源) |
 | `fetch_vulnerabilities` | 收集漏洞資訊 | NVD + CISA KEV |
 | `list_news_sources` | 列出新聞來源 | sources.yaml |
+| `suggest_searches` | 產生搜尋建議 | search_templates.yaml |
 
 ### 週報工具
 
@@ -85,6 +86,21 @@ security-weekly-mcp/                    # Monorepo (uv workspace)
 │  - CVSS ≥ 7.0                                               │
 │  - 時間範圍：7 天                                            │
 │  - 關鍵字加權：Taiwan, 台灣, 金融, 製造, 政府               │
+└─────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────┐
+│                   1.5 WebSearch 補充階段                     │
+├─────────────────────────────────────────────────────────────┤
+│  suggest_searches         → 產生搜尋建議                     │
+│                                                             │
+│  Claude Code 執行 WebSearch：                                │
+│  - site:twcert.org.tw 資安通報                              │
+│  - 台灣 資安事件 {year}                                     │
+│  - site:informationsecurity.com.tw                          │
+│                                                             │
+│  Claude Code 執行 WebFetch：                                 │
+│  - TWCERT/CC 最新消息                                       │
+│  - 數位發展部資安公告                                        │
 └─────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────┐
