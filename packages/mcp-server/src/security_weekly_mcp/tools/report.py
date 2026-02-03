@@ -162,18 +162,61 @@ def _get_week_number(date_str: str) -> str:
 
 def _generate_typst_content(report_data: dict) -> str:
     """將報告資料轉換為 Typst 格式"""
-    # 匯入主模板
-    content = '#import "weekly_report.typ": *\n\n'
+    # 匯入主模板（使用相對路徑從 output/reports/ 到 templates/typst/）
+    content = '#import "../../templates/typst/weekly_report.typ": weekly-report, render-full-report\n\n'
 
     # 設定報告資料
-    content += "#let report-data = json.decode(`\n"
-    content += json.dumps(report_data, ensure_ascii=False, indent=2)
-    content += "\n`)\n\n"
+    content += "#let report-data = (\n"
+    content += _dict_to_typst(report_data)
+    content += ")\n\n"
 
-    # 呼叫主模板
-    content += "#show: weekly-report.with(data: report-data)\n"
+    # 呼叫完整報告渲染
+    content += "#render-full-report(report-data)\n"
 
     return content
+
+
+def _dict_to_typst(data, indent=2) -> str:
+    """將 Python dict 轉換為 Typst dictionary 語法"""
+    lines = []
+    prefix = " " * indent
+
+    if isinstance(data, dict):
+        for key, value in data.items():
+            # Typst 字典 key 需要用引號包裹
+            if isinstance(value, dict):
+                lines.append(f'{prefix}"{key}": (')
+                lines.append(_dict_to_typst(value, indent + 2))
+                lines.append(f'{prefix}),')
+            elif isinstance(value, list):
+                lines.append(f'{prefix}"{key}": (')
+                for item in value:
+                    if isinstance(item, dict):
+                        lines.append(f'{prefix}  (')
+                        lines.append(_dict_to_typst(item, indent + 4))
+                        lines.append(f'{prefix}  ),')
+                    elif isinstance(item, str):
+                        lines.append(f'{prefix}  "{_escape_typst_string(item)}",')
+                    else:
+                        lines.append(f'{prefix}  {item},')
+                lines.append(f'{prefix}),')
+            elif isinstance(value, str):
+                lines.append(f'{prefix}"{key}": "{_escape_typst_string(value)}",')
+            elif isinstance(value, bool):
+                lines.append(f'{prefix}"{key}": {"true" if value else "false"},')
+            elif isinstance(value, (int, float)):
+                lines.append(f'{prefix}"{key}": {value},')
+            elif value is None:
+                lines.append(f'{prefix}"{key}": none,')
+            else:
+                lines.append(f'{prefix}"{key}": "{_escape_typst_string(str(value))}",')
+
+    return "\n".join(lines)
+
+
+def _escape_typst_string(s: str) -> str:
+    """轉義 Typst 字串中的特殊字元"""
+    return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", " ")
 
 
 async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
