@@ -150,6 +150,33 @@ fetch_targets:
       prompt: "提取最新的資安公告"
 
 # ------------------------------------------
+# 歷史週報搜尋（自動加入時間範圍）
+# ------------------------------------------
+historical:
+  description: "歷史時間範圍專用搜尋模板"
+  note: "當 period_start/period_end 指定過去日期時，會自動使用這些模板並加入時間過濾"
+  queries:
+    - query: "資安事件 {month_zh} {year}"
+      priority: high
+      category: news
+      note: "該月份台灣資安事件"
+
+    - query: "data breach {month} {year}"
+      priority: high
+      category: incident
+      note: "該月份資料外洩事件"
+
+    - query: "ransomware attack {month} {year}"
+      priority: high
+      category: incident
+      note: "該月份勒索軟體攻擊"
+
+    - query: "CVE critical {year}-{month}"
+      priority: critical
+      category: vulnerability
+      note: "該月份重大漏洞"
+
+# ------------------------------------------
 # 動態搜尋建議
 # ------------------------------------------
 dynamic_suggestions:

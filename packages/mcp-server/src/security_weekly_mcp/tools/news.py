@@ -84,7 +84,7 @@ async def list_tools() -> list[Tool]:
         ),
         Tool(
             name="suggest_searches",
-            description="產生 WebSearch/WebFetch 搜尋建議，用於補充 RSS 無法取得的資安新聞",
+            description="產生 WebSearch/WebFetch 搜尋建議，用於補充 RSS 無法取得的資安新聞。支援歷史時間範圍搜尋。",
             inputSchema={
                 "type": "object",
                 "properties": {
@@ -93,6 +93,14 @@ async def list_tools() -> list[Tool]:
                         "enum": ["taiwan_news", "vulnerabilities", "threat_intel", "industry_specific", "all"],
                         "description": "搜尋類別",
                         "default": "all"
+                    },
+                    "period_start": {
+                        "type": "string",
+                        "description": "搜尋起始日期 (YYYY-MM-DD)，用於產生歷史週報",
+                    },
+                    "period_end": {
+                        "type": "string",
+                        "description": "搜尋結束日期 (YYYY-MM-DD)，用於產生歷史週報",
                     },
                     "context": {
                         "type": "object",
@@ -403,23 +411,54 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         category = arguments.get("category", "all")
         context = arguments.get("context", {})
         include_fetch_targets = arguments.get("include_fetch_targets", True)
+        period_start = arguments.get("period_start")
+        period_end = arguments.get("period_end")
 
         # 載入搜尋模板
         search_templates = _load_search_templates()
         if not search_templates:
             return [TextContent(type="text", text="找不到搜尋模板配置檔")]
 
-        # 準備動態變數
+        # 解析時間範圍
         now = datetime.now()
+        if period_start:
+            try:
+                start_date = datetime.strptime(period_start, "%Y-%m-%d")
+            except ValueError:
+                start_date = now - timedelta(days=7)
+        else:
+            start_date = now - timedelta(days=7)
+
+        if period_end:
+            try:
+                end_date = datetime.strptime(period_end, "%Y-%m-%d")
+            except ValueError:
+                end_date = now
+        else:
+            end_date = now
+
+        # 準備動態變數
         variables = {
-            "year": str(now.year),
-            "month": now.strftime("%B"),
+            "year": str(start_date.year),
+            "month": start_date.strftime("%B"),
+            "month_zh": _month_to_chinese(start_date.month),
+            "start_date": start_date.strftime("%Y-%m-%d"),
+            "end_date": end_date.strftime("%Y-%m-%d"),
+            "date_range": f"{start_date.strftime('%Y/%m/%d')}~{end_date.strftime('%Y/%m/%d')}",
             **context
         }
 
+        # 判斷是否為歷史搜尋
+        is_historical = (now - end_date).days > 7
+
         result = {
             "web_searches": [],
-            "fetch_targets": []
+            "fetch_targets": [],
+            "period": {
+                "start": start_date.strftime("%Y-%m-%d"),
+                "end": end_date.strftime("%Y-%m-%d"),
+                "is_historical": is_historical
+            }
         }
 
         # 收集搜尋建議
@@ -440,6 +479,12 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
                     # 如果有未提供的變數，跳過此查詢
                     continue
 
+                # 對於歷史搜尋，加入時間範圍限定
+                if is_historical:
+                    # 加入 Google 時間過濾語法
+                    date_filter = f" after:{start_date.strftime('%Y-%m-%d')} before:{end_date.strftime('%Y-%m-%d')}"
+                    query = query + date_filter
+
                 result["web_searches"].append({
                     "query": query,
                     "priority": q.get("priority", "medium"),
@@ -447,8 +492,32 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
                     "note": q.get("note")
                 })
 
-        # 收集 WebFetch 目標
-        if include_fetch_targets:
+        # 對於歷史搜尋，加入額外的時間限定搜尋
+        if is_historical:
+            historical_queries = [
+                {
+                    "query": f"台灣 資安事件 {start_date.strftime('%Y年%m月')}",
+                    "priority": "high",
+                    "category": "news",
+                    "note": "歷史時間範圍搜尋"
+                },
+                {
+                    "query": f"cybersecurity incident {start_date.strftime('%B %Y')}",
+                    "priority": "high",
+                    "category": "news",
+                    "note": "歷史時間範圍搜尋 (英文)"
+                },
+                {
+                    "query": f"CVE {start_date.strftime('%Y-%m')} critical",
+                    "priority": "high",
+                    "category": "vulnerability",
+                    "note": "該月份重大漏洞"
+                },
+            ]
+            result["web_searches"].extend(historical_queries)
+
+        # 收集 WebFetch 目標（歷史搜尋時不包含，因為網頁內容會是最新的）
+        if include_fetch_targets and not is_historical:
             fetch_data = search_templates.get("fetch_targets", {})
             urls = fetch_data.get("urls", [])
             for target in urls:
@@ -459,15 +528,25 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
                     "priority": target.get("priority", "medium"),
                     "prompt": target.get("prompt")
                 })
+        elif is_historical:
+            result["fetch_targets_note"] = "歷史週報不使用 WebFetch，因為網頁內容是最新的。請依賴 WebSearch 結果。"
 
         # 按優先級排序
         priority_order = {"critical": 0, "high": 1, "medium": 2, "low": 3}
         result["web_searches"].sort(key=lambda x: priority_order.get(x["priority"], 99))
-        result["fetch_targets"].sort(key=lambda x: priority_order.get(x["priority"], 99))
+        if result["fetch_targets"]:
+            result["fetch_targets"].sort(key=lambda x: priority_order.get(x["priority"], 99))
 
         return [TextContent(
             type="text",
             text=json.dumps(result, ensure_ascii=False, indent=2)
         )]
+
+
+def _month_to_chinese(month: int) -> str:
+    """將月份數字轉換為中文"""
+    months = ["一月", "二月", "三月", "四月", "五月", "六月",
+              "七月", "八月", "九月", "十月", "十一月", "十二月"]
+    return months[month - 1] if 1 <= month <= 12 else str(month)
 
     return [TextContent(type="text", text=f"未知工具：{name}")]

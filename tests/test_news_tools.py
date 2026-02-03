@@ -140,3 +140,33 @@ class TestSuggestSearches:
         # 有些查詢應該包含 cve_id
         has_cve_query = any("CVE-2026-1234" in q for q in queries)
         assert has_cve_query or len(queries) > 0  # 至少有查詢結果
+
+    @pytest.mark.asyncio
+    async def test_suggest_historical_search(self):
+        """建議歷史時間範圍搜尋"""
+        result = await news.call_tool(
+            "suggest_searches",
+            {
+                "category": "taiwan_news",
+                "period_start": "2025-06-01",
+                "period_end": "2025-06-07"
+            }
+        )
+        assert len(result) == 1
+
+        data = json.loads(result[0].text)
+
+        # 檢查時間範圍資訊
+        assert "period" in data
+        assert data["period"]["is_historical"] is True
+        assert data["period"]["start"] == "2025-06-01"
+        assert data["period"]["end"] == "2025-06-07"
+
+        # 歷史搜尋應該有時間過濾
+        queries = [s["query"] for s in data["web_searches"]]
+        has_date_filter = any("after:" in q or "2025年06月" in q for q in queries)
+        assert has_date_filter
+
+        # 歷史搜尋不應該有 fetch_targets
+        assert len(data["fetch_targets"]) == 0
+        assert "fetch_targets_note" in data
