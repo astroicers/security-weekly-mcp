@@ -108,6 +108,25 @@ async def list_tools() -> list[Tool]:
                 "properties": {}
             }
         ),
+        Tool(
+            name="extract_terms",
+            description="從文本中自動提取術語庫中的術語，回傳術語列表（含定義）。用於週報產生時自動填充「本期術語」區塊。",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "description": "要分析的文本（可以是週報內容）"
+                    },
+                    "max_terms": {
+                        "type": "integer",
+                        "description": "最多回傳的術語數量",
+                        "default": 10
+                    }
+                },
+                "required": ["text"]
+            }
+        ),
     ]
 
 
@@ -222,5 +241,37 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
             lines.append("")
 
         return [TextContent(type="text", text="\n".join(lines))]
+
+    elif name == "extract_terms":
+        import json
+        text = arguments["text"]
+        max_terms = arguments.get("max_terms", 10)
+
+        # 從文本中找出所有術語
+        matches = glossary.find_terms(text)
+
+        # 去重並保留順序
+        seen_ids = set()
+        unique_terms = []
+        for match in matches:
+            if match.term_id not in seen_ids:
+                seen_ids.add(match.term_id)
+                term = glossary.get(match.term_id)
+                if term:
+                    unique_terms.append({
+                        "term": term.term_zh or term.term_en,
+                        "term_en": term.term_en,
+                        "term_zh": term.term_zh,
+                        "definition": term.definitions.brief,
+                        "id": term.id,
+                        "url": f"https://astroicers.github.io/security-glossary-tw/glossary/{term.id}"
+                    })
+                if len(unique_terms) >= max_terms:
+                    break
+
+        return [TextContent(
+            type="text",
+            text=json.dumps(unique_terms, ensure_ascii=False, indent=2)
+        )]
 
     return [TextContent(type="text", text=f"未知工具: {name}")]

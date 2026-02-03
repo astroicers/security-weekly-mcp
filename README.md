@@ -30,7 +30,7 @@ security-weekly-mcp/
 
 ## MCP 工具
 
-共 11 個工具：
+共 12 個工具：
 
 ### 術語庫工具
 
@@ -41,6 +41,7 @@ security-weekly-mcp/
 | `validate_terminology` | 驗證用詞規範 |
 | `add_term_links` | 為文本加術語連結 |
 | `list_pending_terms` | 列出待審術語 |
+| `extract_terms` | 從文本自動提取術語（用於週報產生） |
 
 ### 新聞收集工具
 
