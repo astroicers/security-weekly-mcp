@@ -135,3 +135,115 @@ class TestCompileReportPdf:
         # 即使 Typst 未安裝，也應該儲存 typ 和 json 檔案
         text = result[0].text
         assert "TEST-001" in text or "typst" in text.lower()
+
+    @pytest.mark.asyncio
+    async def test_compile_with_full_content(self):
+        """編譯包含完整內容的週報"""
+        result = await report.call_tool(
+            "compile_report_pdf",
+            {
+                "report_data": {
+                    "title": "資安週報 2026/01/01 - 2026/01/07",
+                    "report_id": "SEC-WEEKLY-2026-01",
+                    "period": {"start": "2026-01-01", "end": "2026-01-07"},
+                    "publish_date": "2026-01-08",
+                    "summary": {
+                        "total_events": 2,
+                        "total_vulnerabilities": 3,
+                        "threat_level": "elevated"
+                    },
+                    "events": [
+                        {
+                            "title": "測試資安事件",
+                            "severity": "high",
+                            "event_type": "資料外洩",
+                            "summary": "某公司資料外洩影響百萬用戶"
+                        }
+                    ],
+                    "vulnerabilities": [
+                        {
+                            "cve_id": "CVE-2026-1234",
+                            "title": "測試漏洞",
+                            "cvss": 9.8,
+                            "severity": "critical",
+                            "product": "測試產品"
+                        }
+                    ],
+                    "threat_trends": {
+                        "summary": "本週威脅趨勢升高",
+                        "active_actors": [{"name": "APT Group", "activity": "針對金融業"}]
+                    },
+                    "action_items": [
+                        {"priority": "P1", "action": "立即修補 CVE-2026-1234"}
+                    ],
+                    "terms": [
+                        {"term": "APT", "definition": "進階持續性威脅"}
+                    ],
+                    "references": [
+                        {"title": "參考來源", "url": "https://example.com"}
+                    ]
+                }
+            }
+        )
+        assert len(result) == 1
+        text = result[0].text
+        assert "SEC-WEEKLY-2026-01" in text or "typst" in text.lower()
+
+
+class TestGenerateReportDraftAdvanced:
+    """generate_report_draft 進階測試"""
+
+    @pytest.mark.asyncio
+    async def test_generate_with_vulnerabilities(self):
+        """產生包含漏洞的週報草稿"""
+        result = await report.call_tool(
+            "generate_report_draft",
+            {
+                "title": "週報",
+                "period_start": "2026-01-01",
+                "period_end": "2026-01-07",
+                "vulnerabilities": [
+                    {"cve_id": "CVE-2026-0001", "cvss": 9.8, "severity": "critical"},
+                    {"cve_id": "CVE-2026-0002", "cvss": 7.5, "severity": "high"}
+                ]
+            }
+        )
+        data = json.loads(result[0].text)
+        assert data["summary"]["total_vulnerabilities"] == 2
+        assert len(data["vulnerabilities"]) == 2
+
+    @pytest.mark.asyncio
+    async def test_generate_with_terms(self):
+        """產生包含術語的週報草稿"""
+        result = await report.call_tool(
+            "generate_report_draft",
+            {
+                "title": "週報",
+                "period_start": "2026-01-01",
+                "period_end": "2026-01-07",
+                "terms": [
+                    {"term": "APT", "definition": "進階持續性威脅"},
+                    {"term": "Zero-day", "definition": "零時差漏洞"}
+                ]
+            }
+        )
+        data = json.loads(result[0].text)
+        assert len(data["terms"]) == 2
+
+    @pytest.mark.asyncio
+    async def test_generate_with_action_items(self):
+        """產生包含行動項目的週報草稿"""
+        result = await report.call_tool(
+            "generate_report_draft",
+            {
+                "title": "週報",
+                "period_start": "2026-01-01",
+                "period_end": "2026-01-07",
+                "action_items": [
+                    {"priority": "P1", "action": "修補關鍵漏洞"},
+                    {"priority": "P2", "action": "更新防火牆規則"}
+                ]
+            }
+        )
+        data = json.loads(result[0].text)
+        assert len(data["action_items"]) == 2

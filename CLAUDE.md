@@ -27,12 +27,13 @@ security-weekly-mcp/                    # Monorepo (uv workspace)
 │               └── report.py           # 週報工具 (3 個)
 │
 ├── config/                             # 共用配置
-│   ├── sources.yaml                    # 13+ 個資料來源設定
+│   ├── sources.yaml                    # 32 個資料來源設定
+│   ├── search_templates.yaml           # WebSearch 查詢模板
 │   └── writing_style.yaml              # 寫作風格指南
 │
 ├── templates/typst/                    # Typst 週報模板
-│   ├── weekly_report.typ               # 主模板 (需修復語法)
-│   └── components/                     # 可重用元件
+│   ├── weekly_report.typ               # 主模板
+│   └── components/                     # 可重用元件 (5 個)
 │
 ├── output/reports/                     # 產生的週報
 │   ├── SEC-WEEKLY-YYYY-WW.json        # 結構化資料
@@ -60,7 +61,7 @@ security-weekly-mcp/                    # Monorepo (uv workspace)
 
 | 工具 | 功能 | 資料來源 |
 |------|------|----------|
-| `fetch_security_news` | 收集資安新聞 | RSS (13+ 來源) |
+| `fetch_security_news` | 收集資安新聞 | RSS (32 個來源) |
 | `fetch_vulnerabilities` | 收集漏洞資訊 | NVD + CISA KEV |
 | `list_news_sources` | 列出新聞來源 | sources.yaml |
 | `suggest_searches` | 產生搜尋建議 | search_templates.yaml |
@@ -266,11 +267,16 @@ git submodule update --init --recursive
 | 類別 | 來源 | 優先級 | 狀態 |
 |------|------|--------|------|
 | 國際新聞 | The Hacker News, Krebs on Security, SecurityWeek, Dark Reading | high | ✅ |
+| 國際新聞 | Schneier on Security, Infosecurity Magazine, CyberScoop | high | ✅ |
 | 台灣新聞 | iThome 資安 | high | ✅ |
 | 台灣官方 | TWCERT/CC, 資安人 | critical/medium | 手動 |
-| 官方公告 | CISA Alerts, CISA KEV | critical | ✅ |
-| 漏洞資料 | NVD, GitHub Advisories | high | ✅ |
-| 威脅情報 | Mandiant, Microsoft Security | high | ✅ |
+| 官方公告 | CISA Alerts, CERT/CC, CIS MS-ISAC | critical/high | ✅ |
+| 漏洞資料 | NVD, CISA KEV, GitHub Advisories | critical/high | ✅ |
+| 威脅情報 | Mandiant, Microsoft Security, Unit 42, Recorded Future | high | ✅ |
+| 威脅情報 | Check Point Research, CrowdStrike, SentinelOne, Securelist | high | ✅ |
+| 威脅情報 | Sophos, Google Security, ESET, Elastic Security Labs | medium | ✅ |
 | 廠商公告 | Microsoft MSRC | high | ✅ |
 
-**註：** 部分台灣來源 (TWCERT/CC, 資安人) 無可用 RSS，需手動收集或 web scraping。
+**總計：** 32 個來源 (RSS 27 個 + API 3 個 + 手動 1 個 + disabled 1 個)
+
+**註：** 資安人無可用 RSS，需使用 WebFetch。

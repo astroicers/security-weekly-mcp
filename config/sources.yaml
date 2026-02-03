@@ -54,6 +54,30 @@ sources:
     priority: medium
     language: en
 
+  - name: "Schneier on Security"
+    type: rss
+    url: "https://www.schneier.com/feed/atom/"
+    category: news
+    priority: high
+    language: en
+    note: "Bruce Schneier 資安部落格，業界權威"
+
+  - name: "Infosecurity Magazine"
+    type: rss
+    url: "https://www.infosecurity-magazine.com/rss/news/"
+    category: news
+    priority: high
+    language: en
+    note: "獲獎資安媒體"
+
+  - name: "CyberScoop"
+    type: rss
+    url: "https://cyberscoop.com/feed/"
+    category: news
+    priority: high
+    language: en
+    note: "政策與資安新聞"
+
   # === 台灣/中文來源 ===
   - name: "iThome 資安"
     type: rss
@@ -62,14 +86,29 @@ sources:
     priority: high
     language: zh-TW
 
-  - name: "TWCERT/CC"
-    type: web
-    url: "https://www.twcert.org.tw/newepaper/index.html"
+  - name: "TWCERT/CC 資安新聞"
+    type: rss
+    url: "https://www.twcert.org.tw/tw/rss-104-1.xml"
+    category: news
+    priority: critical
+    language: zh-TW
+    note: "台灣電腦網路危機處理暨協調中心 - 資安新聞"
+
+  - name: "TWCERT/CC 漏洞公告"
+    type: rss
+    url: "https://www.twcert.org.tw/tw/rss-132-1.xml"
     category: advisory
     priority: critical
     language: zh-TW
-    note: "台灣電腦網路危機處理暨協調中心 - 需手動或 scraping"
-    status: manual
+    note: "台灣電腦網路危機處理暨協調中心 - TVN 漏洞公告"
+
+  - name: "TechNews 資安"
+    type: rss
+    url: "https://infosecu.technews.tw/feed/"
+    category: news
+    priority: high
+    language: zh-TW
+    note: "科技新報資訊安全專區"
 
   - name: "資安人"
     type: web
@@ -77,7 +116,7 @@ sources:
     category: news
     priority: medium
     language: zh-TW
-    note: "台灣資安媒體 - RSS 需認證"
+    note: "台灣資安媒體 - 需 WebFetch"
     status: manual
 
   # === 官方公告 ===
@@ -87,7 +126,23 @@ sources:
     category: advisory
     priority: critical
     language: en
-    
+
+  - name: "CERT/CC Vulnerability Notes"
+    type: rss
+    url: "https://www.kb.cert.org/vulfeed/"
+    category: advisory
+    priority: high
+    language: en
+    note: "卡內基美隆大學 CERT 官方漏洞公告"
+
+  - name: "CIS MS-ISAC Advisories"
+    type: rss
+    url: "https://www.cisecurity.org/feed/advisories"
+    category: advisory
+    priority: high
+    language: en
+    note: "網際網路安全中心 (Center for Internet Security)"
+
   - name: "CISA KEV"
     type: api
     endpoint: "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
@@ -128,6 +183,86 @@ sources:
     priority: high
     language: en
 
+  - name: "Unit 42"
+    type: rss
+    url: "https://unit42.paloaltonetworks.com/feed/"
+    category: threat_intel
+    priority: high
+    language: en
+    note: "Palo Alto Networks 威脅研究團隊"
+
+  - name: "Recorded Future"
+    type: rss
+    url: "https://www.recordedfuture.com/feed"
+    category: threat_intel
+    priority: high
+    language: en
+    note: "威脅情報領導者"
+
+  - name: "Sophos Blog"
+    type: rss
+    url: "https://www.sophos.com/en-us/blog/feed"
+    category: threat_intel
+    priority: medium
+    language: en
+    note: "威脅研究報告"
+
+  - name: "Google Security Blog"
+    type: rss
+    url: "https://feeds.feedburner.com/GoogleOnlineSecurityBlog"
+    category: threat_intel
+    priority: medium
+    language: en
+    note: "Google 官方安全部落格"
+
+  - name: "Check Point Research"
+    type: rss
+    url: "https://research.checkpoint.com/feed/"
+    category: threat_intel
+    priority: high
+    language: en
+    note: "Check Point 威脅研究團隊"
+
+  - name: "CrowdStrike Blog"
+    type: rss
+    url: "https://www.crowdstrike.com/blog/feed/"
+    category: threat_intel
+    priority: high
+    language: en
+    note: "CrowdStrike 威脅情報"
+
+  - name: "SentinelOne Blog"
+    type: rss
+    url: "https://www.sentinelone.com/blog/feed/"
+    category: threat_intel
+    priority: high
+    language: en
+    note: "SentinelLabs 威脅研究"
+
+  - name: "Securelist (Kaspersky)"
+    type: rss
+    url: "https://securelist.com/feed/"
+    category: threat_intel
+    priority: high
+    language: en
+    note: "卡巴斯基全球研究與分析團隊 (GReAT)"
+
+  - name: "WeLiveSecurity (ESET)"
+    type: rss
+    url: "https://www.welivesecurity.com/en/feed/"
+    category: threat_intel
+    priority: medium
+    language: en
+    note: "ESET 威脅研究"
+
+  - name: "Elastic Security Labs"
+    type: rss
+    url: "https://www.elastic.co/security-labs/rss/feed.xml"
+    category: threat_intel
+    priority: medium
+    language: en
+    note: "Elastic 安全研究團隊"
+
   # === 廠商公告 ===
   - name: "Microsoft MSRC"
     type: rss
@@ -135,6 +270,8 @@ sources:
     category: vendor_advisory
     priority: high
     language: en
+
+  # Note: Cisco Talos 網址已失效，已移除
 
 # ------------------------------------------
 # 篩選規則

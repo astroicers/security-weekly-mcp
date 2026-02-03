@@ -12,8 +12,10 @@ build/
 *.pdf
 !tests/fixtures/*.pdf
 
-# Output
+# Output (auto-generated reports - retrieve via CI artifacts)
 output/reports/*.pdf
+output/reports/*.json
+output/reports/*.typ
 *.log
 
 # IDE
