@@ -1,64 +1,112 @@
 # 資安資源清單
 
+本專案已設定 **32 個** 資安來源，包括 27 個 RSS、3 個 API 端點，以及 2 個需手動處理的來源。
 搜尋資安新聞時，優先使用以下來源。
 
-## 台灣來源
+> **來源設定檔**: `config/sources.yaml`
 
-| 來源 | URL | 說明 |
-|------|-----|------|
-| iThome 資安 | https://www.ithome.com.tw/security | 台灣主流科技媒體的資安報導 |
-| TWCERT/CC | https://www.twcert.org.tw/ | 台灣電腦網路危機處理暨協調中心 |
-| DEVCORE | https://devco.re/blog | 台灣資安公司技術部落格 |
-| TeamT5 | https://teamt5.org/tw/posts/ | 台灣威脅情報公司 |
+## 來源統計
 
-## 中國來源
+| 類型 | 數量 | 說明 |
+|------|------|------|
+| RSS Feed | 27 | 自動抓取 |
+| API | 3 | NVD、CISA KEV、GitHub Advisory |
+| 手動/WebFetch | 1 | 資安人 |
+| 已停用 | 1 | BleepingComputer (Cloudflare 防護) |
 
-| 來源 | URL | 說明 |
-|------|-----|------|
-| FreeBuf | https://www.freebuf.com/ | 中國資安社群媒體 |
-| 安全客 | https://www.anquanke.com/ | 中國資安新聞 |
-| 奇安信威脅情報 | https://ti.qianxin.com/ | 中國威脅情報平台 |
+---
 
-## 美國來源
+## 台灣來源 (5 個)
 
-### 新聞媒體
+| 來源 | 類型 | 優先級 | URL |
+|------|------|--------|-----|
+| iThome 資安 | RSS | high | https://www.ithome.com.tw/rss/security |
+| TWCERT/CC 資安新聞 | RSS | **critical** | https://www.twcert.org.tw/tw/rss-104-1.xml |
+| TWCERT/CC 漏洞公告 | RSS | **critical** | https://www.twcert.org.tw/tw/rss-132-1.xml |
+| TechNews 資安 | RSS | high | https://infosecu.technews.tw/feed/ |
+| 資安人 | WebFetch | medium | https://www.informationsecurity.com.tw/ |
 
-| 來源 | URL | 說明 |
-|------|-----|------|
-| The Hacker News | https://thehackernews.com/ | 全球知名資安新聞網站 |
-| BleepingComputer | https://www.bleepingcomputer.com/ | 資安新聞與技術分析 |
-| Krebs on Security | https://krebsonsecurity.com/ | 知名資安記者個人部落格 |
-| Dark Reading | https://www.darkreading.com/ | 企業資安新聞 |
-| SecurityWeek | https://www.securityweek.com/ | 資安產業新聞 |
+## 國際資安新聞 (8 個)
 
-### 官方公告
+| 來源 | 類型 | 優先級 | 說明 |
+|------|------|--------|------|
+| The Hacker News | RSS | high | 全球知名資安新聞 |
+| Krebs on Security | RSS | high | 知名資安記者部落格 |
+| SecurityWeek | RSS | medium | 資安產業新聞 |
+| Dark Reading | RSS | medium | 企業資安新聞 |
+| Schneier on Security | RSS | high | Bruce Schneier 部落格 |
+| Infosecurity Magazine | RSS | high | 獲獎資安媒體 |
+| CyberScoop | RSS | high | 政策與資安新聞 |
+| ~~BleepingComputer~~ | ~~RSS~~ | ~~high~~ | 已停用 (Cloudflare) |
 
-| 來源 | URL | 說明 |
-|------|-----|------|
-| CISA Alerts | https://www.cisa.gov/news-events/cybersecurity-advisories | 美國網路安全暨基礎設施安全局公告 |
-| CISA KEV | https://www.cisa.gov/known-exploited-vulnerabilities-catalog | 已知遭利用漏洞目錄 |
-| NVD | https://nvd.nist.gov/ | 國家漏洞資料庫 |
+## 官方公告 (4 個)
 
-### 威脅情報
+| 來源 | 類型 | 優先級 | 說明 |
+|------|------|--------|------|
+| CISA Alerts | RSS | **critical** | 美國 CISA 資安公告 |
+| CERT/CC Vulnerability Notes | RSS | high | 卡內基美隆大學 CERT |
+| CIS MS-ISAC Advisories | RSS | high | 網際網路安全中心 |
+| CISA KEV | API | **critical** | 已知遭利用漏洞目錄 |
 
-| 來源 | URL | 說明 |
-|------|-----|------|
-| Mandiant | https://www.mandiant.com/resources/blog | Google 旗下威脅情報公司 |
-| Microsoft Security | https://www.microsoft.com/en-us/security/blog/ | Microsoft 資安部落格 |
-| Unit 42 | https://unit42.paloaltonetworks.com/ | Palo Alto Networks 威脅情報 |
-| Talos Intelligence | https://blog.talosintelligence.com/ | Cisco 威脅情報 |
-| SentinelOne | https://www.sentinelone.com/labs/ | SentinelOne 研究實驗室 |
+## 漏洞資料庫 (2 個)
 
-## 歐洲來源
+| 來源 | 類型 | 優先級 | 說明 |
+|------|------|--------|------|
+| NVD | API | high | 美國國家漏洞資料庫 |
+| GitHub Security Advisories | API | medium | GitHub 安全公告 |
 
-| 來源 | URL | 說明 |
-|------|-----|------|
-| ESET | https://www.welivesecurity.com/ | 斯洛伐克資安公司 |
-| Kaspersky SecureList | https://securelist.com/ | 俄羅斯資安公司技術部落格 |
-| NCSC UK | https://www.ncsc.gov.uk/ | 英國國家網路安全中心 |
-| ENISA | https://www.enisa.europa.eu/ | 歐盟網路安全局 |
+## 威脅情報 (12 個)
 
-## 專題追蹤
+| 來源 | 類型 | 優先級 | 說明 |
+|------|------|--------|------|
+| Mandiant Blog | RSS | high | Google 旗下威脅情報 |
+| Microsoft Security Blog | RSS | high | Microsoft 資安部落格 |
+| Unit 42 | RSS | high | Palo Alto Networks |
+| Recorded Future | RSS | high | 威脅情報領導者 |
+| Check Point Research | RSS | high | Check Point 威脅研究 |
+| CrowdStrike Blog | RSS | high | CrowdStrike 威脅情報 |
+| SentinelOne Blog | RSS | high | SentinelLabs 研究 |
+| Securelist (Kaspersky) | RSS | high | 卡巴斯基 GReAT 團隊 |
+| Sophos Blog | RSS | medium | 威脅研究報告 |
+| Google Security Blog | RSS | medium | Google 官方安全部落格 |
+| WeLiveSecurity (ESET) | RSS | medium | ESET 威脅研究 |
+| Elastic Security Labs | RSS | medium | Elastic 安全研究 |
+
+## 廠商公告 (1 個)
+
+| 來源 | 類型 | 優先級 | 說明 |
+|------|------|--------|------|
+| Microsoft MSRC | RSS | high | Microsoft 安全回應中心 |
+
+---
+
+## 來源優先級說明
+
+| 優先級 | 分數 | 類型 | 說明 |
+|--------|------|------|------|
+| Critical | 100 | 重大漏洞 | CISA KEV、已遭實際利用的漏洞 |
+| High | 75 | 主要來源 | 主要資安新聞、NVD 高嚴重性 CVE |
+| Medium | 50 | 一般來源 | 一般資安新聞 |
+| Low | 25 | 背景資訊 | 參考用途 |
+
+## 提高優先級的關鍵詞
+
+以下關鍵詞出現時會自動提高新聞優先級：
+
+```yaml
+boost_keywords:
+  - taiwan, 台灣
+  - 金融, 製造, 政府
+  - critical, zero-day, actively exploited
+  - CISA KEV, emergency directive
+  - ransomware, data breach, supply chain
+```
+
+---
+
+## 補充資源（手動查詢用）
+
+以下資源未納入自動抓取，但可用於深入調查：
 
 ### APT 追蹤
 
@@ -66,78 +114,26 @@
 |------|-----|------|
 | MITRE ATT&CK Groups | https://attack.mitre.org/groups/ | APT 組織資料庫 |
 | Malpedia | https://malpedia.caad.fkie.fraunhofer.de/ | 惡意程式百科 |
-| APT Groups and Operations | https://apt.threattracking.com/ | APT 追蹤專案 |
 
 ### 勒索軟體追蹤
 
 | 來源 | URL | 說明 |
 |------|-----|------|
-| Ransomware.live | https://www.ransomware.live/ | 勒索軟體攻擊即時追蹤 |
-| No More Ransom | https://www.nomoreransom.org/ | 勒索軟體解密工具 |
-| ID Ransomware | https://id-ransomware.malwarehunterteam.com/ | 勒索軟體識別工具 |
-| Ransomlook | https://www.ransomlook.io/ | 勒索軟體受害者追蹤 |
-
-### 漏洞資料庫
-
-| 來源 | URL | 說明 |
-|------|-----|------|
-| NVD | https://nvd.nist.gov/ | 美國國家漏洞資料庫 |
-| CVE | https://cve.mitre.org/ | CVE 官方網站 |
-| Exploit-DB | https://www.exploit-db.com/ | 漏洞利用程式資料庫 |
-| VulDB | https://vuldb.com/ | 漏洞情報資料庫 |
-| GitHub Advisory | https://github.com/advisories | GitHub 安全公告 |
+| Ransomware.live | https://www.ransomware.live/ | 勒索軟體即時追蹤 |
+| Ransomlook | https://www.ransomlook.io/ | 受害者追蹤 |
 
 ### 惡意程式分析
 
 | 來源 | URL | 說明 |
 |------|-----|------|
-| VirusTotal | https://www.virustotal.com/ | 多引擎惡意程式掃描 |
-| Any.Run | https://any.run/ | 互動式惡意程式沙箱 |
-| Hybrid Analysis | https://www.hybrid-analysis.com/ | 惡意程式分析平台 |
-| MalwareBazaar | https://bazaar.abuse.ch/ | 惡意程式樣本庫 |
+| VirusTotal | https://www.virustotal.com/ | 多引擎掃描 |
+| Any.Run | https://any.run/ | 互動式沙箱 |
+| MalwareBazaar | https://bazaar.abuse.ch/ | 樣本庫 |
 
-## 廠商公告
+### 漏洞資料庫
 
-### 作業系統
-
-| 廠商 | 公告頁面 |
-|------|----------|
-| Microsoft | https://msrc.microsoft.com/update-guide/ |
-| Apple | https://support.apple.com/en-us/HT201222 |
-| Red Hat | https://access.redhat.com/security/security-updates/ |
-| Ubuntu | https://ubuntu.com/security/notices |
-
-### 網路設備
-
-| 廠商 | 公告頁面 |
-|------|----------|
-| Cisco | https://tools.cisco.com/security/center/publicationListing.x |
-| Fortinet | https://www.fortiguard.com/psirt |
-| Palo Alto | https://security.paloaltonetworks.com/ |
-| Juniper | https://supportportal.juniper.net/s/security-advisories |
-
-### 雲端服務
-
-| 廠商 | 公告頁面 |
-|------|----------|
-| AWS | https://aws.amazon.com/security/security-bulletins/ |
-| Azure | https://msrc.microsoft.com/update-guide/ |
-| GCP | https://cloud.google.com/support/bulletins |
-
-## 來源優先級
-
-產生週報時，依以下優先級處理來源：
-
-| 優先級 | 類型 | 說明 |
-|--------|------|------|
-| 100 | Critical | CISA KEV、已遭實際利用的漏洞 |
-| 75 | High | 主要資安新聞、NVD 高嚴重性 CVE |
-| 50 | Medium | 一般資安新聞 |
-| 25 | Low | 背景資訊 |
-
-## 提高優先級的關鍵詞
-
-- taiwan, 台灣, 金融, 製造, 政府
-- critical, zero-day, actively exploited
-- CISA KEV, emergency directive
-- ransomware, data breach, supply chain
+| 來源 | URL | 說明 |
+|------|-----|------|
+| CVE | https://cve.mitre.org/ | CVE 官方網站 |
+| Exploit-DB | https://www.exploit-db.com/ | 漏洞利用程式庫 |
+| VulDB | https://vuldb.com/ | 漏洞情報資料庫 |

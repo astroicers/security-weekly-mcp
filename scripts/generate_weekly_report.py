@@ -79,8 +79,8 @@ async def main():
         vulnerabilities.append({
             "cve_id": vuln.get("cve_id", ""),
             "title": vuln.get("description", "")[:100],
-            "cvss": vuln.get("cvss_score", 0),
-            "severity": _cvss_to_severity(vuln.get("cvss_score", 0)),
+            "cvss": vuln.get("cvss", 0),
+            "severity": _cvss_to_severity(vuln.get("cvss", 0)),
             "product": product,
             "recommendation": "請參閱 NVD 更新資訊"
         })

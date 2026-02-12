@@ -548,5 +548,3 @@ def _month_to_chinese(month: int) -> str:
     months = ["一月", "二月", "三月", "四月", "五月", "六月",
               "七月", "八月", "九月", "十月", "十一月", "十二月"]
     return months[month - 1] if 1 <= month <= 12 else str(month)
-
-    return [TextContent(type="text", text=f"未知工具：{name}")]
