@@ -109,6 +109,44 @@ async def list_tools() -> list[Tool]:
             }
         ),
         Tool(
+            name="approve_pending_term",
+            description="批准待審術語，將其移至正式術語庫",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "filename": {
+                        "type": "string",
+                        "description": "待審術語檔案名稱（如 2026-02-10-salt_typhoon.yaml）"
+                    },
+                    "edits": {
+                        "type": "object",
+                        "description": "可選：修改術語欄位（如 term_zh, definitions.brief）",
+                        "default": {}
+                    }
+                },
+                "required": ["filename"]
+            }
+        ),
+        Tool(
+            name="reject_pending_term",
+            description="拒絕待審術語，刪除檔案",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "filename": {
+                        "type": "string",
+                        "description": "待審術語檔案名稱"
+                    },
+                    "reason": {
+                        "type": "string",
+                        "description": "拒絕原因（記錄用）",
+                        "default": ""
+                    }
+                },
+                "required": ["filename"]
+            }
+        ),
+        Tool(
             name="extract_terms",
             description="從文本中自動提取術語庫中的術語，回傳術語列表（含定義）。用於週報產生時自動填充「本期術語」區塊。",
             inputSchema={
@@ -273,5 +311,100 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
             type="text",
             text=json.dumps(unique_terms, ensure_ascii=False, indent=2)
         )]
+
+    elif name == "approve_pending_term":
+        import yaml
+        from datetime import datetime
+
+        filename = arguments["filename"]
+        edits = arguments.get("edits", {})
+
+        pending_dir = GLOSSARY_PATH / "pending"
+        pending_file = pending_dir / filename
+
+        if not pending_file.exists():
+            return [TextContent(type="text", text=f"❌ 找不到待審檔案：{filename}")]
+
+        # 讀取待審術語
+        with open(pending_file, "r", encoding="utf-8") as fp:
+            data = yaml.safe_load(fp)
+
+        term_data = data.get("term", {})
+        category = term_data.get("category", "technologies")
+
+        # 套用編輯
+        if edits:
+            for key, value in edits.items():
+                if "." in key:
+                    # 支援 nested key 如 "definitions.brief"
+                    parts = key.split(".")
+                    target = term_data
+                    for part in parts[:-1]:
+                        target = target.setdefault(part, {})
+                    target[parts[-1]] = value
+                else:
+                    term_data[key] = value
+
+        # 驗證必要欄位
+        required_fields = ["id", "term_en", "category", "definitions"]
+        missing = [f for f in required_fields if f not in term_data]
+        if missing:
+            return [TextContent(type="text", text=f"❌ 缺少必要欄位：{', '.join(missing)}")]
+
+        # 更新 metadata
+        if "metadata" not in term_data:
+            term_data["metadata"] = {}
+        term_data["metadata"]["status"] = "approved"
+        term_data["metadata"]["approved_at"] = datetime.now().isoformat()
+
+        # 讀取目標分類檔案
+        terms_file = GLOSSARY_PATH / "terms" / f"{category}.yaml"
+        if not terms_file.exists():
+            return [TextContent(type="text", text=f"❌ 找不到分類檔案：{category}.yaml")]
+
+        with open(terms_file, "r", encoding="utf-8") as fp:
+            terms_data = yaml.safe_load(fp)
+
+        # 檢查是否已存在
+        existing_ids = [t.get("id") for t in terms_data.get("terms", [])]
+        if term_data.get("id") in existing_ids:
+            return [TextContent(type="text", text=f"❌ 術語 ID 已存在：{term_data.get('id')}")]
+
+        # 新增術語
+        terms_data["terms"].append(term_data)
+
+        # 寫回檔案
+        with open(terms_file, "w", encoding="utf-8") as fp:
+            yaml.dump(terms_data, fp, allow_unicode=True, default_flow_style=False, sort_keys=False)
+
+        # 刪除待審檔案
+        pending_file.unlink()
+
+        return [TextContent(
+            type="text",
+            text=f"✅ 術語已批准並新增至 {category}.yaml\n\n"
+                 f"- ID: `{term_data.get('id')}`\n"
+                 f"- 名稱: {term_data.get('term_en')} ({term_data.get('term_zh', '')})\n"
+                 f"- 分類: {category}"
+        )]
+
+    elif name == "reject_pending_term":
+        filename = arguments["filename"]
+        reason = arguments.get("reason", "")
+
+        pending_dir = GLOSSARY_PATH / "pending"
+        pending_file = pending_dir / filename
+
+        if not pending_file.exists():
+            return [TextContent(type="text", text=f"❌ 找不到待審檔案：{filename}")]
+
+        # 刪除檔案
+        pending_file.unlink()
+
+        result = f"✅ 已拒絕並刪除：{filename}"
+        if reason:
+            result += f"\n原因：{reason}"
+
+        return [TextContent(type="text", text=result)]
 
     return [TextContent(type="text", text=f"未知工具: {name}")]

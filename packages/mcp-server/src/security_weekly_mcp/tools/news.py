@@ -363,15 +363,26 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         if not rss_sources:
             return [TextContent(type="text", text="找不到符合的 RSS 來源")]
 
-        # 收集所有來源的新聞
-        all_articles = {}
-        for source in rss_sources:
+        # 並行抓取所有來源的新聞（大幅提升效能）
+        import asyncio
+
+        async def fetch_source(source: dict) -> tuple[str, list[dict]]:
             source_name = source.get("name", "Unknown")
             url = source.get("url", "")
             if not url:
-                continue
-
+                return source_name, []
             articles = await _fetch_rss(url, days, limit, keywords)
+            return source_name, articles
+
+        # 使用 asyncio.gather 並行抓取
+        tasks = [fetch_source(s) for s in rss_sources]
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+
+        all_articles = {}
+        for result in results:
+            if isinstance(result, Exception):
+                continue  # 忽略失敗的來源
+            source_name, articles = result
             all_articles[source_name] = articles
 
         return [TextContent(
