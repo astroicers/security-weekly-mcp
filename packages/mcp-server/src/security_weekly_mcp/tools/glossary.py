@@ -272,7 +272,7 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         lines = ["## 待審核術語", "", f"共 {len(pending_files)} 個待審術語：", ""]
 
         for f in pending_files:
-            with open(f, "r", encoding="utf-8") as fp:
+            with open(f, encoding="utf-8") as fp:
                 data = yaml.safe_load(fp)
 
             term = data.get("term", {})
@@ -336,7 +336,7 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
             return [TextContent(type="text", text=f"❌ 找不到待審檔案：{filename}")]
 
         # 讀取待審術語
-        with open(pending_file, "r", encoding="utf-8") as fp:
+        with open(pending_file, encoding="utf-8") as fp:
             data = yaml.safe_load(fp)
 
         term_data = data.get("term", {})
@@ -394,7 +394,7 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         if not terms_file.exists():
             return [TextContent(type="text", text=f"❌ 找不到分類檔案：{category}.yaml")]
 
-        with open(terms_file, "r", encoding="utf-8") as fp:
+        with open(terms_file, encoding="utf-8") as fp:
             terms_data = yaml.safe_load(fp)
 
         # 檢查是否已存在

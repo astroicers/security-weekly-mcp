@@ -7,9 +7,9 @@ readme = "README.md"
 
 [dependency-groups]
 dev = [
-    "pytest>=8.0",
-    "pytest-asyncio>=0.23",
-    "pytest-cov>=4.0",
+    "pytest>=9.0",
+    "pytest-asyncio>=0.24",
+    "pytest-cov>=5.0",
 ]
 
 [tool.uv.workspace]
@@ -26,7 +26,11 @@ markers = [
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
+target-version = "py312"
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "W"]
+select = ["E", "F", "I", "N", "W", "UP", "ASYNC"]
+ignore = [
+    "E501",    # Line too long (handled separately)
+    "ASYNC",   # Async blocking issues (requires larger refactor)
+]
