@@ -4,11 +4,15 @@ MCP Server 架構的資安週報與術語庫管理系統，專為台灣資安社
 
 ## 功能特色
 
-- **30 個資安來源** - 自動收集國際與台灣資安新聞
+- **32 個資安來源** - 自動收集國際與台灣資安新聞（並行抓取優化）
+- **兩階段週報架構** - GitHub Actions 保存原始資料，Claude 分析產生高品質報告
 - **WebSearch/WebFetch 整合** - 透過 Claude Code 補充 RSS 無法取得的資訊
 - **歷史週報支援** - 可產生任意時間範圍的歷史報告
 - **術語庫整合** - 自動提取並標註資安術語 (437+ 個術語)
+- **術語審核工具** - 批准/拒絕待審術語的完整工作流程
 - **PDF 輸出** - 使用 Typst 產生專業排版的 PDF 報告
+- **安全審計** - CI 整合 pip-audit 自動檢測依賴漏洞
+- **健康檢查** - 每月自動驗證 RSS 來源可用性
 
 ## 快速開始
 
@@ -60,69 +64,90 @@ curl -fsSL https://typst.community/typst-install/install.sh | sh
 
 ---
 
-## 週報產生完整流程
+## 週報產生架構
+
+本系統採用**兩階段架構**，解決 RSS 資料揮發性問題：
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│                    階段 1：自動資料收集                               │
+│                    (GitHub Actions 每週一自動執行)                    │
+├──────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│  weekly-collect.yml (週一 09:00 UTC+8)                              │
+│       │                                                              │
+│       ▼                                                              │
+│  collect_weekly_data.py                                             │
+│       │                                                              │
+│       ├─ fetch_security_news    → 32 個 RSS 來源 (並行抓取)         │
+│       ├─ fetch_vulnerabilities  → NVD + CISA KEV                    │
+│       └─ suggest_searches       → 搜尋查詢建議                       │
+│       │                                                              │
+│       ▼                                                              │
+│  output/raw/YYYY-WNN.json  ← Git 自動提交保存                       │
+│                                                              │
+└──────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+┌──────────────────────────────────────────────────────────────────────┐
+│                    階段 2：智慧報告產生                               │
+│                    (使用者說「產生週報」時執行)                        │
+├──────────────────────────────────────────────────────────────────────┤
+│                                                                      │
+│  load_weekly_data           → 載入已保存的原始資料                   │
+│       │                                                              │
+│       ▼                                                              │
+│  Claude 分析 + WebSearch 補充                                        │
+│       │                                                              │
+│       ├─ 分析新聞趨勢                                                │
+│       ├─ 執行建議搜尋查詢                                            │
+│       ├─ extract_terms        → 提取術語                             │
+│       └─ validate_terminology → 驗證用詞                             │
+│       │                                                              │
+│       ▼                                                              │
+│  generate_report_draft      → JSON 結構化資料                        │
+│  compile_report_pdf         → Typst 編譯 PDF                         │
+│       │                                                              │
+│       ▼                                                              │
+│  output/reports/SEC-WEEKLY-YYYY-WW.pdf                              │
+│                                                                      │
+└──────────────────────────────────────────────────────────────────────┘
+```
 
 ### 方式一：透過 Claude Code (推薦)
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                   階段 1：MCP 工具收集                        │
-├─────────────────────────────────────────────────────────────┤
-│  fetch_security_news    → 收集 32 個 RSS 來源新聞            │
-│  fetch_vulnerabilities  → 收集 NVD + CISA KEV 漏洞          │
-│  extract_terms          → 自動提取術語庫術語                 │
-└─────────────────────────────────────────────────────────────┘
-                              ↓
-┌─────────────────────────────────────────────────────────────┐
-│                   階段 2：WebSearch 補充                      │
-├─────────────────────────────────────────────────────────────┤
-│  suggest_searches       → 產生搜尋建議                       │
-│                                                             │
-│  Claude Code 執行 WebSearch：                                │
-│  - site:twcert.org.tw 資安通報                              │
-│  - 台灣 資安事件 2026                                       │
-│  - CVE critical vulnerability 2026                         │
-│                                                             │
-│  Claude Code 執行 WebFetch：                                 │
-│  - TWCERT/CC 最新消息                                       │
-│  - 數位發展部資安公告                                        │
-│  - 資安人首頁                                               │
-└─────────────────────────────────────────────────────────────┘
-                              ↓
-┌─────────────────────────────────────────────────────────────┐
-│                   階段 3：產生報告                            │
-├─────────────────────────────────────────────────────────────┤
-│  generate_report_draft  → 產生 JSON 結構化資料               │
-│  compile_report_pdf     → 使用 Typst 編譯 PDF               │
-│                                                             │
-│  輸出：output/reports/SEC-WEEKLY-YYYY-WW.pdf               │
-└─────────────────────────────────────────────────────────────┘
+# 使用已保存的資料產生週報
+產生本週資安週報
+
+# 查看可用的週報資料
+列出已收集的週報資料
+
+# 產生歷史週報
+產生 2026-W05 的週報
 ```
 
-### 方式二：透過腳本 (CI/CD)
+### 方式二：手動資料收集 + 報告產生
 
 ```bash
-# 產生最近 7 天的週報
-uv run python scripts/generate_weekly_report.py --days 7
+# 1. 手動收集資料 (如果 GitHub Actions 未執行)
+uv run python scripts/collect_weekly_data.py --days 7
 
-# 指定輸出目錄
-uv run python scripts/generate_weekly_report.py --output-dir ./reports
-
-# 調整 CVSS 門檻
-uv run python scripts/generate_weekly_report.py --min-cvss 8.0
+# 2. 之後在 Claude Code 中說「產生週報」
 ```
 
-### 方式三：歷史週報
+### 方式三：傳統一次性產生 (CI/CD)
 
-在 Claude Code 中輸入：
-
+```bash
+# 直接產生 PDF (不保存原始資料)
+uv run python scripts/generate_weekly_report.py --days 7 --output-dir ./reports
 ```
-產生 2025 年 6 月第一週的資安週報
-```
 
-系統會自動：
+### 歷史週報
+
+對於已過期的 RSS 資料，系統會：
 1. 使用 `suggest_searches` 產生帶時間過濾的搜尋查詢
-2. 透過 WebSearch 搜尋歷史資料 (RSS 資料已過期)
+2. 透過 WebSearch 搜尋歷史資料
 3. 整合結果並產生報告
 
 ---
@@ -142,9 +167,12 @@ security-weekly-mcp/
 │       └── src/security_weekly_mcp/
 │           ├── server.py            # MCP Server 主程式
 │           └── tools/               # MCP 工具模組
-│               ├── glossary.py      # 術語庫工具 (6 個)
-│               ├── news.py          # 新聞收集工具 (4 個)
+│               ├── glossary.py      # 術語庫工具 (8 個)
+│               ├── news.py          # 新聞收集工具 (6 個)
 │               └── report.py        # 週報工具 (3 個)
+│
+├── skill/                           # Claude Code Skill
+│   └── SKILL.md                     # 自然語言介面定義
 │
 ├── config/
 │   ├── sources.yaml                 # 32 個資料來源設定
@@ -156,23 +184,29 @@ security-weekly-mcp/
 │   └── components/
 │
 ├── scripts/
-│   └── generate_weekly_report.py    # 自動化腳本
+│   ├── collect_weekly_data.py       # 資料收集腳本 (階段 1)
+│   └── generate_weekly_report.py    # 直接產生週報 (傳統模式)
 │
-├── output/reports/                  # 產生的週報
-│   ├── SEC-WEEKLY-YYYY-WW.json     # 結構化資料
-│   ├── SEC-WEEKLY-YYYY-WW.typ      # Typst 原始檔
-│   └── SEC-WEEKLY-YYYY-WW.pdf      # PDF 輸出
+├── output/
+│   ├── raw/                         # 原始資料 (GitHub Actions 自動提交)
+│   │   └── YYYY-WNN.json            # 週報原始資料
+│   └── reports/                     # 產生的週報
+│       ├── SEC-WEEKLY-YYYY-WW.json  # 結構化資料
+│       ├── SEC-WEEKLY-YYYY-WW.typ   # Typst 原始檔
+│       └── SEC-WEEKLY-YYYY-WW.pdf   # PDF 輸出
 │
 └── .github/workflows/
-    ├── ci.yml                       # CI 測試
-    └── weekly-report.yml            # 每週自動產生
+    ├── ci.yml                       # CI 測試 + 安全審計
+    ├── weekly-collect.yml           # 每週一自動收集資料
+    ├── weekly-reminder.yml          # 每週五提醒 Issue
+    └── monthly-health.yml           # 每月 RSS 健康檢查
 ```
 
 ---
 
-## MCP 工具清單 (13 個)
+## MCP 工具清單 (17 個)
 
-### 術語庫工具
+### 術語庫工具 (8 個)
 
 | 工具 | 功能 | 用途 |
 |------|------|------|
@@ -182,17 +216,21 @@ security-weekly-mcp/
 | `add_term_links` | 為文本加術語連結 | Markdown/HTML 輸出 |
 | `list_pending_terms` | 列出待審術語 | 術語審核流程 |
 | `extract_terms` | 從文本自動提取術語 | 週報產生自動填充 |
+| `approve_pending_term` | 批准待審術語 | 移至正式術語庫 |
+| `reject_pending_term` | 拒絕待審術語 | 刪除待審檔案 |
 
-### 新聞收集工具
+### 新聞收集工具 (6 個)
 
 | 工具 | 功能 | 資料來源 |
 |------|------|----------|
-| `fetch_security_news` | 收集資安新聞 | RSS (32 個來源) |
+| `fetch_security_news` | 收集資安新聞 (並行) | RSS (32 個來源) |
 | `fetch_vulnerabilities` | 收集漏洞資訊 | NVD + CISA KEV |
 | `list_news_sources` | 列出新聞來源 | sources.yaml |
 | `suggest_searches` | 產生搜尋建議 | search_templates.yaml |
+| `list_weekly_data` | 列出已保存週報資料 | output/raw/ |
+| `load_weekly_data` | 載入指定週的資料 | output/raw/YYYY-WNN.json |
 
-### 週報工具
+### 週報工具 (3 個)
 
 | 工具 | 功能 | 輸出格式 |
 |------|------|----------|
@@ -326,12 +364,27 @@ CI/CD 已設定 `submodules: recursive`，自動處理。
 - Python 3.11 / 3.12 矩陣測試
 - Ruff 程式碼檢查
 - MCP Server 載入測試
+- **pip-audit 安全審計** - 檢測依賴套件漏洞
 
-### 週報自動產生 (weekly-report.yml)
+### 週報資料收集 (weekly-collect.yml)
 
-- 每週一 09:00 (台灣時間) 執行
+- **每週一 09:00 (台灣時間)** 執行
+- 收集 RSS 新聞、NVD/KEV 漏洞
+- 保存原始 JSON 至 `output/raw/`
+- Git 自動提交並推送
 - 支援手動觸發 (workflow_dispatch)
-- 產生 PDF 並上傳為 artifact
+
+### 週報提醒 (weekly-reminder.yml)
+
+- **每週五 09:00 (台灣時間)** 執行
+- 建立 GitHub Issue 提醒產生週報
+- 列出本週收集的資料統計
+
+### RSS 健康檢查 (monthly-health.yml)
+
+- **每月 1 日** 執行
+- 驗證所有 RSS 來源可用性
+- 產生健康報告至 GitHub Summary
 
 ---
 
