@@ -8,14 +8,15 @@ from mcp.types import TextContent, Tool
 # 術語庫路徑
 GLOSSARY_PATH = Path(__file__).parent.parent.parent.parent.parent / "glossary"
 
-# 延遲載入 Glossary
+# 延遲載入 Glossary（單例快取）
 _glossary = None
+_glossary_initialized = False
 
 
 def get_glossary():
-    """取得術語庫實例（延遲載入）"""
-    global _glossary
-    if _glossary is None:
+    """取得術語庫實例（單例快取，提升效能）"""
+    global _glossary, _glossary_initialized
+    if not _glossary_initialized:
         import sys
         # 加入 glossary 套件路徑
         glossary_src = GLOSSARY_PATH / "src"
@@ -27,7 +28,15 @@ def get_glossary():
             terms_dir=GLOSSARY_PATH / "terms",
             meta_dir=GLOSSARY_PATH / "meta",
         )
+        _glossary_initialized = True
     return _glossary
+
+
+def reset_glossary_cache():
+    """重設術語庫快取（用於測試）"""
+    global _glossary, _glossary_initialized
+    _glossary = None
+    _glossary_initialized = False
 
 
 async def list_tools() -> list[Tool]:
@@ -313,8 +322,9 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         )]
 
     elif name == "approve_pending_term":
-        import yaml
         from datetime import datetime
+
+        import yaml
 
         filename = arguments["filename"]
         edits = arguments.get("edits", {})
@@ -350,6 +360,28 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         missing = [f for f in required_fields if f not in term_data]
         if missing:
             return [TextContent(type="text", text=f"❌ 缺少必要欄位：{', '.join(missing)}")]
+
+        # 驗證分類是否有效
+        valid_categories = [
+            "attack_types", "vulnerabilities", "threat_actors",
+            "malware", "technologies", "frameworks", "compliance"
+        ]
+        if category not in valid_categories:
+            return [TextContent(
+                type="text",
+                text=f"❌ 無效的分類：{category}\n有效分類：{', '.join(valid_categories)}"
+            )]
+
+        # 驗證 definitions.brief 存在且長度合理
+        definitions = term_data.get("definitions", {})
+        brief = definitions.get("brief", "")
+        if not brief:
+            return [TextContent(type="text", text="❌ definitions.brief 不能為空")]
+        if len(brief) > 50:
+            return [TextContent(
+                type="text",
+                text=f"⚠️ definitions.brief 過長（{len(brief)} 字元），建議 ≤ 50 字元"
+            )]
 
         # 更新 metadata
         if "metadata" not in term_data:

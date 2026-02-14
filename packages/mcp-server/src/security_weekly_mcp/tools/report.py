@@ -8,7 +8,6 @@ from typing import Any
 
 from mcp.types import TextContent, Tool
 
-
 # 專案根目錄
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent.parent.parent
 TEMPLATES_DIR = PROJECT_ROOT / "templates" / "typst"

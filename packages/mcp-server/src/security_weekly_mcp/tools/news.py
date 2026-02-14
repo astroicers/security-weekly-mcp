@@ -2,8 +2,8 @@
 
 import json
 from datetime import datetime, timedelta
-from typing import Any
 from pathlib import Path
+from typing import Any
 
 import feedparser
 import httpx
@@ -139,22 +139,42 @@ async def list_tools() -> list[Tool]:
     ]
 
 
+# 設定檔快取
+_sources_cache = None
+_templates_cache = None
+
+
 def _load_sources_config() -> dict:
-    """載入來源設定"""
-    import yaml
-    sources_file = CONFIG_DIR / "sources.yaml"
-    if sources_file.exists():
-        return yaml.safe_load(sources_file.read_text(encoding="utf-8"))
-    return {"sources": []}
+    """載入來源設定（快取）"""
+    global _sources_cache
+    if _sources_cache is None:
+        import yaml
+        sources_file = CONFIG_DIR / "sources.yaml"
+        if sources_file.exists():
+            _sources_cache = yaml.safe_load(sources_file.read_text(encoding="utf-8"))
+        else:
+            _sources_cache = {"sources": []}
+    return _sources_cache
 
 
 def _load_search_templates() -> dict:
-    """載入搜尋模板設定"""
-    import yaml
-    templates_file = CONFIG_DIR / "search_templates.yaml"
-    if templates_file.exists():
-        return yaml.safe_load(templates_file.read_text(encoding="utf-8"))
-    return {}
+    """載入搜尋模板設定（快取）"""
+    global _templates_cache
+    if _templates_cache is None:
+        import yaml
+        templates_file = CONFIG_DIR / "search_templates.yaml"
+        if templates_file.exists():
+            _templates_cache = yaml.safe_load(templates_file.read_text(encoding="utf-8"))
+        else:
+            _templates_cache = {}
+    return _templates_cache
+
+
+def reset_config_cache():
+    """重設設定檔快取（用於測試）"""
+    global _sources_cache, _templates_cache
+    _sources_cache = None
+    _templates_cache = None
 
 
 def _normalize_source_name(name: str) -> str:
@@ -185,6 +205,12 @@ async def _fetch_rss(url: str, days: int, limit: int, keywords: list[str] | None
             response = await client.get(url, headers=headers, follow_redirects=True)
             response.raise_for_status()
             feed = feedparser.parse(response.text)
+    except httpx.TimeoutException:
+        return [{"error": "RSS 抓取超時 (30s)"}]
+    except httpx.HTTPStatusError as e:
+        return [{"error": f"HTTP {e.response.status_code}: {e.response.reason_phrase}"}]
+    except httpx.RequestError as e:
+        return [{"error": f"網路請求失敗: {type(e).__name__}"}]
     except Exception as e:
         return [{"error": f"無法抓取 RSS: {e}"}]
 
@@ -245,6 +271,14 @@ async def _fetch_nvd(min_cvss: float, days: int, limit: int) -> list[dict]:
             )
             response.raise_for_status()
             data = response.json()
+    except httpx.TimeoutException:
+        return [{"error": "NVD API 超時 (60s)"}]
+    except httpx.HTTPStatusError as e:
+        return [{"error": f"NVD API HTTP {e.response.status_code}"}]
+    except httpx.RequestError as e:
+        return [{"error": f"NVD API 網路錯誤: {type(e).__name__}"}]
+    except json.JSONDecodeError:
+        return [{"error": "NVD API 回傳非 JSON 格式"}]
     except Exception as e:
         return [{"error": f"NVD API 錯誤: {e}"}]
 
@@ -298,6 +332,14 @@ async def _fetch_cisa_kev(days: int, limit: int) -> list[dict]:
             )
             response.raise_for_status()
             data = response.json()
+    except httpx.TimeoutException:
+        return [{"error": "CISA KEV 超時 (30s)"}]
+    except httpx.HTTPStatusError as e:
+        return [{"error": f"CISA KEV HTTP {e.response.status_code}"}]
+    except httpx.RequestError as e:
+        return [{"error": f"CISA KEV 網路錯誤: {type(e).__name__}"}]
+    except json.JSONDecodeError:
+        return [{"error": "CISA KEV 回傳非 JSON 格式"}]
     except Exception as e:
         return [{"error": f"CISA KEV API 錯誤: {e}"}]
 
@@ -400,15 +442,33 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         results = await asyncio.gather(*tasks, return_exceptions=True)
 
         all_articles = {}
-        for result in results:
+        failed_sources = []
+        for i, result in enumerate(results):
+            source_name = rss_sources[i].get("name", f"來源 {i+1}")
             if isinstance(result, Exception):
-                continue  # 忽略失敗的來源
-            source_name, articles = result
-            all_articles[source_name] = articles
+                failed_sources.append({
+                    "source": source_name,
+                    "error": f"{type(result).__name__}: {result}"
+                })
+                continue
+            name, articles = result
+            all_articles[name] = articles
+
+        # 在結果中加入統計和失敗資訊
+        response = {
+            "_meta": {
+                "total_sources": len(rss_sources),
+                "success": len(all_articles),
+                "failed": len(failed_sources)
+            }
+        }
+        response.update(all_articles)
+        if failed_sources:
+            response["_failed"] = failed_sources
 
         return [TextContent(
             type="text",
-            text=json.dumps(all_articles, ensure_ascii=False, indent=2)
+            text=json.dumps(response, ensure_ascii=False, indent=2)
         )]
 
     elif name == "fetch_vulnerabilities":
