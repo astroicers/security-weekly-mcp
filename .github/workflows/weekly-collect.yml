@@ -1,0 +1,59 @@
+name: Weekly Data Collection
+
+on:
+  schedule:
+    # 每週一早上 9:00 (UTC+8 = 週一 01:00 UTC)
+    - cron: '0 1 * * 1'
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Days to collect news'
+        required: false
+        default: '7'
+
+env:
+  UV_CACHE_DIR: /tmp/.uv-cache
+  RAW_OUTPUT_DIR: output/raw
+
+jobs:
+  collect-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Collect weekly data
+        run: |
+          uv run python scripts/collect_weekly_data.py \
+            --days ${{ github.event.inputs.days || '7' }} \
+            --output-dir ${{ env.RAW_OUTPUT_DIR }}
+
+      - name: Upload raw data artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-data-${{ github.run_number }}
+          path: ${{ env.RAW_OUTPUT_DIR }}/*.json
+          retention-days: 365
+
+      - name: Commit raw data to repository
+        if: github.event_name == 'schedule'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add ${{ env.RAW_OUTPUT_DIR }}/*.json || true
+          git diff --staged --quiet || git commit -m "data: collect weekly security data $(date +%Y-%m-%d)"
+          git push

@@ -18,6 +18,9 @@ output/reports/*.json
 output/reports/*.typ
 *.log
 
+# Raw data directory keeps .gitkeep but JSON is tracked
+# (weekly data JSON is committed by GitHub Actions)
+
 # IDE
 .vscode/
 .idea/

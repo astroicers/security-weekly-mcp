@@ -115,6 +115,27 @@ async def list_tools() -> list[Tool]:
                 }
             }
         ),
+        Tool(
+            name="load_weekly_data",
+            description="載入已保存的週報原始資料（由 GitHub Actions 每週自動收集）",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "week": {
+                        "type": "string",
+                        "description": "週數（格式：YYYY-WNN，如 2026-W07）。留空則載入最新一週。"
+                    }
+                }
+            }
+        ),
+        Tool(
+            name="list_weekly_data",
+            description="列出所有已保存的週報原始資料",
+            inputSchema={
+                "type": "object",
+                "properties": {}
+            }
+        ),
     ]
 
 
@@ -552,6 +573,98 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
             type="text",
             text=json.dumps(result, ensure_ascii=False, indent=2)
         )]
+
+    elif name == "list_weekly_data":
+        raw_dir = Path(__file__).parent.parent.parent.parent.parent.parent / "output" / "raw"
+
+        if not raw_dir.exists():
+            return [TextContent(type="text", text="尚無已保存的週報資料。GitHub Actions 會每週一自動收集。")]
+
+        files = sorted(raw_dir.glob("*.json"), reverse=True)
+        if not files:
+            return [TextContent(type="text", text="尚無已保存的週報資料。")]
+
+        result = {
+            "available_weeks": [],
+            "total_files": len(files),
+            "storage_path": str(raw_dir)
+        }
+
+        for f in files:
+            try:
+                data = json.loads(f.read_text(encoding="utf-8"))
+                meta = data.get("metadata", {})
+                result["available_weeks"].append({
+                    "week": meta.get("week", f.stem),
+                    "filename": f.name,
+                    "collected_at": meta.get("collected_at", "unknown"),
+                    "stats": meta.get("stats", {})
+                })
+            except Exception:
+                result["available_weeks"].append({
+                    "week": f.stem,
+                    "filename": f.name,
+                    "error": "無法解析檔案"
+                })
+
+        return [TextContent(
+            type="text",
+            text=json.dumps(result, ensure_ascii=False, indent=2)
+        )]
+
+    elif name == "load_weekly_data":
+        raw_dir = Path(__file__).parent.parent.parent.parent.parent.parent / "output" / "raw"
+        week = arguments.get("week")
+
+        if not raw_dir.exists():
+            return [TextContent(type="text", text="❌ 尚無已保存的週報資料。")]
+
+        if week:
+            # 載入指定週數
+            target_file = raw_dir / f"{week}.json"
+        else:
+            # 載入最新一週
+            files = sorted(raw_dir.glob("*.json"), reverse=True)
+            if not files:
+                return [TextContent(type="text", text="❌ 尚無已保存的週報資料。")]
+            target_file = files[0]
+
+        if not target_file.exists():
+            return [TextContent(type="text", text=f"❌ 找不到週報資料：{target_file.name}")]
+
+        try:
+            data = json.loads(target_file.read_text(encoding="utf-8"))
+            meta = data.get("metadata", {})
+
+            # 回傳摘要 + 資料
+            summary = f"""## 📊 週報原始資料：{meta.get('week', target_file.stem)}
+
+**收集時間**: {meta.get('collected_at', 'unknown')}
+**資料期間**: {meta.get('period', {}).get('start')} ~ {meta.get('period', {}).get('end')}
+
+### 統計
+- 新聞文章: {meta.get('stats', {}).get('total_articles', 0)} 則
+- 新聞來源: {meta.get('stats', {}).get('news_sources', 0)} 個
+- NVD 漏洞: {meta.get('stats', {}).get('nvd_vulnerabilities', 0)} 個
+- KEV 漏洞: {meta.get('stats', {}).get('kev_vulnerabilities', 0)} 個
+- 建議搜尋: {meta.get('stats', {}).get('suggested_searches', 0)} 個
+
+### 使用方式
+此資料已載入，你可以：
+1. 分析新聞趨勢並撰寫摘要
+2. 執行建議的 WebSearch 查詢補充最新資訊
+3. 使用 `generate_report_draft` 產生週報
+
+---
+### 完整資料
+"""
+            return [TextContent(
+                type="text",
+                text=summary + json.dumps(data, ensure_ascii=False, indent=2)
+            )]
+
+        except Exception as e:
+            return [TextContent(type="text", text=f"❌ 載入資料失敗：{e}")]
 
 
 def _month_to_chinese(month: int) -> str:

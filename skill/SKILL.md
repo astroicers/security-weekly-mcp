@@ -46,6 +46,8 @@ MCP Server `security-weekly-tw` 提供以下工具：
 | `add_term_links` | 為文本加術語連結 |
 | `list_pending_terms` | 列出待審術語 |
 | `extract_terms` | 從文本自動提取術語 |
+| `approve_pending_term` | 批准待審術語 |
+| `reject_pending_term` | 拒絕待審術語 |
 
 ### 新聞收集工具
 | 工具 | 說明 |
@@ -54,6 +56,8 @@ MCP Server `security-weekly-tw` 提供以下工具：
 | `fetch_vulnerabilities` | 收集 NVD + CISA KEV 漏洞 |
 | `list_news_sources` | 列出新聞來源 |
 | `suggest_searches` | 產生 WebSearch/WebFetch 搜尋建議 |
+| `list_weekly_data` | 列出已保存的週報原始資料 |
+| `load_weekly_data` | 載入指定週數的原始資料 |
 
 ### 週報工具
 | 工具 | 說明 |
@@ -61,6 +65,30 @@ MCP Server `security-weekly-tw` 提供以下工具：
 | `generate_report_draft` | 產生週報結構化資料 |
 | `compile_report_pdf` | 使用 Typst 編譯 PDF |
 | `list_reports` | 列出已產生的週報 |
+
+---
+
+## 兩階段週報架構
+
+```
+GitHub Actions (每週一自動)          你 + Claude (隨時)
+════════════════════════           ═══════════════════
+
+collect_weekly_data.py              「產生週報」
+       ↓                                  ↓
+  抓 RSS + API                      load_weekly_data
+       ↓                                  ↓
+  output/raw/YYYY-WNN.json          讀取已保存資料
+       ↓                            + WebSearch 補充
+  永久保存到 repo                    + AI 分析撰寫
+                                          ↓
+                                    高品質 PDF 報告
+```
+
+### 為什麼需要兩階段？
+- RSS feed 只保留最近幾天的資料（揮發性）
+- GitHub Actions 每週自動保存，確保資料不流失
+- 你可以事後隨時用 Claude 產生高品質報告
 
 ---
 
