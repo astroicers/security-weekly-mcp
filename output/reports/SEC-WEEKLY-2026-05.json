@@ -1,0 +1,250 @@
+{
+  "title": "資安週報 2026/01/27 - 2026/02/03",
+  "report_id": "SEC-WEEKLY-2026-05",
+  "period": {
+    "start": "2026-01-27",
+    "end": "2026-02-03"
+  },
+  "publish_date": "2026-02-03",
+  "summary": {
+    "total_events": 15,
+    "total_vulnerabilities": 10,
+    "threat_level": "normal"
+  },
+  "events": [
+    {
+      "title": "Notepad++ Hosting Breach Attributed to China-Linked Lotus Blossom Hacking Group",
+      "severity": "medium",
+      "event_type": "資安新聞",
+      "summary": "A China-linked threat actor known as Lotus Blossom has been attributed with medium confidence to the recently discovered compromise of the infrastructure hosting Notepad++.\nThe attack enabled the stat",
+      "source": "The Hacker News",
+      "date": "2026-02-03T04:55:00",
+      "url": "https://thehackernews.com/2026/02/notepad-hosting-breach-attributed-to.html"
+    },
+    {
+      "title": "Researchers Find 341 Malicious ClawHub Skills Stealing Data from OpenClaw Users",
+      "severity": "medium",
+      "event_type": "資安新聞",
+      "summary": "A security audit of 2,857 skills on ClawHub has found 341 malicious skills across multiple campaigns, according to new findings from Koi Security, exposing users to new supply chain risks.\nClawHub is ",
+      "source": "The Hacker News",
+      "date": "2026-02-02T17:49:00",
+      "url": "https://thehackernews.com/2026/02/researchers-find-341-malicious-clawhub.html"
+    },
+    {
+      "title": "OpenClaw Bug Enables One-Click Remote Code Execution via Malicious Link",
+      "severity": "medium",
+      "event_type": "資安新聞",
+      "summary": "A high-severity security flaw has been disclosed in OpenClaw (formerly referred to as Clawdbot and Moltbot) that could allow remote code execution (RCE) through a crafted malicious link.\nThe issue, wh",
+      "source": "The Hacker News",
+      "date": "2026-02-02T16:28:00",
+      "url": "https://thehackernews.com/2026/02/openclaw-bug-enables-one-click-remote.html"
+    },
+    {
+      "title": "Microsoft Begins NTLM Phase-Out With Three-Stage Plan to Move Windows to Kerberos",
+      "severity": "medium",
+      "event_type": "資安新聞",
+      "summary": "Microsoft has announced a three-phase approach to phase out New Technology LAN Manager (NTLM) as part of its efforts to shift Windows environments toward stronger, Kerberos-based options.\nThe developm",
+      "source": "The Hacker News",
+      "date": "2026-02-02T15:59:00",
+      "url": "https://thehackernews.com/2026/02/microsoft-begins-ntlm-phase-out-with.html"
+    },
+    {
+      "title": "⚡ Weekly Recap: Proxy Botnet, Office Zero-Day, MongoDB Ransoms, AI Hijacks & New Threats",
+      "severity": "medium",
+      "event_type": "資安新聞",
+      "summary": "Every week brings new discoveries, attacks, and defenses that shape the state of cybersecurity. Some threats are stopped quickly, while others go unseen until they cause real damage.\nSometimes a singl",
+      "source": "The Hacker News",
+      "date": "2026-02-02T11:59:00",
+      "url": "https://thehackernews.com/2026/02/weekly-recap-proxy-botnet-office-zero.html"
+    },
+    {
+      "title": "ShinyHunters-Branded Extortion Activity Expands, Escalates",
+      "severity": "medium",
+      "event_type": "資安新聞",
+      "summary": "<p>Hackers rely on evolved vishing and login harvesting to compromise SSO credentials for unauthorized MFA enrollment.</p>\n<p>The post <a href=\"https://www.securityweek.com/shinyhunters-branded-extort",
+      "source": "SecurityWeek",
+      "date": "2026-02-02T15:28:16",
+      "url": "https://www.securityweek.com/shinyhunters-branded-extortion-activity-expands-escalates/"
+    },
+    {
+      "title": "Open VSX Publisher Account Hijacked in Fresh GlassWorm Attack",
+      "severity": "medium",
+      "event_type": "資安新聞",
+      "summary": "<p>A hacker published malicious versions of four established VS Code extensions to distribute a GlassWorm malware loader.</p>\n<p>The post <a href=\"https://www.securityweek.com/open-vsx-publisher-accou",
+      "source": "SecurityWeek",
+      "date": "2026-02-02T14:12:50",
+      "url": "https://www.securityweek.com/open-vsx-publisher-account-hijacked-in-fresh-glassworm-attack/"
+    },
+    {
+      "title": "Default ICS Credentials Exploited in Destructive Attack on Polish Energy Facilities",
+      "severity": "medium",
+      "event_type": "資安新聞",
+      "summary": "<p>Poland’s CERT has published a report on the recent attack, providing new details on targeted ICS and attribution.</p>\n<p>The post <a href=\"https://www.securityweek.com/default-ics-credentials-explo",
+      "source": "SecurityWeek",
+      "date": "2026-02-02T13:50:53",
+      "url": "https://www.securityweek.com/default-ics-credentials-exploited-in-destructive-attack-on-polish-energy-facilities/"
+    },
+    {
+      "title": "Cyber Insights 2026: Malware and Cyberattacks in the Age of AI",
+      "severity": "medium",
+      "event_type": "資安新聞",
+      "summary": "<p>Security leaders share how artificial intelligence is changing malware, ransomware, and identity-led intrusions, and how defenses must evolve.</p>\n<p>The post <a href=\"https://www.securityweek.com/",
+      "source": "SecurityWeek",
+      "date": "2026-02-02T12:00:00",
+      "url": "https://www.securityweek.com/cyber-insights-2026-malware-and-cyberattacks-in-the-age-of-ai/"
+    },
+    {
+      "title": "Over 1,400 MongoDB Databases Ransacked by Threat Actor",
+      "severity": "medium",
+      "event_type": "資安新聞",
+      "summary": "<p>Of 3,100 unprotected MongoDB instances, half remain compromised, most of them by a single threat actor.</p>\n<p>The post <a href=\"https://www.securityweek.com/over-1400-mongodb-databases-ransacked-b",
+      "source": "SecurityWeek",
+      "date": "2026-02-02T11:45:56",
+      "url": "https://www.securityweek.com/over-1400-mongodb-databases-ransacked-by-threat-actor/"
+    },
+    {
+      "title": "Attackers Harvest Dropbox Logins Via Fake PDF Lures",
+      "severity": "medium",
+      "event_type": "資安新聞",
+      "summary": "A malware-free phishing campaign targets corporate inboxes and asks employees to view &quot;request orders,&quot; ultimately leading to Dropbox credential theft.",
+      "source": "Dark Reading",
+      "date": "2026-02-02T22:21:33",
+      "url": "https://www.darkreading.com/cloud-security/attackers-harvest-dropbox-logins-fake-pdf-lures"
+    },
+    {
+      "title": "County Pays $600K to Wrongfully Jailed Pen Testers",
+      "severity": "medium",
+      "event_type": "資安新聞",
+      "summary": "Iowa police arrested two penetration testers in 2019 for doing their jobs, highlighting the risk to security professionals in red teaming exercises.",
+      "source": "Dark Reading",
+      "date": "2026-02-02T21:57:51",
+      "url": "https://www.darkreading.com/cybersecurity-operations/county-pays-600k-wrongfully-jailed-pen-testers"
+    },
+    {
+      "title": "Chinese Hackers Hijack Notepad++ Updates for 6 Months",
+      "severity": "medium",
+      "event_type": "資安新聞",
+      "summary": "State-sponsored threat actors compromised the popular code editor's hosting provider to redirect targeted users to malicious downloads.",
+      "source": "Dark Reading",
+      "date": "2026-02-02T19:57:02",
+      "url": "https://www.darkreading.com/application-security/chinese-hackers-hijack-notepad-updates-6-months"
+    },
+    {
+      "title": "ShinyHunters Expands Scope of SaaS Extortion Attacks",
+      "severity": "medium",
+      "event_type": "資安新聞",
+      "summary": "Following its attacks on Salesforce instances last year, members of the cybercrime group have broadened their targeting and gotten more aggressive with extortion tactics.",
+      "source": "Dark Reading",
+      "date": "2026-02-02T16:07:57",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/shinyhunters-expands-scope-saas-extortion-attacks"
+    },
+    {
+      "title": "Torq Moves SOCs Beyond SOAR With AI-Powered Hyper Automation",
+      "severity": "medium",
+      "event_type": "資安新聞",
+      "summary": "Investors poured $140 million into Torq's Series D Round, raising the startup's valuation to $1.2 billion, to bring AI-based &quot;hyper automation&quot; to SOCs.",
+      "source": "Dark Reading",
+      "date": "2026-01-30T22:14:31",
+      "url": "https://www.darkreading.com/remote-workforce/torq-moves-socs-soar-ai-powered-hyper-automation"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-1448",
+      "title": "A vulnerability was detected in D-Link DIR-615 up to 4.10. This impacts an unknown function of the f",
+      "cvss": 0,
+      "severity": "low",
+      "product": "未知產品",
+      "recommendation": "請參閱 NVD 更新資訊"
+    },
+    {
+      "cve_id": "CVE-2026-1449",
+      "title": "A flaw has been found in Hisense TransTech Smart Bus Management System up to 20260113. Affected is t",
+      "cvss": 0,
+      "severity": "low",
+      "product": "未知產品",
+      "recommendation": "請參閱 NVD 更新資訊"
+    },
+    {
+      "cve_id": "CVE-2026-24477",
+      "title": "AnythingLLM is an application that turns pieces of content into context that any LLM can use as refe",
+      "cvss": 0,
+      "severity": "low",
+      "product": "未知產品",
+      "recommendation": "請參閱 NVD 更新資訊"
+    },
+    {
+      "cve_id": "CVE-2025-41726",
+      "title": "A low privileged remote attacker can execute arbitrary code by sending specially crafted calls to th",
+      "cvss": 0,
+      "severity": "low",
+      "product": "未知產品",
+      "recommendation": "請參閱 NVD 更新資訊"
+    },
+    {
+      "cve_id": "CVE-2025-41727",
+      "title": "A local low privileged attacker can bypass the authentication of the Device Manager user interface, ",
+      "cvss": 0,
+      "severity": "low",
+      "product": "未知產品",
+      "recommendation": "請參閱 NVD 更新資訊"
+    },
+    {
+      "cve_id": "CVE-2020-36938",
+      "title": "WinAVR version 20100110 contains an insecure permissions vulnerability that allows authenticated use",
+      "cvss": 0,
+      "severity": "low",
+      "product": "未知產品",
+      "recommendation": "請參閱 NVD 更新資訊"
+    },
+    {
+      "cve_id": "CVE-2020-36939",
+      "title": "Cassandra Web 0.5.0 contains a directory traversal vulnerability that allows unauthenticated attacke",
+      "cvss": 0,
+      "severity": "low",
+      "product": "未知產品",
+      "recommendation": "請參閱 NVD 更新資訊"
+    },
+    {
+      "cve_id": "CVE-2020-36942",
+      "title": "Victor CMS 1.0 contains a file upload vulnerability that allows authenticated users to upload malici",
+      "cvss": 0,
+      "severity": "low",
+      "product": "未知產品",
+      "recommendation": "請參閱 NVD 更新資訊"
+    },
+    {
+      "cve_id": "CVE-2020-36951",
+      "title": "Phpscript-sgh 0.1.0 contains a time-based blind SQL injection vulnerability in the admin interface t",
+      "cvss": 0,
+      "severity": "low",
+      "product": "未知產品",
+      "recommendation": "請參閱 NVD 更新資訊"
+    },
+    {
+      "cve_id": "CVE-2021-47902",
+      "title": "Testa Online Test Management System 3.4.7 contains a SQL injection vulnerability that allows attacke",
+      "cvss": 0,
+      "severity": "low",
+      "product": "未知產品",
+      "recommendation": "請參閱 NVD 更新資訊"
+    }
+  ],
+  "threat_trends": {},
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "檢視本週高風險漏洞並評估影響"
+    },
+    {
+      "priority": "medium",
+      "action": "確認系統已套用最新安全更新"
+    },
+    {
+      "priority": "low",
+      "action": "持續監控資安威脅趨勢"
+    }
+  ],
+  "terms": [],
+  "references": []
+}

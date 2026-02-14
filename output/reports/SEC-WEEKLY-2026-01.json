@@ -1,0 +1,58 @@
+{
+  "title": "資安週報 2026/01/01 - 2026/01/07",
+  "report_id": "SEC-WEEKLY-2026-01",
+  "period": {
+    "start": "2026-01-01",
+    "end": "2026-01-07"
+  },
+  "publish_date": "2026-01-08",
+  "summary": {
+    "total_events": 2,
+    "total_vulnerabilities": 3,
+    "threat_level": "elevated"
+  },
+  "events": [
+    {
+      "title": "測試資安事件",
+      "severity": "high",
+      "event_type": "資料外洩",
+      "summary": "某公司資料外洩影響百萬用戶"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-1234",
+      "title": "測試漏洞",
+      "cvss": 9.8,
+      "severity": "critical",
+      "product": "測試產品"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅趨勢升高",
+    "active_actors": [
+      {
+        "name": "APT Group",
+        "activity": "針對金融業"
+      }
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "P1",
+      "action": "立即修補 CVE-2026-1234"
+    }
+  ],
+  "terms": [
+    {
+      "term": "APT",
+      "definition": "進階持續性威脅"
+    }
+  ],
+  "references": [
+    {
+      "title": "參考來源",
+      "url": "https://example.com"
+    }
+  ]
+}

@@ -12,10 +12,11 @@ build/
 *.pdf
 !tests/fixtures/*.pdf
 
-# Output (auto-generated reports - retrieve via CI artifacts)
+# Output (auto-generated reports)
 output/reports/*.pdf
-output/reports/*.json
 output/reports/*.typ
+# Keep report JSON for RSS generation
+!output/reports/*.json
 *.log
 
 # Raw data directory keeps .gitkeep but JSON is tracked
