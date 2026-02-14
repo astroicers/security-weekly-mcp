@@ -1,0 +1,59 @@
+name: Deploy RSS to Glossary Site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'output/reports/*.json'
+      - 'scripts/generate_rss.py'
+  workflow_dispatch:
+
+env:
+  UV_CACHE_DIR: /tmp/.uv-cache
+
+jobs:
+  deploy-rss:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Generate RSS feed
+        run: |
+          mkdir -p /tmp/rss-output
+          uv run python scripts/generate_rss.py --output-dir /tmp/rss-output
+
+      - name: Clone glossary-tw repo
+        run: |
+          git clone https://x-access-token:${{ secrets.GLOSSARY_DEPLOY_TOKEN }}@github.com/AstroicerS/security-glossary-tw.git /tmp/glossary-tw
+
+      - name: Copy RSS feed to glossary-tw
+        run: |
+          mkdir -p /tmp/glossary-tw/docs/weekly
+          cp /tmp/rss-output/feed.xml /tmp/glossary-tw/docs/weekly/
+
+      - name: Commit and push to glossary-tw
+        run: |
+          cd /tmp/glossary-tw
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add docs/weekly/feed.xml
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "rss: update weekly feed $(date +%Y-%m-%d)"
+            git push
+          fi
