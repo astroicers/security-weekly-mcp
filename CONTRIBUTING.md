@@ -8,7 +8,6 @@
 
 - Python 3.11+
 - [uv](https://docs.astral.sh/uv/) (Python 套件管理器)
-- [Typst](https://typst.app/) (PDF 編譯，可選)
 
 ### 安裝步驟
 

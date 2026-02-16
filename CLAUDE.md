@@ -24,27 +24,21 @@ security-weekly-mcp/                    # Monorepo (uv workspace)
 │           └── tools/                  # MCP 工具模組
 │               ├── glossary.py         # 術語庫工具 (6 個)
 │               ├── news.py             # 新聞收集工具 (3 個)
-│               └── report.py           # 週報工具 (3 個)
+│               └── report.py           # 週報工具 (2 個)
 │
 ├── config/                             # 共用配置
 │   ├── sources.yaml                    # 32 個資料來源設定
 │   ├── search_templates.yaml           # WebSearch 查詢模板
 │   └── writing_style.yaml              # 寫作風格指南
 │
-├── templates/typst/                    # Typst 週報模板
-│   ├── weekly_report.typ               # 主模板
-│   └── components/                     # 可重用元件 (5 個)
-│
 ├── output/reports/                     # 產生的週報
-│   ├── SEC-WEEKLY-YYYY-WW.json        # 結構化資料
-│   ├── SEC-WEEKLY-YYYY-WW.typ         # Typst 原始檔
-│   └── SEC-WEEKLY-YYYY-WW.pdf         # PDF 輸出
+│   └── SEC-WEEKLY-YYYY-WW.json        # 結構化資料
 │
 ├── pyproject.toml                      # Workspace 配置
 └── uv.lock                             # 依賴鎖定
 ```
 
-## MCP 工具 (13 個)
+## MCP 工具 (12 個)
 
 ### 術語庫工具
 
@@ -68,11 +62,10 @@ security-weekly-mcp/                    # Monorepo (uv workspace)
 
 ### 週報工具
 
-| 工具 | 功能 | 輸出格式 |
-|------|------|----------|
-| `generate_report_draft` | 產生週報結構化資料 | JSON |
-| `compile_report_pdf` | 編譯 Typst → PDF | PDF |
-| `list_reports` | 列出已產生的週報 | 清單 |
+| 工具                    | 功能               | 輸出格式 |
+|-------------------------|--------------------| -------- |
+| `generate_report_draft` | 產生週報結構化資料 | JSON     |
+| `list_reports`          | 列出已產生的週報   | 清單     |
 
 ## 週報產生完整流程
 
@@ -135,15 +128,9 @@ security-weekly-mcp/                    # Monorepo (uv workspace)
 │    events[], vulnerabilities[], threat_trends,              │
 │    action_items[], terms[], references[]                    │
 │  }                                                          │
-└─────────────────────────────────────────────────────────────┘
-                              ↓
-┌─────────────────────────────────────────────────────────────┐
-│                    5. PDF 編譯階段                           │
-├─────────────────────────────────────────────────────────────┤
-│  compile_report_pdf       → 使用 Typst 編譯 PDF              │
 │                                                             │
-│  依賴：~/.local/bin/typst (v0.12.0+)                        │
-│  輸出：output/reports/SEC-WEEKLY-YYYY-WW.pdf                │
+│  輸出：output/reports/SEC-WEEKLY-YYYY-WW.json               │
+│  發布：deploy-rss.yml → HTML 頁面至 GitHub Pages            │
 └─────────────────────────────────────────────────────────────┘
 ```
 

@@ -10,7 +10,7 @@ MCP Server 架構的資安週報與術語庫管理系統，專為台灣資安社
 - **歷史週報支援** - 可產生任意時間範圍的歷史報告
 - **術語庫整合** - 自動提取並標註資安術語 (437+ 個術語)
 - **術語審核工具** - 批准/拒絕待審術語的完整工作流程
-- **PDF 輸出** - 使用 Typst 產生專業排版的 PDF 報告
+- **HTML 週報** - 透過 GitHub Pages 發布的線上週報
 - **安全審計** - CI 整合 pip-audit 自動檢測依賴漏洞
 - **健康檢查** - 每月自動驗證 RSS 來源可用性
 
@@ -24,13 +24,7 @@ cd security-weekly-mcp
 uv sync
 ```
 
-### 2. 安裝 Typst (產生 PDF 需要)
-
-```bash
-curl -fsSL https://typst.community/typst-install/install.sh | sh
-```
-
-### 3. 設定 Claude Code MCP
+### 2. 設定 Claude Code MCP
 
 在 `~/.claude/settings.json` 加入：
 
@@ -54,7 +48,7 @@ curl -fsSL https://typst.community/typst-install/install.sh | sh
 }
 ```
 
-### 4. 產生週報
+### 3. 產生週報
 
 在 Claude Code 中輸入：
 
@@ -106,10 +100,10 @@ curl -fsSL https://typst.community/typst-install/install.sh | sh
 │       │                                                              │
 │       ▼                                                              │
 │  generate_report_draft      → JSON 結構化資料                        │
-│  compile_report_pdf         → Typst 編譯 PDF                         │
 │       │                                                              │
 │       ▼                                                              │
-│  output/reports/SEC-WEEKLY-YYYY-WW.pdf                              │
+│  output/reports/SEC-WEEKLY-YYYY-WW.json                             │
+│  deploy-rss.yml → HTML 頁面發布至 GitHub Pages                       │
 │                                                                      │
 └──────────────────────────────────────────────────────────────────────┘
 ```
@@ -134,13 +128,6 @@ curl -fsSL https://typst.community/typst-install/install.sh | sh
 uv run python scripts/collect_weekly_data.py --days 7
 
 # 2. 之後在 Claude Code 中說「產生週報」
-```
-
-### 方式三：傳統一次性產生 (CI/CD)
-
-```bash
-# 直接產生 PDF (不保存原始資料)
-uv run python scripts/generate_weekly_report.py --days 7 --output-dir ./reports
 ```
 
 ### 歷史週報
@@ -179,10 +166,6 @@ security-weekly-mcp/
 │   ├── search_templates.yaml        # WebSearch 查詢模板
 │   └── writing_style.yaml           # 寫作風格指南
 │
-├── templates/typst/                 # Typst 週報模板
-│   ├── weekly_report.typ
-│   └── components/
-│
 ├── scripts/
 │   ├── collect_weekly_data.py       # 資料收集腳本 (階段 1)
 │   └── generate_weekly_report.py    # 直接產生週報 (傳統模式)
@@ -191,9 +174,7 @@ security-weekly-mcp/
 │   ├── raw/                         # 原始資料 (GitHub Actions 自動提交)
 │   │   └── YYYY-WNN.json            # 週報原始資料
 │   └── reports/                     # 產生的週報
-│       ├── SEC-WEEKLY-YYYY-WW.json  # 結構化資料
-│       ├── SEC-WEEKLY-YYYY-WW.typ   # Typst 原始檔
-│       └── SEC-WEEKLY-YYYY-WW.pdf   # PDF 輸出
+│       └── SEC-WEEKLY-YYYY-WW.json  # 結構化資料
 │
 └── .github/workflows/
     ├── ci.yml                       # CI 測試 + 安全審計
@@ -204,7 +185,7 @@ security-weekly-mcp/
 
 ---
 
-## MCP 工具清單 (17 個)
+## MCP 工具清單 (16 個)
 
 ### 術語庫工具 (8 個)
 
@@ -230,13 +211,12 @@ security-weekly-mcp/
 | `list_weekly_data` | 列出已保存週報資料 | output/raw/ |
 | `load_weekly_data` | 載入指定週的資料 | output/raw/YYYY-WNN.json |
 
-### 週報工具 (3 個)
+### 週報工具 (2 個)
 
-| 工具 | 功能 | 輸出格式 |
-|------|------|----------|
-| `generate_report_draft` | 產生週報結構化資料 | JSON |
-| `compile_report_pdf` | 編譯 Typst → PDF | PDF |
-| `list_reports` | 列出已產生的週報 | 清單 |
+| 工具                     | 功能               | 輸出格式 |
+|--------------------------|--------------------| -------- |
+| `generate_report_draft`  | 產生週報結構化資料 | JSON     |
+| `list_reports`           | 列出已產生的週報   | 清單     |
 
 ---
 
