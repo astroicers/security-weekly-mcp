@@ -40,20 +40,21 @@ jobs:
         run: |
           git clone https://x-access-token:${{ secrets.GLOSSARY_DEPLOY_TOKEN }}@github.com/AstroicerS/security-glossary-tw.git /tmp/glossary-tw
 
-      - name: Copy RSS feed to glossary-tw
+      - name: Copy RSS feed and reports to glossary-tw
         run: |
-          mkdir -p /tmp/glossary-tw/docs/weekly
+          mkdir -p /tmp/glossary-tw/docs/weekly/reports
           cp /tmp/rss-output/feed.xml /tmp/glossary-tw/docs/weekly/
+          cp /tmp/rss-output/reports/*.html /tmp/glossary-tw/docs/weekly/reports/
 
       - name: Commit and push to glossary-tw
         run: |
           cd /tmp/glossary-tw
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          git add -f docs/weekly/feed.xml
+          git add -f docs/weekly/feed.xml docs/weekly/reports/
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "rss: update weekly feed $(date +%Y-%m-%d)"
+            git commit -m "rss: update weekly feed and reports $(date +%Y-%m-%d)"
             git push
           fi
