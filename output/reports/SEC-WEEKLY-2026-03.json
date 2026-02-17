@@ -1,0 +1,137 @@
+{
+  "title": "資安週報 2026/01/13 - 2026/01/19",
+  "report_id": "SEC-WEEKLY-2026-03",
+  "period": {
+    "start": "2026-01-13",
+    "end": "2026-01-19"
+  },
+  "publish_date": "2026-01-20",
+  "summary": {
+    "total_events": 6,
+    "total_vulnerabilities": 3,
+    "threat_level": "elevated"
+  },
+  "events": [
+    {
+      "title": "Target 860GB 原始碼遭竊並在暗網販售",
+      "severity": "critical",
+      "event_type": "資料外洩",
+      "summary": "美國零售巨頭 Target 內部原始碼、設定檔及開發文件共 860GB 資料外洩。多名員工證實外洩資料為真。資料包含錢包服務、身份管理系統、CI/CD 管線等敏感內容。",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/target-employees-confirm-leaked-source-code-is-authentic/",
+      "date": "2026-01-13"
+    },
+    {
+      "title": "Grubhub 遭入侵並面臨勒索",
+      "severity": "high",
+      "event_type": "資料外洩",
+      "summary": "美國外送平台 Grubhub 確認遭受重大資料外洩，未經授權的攻擊者存取了內部系統。公司目前面臨勒索威脅，據傳與 ShinyHunters 集團的 Salesforce 攻擊活動有關。",
+      "source": "Senthorus",
+      "url": "https://blog.senthorus.ch/posts/20_01_2026",
+      "date": "2026-01-15"
+    },
+    {
+      "title": "Qilin 勒索軟體 1 月份攻擊量居冠",
+      "severity": "high",
+      "event_type": "勒索軟體",
+      "summary": "Qilin 勒索軟體集團在 2026 年 1 月以 108 次攻擊宣稱居首。美國仍是主要目標，共遭受 329 次攻擊。台灣 Y.C.C. Parts MFG Co., Ltd. 也被列入受害名單。",
+      "source": "Comparitech",
+      "url": "https://www.comparitech.com/news/ransomware-roundup-january-2026/",
+      "date": "2026-01-18"
+    },
+    {
+      "title": "比利時 AZ Monica 醫院遭網路攻擊癱瘓",
+      "severity": "high",
+      "event_type": "勒索軟體",
+      "summary": "1 月 13 日比利時醫療機構 AZ Monica 發現系統遭未授權存取，被迫中斷所有伺服器。攻擊嚴重影響醫院運作，急診、加護病房暫停，所有排程手術和門診延後。",
+      "source": "CM Alliance",
+      "url": "https://www.cm-alliance.com/cybersecurity-blog/major-cyber-attacks-data-breaches-ransomware-attacks-in-january-2026",
+      "date": "2026-01-13"
+    },
+    {
+      "title": "中國解放軍公開量子網戰工具開發計畫",
+      "severity": "high",
+      "event_type": "威脅情報",
+      "summary": "中國人民解放軍公開披露正在開發量子網路戰工具，旨在從公共網路收集軍事情報。此舉標誌網路軍備競賽進入新階段，量子技術將挑戰現有加密防禦。",
+      "source": "DIESEC",
+      "url": "https://diesec.com/2026/02/january-2026-cybersecurity-round-up/",
+      "date": "2026-01-17"
+    },
+    {
+      "title": "Moen 水龍頭製造商遭 Qilin 勒索軟體攻擊",
+      "severity": "medium",
+      "event_type": "勒索軟體",
+      "summary": "美國知名水龍頭製造商 Moen 遭 Qilin 勒索軟體攻擊，關鍵業務系統被加密，營運受到影響。攻擊者威脅若不支付贖金將外洩敏感公司資料。",
+      "source": "Senthorus",
+      "url": "https://blog.senthorus.ch/posts/20_01_2026",
+      "date": "2026-01-16"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-21509",
+      "title": "Microsoft Office 安全功能繞過零時差漏洞",
+      "severity": "high",
+      "cvss": 7.8,
+      "description": "Microsoft Office 存在安全功能繞過漏洞，允許攻擊者繞過文件安全檢查。此漏洞在修補前已被積極利用，透過惡意郵件附件或受駭網站取得初始存取。",
+      "affected_products": ["Microsoft Office"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-24858",
+      "title": "Fortinet 多產品跨帳戶存取漏洞",
+      "severity": "high",
+      "cvss": 8.1,
+      "description": "擁有 FortiCloud 帳戶和註冊裝置的惡意行為者可登入其他使用者註冊的裝置。影響 FortiOS、FortiManager、FortiWeb、FortiProxy 和 FortiAnalyzer。",
+      "affected_products": ["FortiOS", "FortiManager", "FortiWeb", "FortiProxy", "FortiAnalyzer"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-0001",
+      "title": "n8n 伺服器 Ni8mare 遠端程式碼執行漏洞",
+      "severity": "critical",
+      "cvss": 9.8,
+      "description": "n8n 自動化平台存在嚴重漏洞（稱為 Ni8mare），允許駭客劫持 n8n 伺服器執行任意程式碼。",
+      "affected_products": ["n8n"],
+      "patch_available": true
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅等級升高。重大資料外洩事件頻傳，Target 原始碼外洩凸顯開發基礎設施安全的重要性。勒索軟體活動持續活躍，Qilin 集團攻擊量居首。量子網戰技術發展值得關注。",
+    "key_trends": [
+      "原始碼和開發基礎設施成為攻擊新目標",
+      "Qilin 勒索軟體集團活動量居冠",
+      "醫療產業持續遭受針對性攻擊",
+      "量子網戰技術發展加速"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "檢視開發基礎設施存取控制，確保 Git 伺服器不對外公開"
+    },
+    {
+      "priority": "high",
+      "action": "加強 Infostealer 惡意程式防護，監控員工工作站異常行為"
+    },
+    {
+      "priority": "high",
+      "action": "更新 Fortinet 產品至最新版本，修補 CVE-2026-24858"
+    },
+    {
+      "priority": "medium",
+      "action": "評估組織對量子運算威脅的準備程度，規劃後量子加密遷移"
+    }
+  ],
+  "terms": [],
+  "references": [
+    {
+      "title": "Target Source Code Breach - Security Magazine",
+      "url": "https://www.securitymagazine.com/articles/102075-targets-source-code-confirmed-stolen-why-does-this-matter"
+    },
+    {
+      "title": "Ransomware Roundup January 2026 - Comparitech",
+      "url": "https://www.comparitech.com/news/ransomware-roundup-january-2026/"
+    }
+  ]
+}

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>資安週報 2026/01/01 - 2026/01/05</title>
+    <meta name="description" content="資安週報 2026-01-01 - 2026-01-05">
+    <link rel="alternate" type="application/rss+xml" title="資安週報 RSS" href="../feed.xml">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --card-bg: #ffffff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        header { margin-bottom: 2rem; }
+        h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+        .meta { color: var(--text-muted); margin-bottom: 1rem; }
+        .back-link { color: var(--primary); text-decoration: none; display: inline-block; margin-bottom: 1.5rem; }
+        .back-link:hover { text-decoration: underline; }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .summary-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .summary-card .value { font-size: 1.5rem; font-weight: 700; }
+        .summary-card .label { color: var(--text-muted); font-size: 0.875rem; }
+        section { margin-bottom: 2rem; }
+        h2 { font-size: 1.25rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border); }
+        .event-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .event-card h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+        .event-card h3 a { color: var(--text); text-decoration: none; }
+        .event-card h3 a:hover { color: var(--primary); }
+        .event-meta { color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem; }
+        table { width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: 8px; overflow: hidden; }
+        th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: var(--bg); font-weight: 600; }
+        td a { color: var(--primary); text-decoration: none; }
+        td a:hover { text-decoration: underline; }
+        .actions { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+        .actions ul { list-style: none; }
+        .actions li { padding: 0.5rem 0; }
+        /* 術語連結樣式 */
+        .term-link {
+            color: var(--primary);
+            text-decoration: underline dotted;
+            text-underline-offset: 2px;
+            cursor: help;
+        }
+        .term-link:hover {
+            text-decoration: underline solid;
+        }
+        /* 本期術語區塊樣式 */
+        .terms-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 12px;
+            border: 1px solid #bae6fd;
+        }
+        .terms-section h2 {
+            border-bottom-color: #7dd3fc;
+        }
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .term-card {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .term-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        .term-card h3 a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .term-card h3 a:hover {
+            text-decoration: underline;
+        }
+        .term-zh {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .term-def {
+            font-size: 0.85rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+        footer { margin-top: 3rem; text-align: center; color: var(--text-muted); font-size: 0.875rem; }
+        footer a { color: var(--primary); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../" class="back-link">&larr; 返回週報列表</a>
+
+        <header>
+            <h1>資安週報 2026/01/01 - 2026/01/05</h1>
+            <p class="meta">報告編號：SEC-WEEKLY-2026-01 · 發布日期：2026-01-06</p>
+        </header>
+
+        <div class="summary-grid">
+            <div class="summary-card">
+                <div class="value" style="color: #22c55e;">一般</div>
+                <div class="label">威脅等級</div>
+            </div>
+            <div class="summary-card">
+                <div class="value">5</div>
+                <div class="label">資安事件</div>
+            </div>
+            <div class="summary-card">
+                <div class="value">4</div>
+                <div class="label">漏洞數量</div>
+            </div>
+        </div>
+
+        <section>
+            <h2>行動建議</h2>
+            <div class="actions">
+                <ul>
+                    <li>🔴 檢視並更新 AI 相關應用的安全控管措施</li>
+<li>🔴 確認所有系統已套用 CISA <a href="https://astroicers.github.io/security-glossary-tw/glossary/kev" class="term-link" title="已知遭利用漏洞清單">KEV</a> 清單中的漏洞修補</li>
+<li>🟡 評估第三方供應商的資安風險管理機制</li>
+<li>🟡 加強員工對 AI 驅動釣魚攻擊的警覺性訓練</li>
+
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>資安新聞 (5)</h2>
+            
+        <div class="event-card">
+            <h3><a href="https://www.darkreading.com/threat-intelligence/cybersecurity-predictions-for-2026-navigating-the-future-of-digital-threats" target="_blank" rel="noopener">2026 年資安威脅趨勢展望：AI 驅動攻擊成主流</a></h3>
+            <p class="event-meta">Dark Reading · 2026-01-02</p>
+            <p>資安專家預測 2026 年 AI 自動化釣魚郵件點擊率高達 54%，比傳統釣魚攻擊的 12% 高出 4.5 倍。企業需加強 AI 相關風險管控。...</p>
+        </div>
+        
+        <div class="event-card">
+            <h3><a href="https://infosecu.technews.tw/2026/01/19/cyberattack-tw/" target="_blank" rel="noopener">台灣每天遭受 263 萬次網路攻擊</a></h3>
+            <p class="event-meta">TechNews · 2026-01-03</p>
+            <p>根據統計，台灣平均每週遭受 3,993 次攻擊，位居亞太地區之首。受攻擊次數最多的產業為硬體供應商、政府與軍事機構、製造業。...</p>
+        </div>
+        
+        <div class="event-card">
+            <h3><a href="https://www.cisa.gov/news-events/alerts/2026/01/07/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">CISA 新增兩個已知被利用漏洞至 KEV 清單</a></h3>
+            <p class="event-meta">CISA · 2026-01-05</p>
+            <p>CISA 於 1 月 7 日新增兩個已被駭客積極利用的漏洞至已知被利用漏洞目錄，要求聯邦機構限期修補。...</p>
+        </div>
+        
+        <div class="event-card">
+            <h3><a href="https://www.privacyguides.org/news/2026/01/09/data-breach-roundup-jan-2-jan-8-2026/" target="_blank" rel="noopener">2026 年首週資料外洩事件彙整</a></h3>
+            <p class="event-meta">Privacy Guides · 2026-01-05</p>
+            <p>新年首週全球發生多起資料外洩事件，涵蓋醫療、金融、科技等產業。HealthBridge Chiropractic 遭 <a href="https://astroicers.github.io/security-glossary-tw/glossary/qilin" class="term-link" title="Qilin 勒索軟體組織">Qilin</a> 勒索軟體攻擊。...</p>
+        </div>
+        
+        <div class="event-card">
+            <h3><a href="https://www.informationsecurity.com.tw/article/article_detail.aspx?aid=11783" target="_blank" rel="noopener">第三方資安事件激增：供應鏈攻擊風險升高</a></h3>
+            <p class="event-meta">資安人 · 2026-01-04</p>
+            <p>2025 年全球供應鏈資安事故攀升，第三方風險管理成為企業資安重點議題，預計 2026 年此趨勢將持續。...</p>
+        </div>
+        
+        </section>
+
+        <section>
+            <h2>漏洞追蹤 (4)</h2>
+            <table>
+                <thead>
+                    <tr><th>CVE ID</th><th>描述</th><th>嚴重性</th><th>CVSS</th></tr>
+                </thead>
+                <tbody>
+        <tr>
+            <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-24061" target="_blank">CVE-2026-24061</a></td>
+            <td>GNU InetUtils 參數注入漏洞...</td>
+            <td style="color: #f97316; font-weight: 600;">HIGH</td>
+            <td>8.1</td>
+        </tr>
+        
+        <tr>
+            <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-20700" target="_blank">CVE-2026-20700</a></td>
+            <td>Apple 多重緩衝區溢位漏洞...</td>
+            <td style="color: #ef4444; font-weight: 600;">CRITICAL</td>
+            <td>9.8</td>
+        </tr>
+        
+        <tr>
+            <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-21513" target="_blank">CVE-2026-21513</a></td>
+            <td>SmarterTools SmarterMail 驗證繞過漏洞...</td>
+            <td style="color: #ef4444; font-weight: 600;">CRITICAL</td>
+            <td>9.1</td>
+        </tr>
+        
+        <tr>
+            <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-1731" target="_blank">CVE-2026-1731</a></td>
+            <td>BeyondTrust 安全控制繞過漏洞...</td>
+            <td style="color: #f97316; font-weight: 600;">HIGH</td>
+            <td>8.5</td>
+        </tr>
+        </tbody>
+            </table>
+        </section>
+
+        
+        <section class="terms-section">
+            <h2>📚 本期術語 (2)</h2>
+            <div class="terms-grid">
+                
+            <div class="term-card">
+                <h3><a href="https://astroicers.github.io/security-glossary-tw/glossary/qilin" target="_blank">Qilin</a></h3>
+                <p class="term-zh">Qilin 勒索軟體組織</p>
+                <p class="term-def">採用 RaaS 模式的勒索軟體犯罪組織</p>
+            </div>
+            
+            <div class="term-card">
+                <h3><a href="https://astroicers.github.io/security-glossary-tw/glossary/kev" target="_blank">KEV</a></h3>
+                <p class="term-zh">已知遭利用漏洞清單</p>
+                <p class="term-def">CISA 維護的已確認遭實際利用的漏洞清單</p>
+            </div>
+            
+            </div>
+        </section>
+        
+
+        <footer>
+            <p>
+                <a href="../feed.xml">訂閱 RSS</a> ·
+                由 <a href="https://github.com/AstroicerS/security-weekly-mcp">security-weekly-mcp</a> 生成
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

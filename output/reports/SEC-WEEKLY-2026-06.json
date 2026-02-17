@@ -1,0 +1,182 @@
+{
+  "title": "資安週報 2026/02/03 - 2026/02/09",
+  "report_id": "SEC-WEEKLY-2026-06",
+  "period": {
+    "start": "2026-02-03",
+    "end": "2026-02-09"
+  },
+  "publish_date": "2026-02-10",
+  "summary": {
+    "total_events": 6,
+    "total_vulnerabilities": 8,
+    "threat_level": "elevated"
+  },
+  "events": [
+    {
+      "title": "微軟 2 月 Patch Tuesday 修補 6 個零時差漏洞",
+      "severity": "critical",
+      "event_type": "漏洞公告",
+      "summary": "微軟發布 2026 年 2 月 Patch Tuesday，修補 58 個漏洞，包含 6 個已被積極利用的零時差漏洞。CISA 已將所有六個漏洞加入 KEV 清單，要求聯邦機構於 3 月 3 日前完成修補。",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-february-2026-patch-tuesday-fixes-6-zero-days-58-flaws/",
+      "date": "2026-02-09"
+    },
+    {
+      "title": "超過 13.5 萬個 OpenClaw AI 實例暴露於網路",
+      "severity": "critical",
+      "event_type": "漏洞公告",
+      "summary": "SecurityScorecard STRIKE 團隊發現超過 135,000 個 OpenClaw AI 助理平台實例暴露於網路，其中超過 12,812 個存在已知 RCE 漏洞。這代表開源 AI 代理空間的系統性安全失敗。",
+      "source": "The Register",
+      "url": "https://www.theregister.com/2026/02/09/openclaw_instances_exposed_vibe_code/",
+      "date": "2026-02-09"
+    },
+    {
+      "title": "NGINX 網路流量劫持攻擊活動",
+      "severity": "high",
+      "event_type": "威脅情報",
+      "summary": "研究人員揭露針對 NGINX 安裝和管理面板（如寶塔 Baota/BT）的活躍網路流量劫持攻擊活動，將流量路由至攻擊者控制的基礎設施。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/",
+      "date": "2026-02-05"
+    },
+    {
+      "title": "Allianz UK 遭 Clop 勒索軟體攻擊",
+      "severity": "high",
+      "event_type": "勒索軟體",
+      "summary": "安聯英國確認遭受 Clop 勒索軟體集團攻擊，攻擊者利用 CVE-2025-61882 Oracle E-Business Suite 漏洞（CVSS 9.8）。受影響系統涵蓋家庭、汽車、寵物和旅遊保險保單管理。",
+      "source": "Bright Defense",
+      "url": "https://www.brightdefense.com/resources/recent-data-breaches/",
+      "date": "2026-02-06"
+    },
+    {
+      "title": "Ivanti EPMM 漏洞遭大規模利用",
+      "severity": "high",
+      "event_type": "漏洞利用",
+      "summary": "針對新揭露的 Ivanti EPMM 安全漏洞的利用嘗試大部分來自防彈主機上的單一 IP。GreyNoise 記錄到 2 月 1 日至 9 日間來自 8 個獨立 IP 的 417 次利用會話。",
+      "source": "IT Security News",
+      "url": "https://www.itsecuritynews.info/it-security-news-daily-summary-2026-02-09/",
+      "date": "2026-02-07"
+    },
+    {
+      "title": "n8n 工作流程自動化平台重大漏洞",
+      "severity": "critical",
+      "event_type": "漏洞公告",
+      "summary": "n8n 工作流程自動化平台揭露重大安全漏洞 CVE-2026-25049（CVSS 9.4），可導致任意系統命令執行。此漏洞源於對先前 CVE-2025-68613 修補措施的繞過。",
+      "source": "BlackFog",
+      "url": "https://www.blackfog.com/the-state-of-ransomware-2026/",
+      "date": "2026-02-05"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-21510",
+      "title": "Windows Shell 安全功能繞過漏洞（已被利用）",
+      "severity": "critical",
+      "cvss": 8.8,
+      "description": "Windows Shell 存在安全功能繞過漏洞，單擊惡意連結即可繞過 Windows 保護並執行攻擊者控制的內容。影響所有目前支援的 Windows 版本。",
+      "affected_products": ["Windows"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-21513",
+      "title": "MSHTML 安全繞過漏洞（已被利用）",
+      "severity": "high",
+      "cvss": 7.8,
+      "description": "MSHTML 引擎存在安全繞過漏洞，影響 Windows 預設瀏覽器引擎。",
+      "affected_products": ["Windows"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-21514",
+      "title": "Microsoft Word 安全功能繞過漏洞（已被利用）",
+      "severity": "high",
+      "cvss": 7.8,
+      "description": "Microsoft Word 存在安全功能繞過漏洞，攻擊者需誘使用戶開啟特製 Office 檔案。",
+      "affected_products": ["Microsoft Word"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-21519",
+      "title": "Windows DWM 類型混淆提權漏洞（已被利用）",
+      "severity": "high",
+      "cvss": 7.8,
+      "description": "Windows Desktop Window Manager 存在類型混淆漏洞，允許經授權的攻擊者本機提升權限。",
+      "affected_products": ["Windows"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-21533",
+      "title": "Windows RDS 本機提權漏洞（已被利用）",
+      "severity": "high",
+      "cvss": 7.8,
+      "description": "Windows 遠端桌面服務存在漏洞，允許本機攻擊者將權限提升至 SYSTEM 等級，可新增用戶至管理員群組。",
+      "affected_products": ["Windows Remote Desktop Services"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-21525",
+      "title": "Windows VPN 連線管理員 DoS 漏洞（已被利用）",
+      "severity": "medium",
+      "cvss": 6.5,
+      "description": "Windows Remote Access Connection Manager 存在阻斷服務漏洞，可能影響企業 VPN 連線。",
+      "affected_products": ["Windows"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-25049",
+      "title": "n8n 任意命令執行漏洞",
+      "severity": "critical",
+      "cvss": 9.4,
+      "description": "n8n 工作流程自動化平台存在嚴重漏洞，可導致任意系統命令執行。為先前修補 CVE-2025-68613 的繞過。",
+      "affected_products": ["n8n"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-OpenClaw",
+      "title": "OpenClaw AI 平台 RCE 漏洞",
+      "severity": "critical",
+      "cvss": 9.8,
+      "description": "OpenClaw AI 助理平台存在已知遠端程式碼執行漏洞，超過 12,000 個暴露實例受影響。",
+      "affected_products": ["OpenClaw"],
+      "patch_available": true
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅等級升高。微軟修補大量零時差漏洞凸顯 Windows 生態系統風險。AI 平台安全問題浮現，OpenClaw 大規模暴露顯示開源 AI 工具的安全管理不足。勒索軟體集團持續利用已知漏洞發動攻擊。",
+    "key_trends": [
+      "Windows 零時差漏洞數量創新高，6 個同時被利用",
+      "AI 和自動化平台成為新興攻擊面",
+      "Oracle 和 Ivanti 企業軟體漏洞持續被利用",
+      "流量劫持攻擊鎖定 NGINX 和管理面板"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即套用微軟 2026 年 2 月安全更新，優先處理 6 個零時差漏洞"
+    },
+    {
+      "priority": "high",
+      "action": "盤點並保護暴露於網路的 AI 和自動化平台實例"
+    },
+    {
+      "priority": "high",
+      "action": "檢視 NGINX 和網頁伺服器管理面板安全設定"
+    },
+    {
+      "priority": "medium",
+      "action": "更新 n8n 自動化平台至最新版本，修補 CVE-2026-25049"
+    }
+  ],
+  "terms": [],
+  "references": [
+    {
+      "title": "Microsoft February 2026 Patch Tuesday - Krebs on Security",
+      "url": "https://krebsonsecurity.com/2026/02/patch-tuesday-february-2026-edition/"
+    },
+    {
+      "title": "Zero Day Initiative February 2026 Security Update Review",
+      "url": "https://www.zerodayinitiative.com/blog/2026/2/10/the-february-2026-security-update-review"
+    }
+  ]
+}

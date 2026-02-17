@@ -1,58 +1,137 @@
 {
-  "title": "資安週報 2026/01/01 - 2026/01/07",
+  "title": "資安週報 2026/01/01 - 2026/01/05",
   "report_id": "SEC-WEEKLY-2026-01",
   "period": {
     "start": "2026-01-01",
-    "end": "2026-01-07"
+    "end": "2026-01-05"
   },
-  "publish_date": "2026-01-08",
+  "publish_date": "2026-01-06",
   "summary": {
-    "total_events": 2,
-    "total_vulnerabilities": 3,
-    "threat_level": "elevated"
+    "total_events": 5,
+    "total_vulnerabilities": 4,
+    "threat_level": "normal"
   },
   "events": [
     {
-      "title": "測試資安事件",
+      "title": "2026 年資安威脅趨勢展望：AI 驅動攻擊成主流",
       "severity": "high",
+      "event_type": "威脅趨勢",
+      "summary": "資安專家預測 2026 年 AI 自動化釣魚郵件點擊率高達 54%，比傳統釣魚攻擊的 12% 高出 4.5 倍。企業需加強 AI 相關風險管控。",
+      "source": "Dark Reading",
+      "url": "https://www.darkreading.com/threat-intelligence/cybersecurity-predictions-for-2026-navigating-the-future-of-digital-threats",
+      "date": "2026-01-02"
+    },
+    {
+      "title": "台灣每天遭受 263 萬次網路攻擊",
+      "severity": "high",
+      "event_type": "威脅態勢",
+      "summary": "根據統計，台灣平均每週遭受 3,993 次攻擊，位居亞太地區之首。受攻擊次數最多的產業為硬體供應商、政府與軍事機構、製造業。",
+      "source": "TechNews",
+      "url": "https://infosecu.technews.tw/2026/01/19/cyberattack-tw/",
+      "date": "2026-01-03"
+    },
+    {
+      "title": "CISA 新增兩個已知被利用漏洞至 KEV 清單",
+      "severity": "medium",
+      "event_type": "漏洞公告",
+      "summary": "CISA 於 1 月 7 日新增兩個已被駭客積極利用的漏洞至已知被利用漏洞目錄，要求聯邦機構限期修補。",
+      "source": "CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/01/07/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+      "date": "2026-01-05"
+    },
+    {
+      "title": "2026 年首週資料外洩事件彙整",
+      "severity": "medium",
       "event_type": "資料外洩",
-      "summary": "某公司資料外洩影響百萬用戶"
+      "summary": "新年首週全球發生多起資料外洩事件，涵蓋醫療、金融、科技等產業。HealthBridge Chiropractic 遭 Qilin 勒索軟體攻擊。",
+      "source": "Privacy Guides",
+      "url": "https://www.privacyguides.org/news/2026/01/09/data-breach-roundup-jan-2-jan-8-2026/",
+      "date": "2026-01-05"
+    },
+    {
+      "title": "第三方資安事件激增：供應鏈攻擊風險升高",
+      "severity": "medium",
+      "event_type": "威脅趨勢",
+      "summary": "2025 年全球供應鏈資安事故攀升，第三方風險管理成為企業資安重點議題，預計 2026 年此趨勢將持續。",
+      "source": "資安人",
+      "url": "https://www.informationsecurity.com.tw/article/article_detail.aspx?aid=11783",
+      "date": "2026-01-04"
     }
   ],
   "vulnerabilities": [
     {
-      "cve_id": "CVE-2026-1234",
-      "title": "測試漏洞",
-      "cvss": 9.8,
+      "cve_id": "CVE-2026-24061",
+      "title": "GNU InetUtils 參數注入漏洞",
+      "severity": "high",
+      "cvss": 8.1,
+      "description": "GNU InetUtils 存在參數注入漏洞，已被列入 CISA KEV 清單。",
+      "affected_products": ["GNU InetUtils"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-20700",
+      "title": "Apple 多重緩衝區溢位漏洞",
       "severity": "critical",
-      "product": "測試產品"
+      "cvss": 9.8,
+      "description": "Apple 產品存在多重緩衝區溢位漏洞，可能導致任意程式碼執行。",
+      "affected_products": ["Apple iOS", "macOS"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-21513",
+      "title": "SmarterTools SmarterMail 驗證繞過漏洞",
+      "severity": "critical",
+      "cvss": 9.1,
+      "description": "SmarterMail ConnectToHub API 缺少關鍵功能驗證，可導致命令執行。此漏洞已知被用於勒索軟體攻擊。",
+      "affected_products": ["SmarterTools SmarterMail"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-1731",
+      "title": "BeyondTrust 安全控制繞過漏洞",
+      "severity": "high",
+      "cvss": 8.5,
+      "description": "SolarWinds Web Help Desk 存在安全控制繞過漏洞，未經驗證的攻擊者可存取受限功能。",
+      "affected_products": ["SolarWinds Web Help Desk"],
+      "patch_available": true
     }
   ],
   "threat_trends": {
-    "summary": "本週威脅趨勢升高",
-    "active_actors": [
-      {
-        "name": "APT Group",
-        "activity": "針對金融業"
-      }
+    "summary": "2026 年開年資安態勢嚴峻，AI 驅動的攻擊成為新興威脅，供應鏈攻擊風險持續升高。台灣仍是亞太地區受攻擊最頻繁的國家之一。",
+    "key_trends": [
+      "AI 自動化釣魚攻擊效果顯著提升",
+      "供應鏈與第三方風險持續增加",
+      "勒索軟體攻擊維持高頻率",
+      "台灣企業面臨持續性網路威脅"
     ]
   },
   "action_items": [
     {
-      "priority": "P1",
-      "action": "立即修補 CVE-2026-1234"
-    }
-  ],
-  "terms": [
+      "priority": "high",
+      "action": "檢視並更新 AI 相關應用的安全控管措施"
+    },
     {
-      "term": "APT",
-      "definition": "進階持續性威脅"
+      "priority": "high",
+      "action": "確認所有系統已套用 CISA KEV 清單中的漏洞修補"
+    },
+    {
+      "priority": "medium",
+      "action": "評估第三方供應商的資安風險管理機制"
+    },
+    {
+      "priority": "medium",
+      "action": "加強員工對 AI 驅動釣魚攻擊的警覺性訓練"
     }
   ],
+  "terms": [],
   "references": [
     {
-      "title": "參考來源",
-      "url": "https://example.com"
+      "title": "CISA Known Exploited Vulnerabilities Catalog",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "2026 Data Breaches List - SharkStriker",
+      "url": "https://sharkstriker.com/blog/data-breaches-in-january-2026/"
     }
   ]
 }

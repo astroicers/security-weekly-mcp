@@ -1,0 +1,190 @@
+{
+  "title": "資安週報 2026/02/10 - 2026/02/16",
+  "report_id": "SEC-WEEKLY-2026-07",
+  "period": {
+    "start": "2026-02-10",
+    "end": "2026-02-16"
+  },
+  "publish_date": "2026-02-17",
+  "summary": {
+    "total_events": 7,
+    "total_vulnerabilities": 7,
+    "threat_level": "elevated"
+  },
+  "events": [
+    {
+      "title": "Google Chrome 零時差漏洞 CVE-2026-2441 遭利用",
+      "severity": "critical",
+      "event_type": "漏洞利用",
+      "summary": "Google 發布 Chrome 安全更新修補零時差漏洞 CVE-2026-2441（CVSS 8.8），該漏洞為 CSS 處理中的 use-after-free 問題，已被發現遭野外利用。攻擊者可透過特製 HTML 頁面在沙箱內執行任意程式碼。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/",
+      "date": "2026-02-11"
+    },
+    {
+      "title": "Ivanti EPMM 零時差漏洞攻擊荷蘭政府機構",
+      "severity": "critical",
+      "event_type": "漏洞利用",
+      "summary": "荷蘭資料保護局及司法委員會證實遭受資料外洩攻擊，攻擊者利用 Ivanti EPMM 零時差漏洞 CVE-2026-1281 及 CVE-2026-1340 實現未授權遠端程式碼執行，員工姓名、電子郵件及電話號碼外洩。此為針對歐洲政府機構的更大規模攻擊活動。",
+      "source": "Global Security Mag",
+      "url": "https://www.globalsecuritymag.fr/cve-2026-1281-a-critical-threat-to-enterprise-mobile-management.html",
+      "date": "2026-02-12"
+    },
+    {
+      "title": "中國駭客發動 Notepad++ 供應鏈攻擊",
+      "severity": "critical",
+      "event_type": "APT 攻擊",
+      "summary": "中國國家級駭客針對開源文字編輯器 Notepad++ 發動軟體供應鏈攻擊，劫持特定自動更新流量，攻擊主機商底層設施。菲律賓、越南、台灣等東亞多國均有特定目標遭鎖定。",
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/security",
+      "date": "2026-02-13"
+    },
+    {
+      "title": "BeyondTrust 重大 RCE 漏洞 CVE-2026-1731",
+      "severity": "critical",
+      "event_type": "漏洞公告",
+      "summary": "BeyondTrust 修補 Remote Support 和 Privileged Remote Access 產品中的重大 RCE 漏洞（CVSS 9.9）。該漏洞允許未授權遠端攻擊者執行任意作業系統命令，CISA 要求聯邦機構於 2 月 16 日前完成修補。",
+      "source": "CISA",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "date": "2026-02-14"
+    },
+    {
+      "title": "新型勒索軟體 Reynolds 使用 BYOVD 繞過 EDR",
+      "severity": "high",
+      "event_type": "威脅情報",
+      "summary": "新型勒索軟體 Reynolds 被發現內建 BYOVD（Bring Your Own Vulnerable Driver）功能，可利用已知存在漏洞的驅動程式來停用端點偵測和回應（EDR）安全工具，提升攻擊成功率。",
+      "source": "BlackFog",
+      "url": "https://www.blackfog.com/the-state-of-ransomware-2026/",
+      "date": "2026-02-12"
+    },
+    {
+      "title": "ZeroDayRAT 間諜軟體竊取 AI 代理設定",
+      "severity": "high",
+      "event_type": "威脅情報",
+      "summary": "資安研究人員發現新型間諜軟體 ZeroDayRAT 不僅執行傳統資料竊取，更首度竊取受害者的 AI 代理（如 OpenClaw）設定檔。Hudson Rock 表示此為資訊竊取程式演進的重要里程碑，標誌從竊取瀏覽器憑證轉向竊取 AI 代理的「靈魂」和身份。",
+      "source": "Cyber Recaps",
+      "url": "https://cyberrecaps.com/news/cybersecurity-news-february-10-2026/",
+      "date": "2026-02-10"
+    },
+    {
+      "title": "Eurail 資料外洩暴露護照與健康資料",
+      "severity": "high",
+      "event_type": "資料外洩",
+      "summary": "歐洲鐵路旅遊公司 Eurail B.V. 證實資料外洩事件，未授權存取客戶資料庫導致敏感資料外洩，包含姓名、聯絡資訊、住址、出生日期，部分旅客的護照資料、銀行帳戶參考及健康資料亦遭外洩。",
+      "source": "Bright Defense",
+      "url": "https://www.brightdefense.com/resources/recent-data-breaches/",
+      "date": "2026-02-11"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-2441",
+      "title": "Google Chrome CSS Use-After-Free 漏洞（已被利用）",
+      "severity": "critical",
+      "cvss": 8.8,
+      "description": "Chrome 瀏覽器 CSS 處理中存在 use-after-free 漏洞，攻擊者可透過特製網頁在沙箱內執行任意程式碼。影響 Chrome 145.0.7632.75 之前版本。",
+      "affected_products": ["Google Chrome"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-1281",
+      "title": "Ivanti EPMM RCE 漏洞（已被利用）",
+      "severity": "critical",
+      "cvss": 9.8,
+      "description": "Ivanti Endpoint Manager Mobile 存在 Bash 處理器漏洞，允許未授權攻擊者遠端執行程式碼。自 2 月 4 日起已觀察到活躍利用。",
+      "affected_products": ["Ivanti EPMM"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-1731",
+      "title": "BeyondTrust Remote Support/PRA OS 命令注入漏洞",
+      "severity": "critical",
+      "cvss": 9.9,
+      "description": "BeyondTrust Remote Support 和 Privileged Remote Access 產品存在 OS 命令注入漏洞，允許未授權遠端攻擊者執行任意作業系統命令。",
+      "affected_products": ["BeyondTrust Remote Support", "BeyondTrust Privileged Remote Access"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-21643",
+      "title": "Fortinet FortiClientEMS 任意程式碼執行漏洞",
+      "severity": "critical",
+      "cvss": 9.1,
+      "description": "Fortinet FortiClientEMS 存在重大漏洞，可導致受影響系統上執行任意程式碼。",
+      "affected_products": ["FortiClientEMS"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-24423",
+      "title": "SmarterTools SmarterMail 認證缺失漏洞（勒索軟體利用）",
+      "severity": "high",
+      "cvss": 8.8,
+      "description": "SmarterMail ConnectToHub API 方法存在關鍵功能認證缺失漏洞，攻擊者可利用惡意 HTTP 伺服器執行 OS 命令。已知被勒索軟體攻擊活動利用。",
+      "affected_products": ["SmarterTools SmarterMail"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-1340",
+      "title": "Ivanti EPMM 第二個 RCE 漏洞（已被利用）",
+      "severity": "critical",
+      "cvss": 9.1,
+      "description": "Ivanti EPMM 另一個嚴重漏洞，與 CVE-2026-1281 配合使用可達成未授權遠端程式碼執行。已於荷蘭政府機構攻擊中被利用。",
+      "affected_products": ["Ivanti EPMM"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2025-40551",
+      "title": "SolarWinds Web Help Desk 反序列化漏洞",
+      "severity": "critical",
+      "cvss": 9.8,
+      "description": "SolarWinds Web Help Desk 存在不受信任資料反序列化漏洞，可被未授權利用。CISA 已加入 KEV 清單並要求優先修補。",
+      "affected_products": ["SolarWinds Web Help Desk"],
+      "patch_available": true
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅等級維持升高。多個重大零時差漏洞遭利用，包括 Chrome、Ivanti EPMM 及 BeyondTrust 產品。中國國家級駭客持續對台灣及東亞發動供應鏈攻擊。新型勒索軟體開始採用 BYOVD 技術繞過 EDR，資訊竊取程式演進至竊取 AI 代理設定。",
+    "key_trends": [
+      "企業行動裝置管理 (MDM/EPMM) 成為攻擊熱點",
+      "中國駭客針對開源軟體發動供應鏈攻擊",
+      "勒索軟體採用 BYOVD 技術繞過端點防護",
+      "AI 代理成為新型資訊竊取目標"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "更新 Google Chrome 至 145.0.7632.75 以上版本"
+    },
+    {
+      "priority": "high",
+      "action": "立即修補 Ivanti EPMM 零時差漏洞 CVE-2026-1281 和 CVE-2026-1340"
+    },
+    {
+      "priority": "high",
+      "action": "更新 BeyondTrust Remote Support/PRA 產品修補 CVE-2026-1731"
+    },
+    {
+      "priority": "high",
+      "action": "檢視軟體自動更新機制，評估供應鏈攻擊風險"
+    },
+    {
+      "priority": "medium",
+      "action": "評估 AI 代理和自動化工具的設定檔保護措施"
+    }
+  ],
+  "terms": [],
+  "references": [
+    {
+      "title": "CISA Adds Six Known Exploited Vulnerabilities to Catalog",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/02/10/cisa-adds-six-known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "Daily Cybersecurity News - February 10, 2026",
+      "url": "https://cyberrecaps.com/news/cybersecurity-news-february-10-2026/"
+    },
+    {
+      "title": "The State of Ransomware 2026 - BlackFog",
+      "url": "https://www.blackfog.com/the-state-of-ransomware-2026/"
+    }
+  ]
+}

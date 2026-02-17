@@ -1,0 +1,155 @@
+{
+  "title": "資安週報 2026/01/06 - 2026/01/12",
+  "report_id": "SEC-WEEKLY-2026-02",
+  "period": {
+    "start": "2026-01-06",
+    "end": "2026-01-12"
+  },
+  "publish_date": "2026-01-13",
+  "summary": {
+    "total_events": 6,
+    "total_vulnerabilities": 5,
+    "threat_level": "elevated"
+  },
+  "events": [
+    {
+      "title": "微軟 2026 年 1 月 Patch Tuesday 修補 114 個漏洞含 3 個零時差",
+      "severity": "critical",
+      "event_type": "漏洞公告",
+      "summary": "微軟發布 2026 年首個 Patch Tuesday 更新，修補 114 個漏洞，其中包含 1 個已被積極利用的零時差漏洞（CVE-2026-20805）和 2 個已公開揭露的零時差漏洞。",
+      "source": "Krebs on Security",
+      "url": "https://krebsonsecurity.com/2026/01/patch-tuesday-january-2026-edition/",
+      "date": "2026-01-09"
+    },
+    {
+      "title": "中國加劇對台灣基礎設施網路攻擊",
+      "severity": "critical",
+      "event_type": "APT 攻擊",
+      "summary": "台灣國安局報告顯示，2025 年中國對台灣關鍵基礎設施發動平均每天 263 萬次入侵嘗試，較 2024 年增加 6%。能源部門和醫療系統年增幅最高。",
+      "source": "BankInfoSecurity",
+      "url": "https://www.bankinfosecurity.asia/china-intensifies-cyberattacks-on-taiwan-infrastructure-a-30457",
+      "date": "2026-01-10"
+    },
+    {
+      "title": "CrazyHunter 勒索軟體攻擊台灣 6 家醫療機構",
+      "severity": "high",
+      "event_type": "勒索軟體",
+      "summary": "CrazyHunter 勒索軟體集團以進階入侵技術攻擊台灣醫療產業，已確認 6 家醫療機構受害。",
+      "source": "Industrial Cyber",
+      "url": "https://industrialcyber.co/ransomware/crazyhunter-ransomware-escalates-with-advanced-intrusion-tactics-six-taiwan-healthcare-victims-confirmed/",
+      "date": "2026-01-08"
+    },
+    {
+      "title": "Salt Typhoon 駭入美國國會郵件系統",
+      "severity": "high",
+      "event_type": "APT 攻擊",
+      "summary": "中國駭客組織 Salt Typhoon 入侵美國眾議院關鍵委員會員工使用的電子郵件系統，目標包括中國、外交事務、情報和軍事委員會的幕僚。",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/in-other-news-8000-ransomware-attacks-china-hacked-us-gov-emails-idhs-breach-impacts-700k/",
+      "date": "2026-01-10"
+    },
+    {
+      "title": "RansomHouse 攻擊 Apple 供應商立訊精密",
+      "severity": "high",
+      "event_type": "勒索軟體",
+      "summary": "1 月 8 日 RansomHouse 勒索軟體集團宣布對立訊精密（Luxshare）發動攻擊，該公司為 Apple iPhone 和 iPad 提供組裝服務。攻擊採用雙重勒索手法。",
+      "source": "CM Alliance",
+      "url": "https://www.cm-alliance.com/cybersecurity-blog/major-cyber-attacks-data-breaches-ransomware-attacks-in-january-2026",
+      "date": "2026-01-08"
+    },
+    {
+      "title": "BreachForums 資料庫外洩 32 萬會員資料",
+      "severity": "medium",
+      "event_type": "資料外洩",
+      "summary": "駭客論壇 BreachForums 的資料庫在網上外洩，包含 323,988 名會員的使用者名稱、密碼、電子郵件地址、IP 位址和註冊日期。",
+      "source": "Bright Defense",
+      "url": "https://www.brightdefense.com/resources/recent-data-breaches/",
+      "date": "2026-01-09"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-20805",
+      "title": "Windows Desktop Window Manager 資訊揭露漏洞（已被利用）",
+      "severity": "medium",
+      "cvss": 5.5,
+      "description": "Windows DWM 存在資訊揭露漏洞，可被未授權攻擊者利用以暴露敏感資訊。已被積極利用，用於繞過 ASLR 保護。",
+      "affected_products": ["Windows"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-20952",
+      "title": "Microsoft Office 遠端程式碼執行漏洞",
+      "severity": "critical",
+      "cvss": 8.4,
+      "description": "Microsoft Office 存在 use-after-free 漏洞，允許未經驗證的攻擊者透過惡意郵件執行任意程式碼。預覽窗格可作為攻擊向量。",
+      "affected_products": ["Microsoft Office"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-20944",
+      "title": "Microsoft Word 遠端程式碼執行漏洞",
+      "severity": "critical",
+      "cvss": 8.4,
+      "description": "Microsoft Word 存在越界讀取漏洞，可導致遠端程式碼執行。預覽窗格可作為攻擊向量。",
+      "affected_products": ["Microsoft Word"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-20854",
+      "title": "Windows LSASS Use-After-Free 漏洞",
+      "severity": "critical",
+      "cvss": 8.8,
+      "description": "Windows LSASS 存在 use-after-free 漏洞，可透過網路利用。LSASS 負責處理驗證請求，此漏洞可用於憑證竊取和橫向移動。",
+      "affected_products": ["Windows"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-21265",
+      "title": "Windows Secure Boot 安全功能繞過漏洞",
+      "severity": "medium",
+      "cvss": 6.4,
+      "description": "Windows Secure Boot 存在安全功能繞過漏洞，允許經過驗證的本機攻擊者以高權限繞過安全功能。已公開揭露。",
+      "affected_products": ["Windows"],
+      "patch_available": true
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅等級升高。微軟發布重大安全更新，中國對台灣網路攻擊持續升級，勒索軟體集團活動頻繁。醫療產業和科技供應鏈成為主要攻擊目標。",
+    "key_trends": [
+      "中國 APT 組織持續鎖定台灣關鍵基礎設施",
+      "勒索軟體攻擊瞄準醫療和科技供應鏈",
+      "Office 系列漏洞可透過預覽窗格觸發",
+      "Salt Typhoon 擴大對美國政府的滲透"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即套用微軟 2026 年 1 月 Patch Tuesday 更新，優先處理 CVE-2026-20805"
+    },
+    {
+      "priority": "high",
+      "action": "檢視 Microsoft Office 預覽窗格設定，考慮在高風險環境中停用"
+    },
+    {
+      "priority": "high",
+      "action": "醫療機構加強防範 CrazyHunter 勒索軟體，強化端點防護"
+    },
+    {
+      "priority": "medium",
+      "action": "審查郵件系統安全設定，防範 APT 組織滲透"
+    }
+  ],
+  "terms": [],
+  "references": [
+    {
+      "title": "Microsoft January 2026 Patch Tuesday - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-january-2026-patch-tuesday-fixes-3-zero-days-114-flaws/"
+    },
+    {
+      "title": "Global Cybersecurity Outlook 2026 - WEF",
+      "url": "https://reports.weforum.org/docs/WEF_Global_Cybersecurity_Outlook_2026.pdf"
+    }
+  ]
+}

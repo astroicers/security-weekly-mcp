@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>資安週報 2026/01/13 - 2026/01/19</title>
+    <meta name="description" content="資安週報 2026-01-13 - 2026-01-19">
+    <link rel="alternate" type="application/rss+xml" title="資安週報 RSS" href="../feed.xml">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --card-bg: #ffffff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        header { margin-bottom: 2rem; }
+        h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+        .meta { color: var(--text-muted); margin-bottom: 1rem; }
+        .back-link { color: var(--primary); text-decoration: none; display: inline-block; margin-bottom: 1.5rem; }
+        .back-link:hover { text-decoration: underline; }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .summary-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .summary-card .value { font-size: 1.5rem; font-weight: 700; }
+        .summary-card .label { color: var(--text-muted); font-size: 0.875rem; }
+        section { margin-bottom: 2rem; }
+        h2 { font-size: 1.25rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border); }
+        .event-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .event-card h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+        .event-card h3 a { color: var(--text); text-decoration: none; }
+        .event-card h3 a:hover { color: var(--primary); }
+        .event-meta { color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.5rem; }
+        table { width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: 8px; overflow: hidden; }
+        th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: var(--bg); font-weight: 600; }
+        td a { color: var(--primary); text-decoration: none; }
+        td a:hover { text-decoration: underline; }
+        .actions { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+        .actions ul { list-style: none; }
+        .actions li { padding: 0.5rem 0; }
+        /* 術語連結樣式 */
+        .term-link {
+            color: var(--primary);
+            text-decoration: underline dotted;
+            text-underline-offset: 2px;
+            cursor: help;
+        }
+        .term-link:hover {
+            text-decoration: underline solid;
+        }
+        /* 本期術語區塊樣式 */
+        .terms-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 12px;
+            border: 1px solid #bae6fd;
+        }
+        .terms-section h2 {
+            border-bottom-color: #7dd3fc;
+        }
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .term-card {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .term-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        .term-card h3 a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .term-card h3 a:hover {
+            text-decoration: underline;
+        }
+        .term-zh {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .term-def {
+            font-size: 0.85rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+        footer { margin-top: 3rem; text-align: center; color: var(--text-muted); font-size: 0.875rem; }
+        footer a { color: var(--primary); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../" class="back-link">&larr; 返回週報列表</a>
+
+        <header>
+            <h1>資安週報 2026/01/13 - 2026/01/19</h1>
+            <p class="meta">報告編號：SEC-WEEKLY-2026-03 · 發布日期：2026-01-20</p>
+        </header>
+
+        <div class="summary-grid">
+            <div class="summary-card">
+                <div class="value" style="color: #eab308;">升高</div>
+                <div class="label">威脅等級</div>
+            </div>
+            <div class="summary-card">
+                <div class="value">6</div>
+                <div class="label">資安事件</div>
+            </div>
+            <div class="summary-card">
+                <div class="value">3</div>
+                <div class="label">漏洞數量</div>
+            </div>
+        </div>
+
+        <section>
+            <h2>行動建議</h2>
+            <div class="actions">
+                <ul>
+                    <li>🔴 檢視開發基礎設施存取控制，確保 Git 伺服器不對外公開</li>
+<li>🔴 加強 <a href="https://astroicers.github.io/security-glossary-tw/glossary/infostealer" class="term-link" title="資訊竊取程式">Infostealer</a> 惡意程式防護，監控員工工作站異常行為</li>
+<li>🔴 更新 Fortinet 產品至最新版本，修補 <a href="https://astroicers.github.io/security-glossary-tw/glossary/cve" class="term-link" title="通用漏洞揭露">CVE</a>-2026-24858</li>
+<li>🟡 評估組織對量子運算威脅的準備程度，規劃後量子加密遷移</li>
+
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>資安新聞 (6)</h2>
+            
+        <div class="event-card">
+            <h3><a href="https://www.bleepingcomputer.com/news/security/target-employees-confirm-leaked-source-code-is-authentic/" target="_blank" rel="noopener">Target 860GB 原始碼遭竊並在暗網販售</a></h3>
+            <p class="event-meta">BleepingComputer · 2026-01-13</p>
+            <p>美國零售巨頭 Target 內部原始碼、設定檔及開發文件共 860GB <a href="https://astroicers.github.io/security-glossary-tw/glossary/data_exfiltration" class="term-link" title="資料外洩">資料外洩</a>。多名員工證實外洩資料為真。資料包含錢包服務、身份管理系統、CI/CD 管線等敏感內容。...</p>
+        </div>
+        
+        <div class="event-card">
+            <h3><a href="https://blog.senthorus.ch/posts/20_01_2026" target="_blank" rel="noopener">Grubhub 遭入侵並面臨勒索</a></h3>
+            <p class="event-meta">Senthorus · 2026-01-15</p>
+            <p>美國外送平台 Grubhub 確認遭受重大資料外洩，未經授權的攻擊者存取了內部系統。公司目前面臨勒索威脅，據傳與 ShinyHunters 集團的 Salesforce 攻擊活動有關。...</p>
+        </div>
+        
+        <div class="event-card">
+            <h3><a href="https://www.comparitech.com/news/ransomware-roundup-january-2026/" target="_blank" rel="noopener">Qilin 勒索軟體 1 月份攻擊量居冠</a></h3>
+            <p class="event-meta">Comparitech · 2026-01-18</p>
+            <p><a href="https://astroicers.github.io/security-glossary-tw/glossary/qilin" class="term-link" title="Qilin 勒索軟體組織">Qilin</a> 勒索軟體集團在 2026 年 1 月以 108 次攻擊宣稱居首。美國仍是主要目標，共遭受 329 次攻擊。台灣 Y.C.C. Parts MFG Co., Ltd. 也被列入受害名單。...</p>
+        </div>
+        
+        <div class="event-card">
+            <h3><a href="https://www.cm-alliance.com/cybersecurity-blog/major-cyber-attacks-data-breaches-ransomware-attacks-in-january-2026" target="_blank" rel="noopener">比利時 AZ Monica 醫院遭網路攻擊癱瘓</a></h3>
+            <p class="event-meta">CM Alliance · 2026-01-13</p>
+            <p>1 月 13 日比利時醫療機構 AZ Monica 發現系統遭未授權存取，被迫中斷所有伺服器。攻擊嚴重影響醫院運作，急診、加護病房暫停，所有排程手術和門診延後。...</p>
+        </div>
+        
+        <div class="event-card">
+            <h3><a href="https://diesec.com/2026/02/january-2026-cybersecurity-round-up/" target="_blank" rel="noopener">中國解放軍公開量子網戰工具開發計畫</a></h3>
+            <p class="event-meta">DIESEC · 2026-01-17</p>
+            <p>中國人民解放軍公開披露正在開發量子網路戰工具，旨在從公共網路收集軍事情報。此舉標誌網路軍備競賽進入新階段，量子技術將挑戰現有加密防禦。...</p>
+        </div>
+        
+        <div class="event-card">
+            <h3><a href="https://blog.senthorus.ch/posts/20_01_2026" target="_blank" rel="noopener">Moen 水龍頭製造商遭 Qilin 勒索軟體攻擊</a></h3>
+            <p class="event-meta">Senthorus · 2026-01-16</p>
+            <p>美國知名水龍頭製造商 Moen 遭 Qilin 勒索軟體攻擊，關鍵業務系統被加密，營運受到影響。攻擊者威脅若不支付贖金將外洩敏感公司資料。...</p>
+        </div>
+        
+        </section>
+
+        <section>
+            <h2>漏洞追蹤 (3)</h2>
+            <table>
+                <thead>
+                    <tr><th>CVE ID</th><th>描述</th><th>嚴重性</th><th>CVSS</th></tr>
+                </thead>
+                <tbody>
+        <tr>
+            <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-21509" target="_blank">CVE-2026-21509</a></td>
+            <td>Microsoft Office 安全功能繞過零時差漏洞...</td>
+            <td style="color: #f97316; font-weight: 600;">HIGH</td>
+            <td>7.8</td>
+        </tr>
+        
+        <tr>
+            <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-24858" target="_blank">CVE-2026-24858</a></td>
+            <td>Fortinet 多產品跨帳戶存取漏洞...</td>
+            <td style="color: #f97316; font-weight: 600;">HIGH</td>
+            <td>8.1</td>
+        </tr>
+        
+        <tr>
+            <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-0001" target="_blank">CVE-2026-0001</a></td>
+            <td>n8n 伺服器 Ni8mare 遠端程式碼執行漏洞...</td>
+            <td style="color: #ef4444; font-weight: 600;">CRITICAL</td>
+            <td>9.8</td>
+        </tr>
+        </tbody>
+            </table>
+        </section>
+
+        
+        <section class="terms-section">
+            <h2>📚 本期術語 (4)</h2>
+            <div class="terms-grid">
+                
+            <div class="term-card">
+                <h3><a href="https://astroicers.github.io/security-glossary-tw/glossary/data_exfiltration" target="_blank">Data Exfiltration</a></h3>
+                <p class="term-zh">資料外洩</p>
+                <p class="term-def">攻擊者將竊取的資料傳送出目標網路</p>
+            </div>
+            
+            <div class="term-card">
+                <h3><a href="https://astroicers.github.io/security-glossary-tw/glossary/qilin" target="_blank">Qilin</a></h3>
+                <p class="term-zh">Qilin 勒索軟體組織</p>
+                <p class="term-def">採用 RaaS 模式的勒索軟體犯罪組織</p>
+            </div>
+            
+            <div class="term-card">
+                <h3><a href="https://astroicers.github.io/security-glossary-tw/glossary/infostealer" target="_blank">Infostealer</a></h3>
+                <p class="term-zh">資訊竊取程式</p>
+                <p class="term-def">專門竊取敏感資訊的惡意程式</p>
+            </div>
+            
+            <div class="term-card">
+                <h3><a href="https://astroicers.github.io/security-glossary-tw/glossary/cve" target="_blank">CVE</a></h3>
+                <p class="term-zh">通用漏洞揭露</p>
+                <p class="term-def">公開已知漏洞的統一編號系統</p>
+            </div>
+            
+            </div>
+        </section>
+        
+
+        <footer>
+            <p>
+                <a href="../feed.xml">訂閱 RSS</a> ·
+                由 <a href="https://github.com/AstroicerS/security-weekly-mcp">security-weekly-mcp</a> 生成
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

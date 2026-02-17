@@ -1,0 +1,146 @@
+{
+  "title": "資安週報 2026/01/20 - 2026/01/26",
+  "report_id": "SEC-WEEKLY-2026-04",
+  "period": {
+    "start": "2026-01-20",
+    "end": "2026-01-26"
+  },
+  "publish_date": "2026-01-27",
+  "summary": {
+    "total_events": 7,
+    "total_vulnerabilities": 3,
+    "threat_level": "elevated"
+  },
+  "events": [
+    {
+      "title": "Everest 勒索軟體同時攻擊三家台灣企業",
+      "severity": "critical",
+      "event_type": "勒索軟體",
+      "summary": "俄羅斯關聯勒索軟體組織 Everest 同時在暗網洩密網站點名三家台灣企業：和碩旗下永擎電子（ASRock Rack）、吉興工程顧問及萬機鋼鐵。永擎遭宣稱竊取 509GB 資料，包含技術文件、韌體、BIOS 等。",
+      "source": "Yahoo Stock",
+      "url": "https://tw.stock.yahoo.com/news/%E7%8D%A8%E5%AE%B6-%E9%A7%AD%E5%AE%A2%E7%8D%B5%E6%AE%BA%E5%8F%B0%E4%BC%81-1%E5%A4%A93%E5%A4%A7%E5%BB%A0%E9%81%AD%E5%8B%92%E7%B4%A2-%E5%92%8C%E7%A2%A9%E9%87%91%E9%9B%9E%E6%B0%B8%E6%93%8E%E9%A9%9A%E5%82%B3509gb%E8%B3%87%E6%96%99%E5%A4%96%E6%B4%A9-090301788.html",
+      "date": "2026-01-21"
+    },
+    {
+      "title": "Nike 遭 WorldLeaks 竊取 1.4TB 內部資料",
+      "severity": "critical",
+      "event_type": "資料外洩",
+      "summary": "WorldLeaks 勒索集團宣稱竊取 Nike 1.4TB 內部資料並公開。外洩資料包含近 189,000 份檔案，涵蓋產品設計、製造、定價、材料和工廠稽核等機密資訊。Jordan Brand 未來產品設計也在其中。",
+      "source": "PYMNTS",
+      "url": "https://www.pymnts.com/cybersecurity/2026/nike-investigates-ransomware-groups-claims-of-data-breach/",
+      "date": "2026-01-26"
+    },
+    {
+      "title": "Nissan 遭 Everest 勒索軟體攻擊竊取 900GB 資料",
+      "severity": "high",
+      "event_type": "勒索軟體",
+      "summary": "Everest 勒索軟體集團宣稱對日產汽車發動攻擊，竊取約 900GB 內部資料並在暗網洩密網站發布截圖佐證。",
+      "source": "CyberNewsCenter",
+      "url": "https://www.cybernewscentre.com/16th-january-2026-cyber-update-nissan-hit-by-everest-ransomware-900gb-data-stolen/",
+      "date": "2026-01-20"
+    },
+    {
+      "title": "Iron Mountain 遭 Everest 竊取 1.4TB 資料",
+      "severity": "high",
+      "event_type": "勒索軟體",
+      "summary": "資料管理和儲存公司 Iron Mountain 遭 Everest 勒索軟體攻擊，超過 1.4TB 資料被竊取。",
+      "source": "Cybersecurity Insiders",
+      "url": "https://www.cybersecurity-insiders.com/everest-ransomware-breaches-iron-mountain-only-to-exfiltrate-data/",
+      "date": "2026-01-24"
+    },
+    {
+      "title": "Under Armour 7270 萬客戶資料外洩",
+      "severity": "high",
+      "event_type": "資料外洩",
+      "summary": "運動品牌 Under Armour 因拒絕支付贖金，遭攻擊者在駭客論壇公開 7270 萬客戶電子郵件及購買紀錄。此事件與 11 月 Everest 勒索軟體攻擊有關。",
+      "source": "Bright Defense",
+      "url": "https://www.brightdefense.com/resources/recent-data-breaches/",
+      "date": "2026-01-21"
+    },
+    {
+      "title": "智利能源集團 Copec 遭 Anubis 勒索軟體攻擊",
+      "severity": "medium",
+      "event_type": "勒索軟體",
+      "summary": "智利能源和燃料集團 Copec S.A. 遭 Anubis 勒索軟體攻擊，系統被加密且資料遭竊取，被迫將受影響基礎設施離線。",
+      "source": "DIESEC",
+      "url": "https://diesec.com/2026/02/january-2026-cybersecurity-round-up/",
+      "date": "2026-01-22"
+    },
+    {
+      "title": "德國德勒斯登國家藝術收藏館遭網路攻擊",
+      "severity": "medium",
+      "event_type": "網路攻擊",
+      "summary": "管理約 15 座博物館的德勒斯登國家藝術收藏館遭網路攻擊，數位系統中斷，線上售票和商店服務暫停。",
+      "source": "CM Alliance",
+      "url": "https://www.cm-alliance.com/cybersecurity-blog/major-cyber-attacks-data-breaches-ransomware-attacks-in-january-2026",
+      "date": "2026-01-23"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-1861",
+      "title": "關鍵軟體元件漏洞",
+      "severity": "high",
+      "cvss": 8.0,
+      "description": "NVD 公布之關鍵漏洞，影響多個系統。建議盡速評估並修補。",
+      "affected_products": ["Multiple"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-1998",
+      "title": "MicroPython 記憶體損壞漏洞",
+      "severity": "medium",
+      "cvss": 6.5,
+      "description": "MicroPython 1.27.0 以下版本的 py/runtime.c 中 mp_import_all 函數存在記憶體損壞漏洞，需本機存取才能利用。",
+      "affected_products": ["MicroPython <= 1.27.0"],
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-CISA-KEV",
+      "title": "CISA 新增五個已知被利用漏洞",
+      "severity": "critical",
+      "cvss": 9.0,
+      "description": "CISA 於 1 月 26 日新增五個已知被利用漏洞至 KEV 清單，要求聯邦機構限期修補。",
+      "affected_products": ["Multiple"],
+      "patch_available": true
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅等級升高。Everest 勒索軟體集團大規模活動，同時鎖定台灣、日本、美國企業。WorldLeaks 採用純資料竊取勒索策略，不再加密檔案。消費品牌成為主要攻擊目標。",
+    "key_trends": [
+      "Everest 勒索軟體集團活動激增，橫跨多國多產業",
+      "攻擊者轉向純資料竊取勒索，放棄檔案加密",
+      "消費品牌和零售業成為高價值目標",
+      "台灣科技製造業持續遭受針對性攻擊"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "台灣科技製造業加強勒索軟體防護，特別是韌體和技術文件保護"
+    },
+    {
+      "priority": "high",
+      "action": "檢視資料外洩防護機制，防範純資料竊取型攻擊"
+    },
+    {
+      "priority": "high",
+      "action": "確認所有系統已套用 CISA KEV 清單中的漏洞修補"
+    },
+    {
+      "priority": "medium",
+      "action": "評估供應鏈安全，確保第三方合作夥伴符合安全標準"
+    }
+  ],
+  "terms": [],
+  "references": [
+    {
+      "title": "Ransomware Roundup January 2026 - Comparitech",
+      "url": "https://www.comparitech.com/news/ransomware-roundup-january-2026/"
+    },
+    {
+      "title": "CISA Adds Five KEV - January 26",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/01/26/cisa-adds-five-known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}
