@@ -134,6 +134,19 @@ security-weekly-mcp/                    # Monorepo (uv workspace)
 └─────────────────────────────────────────────────────────────┘
 ```
 
+## HTML 週報與術語整合
+
+`scripts/generate_rss.py` 產生的 HTML 週報包含：
+
+1. **術語連結** - 事件摘要、漏洞標題、行動建議中的術語自動連結至術語庫
+2. **本期術語區塊** - 頁面底部顯示本期出現的關鍵術語及定義（最多 10 個）
+3. **RSS 術語摘要** - RSS feed 的 description 包含相關術語列表
+
+術語連結規則：
+
+- 每個術語只在首次出現時加連結（避免過多連結干擾閱讀）
+- 連結指向 `https://astroicers.github.io/security-glossary-tw/glossary/{term_id}`
+
 ## 術語自動提取設計
 
 `extract_terms` 工具會：

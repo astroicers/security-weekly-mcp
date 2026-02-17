@@ -21,9 +21,9 @@ from zoneinfo import ZoneInfo
 # 專案根目錄
 PROJECT_ROOT = Path(__file__).parent.parent
 
-# 引入術語庫
+# 引入術語庫（需動態加入 path，因此無法放在檔案頂端）
 sys.path.insert(0, str(PROJECT_ROOT / "packages" / "glossary" / "src"))
-from security_glossary_tw import Glossary
+from security_glossary_tw import Glossary  # noqa: E402
 
 # 初始化術語庫
 GLOSSARY = Glossary(terms_dir=PROJECT_ROOT / "packages" / "glossary" / "terms")
@@ -95,6 +95,36 @@ def parse_publish_date(date_str: str) -> datetime:
     return dt.replace(tzinfo=TIMEZONE)
 
 
+def extract_terms_from_report(report: dict) -> list[dict]:
+    """從週報內容中提取術語（用於 RSS 摘要）"""
+    linked_terms: set = set()
+    all_terms: list = []
+
+    # 掃描事件摘要
+    for event in report.get("events", []):
+        _, linked_terms, new_terms = add_term_links_html(
+            event.get("summary", ""), linked_terms
+        )
+        all_terms.extend(new_terms)
+
+    # 掃描漏洞標題
+    for vuln in report.get("vulnerabilities", []):
+        _, linked_terms, new_terms = add_term_links_html(
+            vuln.get("title", ""), linked_terms
+        )
+        all_terms.extend(new_terms)
+
+    # 去重
+    seen = set()
+    unique_terms = []
+    for term in all_terms:
+        if term["id"] not in seen:
+            seen.add(term["id"])
+            unique_terms.append(term)
+
+    return unique_terms
+
+
 def format_description(report: dict) -> str:
     """格式化 RSS item 的 description"""
     summary = report.get("summary", {})
@@ -128,6 +158,13 @@ def format_description(report: dict) -> str:
             if len(title) > 60:
                 title = title[:57] + "..."
             lines.append(f"• {title}")
+
+    # 加入本期術語摘要
+    terms = extract_terms_from_report(report)
+    if terms:
+        lines.append("")
+        term_names = [t.get("term_en") or t.get("term_zh", "") for t in terms[:5]]
+        lines.append(f"相關術語：{', '.join(term_names)}")
 
     return "\n".join(lines)
 
@@ -523,7 +560,7 @@ def main():
     reports_output_dir.mkdir(parents=True, exist_ok=True)
 
     # 生成每篇週報的 HTML 頁面
-    print(f"\n生成週報 HTML 頁面...")
+    print("\n生成週報 HTML 頁面...")
     for item in items:
         report_id = item.get("report_id", "unknown")
         report_html = generate_report_html(item)
@@ -543,7 +580,7 @@ def main():
     feed_path = output_dir / "feed.xml"
     feed_path.write_text(rss_xml, encoding="utf-8")
 
-    print(f"\n已生成:")
+    print("\n已生成:")
     print(f"  - {feed_path} ({feed_path.stat().st_size / 1024:.1f} KB)")
     print(f"  - {len(items)} 個週報 HTML 頁面")
 
