@@ -12,13 +12,79 @@
 import argparse
 import html
 import json
+import sys
 from datetime import datetime
 from email.utils import format_datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+# 專案根目錄
+PROJECT_ROOT = Path(__file__).parent.parent
+
+# 引入術語庫
+sys.path.insert(0, str(PROJECT_ROOT / "packages" / "glossary" / "src"))
+from security_glossary_tw import Glossary
+
+# 初始化術語庫
+GLOSSARY = Glossary(terms_dir=PROJECT_ROOT / "packages" / "glossary" / "terms")
+GLOSSARY_BASE_URL = "https://astroicers.github.io/security-glossary-tw/glossary"
+
 SITE_URL = "https://astroicers.github.io/security-glossary-tw/weekly"
 FEED_TITLE = "資安週報 | Security Weekly TW"
+
+
+def add_term_links_html(text: str, linked_terms: set) -> tuple[str, set, list]:
+    """為文本中的術語加上 HTML 連結（只為首次出現的術語加連結）
+
+    Args:
+        text: 要處理的文本
+        linked_terms: 已經連結過的術語 ID 集合
+
+    Returns:
+        tuple: (處理後的文本, 更新後的已連結術語集合, 本次新連結的術語資訊列表)
+    """
+    if not text:
+        return text, linked_terms, []
+
+    # 找出文本中的所有術語
+    matches = GLOSSARY.find_terms(text)
+    if not matches:
+        return text, linked_terms, []
+
+    # 按位置從後往前處理，避免位置偏移
+    matches_sorted = sorted(matches, key=lambda m: m.start, reverse=True)
+
+    new_terms = []
+    result = text
+
+    for match in matches_sorted:
+        # 只為首次出現的術語加連結
+        if match.term_id in linked_terms:
+            continue
+
+        term = GLOSSARY.get(match.term_id)
+        if not term:
+            continue
+
+        # 記錄新連結的術語
+        linked_terms.add(match.term_id)
+        new_terms.append({
+            "id": term.id,
+            "term_en": term.term_en,
+            "term_zh": term.term_zh,
+            "definition": term.definitions.brief if term.definitions else "",
+        })
+
+        # 生成連結 HTML
+        term_url = f"{GLOSSARY_BASE_URL}/{term.id}"
+        tooltip = html.escape(term.term_zh or term.term_en)
+        matched_text = result[match.start:match.end]
+        link_html = f'<a href="{term_url}" class="term-link" title="{tooltip}">{html.escape(matched_text)}</a>'
+
+        # 替換文本
+        result = result[:match.start] + link_html + result[match.end:]
+
+    return result, linked_terms, new_terms
 FEED_DESCRIPTION = "台灣資安週報，每週更新最新資安威脅、漏洞與新聞"
 TIMEZONE = ZoneInfo("Asia/Taipei")
 
@@ -86,30 +152,42 @@ def generate_report_html(report: dict) -> str:
         summary.get("threat_level", "normal"), ("一般", "#22c55e")
     )
 
-    # 生成事件列表 HTML
+    # 追蹤已連結的術語（首次出現才連結）
+    linked_terms: set = set()
+    all_linked_terms: list = []
+
+    # 生成事件列表 HTML（加入術語連結）
     events_html = ""
     for event in events:
-        event_title = html.escape(event.get("title", ""))
-        event_summary = html.escape(event.get("summary", "")[:200])
+        event_title = event.get("title", "")
+        event_summary = event.get("summary", "")[:200]
         event_source = html.escape(event.get("source", ""))
         event_url = event.get("url", "#")
         event_date = event.get("date", "")[:10]
 
+        # 為事件摘要加術語連結
+        linked_summary, linked_terms, new_terms = add_term_links_html(event_summary, linked_terms)
+        all_linked_terms.extend(new_terms)
+
         events_html += f"""
         <div class="event-card">
-            <h3><a href="{event_url}" target="_blank" rel="noopener">{event_title}</a></h3>
+            <h3><a href="{event_url}" target="_blank" rel="noopener">{html.escape(event_title)}</a></h3>
             <p class="event-meta">{event_source} · {event_date}</p>
-            <p>{event_summary}...</p>
+            <p>{linked_summary}...</p>
         </div>
         """
 
-    # 生成漏洞列表 HTML
+    # 生成漏洞列表 HTML（加入術語連結）
     vulns_html = ""
     for vuln in vulnerabilities[:10]:  # 限制顯示 10 個
         cve_id = html.escape(vuln.get("cve_id", ""))
-        vuln_title = html.escape(vuln.get("title", "")[:100])
+        vuln_title = vuln.get("title", "")[:100]
         severity = vuln.get("severity", "low")
         cvss = vuln.get("cvss", 0)
+
+        # 為漏洞標題加術語連結
+        linked_vuln_title, linked_terms, new_terms = add_term_links_html(vuln_title, linked_terms)
+        all_linked_terms.extend(new_terms)
 
         severity_colors = {
             "critical": "#ef4444",
@@ -122,20 +200,60 @@ def generate_report_html(report: dict) -> str:
         vulns_html += f"""
         <tr>
             <td><a href="https://nvd.nist.gov/vuln/detail/{cve_id}" target="_blank">{cve_id}</a></td>
-            <td>{vuln_title}...</td>
+            <td>{linked_vuln_title}...</td>
             <td style="color: {sev_color}; font-weight: 600;">{severity.upper()}</td>
             <td>{cvss if cvss > 0 else "N/A"}</td>
         </tr>
         """
 
-    # 生成行動建議 HTML
+    # 生成行動建議 HTML（加入術語連結）
     actions_html = ""
     for item in action_items:
         priority = item.get("priority", "low")
-        action = html.escape(item.get("action", ""))
+        action = item.get("action", "")
         priority_icons = {"high": "🔴", "medium": "🟡", "low": "🟢"}
         icon = priority_icons.get(priority, "⚪")
-        actions_html += f"<li>{icon} {action}</li>\n"
+
+        # 為行動建議加術語連結
+        linked_action, linked_terms, new_terms = add_term_links_html(action, linked_terms)
+        all_linked_terms.extend(new_terms)
+
+        actions_html += f"<li>{icon} {linked_action}</li>\n"
+
+    # 生成「本期術語」區塊 HTML
+    terms_html = ""
+    if all_linked_terms:
+        # 去重並保持順序
+        seen = set()
+        unique_terms = []
+        for term in all_linked_terms:
+            if term["id"] not in seen:
+                seen.add(term["id"])
+                unique_terms.append(term)
+
+        terms_cards = ""
+        for term in unique_terms[:10]:  # 最多顯示 10 個術語
+            term_url = f"{GLOSSARY_BASE_URL}/{term['id']}"
+            term_en = html.escape(term.get("term_en", ""))
+            term_zh = html.escape(term.get("term_zh", ""))
+            term_def = html.escape(term.get("definition", ""))
+
+            terms_cards += f"""
+            <div class="term-card">
+                <h3><a href="{term_url}" target="_blank">{term_en}</a></h3>
+                <p class="term-zh">{term_zh}</p>
+                <p class="term-def">{term_def}</p>
+            </div>
+            """
+
+        terms_html = f"""
+        <section class="terms-section">
+            <h2>📚 本期術語 ({len(unique_terms)})</h2>
+            <div class="terms-grid">
+                {terms_cards}
+            </div>
+        </section>
+        """
 
     return f"""<!DOCTYPE html>
 <html lang="zh-TW">
@@ -204,6 +322,60 @@ def generate_report_html(report: dict) -> str:
         .actions {{ background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }}
         .actions ul {{ list-style: none; }}
         .actions li {{ padding: 0.5rem 0; }}
+        /* 術語連結樣式 */
+        .term-link {{
+            color: var(--primary);
+            text-decoration: underline dotted;
+            text-underline-offset: 2px;
+            cursor: help;
+        }}
+        .term-link:hover {{
+            text-decoration: underline solid;
+        }}
+        /* 本期術語區塊樣式 */
+        .terms-section {{
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 12px;
+            border: 1px solid #bae6fd;
+        }}
+        .terms-section h2 {{
+            border-bottom-color: #7dd3fc;
+        }}
+        .terms-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }}
+        .term-card {{
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }}
+        .term-card h3 {{
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }}
+        .term-card h3 a {{
+            color: var(--primary);
+            text-decoration: none;
+        }}
+        .term-card h3 a:hover {{
+            text-decoration: underline;
+        }}
+        .term-zh {{
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }}
+        .term-def {{
+            font-size: 0.85rem;
+            color: var(--text);
+            line-height: 1.5;
+        }}
         footer {{ margin-top: 3rem; text-align: center; color: var(--text-muted); font-size: 0.875rem; }}
         footer a {{ color: var(--primary); text-decoration: none; }}
     </style>
@@ -255,6 +427,8 @@ def generate_report_html(report: dict) -> str:
                 <tbody>{vulns_html}</tbody>
             </table>''' if vulns_html else '<p>本週無重要漏洞</p>'}
         </section>
+
+        {terms_html}
 
         <footer>
             <p>
