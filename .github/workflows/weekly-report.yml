@@ -8,6 +8,9 @@ on:
 env:
   UV_CACHE_DIR: /tmp/.uv-cache
 
+permissions:
+  contents: write  # 允許 push 到 repo
+
 jobs:
   generate-report:
     runs-on: ubuntu-latest
