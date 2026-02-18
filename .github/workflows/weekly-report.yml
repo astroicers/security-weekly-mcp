@@ -1,0 +1,90 @@
+name: Weekly Security Report
+
+on:
+  schedule:
+    - cron: '0 1 * * MON'  # UTC 01:00 = 台灣 09:00
+  workflow_dispatch:  # 手動觸發
+
+env:
+  UV_CACHE_DIR: /tmp/.uv-cache
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30  # Claude 可能需要較長時間
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install Python dependencies
+        run: uv sync
+
+      - name: Install Node dependencies
+        working-directory: scripts
+        run: npm install
+
+      - name: Configure Claude MCP Server
+        run: |
+          mkdir -p ~/.claude
+          cat > ~/.claude/settings.json << EOF
+          {
+            "mcpServers": {
+              "security-weekly-tw": {
+                "command": "uv",
+                "args": [
+                  "run",
+                  "--directory", "${{ github.workspace }}",
+                  "--package", "security-weekly-mcp-server",
+                  "python", "-m", "security_weekly_mcp.server"
+                ]
+              }
+            }
+          }
+          EOF
+
+      - name: Generate weekly report with Claude
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        working-directory: ${{ github.workspace }}
+        run: node scripts/claude-weekly-report.mjs
+
+      - name: Check for new reports
+        id: check_reports
+        run: |
+          git add output/reports/
+          if git diff --staged --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No new reports generated"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "New reports found"
+          fi
+
+      - name: Commit and push
+        if: steps.check_reports.outputs.has_changes == 'true'
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git commit -m "report: weekly security report $(date +%Y-W%V)
+
+          Generated automatically by Claude Agent SDK
+
+          Co-Authored-By: Claude <noreply@anthropic.com>"
+          git push

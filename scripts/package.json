@@ -1,0 +1,12 @@
+{
+  "name": "security-weekly-scripts",
+  "version": "1.0.0",
+  "description": "Scripts for security weekly report automation",
+  "type": "module",
+  "scripts": {
+    "weekly-report": "node claude-weekly-report.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.2.45"
+  }
+}
