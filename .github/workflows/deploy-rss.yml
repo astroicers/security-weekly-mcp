@@ -58,3 +58,15 @@ jobs:
             git commit -m "rss: update weekly feed and reports $(date +%Y-%m-%d)"
             git push
           fi
+
+      - name: Send LINE Notify
+        if: success()
+        continue-on-error: true
+        env:
+          LINE_NOTIFY_TOKEN: ${{ secrets.LINE_NOTIFY_TOKEN }}
+        run: |
+          if [ -z "$LINE_NOTIFY_TOKEN" ]; then
+            echo "LINE_NOTIFY_TOKEN not set, skipping notification"
+            exit 0
+          fi
+          uv run python scripts/notify_line.py --latest

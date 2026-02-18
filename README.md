@@ -368,6 +368,53 @@ CI/CD 已設定 `submodules: recursive`，自動處理。
 
 ---
 
+## LINE Notify 整合
+
+當週報部署到 GitHub Pages 時，自動發送 LINE 通知給訂閱者。
+
+### 設定步驟
+
+1. **建立 LINE Notify 服務**
+   - 前往 [LINE Notify](https://notify-bot.line.me/my/)
+   - 點擊「產生權杖」
+   - 選擇要接收通知的聊天室（個人或群組）
+   - 複製產生的 Access Token
+
+2. **設定 GitHub Secret**
+   - 前往專案的 Settings > Secrets and variables > Actions
+   - 點擊「New repository secret」
+   - Name: `LINE_NOTIFY_TOKEN`
+   - Value: 貼上步驟 1 取得的 Access Token
+
+3. **完成！** 之後每次週報發布時，LINE 會自動收到通知：
+
+```text
+📰 台灣資安週報 2026-W08 已發布
+
+本週摘要：
+• 3 起資安事件
+• 5 個高風險漏洞
+• 威脅等級：中
+
+閱讀完整報告：
+https://astroicers.github.io/security-glossary-tw/weekly/reports/SEC-WEEKLY-2026-W08.html
+```
+
+### 手動發送測試
+
+```bash
+# 設定環境變數
+export LINE_NOTIFY_TOKEN="your-token-here"
+
+# 預覽訊息（不實際發送）
+uv run python scripts/notify_line.py --latest --dry-run
+
+# 發送通知
+uv run python scripts/notify_line.py --latest
+```
+
+---
+
 ## 相關專案
 
 | 專案 | 說明 |
