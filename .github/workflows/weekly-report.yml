@@ -15,6 +15,8 @@ jobs:
   generate-report:
     runs-on: ubuntu-latest
     timeout-minutes: 30  # Claude 可能需要較長時間
+    outputs:
+      has_changes: ${{ steps.check_reports.outputs.has_changes }}
 
     steps:
       - name: Checkout repository
@@ -91,3 +93,10 @@ jobs:
 
           Co-Authored-By: Claude <noreply@anthropic.com>"
           git push
+
+  # 部署 RSS 到 glossary 網站
+  deploy-rss:
+    needs: generate-report
+    if: needs.generate-report.outputs.has_changes == 'true' || github.event_name == 'workflow_dispatch'
+    uses: ./.github/workflows/deploy-rss.yml
+    secrets: inherit
