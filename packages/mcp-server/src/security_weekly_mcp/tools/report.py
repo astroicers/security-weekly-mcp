@@ -21,17 +21,14 @@ async def list_tools() -> list[Tool]:
             inputSchema={
                 "type": "object",
                 "properties": {
-                    "title": {
-                        "type": "string",
-                        "description": "週報標題"
-                    },
+                    "title": {"type": "string", "description": "週報標題"},
                     "period_start": {
                         "type": "string",
-                        "description": "報告期間開始日期（YYYY-MM-DD）"
+                        "description": "報告期間開始日期（YYYY-MM-DD）",
                     },
                     "period_end": {
                         "type": "string",
-                        "description": "報告期間結束日期（YYYY-MM-DD）"
+                        "description": "報告期間結束日期（YYYY-MM-DD）",
                     },
                     "events": {
                         "type": "array",
@@ -40,13 +37,19 @@ async def list_tools() -> list[Tool]:
                             "type": "object",
                             "properties": {
                                 "title": {"type": "string"},
-                                "severity": {"type": "string", "enum": ["critical", "high", "medium", "low"]},
+                                "severity": {
+                                    "type": "string",
+                                    "enum": ["critical", "high", "medium", "low"],
+                                },
                                 "event_type": {"type": "string"},
                                 "summary": {"type": "string"},
-                                "affected_industries": {"type": "array", "items": {"type": "string"}},
-                                "recommendations": {"type": "array", "items": {"type": "string"}}
-                            }
-                        }
+                                "affected_industries": {
+                                    "type": "array",
+                                    "items": {"type": "string"},
+                                },
+                                "recommendations": {"type": "array", "items": {"type": "string"}},
+                            },
+                        },
                     },
                     "vulnerabilities": {
                         "type": "array",
@@ -58,9 +61,9 @@ async def list_tools() -> list[Tool]:
                                 "product": {"type": "string"},
                                 "cvss": {"type": "number"},
                                 "status": {"type": "string"},
-                                "priority": {"type": "string"}
-                            }
-                        }
+                                "priority": {"type": "string"},
+                            },
+                        },
                     },
                     "threat_trends": {
                         "type": "object",
@@ -68,8 +71,8 @@ async def list_tools() -> list[Tool]:
                         "properties": {
                             "summary": {"type": "string"},
                             "active_actors": {"type": "array", "items": {"type": "object"}},
-                            "attack_techniques": {"type": "array", "items": {"type": "string"}}
-                        }
+                            "attack_techniques": {"type": "array", "items": {"type": "string"}},
+                        },
                     },
                     "action_items": {
                         "type": "array",
@@ -80,9 +83,9 @@ async def list_tools() -> list[Tool]:
                                 "priority": {"type": "string", "enum": ["P1", "P2", "P3", "P4"]},
                                 "action": {"type": "string"},
                                 "owner": {"type": "string"},
-                                "deadline": {"type": "string"}
-                            }
-                        }
+                                "deadline": {"type": "string"},
+                            },
+                        },
                     },
                     "terms": {
                         "type": "array",
@@ -92,24 +95,21 @@ async def list_tools() -> list[Tool]:
                             "properties": {
                                 "term": {"type": "string"},
                                 "definition": {"type": "string"},
-                                "url": {"type": "string"}
-                            }
-                        }
+                                "url": {"type": "string"},
+                            },
+                        },
                     },
                     "references": {
                         "type": "array",
                         "description": "參考資料",
                         "items": {
                             "type": "object",
-                            "properties": {
-                                "title": {"type": "string"},
-                                "url": {"type": "string"}
-                            }
-                        }
-                    }
+                            "properties": {"title": {"type": "string"}, "url": {"type": "string"}},
+                        },
+                    },
                 },
-                "required": ["title", "period_start", "period_end"]
-            }
+                "required": ["title", "period_start", "period_end"],
+            },
         ),
         Tool(
             name="list_reports",
@@ -117,13 +117,9 @@ async def list_tools() -> list[Tool]:
             inputSchema={
                 "type": "object",
                 "properties": {
-                    "limit": {
-                        "type": "integer",
-                        "description": "回傳數量限制",
-                        "default": 10
-                    }
-                }
-            }
+                    "limit": {"type": "integer", "description": "回傳數量限制", "default": 10}
+                },
+            },
         ),
     ]
 
@@ -142,28 +138,24 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         report_data = {
             "title": arguments.get("title", "資安週報"),
             "report_id": f"SEC-WEEKLY-{_get_week_number(arguments['period_start'])}",
-            "period": {
-                "start": arguments["period_start"],
-                "end": arguments["period_end"]
-            },
+            "period": {"start": arguments["period_start"], "end": arguments["period_end"]},
             "publish_date": datetime.now().strftime("%Y-%m-%d"),
             "summary": {
                 "total_events": len(arguments.get("events", [])),
                 "total_vulnerabilities": len(arguments.get("vulnerabilities", [])),
-                "threat_level": _calculate_threat_level(arguments)
+                "threat_level": _calculate_threat_level(arguments),
             },
             "events": arguments.get("events", []),
             "vulnerabilities": arguments.get("vulnerabilities", []),
             "threat_trends": arguments.get("threat_trends", {}),
             "action_items": arguments.get("action_items", []),
             "terms": arguments.get("terms", []),
-            "references": arguments.get("references", [])
+            "references": arguments.get("references", []),
         }
 
-        return [TextContent(
-            type="text",
-            text=json.dumps(report_data, ensure_ascii=False, indent=2)
-        )]
+        return [
+            TextContent(type="text", text=json.dumps(report_data, ensure_ascii=False, indent=2))
+        ]
 
     elif name == "list_reports":
         limit = arguments.get("limit", 10)
@@ -180,17 +172,16 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         reports = []
         for json_file in json_files:
             data = json.loads(json_file.read_text(encoding="utf-8"))
-            reports.append({
-                "filename": json_file.name,
-                "report_id": data.get("report_id", json_file.stem),
-                "period": data.get("period", {}),
-                "publish_date": data.get("publish_date", "")
-            })
+            reports.append(
+                {
+                    "filename": json_file.name,
+                    "report_id": data.get("report_id", json_file.stem),
+                    "period": data.get("period", {}),
+                    "publish_date": data.get("publish_date", ""),
+                }
+            )
 
-        return [TextContent(
-            type="text",
-            text=json.dumps(reports, ensure_ascii=False, indent=2)
-        )]
+        return [TextContent(type="text", text=json.dumps(reports, ensure_ascii=False, indent=2))]
 
     return [TextContent(type="text", text=f"未知工具：{name}")]
 

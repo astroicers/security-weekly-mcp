@@ -18,12 +18,14 @@ def get_glossary():
     global _glossary, _glossary_initialized
     if not _glossary_initialized:
         import sys
+
         # 加入 glossary 套件路徑
         glossary_src = GLOSSARY_PATH / "src"
         if str(glossary_src) not in sys.path:
             sys.path.insert(0, str(glossary_src))
 
         from security_glossary_tw import Glossary
+
         _glossary = Glossary(
             terms_dir=GLOSSARY_PATH / "terms",
             meta_dir=GLOSSARY_PATH / "meta",
@@ -48,18 +50,11 @@ async def list_tools() -> list[Tool]:
             inputSchema={
                 "type": "object",
                 "properties": {
-                    "query": {
-                        "type": "string",
-                        "description": "搜尋關鍵字"
-                    },
-                    "limit": {
-                        "type": "integer",
-                        "description": "最多回傳數量",
-                        "default": 10
-                    }
+                    "query": {"type": "string", "description": "搜尋關鍵字"},
+                    "limit": {"type": "integer", "description": "最多回傳數量", "default": 10},
                 },
-                "required": ["query"]
-            }
+                "required": ["query"],
+            },
         ),
         Tool(
             name="get_term_definition",
@@ -67,27 +62,19 @@ async def list_tools() -> list[Tool]:
             inputSchema={
                 "type": "object",
                 "properties": {
-                    "term_id": {
-                        "type": "string",
-                        "description": "術語 ID（如 apt, ransomware）"
-                    }
+                    "term_id": {"type": "string", "description": "術語 ID（如 apt, ransomware）"}
                 },
-                "required": ["term_id"]
-            }
+                "required": ["term_id"],
+            },
         ),
         Tool(
             name="validate_terminology",
             description="驗證文本用詞是否符合台灣繁體中文規範",
             inputSchema={
                 "type": "object",
-                "properties": {
-                    "text": {
-                        "type": "string",
-                        "description": "要驗證的文本"
-                    }
-                },
-                "required": ["text"]
-            }
+                "properties": {"text": {"type": "string", "description": "要驗證的文本"}},
+                "required": ["text"],
+            },
         ),
         Tool(
             name="add_term_links",
@@ -95,27 +82,21 @@ async def list_tools() -> list[Tool]:
             inputSchema={
                 "type": "object",
                 "properties": {
-                    "text": {
-                        "type": "string",
-                        "description": "原始文本"
-                    },
+                    "text": {"type": "string", "description": "原始文本"},
                     "format": {
                         "type": "string",
                         "enum": ["markdown", "html"],
                         "description": "輸出格式",
-                        "default": "markdown"
-                    }
+                        "default": "markdown",
+                    },
                 },
-                "required": ["text"]
-            }
+                "required": ["text"],
+            },
         ),
         Tool(
             name="list_pending_terms",
             description="列出待審核的術語",
-            inputSchema={
-                "type": "object",
-                "properties": {}
-            }
+            inputSchema={"type": "object", "properties": {}},
         ),
         Tool(
             name="approve_pending_term",
@@ -125,16 +106,16 @@ async def list_tools() -> list[Tool]:
                 "properties": {
                     "filename": {
                         "type": "string",
-                        "description": "待審術語檔案名稱（如 2026-02-10-salt_typhoon.yaml）"
+                        "description": "待審術語檔案名稱（如 2026-02-10-salt_typhoon.yaml）",
                     },
                     "edits": {
                         "type": "object",
                         "description": "可選：修改術語欄位（如 term_zh, definitions.brief）",
-                        "default": {}
-                    }
+                        "default": {},
+                    },
                 },
-                "required": ["filename"]
-            }
+                "required": ["filename"],
+            },
         ),
         Tool(
             name="reject_pending_term",
@@ -142,18 +123,15 @@ async def list_tools() -> list[Tool]:
             inputSchema={
                 "type": "object",
                 "properties": {
-                    "filename": {
-                        "type": "string",
-                        "description": "待審術語檔案名稱"
-                    },
+                    "filename": {"type": "string", "description": "待審術語檔案名稱"},
                     "reason": {
                         "type": "string",
                         "description": "拒絕原因（記錄用）",
-                        "default": ""
-                    }
+                        "default": "",
+                    },
                 },
-                "required": ["filename"]
-            }
+                "required": ["filename"],
+            },
         ),
         Tool(
             name="extract_terms",
@@ -161,18 +139,15 @@ async def list_tools() -> list[Tool]:
             inputSchema={
                 "type": "object",
                 "properties": {
-                    "text": {
-                        "type": "string",
-                        "description": "要分析的文本（可以是週報內容）"
-                    },
+                    "text": {"type": "string", "description": "要分析的文本（可以是週報內容）"},
                     "max_terms": {
                         "type": "integer",
                         "description": "最多回傳的術語數量",
-                        "default": 10
-                    }
+                        "default": 10,
+                    },
                 },
-                "required": ["text"]
-            }
+                "required": ["text"],
+            },
         ),
     ]
 
@@ -216,12 +191,14 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         if term.full_name_en:
             lines.append(f"**全稱**: {term.full_name_en}")
 
-        lines.extend([
-            "",
-            "## 定義",
-            "",
-            f"**簡短**: {term.definitions.brief}",
-        ])
+        lines.extend(
+            [
+                "",
+                "## 定義",
+                "",
+                f"**簡短**: {term.definitions.brief}",
+            ]
+        )
 
         if term.definitions.standard:
             lines.append(f"\n**標準**: {term.definitions.standard}")
@@ -263,6 +240,7 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
 
     elif name == "list_pending_terms":
         import yaml
+
         pending_dir = GLOSSARY_PATH / "pending"
         pending_files = list(pending_dir.glob("*.yaml"))
 
@@ -291,6 +269,7 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
 
     elif name == "extract_terms":
         import json
+
         text = arguments["text"]
         max_terms = arguments.get("max_terms", 10)
 
@@ -305,21 +284,22 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
                 seen_ids.add(match.term_id)
                 term = glossary.get(match.term_id)
                 if term:
-                    unique_terms.append({
-                        "term": term.term_zh or term.term_en,
-                        "term_en": term.term_en,
-                        "term_zh": term.term_zh,
-                        "definition": term.definitions.brief,
-                        "id": term.id,
-                        "url": f"https://astroicers.github.io/security-glossary-tw/glossary/{term.id}"
-                    })
+                    unique_terms.append(
+                        {
+                            "term": term.term_zh or term.term_en,
+                            "term_en": term.term_en,
+                            "term_zh": term.term_zh,
+                            "definition": term.definitions.brief,
+                            "id": term.id,
+                            "url": f"https://astroicers.github.io/security-glossary-tw/glossary/{term.id}",
+                        }
+                    )
                 if len(unique_terms) >= max_terms:
                     break
 
-        return [TextContent(
-            type="text",
-            text=json.dumps(unique_terms, ensure_ascii=False, indent=2)
-        )]
+        return [
+            TextContent(type="text", text=json.dumps(unique_terms, ensure_ascii=False, indent=2))
+        ]
 
     elif name == "approve_pending_term":
         from datetime import datetime
@@ -363,14 +343,21 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
 
         # 驗證分類是否有效
         valid_categories = [
-            "attack_types", "vulnerabilities", "threat_actors",
-            "malware", "technologies", "frameworks", "compliance"
+            "attack_types",
+            "vulnerabilities",
+            "threat_actors",
+            "malware",
+            "technologies",
+            "frameworks",
+            "compliance",
         ]
         if category not in valid_categories:
-            return [TextContent(
-                type="text",
-                text=f"❌ 無效的分類：{category}\n有效分類：{', '.join(valid_categories)}"
-            )]
+            return [
+                TextContent(
+                    type="text",
+                    text=f"❌ 無效的分類：{category}\n有效分類：{', '.join(valid_categories)}",
+                )
+            ]
 
         # 驗證 definitions.brief 存在且長度合理
         definitions = term_data.get("definitions", {})
@@ -378,10 +365,12 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         if not brief:
             return [TextContent(type="text", text="❌ definitions.brief 不能為空")]
         if len(brief) > 50:
-            return [TextContent(
-                type="text",
-                text=f"⚠️ definitions.brief 過長（{len(brief)} 字元），建議 ≤ 50 字元"
-            )]
+            return [
+                TextContent(
+                    type="text",
+                    text=f"⚠️ definitions.brief 過長（{len(brief)} 字元），建議 ≤ 50 字元",
+                )
+            ]
 
         # 更新 metadata
         if "metadata" not in term_data:
@@ -412,13 +401,15 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         # 刪除待審檔案
         pending_file.unlink()
 
-        return [TextContent(
-            type="text",
-            text=f"✅ 術語已批准並新增至 {category}.yaml\n\n"
-                 f"- ID: `{term_data.get('id')}`\n"
-                 f"- 名稱: {term_data.get('term_en')} ({term_data.get('term_zh', '')})\n"
-                 f"- 分類: {category}"
-        )]
+        return [
+            TextContent(
+                type="text",
+                text=f"✅ 術語已批准並新增至 {category}.yaml\n\n"
+                f"- ID: `{term_data.get('id')}`\n"
+                f"- 名稱: {term_data.get('term_en')} ({term_data.get('term_zh', '')})\n"
+                f"- 分類: {category}",
+            )
+        ]
 
     elif name == "reject_pending_term":
         filename = arguments["filename"]

@@ -25,25 +25,21 @@ async def list_tools() -> list[Tool]:
                     "sources": {
                         "type": "array",
                         "items": {"type": "string"},
-                        "description": "來源名稱列表（如 thehackernews, bleepingcomputer, ithome）。留空則使用所有來源。"
+                        "description": "來源名稱列表（如 thehackernews, bleepingcomputer, ithome）。留空則使用所有來源。",
                     },
-                    "days": {
-                        "type": "integer",
-                        "description": "回顧天數",
-                        "default": 7
-                    },
+                    "days": {"type": "integer", "description": "回顧天數", "default": 7},
                     "keywords": {
                         "type": "array",
                         "items": {"type": "string"},
-                        "description": "關鍵字過濾（符合任一即可）"
+                        "description": "關鍵字過濾（符合任一即可）",
                     },
                     "limit": {
                         "type": "integer",
                         "description": "每個來源的最大文章數",
-                        "default": 10
-                    }
-                }
-            }
+                        "default": 10,
+                    },
+                },
+            },
         ),
         Tool(
             name="fetch_vulnerabilities",
@@ -51,36 +47,21 @@ async def list_tools() -> list[Tool]:
             inputSchema={
                 "type": "object",
                 "properties": {
-                    "min_cvss": {
-                        "type": "number",
-                        "description": "最低 CVSS 分數",
-                        "default": 7.0
-                    },
-                    "days": {
-                        "type": "integer",
-                        "description": "回顧天數",
-                        "default": 7
-                    },
+                    "min_cvss": {"type": "number", "description": "最低 CVSS 分數", "default": 7.0},
+                    "days": {"type": "integer", "description": "回顧天數", "default": 7},
                     "include_kev": {
                         "type": "boolean",
                         "description": "是否包含 CISA KEV（已知被利用漏洞）",
-                        "default": True
+                        "default": True,
                     },
-                    "limit": {
-                        "type": "integer",
-                        "description": "最大回傳數量",
-                        "default": 20
-                    }
-                }
-            }
+                    "limit": {"type": "integer", "description": "最大回傳數量", "default": 20},
+                },
+            },
         ),
         Tool(
             name="list_news_sources",
             description="列出可用的新聞來源",
-            inputSchema={
-                "type": "object",
-                "properties": {}
-            }
+            inputSchema={"type": "object", "properties": {}},
         ),
         Tool(
             name="suggest_searches",
@@ -90,9 +71,15 @@ async def list_tools() -> list[Tool]:
                 "properties": {
                     "category": {
                         "type": "string",
-                        "enum": ["taiwan_news", "vulnerabilities", "threat_intel", "industry_specific", "all"],
+                        "enum": [
+                            "taiwan_news",
+                            "vulnerabilities",
+                            "threat_intel",
+                            "industry_specific",
+                            "all",
+                        ],
                         "description": "搜尋類別",
-                        "default": "all"
+                        "default": "all",
                     },
                     "period_start": {
                         "type": "string",
@@ -105,15 +92,15 @@ async def list_tools() -> list[Tool]:
                     "context": {
                         "type": "object",
                         "description": "動態內容（如 cve_id, ransomware_name, apt_group）",
-                        "additionalProperties": {"type": "string"}
+                        "additionalProperties": {"type": "string"},
                     },
                     "include_fetch_targets": {
                         "type": "boolean",
                         "description": "是否包含 WebFetch 目標網址",
-                        "default": True
-                    }
-                }
-            }
+                        "default": True,
+                    },
+                },
+            },
         ),
         Tool(
             name="load_weekly_data",
@@ -123,18 +110,15 @@ async def list_tools() -> list[Tool]:
                 "properties": {
                     "week": {
                         "type": "string",
-                        "description": "週數（格式：YYYY-WNN，如 2026-W07）。留空則載入最新一週。"
+                        "description": "週數（格式：YYYY-WNN，如 2026-W07）。留空則載入最新一週。",
                     }
-                }
-            }
+                },
+            },
         ),
         Tool(
             name="list_weekly_data",
             description="列出所有已保存的週報原始資料",
-            inputSchema={
-                "type": "object",
-                "properties": {}
-            }
+            inputSchema={"type": "object", "properties": {}},
         ),
     ]
 
@@ -149,6 +133,7 @@ def _load_sources_config() -> dict:
     global _sources_cache
     if _sources_cache is None:
         import yaml
+
         sources_file = CONFIG_DIR / "sources.yaml"
         if sources_file.exists():
             _sources_cache = yaml.safe_load(sources_file.read_text(encoding="utf-8"))
@@ -162,6 +147,7 @@ def _load_search_templates() -> dict:
     global _templates_cache
     if _templates_cache is None:
         import yaml
+
         templates_file = CONFIG_DIR / "search_templates.yaml"
         if templates_file.exists():
             _templates_cache = yaml.safe_load(templates_file.read_text(encoding="utf-8"))
@@ -193,7 +179,9 @@ def _match_source(query: str, sources: list[dict]) -> list[dict]:
     return matched
 
 
-async def _fetch_rss(url: str, days: int, limit: int, keywords: list[str] | None = None) -> list[dict]:
+async def _fetch_rss(
+    url: str, days: int, limit: int, keywords: list[str] | None = None
+) -> list[dict]:
     """從 RSS 來源抓取文章"""
     # 設定 User-Agent 以避免被某些網站封鎖 (如 BleepingComputer)
     headers = {
@@ -217,7 +205,7 @@ async def _fetch_rss(url: str, days: int, limit: int, keywords: list[str] | None
     cutoff_date = datetime.now() - timedelta(days=days)
     articles = []
 
-    for entry in feed.entries[:limit * 2]:  # 抓多一點再過濾
+    for entry in feed.entries[: limit * 2]:  # 抓多一點再過濾
         # 解析發布時間
         published = None
         if hasattr(entry, "published_parsed") and entry.published_parsed:
@@ -237,12 +225,14 @@ async def _fetch_rss(url: str, days: int, limit: int, keywords: list[str] | None
             if not any(kw.lower() in content for kw in keywords):
                 continue
 
-        articles.append({
-            "title": entry.get("title", ""),
-            "link": entry.get("link", ""),
-            "published": published.isoformat() if published else None,
-            "summary": entry.get("summary", "")[:500]  # 摘要截斷
-        })
+        articles.append(
+            {
+                "title": entry.get("title", ""),
+                "link": entry.get("link", ""),
+                "published": published.isoformat() if published else None,
+                "summary": entry.get("summary", "")[:500],  # 摘要截斷
+            }
+        )
 
         if len(articles) >= limit:
             break
@@ -259,7 +249,7 @@ async def _fetch_nvd(min_cvss: float, days: int, limit: int) -> list[dict]:
         "pubStartDate": start_date.strftime("%Y-%m-%dT00:00:00.000"),
         "pubEndDate": end_date.strftime("%Y-%m-%dT23:59:59.999"),
         "cvssV3Severity": "HIGH" if min_cvss >= 7.0 else "MEDIUM",
-        "resultsPerPage": min(limit, 50)
+        "resultsPerPage": min(limit, 50),
     }
 
     try:
@@ -267,7 +257,7 @@ async def _fetch_nvd(min_cvss: float, days: int, limit: int) -> list[dict]:
             response = await client.get(
                 "https://services.nvd.nist.gov/rest/json/cves/2.0",
                 params=params,
-                headers={"Accept": "application/json"}
+                headers={"Accept": "application/json"},
             )
             response.raise_for_status()
             data = response.json()
@@ -311,14 +301,16 @@ async def _fetch_nvd(min_cvss: float, days: int, limit: int) -> list[dict]:
                 description = desc.get("value", "")
                 break
 
-        vulnerabilities.append({
-            "cve_id": cve_id,
-            "cvss": cvss_score,
-            "cvss_vector": cvss_vector,
-            "description": description[:500],
-            "published": cve.get("published", ""),
-            "url": f"https://nvd.nist.gov/vuln/detail/{cve_id}"
-        })
+        vulnerabilities.append(
+            {
+                "cve_id": cve_id,
+                "cvss": cvss_score,
+                "cvss_vector": cvss_vector,
+                "description": description[:500],
+                "published": cve.get("published", ""),
+                "url": f"https://nvd.nist.gov/vuln/detail/{cve_id}",
+            }
+        )
 
     return vulnerabilities[:limit]
 
@@ -356,17 +348,19 @@ async def _fetch_cisa_kev(days: int, limit: int) -> list[dict]:
         except ValueError:
             continue
 
-        vulnerabilities.append({
-            "cve_id": vuln.get("cveID", ""),
-            "vendor": vuln.get("vendorProject", ""),
-            "product": vuln.get("product", ""),
-            "name": vuln.get("vulnerabilityName", ""),
-            "description": vuln.get("shortDescription", ""),
-            "date_added": date_added,
-            "due_date": vuln.get("dueDate", ""),
-            "in_kev": True,
-            "url": f"https://nvd.nist.gov/vuln/detail/{vuln.get('cveID', '')}"
-        })
+        vulnerabilities.append(
+            {
+                "cve_id": vuln.get("cveID", ""),
+                "vendor": vuln.get("vendorProject", ""),
+                "product": vuln.get("product", ""),
+                "name": vuln.get("vulnerabilityName", ""),
+                "description": vuln.get("shortDescription", ""),
+                "date_added": date_added,
+                "due_date": vuln.get("dueDate", ""),
+                "in_kev": True,
+                "url": f"https://nvd.nist.gov/vuln/detail/{vuln.get('cveID', '')}",
+            }
+        )
 
         if len(vulnerabilities) >= limit:
             break
@@ -397,10 +391,7 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
                 item["note"] = source.get("note")
             result.append(item)
 
-        return [TextContent(
-            type="text",
-            text=json.dumps(result, ensure_ascii=False, indent=2)
-        )]
+        return [TextContent(type="text", text=json.dumps(result, ensure_ascii=False, indent=2))]
 
     elif name == "fetch_security_news":
         config = _load_sources_config()
@@ -412,8 +403,7 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
 
         # 過濾 RSS 類型的來源（排除 disabled 的來源）
         rss_sources = [
-            s for s in all_sources
-            if s.get("type") == "rss" and s.get("status") != "disabled"
+            s for s in all_sources if s.get("type") == "rss" and s.get("status") != "disabled"
         ]
 
         # 如果有指定來源，進行比對
@@ -444,12 +434,11 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         all_articles = {}
         failed_sources = []
         for i, result in enumerate(results):
-            source_name = rss_sources[i].get("name", f"來源 {i+1}")
+            source_name = rss_sources[i].get("name", f"來源 {i + 1}")
             if isinstance(result, Exception):
-                failed_sources.append({
-                    "source": source_name,
-                    "error": f"{type(result).__name__}: {result}"
-                })
+                failed_sources.append(
+                    {"source": source_name, "error": f"{type(result).__name__}: {result}"}
+                )
                 continue
             name, articles = result
             all_articles[name] = articles
@@ -459,17 +448,14 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
             "_meta": {
                 "total_sources": len(rss_sources),
                 "success": len(all_articles),
-                "failed": len(failed_sources)
+                "failed": len(failed_sources),
             }
         }
         response.update(all_articles)
         if failed_sources:
             response["_failed"] = failed_sources
 
-        return [TextContent(
-            type="text",
-            text=json.dumps(response, ensure_ascii=False, indent=2)
-        )]
+        return [TextContent(type="text", text=json.dumps(response, ensure_ascii=False, indent=2))]
 
     elif name == "fetch_vulnerabilities":
         min_cvss = arguments.get("min_cvss", 7.0)
@@ -477,10 +463,7 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         include_kev = arguments.get("include_kev", True)
         limit = arguments.get("limit", 20)
 
-        result = {
-            "nvd": [],
-            "kev": []
-        }
+        result = {"nvd": [], "kev": []}
 
         # 從 NVD 抓取
         result["nvd"] = await _fetch_nvd(min_cvss, days, limit)
@@ -494,10 +477,7 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         for vuln in result["nvd"]:
             vuln["in_kev"] = vuln["cve_id"] in kev_cves
 
-        return [TextContent(
-            type="text",
-            text=json.dumps(result, ensure_ascii=False, indent=2)
-        )]
+        return [TextContent(type="text", text=json.dumps(result, ensure_ascii=False, indent=2))]
 
     elif name == "suggest_searches":
         category = arguments.get("category", "all")
@@ -537,7 +517,7 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
             "start_date": start_date.strftime("%Y-%m-%d"),
             "end_date": end_date.strftime("%Y-%m-%d"),
             "date_range": f"{start_date.strftime('%Y/%m/%d')}~{end_date.strftime('%Y/%m/%d')}",
-            **context
+            **context,
         }
 
         # 判斷是否為歷史搜尋
@@ -549,13 +529,14 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
             "period": {
                 "start": start_date.strftime("%Y-%m-%d"),
                 "end": end_date.strftime("%Y-%m-%d"),
-                "is_historical": is_historical
-            }
+                "is_historical": is_historical,
+            },
         }
 
         # 收集搜尋建議
         categories_to_process = (
-            [category] if category != "all"
+            [category]
+            if category != "all"
             else ["taiwan_news", "vulnerabilities", "threat_intel", "industry_specific"]
         )
 
@@ -577,12 +558,14 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
                     date_filter = f" after:{start_date.strftime('%Y-%m-%d')} before:{end_date.strftime('%Y-%m-%d')}"
                     query = query + date_filter
 
-                result["web_searches"].append({
-                    "query": query,
-                    "priority": q.get("priority", "medium"),
-                    "category": q.get("category", cat),
-                    "note": q.get("note")
-                })
+                result["web_searches"].append(
+                    {
+                        "query": query,
+                        "priority": q.get("priority", "medium"),
+                        "category": q.get("category", cat),
+                        "note": q.get("note"),
+                    }
+                )
 
         # 對於歷史搜尋，加入額外的時間限定搜尋
         if is_historical:
@@ -591,19 +574,19 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
                     "query": f"台灣 資安事件 {start_date.strftime('%Y年%m月')}",
                     "priority": "high",
                     "category": "news",
-                    "note": "歷史時間範圍搜尋"
+                    "note": "歷史時間範圍搜尋",
                 },
                 {
                     "query": f"cybersecurity incident {start_date.strftime('%B %Y')}",
                     "priority": "high",
                     "category": "news",
-                    "note": "歷史時間範圍搜尋 (英文)"
+                    "note": "歷史時間範圍搜尋 (英文)",
                 },
                 {
                     "query": f"CVE {start_date.strftime('%Y-%m')} critical",
                     "priority": "high",
                     "category": "vulnerability",
-                    "note": "該月份重大漏洞"
+                    "note": "該月份重大漏洞",
                 },
             ]
             result["web_searches"].extend(historical_queries)
@@ -613,15 +596,19 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
             fetch_data = search_templates.get("fetch_targets", {})
             urls = fetch_data.get("urls", [])
             for target in urls:
-                result["fetch_targets"].append({
-                    "name": target.get("name"),
-                    "url": target.get("url"),
-                    "type": target.get("type"),
-                    "priority": target.get("priority", "medium"),
-                    "prompt": target.get("prompt")
-                })
+                result["fetch_targets"].append(
+                    {
+                        "name": target.get("name"),
+                        "url": target.get("url"),
+                        "type": target.get("type"),
+                        "priority": target.get("priority", "medium"),
+                        "prompt": target.get("prompt"),
+                    }
+                )
         elif is_historical:
-            result["fetch_targets_note"] = "歷史週報不使用 WebFetch，因為網頁內容是最新的。請依賴 WebSearch 結果。"
+            result["fetch_targets_note"] = (
+                "歷史週報不使用 WebFetch，因為網頁內容是最新的。請依賴 WebSearch 結果。"
+            )
 
         # 按優先級排序
         priority_order = {"critical": 0, "high": 1, "medium": 2, "low": 3}
@@ -629,48 +616,42 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         if result["fetch_targets"]:
             result["fetch_targets"].sort(key=lambda x: priority_order.get(x["priority"], 99))
 
-        return [TextContent(
-            type="text",
-            text=json.dumps(result, ensure_ascii=False, indent=2)
-        )]
+        return [TextContent(type="text", text=json.dumps(result, ensure_ascii=False, indent=2))]
 
     elif name == "list_weekly_data":
         raw_dir = Path(__file__).parent.parent.parent.parent.parent.parent / "output" / "raw"
 
         if not raw_dir.exists():
-            return [TextContent(type="text", text="尚無已保存的週報資料。GitHub Actions 會每週一自動收集。")]
+            return [
+                TextContent(
+                    type="text", text="尚無已保存的週報資料。GitHub Actions 會每週一自動收集。"
+                )
+            ]
 
         files = sorted(raw_dir.glob("*.json"), reverse=True)
         if not files:
             return [TextContent(type="text", text="尚無已保存的週報資料。")]
 
-        result = {
-            "available_weeks": [],
-            "total_files": len(files),
-            "storage_path": str(raw_dir)
-        }
+        result = {"available_weeks": [], "total_files": len(files), "storage_path": str(raw_dir)}
 
         for f in files:
             try:
                 data = json.loads(f.read_text(encoding="utf-8"))
                 meta = data.get("metadata", {})
-                result["available_weeks"].append({
-                    "week": meta.get("week", f.stem),
-                    "filename": f.name,
-                    "collected_at": meta.get("collected_at", "unknown"),
-                    "stats": meta.get("stats", {})
-                })
+                result["available_weeks"].append(
+                    {
+                        "week": meta.get("week", f.stem),
+                        "filename": f.name,
+                        "collected_at": meta.get("collected_at", "unknown"),
+                        "stats": meta.get("stats", {}),
+                    }
+                )
             except Exception:
-                result["available_weeks"].append({
-                    "week": f.stem,
-                    "filename": f.name,
-                    "error": "無法解析檔案"
-                })
+                result["available_weeks"].append(
+                    {"week": f.stem, "filename": f.name, "error": "無法解析檔案"}
+                )
 
-        return [TextContent(
-            type="text",
-            text=json.dumps(result, ensure_ascii=False, indent=2)
-        )]
+        return [TextContent(type="text", text=json.dumps(result, ensure_ascii=False, indent=2))]
 
     elif name == "load_weekly_data":
         raw_dir = Path(__file__).parent.parent.parent.parent.parent.parent / "output" / "raw"
@@ -697,17 +678,17 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
             meta = data.get("metadata", {})
 
             # 回傳摘要 + 資料
-            summary = f"""## 📊 週報原始資料：{meta.get('week', target_file.stem)}
+            summary = f"""## 📊 週報原始資料：{meta.get("week", target_file.stem)}
 
-**收集時間**: {meta.get('collected_at', 'unknown')}
-**資料期間**: {meta.get('period', {}).get('start')} ~ {meta.get('period', {}).get('end')}
+**收集時間**: {meta.get("collected_at", "unknown")}
+**資料期間**: {meta.get("period", {}).get("start")} ~ {meta.get("period", {}).get("end")}
 
 ### 統計
-- 新聞文章: {meta.get('stats', {}).get('total_articles', 0)} 則
-- 新聞來源: {meta.get('stats', {}).get('news_sources', 0)} 個
-- NVD 漏洞: {meta.get('stats', {}).get('nvd_vulnerabilities', 0)} 個
-- KEV 漏洞: {meta.get('stats', {}).get('kev_vulnerabilities', 0)} 個
-- 建議搜尋: {meta.get('stats', {}).get('suggested_searches', 0)} 個
+- 新聞文章: {meta.get("stats", {}).get("total_articles", 0)} 則
+- 新聞來源: {meta.get("stats", {}).get("news_sources", 0)} 個
+- NVD 漏洞: {meta.get("stats", {}).get("nvd_vulnerabilities", 0)} 個
+- KEV 漏洞: {meta.get("stats", {}).get("kev_vulnerabilities", 0)} 個
+- 建議搜尋: {meta.get("stats", {}).get("suggested_searches", 0)} 個
 
 ### 使用方式
 此資料已載入，你可以：
@@ -718,10 +699,11 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
 ---
 ### 完整資料
 """
-            return [TextContent(
-                type="text",
-                text=summary + json.dumps(data, ensure_ascii=False, indent=2)
-            )]
+            return [
+                TextContent(
+                    type="text", text=summary + json.dumps(data, ensure_ascii=False, indent=2)
+                )
+            ]
 
         except Exception as e:
             return [TextContent(type="text", text=f"❌ 載入資料失敗：{e}")]
@@ -729,6 +711,18 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
 
 def _month_to_chinese(month: int) -> str:
     """將月份數字轉換為中文"""
-    months = ["一月", "二月", "三月", "四月", "五月", "六月",
-              "七月", "八月", "九月", "十月", "十一月", "十二月"]
+    months = [
+        "一月",
+        "二月",
+        "三月",
+        "四月",
+        "五月",
+        "六月",
+        "七月",
+        "八月",
+        "九月",
+        "十月",
+        "十一月",
+        "十二月",
+    ]
     return months[month - 1] if 1 <= month <= 12 else str(month)
