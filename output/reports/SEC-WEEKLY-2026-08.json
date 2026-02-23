@@ -1,0 +1,345 @@
+{
+  "title": "資安週報 2026/02/17 - 2026/02/23",
+  "report_period": {
+    "start_date": "2026-02-17",
+    "end_date": "2026-02-23",
+    "week_number": 8
+  },
+  "summary": {
+    "total_events": 15,
+    "critical_vulnerabilities": 7,
+    "kev_vulnerabilities": 4,
+    "major_breaches": 5,
+    "emerging_threats": 3
+  },
+  "events": [
+    {
+      "id": "E001",
+      "title": "Notepad++ 零日漏洞遭廣泛利用",
+      "description": "CVE-2025-15556，CVSS 9.8分，CISA已列入KEV目錄，攻擊者可透過惡意文件執行任意代碼",
+      "severity": "critical",
+      "date": "2026-02-13",
+      "category": "vulnerability",
+      "impact": "high",
+      "cve": "CVE-2025-15556"
+    },
+    {
+      "id": "E002",
+      "title": "Microsoft Windows 零日漏洞被利用",
+      "description": "CVE-2026-26119，關鍵級別漏洞，已被納入CISA KEV目錄，影響企業安全",
+      "severity": "critical",
+      "date": "2026-02-11",
+      "category": "vulnerability",
+      "impact": "high",
+      "cve": "CVE-2026-26119"
+    },
+    {
+      "id": "E003",
+      "title": "Ivanti EPMM 雙重零日漏洞",
+      "description": "CVE-2026-1281 與 CVE-2026-1340，CVSS 9.8分，遠程代碼執行，已列入KEV",
+      "severity": "critical",
+      "date": "2026-02-15",
+      "category": "vulnerability",
+      "impact": "high",
+      "cve": "CVE-2026-1281, CVE-2026-1340"
+    },
+    {
+      "id": "E004",
+      "title": "SolarWinds Web Help Desk 關鍵漏洞",
+      "description": "多個CVSS 9.8分漏洞，聯邦機構須於2026年2月24日前修補",
+      "severity": "critical",
+      "date": "2026-02-12",
+      "category": "vulnerability",
+      "impact": "high",
+      "cve": "CVE-2025-40552, CVE-2025-40553, CVE-2025-40554"
+    },
+    {
+      "id": "E005",
+      "title": "Apple dyld 零日漏洞被商業間諜軟體利用",
+      "description": "CVE-2026-20700，CVSS 7.8分，記憶體損壞漏洞，疑似國家級攻擊者利用",
+      "severity": "high",
+      "date": "2026-02-18",
+      "category": "vulnerability",
+      "impact": "medium",
+      "cve": "CVE-2026-20700"
+    },
+    {
+      "id": "E006",
+      "title": "BeyondTrust 漏洞用於勒索軟體攻擊",
+      "description": "CVE-2026-1731，遠程代碼執行漏洞，公開概念驗證後24小時內被利用",
+      "severity": "critical",
+      "date": "2026-02-10",
+      "category": "vulnerability",
+      "impact": "high",
+      "cve": "CVE-2026-1731"
+    },
+    {
+      "id": "E007",
+      "title": "Chrome 緊急安全更新",
+      "description": "修補高嚴重性堆積緩衝區溢位漏洞，攻擊者可使瀏覽器崩潰或執行代碼",
+      "severity": "high",
+      "date": "2026-02-20",
+      "category": "vulnerability",
+      "impact": "medium"
+    },
+    {
+      "id": "E008",
+      "title": "AI助力的大規模FortiGate攻擊",
+      "description": "俄語威脅行為者利用生成式AI入侵55國超過600台FortiGate設備",
+      "severity": "high",
+      "date": "2026-02-18",
+      "category": "breach",
+      "impact": "high"
+    },
+    {
+      "id": "E009",
+      "title": "PayPal 資料外洩事件",
+      "description": "洩露客戶社會安全號碼、生日和企業個人資料，造成身份盜用高風險",
+      "severity": "high",
+      "date": "2026-02-19",
+      "category": "breach",
+      "impact": "high"
+    },
+    {
+      "id": "E010",
+      "title": "密西西比大學醫學中心勒索軟體攻擊",
+      "description": "UMMC關閉全州所有診所，遭受勒索軟體攻擊影響醫療服務",
+      "severity": "high",
+      "date": "2026-02-17",
+      "category": "ransomware",
+      "impact": "high"
+    },
+    {
+      "id": "E011",
+      "title": "Advantest 勒索軟體攻擊",
+      "description": "Advantest公司網路遭勒索軟體攻擊，可能影響客戶和員工資料",
+      "severity": "medium",
+      "date": "2026-02-21",
+      "category": "ransomware",
+      "impact": "medium"
+    },
+    {
+      "id": "E012",
+      "title": "Ascom遭Hellcat勒索軟體攻擊",
+      "description": "44GB資料被竊取，包含原始碼、專案細節和機密文件",
+      "severity": "medium",
+      "date": "2026-02-22",
+      "category": "ransomware",
+      "impact": "medium"
+    },
+    {
+      "id": "E013",
+      "title": "Cloudflare全球服務中斷6小時",
+      "description": "2月21日發生全球服務中斷，原因為密碼輪換錯誤導致級聯故障",
+      "severity": "medium",
+      "date": "2026-02-21",
+      "category": "outage",
+      "impact": "high"
+    },
+    {
+      "id": "E014",
+      "title": "首個使用生成式AI的Android惡意軟體",
+      "description": "研究人員發現利用Google Gemini模型適應不同設備持久化的Android惡意軟體",
+      "severity": "medium",
+      "date": "2026-02-20",
+      "category": "emerging_threat",
+      "impact": "medium"
+    },
+    {
+      "id": "E015",
+      "title": "FBI警告ATM提款機攻擊激增",
+      "description": "2025年造成超過2000萬美元損失，自2020年以來共發生1900起事件",
+      "severity": "medium",
+      "date": "2026-02-16",
+      "category": "emerging_threat",
+      "impact": "medium"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2025-15556",
+      "title": "Notepad++ 代碼執行零日漏洞",
+      "cvss_score": 9.8,
+      "severity": "critical",
+      "vendor": "Notepad++",
+      "product": "Notepad++",
+      "description": "文件解析引擎中的緩衝區溢出或釋放後使用漏洞，允許攻擊者製作惡意文件執行任意代碼",
+      "kev_status": true,
+      "kev_date": "2026-02-13",
+      "exploitation_status": "active",
+      "patch_available": true,
+      "federal_deadline": "2026-02-27"
+    },
+    {
+      "cve": "CVE-2026-26119",
+      "title": "Microsoft Windows 零日漏洞",
+      "cvss_score": 9.0,
+      "severity": "critical",
+      "vendor": "Microsoft",
+      "product": "Windows",
+      "description": "Microsoft Windows中的關鍵漏洞，在修補程式發布前已被利用",
+      "kev_status": true,
+      "kev_date": "2026-02-11",
+      "exploitation_status": "active",
+      "patch_available": true,
+      "federal_deadline": "2026-02-25"
+    },
+    {
+      "cve": "CVE-2026-1281",
+      "title": "Ivanti EPMM 遠程代碼執行漏洞",
+      "cvss_score": 9.8,
+      "severity": "critical",
+      "vendor": "Ivanti",
+      "product": "Endpoint Manager Mobile (EPMM)",
+      "description": "關鍵遠程代碼執行漏洞，被廣泛利用作為零日攻擊",
+      "kev_status": true,
+      "kev_date": "2026-02-15",
+      "exploitation_status": "active",
+      "patch_available": true,
+      "federal_deadline": "2026-03-01"
+    },
+    {
+      "cve": "CVE-2026-1340",
+      "title": "Ivanti EPMM 遠程代碼執行漏洞",
+      "cvss_score": 9.8,
+      "severity": "critical",
+      "vendor": "Ivanti",
+      "product": "Endpoint Manager Mobile (EPMM)",
+      "description": "關鍵遠程代碼執行漏洞，與CVE-2026-1281配合被廣泛利用",
+      "kev_status": false,
+      "exploitation_status": "active",
+      "patch_available": true
+    },
+    {
+      "cve": "CVE-2026-20700",
+      "title": "Apple dyld 記憶體損壞漏洞",
+      "cvss_score": 7.8,
+      "severity": "high",
+      "vendor": "Apple",
+      "product": "macOS/iOS dyld",
+      "description": "動態連結器中的記憶體損壞漏洞，疑似被商業間諜軟體或國家級攻擊者利用",
+      "kev_status": false,
+      "exploitation_status": "confirmed",
+      "patch_available": true
+    },
+    {
+      "cve": "CVE-2026-1731",
+      "title": "BeyondTrust 未經身份驗證的遠程代碼執行",
+      "cvss_score": 9.1,
+      "severity": "critical",
+      "vendor": "BeyondTrust",
+      "product": "Remote Support (RS) and Privileged Remote Access (PRA)",
+      "description": "影響BeyondTrust Remote Support和Privileged Remote Access，可用於未經身份驗證的遠程代碼執行",
+      "kev_status": false,
+      "exploitation_status": "active",
+      "patch_available": true
+    },
+    {
+      "cve": "CVE-2025-40552",
+      "title": "SolarWinds Web Help Desk 關鍵漏洞",
+      "cvss_score": 9.8,
+      "severity": "critical",
+      "vendor": "SolarWinds",
+      "product": "Web Help Desk",
+      "description": "SolarWinds Web Help Desk中的關鍵安全漏洞之一",
+      "kev_status": false,
+      "exploitation_status": "potential",
+      "patch_available": true,
+      "federal_deadline": "2026-02-24"
+    }
+  ],
+  "action_items": [
+    {
+      "priority": "critical",
+      "title": "立即修補CISA KEV漏洞",
+      "description": "優先修補CVE-2025-15556、CVE-2026-26119、CVE-2026-1281等已列入KEV目錄的漏洞，遵守聯邦機構修補期限。",
+      "deadline": "2026-02-27",
+      "responsible_teams": ["IT安全團隊", "系統管理員"]
+    },
+    {
+      "priority": "high",
+      "title": "部署AI輔助威脅檢測",
+      "description": "鑑於AI助力攻擊激增，建議加強AI輔助的威脅檢測和回應能力，特別關注異常的自動化攻擊模式。",
+      "deadline": "2026-03-15",
+      "responsible_teams": ["SOC團隊", "威脅情報團隊"]
+    },
+    {
+      "priority": "high",
+      "title": "加強FortiGate和網路設備安全",
+      "description": "檢查所有FortiGate設備的管理埠暴露情況，確保啟用多因素驗證，定期更新韌體和密碼政策。",
+      "deadline": "2026-03-01",
+      "responsible_teams": ["網路安全團隊", "基礎設施團隊"]
+    },
+    {
+      "priority": "medium",
+      "title": "制定勒索軟體回應計畫",
+      "description": "考慮到多起醫療和企業機構遭受勒索軟體攻擊，更新事件回應計畫，確保備份策略和災難恢復程序完整。",
+      "deadline": "2026-03-31",
+      "responsible_teams": ["CISO辦公室", "業務連續性團隊"]
+    },
+    {
+      "priority": "medium",
+      "title": "評估供應商安全風險",
+      "description": "評估使用SolarWinds、BeyondTrust、Ivanti等受影響廠商產品的風險，制定替代方案和加強監控措施。",
+      "deadline": "2026-04-15",
+      "responsible_teams": ["供應商管理團隊", "風險管理團隊"]
+    }
+  ],
+  "threat_intelligence": {
+    "trending_attack_vectors": [
+      "AI輔助的自動化攻擊",
+      "零日漏洞快速利用",
+      "商業間諜軟體針對性攻擊",
+      "勒索軟體攻擊醫療機構"
+    ],
+    "threat_actors": [
+      "俄語威脅行為者(FortiGate攻擊)",
+      "Hellcat勒索軟體組織",
+      "疑似國家級攻擊者(Apple零日)"
+    ],
+    "targeted_sectors": [
+      "醫療保健",
+      "政府機構",
+      "企業IT基礎設施",
+      "金融服務"
+    ]
+  },
+  "statistics": {
+    "vulnerability_trends": {
+      "total_new_vulnerabilities": 207,
+      "critical_vulnerabilities_cvss3": 207,
+      "critical_vulnerabilities_cvss4": 51,
+      "kev_additions_this_week": 4
+    },
+    "incident_impact": {
+      "estimated_financial_loss": "$20M+ (ATM attacks alone)",
+      "affected_organizations": "600+ FortiGate devices compromised",
+      "service_disruptions": "Multiple healthcare facilities closed"
+    }
+  },
+  "recommendations": {
+    "immediate_actions": [
+      "修補所有CISA KEV清單中的漏洞",
+      "檢查並加固所有網路邊界設備",
+      "更新勒索軟體防護和檢測機制"
+    ],
+    "strategic_initiatives": [
+      "投資AI驅動的安全操作中心能力",
+      "加強供應商安全評估程序",
+      "建立零信任架構轉型計畫"
+    ]
+  },
+  "report_metadata": {
+    "generated_date": "2026-02-23",
+    "report_version": "1.0",
+    "data_sources": [
+      "CISA KEV Catalog",
+      "The Hacker News",
+      "SecurityWeek",
+      "BleepingComputer",
+      "CISA Vulnerability Bulletins",
+      "Various security vendors"
+    ],
+    "next_report_date": "2026-03-02"
+  }
+}
