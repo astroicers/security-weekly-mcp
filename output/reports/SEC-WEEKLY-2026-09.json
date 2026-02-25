@@ -1,0 +1,247 @@
+{
+  "title": "資安週報 2026/02/24 - 2026/03/01",
+  "report_id": "SEC-WEEKLY-2026-09",
+  "period": {
+    "start": "2026-02-24",
+    "end": "2026-03-01"
+  },
+  "publish_date": "2026-02-25",
+  "summary": {
+    "total_events": 10,
+    "total_vulnerabilities": 8,
+    "threat_level": "elevated"
+  },
+  "events": [
+    {
+      "title": "Silver Fox APT 以報稅誘餌鎖定台灣散播 Winos 4.0",
+      "severity": "critical",
+      "event_type": "APT 攻擊",
+      "summary": "中國駭客組織 Silver Fox 發動針對台灣組織的攻擊活動，偽冒稅務稽核通知和雲端電子發票誘餌散播 Winos 4.0（ValleyRAT）惡意程式。手法較先前更為精密隱蔽，簡單 IOC 封鎖已不足以防禦。Fortinet 報告指出台灣企業為主要攻擊目標。",
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/news/174048",
+      "date": "2026-02-25"
+    },
+    {
+      "title": "Lazarus Group 以 Medusa 勒索軟體攻擊美國醫療和中東目標",
+      "severity": "critical",
+      "event_type": "勒索軟體",
+      "summary": "Symantec 和 Carbon Black 揭露北韓 Lazarus Group 開始使用 Medusa 勒索軟體攻擊美國醫療機構和中東實體。攻擊同時部署 Comebacker 後門、Blindingcan RAT 和 Infohook 資訊竊取程式。此標誌 Lazarus 從傳統網路間諜轉向勒索軟體即服務（RaaS）生態系。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/02/lazarus-group-uses-medusa-ransomware-in.html",
+      "date": "2026-02-24"
+    },
+    {
+      "title": "SolarWinds Serv-U 修補 4 個嚴重 RCE 漏洞",
+      "severity": "critical",
+      "event_type": "漏洞公告",
+      "summary": "SolarWinds 發布更新修補 Serv-U 15.5 檔案傳輸軟體中 4 個嚴重安全漏洞，可允許攻擊者以 root 權限執行遠端程式碼。鑑於 SolarWinds 在企業環境中的廣泛部署，組織應立即修補。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/02/solarwinds-patches-4-critical-serv-u.html",
+      "date": "2026-02-25"
+    },
+    {
+      "title": "CISA 確認 FileZen CVE-2026-25108 遭活躍利用",
+      "severity": "critical",
+      "event_type": "漏洞利用",
+      "summary": "CISA 將 Soliton Systems FileZen 的 OS 命令注入漏洞 CVE-2026-25108（CVSS 8.7）加入 KEV 清單，確認已遭活躍利用。啟用防毒檢查選項時，已驗證使用者可透過特製 HTTP 請求執行任意 OS 命令。聯邦機構須於 3 月 17 日前完成修補。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/02/cisa-confirms-active-exploitation-of.html",
+      "date": "2026-02-24"
+    },
+    {
+      "title": "Conduent 資料外洩擴大至超過 2,500 萬人",
+      "severity": "critical",
+      "event_type": "資料外洩",
+      "summary": "IT 外包商 Conduent 的資料外洩事件持續擴大，受影響人數超過 2,500 萬。外洩資料包含姓名、地址、社會安全號碼和醫療資訊。多個美國州政府系統可能受影響，恐成為史上最大規模的美國政府相關資料外洩事件。",
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/news/174036",
+      "date": "2026-02-25"
+    },
+    {
+      "title": "酷澎資料外洩影響逾 20 萬台灣用戶",
+      "severity": "high",
+      "event_type": "資料外洩",
+      "summary": "數位發展部數位產業署確認 2025 年 11 月酷澎（Coupang）資料外洩事件影響超過 20 萬台灣用戶，個人資料遭未授權存取。台灣主管機關已介入調查。",
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/news/174032",
+      "date": "2026-02-25"
+    },
+    {
+      "title": "APT28 以 Webhook 巨集惡意軟體攻擊歐洲實體",
+      "severity": "high",
+      "event_type": "APT 攻擊",
+      "summary": "俄羅斯國家資助駭客組織 APT28（Fancy Bear）以新型 Webhook 巨集惡意軟體攻擊西歐和中歐實體。此為該組織對歐洲機構持續攻擊活動的最新行動。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/02/apt28-targeted-european-entities-using.html",
+      "date": "2026-02-24"
+    },
+    {
+      "title": "前國防承包商員工因出售 8 個零時差漏洞給俄羅斯被判刑",
+      "severity": "high",
+      "event_type": "資安政策",
+      "summary": "前美國國防承包商 L3Harris 員工 Peter Williams 因出售 8 個零時差漏洞給俄羅斯零時差仲介商被判處 87 個月（逾 7 年）有期徒刑。美國財政部同時制裁涉案俄羅斯仲介商。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/02/defense-contractor-employee-jailed-for.html",
+      "date": "2026-02-25"
+    },
+    {
+      "title": "CrowdStrike 報告：攻擊者 29 分鐘內即可橫向移動",
+      "severity": "high",
+      "event_type": "威脅情報",
+      "summary": "CrowdStrike 2026 年全球威脅報告揭露，平均攻擊突破時間（從初始入侵到橫向移動）降至 29 分鐘，較前年提速 65%。AI 驅動攻擊顯著增加，憑證濫用和安全盲點為主要推手。",
+      "source": "CyberScoop",
+      "url": "https://cyberscoop.com/crowdstrike-annual-global-threat-report-attack-breakout-time/",
+      "date": "2026-02-24"
+    },
+    {
+      "title": "CISA 人力危機：一年內流失三分之一人員",
+      "severity": "medium",
+      "event_type": "資安政策",
+      "summary": "美國 CISA 在過去一年流失約三分之一人力。跨黨派議員和業界代表均表達擔憂，認為該機構已無法因應重大網路危機。此人力流失可能影響全球資安情報分享和漏洞協調機制。",
+      "source": "CyberScoop",
+      "url": "https://cyberscoop.com/cisa-personnel-cuts-trump-second-term-analysis/",
+      "date": "2026-02-25"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-25108",
+      "title": "Soliton FileZen OS 命令注入漏洞（已遭利用）",
+      "cvss": 8.7,
+      "severity": "critical",
+      "vendor": "Soliton Systems",
+      "product": "FileZen",
+      "description": "啟用防毒檢查選項時，已驗證使用者可透過特製 HTTP 請求執行任意 OS 命令。CISA 已加入 KEV 清單。"
+    },
+    {
+      "cve_id": "CVE-2026-27211",
+      "title": "Cloud Hypervisor 主機檔案外洩漏洞",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "Cloud Hypervisor Project",
+      "product": "Cloud Hypervisor",
+      "description": "34.0 至 50.0 版本存在透過 virtio-block 設備的任意主機檔案外洩漏洞。惡意客體可竄改磁碟標頭指向敏感主機路徑，VM 重啟即可觸發。"
+    },
+    {
+      "cve_id": "CVE-2026-2038",
+      "title": "GFI Archiver 驗證繞過漏洞",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "GFI",
+      "product": "Archiver (MArc.Core)",
+      "description": "GFI Archiver 關鍵功能缺少授權驗證，允許遠端攻擊者完全繞過驗證機制。"
+    },
+    {
+      "cve_id": "CVE-2025-49113",
+      "title": "Roundcube Webmail 反序列化 RCE 漏洞（已遭利用）",
+      "cvss": 9.0,
+      "severity": "critical",
+      "vendor": "Roundcube",
+      "product": "Webmail",
+      "description": "不受信任資料反序列化漏洞允許遠端程式碼執行。已加入 CISA KEV 清單，聯邦機構須於 3 月 13 日前修補。"
+    },
+    {
+      "cve_id": "CVE-2025-68461",
+      "title": "Roundcube Webmail 跨站腳本漏洞（已遭利用）",
+      "cvss": 7.5,
+      "severity": "high",
+      "vendor": "Roundcube",
+      "product": "Webmail",
+      "description": "SVG 文件中 animate 標籤導致的 XSS 漏洞，與 CVE-2025-49113 同時遭利用。"
+    },
+    {
+      "cve_id": "CVE-2026-22769",
+      "title": "Dell RecoverPoint for VMs 硬編碼憑證漏洞（已過期限）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "Dell",
+      "product": "RecoverPoint for Virtual Machines",
+      "description": "硬編碼 Tomcat Manager 憑證漏洞，CISA KEV 修補期限（2/21）已過。仍有大量未修補系統暴露於風險中。"
+    },
+    {
+      "cve_id": "CVE-2026-1281",
+      "title": "Ivanti EPMM 遠端程式碼執行漏洞（持續利用中）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Ivanti",
+      "product": "Endpoint Manager Mobile (EPMM)",
+      "description": "嚴重 RCE 漏洞持續遭利用。CISA KEV 修補期限為 3 月 1 日。"
+    },
+    {
+      "cve_id": "CVE-2026-1731",
+      "title": "BeyondTrust RS/PRA OS 命令注入漏洞（持續擴大利用）",
+      "cvss": 9.1,
+      "severity": "critical",
+      "vendor": "BeyondTrust",
+      "product": "Remote Support / Privileged Remote Access",
+      "description": "利用持續擴大至 5 國。攻擊者部署 VShell、SparkRAT、Web Shell 後門，建立 DNS 通道外洩資料。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅等級持續升高。北韓 Lazarus Group 跨入勒索軟體即服務生態系，部署 Medusa 勒索軟體攻擊醫療機構。中國 Silver Fox APT 以報稅主題鎖定台灣企業。CrowdStrike 報告顯示攻擊突破時間縮短至 29 分鐘。多個上週揭露的重大漏洞持續遭利用，新增 FileZen、SolarWinds Serv-U 等重大漏洞。",
+    "key_trends": [
+      "Lazarus Group 採用 Medusa RaaS 擴大勒索軟體行動",
+      "中國 APT 持續鎖定台灣企業（Silver Fox / Winos 4.0）",
+      "攻擊突破時間持續縮短（29 分鐘，較前年快 65%）",
+      "零時差漏洞仲介生態系受法律行動打擊",
+      "CISA 人力流失恐影響全球資安協調"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即更新 SolarWinds Serv-U 至最新版本，修補 4 個嚴重 RCE 漏洞"
+    },
+    {
+      "priority": "high",
+      "action": "修補 Soliton FileZen CVE-2026-25108（已遭利用），停用不必要的防毒檢查功能"
+    },
+    {
+      "priority": "high",
+      "action": "加強台灣企業對報稅和電子發票主題釣魚郵件的監控，部署 Winos 4.0/ValleyRAT IOC"
+    },
+    {
+      "priority": "high",
+      "action": "確認 Ivanti EPMM（3/1 期限）和 Dell RecoverPoint（已過期限）修補狀態"
+    },
+    {
+      "priority": "medium",
+      "action": "評估組織對 CISA 資安情報和漏洞協調服務的依賴程度，建立替代情報來源"
+    },
+    {
+      "priority": "medium",
+      "action": "參考 CrowdStrike 29 分鐘突破時間數據，檢視偵測和回應能力是否足以應對"
+    }
+  ],
+  "terms": [],
+  "references": [
+    {
+      "title": "CISA Confirms Active Exploitation of FileZen CVE-2026-25108",
+      "url": "https://thehackernews.com/2026/02/cisa-confirms-active-exploitation-of.html"
+    },
+    {
+      "title": "SolarWinds Patches 4 Critical Serv-U Flaws",
+      "url": "https://thehackernews.com/2026/02/solarwinds-patches-4-critical-serv-u.html"
+    },
+    {
+      "title": "Lazarus Group Uses Medusa Ransomware",
+      "url": "https://thehackernews.com/2026/02/lazarus-group-uses-medusa-ransomware-in.html"
+    },
+    {
+      "title": "Silver Fox APT 以 Winos 4.0 攻擊台灣企業",
+      "url": "https://www.ithome.com.tw/news/174048"
+    },
+    {
+      "title": "酷澎資料外洩影響 20 萬台灣用戶",
+      "url": "https://www.ithome.com.tw/news/174032"
+    },
+    {
+      "title": "CrowdStrike 2026 Global Threat Report",
+      "url": "https://cyberscoop.com/crowdstrike-annual-global-threat-report-attack-breakout-time/"
+    },
+    {
+      "title": "CISA Personnel Crisis Analysis",
+      "url": "https://cyberscoop.com/cisa-personnel-cuts-trump-second-term-analysis/"
+    }
+  ]
+}
