@@ -497,9 +497,9 @@ def generate_rss_xml(items: list[dict], build_date: datetime) -> str:
     ]
 
     for item in items:
-        pub_date = parse_publish_date(item["publish_date"])
+        pub_date = parse_publish_date(item.get("publish_date", datetime.now(TIMEZONE).strftime("%Y-%m-%d")))
         description = format_description(item)
-        report_id = item["report_id"]
+        report_id = item.get("report_id", "unknown")
 
         # 使用 report_id 作為 permalink
         item_link = f"{SITE_URL}/reports/{report_id}.html"
@@ -520,6 +520,81 @@ def generate_rss_xml(items: list[dict], build_date: datetime) -> str:
     ])
 
     return "\n".join(xml_lines)
+
+
+def normalize_report(data: dict, filename_stem: str) -> None:
+    """防禦性正規化週報 JSON，補齊缺失的頂層欄位。
+
+    直接修改傳入的 dict，不回傳值。
+    """
+    # --- report_id ---
+    if "report_id" not in data:
+        data["report_id"] = filename_stem  # e.g. "SEC-WEEKLY-2026-08"
+
+    # --- period（支援 report_period 格式） ---
+    if "period" not in data:
+        rp = data.get("report_period", {})
+        if rp:
+            data["period"] = {
+                "start": rp.get("start_date", ""),
+                "end": rp.get("end_date", ""),
+            }
+        else:
+            data["period"] = {"start": "", "end": ""}
+
+    # --- publish_date ---
+    if "publish_date" not in data:
+        # fallback chain: report_metadata.generated_date → period.end → today
+        meta_date = data.get("report_metadata", {}).get("generated_date", "")
+        period_end = data.get("period", {}).get("end", "")
+        rp_end = data.get("report_period", {}).get("end_date", "")
+        data["publish_date"] = (
+            meta_date or period_end or rp_end or datetime.now(TIMEZONE).strftime("%Y-%m-%d")
+        )
+
+    # --- summary.threat_level ---
+    summary = data.get("summary", {})
+    if "threat_level" not in summary:
+        summary["threat_level"] = "normal"
+        data["summary"] = summary
+
+    # --- summary.total_events / total_vulnerabilities ---
+    if "total_events" not in summary:
+        summary["total_events"] = len(data.get("events", []))
+    if "total_vulnerabilities" not in summary:
+        # support alternate key name
+        summary["total_vulnerabilities"] = summary.get(
+            "critical_vulnerabilities", len(data.get("vulnerabilities", []))
+        )
+
+    # --- terms / references ---
+    if "terms" not in data:
+        data["terms"] = []
+    if "references" not in data:
+        data["references"] = []
+
+    # --- normalize vulnerability field names (cve → cve_id, cvss_score → cvss) ---
+    for vuln in data.get("vulnerabilities", []):
+        if "cve_id" not in vuln and "cve" in vuln:
+            vuln["cve_id"] = vuln["cve"]
+        if "cvss" not in vuln and "cvss_score" in vuln:
+            vuln["cvss"] = vuln["cvss_score"]
+
+    # --- normalize action_items (priority mapping, action field) ---
+    priority_map = {"critical": "high", "high": "high", "medium": "medium", "low": "low"}
+    for item in data.get("action_items", []):
+        if "action" not in item:
+            item["action"] = item.get("title", "") or item.get("description", "")
+        item["priority"] = priority_map.get(item.get("priority", "low"), item.get("priority", "low"))
+
+    # --- normalize events (summary field) ---
+    for event in data.get("events", []):
+        if "summary" not in event:
+            event["summary"] = event.get("description", "")
+        if "source" not in event:
+            event["source"] = ""
+        if "url" not in event:
+            event["url"] = "#"
 
 
 def main():
@@ -544,11 +619,12 @@ def main():
     print("=== RSS Feed 與週報頁面生成 ===")
     print(f"找到 {len(report_files)} 份週報")
 
-    # 讀取並解析報告
+    # 讀取並解析報告（加上防禦性正規化）
     items = []
     for report_file in report_files:
         with open(report_file, encoding="utf-8") as f:
             data = json.load(f)
+            normalize_report(data, report_file.stem)
             items.append(data)
 
     # 按發布日期排序（最新在前）

@@ -1,5 +1,11 @@
 {
   "title": "資安週報 2026/02/17 - 2026/02/23",
+  "report_id": "SEC-WEEKLY-2026-08",
+  "period": {
+    "start": "2026-02-17",
+    "end": "2026-02-23"
+  },
+  "publish_date": "2026-02-23",
   "report_period": {
     "start_date": "2026-02-17",
     "end_date": "2026-02-23",
@@ -7,6 +13,8 @@
   },
   "summary": {
     "total_events": 15,
+    "total_vulnerabilities": 7,
+    "threat_level": "elevated",
     "critical_vulnerabilities": 7,
     "kev_vulnerabilities": 4,
     "major_breaches": 5,
@@ -341,5 +349,7 @@
       "Various security vendors"
     ],
     "next_report_date": "2026-03-02"
-  }
+  },
+  "terms": [],
+  "references": []
 }
