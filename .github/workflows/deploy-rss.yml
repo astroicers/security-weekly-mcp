@@ -63,6 +63,24 @@ jobs:
             git push
           fi
 
+      - name: Update glossary submodule pointer
+        run: |
+          cd $GITHUB_WORKSPACE
+          GLOSSARY_SHA=$(cd /tmp/glossary-tw && git rev-parse HEAD)
+          CURRENT_SHA=$(git -C packages/glossary rev-parse HEAD)
+          if [ "$GLOSSARY_SHA" = "$CURRENT_SHA" ]; then
+            echo "Submodule already up to date"
+          else
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git config user.name "github-actions[bot]"
+            git -C packages/glossary fetch origin main
+            git -C packages/glossary checkout "$GLOSSARY_SHA"
+            git add packages/glossary
+            git commit -m "chore: update glossary submodule to $(echo $GLOSSARY_SHA | head -c 7)"
+            git push
+            echo "Submodule updated: $CURRENT_SHA -> $GLOSSARY_SHA"
+          fi
+
       - name: Send LINE Notify
         if: success()
         continue-on-error: true
