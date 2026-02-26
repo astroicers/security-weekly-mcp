@@ -506,7 +506,7 @@ def generate_rss_xml(items: list[dict], build_date: datetime) -> str:
 
         xml_lines.extend([
             "    <item>",
-            f"      <title>{html.escape(item['title'])}</title>",
+            f"      <title>{html.escape(item.get('title', item.get('report_id', 'unknown')))}</title>",
             f"      <link>{item_link}</link>",
             f'      <guid isPermaLink="false">{report_id}</guid>',
             f"      <pubDate>{format_datetime(pub_date)}</pubDate>",
@@ -530,6 +530,16 @@ def normalize_report(data: dict, filename_stem: str) -> None:
     # --- report_id ---
     if "report_id" not in data:
         data["report_id"] = filename_stem  # e.g. "SEC-WEEKLY-2026-08"
+
+    # --- title ---
+    if "title" not in data:
+        period = data.get("period", {})
+        start = period.get("start", "")
+        end = period.get("end", "")
+        if start and end:
+            data["title"] = f"資安週報 {start} - {end}"
+        else:
+            data["title"] = f"資安週報 {data['report_id']}"
 
     # --- period（支援 report_period 格式） ---
     if "period" not in data:
