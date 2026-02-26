@@ -149,6 +149,49 @@ async def list_tools() -> list[Tool]:
                 "required": ["text"],
             },
         ),
+        Tool(
+            name="create_pending_term",
+            description="建立待審術語。將不在術語庫中的新術語提交待審，自動檢查重複。",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "術語 ID（小寫底線分隔，如 salt_typhoon）",
+                    },
+                    "term_en": {"type": "string", "description": "英文術語"},
+                    "term_zh": {"type": "string", "description": "繁體中文術語"},
+                    "category": {
+                        "type": "string",
+                        "enum": [
+                            "attack_types",
+                            "vulnerabilities",
+                            "threat_actors",
+                            "malware",
+                            "technologies",
+                            "frameworks",
+                            "compliance",
+                        ],
+                        "description": "術語分類",
+                    },
+                    "brief_definition": {
+                        "type": "string",
+                        "description": "≤30 字簡短定義（台灣繁體中文）",
+                    },
+                    "standard_definition": {
+                        "type": "string",
+                        "description": "50-100 字標準定義（選填）",
+                    },
+                    "source_url": {"type": "string", "description": "來源 URL（選填）"},
+                    "confidence": {
+                        "type": "number",
+                        "description": "信心度 0-1",
+                        "default": 0.8,
+                    },
+                },
+                "required": ["id", "term_en", "term_zh", "category", "brief_definition"],
+            },
+        ),
     ]
 
 
@@ -364,11 +407,11 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         brief = definitions.get("brief", "")
         if not brief:
             return [TextContent(type="text", text="❌ definitions.brief 不能為空")]
-        if len(brief) > 50:
+        if len(brief) > 30:
             return [
                 TextContent(
                     type="text",
-                    text=f"⚠️ definitions.brief 過長（{len(brief)} 字元），建議 ≤ 50 字元",
+                    text=f"⚠️ definitions.brief 過長（{len(brief)} 字元），建議 ≤ 30 字元",
                 )
             ]
 
@@ -401,6 +444,9 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         # 刪除待審檔案
         pending_file.unlink()
 
+        # 重設快取，確保後續 create_pending_term 能偵測剛入庫的術語
+        reset_glossary_cache()
+
         return [
             TextContent(
                 type="text",
@@ -429,5 +475,117 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
             result += f"\n原因：{reason}"
 
         return [TextContent(type="text", text=result)]
+
+    elif name == "create_pending_term":
+        import re
+        from datetime import date
+
+        import yaml
+
+        term_id = arguments["id"]
+        term_en = arguments["term_en"]
+        term_zh = arguments["term_zh"]
+        category = arguments["category"]
+        brief_definition = arguments["brief_definition"]
+        standard_definition = arguments.get("standard_definition")
+        source_url = arguments.get("source_url")
+        confidence = arguments.get("confidence", 0.8)
+
+        # 驗證 ID 格式
+        if not re.match(r"^[a-z][a-z0-9_]*$", term_id):
+            return [
+                TextContent(
+                    type="text",
+                    text=f"❌ 無效的術語 ID：{term_id}\n格式：小寫字母開頭，僅含小寫字母、數字、底線",
+                )
+            ]
+
+        # 驗證分類
+        valid_categories = [
+            "attack_types",
+            "vulnerabilities",
+            "threat_actors",
+            "malware",
+            "technologies",
+            "frameworks",
+            "compliance",
+        ]
+        if category not in valid_categories:
+            return [
+                TextContent(
+                    type="text",
+                    text=f"❌ 無效的分類：{category}\n有效分類：{', '.join(valid_categories)}",
+                )
+            ]
+
+        # 驗證 brief_definition 長度
+        if len(brief_definition) > 30:
+            return [
+                TextContent(
+                    type="text",
+                    text=f"⚠️ brief_definition 過長（{len(brief_definition)} 字元），請縮減至 ≤ 30 字元",
+                )
+            ]
+
+        # 檢查術語庫是否已有此 ID
+        if glossary.get(term_id):
+            return [
+                TextContent(type="text", text=f"ℹ️ 術語已存在於術語庫中：{term_id}")
+            ]
+
+        # 檢查術語庫是否已有相同 term_en 名稱
+        existing = glossary.get_by_name(term_en)
+        if existing:
+            return [
+                TextContent(
+                    type="text",
+                    text=f"ℹ️ 類似術語已存在：{existing.id}（{existing.term_en}）",
+                )
+            ]
+
+        # 檢查 pending 是否已有此 ID
+        pending_dir = GLOSSARY_PATH / "pending"
+        pending_dir.mkdir(parents=True, exist_ok=True)
+        existing_pending = list(pending_dir.glob(f"*-{term_id}.yaml"))
+        if existing_pending:
+            return [
+                TextContent(
+                    type="text",
+                    text=f"ℹ️ 術語已在待審中：{existing_pending[0].name}",
+                )
+            ]
+
+        # 組裝 YAML 資料
+        today = date.today().isoformat()
+        filename = f"{today}-{term_id}.yaml"
+
+        data = {
+            "term": {
+                "id": term_id,
+                "term_en": term_en,
+                "term_zh": term_zh,
+                "category": category,
+                "definitions": {"brief": brief_definition},
+            },
+            "discovery": {
+                "source": "weekly-report",
+                "discovered_at": today,
+                "confidence": confidence,
+            },
+        }
+
+        if standard_definition:
+            data["term"]["definitions"]["standard"] = standard_definition
+        if source_url:
+            data["discovery"]["source_url"] = source_url
+
+        # 寫入檔案
+        pending_file = pending_dir / filename
+        with open(pending_file, "w", encoding="utf-8") as fp:
+            yaml.dump(data, fp, allow_unicode=True, default_flow_style=False, sort_keys=False)
+
+        return [
+            TextContent(type="text", text=f"✅ 已建立待審術語：{filename}")
+        ]
 
     return [TextContent(type="text", text=f"未知工具: {name}")]

@@ -15,8 +15,10 @@ def temp_glossary(tmp_path):
     # 建立目錄結構
     pending_dir = tmp_path / "pending"
     terms_dir = tmp_path / "terms"
+    meta_dir = tmp_path / "meta"
     pending_dir.mkdir()
     terms_dir.mkdir()
+    meta_dir.mkdir()
 
     # 建立測試用分類檔案
     technologies_file = terms_dir / "technologies.yaml"
@@ -57,6 +59,7 @@ discovery:
 def mock_glossary_path(temp_glossary, monkeypatch):
     """替換 GLOSSARY_PATH 為臨時目錄"""
     monkeypatch.setattr(glossary, "GLOSSARY_PATH", temp_glossary)
+    glossary.reset_glossary_cache()
     return temp_glossary
 
 
@@ -186,6 +189,34 @@ term:
         assert len(result) == 1
         assert "❌" in result[0].text
         assert "無效的分類" in result[0].text
+
+    @pytest.mark.asyncio
+    async def test_approve_brief_over_30(self, mock_glossary_path):
+        """brief 超過 30 字元應被拒"""
+        pending_file = mock_glossary_path / "pending" / "2026-02-14-long_brief.yaml"
+        # 31 個中文字元
+        brief_31 = "一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一"
+        assert len(brief_31) == 31
+        pending_file.write_text(
+            f"""
+term:
+  id: long_brief_term
+  term_en: Long Brief Term
+  term_zh: 長定義術語
+  category: technologies
+  definitions:
+    brief: {brief_31}
+""",
+            encoding="utf-8",
+        )
+
+        result = await glossary.call_tool(
+            "approve_pending_term", {"filename": "2026-02-14-long_brief.yaml"}
+        )
+        assert len(result) == 1
+        assert "⚠️" in result[0].text
+        assert "過長" in result[0].text
+        assert "≤ 30" in result[0].text
 
     @pytest.mark.asyncio
     async def test_approve_empty_brief(self, mock_glossary_path):

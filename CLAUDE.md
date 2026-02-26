@@ -22,7 +22,7 @@ security-weekly-mcp/                    # Monorepo (uv workspace)
 │           ├── server.py               # MCP Server 主程式
 │           ├── __main__.py             # CLI 入口
 │           └── tools/                  # MCP 工具模組
-│               ├── glossary.py         # 術語庫工具 (6 個)
+│               ├── glossary.py         # 術語庫工具 (9 個)
 │               ├── news.py             # 新聞收集工具 (3 個)
 │               └── report.py           # 週報工具 (2 個)
 │
@@ -38,7 +38,7 @@ security-weekly-mcp/                    # Monorepo (uv workspace)
 └── uv.lock                             # 依賴鎖定
 ```
 
-## MCP 工具 (12 個)
+## MCP 工具 (15 個)
 
 ### 術語庫工具
 
@@ -50,6 +50,9 @@ security-weekly-mcp/                    # Monorepo (uv workspace)
 | `add_term_links` | 為文本加術語連結 | Markdown/HTML 輸出 |
 | `list_pending_terms` | 列出待審術語 | 術語審核流程 |
 | `extract_terms` | 從文本自動提取術語 | **週報產生自動填充** |
+| `create_pending_term` | 建立待審術語 | 自動檢查 ID 與名稱重複 |
+| `approve_pending_term` | 批准待審術語入庫 | 驗證欄位後寫入分類 YAML |
+| `reject_pending_term` | 拒絕待審術語 | 刪除並記錄原因 |
 
 ### 新聞收集工具
 
@@ -167,6 +170,18 @@ security-weekly-mcp/                    # Monorepo (uv workspace)
   }
 ]
 ```
+
+## 術語重複檢查機制
+
+`create_pending_term` 在建立待審術語前執行三道防線：
+
+1. **ID 檢查** — `glossary.get(term_id)` 查詢正式術語庫
+2. **名稱檢查** — `glossary.get_by_name(term_en)` 比對所有已知名稱（含 term_en、term_zh、aliases），攔截 ID 不同但名稱相同的重複
+3. **Pending 檢查** — 掃描 `pending/*.yaml` 確認無同 ID 待審中
+
+`approve_pending_term` 成功寫入 YAML 後會呼叫 `reset_glossary_cache()`，確保同 session 後續的 `create_pending_term` 能偵測到剛入庫的術語。
+
+**`brief_definition` 長度限制：≤ 30 字元**（create 與 approve 均驗證）。
 
 ## 關鍵風格規則
 
