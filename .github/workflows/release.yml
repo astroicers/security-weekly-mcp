@@ -32,16 +32,28 @@ jobs:
           uv run --package security-weekly-mcp-server pytest tests/ \
             -v --tb=short -m "not slow"
 
-      - name: Build package
+      - name: Build mcp-server package
         run: |
           cd packages/mcp-server
           uv build
 
-      - name: Upload distributions
+      - name: Upload mcp-server distributions
         uses: actions/upload-artifact@v4
         with:
-          name: distributions
+          name: mcp-server-distributions
           path: packages/mcp-server/dist/
+
+      - name: Build glossary package
+        run: |
+          cd packages/glossary
+          uv pip install build --system || pip install build
+          python -m build
+
+      - name: Upload glossary distributions
+        uses: actions/upload-artifact@v4
+        with:
+          name: glossary-distributions
+          path: packages/glossary/dist/
 
   # PyPI 發布需要設定 PYPI_API_TOKEN secret
   # publish:
@@ -52,7 +64,11 @@ jobs:
   #   steps:
   #     - uses: actions/download-artifact@v4
   #       with:
-  #         name: distributions
+  #         name: mcp-server-distributions
+  #         path: dist/
+  #     - uses: actions/download-artifact@v4
+  #       with:
+  #         name: glossary-distributions
   #         path: dist/
   #
   #     - name: Publish to PyPI
@@ -68,11 +84,18 @@ jobs:
 
       - uses: actions/download-artifact@v4
         with:
-          name: distributions
-          path: dist/
+          name: mcp-server-distributions
+          path: dist/mcp-server/
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: glossary-distributions
+          path: dist/glossary/
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          files: dist/*
+          files: |
+            dist/mcp-server/*
+            dist/glossary/*
           generate_release_notes: true

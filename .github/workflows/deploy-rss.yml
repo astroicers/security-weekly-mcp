@@ -54,6 +54,7 @@ jobs:
           cp /tmp/rss-output/reports/*.html /tmp/glossary-tw/docs/weekly/reports/
 
       - name: Commit and push to glossary-tw
+        id: glossary_push
         run: |
           cd /tmp/glossary-tw
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -61,10 +62,21 @@ jobs:
           git add -f docs/weekly/feed.xml docs/weekly/reports/
           if git diff --staged --quiet; then
             echo "No changes to commit"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
           else
             git commit -m "rss: update weekly feed and reports $(date +%Y-%m-%d)"
             git push
+            echo "has_changes=true" >> $GITHUB_OUTPUT
           fi
+
+      - name: Tag glossary release
+        if: steps.glossary_push.outputs.has_changes == 'true'
+        run: |
+          cd /tmp/glossary-tw
+          VERSION="0.1.$(date +%Y%m%d)"
+          echo "Tagging glossary release v${VERSION}"
+          git tag "v${VERSION}"
+          git push origin "v${VERSION}"
 
       - name: Update glossary submodule pointer
         run: |
