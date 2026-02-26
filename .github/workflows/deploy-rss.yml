@@ -9,6 +9,9 @@ on:
   workflow_dispatch:
   workflow_call:  # 允許被其他 workflow 呼叫
 
+permissions:
+  contents: write
+
 env:
   UV_CACHE_DIR: /tmp/.uv-cache
 
