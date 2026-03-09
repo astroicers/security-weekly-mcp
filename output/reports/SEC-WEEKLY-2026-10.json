@@ -1,0 +1,374 @@
+{
+  "report_id": "SEC-WEEKLY-2026-10",
+  "period": {
+    "start": "2026-03-03",
+    "end": "2026-03-09"
+  },
+  "publish_date": "2026-03-09",
+  "summary": {
+    "total_events": 15,
+    "total_vulnerabilities": 13,
+    "threat_level": "critical",
+    "overview": "本週威脅環境極為活躍，出現多個 CVSS 10.0 最高風險漏洞，包括 n8n 和 Cisco 防火牆的關鍵漏洞。CISA 新增 7 個漏洞至 KEV 清單，地緣政治緊張局勢加劇網路威脅風險。"
+  },
+  "events": [
+    {
+      "id": "EVT-001",
+      "summary": "n8n \"Ni8mare\" 漏洞允許未認證遠端代碼執行，影響全球約 10 萬台伺服器",
+      "threat_level": "critical",
+      "date": "2026-03-05",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/01/critical-n8n-vulnerability-cvss-100.html",
+      "category": "vulnerability"
+    },
+    {
+      "id": "EVT-002",
+      "summary": "Cisco 發布防火牆管理中心兩個 CVSS 10.0 關鍵漏洞，可導致任意代碼執行",
+      "threat_level": "critical",
+      "date": "2026-03-04",
+      "source": "Abstract Security",
+      "url": "https://www.abstract.security/blog/critical-cisco-vulnerabilities-cve-2026-20079-and-cve-2026-20131",
+      "category": "vulnerability"
+    },
+    {
+      "id": "EVT-003",
+      "summary": "CISA 將 VMware Aria Operations 遠端代碼執行漏洞加入 KEV 清單",
+      "threat_level": "high",
+      "date": "2026-03-03",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/03/cisa-adds-actively-exploited-vmware.html",
+      "category": "kev_addition"
+    },
+    {
+      "id": "EVT-004",
+      "summary": "Hikvision 和 Rockwell Automation CVSS 9.8 漏洞被加入 CISA KEV 清單",
+      "threat_level": "high",
+      "date": "2026-03-05",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/03/hikvision-and-rockwell-automation-cvss.html",
+      "category": "kev_addition"
+    },
+    {
+      "id": "EVT-005",
+      "summary": "Android 發布重大安全更新，修復 129 個漏洞，包括 10 個關鍵漏洞",
+      "threat_level": "high",
+      "date": "2026-03-06",
+      "source": "Security Week",
+      "url": "https://www.securityweek.com/",
+      "category": "security_update"
+    },
+    {
+      "id": "EVT-006",
+      "summary": "Chrome Gemini 面板發現高危漏洞，允許低權限擴展注入代碼",
+      "threat_level": "high",
+      "date": "2026-03-07",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/",
+      "category": "vulnerability"
+    },
+    {
+      "id": "EVT-007",
+      "summary": "AI 發現 Firefox 22 個新漏洞，其中 14 個被歸類為高危",
+      "threat_level": "medium",
+      "date": "2026-03-08",
+      "source": "Security Week",
+      "url": "https://www.securityweek.com/",
+      "category": "vulnerability_discovery"
+    },
+    {
+      "id": "EVT-008",
+      "summary": "網路安全專家警告伊朗相關駭客攻擊風險增加",
+      "threat_level": "high",
+      "date": "2026-03-03",
+      "source": "ASI Central",
+      "url": "https://members.asicentral.com/news/industry-news/march-2026/cybersecurity-experts-warn-of-increased-risk-of-attacks-from-iran-linked-hackers/",
+      "category": "threat_intelligence"
+    },
+    {
+      "id": "EVT-009",
+      "summary": "美國聯邦通信委員會敦促電信業者加強網路安全，勒索軟體攻擊增長四倍",
+      "threat_level": "high",
+      "date": "2026-03-04",
+      "source": "Boston Institute of Analytics",
+      "url": "https://bostoninstituteofanalytics.org/blog/weekly-global-cybersecurity-threat-update-major-incidents-and-security-trends-28-feb-6-march-2026/",
+      "category": "industry_alert"
+    },
+    {
+      "id": "EVT-010",
+      "summary": "製造業成為勒索軟體主要目標，佔 2025 年攻擊目標超過 50%",
+      "threat_level": "medium",
+      "date": "2026-03-05",
+      "source": "BlackFog",
+      "url": "https://www.blackfog.com/the-state-of-ransomware-2026/",
+      "category": "threat_trend"
+    },
+    {
+      "id": "EVT-011",
+      "summary": "多家組織遭受勒索軟體攻擊，包括 Qilin、Akira 等威脅組織活動",
+      "threat_level": "medium",
+      "date": "2026-03-06",
+      "source": "Purple Security",
+      "url": "https://purplesec.us/breach-report/",
+      "category": "attack_campaign"
+    },
+    {
+      "id": "EVT-012",
+      "summary": "政治動機網路攻擊頻率增加，DDoS 攻擊目標政府和關鍵基礎設施",
+      "threat_level": "medium",
+      "date": "2026-03-07",
+      "source": "Boston Institute of Analytics",
+      "url": "https://bostoninstituteofanalytics.org/blog/weekly-global-cybersecurity-threat-update-major-incidents-and-security-trends-28-feb-6-march-2026/",
+      "category": "hacktivist_activity"
+    },
+    {
+      "id": "EVT-013",
+      "summary": "Cloudflare 追蹤每日 2300 億次威脅，機器人佔登入嘗試的 94%",
+      "threat_level": "medium",
+      "date": "2026-03-03",
+      "source": "Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/03/03/cloudflare-cyber-threat-report-2026/",
+      "category": "threat_statistics"
+    },
+    {
+      "id": "EVT-014",
+      "summary": "OpenClaw 語音擴展發現遠端代碼執行漏洞 CVE-2026-28446",
+      "threat_level": "high",
+      "date": "2026-03-08",
+      "source": "TheHackerWire",
+      "url": "https://dev.to/tiamatenity/cve-2026-28446-cvss-98-openclaw-voice-extension-rce-what-you-need-to-know-n2i",
+      "category": "vulnerability"
+    },
+    {
+      "id": "EVT-015",
+      "summary": "堆緩衝區溢出漏洞 CVE-2026-0006 允許遠端代碼執行，無需用戶交互",
+      "threat_level": "high",
+      "date": "2026-03-02",
+      "source": "TheHackerWire",
+      "url": "https://www.thehackerwire.com/cve-2026-0006-critical-rce-via-heap-buffer-overflow/",
+      "category": "vulnerability"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-21858",
+      "title": "n8n 未認證遠端代碼執行漏洞",
+      "cvss": 10.0,
+      "severity": "critical",
+      "description": "允許攻擊者接管本地部署實例，影響全球約 10 萬台伺服器",
+      "affected_products": ["n8n"],
+      "kev_status": false,
+      "exploitation_status": "active"
+    },
+    {
+      "cve_id": "CVE-2026-20079",
+      "title": "Cisco 安全防火牆管理中心漏洞",
+      "cvss": 10.0,
+      "severity": "critical",
+      "description": "允許攻擊者在設備上執行任意代碼並提升權限至 root",
+      "affected_products": ["Cisco Secure Firewall Management Center"],
+      "kev_status": false,
+      "exploitation_status": "potential"
+    },
+    {
+      "cve_id": "CVE-2026-20131",
+      "title": "Cisco 安全防火牆管理中心漏洞",
+      "cvss": 10.0,
+      "severity": "critical",
+      "description": "允許攻擊者在設備上執行任意代碼並提升權限至 root",
+      "affected_products": ["Cisco Secure Firewall Management Center"],
+      "kev_status": false,
+      "exploitation_status": "potential"
+    },
+    {
+      "cve_id": "CVE-2026-22719",
+      "title": "VMware Aria Operations 命令注入漏洞",
+      "cvss": 8.1,
+      "severity": "high",
+      "description": "允許未認證攻擊者執行任意命令",
+      "affected_products": ["VMware Aria Operations"],
+      "kev_status": true,
+      "exploitation_status": "active"
+    },
+    {
+      "cve_id": "CVE-2017-7921",
+      "title": "Hikvision 產品認證繞過漏洞",
+      "cvss": 9.8,
+      "severity": "critical",
+      "description": "不當認證漏洞，允許惡意用戶提升系統權限",
+      "affected_products": ["Multiple Hikvision Products"],
+      "kev_status": true,
+      "exploitation_status": "active"
+    },
+    {
+      "cve_id": "CVE-2021-22681",
+      "title": "Rockwell Automation 憑證保護不足漏洞",
+      "cvss": 9.8,
+      "severity": "critical",
+      "description": "允許網路訪問的未授權用戶繞過驗證機制",
+      "affected_products": ["Rockwell Automation Studio 5000", "RSLogix 5000"],
+      "kev_status": true,
+      "exploitation_status": "active"
+    },
+    {
+      "cve_id": "CVE-2026-0006",
+      "title": "堆緩衝區溢出漏洞",
+      "cvss": 9.8,
+      "severity": "critical",
+      "description": "允許遠端代碼執行，無需用戶交互或額外權限",
+      "affected_products": ["未指定"],
+      "kev_status": false,
+      "exploitation_status": "potential"
+    },
+    {
+      "cve_id": "CVE-2026-28446",
+      "title": "OpenClaw 語音擴展遠端代碼執行漏洞",
+      "cvss": 9.8,
+      "severity": "critical",
+      "description": "遠端未認證攻擊者可在主機上執行任意代碼",
+      "affected_products": ["OpenClaw Voice Extension"],
+      "kev_status": false,
+      "exploitation_status": "potential"
+    },
+    {
+      "cve_id": "CVE-2026-30860",
+      "title": "關鍵漏洞",
+      "cvss": 9.9,
+      "severity": "critical",
+      "description": "可能導致完全系統妥協、資料竊取或惡意軟體安裝",
+      "affected_products": ["未指定"],
+      "kev_status": false,
+      "exploitation_status": "potential"
+    },
+    {
+      "cve_id": "CVE-2026-20122",
+      "title": "Cisco SD-WAN 管理器任意檔案覆寫漏洞",
+      "cvss": 7.1,
+      "severity": "high",
+      "description": "允許已認證遠端攻擊者覆寫本地檔案系統上的任意檔案",
+      "affected_products": ["Cisco Catalyst SD-WAN Manager"],
+      "kev_status": false,
+      "exploitation_status": "active"
+    },
+    {
+      "cve_id": "CVE-2026-0628",
+      "title": "Chrome Gemini 面板漏洞",
+      "cvss": 7.5,
+      "severity": "high",
+      "description": "允許低權限擴展向 Gemini 側邊面板注入代碼",
+      "affected_products": ["Chrome Gemini Panel"],
+      "kev_status": false,
+      "exploitation_status": "potential"
+    },
+    {
+      "cve_id": "CVE-2023-41974",
+      "title": "Apple iOS/iPadOS Use-After-Free 漏洞",
+      "cvss": null,
+      "severity": "unknown",
+      "description": "Use-After-Free 記憶體管理漏洞",
+      "affected_products": ["Apple iOS", "iPadOS"],
+      "kev_status": true,
+      "exploitation_status": "active"
+    },
+    {
+      "cve_id": "CVE-2026-21385",
+      "title": "Qualcomm 晶片記憶體損壞漏洞",
+      "cvss": null,
+      "severity": "unknown",
+      "description": "記憶體損壞漏洞影響多種 Qualcomm 晶片",
+      "affected_products": ["Qualcomm Multiple Chipsets"],
+      "kev_status": true,
+      "exploitation_status": "active"
+    }
+  ],
+  "action_items": [
+    {
+      "action": "立即修補所有 CVSS 10.0 關鍵漏洞，特別是 n8n 和 Cisco 防火牆漏洞",
+      "priority": "high",
+      "deadline": "2026-03-12"
+    },
+    {
+      "action": "根據 CISA KEV 清單要求，在指定期限前修補所有 KEV 漏洞",
+      "priority": "high",
+      "deadline": "2026-03-26"
+    },
+    {
+      "action": "檢查並更新所有 VMware Aria Operations 實例",
+      "priority": "high",
+      "deadline": "2026-03-24"
+    },
+    {
+      "action": "強化電信和製造業關鍵基礎設施的勒索軟體防護",
+      "priority": "high",
+      "deadline": "2026-03-16"
+    },
+    {
+      "action": "部署額外監控以偵測伊朗相關威脅活動",
+      "priority": "medium",
+      "deadline": "2026-03-20"
+    },
+    {
+      "action": "更新 Android 設備安全補丁至最新版本",
+      "priority": "medium",
+      "deadline": "2026-03-15"
+    },
+    {
+      "action": "檢查 Chrome 瀏覽器擴展權限並更新至最新版本",
+      "priority": "medium",
+      "deadline": "2026-03-15"
+    },
+    {
+      "action": "加強憑證管理和多因子認證部署",
+      "priority": "medium",
+      "deadline": "2026-03-30"
+    },
+    {
+      "action": "建立或更新勒索軟體事件應變程序",
+      "priority": "medium",
+      "deadline": "2026-03-25"
+    },
+    {
+      "action": "針對 DDoS 攻擊加強網路基礎設施防護",
+      "priority": "low",
+      "deadline": "2026-03-31"
+    }
+  ],
+  "terms": [
+    "Remote Code Execution",
+    "Buffer Overflow",
+    "Heap Buffer Overflow",
+    "Use-After-Free",
+    "Command Injection",
+    "Memory Corruption",
+    "Privilege Escalation",
+    "Ransomware",
+    "DDoS Attack",
+    "Supply Chain Attack",
+    "Credential Theft",
+    "Botnet",
+    "APT Attack",
+    "Zero-day Exploit",
+    "Iran-linked Hackers",
+    "Qilin Ransomware Group",
+    "BlackShrantac",
+    "Akira",
+    "Handala",
+    "CISA KEV",
+    "CVSS Score",
+    "CVE",
+    "Patch Management",
+    "Threat Intelligence",
+    "VMware Aria Operations",
+    "Cisco SD-WAN",
+    "Hikvision",
+    "Rockwell Automation",
+    "n8n",
+    "OpenClaw"
+  ],
+  "references": [
+    "https://thehackernews.com/",
+    "https://www.cybersecurity-review.com/news-march-2026/",
+    "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+    "https://www.securityweek.com/",
+    "https://www.weforum.org/stories/2026/02/2026-cyberthreats-to-watch-and-other-cybersecurity-news/"
+  ]
+}
