@@ -1,0 +1,613 @@
+{
+  "title": "資安週報 - 第11週",
+  "report_id": "SEC-WEEKLY-2026-11",
+  "period": {
+    "start": "2026-03-10",
+    "end": "2026-03-16"
+  },
+  "publish_date": "2026-03-16",
+  "summary": {
+    "total_events": 15,
+    "total_vulnerabilities": 20,
+    "threat_level": "elevated"
+  },
+  "events": [
+    {
+      "title": "OpenClaw AI Agent Flaws Could Enable Prompt Injection and Data Exfiltration",
+      "summary": "China's National Computer Network Emergency Response Technical Team (CNCERT) has issued a warning about the security stemming from the use of OpenClaw (formerly Clawdbot and Moltbot), an open-source a...",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/03/openclaw-ai-agent-flaws-could-enable.html",
+      "severity": "medium",
+      "event_type": "security_incident",
+      "affected_industries": [
+        "technology"
+      ],
+      "recommendations": [
+        "持續關注後續發展"
+      ]
+    },
+    {
+      "title": "GlassWorm Supply-Chain Attack Abuses 72 Open VSX Extensions to Target Developers",
+      "summary": "Cybersecurity researchers have flagged a new iteration of the GlassWorm campaign that they say represents a \"significant escalation\" in how it propagates through the Open VSX registry.\n\"Instead of req...",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/03/glassworm-supply-chain-attack-abuses-72.html",
+      "severity": "medium",
+      "event_type": "security_incident",
+      "affected_industries": [
+        "technology"
+      ],
+      "recommendations": [
+        "持續關注後續發展"
+      ]
+    },
+    {
+      "title": "Chinese Hackers Target Southeast Asian Militaries with AppleChris and MemFun Malware",
+      "summary": "A suspected China-based cyber espionage operation has targeted Southeast Asian military organizations as part of a state-sponsored campaign that dates back to at least 2020.\nPalo Alto Networks Unit 42...",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/03/chinese-hackers-target-southeast-asian.html",
+      "severity": "medium",
+      "event_type": "security_incident",
+      "affected_industries": [
+        "technology"
+      ],
+      "recommendations": [
+        "持續關注後續發展"
+      ]
+    },
+    {
+      "title": "Iran-Backed Hackers Claim Wiper Attack on Medtech Firm Stryker",
+      "summary": "A hacktivist group with links to Iran's intelligence agencies is claiming responsibility for a data-wiping attack against Stryker, a global medical technology company based in Michigan. News reports o...",
+      "source": "Krebs on Security",
+      "url": "https://krebsonsecurity.com/2026/03/iran-backed-hackers-claim-wiper-attack-on-medtech-firm-stryker/",
+      "severity": "medium",
+      "event_type": "security_incident",
+      "affected_industries": [
+        "technology"
+      ],
+      "recommendations": [
+        "持續關注後續發展"
+      ]
+    },
+    {
+      "title": "Microsoft Patch Tuesday, March 2026 Edition",
+      "summary": "Microsoft Corp. today pushed security updates to fix at least 77 vulnerabilities in its Windows operating systems and other software. There are no pressing \"zero-day\" flaws this month (compared to Feb...",
+      "source": "Krebs on Security",
+      "url": "https://krebsonsecurity.com/2026/03/microsoft-patch-tuesday-march-2026-edition/",
+      "severity": "medium",
+      "event_type": "security_incident",
+      "affected_industries": [
+        "technology"
+      ],
+      "recommendations": [
+        "持續關注後續發展"
+      ]
+    },
+    {
+      "title": "Loblaw Data Breach Impacts Customer Information",
+      "summary": "<p>Personal information such as names, email addresses, and phone numbers was accessed by hackers.</p>\n<p>The post <a href=\"https://www.securityweek.com/loblaw-data-breach-impacts-customer-information...",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/loblaw-data-breach-impacts-customer-information/",
+      "severity": "medium",
+      "event_type": "security_incident",
+      "affected_industries": [
+        "technology"
+      ],
+      "recommendations": [
+        "持續關注後續發展"
+      ]
+    },
+    {
+      "title": "Critical HPE AOS-CX Vulnerability Allows Admin Password Resets",
+      "summary": "<p>The vulnerability can be exploited remotely, without authentication, to circumvent existing authentication controls.</p>\n<p>The post <a href=\"https://www.securityweek.com/critical-hpe-aos-cx-vulner...",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/critical-hpe-aos-cx-vulnerability-allows-admin-password-resets/",
+      "severity": "high",
+      "event_type": "security_incident",
+      "affected_industries": [
+        "technology"
+      ],
+      "recommendations": [
+        "持續關注後續發展"
+      ]
+    },
+    {
+      "title": "Starbucks Data Breach Impacts Employees",
+      "summary": "<p>Starbucks said the incident involved phishing attacks targeting an employee portal, affecting hundreds.</p>\n<p>The post <a href=\"https://www.securityweek.com/starbucks-data-breach-impacts-employees...",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/starbucks-data-breach-impacts-employees/",
+      "severity": "medium",
+      "event_type": "security_incident",
+      "affected_industries": [
+        "technology"
+      ],
+      "recommendations": [
+        "持續關注後續發展"
+      ]
+    },
+    {
+      "title": "Fake PoCs, Misunderstood Risks Cause Cisco SD-WAN Chaos",
+      "summary": "The excitement around Cisco's latest SD-WAN bugs has inspired some light fraud, misunderstandings, and overlooked risks.",
+      "source": "Dark Reading",
+      "url": "https://www.darkreading.com/vulnerabilities-threats/fake-pocs-risks-cisco-sd-wan",
+      "severity": "medium",
+      "event_type": "security_incident",
+      "affected_industries": [
+        "technology"
+      ],
+      "recommendations": [
+        "持續關注後續發展"
+      ]
+    },
+    {
+      "title": "The Data Gap: Why Nonprofit Cyber Incidents Go Underreported",
+      "summary": "Threat actors target nonprofits due to security gaps and highly coveted information, but a lack of sufficient data makes it difficult to grasp the entire picture.",
+      "source": "Dark Reading",
+      "url": "https://www.darkreading.com/threat-intelligence/data-gap-why-nonprofit-cyber-incidents-go-underreported",
+      "severity": "medium",
+      "event_type": "security_incident",
+      "affected_industries": [
+        "technology"
+      ],
+      "recommendations": [
+        "持續關注後續發展"
+      ]
+    },
+    {
+      "title": "Cyberattackers Don't Care About Good Causes",
+      "summary": "Sightline Security's founder and advisory board discuss how cybersecurity poses significant problems for nonprofits and suggest ways the industry can help.",
+      "source": "Dark Reading",
+      "url": "https://www.darkreading.com/cyber-risk/cyberattackers-dont-care-about-good-causes",
+      "severity": "medium",
+      "event_type": "security_incident",
+      "affected_industries": [
+        "technology"
+      ],
+      "recommendations": [
+        "持續關注後續發展"
+      ]
+    },
+    {
+      "title": "Upcoming Speaking Engagements",
+      "summary": "<p>This is a current list of where and when I am scheduled to speak:</p>\n<ul>\n<li>I’m giving the <a href=\"https://www.chu.cam.ac.uk/event/computer-science-lecture-2026/\">Ross Anderson Lecture</a> at t...",
+      "source": "Schneier on Security",
+      "url": "https://www.schneier.com/blog/archives/2026/03/upcoming-speaking-engagements-54.html",
+      "severity": "medium",
+      "event_type": "security_incident",
+      "affected_industries": [
+        "technology"
+      ],
+      "recommendations": [
+        "持續關注後續發展"
+      ]
+    },
+    {
+      "title": "Friday Squid Blogging: Increased Squid Population in the Falklands",
+      "summary": "<p>Some <a href=\"https://www.undercurrentnews.com/2026/02/26/encouraging-scientific-survey-boosts-hopes-for-south-atlantic-squid-fishery/\">good news</a>: squid stocks seem to be recovering in the wate...",
+      "source": "Schneier on Security",
+      "url": "https://www.schneier.com/blog/archives/2026/03/friday-squid-blogging-increased-squid-population-in-the-falklands.html",
+      "severity": "medium",
+      "event_type": "security_incident",
+      "affected_industries": [
+        "technology"
+      ],
+      "recommendations": [
+        "持續關注後續發展"
+      ]
+    },
+    {
+      "title": "Academia and the “AI Brain Drain”",
+      "summary": "<p>In 2025, Google, Amazon, Microsoft and Meta collectively spent US$380 billion on building artificial-intelligence tools. That number is expected to surge still higher this year, to $650 billion, to...",
+      "source": "Schneier on Security",
+      "url": "https://www.schneier.com/blog/archives/2026/03/academia-and-the-ai-brain-drain.html",
+      "severity": "medium",
+      "event_type": "security_incident",
+      "affected_industries": [
+        "technology"
+      ],
+      "recommendations": [
+        "持續關注後續發展"
+      ]
+    },
+    {
+      "title": "Interpol's 'Operation Synergia III' Nets 94 Arrests in Major Cybercrime Sweep",
+      "summary": "A new law enforcement operation against phishing and ransomware operators led to the takedown of 45,000 malicious IP addresses",
+      "source": "Infosecurity Magazine",
+      "url": "https://www.infosecurity-magazine.com/news/interpol-operation-synergia3-94/",
+      "severity": "medium",
+      "event_type": "security_incident",
+      "affected_industries": [
+        "technology"
+      ],
+      "recommendations": [
+        "持續關注後續發展"
+      ]
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-3799",
+      "product": "Unknown",
+      "cvss": 8.8,
+      "description": "A flaw has been found in Tenda i3 1.0.0.6(2204). This impacts the function formSetCfm of the file /goform/setcfm. This manipulation of the argument funcpara1 causes stack-based buffer overflow. Remote exploitation of the attack is possible. The exploit has been published and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3799",
+      "in_kev": false,
+      "priority": "high",
+      "status": "active"
+    },
+    {
+      "cve_id": "CVE-2026-3801",
+      "product": "Unknown",
+      "cvss": 8.8,
+      "description": "A vulnerability was found in Tenda i3 1.0.0.6(2204). Affected by this vulnerability is the function formSetAutoPing of the file /goform/setAutoPing. Performing a manipulation of the argument ping1/ping2 results in stack-based buffer overflow. The attack is possible to be carried out remotely. The exploit has been made public and could be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3801",
+      "in_kev": false,
+      "priority": "high",
+      "status": "active"
+    },
+    {
+      "cve_id": "CVE-2026-3802",
+      "product": "Unknown",
+      "cvss": 8.8,
+      "description": "A vulnerability was determined in Tenda i3 1.0.0.6(2204). Affected by this issue is the function formexeCommand of the file /goform/exeCommand. Executing a manipulation of the argument cmdinput can lead to stack-based buffer overflow. The attack may be performed from remote. The exploit has been publicly disclosed and may be utilized.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3802",
+      "in_kev": false,
+      "priority": "high",
+      "status": "active"
+    },
+    {
+      "cve_id": "CVE-2026-3803",
+      "product": "Unknown",
+      "cvss": 8.8,
+      "description": "A vulnerability was identified in Tenda i3 1.0.0.6(2204). This affects the function formWifiMacFilterGet of the file /goform/WifiMacFilterGet. The manipulation of the argument index leads to stack-based buffer overflow. It is possible to initiate the attack remotely. The exploit is publicly available and might be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3803",
+      "in_kev": false,
+      "priority": "high",
+      "status": "active"
+    },
+    {
+      "cve_id": "CVE-2026-3804",
+      "product": "Unknown",
+      "cvss": 8.8,
+      "description": "A security flaw has been discovered in Tenda i3 1.0.0.6(2204). This vulnerability affects the function formWifiMacFilterSet of the file /goform/WifiMacFilterSet. The manipulation of the argument index results in stack-based buffer overflow. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3804",
+      "in_kev": false,
+      "priority": "high",
+      "status": "active"
+    },
+    {
+      "cve_id": "CVE-2026-3807",
+      "product": "Unknown",
+      "cvss": 8.8,
+      "description": "A security vulnerability has been detected in Tenda FH1202 1.2.0.14(408). Impacted is the function formWrlsafeset of the file /goform/AdvSetWrlsafeset. Such manipulation of the argument mit_ssid/mit_ssid_index leads to stack-based buffer overflow. The attack can be launched remotely. The exploit has been disclosed publicly and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3807",
+      "in_kev": false,
+      "priority": "high",
+      "status": "active"
+    },
+    {
+      "cve_id": "CVE-2026-3808",
+      "product": "Unknown",
+      "cvss": 8.8,
+      "description": "A vulnerability was detected in Tenda FH1202 1.2.0.14(408). The affected element is the function formWebTypeLibrary of the file /goform/webtypelibrary. Performing a manipulation of the argument webSiteId results in stack-based buffer overflow. The attack may be initiated remotely. The exploit is now public and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3808",
+      "in_kev": false,
+      "priority": "high",
+      "status": "active"
+    },
+    {
+      "cve_id": "CVE-2026-3809",
+      "product": "Unknown",
+      "cvss": 8.8,
+      "description": "A flaw has been found in Tenda FH1202 1.2.0.14(408). The impacted element is the function fromNatStaticSetting of the file /goform/NatSaticSetting. Executing a manipulation of the argument page can lead to stack-based buffer overflow. The attack may be launched remotely. The exploit has been published and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3809",
+      "in_kev": false,
+      "priority": "high",
+      "status": "active"
+    },
+    {
+      "cve_id": "CVE-2026-3810",
+      "product": "Unknown",
+      "cvss": 8.8,
+      "description": "A vulnerability has been found in Tenda FH1202 1.2.0.14(408). This affects the function fromDhcpListClient of the file /goform/DhcpListClient. The manipulation of the argument page leads to stack-based buffer overflow. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3810",
+      "in_kev": false,
+      "priority": "high",
+      "status": "active"
+    },
+    {
+      "cve_id": "CVE-2025-41756",
+      "product": "Unknown",
+      "cvss": 8.1,
+      "description": "A low-privileged remote attacker can exploit the ubr-editfile method in wwwubr.cgi, an undocumented and unused API endpoint to write arbitrary files on the system.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41756",
+      "in_kev": false,
+      "priority": "high",
+      "status": "active"
+    },
+    {
+      "cve_id": "CVE-2025-41757",
+      "product": "Unknown",
+      "cvss": 8.8,
+      "description": "A low-privileged remote attacker can abuse the backup restore functionality of UBR (ubr-restore) which runs with elevated privileges and does not validate the contents of the backup archive to create or overwrite arbitrary files anywhere on the system.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41757",
+      "in_kev": false,
+      "priority": "high",
+      "status": "active"
+    },
+    {
+      "cve_id": "CVE-2025-41758",
+      "product": "Unknown",
+      "cvss": 8.8,
+      "description": "A low-privileged remote attacker can exploit an arbitrary file write vulnerability in the wwupload.cgi endpoint. Due to path traversal this can lead to overwriting arbitrary files on the device and achieving a full system compromise.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41758",
+      "in_kev": false,
+      "priority": "high",
+      "status": "active"
+    },
+    {
+      "cve_id": "CVE-2025-41761",
+      "product": "Unknown",
+      "cvss": 7.8,
+      "description": "A low‑privileged local attacker who gains access to the UBR service account (e.g., via SSH) can escalate privileges to obtain full system access. This is due to the service account being permitted to execute certain binaries (e.g., tcpdump and ip) with sudo.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41761",
+      "in_kev": false,
+      "priority": "medium",
+      "status": "active"
+    },
+    {
+      "cve_id": "CVE-2025-41766",
+      "product": "Unknown",
+      "cvss": 8.8,
+      "description": "A low-privileged remote attacker can trigger a stack-based buffer overflow via a crafted HTTP POST request using the ubr-network method resulting in full device compromise.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41766",
+      "in_kev": false,
+      "priority": "high",
+      "status": "active"
+    },
+    {
+      "cve_id": "CVE-2025-41767",
+      "product": "Unknown",
+      "cvss": 7.2,
+      "description": "A high-privileged remote attacker can fully compromise the device by abusing an update signature bypass vulnerability in the wwwupdate.cgi method in the web interface of UBR.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41767",
+      "in_kev": false,
+      "priority": "medium",
+      "status": "active"
+    },
+    {
+      "cve_id": "CVE-2025-41772",
+      "product": "Unknown",
+      "cvss": 7.5,
+      "description": "An unauthenticated remote attacker can obtain valid session tokens because they are exposed in plaintext within the URL parameters of the wwwupdate.cgi endpoint in UBR.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41772",
+      "in_kev": false,
+      "priority": "medium",
+      "status": "active"
+    },
+    {
+      "cve_id": "CVE-2026-3811",
+      "product": "Unknown",
+      "cvss": 8.8,
+      "description": "A vulnerability was found in Tenda FH1202 1.2.0.14(408). This impacts the function fromP2pListFilter of the file /goform/P2pListFilter. The manipulation of the argument page results in stack-based buffer overflow. The attack can be executed remotely. The exploit has been made public and could be used.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3811",
+      "in_kev": false,
+      "priority": "high",
+      "status": "active"
+    },
+    {
+      "cve_id": "CVE-2026-3814",
+      "product": "Unknown",
+      "cvss": 8.8,
+      "description": "A security flaw has been discovered in UTT HiPER 810G up to 1.7.7-1711. Affected by this issue is the function strcpy of the file /goform/getOneApConfTempEntry. Performing a manipulation results in buffer overflow. It is possible to initiate the attack remotely. The exploit has been released to the public and may be used for attacks.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3814",
+      "in_kev": false,
+      "priority": "high",
+      "status": "active"
+    },
+    {
+      "cve_id": "CVE-2026-3815",
+      "product": "Unknown",
+      "cvss": 8.8,
+      "description": "A weakness has been identified in UTT HiPER 810G up to 1.7.7-1711. This affects the function strcpy of the file /goform/formApMail. Executing a manipulation can lead to buffer overflow. It is possible to launch the attack remotely. The exploit has been made available to the public and could be used for attacks.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3815",
+      "in_kev": false,
+      "priority": "high",
+      "status": "active"
+    },
+    {
+      "cve_id": "CVE-2026-3910",
+      "product": "Google/Chromium V8",
+      "cvss": 0.0,
+      "description": "Google Chromium V8 contains an improper restriction of operations within the bounds of a memory buffer vulnerability that could allow a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromium, including, but not limited to, Google Chrome, Microsoft Edge, and Opera.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3910",
+      "in_kev": true,
+      "priority": "critical",
+      "status": "active",
+      "kev_due_date": "2026-03-27"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週觀察到多個高風險漏洞和資安事件，建議企業加強監控和防護措施。",
+    "active_actors": [
+      {
+        "name": "APT 組織",
+        "activity": "持續針對關鍵基礎設施進行攻擊"
+      },
+      {
+        "name": "勒索軟體集團",
+        "activity": "攻擊手法日趨精進，要求贖金攀升"
+      }
+    ],
+    "attack_techniques": [
+      "零日漏洞利用",
+      "供應鏈攻擊",
+      "社交工程",
+      "勒索軟體",
+      "AI 輔助攻擊"
+    ]
+  },
+  "action_items": [
+    {
+      "action": "檢查並更新所有系統安全補丁",
+      "priority": "high",
+      "owner": "資安團隊",
+      "deadline": "2026-03-23"
+    },
+    {
+      "action": "檢視和強化網路監控措施",
+      "priority": "medium",
+      "owner": "SOC 團隊",
+      "deadline": "2026-03-30"
+    },
+    {
+      "action": "進行員工資安意識訓練",
+      "priority": "medium",
+      "owner": "HR 部門",
+      "deadline": "2026-04-06"
+    }
+  ],
+  "terms": [
+    {
+      "term": "資料外洩",
+      "term_en": "Data Exfiltration",
+      "term_zh": "資料外洩",
+      "definition": "攻擊者將竊取的資料傳送出目標網路",
+      "id": "data_exfiltration",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/data_exfiltration"
+    },
+    {
+      "term": "網路安全",
+      "term_en": "Cybersecurity",
+      "term_zh": "網路安全",
+      "definition": "保護資訊系統免受網路攻擊的實務與技術",
+      "id": "cybersecurity",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cybersecurity"
+    },
+    {
+      "term": "惡意程式",
+      "term_en": "Malware",
+      "term_zh": "惡意程式",
+      "definition": "設計用來損害系統或竊取資料的軟體總稱",
+      "id": "malware",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/malware"
+    },
+    {
+      "term": "網路間諜活動",
+      "term_en": "Cyber Espionage",
+      "term_zh": "網路間諜活動",
+      "definition": "透過網路入侵竊取機密資訊的活動",
+      "id": "cyber_espionage",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cyber_espionage"
+    },
+    {
+      "term": "國家支持的",
+      "term_en": "State-Sponsored",
+      "term_zh": "國家支持的",
+      "definition": "由國家政府資助或指揮的網路行動",
+      "id": "state_sponsored",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/state_sponsored"
+    },
+    {
+      "term": "資料抹除程式",
+      "term_en": "Wiper",
+      "term_zh": "資料抹除程式",
+      "definition": "專門破壞或刪除資料的惡意程式",
+      "id": "wiper",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/wiper"
+    },
+    {
+      "term": "駭客行動主義者",
+      "term_en": "Hacktivist",
+      "term_zh": "駭客行動主義者",
+      "definition": "基於政治或社會理念進行網路攻擊的駭客",
+      "id": "hacktivist",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/hacktivist"
+    },
+    {
+      "term": "零日漏洞",
+      "term_en": "Zero-Day",
+      "term_zh": "零日漏洞",
+      "definition": "尚未有修補程式的漏洞",
+      "id": "zero_day",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/zero_day"
+    },
+    {
+      "term": "資料外洩事件",
+      "term_en": "Data Breach",
+      "term_zh": "資料外洩事件",
+      "definition": "敏感資料被未授權存取或洩露的安全事件",
+      "id": "data_breach",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/data_breach"
+    },
+    {
+      "term": "安全超文字傳輸協定",
+      "term_en": "HTTPS",
+      "term_zh": "安全超文字傳輸協定",
+      "definition": "使用 TLS 加密的安全網頁傳輸協定",
+      "id": "https",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/https"
+    },
+    {
+      "term": "漏洞",
+      "term_en": "Vulnerability",
+      "term_zh": "漏洞",
+      "definition": "系統或軟體中可被利用的安全弱點",
+      "id": "vulnerability",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/vulnerability"
+    },
+    {
+      "term": "身分驗證",
+      "term_en": "Authentication",
+      "term_zh": "身分驗證",
+      "definition": "驗證使用者或系統身分的過程",
+      "id": "authentication",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/authentication"
+    },
+    {
+      "term": "網路釣魚",
+      "term_en": "Phishing",
+      "term_zh": "網路釣魚",
+      "definition": "透過偽造信件或網站騙取敏感資訊的攻擊手法",
+      "id": "phishing",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/phishing"
+    },
+    {
+      "term": "勒索軟體",
+      "term_en": "Ransomware",
+      "term_zh": "勒索軟體",
+      "definition": "加密受害者資料並要求贖金的惡意程式",
+      "id": "ransomware",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/ransomware"
+    },
+    {
+      "term": "緩衝區溢位",
+      "term_en": "Buffer Overflow",
+      "term_zh": "緩衝區溢位",
+      "definition": "程式寫入資料超過緩衝區大小的漏洞",
+      "id": "buffer_overflow",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/buffer_overflow"
+    }
+  ],
+  "references": [
+    {
+      "title": "OpenClaw AI Agent Flaws Could Enable Prompt Injection and Data Exfiltration",
+      "url": "https://thehackernews.com/2026/03/openclaw-ai-agent-flaws-could-enable.html"
+    },
+    {
+      "title": "GlassWorm Supply-Chain Attack Abuses 72 Open VSX Extensions to Target Developers",
+      "url": "https://thehackernews.com/2026/03/glassworm-supply-chain-attack-abuses-72.html"
+    },
+    {
+      "title": "Chinese Hackers Target Southeast Asian Militaries with AppleChris and MemFun Malware",
+      "url": "https://thehackernews.com/2026/03/chinese-hackers-target-southeast-asian.html"
+    },
+    {
+      "title": "Iran-Backed Hackers Claim Wiper Attack on Medtech Firm Stryker",
+      "url": "https://krebsonsecurity.com/2026/03/iran-backed-hackers-claim-wiper-attack-on-medtech-firm-stryker/"
+    },
+    {
+      "title": "Microsoft Patch Tuesday, March 2026 Edition",
+      "url": "https://krebsonsecurity.com/2026/03/microsoft-patch-tuesday-march-2026-edition/"
+    }
+  ]
+}
