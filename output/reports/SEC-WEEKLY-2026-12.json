@@ -1,0 +1,263 @@
+{
+  "report_id": "SEC-WEEKLY-2026-12",
+  "period": {
+    "start": "2026-03-17",
+    "end": "2026-03-23"
+  },
+  "publish_date": "2026-03-23",
+  "summary": {
+    "total_events": 15,
+    "total_vulnerabilities": 12,
+    "threat_level": "high"
+  },
+  "events": [
+    {
+      "id": "EVT-2026-001",
+      "summary": "TELUS Digital 遭 ShinyHunterz 勒索軟體集團攻擊，竊取近 1 PB 客戶資料",
+      "impact": "critical",
+      "source": "TELUS Digital Security Advisory",
+      "url": "https://example.com/telus-digital-breach",
+      "date": "2026-03-11"
+    },
+    {
+      "id": "EVT-2026-002",
+      "summary": "Stryker 醫療設備公司遭伊朗相關駭客攻擊，部署擦除惡意軟體破壞 IT 系統",
+      "impact": "critical",
+      "source": "Cybersecurity News",
+      "url": "https://example.com/stryker-cyber-attack",
+      "date": "2026-03-11"
+    },
+    {
+      "id": "EVT-2026-003",
+      "summary": "Navia Benefit Solutions 資料外洩影響 270 萬用戶個人資料",
+      "impact": "high",
+      "source": "Privacy Guides",
+      "url": "https://example.com/navia-breach",
+      "date": "2026-03-15"
+    },
+    {
+      "id": "EVT-2026-004",
+      "summary": "CISA 將 Chrome Skia 和 Chromium V8 關鍵漏洞加入 KEV 目錄",
+      "impact": "high",
+      "source": "CISA",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "date": "2026-03-13"
+    },
+    {
+      "id": "EVT-2026-005",
+      "summary": "Microsoft SharePoint 反序列化漏洞遭主動利用，CISA 發布緊急警告",
+      "impact": "critical",
+      "source": "CISA KEV",
+      "url": "https://www.cisa.gov/news-events/alerts",
+      "date": "2026-03-18"
+    },
+    {
+      "id": "EVT-2026-006",
+      "summary": "Microsoft 3月修補星期二發布 83 個 CVE 修補程式",
+      "impact": "high",
+      "source": "Microsoft Security Response Center",
+      "url": "https://example.com/ms-patch-tuesday",
+      "date": "2026-03-12"
+    },
+    {
+      "id": "EVT-2026-007",
+      "summary": "Trivy 開源漏洞掃描器一個月內第二次遭惡意軟體植入",
+      "impact": "high",
+      "source": "Socket Security",
+      "url": "https://example.com/trivy-compromise",
+      "date": "2026-03-20"
+    },
+    {
+      "id": "EVT-2026-008",
+      "summary": "CISA 發布緊急指令 26-03 要求修補 Cisco SD-WAN 漏洞",
+      "impact": "high",
+      "source": "CISA",
+      "url": "https://www.cisa.gov/news-events/directives/ed-26-03",
+      "date": "2026-03-19"
+    },
+    {
+      "id": "EVT-2026-009",
+      "summary": "Apple 發布 iOS 安全更新防範 Coruna 和 DarkSword 漏洞利用工具包",
+      "impact": "medium",
+      "source": "Apple Security Advisory",
+      "url": "https://example.com/apple-ios-update",
+      "date": "2026-03-21"
+    },
+    {
+      "id": "EVT-2026-010",
+      "summary": "Zimbra Collaboration 儲存型 XSS 漏洞遭主動利用",
+      "impact": "medium",
+      "source": "Security Online",
+      "url": "https://example.com/zimbra-xss",
+      "date": "2026-03-18"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-3909",
+      "cvss": null,
+      "description": "Google Chrome Skia 越界寫入漏洞",
+      "impact": "critical",
+      "kev_status": true,
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-3910",
+      "cvss": null,
+      "description": "Chromium V8 引擎漏洞，允許遠端程式碼執行",
+      "impact": "critical",
+      "kev_status": true,
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-20963",
+      "cvss": 9.8,
+      "description": "Microsoft SharePoint 反序列化漏洞，允許遠端程式碼執行",
+      "impact": "critical",
+      "kev_status": true,
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2025-66376",
+      "cvss": null,
+      "description": "Zimbra Collaboration 儲存型跨站腳本攻擊漏洞",
+      "impact": "medium",
+      "kev_status": true,
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-20127",
+      "cvss": null,
+      "description": "Cisco SD-WAN 身份驗證繞過漏洞",
+      "impact": "high",
+      "kev_status": true,
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-21536",
+      "cvss": 9.8,
+      "description": "Microsoft 設備定價程序漏洞",
+      "impact": "critical",
+      "kev_status": false,
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-26144",
+      "cvss": null,
+      "description": "Microsoft Excel 資訊洩露漏洞，影響 Copilot 功能",
+      "impact": "high",
+      "kev_status": false,
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-1992",
+      "cvss": 8.8,
+      "description": "WordPress Google Analytics Dashboard 外掛程式漏洞",
+      "impact": "high",
+      "kev_status": false,
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-21262",
+      "cvss": 8.8,
+      "description": "SQL Server 權限提升漏洞",
+      "impact": "high",
+      "kev_status": false,
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-26113",
+      "cvss": null,
+      "description": "Microsoft Office 遠端程式碼執行漏洞",
+      "impact": "critical",
+      "kev_status": false,
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-26110",
+      "cvss": null,
+      "description": "Microsoft Office 遠端程式碼執行漏洞",
+      "impact": "critical",
+      "kev_status": false,
+      "patch_available": true
+    },
+    {
+      "cve_id": "CVE-2026-33293",
+      "cvss": 8.1,
+      "description": "WWBN AVideo 高風險漏洞",
+      "impact": "high",
+      "kev_status": false,
+      "patch_available": false
+    }
+  ],
+  "action_items": [
+    {
+      "action": "立即修補 CISA KEV 目錄中的所有關鍵漏洞",
+      "priority": "high",
+      "deadline": "2026-03-28",
+      "owner": "IT Security Team"
+    },
+    {
+      "action": "檢查組織內是否使用 TELUS Digital 服務，如有使用應立即評估影響",
+      "priority": "high",
+      "deadline": "2026-03-25",
+      "owner": "Risk Management"
+    },
+    {
+      "action": "部署 Microsoft 3月修補星期二的所有安全更新",
+      "priority": "high",
+      "deadline": "2026-03-30",
+      "owner": "System Administration"
+    },
+    {
+      "action": "檢查 Chrome 和 Chromium 瀏覽器版本並強制更新",
+      "priority": "high",
+      "deadline": "2026-03-26",
+      "owner": "End User Computing"
+    },
+    {
+      "action": "評估 Stryker 醫療設備的安全狀態，特別是網路連接設備",
+      "priority": "medium",
+      "deadline": "2026-04-01",
+      "owner": "Medical Device Security"
+    },
+    {
+      "action": "檢查 Trivy 掃描器的使用情況並驗證其完整性",
+      "priority": "medium",
+      "deadline": "2026-03-27",
+      "owner": "DevSecOps Team"
+    },
+    {
+      "action": "實施額外的社交工程防護措施，特別是深偽技術防範",
+      "priority": "medium",
+      "deadline": "2026-04-15",
+      "owner": "Security Awareness Team"
+    },
+    {
+      "action": "檢視供應鏈安全政策並強化第三方軟體驗證流程",
+      "priority": "medium",
+      "deadline": "2026-04-10",
+      "owner": "Vendor Management"
+    }
+  ],
+  "terms": [
+    "ShinyHunterz",
+    "Handala",
+    "Iranian-linked hackers",
+    "Wiper malware",
+    "Ransomware",
+    "Exploit kits",
+    "Deepfakes",
+    "Social engineering",
+    "Supply chain attacks",
+    "Deserialization attacks",
+    "Cross-site scripting",
+    "Authentication bypass",
+    "Remote code execution",
+    "CISA KEV",
+    "CVSS",
+    "CVE",
+    "Patch Tuesday"
+  ],
+  "references": []
+}
