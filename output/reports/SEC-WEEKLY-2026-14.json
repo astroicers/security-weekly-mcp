@@ -1,0 +1,653 @@
+{
+  "title": "資安週報 2026-W14",
+  "report_id": "SEC-WEEKLY-2026-14",
+  "period": {
+    "start": "2026-03-30",
+    "end": "2026-04-05"
+  },
+  "publish_date": "2026-03-30",
+  "summary": {
+    "total_events": 15,
+    "total_vulnerabilities": 48,
+    "threat_level": "high"
+  },
+  "events": [
+    {
+      "title": "Iran-Linked Hackers Breach FBI Director’s Personal Email, Hit Stryker With Wiper Attack",
+      "summary": "Threat actors with ties to Iran successfully broke into the personal email account of Kash Patel, the director of the U.S. Federal Bureau of Investigation (FBI), and leaked a cache of photos and other documents to the internet.\nHandala Hack Team, which carried out the breach, said on its website tha",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/03/iran-linked-hackers-breach-fbi.html",
+      "date": "2026-03-28T15:40:00"
+    },
+    {
+      "title": "Citrix NetScaler Under Active Recon for CVE-2026-3055 (CVSS 9.3) Memory Overread Bug",
+      "summary": "A recently disclosed critical security flaw impacting Citrix NetScaler ADC and NetScaler Gateway is witnessing active reconnaissance activity, according to Defused Cyber and watchTowr.\nThe vulnerability, CVE-2026-3055 (CVSS score: 9.3), refers to a case of insufficient input validation leading to me",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/03/citrix-netscaler-under-active-recon-for.html",
+      "date": "2026-03-28T09:11:00"
+    },
+    {
+      "title": "TA446 Deploys DarkSword iOS Exploit Kit in Targeted Spear-Phishing Campaign",
+      "summary": "Proofpoint has disclosed details of a targeted email campaign in which threat actors with ties to Russia are leveraging the recently disclosed DarkSword exploit kit to target iOS devices.\nThe activity has been attributed with high confidence to the Russian state-sponsored threat group known as TA446",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/03/ta446-deploys-leaked-darksword-ios.html",
+      "date": "2026-03-28T07:07:00"
+    },
+    {
+      "title": "‘CanisterWorm’ Springs Wiper Attack Targeting Iran",
+      "summary": "A financially motivated data theft and extortion group is attempting to inject itself into the Iran war, unleashing a worm that spreads through poorly secured cloud services and wipes data on infected systems that use Iran's time zone or have Farsi set as the default language.",
+      "source": "Krebs on Security",
+      "url": "https://krebsonsecurity.com/2026/03/canisterworm-springs-wiper-attack-targeting-iran/",
+      "date": "2026-03-23T15:43:04"
+    },
+    {
+      "title": "Cloudflare-Themed ClickFix Attack Drops Infiniti Stealer on Macs",
+      "summary": "<p>The infection chain includes a fake CAPTCHA page, a Bash script, a Nuitka loader, and the Python-based infostealer.</p>\n<p>The post <a href=\"https://www.securityweek.com/cloudflare-themed-clickfix-attack-drops-infiniti-stealer-on-macs/\">Cloudflare-Themed ClickFix Attack Drops Infiniti Stealer on ",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/cloudflare-themed-clickfix-attack-drops-infiniti-stealer-on-macs/",
+      "date": "2026-03-28T10:30:00"
+    },
+    {
+      "title": "Pro-Iranian Hacking Group Claims Credit for Hack of FBI Director Kash Patel’s Personal Account",
+      "summary": "<p>The group that it was making available for download emails and other documents from Patel’s account. </p>\n<p>The post <a href=\"https://www.securityweek.com/pro-iranian-hacking-group-claims-credit-for-hack-of-fbi-director-kash-patels-personal-account/\">Pro-Iranian Hacking Group Claims Credit for H",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/pro-iranian-hacking-group-claims-credit-for-hack-of-fbi-director-kash-patels-personal-account/",
+      "date": "2026-03-27T16:42:22"
+    },
+    {
+      "title": "In Other News: Palo Alto Recruiter Scam, Anti-Deepfake Chip, Google Sets 2029 Quantum Deadline",
+      "summary": "<p>Other noteworthy stories that might have slipped under the radar: Heritage Bank data breach, new State Department unit tackles cyber threats, LA Metro disruptions.</p>\n<p>The post <a href=\"https://www.securityweek.com/in-other-news-palo-alto-recruiter-scam-anti-deepfake-chip-google-sets-2029-quan",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/in-other-news-palo-alto-recruiter-scam-anti-deepfake-chip-google-sets-2029-quantum-deadline/",
+      "date": "2026-03-27T14:25:52"
+    },
+    {
+      "title": "China Upgrades the Backdoor It Uses to Spy on Telcos Globally",
+      "summary": "Chinese APT Red Menshen's super-advanced BPFdoor malware defeats traditional cybersecurity protections. All telcos can do, really, is try hunting it down.",
+      "source": "Dark Reading",
+      "url": "https://www.darkreading.com/threat-intelligence/china-upgrades-backdoor-spy-telcos",
+      "date": "2026-03-27T16:48:49"
+    },
+    {
+      "title": "Wartime Usage of Compromised IP Cameras Highlight Their Danger",
+      "summary": "The list of countries exploiting Internet-connected cameras to give them eyes inside their adversaries' borders continues to expand. What should companies look out for?",
+      "source": "Dark Reading",
+      "url": "https://www.darkreading.com/cyber-risk/wartime-usage-of-compromised-ip-cameras-highlight-their-danger",
+      "date": "2026-03-27T16:21:48"
+    },
+    {
+      "title": "Infrastructure Attacks With Physical Consequences Down 25%",
+      "summary": "Operational technology (OT) at industrial and critical infrastructure sites seem to have been benefitting from a lull in ransomware, and hackers' relative ignorance of OT systems.",
+      "source": "Dark Reading",
+      "url": "https://www.darkreading.com/threat-intelligence/infrastructure-attacks-physical-consequences-down",
+      "date": "2026-03-27T13:30:00"
+    },
+    {
+      "title": "Friday Squid Blogging: Bioluminescent Bacteria in Squid",
+      "summary": "<p>The Hawaiian bobtail squid has <a href=\"https://phys.org/news/2026-03-bioluminescent-bacterial-partner-essential-squid.html\">bioluminescent bacteria</a>.</p>",
+      "source": "Schneier on Security",
+      "url": "https://www.schneier.com/blog/archives/2026/03/friday-squid-blogging-bioluminescent-bacteria-in-squid.html",
+      "date": "2026-03-27T20:18:54"
+    },
+    {
+      "title": "As the US Midterms Approach, AI Is Going to Emerge as a Key Issue Concerning Voters",
+      "summary": "<p>In December, the Trump administration signed an executive order that <a href=\"https://www.nytimes.com/2025/12/11/technology/ai-trump-executive-order.html\">neutered</a> states&#8217; ability to regulate AI by ordering his administration to both sue and withhold funds from states that try to do so.",
+      "source": "Schneier on Security",
+      "url": "https://www.schneier.com/blog/archives/2026/03/as-the-us-midterms-approach-ai-is-going-to-emerge-as-a-key-issue-concerning-voters.html",
+      "date": "2026-03-26T11:06:39"
+    },
+    {
+      "title": "Sen. Wyden Warns of Another Section 702 Abuse",
+      "summary": "<p>Sen. Ron Wyden is <a href=\"https://www.techdirt.com/2026/03/12/the-wyden-siren-goes-off-again-well-be-stunned-by-what-the-nsa-is-doing-under-section-702/\">warning us</a> of an abuse of Section 702:</p>\n<blockquote><p>Wyden took to the Senate floor to deliver a lengthy speech, ostensibly about the",
+      "source": "Schneier on Security",
+      "url": "https://www.schneier.com/blog/archives/2026/03/sen-wyden-warns-of-another-section-702-abuse.html",
+      "date": "2026-03-25T11:02:07"
+    },
+    {
+      "title": "New Wave of AiTM Phishing Targets TikTok for Business",
+      "summary": "Push Security has uncovered a new AiTM phishing campaign targeting TikTok for Business accounts using Google  and TikTok themed login pages",
+      "source": "Infosecurity Magazine",
+      "url": "https://www.infosecurity-magazine.com/news/phishing-targets-tiktok-for/",
+      "date": "2026-03-27T16:01:00"
+    },
+    {
+      "title": "TeamPCP Targets Telnyx Package in Latest PyPI Software Supply Chain Attack",
+      "summary": "Socket and Endor Labs discovered a new TeamPCP campaign leading to the delivery of credential-stealing malware",
+      "source": "Infosecurity Magazine",
+      "url": "https://www.infosecurity-magazine.com/news/teampcp-targets-telnyx-pypi-package/",
+      "date": "2026-03-27T15:06:00"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-2580",
+      "title": "The WP Maps – Store Locator,Google Maps,OpenStreetMap,Mapbox,Listing,Directory & Filters plugin for WordPress is vulnerable to time-based SQL Injectio",
+      "cvss": 7.5,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4562",
+      "title": "A security flaw has been discovered in MacCMS 2025.1000.4052. This affects an unknown part of the file application/api/controller/Timming.php of the c",
+      "cvss": 7.3,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4565",
+      "title": "A vulnerability was detected in Tenda AC21 16.03.08.16. Impacted is the function formSetQosBand of the file /goform/SetNetControlList. Performing a ma",
+      "cvss": 8.8,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4566",
+      "title": "A flaw has been found in Belkin F9K1122 1.00.33. The affected element is the function formWISP5G of the file /goform/formWISP5G. Executing a manipulat",
+      "cvss": 8.8,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2025-10679",
+      "title": "The ReviewX – WooCommerce Product Reviews with Multi-Criteria, Reminder Emails, Google Reviews, Schema & More plugin for WordPress is vulnerable to ar",
+      "cvss": 7.3,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4579",
+      "title": "A vulnerability was identified in code-projects Simple Laundry System 1.0. This affects an unknown function of the file /viewdetail.php of the compone",
+      "cvss": 7.3,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4580",
+      "title": "A security flaw has been discovered in code-projects Simple Laundry System 1.0. This impacts an unknown function of the file /checkupdatestatus.php of",
+      "cvss": 7.3,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4581",
+      "title": "A weakness has been identified in code-projects Simple Laundry System 1.0. Affected is an unknown function of the file /checklogin.php of the componen",
+      "cvss": 7.3,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-32969",
+      "title": "An unauthenticated remote attacker can exploit a Pre-Auth blind SQL Injection vulnerability in the userinfo endpoint’s authentication method due to im",
+      "cvss": 7.5,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4645",
+      "title": "A flaw was found in the `github.com/antchfx/xpath` component. A remote attacker could exploit this vulnerability by submitting crafted Boolean XPath e",
+      "cvss": 7.5,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-33480",
+      "title": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the `isSSRFSafeURL()` function in AVideo can be bypassed using IPv",
+      "cvss": 8.6,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-32845",
+      "title": "cgltf version 1.15 and prior contain an integer overflow vulnerability in the cgltf_validate() function when validating sparse accessors that allows a",
+      "cvss": 8.4,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-33488",
+      "title": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the `createKeys()` function in the LoginControl plugin's PGP 2FA s",
+      "cvss": 7.4,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-33493",
+      "title": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the `objects/import.json.php` endpoint accepts a user-controlled `",
+      "cvss": 7.1,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-33502",
+      "title": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, an unauthenticated server-side request forgery vulnerability in `p",
+      "cvss": 9.3,
+      "severity": "critical",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4594",
+      "title": "A vulnerability has been found in erupts erupt up to 1.13.3. Affected by this issue is the function geneEruptHqlOrderBy of the file erupt-data/erupt-j",
+      "cvss": 7.3,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-33513",
+      "title": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, an unauthenticated API endpoint (`APIName=locale`) concatenates us",
+      "cvss": 8.6,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-33649",
+      "title": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the `plugin/Permissions/setPermission.json.php` endpoint accepts G",
+      "cvss": 8.1,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-33651",
+      "title": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the `remindMe.json.php` endpoint passes `$_REQUEST['live_schedule_",
+      "cvss": 8.1,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-23480",
+      "title": "Blinko is an AI-powered card note-taking project. Prior to version 1.8.4, there is a privilege escalation vulnerability. The upsertUser endpoint has 3",
+      "cvss": 8.8,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-23482",
+      "title": "Blinko is an AI-powered card note-taking project. Prior to version 1.8.4, the file server endpoint does not perform permission checks on the temp/ pat",
+      "cvss": 7.5,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-23882",
+      "title": "Blinko is an AI-powered card note-taking project. Prior to version 1.8.4, the MCP (Model Context Protocol) server creation function allows specifying ",
+      "cvss": 7.2,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2025-60949",
+      "title": "Census CSWeb 8.0.1 allows \"app/config\" to be reachable via HTTP in some deployments. A remote, unauthenticated attacker could send requests to configu",
+      "cvss": 9.1,
+      "severity": "critical",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-33634",
+      "title": "Trivy is a security scanner. On March 19, 2026, a threat actor used compromised credentials to publish a malicious Trivy v0.69.4 release, force-push 7",
+      "cvss": 8.8,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": true,
+      "kev_note": "⚠️ CISA KEV 已知被利用漏洞"
+    },
+    {
+      "cve_id": "CVE-2026-4611",
+      "title": "A flaw has been found in TOTOLINK X6000R 9.4.0cu.1360_B20241207/9.4.0cu.1498_B20250826. Affected by this issue is the function setLanCfg of the file /",
+      "cvss": 7.2,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4612",
+      "title": "A vulnerability has been found in itsourcecode Free Hotel Reservation System 1.0. This affects an unknown part of the file /hotel/admin/mod_users/inde",
+      "cvss": 7.3,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-33046",
+      "title": "Indico is an event management system that uses Flask-Multipass, a multi-backend authentication system for Flask. In versions prior to 3.3.12, due to v",
+      "cvss": 8.8,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4306",
+      "title": "The WP Job Portal plugin for WordPress is vulnerable to SQL Injection via the 'radius' parameter in all versions up to, and including, 2.4.8 due to in",
+      "cvss": 7.5,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-33174",
+      "title": "Active Storage allows users to attach cloud and local files in Rails applications. Prior to versions 8.1.2.1, 8.0.4.1, and 7.2.3.1, when serving files",
+      "cvss": 7.5,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-33176",
+      "title": "Active Support is a toolkit of support libraries and Ruby core extensions extracted from the Rails framework. Prior to versions 8.1.2.1, 8.0.4.1, and ",
+      "cvss": 7.5,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-33241",
+      "title": "Salvo is a Rust web framework. Prior to version 0.89.3, Salvo's form data parsing implementations (`form_data()` method and `Extractible` macro) do no",
+      "cvss": 7.5,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-3533",
+      "title": "The Jupiter X Core plugin for WordPress is vulnerable to limited file uploads due to missing authorization on import_popup_templates() function as wel",
+      "cvss": 8.8,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4021",
+      "title": "The Contest Gallery plugin for WordPress is vulnerable to an authentication bypass leading to admin account takeover in all versions up to, and includ",
+      "cvss": 8.1,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4613",
+      "title": "A vulnerability was found in SourceCodester E-Commerce Site 1.0. This vulnerability affects unknown code of the file /products.php. The manipulation o",
+      "cvss": 7.3,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4615",
+      "title": "A vulnerability was identified in SourceCodester Online Catering Reservation 1.0. Impacted is an unknown function of the file /search.php. Such manipu",
+      "cvss": 7.3,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4617",
+      "title": "A weakness has been identified in SourceCodester Patients Waiting Area Queue Management System 1.0. The impacted element is the function ValidateToken",
+      "cvss": 7.3,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4623",
+      "title": "A security vulnerability has been detected in DefaultFuction Jeson-Customer-Relationship-Management-System up to 1b4679c4d06b90d31dd521c2b000bfdec5a36",
+      "cvss": 7.3,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4624",
+      "title": "A vulnerability was detected in SourceCodester Online Library Management System 1.0. The impacted element is an unknown function of the file /home.php",
+      "cvss": 7.3,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4625",
+      "title": "A flaw has been found in SourceCodester Online Admission System 1.0. This affects an unknown function of the file /programmes.php. Executing a manipul",
+      "cvss": 7.3,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4627",
+      "title": "A vulnerability was found in D-Link DIR-825 and DIR-825R 1.0.5/4.5.1. Affected is the function handler_update_system_time of the file libdeuteron_modu",
+      "cvss": 7.2,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4632",
+      "title": "A weakness has been identified in itsourcecode Online Enrollment System 1.0. This vulnerability affects unknown code of the file /sms/user/index.php?v",
+      "cvss": 7.3,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4639",
+      "title": "Vitals ESP developed by Galaxy Software Services has a Incorrect Authorization vulnerability, allowing authenticated remote attackers to perform certa",
+      "cvss": 8.8,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4640",
+      "title": "Vitals ESP developed by Galaxy Software Services has a Missing Authentication vulnerability, allowing unauthenticated remote attackers to execute cert",
+      "cvss": 7.5,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-4662",
+      "title": "The JetEngine plugin for WordPress is vulnerable to SQL Injection via the `listing_load_more` AJAX action in all versions up to, and including, 3.8.6.",
+      "cvss": 7.5,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2025-41660",
+      "title": "A low-privileged remote attacker may be able to replace the boot application of the CODESYS Control runtime system, enabling unauthorized code executi",
+      "cvss": 8.8,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2026-3509",
+      "title": "An unauthenticated remote attacker may be able to control the format string of messages processed by the Audit Log of the CODESYS Control runtime syst",
+      "cvss": 7.5,
+      "severity": "high",
+      "product": "未知",
+      "is_kev": false,
+      "kev_note": ""
+    },
+    {
+      "cve_id": "CVE-2025-53521",
+      "title": "",
+      "cvss": 0,
+      "severity": "critical",
+      "product": "BIG-IP",
+      "is_kev": true,
+      "kev_note": "⚠️ CISA KEV 已知被利用漏洞"
+    },
+    {
+      "cve_id": "CVE-2026-33017",
+      "title": "",
+      "cvss": 0,
+      "severity": "critical",
+      "product": "Langflow",
+      "is_kev": true,
+      "kev_note": "⚠️ CISA KEV 已知被利用漏洞"
+    }
+  ],
+  "threat_trends": {},
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "檢視本週 48 個高風險漏洞並評估影響"
+    },
+    {
+      "priority": "medium",
+      "action": "確認系統已套用最新安全更新"
+    },
+    {
+      "priority": "low",
+      "action": "持續監控資安威脅趨勢"
+    }
+  ],
+  "terms": [
+    {
+      "term": "資料抹除程式",
+      "term_en": "Wiper",
+      "term_zh": "資料抹除程式",
+      "definition": "專門破壞或刪除資料的惡意程式",
+      "id": "wiper",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/wiper"
+    },
+    {
+      "term": "通用漏洞揭露",
+      "term_en": "CVE",
+      "term_zh": "通用漏洞揭露",
+      "definition": "公開已知漏洞的統一編號系統",
+      "id": "cve",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cve"
+    },
+    {
+      "term": "通用漏洞評分系統",
+      "term_en": "CVSS",
+      "term_zh": "通用漏洞評分系統",
+      "definition": "評估漏洞嚴重程度的標準化計分系統",
+      "id": "cvss",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cvss"
+    },
+    {
+      "term": "偵察",
+      "term_en": "Reconnaissance",
+      "term_zh": "偵察",
+      "definition": "攻擊前蒐集目標資訊的活動",
+      "id": "reconnaissance",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/reconnaissance"
+    },
+    {
+      "term": "漏洞",
+      "term_en": "Vulnerability",
+      "term_zh": "漏洞",
+      "definition": "系統或軟體中可被利用的安全弱點",
+      "id": "vulnerability",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/vulnerability"
+    },
+    {
+      "term": "輸入驗證",
+      "term_en": "Input Validation",
+      "term_zh": "輸入驗證",
+      "definition": "檢查和清理使用者輸入的安全措施",
+      "id": "input_validation",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/input_validation"
+    },
+    {
+      "term": "漏洞利用套件",
+      "term_en": "Exploit Kit",
+      "term_zh": "漏洞利用套件",
+      "definition": "自動化利用瀏覽器漏洞感染訪客的工具包",
+      "id": "exploit_kit",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/exploit_kit"
+    },
+    {
+      "term": "網路釣魚",
+      "term_en": "Phishing",
+      "term_zh": "網路釣魚",
+      "definition": "透過偽造信件或網站騙取敏感資訊的攻擊手法",
+      "id": "phishing",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/phishing"
+    },
+    {
+      "term": "國家支持的",
+      "term_en": "State-Sponsored",
+      "term_zh": "國家支持的",
+      "definition": "由國家政府資助或指揮的網路行動",
+      "id": "state_sponsored",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/state_sponsored"
+    },
+    {
+      "term": "蠕蟲",
+      "term_en": "Worm",
+      "term_zh": "蠕蟲",
+      "definition": "能自我複製並在網路上傳播的惡意程式",
+      "id": "worm",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/worm"
+    }
+  ],
+  "references": []
+}
