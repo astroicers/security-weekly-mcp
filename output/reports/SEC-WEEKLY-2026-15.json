@@ -1,0 +1,248 @@
+{
+  "title": "資安週報 - 第15週",
+  "report_id": "SEC-WEEKLY-2026-15",
+  "period": {
+    "start": "2026-03-31",
+    "end": "2026-04-06"
+  },
+  "publish_date": "2026-04-06",
+  "summary": {
+    "total_events": 5,
+    "total_vulnerabilities": 5,
+    "threat_level": "elevated"
+  },
+  "events": [
+    {
+      "title": "北韓駭客組織對 Drift 平台發動 2.85 億美元社交工程攻擊",
+      "severity": "critical",
+      "event_type": "cryptocurrency_theft",
+      "summary": "Drift 去中心化交易平台遭受北韓駭客組織長達六個月的精心策劃社交工程攻擊，損失 2.85 億美元。攻擊者利用 durable nonce 技術快速接管平台的安全委員會管理權限。",
+      "affected_industries": [
+        "cryptocurrency",
+        "financial_services"
+      ],
+      "recommendations": [
+        "加強社交工程防護培訓",
+        "實施多重身份驗證",
+        "建立異常行為監控"
+      ]
+    },
+    {
+      "title": "Fortinet FortiClient EMS 漏洞 CVE-2026-35616 遭主動利用",
+      "severity": "critical",
+      "event_type": "active_exploitation",
+      "summary": "Fortinet 發布緊急修補程式修復 FortiClient EMS 中的關鍵漏洞 CVE-2026-35616（CVSS 9.1），該漏洞允許未經身份驗證的攻擊者通過 API 存取繞過獲得權限提升。",
+      "affected_industries": [
+        "enterprise",
+        "government"
+      ],
+      "recommendations": [
+        "立即安裝修補程式",
+        "檢查入侵跡象",
+        "限制網路存取"
+      ]
+    },
+    {
+      "title": "歐盟委員會因 Trivy 供應鏈攻擊發生資料外洩",
+      "severity": "high",
+      "event_type": "supply_chain_attack",
+      "summary": "歐盟委員會確認因 Trivy 安全掃描工具的供應鏈攻擊導致資料外洩，攻擊者從 AWS 環境竊取超過 300GB 資料，包括個人敏感資訊。",
+      "affected_industries": [
+        "government",
+        "public_sector"
+      ],
+      "recommendations": [
+        "審查供應鏈安全",
+        "加強第三方軟體驗證",
+        "實施資料分類保護"
+      ]
+    },
+    {
+      "title": "36 個惡意 npm 套件利用 Redis 和 PostgreSQL 部署持久化植入程式",
+      "severity": "high",
+      "event_type": "supply_chain_attack",
+      "summary": "研究人員發現 36 個偽裝成 Strapi CMS 外掛的惡意 npm 套件，用於 Redis 和 PostgreSQL 利用、部署反向 Shell、收集憑證並投放持久化植入程式。",
+      "affected_industries": [
+        "software_development",
+        "web_development"
+      ],
+      "recommendations": [
+        "檢查 npm 依賴",
+        "使用套件掃描工具",
+        "建立軟體物料清單"
+      ]
+    },
+    {
+      "title": "中國威脅組織 TA416 以 PlugX 和 OAuth 釣魚攻擊歐洲政府",
+      "severity": "high",
+      "event_type": "apt_campaign",
+      "summary": "中國威脅行為者 TA416 自 2025 年中期開始重新將目標對準歐洲政府和外交組織，使用 PlugX 木馬和 OAuth 基礎的釣魚攻擊。",
+      "affected_industries": [
+        "government",
+        "diplomatic"
+      ],
+      "recommendations": [
+        "加強電子郵件安全",
+        "監控異常網路活動",
+        "實施零信任架構"
+      ]
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-3502",
+      "product": "TrueConf Client",
+      "cvss": 7.8,
+      "status": "KEV",
+      "priority": "P1"
+    },
+    {
+      "cve_id": "CVE-2026-5281",
+      "product": "Google Dawn",
+      "cvss": 8.5,
+      "status": "KEV",
+      "priority": "P1"
+    },
+    {
+      "cve_id": "CVE-2026-35616",
+      "product": "FortiClient EMS",
+      "cvss": 9.1,
+      "status": "actively_exploited",
+      "priority": "P1"
+    },
+    {
+      "cve_id": "CVE-2026-34714",
+      "product": "Vim",
+      "cvss": 9.2,
+      "status": "new",
+      "priority": "P2"
+    },
+    {
+      "cve_id": "CVE-2026-2370",
+      "product": "GitLab CE/EE",
+      "cvss": 8.1,
+      "status": "new",
+      "priority": "P2"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅趨勢顯示供應鏈攻擊持續升級，國家級威脅行為者活動增強，零日漏洞被廣泛利用於針對性攻擊。",
+    "active_actors": [
+      {
+        "name": "DPRK",
+        "activity": "大規模社交工程攻擊"
+      },
+      {
+        "name": "TA416",
+        "activity": "針對歐洲政府的 APT 攻擊"
+      },
+      {
+        "name": "UNC1069",
+        "activity": "npm 供應鏈攻擊"
+      }
+    ],
+    "attack_techniques": [
+      "社交工程",
+      "供應鏈攻擊",
+      "零日漏洞利用",
+      "網頁後門部署",
+      "加密貨幣竊取"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "P1",
+      "action": "立即修補 FortiClient EMS CVE-2026-35616 漏洞",
+      "owner": "IT 部門",
+      "deadline": "2026-04-07"
+    },
+    {
+      "priority": "P1",
+      "action": "更新 Chrome/Edge 瀏覽器修復 CVE-2026-5281",
+      "owner": "IT 部門",
+      "deadline": "2026-04-08"
+    },
+    {
+      "priority": "P2",
+      "action": "審查 npm 套件依賴並建立供應鏈安全控制",
+      "owner": "開發團隊",
+      "deadline": "2026-04-13"
+    },
+    {
+      "priority": "P2",
+      "action": "檢查 Linux 伺服器是否存在基於 Cookie 的 PHP 後門",
+      "owner": "安全團隊",
+      "deadline": "2026-04-13"
+    }
+  ],
+  "terms": [
+    {
+      "term": "社交工程",
+      "definition": "利用人性弱點操縱受害者的攻擊手法",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/social_engineering"
+    },
+    {
+      "term": "通用漏洞揭露",
+      "definition": "公開已知漏洞的統一編號系統",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cve"
+    },
+    {
+      "term": "PlugX 遠端存取木馬",
+      "definition": "中國 APT 組織常用的遠端存取木馬",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/plugx"
+    },
+    {
+      "term": "OAuth 授權協定",
+      "definition": "允許第三方應用程式安全存取使用者資源的授權標準",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/oauth"
+    },
+    {
+      "term": "網路釣魚",
+      "definition": "透過偽造信件或網站騙取敏感資訊的攻擊手法",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/phishing"
+    },
+    {
+      "term": "供應鏈攻擊",
+      "definition": "透過入侵軟體供應商來攻擊最終用戶的手法",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/supply_chain_attack"
+    },
+    {
+      "term": "資料外洩事件",
+      "definition": "敏感資料被未授權存取或洩露的安全事件",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/data_breach"
+    },
+    {
+      "term": "零日漏洞",
+      "definition": "尚未有修補程式的漏洞",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/zero_day"
+    },
+    {
+      "term": "遠端程式碼執行",
+      "definition": "攻擊者可遠端在目標系統執行任意程式碼的漏洞",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/rce"
+    },
+    {
+      "term": "漏洞",
+      "definition": "系統或軟體中可被利用的安全弱點",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/vulnerability"
+    }
+  ],
+  "references": [
+    {
+      "title": "The Hacker News",
+      "url": "https://thehackernews.com"
+    },
+    {
+      "title": "SecurityWeek",
+      "url": "https://www.securityweek.com"
+    },
+    {
+      "title": "NVD 國家漏洞資料庫",
+      "url": "https://nvd.nist.gov"
+    },
+    {
+      "title": "CISA 已知被利用漏洞目錄",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}
