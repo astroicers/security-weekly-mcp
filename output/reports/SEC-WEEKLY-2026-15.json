@@ -1,248 +1,229 @@
 {
-  "title": "資安週報 - 第15週",
+  "title": "資安週報 2026年第15週",
   "report_id": "SEC-WEEKLY-2026-15",
   "period": {
-    "start": "2026-03-31",
-    "end": "2026-04-06"
+    "start": "2026-04-07",
+    "end": "2026-04-13"
   },
-  "publish_date": "2026-04-06",
+  "publish_date": "2026-04-13",
   "summary": {
-    "total_events": 5,
+    "total_events": 7,
     "total_vulnerabilities": 5,
-    "threat_level": "elevated"
+    "threat_level": "high"
   },
   "events": [
     {
-      "title": "北韓駭客組織對 Drift 平台發動 2.85 億美元社交工程攻擊",
+      "id": "evt001",
+      "title": "CPUID 供應鏈攻擊",
+      "summary": "未知威脅行為者入侵 CPUID 網站，透過木馬化的 CPU-Z 和 HWMonitor 下載檔案分發 STX RAT 遠程訪問木馬。攻擊持續約 19 小時，影響廣泛的硬體監控工具用戶。",
+      "severity": "high",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/04/cpuid-breach-distributes-stx-rat-via.html",
+      "published": "2026-04-12"
+    },
+    {
+      "id": "evt002",
+      "title": "Adobe Acrobat Reader 主動利用漏洞",
+      "summary": "Adobe 發布緊急更新修復 CVE-2026-34621 漏洞，該漏洞已在野外遭到主動利用，CVSS 評分 8.6，可導致遠程代碼執行。",
       "severity": "critical",
-      "event_type": "cryptocurrency_theft",
-      "summary": "Drift 去中心化交易平台遭受北韓駭客組織長達六個月的精心策劃社交工程攻擊，損失 2.85 億美元。攻擊者利用 durable nonce 技術快速接管平台的安全委員會管理權限。",
-      "affected_industries": [
-        "cryptocurrency",
-        "financial_services"
-      ],
-      "recommendations": [
-        "加強社交工程防護培訓",
-        "實施多重身份驗證",
-        "建立異常行為監控"
-      ]
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/04/adobe-patches-actively-exploited.html",
+      "published": "2026-04-12"
     },
     {
-      "title": "Fortinet FortiClient EMS 漏洞 CVE-2026-35616 遭主動利用",
+      "id": "evt003",
+      "title": "執法部門使用廣告數據監控 5 億台設備",
+      "summary": "Citizen Lab 揭露匈牙利、薩爾瓦多和美國執法部門使用 Webloc 系統，透過廣告數據進行全球地理位置監控，引發隱私權爭議。",
+      "severity": "medium",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/04/citizen-lab-law-enforcement-used-webloc.html",
+      "published": "2026-04-11"
+    },
+    {
+      "id": "evt004",
+      "title": "GlassWorm 攻擊使用 Zig Dropper",
+      "summary": "GlassWorm 攻擊活動進化，使用 Zig 語言編寫的投放器感染開發者機器上的所有 IDE，透過偽裝為 WakaTime 的惡意擴展傳播。",
+      "severity": "high",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/04/glassworm-campaign-uses-zig-dropper-to.html",
+      "published": "2026-04-10"
+    },
+    {
+      "id": "evt005",
+      "title": "Marimo RCE 漏洞快速利用",
+      "summary": "Marimo Python 筆記本中的 CVE-2026-39987 漏洞（CVSS 9.3）在公開披露後 10 小時內即遭利用，顯示攻擊者快速反應能力。",
       "severity": "critical",
-      "event_type": "active_exploitation",
-      "summary": "Fortinet 發布緊急修補程式修復 FortiClient EMS 中的關鍵漏洞 CVE-2026-35616（CVSS 9.1），該漏洞允許未經身份驗證的攻擊者通過 API 存取繞過獲得權限提升。",
-      "affected_industries": [
-        "enterprise",
-        "government"
-      ],
-      "recommendations": [
-        "立即安裝修補程式",
-        "檢查入侵跡象",
-        "限制網路存取"
-      ]
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/04/marimo-rce-flaw-cve-2026-39987.html",
+      "published": "2026-04-10"
     },
     {
-      "title": "歐盟委員會因 Trivy 供應鏈攻擊發生資料外洩",
-      "severity": "high",
-      "event_type": "supply_chain_attack",
-      "summary": "歐盟委員會確認因 Trivy 安全掃描工具的供應鏈攻擊導致資料外洩，攻擊者從 AWS 環境竊取超過 300GB 資料，包括個人敏感資訊。",
-      "affected_industries": [
-        "government",
-        "public_sector"
-      ],
-      "recommendations": [
-        "審查供應鏈安全",
-        "加強第三方軟體驗證",
-        "實施資料分類保護"
-      ]
+      "id": "evt006",
+      "title": "Google Chrome 推出 DBSC 防護",
+      "summary": "Google 在 Chrome 146 中正式推出設備綁定會話憑證(DBSC)技術，防止 Windows 系統上的會話劫持攻擊。",
+      "severity": "low",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/04/google-rolls-out-dbsc-in-chrome-146-to.html",
+      "published": "2026-04-10"
     },
     {
-      "title": "36 個惡意 npm 套件利用 Redis 和 PostgreSQL 部署持久化植入程式",
-      "severity": "high",
-      "event_type": "supply_chain_attack",
-      "summary": "研究人員發現 36 個偽裝成 Strapi CMS 外掛的惡意 npm 套件，用於 Redis 和 PostgreSQL 利用、部署反向 Shell、收集憑證並投放持久化植入程式。",
-      "affected_industries": [
-        "software_development",
-        "web_development"
-      ],
-      "recommendations": [
-        "檢查 npm 依賴",
-        "使用套件掃描工具",
-        "建立軟體物料清單"
-      ]
-    },
-    {
-      "title": "中國威脅組織 TA416 以 PlugX 和 OAuth 釣魚攻擊歐洲政府",
-      "severity": "high",
-      "event_type": "apt_campaign",
-      "summary": "中國威脅行為者 TA416 自 2025 年中期開始重新將目標對準歐洲政府和外交組織，使用 PlugX 木馬和 OAuth 基礎的釣魚攻擊。",
-      "affected_industries": [
-        "government",
-        "diplomatic"
-      ],
-      "recommendations": [
-        "加強電子郵件安全",
-        "監控異常網路活動",
-        "實施零信任架構"
-      ]
+      "id": "evt007",
+      "title": "AI 瀏覽器擴展安全風險",
+      "summary": "LayerX 報告指出 AI 瀏覽器擴展可能是企業網路中最危險的 AI 威脅面，但缺乏足夠的安全關注。",
+      "severity": "medium",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/04/browser-extensions-are-new-ai.html",
+      "published": "2026-04-10"
     }
   ],
   "vulnerabilities": [
     {
-      "cve_id": "CVE-2026-3502",
-      "product": "TrueConf Client",
-      "cvss": 7.8,
-      "status": "KEV",
-      "priority": "P1"
+      "cve_id": "CVE-2026-34621",
+      "cvss": 8.6,
+      "description": "Adobe Acrobat Reader 中的嚴重漏洞，可導致遠程代碼執行，已遭主動利用",
+      "vendor": "Adobe",
+      "in_kev": true,
+      "patch_available": true
     },
     {
-      "cve_id": "CVE-2026-5281",
-      "product": "Google Dawn",
-      "cvss": 8.5,
-      "status": "KEV",
-      "priority": "P1"
+      "cve_id": "CVE-2026-39987",
+      "cvss": 9.3,
+      "description": "Marimo Python 筆記本中的預認證遠程代碼執行漏洞",
+      "vendor": "Marimo",
+      "in_kev": false,
+      "patch_available": true
     },
     {
-      "cve_id": "CVE-2026-35616",
-      "product": "FortiClient EMS",
-      "cvss": 9.1,
-      "status": "actively_exploited",
-      "priority": "P1"
+      "cve_id": "CVE-2026-5605",
+      "cvss": 8.8,
+      "description": "Tenda CH22 路由器中的堆疊緩衝區溢出漏洞",
+      "vendor": "Tenda",
+      "in_kev": false,
+      "patch_available": false
     },
     {
-      "cve_id": "CVE-2026-34714",
-      "product": "Vim",
-      "cvss": 9.2,
-      "status": "new",
-      "priority": "P2"
+      "cve_id": "CVE-2026-5608",
+      "cvss": 8.8,
+      "description": "Belkin F9K1122 路由器中的堆疊緩衝區溢出漏洞",
+      "vendor": "Belkin",
+      "in_kev": false,
+      "patch_available": false
     },
     {
-      "cve_id": "CVE-2026-2370",
-      "product": "GitLab CE/EE",
-      "cvss": 8.1,
-      "status": "new",
-      "priority": "P2"
+      "cve_id": "CVE-2026-5609",
+      "cvss": 8.8,
+      "description": "Tenda i12 路由器中的堆疊緩衝區溢出漏洞",
+      "vendor": "Tenda",
+      "in_kev": false,
+      "patch_available": false
     }
   ],
-  "threat_trends": {
-    "summary": "本週威脅趨勢顯示供應鏈攻擊持續升級，國家級威脅行為者活動增強，零日漏洞被廣泛利用於針對性攻擊。",
-    "active_actors": [
-      {
-        "name": "DPRK",
-        "activity": "大規模社交工程攻擊"
-      },
-      {
-        "name": "TA416",
-        "activity": "針對歐洲政府的 APT 攻擊"
-      },
-      {
-        "name": "UNC1069",
-        "activity": "npm 供應鏈攻擊"
-      }
-    ],
-    "attack_techniques": [
-      "社交工程",
-      "供應鏈攻擊",
-      "零日漏洞利用",
-      "網頁後門部署",
-      "加密貨幣竊取"
-    ]
-  },
+  "threat_trends": [
+    "供應鏈攻擊持續威脅軟體生態系統，特別是開發工具領域",
+    "AI 技術在安全攻防中的雙面影響日益顯著",
+    "開發者工具和 IDE 成為攻擊者新的主要目標",
+    "執法監控技術使用廣告數據引發全球隱私權爭議",
+    "零日漏洞的利用時間窗口不斷縮短，攻擊者反應更加迅速",
+    "瀏覽器擴展成為新的攻擊載體，特別是 AI 相關工具"
+  ],
   "action_items": [
     {
-      "priority": "P1",
-      "action": "立即修補 FortiClient EMS CVE-2026-35616 漏洞",
-      "owner": "IT 部門",
-      "deadline": "2026-04-07"
+      "action": "立即更新 Adobe Acrobat Reader 至最新版本",
+      "priority": "high",
+      "target_audience": "所有使用者"
     },
     {
-      "priority": "P1",
-      "action": "更新 Chrome/Edge 瀏覽器修復 CVE-2026-5281",
-      "owner": "IT 部門",
-      "deadline": "2026-04-08"
+      "action": "檢查並更新開發環境中的瀏覽器擴展，移除不必要的 AI 工具",
+      "priority": "high",
+      "target_audience": "軟體開發者"
     },
     {
-      "priority": "P2",
-      "action": "審查 npm 套件依賴並建立供應鏈安全控制",
-      "owner": "開發團隊",
-      "deadline": "2026-04-13"
+      "action": "建立供應鏈安全檢查流程，驗證軟體下載來源",
+      "priority": "medium",
+      "target_audience": "採購與資安團隊"
     },
     {
-      "priority": "P2",
-      "action": "檢查 Linux 伺服器是否存在基於 Cookie 的 PHP 後門",
-      "owner": "安全團隊",
-      "deadline": "2026-04-13"
+      "action": "部署端點偵測與回應(EDR)解決方案監控異常活動",
+      "priority": "medium",
+      "target_audience": "資安團隊"
+    },
+    {
+      "action": "評估第三方監控工具的隱私影響和合規風險",
+      "priority": "low",
+      "target_audience": "法務與合規團隊"
     }
   ],
   "terms": [
     {
-      "term": "社交工程",
-      "definition": "利用人性弱點操縱受害者的攻擊手法",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/social_engineering"
-    },
-    {
-      "term": "通用漏洞揭露",
-      "definition": "公開已知漏洞的統一編號系統",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cve"
-    },
-    {
-      "term": "PlugX 遠端存取木馬",
-      "definition": "中國 APT 組織常用的遠端存取木馬",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/plugx"
-    },
-    {
-      "term": "OAuth 授權協定",
-      "definition": "允許第三方應用程式安全存取使用者資源的授權標準",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/oauth"
-    },
-    {
-      "term": "網路釣魚",
-      "definition": "透過偽造信件或網站騙取敏感資訊的攻擊手法",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/phishing"
-    },
-    {
       "term": "供應鏈攻擊",
+      "term_en": "Supply Chain Attack",
+      "term_zh": "供應鏈攻擊",
       "definition": "透過入侵軟體供應商來攻擊最終用戶的手法",
+      "id": "supply_chain_attack",
       "url": "https://astroicers.github.io/security-glossary-tw/glossary/supply_chain_attack"
     },
     {
-      "term": "資料外洩事件",
-      "definition": "敏感資料被未授權存取或洩露的安全事件",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/data_breach"
+      "term": "遠端存取木馬",
+      "term_en": "RAT",
+      "term_zh": "遠端存取木馬",
+      "definition": "允許攻擊者遠端控制受感染系統的惡意程式",
+      "id": "rat",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/rat"
     },
     {
-      "term": "零日漏洞",
-      "definition": "尚未有修補程式的漏洞",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/zero_day"
+      "term": "通用漏洞揭露",
+      "term_en": "CVE",
+      "term_zh": "通用漏洞揭露",
+      "definition": "公開已知漏洞的統一編號系統",
+      "id": "cve",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cve"
+    },
+    {
+      "term": "投放器",
+      "term_en": "Dropper",
+      "term_zh": "投放器",
+      "definition": "將內嵌的惡意程式釋放到系統的程式",
+      "id": "dropper",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/dropper"
     },
     {
       "term": "遠端程式碼執行",
+      "term_en": "RCE",
+      "term_zh": "遠端程式碼執行",
       "definition": "攻擊者可遠端在目標系統執行任意程式碼的漏洞",
+      "id": "rce",
       "url": "https://astroicers.github.io/security-glossary-tw/glossary/rce"
     },
     {
-      "term": "漏洞",
-      "definition": "系統或軟體中可被利用的安全弱點",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/vulnerability"
+      "term": "通用漏洞評分系統",
+      "term_en": "CVSS",
+      "term_zh": "通用漏洞評分系統",
+      "definition": "評估漏洞嚴重程度的標準化計分系統",
+      "id": "cvss",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cvss"
+    },
+    {
+      "term": "STX RAT",
+      "term_en": "STX RAT",
+      "term_zh": "STX 遠端存取木馬",
+      "definition": "透過供應鏈攻擊傳播的遠端存取木馬程式",
+      "id": "stx_rat",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/stx_rat"
+    },
+    {
+      "term": "GlassWorm",
+      "term_en": "GlassWorm",
+      "term_zh": "GlassWorm 攻擊",
+      "definition": "針對開發者 IDE 的持續攻擊活動",
+      "id": "glassworm",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/glassworm"
     }
   ],
   "references": [
-    {
-      "title": "The Hacker News",
-      "url": "https://thehackernews.com"
-    },
-    {
-      "title": "SecurityWeek",
-      "url": "https://www.securityweek.com"
-    },
-    {
-      "title": "NVD 國家漏洞資料庫",
-      "url": "https://nvd.nist.gov"
-    },
-    {
-      "title": "CISA 已知被利用漏洞目錄",
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
-    }
+    "https://thehackernews.com/",
+    "https://krebsonsecurity.com/",
+    "https://www.securityweek.com/",
+    "https://nvd.nist.gov/",
+    "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
   ]
 }
