@@ -37,3 +37,7 @@ Thumbs.db
 # Environment
 .env
 .env.local
+
+# Node.js
+scripts/node_modules/
+scripts/package-lock.json
