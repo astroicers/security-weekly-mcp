@@ -1,0 +1,215 @@
+{
+  "title": "資安週報 2026/04/13 - 2026/04/19",
+  "report_id": "SEC-WEEKLY-2026-16",
+  "period": {
+    "start": "2026-04-13",
+    "end": "2026-04-19"
+  },
+  "publish_date": "2026-04-19",
+  "summary": {
+    "total_events": 10,
+    "total_vulnerabilities": 6,
+    "threat_level": "critical"
+  },
+  "events": [
+    {
+      "title": "Microsoft 4 月 Patch Tuesday：修補 163 個 CVE，含 SharePoint 零時差 CVE-2026-32201",
+      "severity": "critical",
+      "event_type": "patch",
+      "summary": "Microsoft 於 4 月 14-15 日發布史上最大規模之一的 Patch Tuesday，修補 163 個漏洞（含 2 個零時差），其中 SharePoint Server 零時差 CVE-2026-32201 已遭積極利用，CISA 要求聯邦機構於 4 月 28 日前完成修補。Windows IKE Service Extensions RCE CVE-2026-33824（CVSS 9.8）為本次最高危漏洞。",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-april-2026-patch-tuesday-fixes-167-flaws-2-zero-days/",
+      "date": "2026-04-14"
+    },
+    {
+      "title": "Itron 公用事業平台遭 Snow 惡意程式家族感染（Snowbelt/Snowglaze/Snowbasin）",
+      "severity": "critical",
+      "event_type": "apt",
+      "summary": "全球公用事業與智慧城市平台商 Itron 於 4 月 13 日發現遭未授權存取，攻擊者植入 Snow 惡意程式家族（Snowbelt、Snowglaze、Snowbasin）建立持久化存取，影響全球多個城市的公用事業管理系統。",
+      "source": "SharkStriker",
+      "url": "https://sharkstriker.com/blog/april-2026-data-breaches/",
+      "date": "2026-04-13"
+    },
+    {
+      "title": "Vercel 透過 Context.ai 第三方工具供應鏈攻擊：API 金鑰、原始碼外洩",
+      "severity": "critical",
+      "event_type": "supply_chain",
+      "summary": "前端部署平台 Vercel 於 4 月 19 日確認遭供應鏈攻擊，攻擊者透過入侵第三方工具 Context.ai 的帳號取得 Vercel 系統存取，竊取存取金鑰、原始碼、API 金鑰、內部部署憑證及資料庫資料。",
+      "source": "SharkStriker",
+      "url": "https://sharkstriker.com/blog/april-2026-data-breaches/",
+      "date": "2026-04-19"
+    },
+    {
+      "title": "Autovista 勒索軟體攻擊：歐洲及澳洲汽車資料服務癱瘓",
+      "severity": "high",
+      "event_type": "ransomware",
+      "summary": "汽車資料服務商 Autovista 遭勒索軟體攻擊，癱瘓 Eurotax、Schwacke、Glass's、Rødboka 等在歐洲及澳洲的資料驅動應用服務，影響汽車評估與保險業務。",
+      "source": "SharkStriker",
+      "url": "https://sharkstriker.com/blog/april-2026-data-breaches/",
+      "date": "2026-04-15"
+    },
+    {
+      "title": "Spring Lake Park 學區遭勒索軟體攻擊：全校停課",
+      "severity": "high",
+      "event_type": "ransomware",
+      "summary": "明尼蘇達州 Spring Lake Park 學區於 4 月 13 日遭勒索軟體攻擊，被迫關閉所有學校停課，啟動事件應變程序，為本週最受關注的美國教育機構攻擊事件。",
+      "source": "SharkStriker",
+      "url": "https://sharkstriker.com/blog/april-2026-data-breaches/",
+      "date": "2026-04-13"
+    },
+    {
+      "title": "CISA 4 月 20 日新增 8 個 KEV：Cisco SD-WAN、PaperCut、JetBrains TeamCity",
+      "severity": "high",
+      "event_type": "vulnerability",
+      "summary": "CISA 於 4 月 20 日一次性新增 8 個漏洞至 KEV，包含 3 個 Cisco Catalyst SD-WAN Manager 漏洞（須於 4/23 前修補）、PaperCut CVE-2023-27351（與 Cl0p/LockBit 勒索軟體相關）、JetBrains TeamCity CVE-2024-27199，以及 Kentico、Quest KACE、Zimbra 漏洞（須於 5/4 前修補）。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/04/cisa-adds-8-exploited-flaws-to-kev-sets.html",
+      "date": "2026-04-20"
+    },
+    {
+      "title": "Cisco Catalyst SD-WAN Manager 第三個漏洞 CVE-2026-20133 確認遭利用",
+      "severity": "high",
+      "event_type": "vulnerability",
+      "summary": "CISA 額外確認 Cisco Catalyst SD-WAN Manager 第三個積極利用漏洞 CVE-2026-20133（敏感資訊洩漏），三個 SD-WAN 漏洞（20122/20128/20133）聯邦修補截止日均為 4 月 23 日。",
+      "source": "Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/04/21/cisa-flags-another-cisco-catalyst-sd-wan-manager-bug-as-exploited-cve-2026-20133/",
+      "date": "2026-04-21"
+    },
+    {
+      "title": "BePrime 資安公司自身遭入侵：1858 台網路設備被控，監控鏡頭遭存取",
+      "severity": "high",
+      "event_type": "data_breach",
+      "summary": "4 月 20 日攻擊者入侵缺乏 MFA 保護的 BePrime 管理員帳號，透過 API 金鑰取得控制 1858 台網路設備及 2600+ 台連網設備，外洩 12.6GB 資料（含明文憑證、交易紀錄、資安稽核報告）並取得即時監控鏡頭存取權。",
+      "source": "SharkStriker",
+      "url": "https://sharkstriker.com/blog/april-2026-data-breaches/",
+      "date": "2026-04-20"
+    },
+    {
+      "title": "公用事業網路攻擊威脅升溫：Itron 事件顯示智慧城市基礎設施高風險",
+      "severity": "high",
+      "event_type": "threat_intelligence",
+      "summary": "Itron 遭攻擊顯示智慧城市與公用事業管理系統（電網、水務、智慧電表）成為高價值攻擊目標。Snow 惡意程式家族的多變體設計（Snowbelt/Snowglaze/Snowbasin）顯示攻擊者針對 OT/ICS 環境部署客製化持久化工具。",
+      "source": "SharkStriker",
+      "url": "https://sharkstriker.com/blog/april-2026-data-breaches/",
+      "date": "2026-04-14"
+    },
+    {
+      "title": "資安公司自身成為攻擊目標：BePrime 事件警示業界",
+      "severity": "medium",
+      "event_type": "threat_intelligence",
+      "summary": "BePrime 事件凸顯資安公司自身成為高價值攻擊目標——攻擊者透過入侵資安廠商可一次性取得大量客戶網路設備管理權限，為典型的「掌鑰者攻擊」手法。",
+      "source": "CyberPrivacyLab",
+      "url": "https://cyberprivacylab.com/recent-data-breaches-2026/",
+      "date": "2026-04-20"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-33824",
+      "title": "Windows IKE Service Extensions RCE（CVSS 9.8）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Microsoft",
+      "product": "Windows IKE Service Extensions",
+      "description": "4 月 Patch Tuesday 最高危漏洞，未驗證攻擊者可透過 IKEv2 特製封包執行任意程式碼。"
+    },
+    {
+      "cve_id": "CVE-2026-32201",
+      "title": "Microsoft SharePoint Server 零時差偽造漏洞",
+      "cvss": 6.5,
+      "severity": "medium",
+      "vendor": "Microsoft",
+      "product": "SharePoint Server 2016/2019/Subscription Edition",
+      "description": "已遭積極利用的零時差漏洞，CISA KEV 聯邦修補截止日 4 月 28 日。"
+    },
+    {
+      "cve_id": "CVE-2026-20122",
+      "title": "Cisco Catalyst SD-WAN Manager 特權 API 濫用",
+      "cvss": 8.5,
+      "severity": "high",
+      "vendor": "Cisco",
+      "product": "Catalyst SD-WAN Manager",
+      "description": "不當使用特權 API，CISA KEV 聯邦修補截止日 4 月 23 日。"
+    },
+    {
+      "cve_id": "CVE-2026-20128",
+      "title": "Cisco Catalyst SD-WAN Manager 密碼可還原儲存",
+      "cvss": 7.5,
+      "severity": "high",
+      "vendor": "Cisco",
+      "product": "Catalyst SD-WAN Manager",
+      "description": "密碼以可還原格式儲存，CISA KEV 聯邦修補截止日 4 月 23 日。"
+    },
+    {
+      "cve_id": "CVE-2026-20133",
+      "title": "Cisco Catalyst SD-WAN Manager 敏感資訊洩漏",
+      "cvss": 7.5,
+      "severity": "high",
+      "vendor": "Cisco",
+      "product": "Catalyst SD-WAN Manager",
+      "description": "向未授權行為者暴露敏感資訊，CISA KEV 聯邦修補截止日 4 月 23 日。"
+    },
+    {
+      "cve_id": "CVE-2023-27351",
+      "title": "PaperCut NG/MF 不當驗證（與 Cl0p/LockBit 相關）",
+      "cvss": 8.2,
+      "severity": "high",
+      "vendor": "PaperCut",
+      "product": "PaperCut NG/MF",
+      "description": "透過 SecurityRequestFilter 類別繞過驗證，已確認與 Cl0p 和 LockBit 勒索軟體投遞相關，CISA KEV 截止日 5 月 4 日。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週以 Microsoft 史上最大規模 Patch Tuesday（163 個 CVE）為核心事件，企業修補壓力達到年度高峰。Vercel 透過第三方工具遭供應鏈攻擊，以及 BePrime 資安公司自身被入侵控制大量客戶設備，顯示供應鏈與信任鏈攻擊持續演進。Itron 公用事業平台受 Snow 惡意程式家族攻擊，顯示 OT/ICS 智慧城市基礎設施面臨日益嚴峻威脅。",
+    "top_attack_vectors": ["零時差漏洞利用", "第三方工具供應鏈入侵", "OT/ICS 惡意程式植入", "缺乏 MFA 的管理介面"],
+    "active_threat_actors": ["Snow 惡意程式部署者", "Vercel 攻擊者", "Lace Tempest（PaperCut 相關）"],
+    "targeted_sectors": ["公用事業與智慧城市", "軟體開發平台", "汽車資料服務", "教育機構"]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即部署 Microsoft 4 月 Patch Tuesday 更新，優先處理 CVE-2026-33824（CVSS 9.8）與 SharePoint 零時差"
+    },
+    {
+      "priority": "high",
+      "action": "Cisco Catalyst SD-WAN Manager 須於 4 月 23 日前完成三個 KEV 漏洞修補"
+    },
+    {
+      "priority": "high",
+      "action": "稽核所有第三方整合工具（如 Context.ai 類型服務）的存取權限，限制最小化授權"
+    },
+    {
+      "priority": "high",
+      "action": "所有管理介面強制啟用 MFA，BePrime 事件顯示缺乏 MFA 可導致大規模設備被控"
+    },
+    {
+      "priority": "medium",
+      "action": "PaperCut 環境更新修補 CVE-2023-27351，防範 Cl0p/LockBit 勒索軟體利用"
+    },
+    {
+      "priority": "medium",
+      "action": "OT/ICS 與公用事業環境加強網路分隔與異常流量監控，防範 Snow 惡意程式家族入侵"
+    }
+  ],
+  "terms": [
+    "zero_day",
+    "supply_chain_attack",
+    "ransomware",
+    "cve",
+    "kev",
+    "rce",
+    "apt"
+  ],
+  "references": [
+    {"title": "Microsoft April Patch Tuesday BleepingComputer", "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-april-2026-patch-tuesday-fixes-167-flaws-2-zero-days/"},
+    {"title": "SharePoint Zero-Day THN", "url": "https://thehackernews.com/2026/04/microsoft-issues-patches-for-sharepoint.html"},
+    {"title": "CISA 8 KEV April 2026 THN", "url": "https://thehackernews.com/2026/04/cisa-adds-8-exploited-flaws-to-kev-sets.html"},
+    {"title": "Cisco SD-WAN CVE-2026-20133 HelpNet", "url": "https://www.helpnetsecurity.com/2026/04/21/cisa-flags-another-cisco-catalyst-sd-wan-manager-bug-as-exploited-cve-2026-20133/"},
+    {"title": "April 2026 Data Breaches SharkStriker", "url": "https://sharkstriker.com/blog/april-2026-data-breaches/"},
+    {"title": "CISA KEV Catalog", "url": "https://www.cisa.gov/news-events/alerts/2026/04/20/cisa-adds-eight-known-exploited-vulnerabilities-catalog"},
+    {"title": "Tenable April Patch Tuesday", "url": "https://www.tenable.com/blog/microsofts-april-2026-patch-tuesday-addresses-163-cves-cve-2026-32201"},
+    {"title": "CrowdStrike April Patch Analysis", "url": "https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-april-2026/"},
+    {"title": "PKWARE 2026 Breaches", "url": "https://www.pkware.com/blog/2026-data-breaches"},
+    {"title": "CyberPrivacyLab Breaches", "url": "https://cyberprivacylab.com/recent-data-breaches-2026/"}
+  ]
+}

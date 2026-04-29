@@ -14,7 +14,7 @@ permissions:
 jobs:
   generate-report:
     runs-on: ubuntu-latest
-    timeout-minutes: 30  # Claude 可能需要較長時間
+    timeout-minutes: 15  # 正常執行約 5-8 分鐘，15 分鐘為安全上限
     outputs:
       has_changes: ${{ steps.check_changes.outputs.has_reports }}
 
@@ -66,7 +66,7 @@ jobs:
 
       - name: Generate weekly report with Claude
         env:
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         working-directory: ${{ github.workspace }}
         run: node scripts/claude-weekly-report.mjs
 

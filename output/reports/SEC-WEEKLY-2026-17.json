@@ -1,0 +1,233 @@
+{
+  "title": "資安週報 2026/04/20 - 2026/04/26",
+  "report_id": "SEC-WEEKLY-2026-17",
+  "period": {
+    "start": "2026-04-20",
+    "end": "2026-04-26"
+  },
+  "publish_date": "2026-04-26",
+  "summary": {
+    "total_events": 12,
+    "total_vulnerabilities": 6,
+    "threat_level": "critical"
+  },
+  "events": [
+    {
+      "title": "Oracle 4 月 CPU：修補 241 個 CVE，28 個產品家族 481 項更新",
+      "severity": "critical",
+      "event_type": "patch",
+      "summary": "Oracle 於 4 月 21 日發布 2026 年第二季例行安全更新，修補 241 個 CVE，共 481 項安全更新涵蓋 28 個產品家族。Oracle Communications 占 28.9%（139 項），Fusion Middleware 含 CVSS 9.8/9.1 危急漏洞，MySQL CVE-2025-15467（CVSS 9.8）為最高危漏洞。",
+      "source": "Tenable",
+      "url": "https://www.tenable.com/blog/oracle-april-2026-critical-patch-update-addresses-241-cves",
+      "date": "2026-04-21"
+    },
+    {
+      "title": "CISA 新增 8 個 KEV：Cisco SD-WAN 限期聯邦機構 4 天完成修補",
+      "severity": "critical",
+      "event_type": "vulnerability",
+      "summary": "CISA 於 4 月 20 日新增 8 個漏洞至 KEV，其中 3 個 Cisco Catalyst SD-WAN Manager 漏洞（CVE-2026-20122/20128/20133）設定 4 月 23 日截止——僅 3 天修補窗口，為近期最緊迫的 KEV 時限之一。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/04/cisa-adds-8-exploited-flaws-to-kev-sets.html",
+      "date": "2026-04-20"
+    },
+    {
+      "title": "Microsoft Defender 三個零時差（BlueHammer/RedSun/UnDefend）均已用於攻擊",
+      "severity": "critical",
+      "event_type": "vulnerability",
+      "summary": "本週揭露第三個 Microsoft Defender 零時差漏洞（命名 UnDefend），與前兩個（BlueHammer、RedSun）合計三個 Defender 零時差均已確認在野利用，攻擊者持續針對企業端點防護軟體發動攻擊。",
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/news/175284",
+      "date": "2026-04-22"
+    },
+    {
+      "title": "Checkmarx KICS 容器映像與 VS Code 擴充套件遭供應鏈攻擊",
+      "severity": "critical",
+      "event_type": "supply_chain",
+      "summary": "代碼安全掃描平台 Checkmarx 的 KICS（保持基礎設施合規工具）容器映像與 VS Code 擴充套件遭供應鏈攻擊淪陷，影響全球大量使用 Checkmarx 的 DevSecOps 流水線。",
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/news/175284",
+      "date": "2026-04-22"
+    },
+    {
+      "title": "Python 資料分析工具 Marimo CVE-2026-39987：半個月內多個威脅組織積極利用",
+      "severity": "high",
+      "event_type": "vulnerability",
+      "summary": "Python 資料分析工具 Marimo 被揭露 CVE-2026-39987 危急漏洞後，近半個月內即遭多個威脅組織積極利用，包含 DDoS 惡意程式 NKAbuse 的散布組織，顯示漏洞武器化速度持續加快。",
+      "source": "HackMD 資安事件新聞週報",
+      "url": "https://hackmd.io/@9dCJrgb6QHGd8dRfgHO0zg/rJiZjCu6Wg",
+      "date": "2026-04-21"
+    },
+    {
+      "title": "Cisco ISE 網路存取控制漏洞：PoC 已出現，恐將用於實際攻擊",
+      "severity": "high",
+      "event_type": "vulnerability",
+      "summary": "Cisco 修補網路存取控制平台 ISE 重大漏洞，並確認 PoC 概念證明程式碼已公開，可能遭利用執行遠端任意程式碼攻擊，企業須優先評估 ISE 環境風險。",
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/news/173256",
+      "date": "2026-04-20"
+    },
+    {
+      "title": "BePrime 資安公司遭入侵後續：Iberdrola、Whirlpool 等客戶設備被控",
+      "severity": "high",
+      "event_type": "data_breach",
+      "summary": "BePrime 資安事件後續揭露，被控的 1858 台網路設備中包含 Iberdrola（西班牙大型能源商）、Whirlpool 與 Alsea（拉美餐飲集團）等企業的設備，顯示資安供應鏈攻擊的連鎖影響規模。",
+      "source": "SharkStriker",
+      "url": "https://sharkstriker.com/blog/april-2026-data-breaches/",
+      "date": "2026-04-20"
+    },
+    {
+      "title": "NIST 正式宣布漏洞分析量能不足：不再全面分析，轉向風險優先策略",
+      "severity": "medium",
+      "event_type": "threat_intelligence",
+      "summary": "NIST 正式宣布 NVD 漏洞分析速度已無法負荷過去五年暴增 263% 的漏洞通報數量，未來僅優先分析已被利用或涉及關鍵系統的高風險漏洞。此政策轉向將迫使企業自行建立漏洞優先化機制。",
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/news/175284",
+      "date": "2026-04-24"
+    },
+    {
+      "title": "Juniper Junos OS 修補多個漏洞：最嚴重可能遠端接管設備",
+      "severity": "high",
+      "event_type": "patch",
+      "summary": "Juniper Networks 發布 Junos OS 安全更新，修補多個漏洞，最嚴重者可能允許攻擊者遠端接管設備，影響廣泛部署的企業網路設備。",
+      "source": "HackMD 資安事件新聞週報",
+      "url": "https://hackmd.io/@9dCJrgb6QHGd8dRfgHO0zg/rJiZjCu6Wg",
+      "date": "2026-04-22"
+    },
+    {
+      "title": "Autovista 勒索軟體後續：29GB 資料外洩含 1300 萬筆記錄",
+      "severity": "high",
+      "event_type": "ransomware",
+      "summary": "Autovista 勒索軟體攻擊後續確認外洩超過 29GB 資料，含 1300 萬筆記錄（包含個人身份資訊及企業資料），影響歐洲及澳洲汽車估價市場。",
+      "source": "SharkStriker",
+      "url": "https://sharkstriker.com/blog/april-2026-data-breaches/",
+      "date": "2026-04-21"
+    },
+    {
+      "title": "美國地方政府資安改善報告：財政短缺與人才缺口仍是最大瓶頸",
+      "severity": "low",
+      "event_type": "threat_intelligence",
+      "summary": "ITIF 發布地方政府資安改善報告（4 月 27 日），指出美國州與地方政府面臨的最大資安障礙為預算不足與資安人才短缺，建議聯邦政府加大補助並建立共享資安服務。",
+      "source": "ITIF",
+      "url": "https://itif.org/publications/2026/04/27/improving-state-local-government-cybersecurity/",
+      "date": "2026-04-27"
+    },
+    {
+      "title": "台灣新竹物流攻擊後續：兩天服務中斷影響大量消費者，成資安典型案例",
+      "severity": "high",
+      "event_type": "ransomware",
+      "summary": "台灣新竹物流遭攻擊後續持續發酵，服務中斷兩天引發大量消費者投訴，被資安業界列為台灣物流業資安防護不足的典型案例，凸顯關鍵物流基礎設施資安投資的迫切性。",
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/security",
+      "date": "2026-04-21"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2025-15467",
+      "title": "Oracle MySQL Enterprise Backup 危急漏洞",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Oracle",
+      "product": "MySQL Enterprise Backup",
+      "description": "Oracle 4 月 CPU 中 MySQL 最高危漏洞，存在於 Enterprise Backup 元件。"
+    },
+    {
+      "cve_id": "CVE-2026-20122",
+      "title": "Cisco Catalyst SD-WAN Manager 特權 API 濫用（截止 4/23）",
+      "cvss": 8.5,
+      "severity": "high",
+      "vendor": "Cisco",
+      "product": "Catalyst SD-WAN Manager",
+      "description": "CISA KEV，聯邦修補截止日 4 月 23 日，僅 3 天窗口。"
+    },
+    {
+      "cve_id": "CVE-2026-20133",
+      "title": "Cisco Catalyst SD-WAN Manager 敏感資訊洩漏（截止 4/23）",
+      "cvss": 7.5,
+      "severity": "high",
+      "vendor": "Cisco",
+      "product": "Catalyst SD-WAN Manager",
+      "description": "CISA KEV，聯邦修補截止日 4 月 23 日。"
+    },
+    {
+      "cve_id": "CVE-2026-39987",
+      "title": "Python Marimo 資料分析工具危急漏洞",
+      "cvss": 9.0,
+      "severity": "critical",
+      "vendor": "Marimo",
+      "product": "Marimo",
+      "description": "揭露後半個月內即遭多個威脅組織積極利用，包含 NKAbuse DDoS 惡意程式散布組織。"
+    },
+    {
+      "cve_id": "CVE-2026-32201",
+      "title": "Microsoft SharePoint 零時差（修補截止日 4/28）",
+      "cvss": 6.5,
+      "severity": "medium",
+      "vendor": "Microsoft",
+      "product": "SharePoint Server",
+      "description": "CISA KEV 聯邦修補截止日 4 月 28 日，仍有未完成修補環境持續暴露。"
+    },
+    {
+      "cve_id": "CVE-2026-33824",
+      "title": "Windows IKE Service Extensions RCE（CVSS 9.8，持續利用）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Microsoft",
+      "product": "Windows IKE Service Extensions",
+      "description": "4 月 Patch Tuesday 最高危漏洞，本週仍有積極利用報告。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週進入 4 月下旬，呈現「修補追不上漏洞」的系統性危機：Oracle CPU 修補 241 個 CVE、NIST 宣布放棄全面漏洞分析、Cisco SD-WAN 要求 3 天完成修補。Microsoft Defender 三個零時差同時遭利用顯示攻擊者策略性針對端點防護軟體。Checkmarx 第二次供應鏈攻擊（KICS + VS Code 擴充套件）顯示 DevSecOps 工具鏈已成高價值目標。",
+    "top_attack_vectors": ["端點防護軟體零時差", "DevSecOps 工具鏈供應鏈攻擊", "Python 資料工具漏洞", "網路基礎設施漏洞利用"],
+    "active_threat_actors": ["NKAbuse DDoS 組織", "Checkmarx 攻擊者", "Marimo 漏洞利用組織"],
+    "targeted_sectors": ["企業端點（Defender）", "DevSecOps 工具鏈", "資料科學/分析環境", "能源與公用事業（BePrime 後續）"]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即套用 Oracle 4 月 CPU，優先處理 Fusion Middleware（CVSS 9.8/9.1）與 MySQL CVE-2025-15467"
+    },
+    {
+      "priority": "high",
+      "action": "Microsoft SharePoint 環境於 4 月 28 日前完成 CVE-2026-32201 修補，否則將違反 CISA 聯邦合規要求"
+    },
+    {
+      "priority": "high",
+      "action": "更新 Microsoft Defender 至最新版本，修補三個在野利用的零時差漏洞（BlueHammer/RedSun/UnDefend）"
+    },
+    {
+      "priority": "high",
+      "action": "稽核所有使用 Checkmarx KICS 與 VS Code 擴充套件的 CI/CD 環境，驗證映像完整性"
+    },
+    {
+      "priority": "high",
+      "action": "Python 資料分析環境立即更新 Marimo 至修補版本，CVE-2026-39987 已遭多組織積極利用"
+    },
+    {
+      "priority": "medium",
+      "action": "建立自主漏洞優先化機制（CVSS + EPSS + CISA KEV 交叉比對），NIST NVD 不再全面分析需自主判斷"
+    }
+  ],
+  "terms": [
+    "zero_day",
+    "supply_chain_attack",
+    "ransomware",
+    "cve",
+    "kev",
+    "rce",
+    "apt"
+  ],
+  "references": [
+    {"title": "Oracle April 2026 CPU Tenable", "url": "https://www.tenable.com/blog/oracle-april-2026-critical-patch-update-addresses-241-cves"},
+    {"title": "Oracle CPU Oracle Official", "url": "https://www.oracle.com/security-alerts/cpuapr2026.html"},
+    {"title": "CISA 8 KEV April 20 THN", "url": "https://thehackernews.com/2026/04/cisa-adds-8-exploited-flaws-to-kev-sets.html"},
+    {"title": "iThome 資安週報 0420~0424", "url": "https://www.ithome.com.tw/news/175284"},
+    {"title": "資安事件新聞週報 2026/4/20 HackMD", "url": "https://hackmd.io/@9dCJrgb6QHGd8dRfgHO0zg/rJiZjCu6Wg"},
+    {"title": "April 2026 Data Breaches SharkStriker", "url": "https://sharkstriker.com/blog/april-2026-data-breaches/"},
+    {"title": "Cisco ISE PoC iThome", "url": "https://www.ithome.com.tw/news/173256"},
+    {"title": "ITIF Local Government Cybersecurity", "url": "https://itif.org/publications/2026/04/27/improving-state-local-government-cybersecurity/"},
+    {"title": "CISA KEV Catalog", "url": "https://www.cisa.gov/news-events/alerts/2026/04/20/cisa-adds-eight-known-exploited-vulnerabilities-catalog"},
+    {"title": "Qualys Oracle April CPU", "url": "https://blog.qualys.com/vulnerabilities-threat-research/2026/04/22/oracle-critical-patch-update-april-2026-security-update-review"}
+  ]
+}
