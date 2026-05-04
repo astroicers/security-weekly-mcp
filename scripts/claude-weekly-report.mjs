@@ -151,7 +151,7 @@ async function main() {
   const options = {
     model: process.env.CLAUDE_MODEL || 'claude-sonnet-4-6',
     cwd: process.cwd(),
-    maxTurns: 25, // historical mode needs more turns for multiple WebSearch calls
+    maxTurns: 35, // current mode: MCP tools + terms; historical mode: multiple WebSearch calls
     permissionMode: 'bypassPermissions',
     allowDangerouslySkipPermissions: true,
     persistSession: false,
