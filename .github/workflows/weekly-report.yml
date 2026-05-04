@@ -45,25 +45,6 @@ jobs:
         working-directory: scripts
         run: npm install
 
-      - name: Configure Claude MCP Server
-        run: |
-          mkdir -p ~/.claude
-          cat > ~/.claude/settings.json << EOF
-          {
-            "mcpServers": {
-              "security-weekly-tw": {
-                "command": "uv",
-                "args": [
-                  "run",
-                  "--directory", "${{ github.workspace }}",
-                  "--package", "security-weekly-mcp-server",
-                  "python", "-m", "security_weekly_mcp.server"
-                ]
-              }
-            }
-          }
-          EOF
-
       - name: Generate weekly report with Claude
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

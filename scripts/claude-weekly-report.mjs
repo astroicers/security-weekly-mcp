@@ -151,12 +151,24 @@ async function main() {
   const options = {
     model: process.env.CLAUDE_MODEL || 'claude-sonnet-4-6',
     cwd: process.cwd(),
-    maxTurns: 35, // current mode: MCP tools + terms; historical mode: multiple WebSearch calls
+    maxTurns: 35,
     permissionMode: 'bypassPermissions',
     allowDangerouslySkipPermissions: true,
     persistSession: false,
     extraArgs: {
       'system-prompt': SYSTEM_PROMPT,
+    },
+    mcpServers: {
+      'security-weekly-tw': {
+        type: 'stdio',
+        command: 'uv',
+        args: [
+          'run',
+          '--directory', process.cwd(),
+          '--package', 'security-weekly-mcp-server',
+          'python', '-m', 'security_weekly_mcp.server',
+        ],
+      },
     },
   };
 
