@@ -88,7 +88,11 @@ jobs:
           git add pending/ terms/
           git commit -m "terms: add and approve discovered terms from weekly report $(date +%Y-W%V)"
           git remote set-url origin "https://x-access-token:${GLOSSARY_DEPLOY_TOKEN}@github.com/astroicers/security-glossary-tw.git"
-          git push origin HEAD:main
+          # If push fails, rollback the local commit so the submodule pointer stays clean
+          if ! git push origin HEAD:main; then
+            echo "::warning::Failed to push glossary terms — rolling back local commit to avoid stale submodule SHA"
+            git reset --hard HEAD~1
+          fi
           cd ../..
 
       - name: Commit and push reports
