@@ -220,7 +220,7 @@ def generate_report_html(report: dict) -> str:
         cve_id = html.escape(vuln.get("cve_id", ""))
         vuln_title = vuln.get("title", "")[:100]
         severity = vuln.get("severity", "low")
-        cvss = vuln.get("cvss", 0)
+        cvss = vuln.get("cvss") or 0
 
         # 為漏洞標題加術語連結
         linked_vuln_title, linked_terms, new_terms = add_term_links_html(vuln_title, linked_terms)
@@ -239,7 +239,7 @@ def generate_report_html(report: dict) -> str:
             <td><a href="https://nvd.nist.gov/vuln/detail/{cve_id}" target="_blank">{cve_id}</a></td>
             <td>{linked_vuln_title}...</td>
             <td style="color: {sev_color}; font-weight: 600;">{severity.upper()}</td>
-            <td>{cvss if cvss > 0 else "N/A"}</td>
+            <td>{cvss if (cvss is not None and cvss > 0) else "N/A"}</td>
         </tr>
         """
 
