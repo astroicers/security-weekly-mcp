@@ -1,0 +1,393 @@
+{
+  "title": "資安週報 2026/04/28 - 2026/05/04",
+  "report_id": "SEC-WEEKLY-2026-18",
+  "period": {
+    "start": "2026-04-28",
+    "end": "2026-05-04"
+  },
+  "publish_date": "2026-05-04",
+  "summary": {
+    "total_events": 12,
+    "total_vulnerabilities": 6,
+    "threat_level": "critical"
+  },
+  "events": [
+    {
+      "title": "cPanel CVE-2026-41940 身份驗證繞過漏洞遭勒索軟體 Sorry 積極濫用",
+      "severity": "critical",
+      "event_type": "漏洞利用",
+      "summary": "cPanel 與 WHM 的重大驗證繞過漏洞 CVE-2026-41940 被 CISA 列入 KEV 目錄，截至 2026-05-03 修補期限前已有勒索軟體組織 Sorry 利用此漏洞在全球超過 20,000 台伺服器部署加密惡意程式，多個主機代管服務商受到嚴重衝擊，受害伺服器頁面頂端被置入勒索說明。",
+      "source": "iThome 資安 / CyberScoop",
+      "url": "https://www.ithome.com.tw/news/175485",
+      "date": "2026-05-03"
+    },
+    {
+      "title": "Linux Kernel「Copy Fail」CVE-2026-31431 本地提權漏洞已遭野外利用",
+      "severity": "critical",
+      "event_type": "漏洞利用",
+      "summary": "CISA 於 2026-05-01 將 Linux Kernel LPE 漏洞 CVE-2026-31431（CVSS 7.8）加入 KEV 目錄。Microsoft 詳細分析指出此漏洞影響雲端環境與 Kubernetes 工作負載，已有可用 exploit 在野外流通，政府機構修補期限為 2026-05-15。所有執行受影響 Linux 發行版的系統均須立即更新。",
+      "source": "The Hacker News / Microsoft Security Blog",
+      "url": "https://thehackernews.com/2026/05/cisa-adds-actively-exploited-linux-root.html",
+      "date": "2026-05-03"
+    },
+    {
+      "title": "供應鏈攻擊：TeamPCP 毒化 SAP npm 套件、PyTorch Lightning 及 Intercom-client",
+      "severity": "critical",
+      "event_type": "供應鏈攻擊",
+      "summary": "TeamPCP 組織發動代號「Mini Shai-Hulud」供應鏈攻擊，毒化 SAP 雲端應用開發 npm 套件；同期 PyTorch Lightning（版本 2.6.2/2.6.3）及 Intercom-client 套件被植入憑證竊取惡意程式，兩套件合計月下載量近千萬次，已有 1,800 個組織受到衝擊。另有 Ruby gems 與 Go modules 惡意套件利用 CI 管線竊取憑證並植入 SSH 後門。",
+      "source": "SecurityWeek / The Hacker News / Dark Reading",
+      "url": "https://www.securityweek.com/1800-hit-in-mini-shai-hulud-attack-on-sap-lightning-intercom/",
+      "date": "2026-05-01"
+    },
+    {
+      "title": "Trellix 資安公司原始碼倉庫遭未授權存取",
+      "severity": "high",
+      "event_type": "資料外洩",
+      "summary": "資安廠商 Trellix 確認其原始碼倉庫遭未授權存取，部分原始碼外洩。公司已啟動鑑識調查並與頂級鑑識專家合作，同步通知執法機構。此事件對資安廠商產品的信任度與供應鏈安全形成挑戰，攻擊者可能利用原始碼分析尋找漏洞。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/05/trellix-confirms-source-code-breach.html",
+      "date": "2026-05-02"
+    },
+    {
+      "title": "Cordial Spider 與 Snarky Spider 仿照 Scattered Spider 手法對 SaaS 環境發動快速勒索攻擊",
+      "severity": "high",
+      "event_type": "勒索攻擊",
+      "summary": "CrowdStrike 披露兩個新興勒索集團 Cordial Spider（BlackFile/UNC6671）及 Snarky Spider（UNC6661），利用語音釣魚誘騙員工提交 SSO 憑證，在 SaaS 環境中迅速完成資料外洩並實施雙重勒索。攻擊從初始入侵至資料外洩可在數小時內完成，且幾乎不在系統留下痕跡。",
+      "source": "CyberScoop / The Hacker News",
+      "url": "https://cyberscoop.com/crowdstrike-cordial-spider-snarky-spider-extortion-attacks/",
+      "date": "2026-04-30"
+    },
+    {
+      "title": "中國連結 APT 組織 SHADOW-EARTH-053 針對亞洲政府與北約國家展開間諜行動",
+      "severity": "high",
+      "event_type": "國家級駭客",
+      "summary": "Trend Micro 揭露中國連結威脅叢集 SHADOW-EARTH-053 的間諜行動，目標涵蓋南亞、東亞、東南亞的政府與國防部門，以及一個歐洲北約成員國。攻擊手法高度精密，顯示豐富資源支持，目的為長期情報蒐集。台灣政府與國防相關單位應提高警覺。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/05/china-linked-hackers-target-asian.html",
+      "date": "2026-05-01"
+    },
+    {
+      "title": "北韓威脅行為者盜取 2026 年全球 76% 加密貨幣，AI 輔助攻擊效能持續提升",
+      "severity": "high",
+      "event_type": "金融犯罪",
+      "summary": "北韓 APT 組織在 2026 年持續創下歷史性加密貨幣竊盜紀錄，占全球被盜總量的 76%。Recorded Future 分析指出，AI 技術已顯著提升 Lazarus 等組織的攻擊效能與規避偵測能力，加密貨幣業者、DeFi 平台及台灣金融機構應加強防護。",
+      "source": "Dark Reading / Recorded Future",
+      "url": "https://www.darkreading.com/cybersecurity-analytics/crypto-stolen-2026-north-korea",
+      "date": "2026-05-01"
+    },
+    {
+      "title": "「The Gentlemen」RaaS 組織整合 SystemBC 惡意程式，受害者逾 1,570 名",
+      "severity": "high",
+      "event_type": "勒索攻擊",
+      "summary": "TWCERT/CC 警告 RaaS 組織「The Gentlemen」自 2025 年中崛起後，透過整合 SystemBC 代理惡意程式建立 SOCKS5 加密 C2 通道，並結合雙重勒索策略（加密資料 + 大規模資料外洩威脅）。2026 Q1 確認受害者已超過 1,570 名，主要鎖定美、英、德企業環境。",
+      "source": "TWCERT/CC",
+      "url": "https://www.twcert.org.tw/tw/cp-104-10889-f86c4-1.html",
+      "date": "2026-04-30"
+    },
+    {
+      "title": "UAT-10608 利用 CVE-2025-55182（React2Shell RCE）大規模入侵 766 台 Next.js 伺服器",
+      "severity": "high",
+      "event_type": "大規模自動化攻擊",
+      "summary": "TWCERT/CC 引述 Cisco Talos 報告，威脅叢集 UAT-10608 利用 React2Shell RCE 漏洞（CVE-2025-55182）搭配自動化框架 NEXUS Listener，在短時間內掃描、入侵全球 766 台 Next.js 伺服器並植入後門竊取憑證。攻擊具高度系統化特徵，目標橫跨多個雲端服務提供商。",
+      "source": "TWCERT/CC",
+      "url": "https://www.twcert.org.tw/tw/cp-104-10888-09077-1.html",
+      "date": "2026-04-30"
+    },
+    {
+      "title": "Operation SearchStrike：SEO 毒化偽冒 GitHub 倉庫散布惡意軟體，目標為高權限技術人員",
+      "severity": "medium",
+      "event_type": "惡意程式散布",
+      "summary": "KrCERT/CC 發布 Operation SearchStrike 報告，揭露攻擊者利用 SEO 毒化將偽冒 GitHub 倉庫推至搜尋結果首頁，誘騙系統管理員下載含惡意 MSI 的工具（如 Tftpd64、WinDbg、PsExec）。惡意程式以 Ethereum 智慧合約作為 C2 通道，大幅增加封鎖難度。",
+      "source": "TWCERT/CC",
+      "url": "https://www.twcert.org.tw/tw/cp-104-10887-c63c0-1.html",
+      "date": "2026-04-30"
+    },
+    {
+      "title": "Bluekit 釣魚套件整合 AI 助理，自動化釣魚攻擊門檻大幅降低",
+      "severity": "medium",
+      "event_type": "釣魚攻擊工具",
+      "summary": "SecurityWeek 報導新型釣魚套件 Bluekit 仍在開發中，已具備自動化網域註冊與 AI 助理功能，預計將使缺乏技術能力的攻擊者也能部署精密釣魚攻擊。Unit 42 同期警告高風險 AI 瀏覽器擴充功能可攔截提示詞並竊取 API 金鑰與 Session Token。",
+      "source": "SecurityWeek / Unit 42",
+      "url": "https://www.securityweek.com/new-bluekit-phishing-kit-features-ai-assistant/",
+      "date": "2026-05-02"
+    },
+    {
+      "title": "兩名前資安專業人員因協助 BlackCat 勒索軟體攻擊各判入獄 4 年",
+      "severity": "medium",
+      "event_type": "執法行動",
+      "summary": "美國司法部宣布，前資安從業者 Ryan Goldberg 與 Kevin Martin 因在 2023 年協助 BlackCat/ALPHV 勒索軟體組織攻擊美國多家企業並勒索近 130 萬美元，各被判處 4 年有期徒刑。此案凸顯資安業界內部人員遭滲透或濫用職業技能的嚴重風險。",
+      "source": "The Hacker News / CyberScoop",
+      "url": "https://thehackernews.com/2026/05/two-cybersecurity-professionals-get-4.html",
+      "date": "2026-05-01"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-41940",
+      "title": "cPanel & WHM / WP2 驗證繞過漏洞（KEV ⚠️ 期限已截止）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "WebPros",
+      "product": "cPanel & WHM / WP2 (WordPress Squared)",
+      "description": "登入流程中的驗證繞過漏洞，允許未驗證遠端攻擊者取得控制面板未授權存取。已遭勒索軟體組織 Sorry 積極利用，全球超過 20,000 台伺服器受感染。CISA KEV 修補期限 2026-05-03（已截止），應立即修補並確認系統完整性。",
+      "kev": true,
+      "kev_due_date": "2026-05-03"
+    },
+    {
+      "cve_id": "CVE-2026-31431",
+      "title": "Linux Kernel 資源轉移不當（Copy Fail）本地提權漏洞（KEV）",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Linux",
+      "product": "Linux Kernel（多個發行版）",
+      "description": "Linux Kernel 資源轉移不當漏洞，允許本地攻擊者提升至 root 權限。影響雲端環境與 Kubernetes 工作負載，已有野外利用案例。CISA KEV 修補期限 2026-05-15。",
+      "kev": true,
+      "kev_due_date": "2026-05-15"
+    },
+    {
+      "cve_id": "CVE-2026-32202",
+      "title": "Microsoft Windows Shell 防護機制失效漏洞（Spoofing）（KEV）",
+      "cvss": 7.5,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Windows",
+      "description": "Windows Shell 防護機制失效漏洞，允許未授權攻擊者透過網路進行偽冒攻擊。已列入 CISA KEV，修補期限 2026-05-12。",
+      "kev": true,
+      "kev_due_date": "2026-05-12"
+    },
+    {
+      "cve_id": "CVE-2024-1708",
+      "title": "ConnectWise ScreenConnect 路徑遍歷漏洞（KEV）",
+      "cvss": 8.4,
+      "severity": "high",
+      "vendor": "ConnectWise",
+      "product": "ScreenConnect",
+      "description": "路徑遍歷漏洞允許攻擊者執行遠端程式碼或直接存取機密資料。此為 2024 年舊漏洞再度被列入 KEV，顯示仍有攻擊者積極利用未修補系統，修補期限 2026-05-12。",
+      "kev": true,
+      "kev_due_date": "2026-05-12"
+    },
+    {
+      "cve_id": "CVE-2025-55182",
+      "title": "React2Shell（Next.js/React）未驗證遠端程式碼執行漏洞",
+      "cvss": 9.1,
+      "severity": "critical",
+      "vendor": "Vercel / Meta",
+      "product": "Next.js / React",
+      "description": "高風險 RCE 漏洞，允許未驗證遠端攻擊者在伺服器端 Node.js 程序執行任意程式碼。已被 UAT-10608 大規模自動化利用攻擊 766 台 Next.js 伺服器，應立即套用修補程式並審查輸入驗證邏輯。",
+      "kev": false
+    },
+    {
+      "cve_id": "CVE-2026-（OpenSSH）",
+      "title": "OpenSSH 身份驗證繞過漏洞",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "OpenSSH",
+      "product": "OpenSSH",
+      "description": "OpenSSH 驗證繞過漏洞，成功利用可讓攻擊者取得組織所有伺服器的 root 存取權限。CIS MS-ISAC 已發布緊急建議，各機構應立即套用修補程式並限制 SSH 存取來源。",
+      "kev": false
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢達到危急等級（Critical），多條高強度威脅線索同步升溫：KEV 目錄新增 4 個已遭利用漏洞、供應鏈攻擊持續擴大、AI 輔助攻擊工具加速普及，以及國家級 APT 組織持續針對亞太地區政府與金融機構。",
+    "trends": [
+      {
+        "trend": "AI 輔助攻擊能力快速擴散",
+        "description": "Anthropic Claude Mythos 等前沿 AI 模型已展現自主發現與武器化漏洞的能力（在 Firefox 發現 271 個零時差漏洞）。本週新型釣魚套件 Bluekit 整合 AI 助理、Unit 42 揭露惡意 AI 瀏覽器擴充功能竊取憑證，顯示 AI 工具已被廣泛整合至攻擊鏈，大幅降低攻擊門檻。"
+      },
+      {
+        "trend": "軟體供應鏈攻擊持續多點爆發",
+        "description": "TeamPCP 組織在本週同時毒化 SAP npm 套件、PyTorch Lightning 及 Intercom-client，另有 Ruby gems 與 Go modules 惡意套件被用於 CI/CD 管線憑證竊取。供應鏈攻擊已從單點突破演化為有組織的多目標協同行動，開發者生態系面臨前所未有的威脅。"
+      },
+      {
+        "trend": "RaaS 生態系技術快速演進與專業化",
+        "description": "「The Gentlemen」整合 SystemBC 建立加密 C2 隧道；「VECT」兼具勒索軟體與資料抹除程式特性；新興集團 Cordial Spider 與 Snarky Spider 採用快速 SaaS 入侵手法。RaaS 組織持續引入新技術，攻擊週期縮短，偵測難度提升。"
+      },
+      {
+        "trend": "身份驗證系統成為主要攻擊目標",
+        "description": "SSO 濫用、驗證繞過漏洞（cPanel CVE-2026-41940、OpenSSH）及憑證竊取供應鏈攻擊本週大量出現。Cordial Spider 與 Snarky Spider 也以社交工程手法攻擊 SSO 憑證。身份安全（Identity Security）已成為攻擊者最優先突破的防線。"
+      }
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "【緊急】立即修補 cPanel/WHM CVE-2026-41940（KEV 期限已截止 2026-05-03），並對伺服器進行完整性稽核，掃描勒索軟體 Sorry 的 IoC 指標，確認未遭植入加密惡意程式。"
+    },
+    {
+      "priority": "high",
+      "action": "【緊急】修補 Linux Kernel CVE-2026-31431，優先處理雲端與 Kubernetes 環境（KEV 期限 2026-05-15），確認特權容器無法逃逸至宿主機並審查 SELinux/AppArmor 策略。"
+    },
+    {
+      "priority": "high",
+      "action": "修補 Microsoft Windows CVE-2026-32202 及 ConnectWise ScreenConnect CVE-2024-1708（KEV 期限 2026-05-12），優先處理面向網際網路的系統與遠端存取工具。"
+    },
+    {
+      "priority": "high",
+      "action": "立即更新 OpenSSH 至最新版本修補驗證繞過漏洞，限制 SSH 存取來源 IP，停用 root 直接登入，並啟用多因素驗證（MFA）。"
+    },
+    {
+      "priority": "high",
+      "action": "若使用 Next.js / React 環境，立即修補 CVE-2025-55182，審查 Server Function 端點的輸入驗證，掃描 /tmp 目錄是否有可疑植入，並檢查 API 金鑰是否外洩。"
+    },
+    {
+      "priority": "medium",
+      "action": "審查並移除所有可疑的 npm/PyPI/Ruby gems 套件（特別是近期安裝的 PyTorch Lightning 2.6.2/2.6.3），啟用套件完整性驗證（checksum、Sigstore）並在 CI/CD 管線加入惡意套件掃描。"
+    },
+    {
+      "priority": "medium",
+      "action": "加強員工對語音釣魚（Vishing）攻擊的識別能力，導入帶外（Out-of-Band）驗證機制確認任何 IT 人員的身份要求，審查並限制 SSO 應用程式的存取範圍。"
+    },
+    {
+      "priority": "medium",
+      "action": "稽核所有已安裝的瀏覽器擴充功能存取權限，封鎖非核准的 AI 生產力工具擴充功能，防止 API 金鑰、Session Token 及提示詞被惡意擴充功能截取。"
+    },
+    {
+      "priority": "low",
+      "action": "依 CISA/NSA/Five Eyes 新發布的 AI 代理人安全部署指南，評估生產環境中 AI 代理人的存取權限，建立最小權限原則、行為監控機制與緊急停用流程。"
+    },
+    {
+      "priority": "low",
+      "action": "參考 CISA/Five Eyes 新發布的 OT 零信任指導方針，啟動工業控制系統的網路分隔評估與身份驗證強化計畫，確保 OT 環境具備最小化攻擊面。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "通用漏洞揭露",
+      "term_en": "CVE",
+      "term_zh": "通用漏洞揭露",
+      "definition": "公開已知漏洞的統一編號系統",
+      "id": "cve",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cve"
+    },
+    {
+      "term": "已知遭利用漏洞清單",
+      "term_en": "KEV",
+      "term_zh": "已知遭利用漏洞清單",
+      "definition": "CISA 維護的已確認遭實際利用的漏洞清單",
+      "id": "kev",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/kev"
+    },
+    {
+      "term": "供應鏈攻擊",
+      "term_en": "Supply Chain Attack",
+      "term_zh": "供應鏈攻擊",
+      "definition": "透過入侵軟體供應商來攻擊最終用戶的手法",
+      "id": "supply_chain_attack",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/supply_chain_attack"
+    },
+    {
+      "term": "語音釣魚",
+      "term_en": "Vishing",
+      "term_zh": "語音釣魚",
+      "definition": "透過電話進行的釣魚詐騙攻擊",
+      "id": "vishing",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/vishing"
+    },
+    {
+      "term": "單一登入",
+      "term_en": "SSO",
+      "term_zh": "單一登入",
+      "definition": "使用者只需登入一次即可存取多個應用程式",
+      "id": "sso",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/sso"
+    },
+    {
+      "term": "進階持續性威脅",
+      "term_en": "APT",
+      "term_zh": "進階持續性威脅",
+      "definition": "國家級駭客組織發動的長期網路攻擊",
+      "id": "apt",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/apt"
+    },
+    {
+      "term": "勒索軟體即服務",
+      "term_en": "RaaS",
+      "term_zh": "勒索軟體即服務",
+      "definition": "將勒索軟體以服務形式提供給其他犯罪者的商業模式",
+      "id": "raas",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/raas"
+    },
+    {
+      "term": "雙重勒索",
+      "term_en": "Double Extortion",
+      "term_zh": "雙重勒索",
+      "definition": "同時加密資料和威脅公開外洩資料的勒索策略",
+      "id": "double_extortion",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/double_extortion"
+    },
+    {
+      "term": "搜尋引擎毒化",
+      "term_en": "SEO Poisoning",
+      "term_zh": "搜尋引擎毒化",
+      "definition": "操縱搜尋引擎排名將使用者導向惡意網站",
+      "id": "seo_poisoning",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/seo_poisoning"
+    },
+    {
+      "term": "釣魚套件",
+      "term_en": "Phishing Kit",
+      "term_zh": "釣魚套件",
+      "definition": "用於快速架設釣魚網站的工具包",
+      "id": "phishing_kit",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/phishing_kit"
+    }
+  ],
+  "references": [
+    {
+      "title": "CISA KEV: CVE-2026-41940 cPanel Authentication Bypass",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41940"
+    },
+    {
+      "title": "CISA KEV: CVE-2026-31431 Linux Kernel LPE",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31431"
+    },
+    {
+      "title": "CISA KEV: CVE-2026-32202 Windows Spoofing",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32202"
+    },
+    {
+      "title": "CISA KEV: CVE-2024-1708 ConnectWise ScreenConnect",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-1708"
+    },
+    {
+      "title": "iThome: cPanel 重大漏洞遭勒索軟體 Sorry 濫用",
+      "url": "https://www.ithome.com.tw/news/175485"
+    },
+    {
+      "title": "iThome: cPanel CVE-2026-41940 PoC 框架出現，逾 2 萬台伺服器遭駭",
+      "url": "https://www.ithome.com.tw/news/175484"
+    },
+    {
+      "title": "TWCERT/CC: The Gentlemen 勒索軟體整合 SystemBC",
+      "url": "https://www.twcert.org.tw/tw/cp-104-10889-f86c4-1.html"
+    },
+    {
+      "title": "TWCERT/CC: UAT-10608 大規模自動化竊密行動分析",
+      "url": "https://www.twcert.org.tw/tw/cp-104-10888-09077-1.html"
+    },
+    {
+      "title": "TWCERT/CC: KrCERT Operation SearchStrike 報告",
+      "url": "https://www.twcert.org.tw/tw/cp-104-10887-c63c0-1.html"
+    },
+    {
+      "title": "Microsoft Security Blog: CVE-2026-31431 Copy Fail 詳細分析",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/01/cve-2026-31431-copy-fail-vulnerability-enables-linux-root-privilege-escalation/"
+    },
+    {
+      "title": "CrowdStrike: Defending Against CORDIAL SPIDER and SNARKY SPIDER",
+      "url": "https://www.crowdstrike.com/en-us/blog/defending-against-cordial-spider-and-snarky-spider-with-falcon-shield/"
+    },
+    {
+      "title": "Unit 42: npm Threat Landscape Post-Shai Hulud",
+      "url": "https://unit42.paloaltonetworks.com/monitoring-npm-supply-chain-attacks/"
+    },
+    {
+      "title": "CISA/NSA/Five Eyes: AI 代理人安全部署指南",
+      "url": "https://cyberscoop.com/cisa-nsa-five-eyes-guidance-secure-deployment-ai-agents/"
+    },
+    {
+      "title": "Infosecurity Magazine: CISA Zero Trust OT 安全指南",
+      "url": "https://www.infosecurity-magazine.com/news/zero-trust-guidance-operational/"
+    }
+  ]
+}
