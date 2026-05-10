@@ -78,6 +78,29 @@ list_reports() -> list[ReportMeta]
 
 ---
 
+## 副作用（Side Effects）
+
+- `fetch_security_news` 發出 HTTP 請求至外部 RSS 來源（網路依賴，可能逾時）
+- `fetch_vulnerabilities` 呼叫 NVD API 與 CISA KEV API（外部依賴，有速率限制）
+- `approve_pending_term` 修改磁碟上的 `terms/*.yaml` 並刪除 `pending/` 中的對應檔案（不可逆）
+- `generate_report_draft` 寫入 `output/reports/` 目錄
+- 所有工具均為唯讀讀取術語庫（不修改），除 `approve_pending_term` / `reject_pending_term`
+
+---
+
+## 邊界情況（Edge Cases）
+
+| 情境 | 預期行為 |
+|------|---------|
+| RSS 來源全部無法連線 | `fetch_security_news` 回傳空列表，不拋例外 |
+| NVD API 速率限制（429） | `fetch_vulnerabilities` 自動等待重試（最多 3 次），仍失敗時回傳已收集的部分結果 |
+| `pending/` 目錄為空 | `list_pending_terms` 回傳空列表 |
+| `approve_pending_term` 傳入不存在 ID | 回傳錯誤訊息，不修改任何檔案 |
+| `generate_report_draft` 期間無新聞資料 | 回傳含空 `events` 列表的結構，不拋例外 |
+| 術語 ID 與現有術語重複（approve 時）| 回傳衝突警告，不覆蓋現有術語 |
+
+---
+
 ## 測試矩陣
 
 | 測試場景 | 工具 | 輸入 | 預期輸出 | 對應 US |
