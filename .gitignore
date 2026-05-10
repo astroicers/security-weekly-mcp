@@ -46,8 +46,12 @@ Thumbs.db
 .asp-telemetry.jsonl
 .asp-fact-check.md
 .asp-review-calibration.jsonl
+.asp-test-result.json
 .ai_profile
 .claude/
+
+# Test coverage
+.coverage
 
 # Node.js
 scripts/node_modules/
