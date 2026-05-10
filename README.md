@@ -174,7 +174,7 @@ security-weekly-mcp/
 │   ├── raw/                         # 原始資料 (GitHub Actions 自動提交)
 │   │   └── YYYY-WNN.json            # 週報原始資料
 │   └── reports/                     # 產生的週報
-│       └── SEC-WEEKLY-YYYY-WW.json  # 結構化資料
+│       └── SEC-WEEKLY-YYYY-WW.md    # Markdown 週報
 │
 └── .github/workflows/
     ├── ci.yml                       # CI 測試 + 安全審計
@@ -211,11 +211,12 @@ security-weekly-mcp/
 | `list_weekly_data` | 列出已保存週報資料 | output/raw/ |
 | `load_weekly_data` | 載入指定週的資料 | output/raw/YYYY-WNN.json |
 
-### 週報工具 (2 個)
+### 週報工具 (3 個)
 
 | 工具                     | 功能               | 輸出格式 |
 |--------------------------|--------------------| -------- |
 | `generate_report_draft`  | 產生週報結構化資料 | JSON     |
+| `compile_report_pdf`     | 使用 Typst 編譯 PDF | PDF      |
 | `list_reports`           | 列出已產生的週報   | 清單     |
 
 ---
@@ -235,13 +236,15 @@ security-weekly-mcp/
 | CyberScoop | high | 政策與資安新聞 |
 | BleepingComputer | disabled | Cloudflare 防護 |
 
-### 台灣來源 (3 個)
+### 台灣來源 (5 個)
 
 | 來源 | 優先級 | 說明 |
 |------|--------|------|
-| iThome 資安 | high | 台灣 IT 媒體 |
-| TWCERT/CC | critical | 台灣 CERT (手動) |
-| 資安人 | medium | 台灣資安媒體 (手動) |
+| iThome 資安 | high | 台灣 IT 媒體 (RSS) |
+| TWCERT/CC 資安新聞 | critical | 台灣 CERT 資安新聞 (RSS) |
+| TWCERT/CC 漏洞公告 | critical | 台灣 CERT TVN 漏洞公告 (RSS) |
+| TechNews 資安 | high | 科技新報資安專區 (RSS) |
+| 資安人 | medium | 台灣資安媒體 (WebFetch) |
 
 ### 官方公告 (4 個)
 
