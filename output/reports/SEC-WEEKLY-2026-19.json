@@ -1,0 +1,412 @@
+{
+  "title": "資安週報 2026/05/05 - 2026/05/11",
+  "report_id": "SEC-WEEKLY-2026-19",
+  "period": {
+    "start": "2026-05-05",
+    "end": "2026-05-11"
+  },
+  "publish_date": "2026-05-11",
+  "summary": {
+    "total_events": 12,
+    "total_vulnerabilities": 10,
+    "threat_level": "high"
+  },
+  "events": [
+    {
+      "title": "PAN-OS 零時漏洞遭中國國家級 APT 組織主動利用",
+      "severity": "critical",
+      "event_type": "漏洞利用 / 國家級攻擊",
+      "summary": "Palo Alto Networks PAN-OS Captive Portal 發現未授權遠端程式碼執行零時漏洞，攻擊者可取得 root 存取權限。Unit 42 與多家資安廠商確認此漏洞已遭具中國國家級駭客特徵的 APT 組織主動利用，進行間諜活動。CISA 與 CIS 已發出緊急修補警示。",
+      "source": "Unit 42 / SecurityWeek / CyberScoop",
+      "url": "https://unit42.paloaltonetworks.com/threat-brief-pan-os-captive-portal-zero-day/",
+      "date": "2026-05-07"
+    },
+    {
+      "title": "Ivanti EPMM CVE-2026-6973 零時漏洞遭主動利用",
+      "severity": "critical",
+      "event_type": "漏洞利用 / 零時漏洞",
+      "summary": "Ivanti Endpoint Manager Mobile（EPMM）存在 CVE-2026-6973 遠端程式碼執行漏洞，攻擊者可取得管理員層級存取權限。此漏洞已遭主動利用，Ivanti 已緊急釋出修補程式。企業 MDM 平台遭攻擊可能導致大規模裝置管理權限外洩。",
+      "source": "The Hacker News / SecurityWeek / CyberScoop",
+      "url": "https://thehackernews.com/2026/05/ivanti-epmm-cve-2026-6973-rce-under.html",
+      "date": "2026-05-07"
+    },
+    {
+      "title": "ShinyHunters 兩度入侵 Canvas LMS，影響全美 9,000 所學校",
+      "severity": "high",
+      "event_type": "資料外洩 / 教育機構攻擊",
+      "summary": "ShinyHunters 駭客組織於期末考試前夕對 Instructure Canvas 學習管理系統發動兩波攻擊，造成約 9,000 所學校的師生資料外洩。此事件凸顯教育機構對第三方雲端服務商的高度依賴風險，並引發關於供應商安全標準的廣泛討論。",
+      "source": "Dark Reading / SecurityWeek / Krebs on Security",
+      "url": "https://www.securityweek.com/cyberattack-hits-canvas-system-used-by-thousands-of-schools-as-finals-loom/",
+      "date": "2026-05-08"
+    },
+    {
+      "title": "Trellix 原始碼儲存庫遭勒索軟體組織入侵",
+      "severity": "high",
+      "event_type": "供應鏈攻擊 / 資料外洩",
+      "summary": "勒索軟體組織聲稱成功入侵資安廠商 Trellix 的原始碼儲存庫，此事件引發資安社群對資安廠商自身安全性的高度關注。若原始碼外洩屬實，攻擊者可能利用其分析 Trellix 產品弱點，進而策劃更精準的後續攻擊。",
+      "source": "SecurityWeek / Dark Reading",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/trellix-source-code-breach-highlights-growing-supply-chain-threats",
+      "date": "2026-05-08"
+    },
+    {
+      "title": "Linux Dirty Frag（Copy Fail）本機提權漏洞影響主流發行版",
+      "severity": "high",
+      "event_type": "漏洞揭露 / 本機提權",
+      "summary": "Linux 核心頁面快取中發現 Dirty Frag（又稱 Copy Fail）本機提權漏洞，影響自 2017 年起的核心版本，包含 Ubuntu、Debian、Fedora、RHEL 等主流發行版。微軟與 Elastic Security 均確認此漏洞可有效提升後入侵（post-compromise）風險，且概念驗證程式碼已在修補程式釋出前公開流出。",
+      "source": "iThome / Elastic Security Labs / Microsoft Security Blog / CERT/CC",
+      "url": "https://www.elastic.co/security-labs/copy-fail-and-dirtyfrag",
+      "date": "2026-05-08"
+    },
+    {
+      "title": "TCLBANKER 銀行木馬程式透過 WhatsApp 與 Outlook 蠕蟲機制散播",
+      "severity": "high",
+      "event_type": "惡意程式 / 銀行詐騙",
+      "summary": "Elastic Security Labs 揭露 TCLBANKER 巴西銀行木馬程式，透過 WhatsApp 和 Outlook 的蠕蟲傳播機制擴散，專門針對金融平台使用者竊取銀行登入憑證。此惡意程式具備螢幕覆蓋、鍵盤側錄及遠端控制能力，對金融機構員工與客戶構成嚴重威脅。",
+      "source": "The Hacker News / Elastic Security Labs",
+      "url": "https://www.elastic.co/security-labs/tclbanker-brazilian-banking-trojan",
+      "date": "2026-05-07"
+    },
+    {
+      "title": "PCPJack 蠕蟲型憑證竊取程式橫向擴散至雲端系統",
+      "severity": "high",
+      "event_type": "惡意程式 / 雲端攻擊",
+      "summary": "PCPJack 是一個利用 5 個 CVE 漏洞進行橫向擴散的蠕蟲型憑證竊取惡意程式，可在受感染系統中取代既有的 TeamPCP 惡意程式後竊取雲端 API 金鑰、存取憑證等機密。此攻擊活動顯示雲端環境中的橫向移動威脅持續升高。",
+      "source": "The Hacker News / SecurityWeek / Dark Reading / Infosecurity Magazine",
+      "url": "https://thehackernews.com/2026/05/pcpjack-credential-stealer-exploits-5.html",
+      "date": "2026-05-07"
+    },
+    {
+      "title": "Dragos 示警：LLM 已被用於規劃關鍵基礎設施網路攻擊",
+      "severity": "high",
+      "event_type": "新興威脅 / AI 輔助攻擊",
+      "summary": "工控資安廠商 Dragos 發出警告，攻擊者已開始利用 OpenAI 和 Anthropic 的大型語言模型輔助對關鍵基礎設施發動網路攻擊，但目前尚未能突破 OT（操作技術）系統防線。此趨勢顯示 AI 輔助攻擊正從實驗階段走向實戰應用。",
+      "source": "Infosecurity Magazine",
+      "url": "https://www.infosecurity-magazine.com/news/openai-anthropic-llms-critical/",
+      "date": "2026-05-07"
+    },
+    {
+      "title": "波蘭五個水處理廠工業控制系統遭網路入侵",
+      "severity": "high",
+      "event_type": "ICS 攻擊 / 關鍵基礎設施",
+      "summary": "波蘭安全機構（ABW）通報五個水處理廠的工業控制系統遭到網路入侵，此事件發生於 CISA 呼籲關鍵基礎設施運營商建立離線作業能力的背景下，再次凸顯水資源設施的網路安全脆弱性。",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/polish-security-agency-reports-ics-breaches-at-five-water-treatment-plants/",
+      "date": "2026-05-08"
+    },
+    {
+      "title": "WordPress 轉址外掛潛藏多年後門，逾 7 萬網站面臨惡意程式風險",
+      "severity": "medium",
+      "event_type": "供應鏈攻擊 / 後門",
+      "summary": "WordPress 熱門轉址外掛被發現藏有多年潛伏的後門程式，逾 7 萬個安裝此外掛的網站面臨被植入惡意程式的風險。攻擊者可透過該後門遠端執行指令、散播惡意程式或進行流量劫持。",
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/news/security",
+      "date": "2026-05-08"
+    },
+    {
+      "title": "Microsoft Edge 密碼以明文形式暴露於進程記憶體",
+      "severity": "medium",
+      "event_type": "設計缺陷 / 憑證暴露",
+      "summary": "資安研究人員發現 Microsoft Edge 瀏覽器在執行期間將用戶密碼以明文形式存放於進程記憶體中，攻擊者若能讀取 Edge 進程記憶體即可取得所有儲存的密碼。微軟表示此為設計決策而非漏洞，但企業資安團隊對此高度關注。",
+      "source": "Dark Reading / TechNews 資安",
+      "url": "https://www.darkreading.com/endpoint-security/microsoft-edge-stores-passwords-in-process-memory-posing-enterprise-risk",
+      "date": "2026-05-05"
+    },
+    {
+      "title": "加拿大查獲利用簡訊廣播器發動大規模釣魚攻擊的犯罪活動",
+      "severity": "medium",
+      "event_type": "犯罪查獲 / 釣魚攻擊",
+      "summary": "加拿大執法機構查獲一起利用簡訊廣播器（SMS Blaster）發動大規模釣魚攻擊的犯罪活動。攻擊者透過偽裝合法行動基地臺，利用 2G 網路安全弱點，在人口密集區域對大量手機發送假冒銀行與政府機構的釣魚簡訊。",
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/news/security",
+      "date": "2026-05-08"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-42364",
+      "title": "GeoVision IP 攝影機 DDNS 設定 OS 命令注入漏洞",
+      "cvss": 9.9,
+      "severity": "critical",
+      "vendor": "GeoVision",
+      "product": "LPC2011 / LPC2211 1.10",
+      "description": "GeoVision LPC2011/LPC2211 IP 攝影機的 DdnsSetting.cgi 功能存在 OS 命令注入漏洞，攻擊者可透過修改 DDNS 設定觸發任意命令執行。漏洞已公開揭露，需緊急修補。"
+    },
+    {
+      "cve_id": "CVE-2026-42373",
+      "title": "D-Link DIR-605L 硬編碼 Telnet 後門憑證",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "D-Link",
+      "product": "DIR-605L Hardware Revision B2（EOL）",
+      "description": "D-Link DIR-605L（已停產）內建硬編碼 Telnet 後門，使用者名稱為「Alphanetworks」，靜態密碼來自 /etc/alpha_config/image_sign。成功驗證後可取得 root shell。因設備已停產（EOL），不會提供修補程式，建議立即更換設備。"
+    },
+    {
+      "cve_id": "CVE-2026-42374",
+      "title": "D-Link DIR-600L B1 硬編碼 Telnet 後門憑證",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "D-Link",
+      "product": "DIR-600L Hardware Revision B1（EOL）",
+      "description": "D-Link DIR-600L B1（已停產）內建硬編碼 Telnet 後門，設計與 CVE-2026-42373 類似，靜態密碼來自設備映像檔簽章。建議立即更換設備。"
+    },
+    {
+      "cve_id": "CVE-2026-42375",
+      "title": "D-Link DIR-600L A1 硬編碼 Telnet 後門憑證",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "D-Link",
+      "product": "DIR-600L Hardware Revision A1（EOL）",
+      "description": "D-Link DIR-600L A1（已停產）內建硬編碼 Telnet 後門，靜態密碼「wrgn35_dlwbr_dir600l」存放於 /etc/alpha_config/image_sign，成功驗證可取得完整 root shell。建議立即更換設備。"
+    },
+    {
+      "cve_id": "CVE-2026-29514",
+      "title": "NetBox 遠端程式碼執行漏洞（Jinja2 沙盒繞過）",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "NetBox",
+      "product": "NetBox 4.3.5 - 4.5.4",
+      "description": "NetBox 4.3.5 至 4.5.4 版本的 RenderTemplateMixin.get_environment_params() 方法存在 RCE 漏洞，具有 exporttemplate 或 configtemplate 權限的已驗證使用者可透過指定惡意 Python callable 繞過 Jinja2 沙盒執行任意程式碼。已釋出修補程式，請升級至 4.5.5+。"
+    },
+    {
+      "cve_id": "CVE-2026-7748",
+      "title": "Totolink N300RH 遠端緩衝區溢位漏洞",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Totolink",
+      "product": "N300RH 3.2.4-B20220812",
+      "description": "Totolink N300RH 路由器的 setUpgradeFW 函式存在緩衝區溢位漏洞，攻擊者可透過 POST 請求中的 FileName 參數遠端觸發。PoC 已公開，建議立即更新韌體。"
+    },
+    {
+      "cve_id": "CVE-2026-7717",
+      "title": "Totolink WA300 遠端緩衝區溢位漏洞",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Totolink",
+      "product": "WA300 5.2cu.7112_B20190227",
+      "description": "Totolink WA300 存取點的 UploadCustomModule 函式存在緩衝區溢位漏洞，攻擊者可透過 File 參數遠端觸發。PoC 已公開流出。"
+    },
+    {
+      "cve_id": "CVE-2026-42365",
+      "title": "GeoVision IP 攝影機 Session Cookie 可猜測驗證繞過",
+      "cvss": 8.6,
+      "severity": "high",
+      "vendor": "GeoVision",
+      "product": "LPC2011 / LPC2211 1.10",
+      "description": "GeoVision LPC2011/LPC2211 的 Web 介面使用可猜測的 Session Cookie，攻擊者可透過暴力攻擊 Session Cookie 繞過驗證，取得未授權存取。"
+    },
+    {
+      "cve_id": "CVE-2026-42226",
+      "title": "n8n 工作流程平台憑證未授權存取漏洞",
+      "cvss": 7.5,
+      "severity": "high",
+      "vendor": "n8n",
+      "product": "n8n < 1.123.33 / < 2.17.5",
+      "description": "n8n 工作流程自動化平台的 dynamic-node-parameters 端點未驗證呼叫者是否有權使用指定憑證，已驗證使用者可提供外部憑證 ID 使後端解密並使用該憑證，導致憑證資訊外洩。已釋出修補版本。"
+    },
+    {
+      "cve_id": "CVE-2026-32834",
+      "title": "WordPress Easy PayPal Events & Tickets QR Code 驗證繞過",
+      "cvss": 7.5,
+      "severity": "high",
+      "vendor": "WordPress / 第三方外掛",
+      "product": "Easy PayPal Events & Tickets ≤ 1.3",
+      "description": "WordPress Easy PayPal Events & Tickets 外掛 1.3 及以前版本的 QR Code 掃描功能存在硬編碼驗證繞過漏洞，未驗證的遠端攻擊者可提供「test」作為 hash 參數繞過驗證，存取包含 PayPal 交易 ID、客戶電子郵件等敏感訂單資訊。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢整體評估為高度（High）。零時漏洞遭主動利用趨勢持續，PAN-OS 和 Ivanti EPMM 均在修補程式釋出前已遭國家級或有組織的攻擊者利用。AI 輔助攻擊正式進入實戰階段，Dragos 確認大型語言模型（LLM）已被用於關鍵基礎設施攻擊規劃。供應鏈攻擊持續擴大，從資安廠商原始碼到 WordPress 外掛均成為目標。蠕蟲型攻擊（PCPJack、TCLBANKER）顯示橫向移動威脅在雲端與企業環境中持續升高。",
+    "attack_techniques": [
+      "零時漏洞快速武器化（PAN-OS Captive Portal、Ivanti EPMM CVE-2026-6973）",
+      "AI 大型語言模型輔助攻擊規劃與執行（Dragos 警告）",
+      "蠕蟲型橫向移動竊取憑證（PCPJack 利用 5 個 CVE、TCLBANKER WhatsApp/Outlook）",
+      "ClickFix 社交工程誘使使用者手動執行惡意 PowerShell 指令",
+      "軟體供應鏈後門植入（Daemon Tools 木馬化、WordPress 轉址外掛後門）",
+      "硬編碼後門憑證被利用（D-Link DIR-605L/600L、GeoVision EOL 設備）",
+      "SMS Blaster 偽裝基地臺發動大規模簡訊釣魚攻擊"
+    ],
+    "active_actors": [
+      {
+        "name": "中國國家級 APT 組織",
+        "ttp": "利用 PAN-OS Captive Portal 零時漏洞進行間諜活動，具國家級攻擊特徵"
+      },
+      {
+        "name": "ShinyHunters",
+        "ttp": "針對教育機構 Canvas LMS 雲端平台的大規模資料外洩攻擊，本週發動兩波攻擊"
+      },
+      {
+        "name": "PCPJack 組織",
+        "ttp": "雲端環境蠕蟲型憑證竊取，利用多個 CVE 漏洞自動化橫向擴散"
+      }
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即修補 Palo Alto PAN-OS 零時漏洞，防範中國 APT 組織間諜攻擊（期限：2026-05-12）"
+    },
+    {
+      "priority": "high",
+      "action": "更新 Ivanti EPMM 修補 CVE-2026-6973 遠端程式碼執行零時漏洞（期限：2026-05-12）"
+    },
+    {
+      "priority": "high",
+      "action": "更新 Linux 系統核心修補 Dirty Frag 本機提權漏洞，防止後入侵提權（期限：2026-05-15）"
+    },
+    {
+      "priority": "high",
+      "action": "更換所有 D-Link DIR-605L/600L EOL 路由器，消除 CVSS 9.8 硬編碼後門風險（期限：2026-05-31）"
+    },
+    {
+      "priority": "medium",
+      "action": "稽核並修補 GeoVision IP 攝影機（CVE-2026-42364，CVSS 9.9 OS 命令注入漏洞）（期限：2026-05-19）"
+    },
+    {
+      "priority": "medium",
+      "action": "審查所有 WordPress 外掛，立即停用含後門的轉址外掛並全站掃描（期限：2026-05-19）"
+    },
+    {
+      "priority": "medium",
+      "action": "更新 NetBox 至 4.5.5+ 修補 Jinja2 沙盒繞過 RCE 漏洞 CVE-2026-29514（期限：2026-05-19）"
+    },
+    {
+      "priority": "medium",
+      "action": "審查雲端環境所有 API 金鑰與存取憑證，防範 PCPJack 類型蠕蟲橫向擴散（期限：2026-05-19）"
+    },
+    {
+      "priority": "low",
+      "action": "強化員工對 ClickFix 社交工程攻擊的識別訓練，建立禁止手動執行不明終端機指令的政策（期限：2026-05-31）"
+    },
+    {
+      "priority": "low",
+      "action": "評估 OT/ICS 環境的網路隔離狀態，建立離線備援操作程序因應關鍵基礎設施攻擊情境（期限：2026-05-31）"
+    }
+  ],
+  "terms": [
+    {
+      "term": "通用漏洞揭露（CVE）",
+      "term_en": "CVE",
+      "definition": "公開已知漏洞的統一編號系統",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cve"
+    },
+    {
+      "term": "遠端程式碼執行（RCE）",
+      "term_en": "RCE",
+      "definition": "攻擊者可遠端在目標系統執行任意程式碼的漏洞",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/rce"
+    },
+    {
+      "term": "供應鏈攻擊",
+      "term_en": "Supply Chain Attack",
+      "definition": "透過入侵軟體供應商來攻擊最終用戶的手法",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/supply_chain_attack"
+    },
+    {
+      "term": "ClickFix 攻擊",
+      "term_en": "ClickFix",
+      "definition": "誘騙使用者執行惡意指令的社交工程技術（本週新增術語）",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/clickfix"
+    },
+    {
+      "term": "ShinyHunters",
+      "term_en": "ShinyHunters",
+      "definition": "以大規模資料外洩著稱的國際駭客組織（本週新增術語）",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/shinyhunters"
+    },
+    {
+      "term": "Dirty Frag 漏洞",
+      "term_en": "Dirty Frag",
+      "definition": "Linux 核心頁面快取本機提權漏洞（本週新增術語）",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/dirty_frag"
+    },
+    {
+      "term": "工業控制系統（ICS）",
+      "term_en": "ICS",
+      "definition": "控制工業流程的電腦系統",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/ics"
+    },
+    {
+      "term": "社交工程",
+      "term_en": "Social Engineering",
+      "definition": "利用人性弱點操縱受害者的攻擊手法",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/social_engineering"
+    },
+    {
+      "term": "簡訊廣播器（SMS Blaster）",
+      "term_en": "SMS Blaster",
+      "definition": "偽裝基地臺大量發送釣魚簡訊的裝置（本週新增術語）",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/sms_blaster"
+    },
+    {
+      "term": "緩衝區溢位",
+      "term_en": "Buffer Overflow",
+      "definition": "程式寫入資料超過緩衝區大小的漏洞",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/buffer_overflow"
+    }
+  ],
+  "references": [
+    {
+      "title": "Unit 42: Threat Brief – Exploitation of PAN-OS Captive Portal Zero-Day for Unauthenticated RCE",
+      "url": "https://unit42.paloaltonetworks.com/threat-brief-pan-os-captive-portal-zero-day/"
+    },
+    {
+      "title": "The Hacker News: Ivanti EPMM CVE-2026-6973 RCE Under Active Exploitation Grants Admin-Level Access",
+      "url": "https://thehackernews.com/2026/05/ivanti-epmm-cve-2026-6973-rce-under.html"
+    },
+    {
+      "title": "SecurityWeek: Cyberattack Hits Canvas System Used by Thousands of Schools as Finals Loom",
+      "url": "https://www.securityweek.com/cyberattack-hits-canvas-system-used-by-thousands-of-schools-as-finals-loom/"
+    },
+    {
+      "title": "Dark Reading: Trellix Source Code Breach Highlights Growing Supply Chain Threats",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/trellix-source-code-breach-highlights-growing-supply-chain-threats"
+    },
+    {
+      "title": "Elastic Security Labs: Copy Fail and DirtyFrag – Linux Page Cache Bugs in the Wild",
+      "url": "https://www.elastic.co/security-labs/copy-fail-and-dirtyfrag"
+    },
+    {
+      "title": "Microsoft Security Blog: Active Attack – Dirty Frag Linux Vulnerability Expands Post-Compromise Risk",
+      "url": "https://www.microsoft.com/en-us/security/blog/"
+    },
+    {
+      "title": "Elastic Security Labs: TCLBANKER – Brazilian Banking Trojan Spreading via WhatsApp and Outlook",
+      "url": "https://www.elastic.co/security-labs/tclbanker-brazilian-banking-trojan"
+    },
+    {
+      "title": "The Hacker News: PCPJack Credential Stealer Exploits 5 CVEs to Spread Worm-Like Across Cloud Systems",
+      "url": "https://thehackernews.com/2026/05/pcpjack-credential-stealer-exploits-5.html"
+    },
+    {
+      "title": "Infosecurity Magazine: OpenAI and Anthropic LLMs Used in Critical Infrastructure Cyber-Attack, Warns Dragos",
+      "url": "https://www.infosecurity-magazine.com/news/openai-anthropic-llms-critical/"
+    },
+    {
+      "title": "SecurityWeek: Polish Security Agency Reports ICS Breaches at Five Water Treatment Plants",
+      "url": "https://www.securityweek.com/polish-security-agency-reports-ics-breaches-at-five-water-treatment-plants/"
+    },
+    {
+      "title": "iThome: WordPress 轉址外掛功能發現潛藏多年後門程式，逾 7 萬網站恐暴露於風險",
+      "url": "https://www.ithome.com.tw/news/security"
+    },
+    {
+      "title": "iThome: Linux 高風險漏洞 Dirty Frag 影響 2017 年至今的系統核心，以及 5 種發行版",
+      "url": "https://www.ithome.com.tw/news/security"
+    },
+    {
+      "title": "CIS MS-ISAC: A Vulnerability in PAN-OS Could Allow for Remote Code Execution",
+      "url": "https://www.cisecurity.org/advisory/a-vulnerability-in-pan-os-could-allow-for-remote-code-execution"
+    },
+    {
+      "title": "NVD: CVE-2026-42364 – GeoVision OS Command Injection (CVSS 9.9)",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42364"
+    },
+    {
+      "title": "NVD: CVE-2026-42373 – D-Link DIR-605L Hardcoded Telnet Backdoor (CVSS 9.8)",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42373"
+    },
+    {
+      "title": "NVD: CVE-2026-29514 – NetBox Remote Code Execution via Jinja2 Sandbox Bypass (CVSS 8.8)",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29514"
+    }
+  ]
+}
