@@ -1,0 +1,499 @@
+{
+  "title": "資安週報 2026/05/12 - 2026/05/18",
+  "report_id": "SEC-WEEKLY-2026-20",
+  "period": {
+    "start": "2026-05-12",
+    "end": "2026-05-18"
+  },
+  "publish_date": "2026-05-18",
+  "summary": {
+    "total_events": 12,
+    "total_vulnerabilities": 12,
+    "threat_level": "high"
+  },
+  "events": [
+    {
+      "title": "Cisco Catalyst SD-WAN CVE-2026-20182 滿分漏洞遭 UAT-8616 積極利用",
+      "severity": "critical",
+      "event_type": "漏洞利用",
+      "summary": "Cisco Catalyst SD-WAN 控制器與 Manager 存在 CVSS 10.0 身份驗證繞過漏洞（CVE-2026-20182），駭客組織 UAT-8616 已將其用於實際攻擊，成功後可竄改 SD-WAN 控制器組態並提升權限。CISA 已將此漏洞加入 KEV 目錄，要求聯邦機構於 2026/05/17 前完成修補，為 2026 年第六個遭利用的 Cisco SD-WAN 零時差漏洞。",
+      "source": "Cisco / CISA",
+      "url": "https://www.securityweek.com/cisco-patches-another-sd-wan-zero-day-the-sixth-exploited-in-2026/",
+      "date": "2026-05-14"
+    },
+    {
+      "title": "Microsoft Exchange Server 零時差 CVE-2026-42897 遭在野利用",
+      "severity": "critical",
+      "event_type": "零時差漏洞",
+      "summary": "Microsoft 揭露 Exchange Server 存在 CVSS 8.1 跨站腳本（XSS）零時差漏洞，攻擊者可透過精心製作的電子郵件在受害者瀏覽器中執行任意 JavaScript。漏洞影響 Exchange Server 2016、2019 及訂閱版，目前尚未釋出正式修補更新，CISA 已列入 KEV，要求 2026/05/29 前完成緩解。",
+      "source": "Microsoft",
+      "url": "https://thehackernews.com/2026/05/on-prem-microsoft-exchange-server-cve.html",
+      "date": "2026-05-15"
+    },
+    {
+      "title": "NGINX CVE-2026-42945 堆積緩衝區溢位（CVSS 9.2）已遭在野利用",
+      "severity": "critical",
+      "event_type": "漏洞利用",
+      "summary": "存在 18 年的 NGINX 重大漏洞 CVE-2026-42945（CVSS 9.2）為 ngx_http_rewrite_module 堆積緩衝區溢位，影響版本 0.6.27 至 1.30.0，可能造成工作進程崩潰或遠端程式碼執行（RCE）。F5/NGINX 已發布修補版本，PoC 程式碼已公開，漏洞已遭在野利用。",
+      "source": "The Hacker News / SecurityWeek",
+      "url": "https://thehackernews.com/2026/05/nginx-cve-2026-42945-exploited-in-wild.html",
+      "date": "2026-05-17"
+    },
+    {
+      "title": "鴻海北美廠區遭 Nitrogen 勒索軟體攻擊，竊取 8TB 資料",
+      "severity": "critical",
+      "event_type": "勒索軟體攻擊",
+      "summary": "Nitrogen 勒索軟體組織對台灣科技大廠鴻海（Foxconn）北美部分廠區發動網路攻擊，聲稱竊取 8TB 資料含逾 1,100 萬份機密文件，涉及多家主要客戶資料。鴻海表示生產營運不受影響，但事件凸顯製造業面臨的持續資安威脅，2026 年已有逾 600 起製造業遭攻擊事件。",
+      "source": "CyberScoop / TechNews",
+      "url": "https://cyberscoop.com/foxconn-cyberattack-disrupts-north-america-factories/",
+      "date": "2026-05-14"
+    },
+    {
+      "title": "TanStack 供應鏈攻擊（Mini Shai-Hulud 蠕蟲）感染逾 400 個開源套件",
+      "severity": "critical",
+      "event_type": "供應鏈攻擊",
+      "summary": "TeamPCP 駭客組織利用 Mini Shai-Hulud 蠕蟲持續發動供應鏈攻擊，已感染 npm 與 PyPI 逾 400 個套件，受害者包含 OpenAI（2 名員工裝置受影響，憑證遭竊）。攻擊者甚至公開蠕蟲原始碼並提供金錢獎勵鼓勵他人使用，使威脅範圍快速擴大。",
+      "source": "SecurityWeek / iThome",
+      "url": "https://www.securityweek.com/openai-hit-by-tanstack-supply-chain-attack/",
+      "date": "2026-05-15"
+    },
+    {
+      "title": "俄羅斯 Turla 組織將 Kazuar 後門升級為模組化 P2P 殭屍網路",
+      "severity": "high",
+      "event_type": "APT 攻擊",
+      "summary": "俄羅斯國家級駭客組織 Turla（Secret Blizzard，FSB 第 16 中心）已將其 Kazuar 後門從傳統架構演進為高度模組化的點對點（P2P）殭屍網路，具備強大隱匿性與持久存取能力，專為間諜活動設計。Microsoft 與 CISA 均已發布詳細技術分析報告。",
+      "source": "The Hacker News / Microsoft Security Blog",
+      "url": "https://thehackernews.com/2026/05/turla-turns-kazuar-backdoor-into.html",
+      "date": "2026-05-15"
+    },
+    {
+      "title": "Ghostwriter（FrostyNeighbor）APT 以地理圍欄 PDF 釣魚攻擊烏克蘭政府",
+      "severity": "high",
+      "event_type": "APT 攻擊",
+      "summary": "白俄羅斯 APT 組織 Ghostwriter（FrostyNeighbor、TA445）針對烏克蘭與波蘭政府機構發動魚叉式網路釣魚攻擊，使用地理圍欄 PDF 誘餌，在確認受害者地理位置後才傳送惡意酬載，最終植入 Cobalt Strike 進行間諜活動。",
+      "source": "The Hacker News / ESET",
+      "url": "https://thehackernews.com/2026/05/ghostwriter-targets-ukrainian.html",
+      "date": "2026-05-14"
+    },
+    {
+      "title": "Linux 核心第三度爆出本機提權漏洞 Fragnesia（CVE-2026-46300）",
+      "severity": "high",
+      "event_type": "漏洞揭露",
+      "summary": "兩週內 Linux 核心第三個本機提權漏洞（LPE）出現，Fragnesia（CVE-2026-46300）被視為 Dirty Frag 漏洞鏈的變種，可讓未授權本地使用者提升至 root 權限，影響眾多 Linux 發行版。各主要發行版已發布公告，緩解方式與 Dirty Frag 相同。",
+      "source": "SecurityWeek / iThome",
+      "url": "https://www.securityweek.com/new-linux-kernel-vulnerability-fragnesia-allows-root-privilege-escalation/",
+      "date": "2026-05-14"
+    },
+    {
+      "title": "Grafana GitHub 存取權杖外洩，程式碼庫遭竊並遭勒索",
+      "severity": "high",
+      "event_type": "資料外洩",
+      "summary": "Grafana Labs 揭露其 GitHub 環境存取權杖遭未授權方取得，攻擊者藉此下載公司程式碼庫並嘗試勒索。調查確認無客戶資料或個人資訊外洩，對客戶系統無影響，但事件凸顯開發環境令牌管理的重要性。",
+      "source": "The Hacker News / iThome",
+      "url": "https://thehackernews.com/2026/05/grafana-github-token-breach-led-to.html",
+      "date": "2026-05-17"
+    },
+    {
+      "title": "台灣高鐵遭 SDR 技術入侵，三列高速列車停擺近一小時",
+      "severity": "high",
+      "event_type": "關鍵基礎設施攻擊",
+      "summary": "一名台灣學生利用軟體定義無線電（SDR）技術干擾台灣高鐵系統，造成三列高速列車中斷運行近一小時，引發反恐應變。事件暴露台灣關鍵交通基礎設施在無線通訊安全方面的防護缺口，引發各界對鐵路系統資安韌性的重視。",
+      "source": "Dark Reading / TechNews",
+      "url": "https://www.darkreading.com/ics-ot-security/taiwan-incident-highlights-cybersecurity-gaps",
+      "date": "2026-05-15"
+    },
+    {
+      "title": "node-ipc npm 套件三版本植入惡意後門，鎖定竊取開發者機密",
+      "severity": "high",
+      "event_type": "供應鏈攻擊",
+      "summary": "npm 套件 node-ipc 三個版本（9.1.6、9.2.3、12.0.1）被確認含有惡意程式碼，可竊取開發者機密資訊，屬 TeamPCP Mini Shai-Hulud 供應鏈攻擊活動的延伸。Socket 與 StepSecurity 已發出警告，受影響版本已從 npm 下架。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/05/stealer-backdoor-found-in-3-node-ipc.html",
+      "date": "2026-05-14"
+    },
+    {
+      "title": "Mustang Panda 更新 FDMTP 後門，針對亞太地區發動間諜攻擊",
+      "severity": "medium",
+      "event_type": "APT 攻擊",
+      "summary": "中國國家級駭客組織 Mustang Panda 部署更新版 FDMTP 後門，針對亞太地區（含日本）網路發動網路間諜攻擊，利用開源攻擊工具包滲透目標環境，同時疑似針對全球製造商的印度分部部署 TencShell 惡意程式。",
+      "source": "Infosecurity Magazine",
+      "url": "https://www.infosecurity-magazine.com/news/mustang-panda-fdmtp-backdoor-apj/",
+      "date": "2026-05-14"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-20182",
+      "title": "Cisco Catalyst SD-WAN 身份驗證繞過漏洞",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "Cisco",
+      "product": "Catalyst SD-WAN Controller & Manager",
+      "description": "Cisco Catalyst SD-WAN 控制器存在身份驗證繞過漏洞（CVSS 10.0），未授權遠端攻擊者可繞過驗證取得管理員權限，成功後可竄改網路組態。已加入 CISA KEV，由 UAT-8616 積極利用中，為 2026 年第六個遭利用的 Cisco SD-WAN 零時差漏洞。"
+    },
+    {
+      "cve_id": "CVE-2026-40636",
+      "title": "Dell ECS 硬式編碼憑證漏洞",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Dell",
+      "product": "Dell ECS 3.8.1.0–3.8.1.7 / Dell ObjectScale < 4.3.0.0",
+      "description": "Dell ECS 含有硬式編碼憑證漏洞（CVSS 9.8），未授權本地攻擊者可藉此取得完整檔案系統存取權限，影響多版本 ECS 與 ObjectScale，需立即升級至 3.8.1.8 以上版本。"
+    },
+    {
+      "cve_id": "CVE-2026-42945",
+      "title": "NGINX ngx_http_rewrite_module 堆積緩衝區溢位漏洞",
+      "cvss": 9.2,
+      "severity": "critical",
+      "vendor": "F5 / NGINX",
+      "product": "NGINX Plus / NGINX Open Source 0.6.27–1.30.0",
+      "description": "NGINX ngx_http_rewrite_module 存在 18 年的堆積緩衝區溢位漏洞（CVSS 9.2），影響 0.6.27 至 1.30.0 版本。PoC 已公開且已遭在野利用，可造成工作進程崩潰或遠端程式碼執行（RCE），應立即升級。"
+    },
+    {
+      "cve_id": "CVE-2026-8260",
+      "title": "D-Link DCS-935L HNAP 服務緩衝區溢位漏洞",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "D-Link",
+      "product": "D-Link DCS-935L（韌體 ≤ 1.10.01）",
+      "description": "D-Link DCS-935L IP 攝影機 HNAP 服務 SetDeviceSettings 函數存在緩衝區溢位漏洞（CVSS 8.8），可被遠端低權限攻擊者利用。設備已停止支援（EoL），建議立即汰換。"
+    },
+    {
+      "cve_id": "CVE-2026-45006",
+      "title": "OpenClaw 閘道組態不當存取控制漏洞",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "OpenClaw",
+      "product": "OpenClaw < 2026.4.23",
+      "description": "OpenClaw 閘道工具 config.apply 與 config.patch 端點存取控制不完整（CVSS 8.8），受入侵模型可透過不完整拒絕清單繞過保護，持久化寫入惡意組態設定，影響命令執行、網路行為及憑證管理。"
+    },
+    {
+      "cve_id": "CVE-2026-34963",
+      "title": "barebox EFI PE 載入器整數溢位與記憶體安全漏洞",
+      "cvss": 8.4,
+      "severity": "high",
+      "vendor": "barebox",
+      "product": "barebox < 2026.04.0",
+      "description": "barebox EFI PE 載入器存在多個記憶體安全漏洞（CVSS 8.4），包含 32 位元算術整數溢位導致堆積配置不足，攻擊者可透過 TFTP、USB、SD 卡傳送惡意 EFI PE 二進位檔觸發任意程式碼執行。"
+    },
+    {
+      "cve_id": "CVE-2026-44413",
+      "title": "JetBrains TeamCity API 未授權存取漏洞",
+      "cvss": 8.2,
+      "severity": "high",
+      "vendor": "JetBrains",
+      "product": "JetBrains TeamCity < 2026.1 / 2025.11.5",
+      "description": "JetBrains TeamCity 認證使用者可將伺服器 API 暴露給未授權存取（CVSS 8.2），影響 2026.1 與 2025.11.5 之前的版本，應立即升級至最新版本。"
+    },
+    {
+      "cve_id": "CVE-2026-42897",
+      "title": "Microsoft Exchange Server 跨站腳本零時差漏洞",
+      "cvss": 8.1,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Microsoft Exchange Server 2016 / 2019 / Subscription Edition (on-premises)",
+      "description": "Exchange Server OWA 存在 XSS 零時差漏洞（CVSS 8.1），攻擊者可透過精心製作的郵件在受害者瀏覽器執行任意 JavaScript，已加入 CISA KEV 並遭在野利用，目前無修補程式，僅有緩解措施。"
+    },
+    {
+      "cve_id": "CVE-2026-43640",
+      "title": "Bitwarden Server SCIM API 金鑰未重新驗證漏洞",
+      "cvss": 8.1,
+      "severity": "high",
+      "vendor": "Bitwarden",
+      "product": "Bitwarden Server < v2026.4.1",
+      "description": "Bitwarden Server 在取得或輪換 SCIM API 金鑰時未要求主密碼重新驗證（CVSS 8.1），具有 SCIM 管理權限的認證用戶僅需有效 session 即可取得金鑰，需升級至 v2026.4.1 以修復。"
+    },
+    {
+      "cve_id": "CVE-2026-4802",
+      "title": "Cockpit 系統日誌 UI 遠端指令執行漏洞",
+      "cvss": 8.0,
+      "severity": "high",
+      "vendor": "Red Hat",
+      "product": "Cockpit（Red Hat 網頁管理介面）",
+      "description": "Cockpit 系統日誌 UI 存在未過濾使用者輸入漏洞（CVSS 8.0），低權限遠端攻擊者可在精心製作的連結中注入 shell 元字元，導致在受影響系統上執行任意 shell 指令，造成完整系統入侵。"
+    },
+    {
+      "cve_id": "CVE-2026-32658",
+      "title": "Dell Automation Platform 缺少授權漏洞",
+      "cvss": 8.0,
+      "severity": "high",
+      "vendor": "Dell",
+      "product": "Dell Automation Platform < 2.0.0.0",
+      "description": "Dell Automation Platform（< 2.0.0.0）存在缺少授權漏洞（CVSS 8.0），低權限遠端攻擊者可利用此漏洞進行權限提升，需升級至 2.0.0.0 以上版本修復。"
+    },
+    {
+      "cve_id": "CVE-2026-46300",
+      "title": "Linux 核心 Fragnesia 本機提權漏洞",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Linux Kernel",
+      "product": "Linux Kernel（多數主流發行版）",
+      "description": "Linux 核心 Fragnesia 漏洞（CVE-2026-46300，CVSS 7.8）為 Dirty Frag 變種，允許未授權本地使用者提升至 root 權限，為兩週內第三個 Linux LPE 漏洞。各主要發行版已發布公告，緩解方式與 Dirty Frag 相同。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢評估為「高」（High）。多個關鍵基礎設施漏洞同時遭到在野利用（Cisco SD-WAN CVSS 10.0、NGINX CVSS 9.2、Exchange Server XSS），加上大規模供應鏈攻擊波及 AI 企業（OpenAI），以及勒索軟體持續衝擊台灣相關製造業（鴻海），且多個國家級 APT 組織（Turla、Ghostwriter、Mustang Panda）均有新活動紀錄。AI 輔助攻擊能力亦達到歷史新高，Claude Mythos 與 GPT-5.5 被評估已具備高階自主漏洞發現能力，大幅降低進階攻擊門檻。台灣關鍵基礎設施（高鐵）亦出現 SDR 干擾事件，凸顯無線通訊安全防護的迫切性。",
+    "attack_techniques": [
+      "身份驗證繞過（Authentication Bypass）",
+      "跨站腳本攻擊（XSS）",
+      "堆積緩衝區溢位（Heap Buffer Overflow）",
+      "供應鏈污染（Supply Chain Poisoning）",
+      "魚叉式網路釣魚（Spear Phishing）",
+      "本機提權（Local Privilege Escalation）",
+      "勒索軟體雙重勒索（Double Extortion）",
+      "P2P 殭屍網路（Peer-to-Peer Botnet）",
+      "AI 輔助漏洞發現（AI-assisted Vulnerability Discovery）",
+      "SDR 無線訊號干擾（SDR Signal Interference）"
+    ],
+    "active_actors": [
+      {
+        "name": "UAT-8616",
+        "type": "疑似國家支持",
+        "target": "Cisco SD-WAN 基礎設施",
+        "region": "全球"
+      },
+      {
+        "name": "Turla / Secret Blizzard",
+        "type": "俄羅斯 FSB 關聯（APT）",
+        "target": "政府、國防機構",
+        "region": "全球"
+      },
+      {
+        "name": "Ghostwriter / FrostyNeighbor",
+        "type": "白俄羅斯 APT",
+        "target": "烏克蘭、波蘭政府",
+        "region": "東歐"
+      },
+      {
+        "name": "Mustang Panda",
+        "type": "中國國家級 APT",
+        "target": "亞太地區企業與政府",
+        "region": "亞太"
+      },
+      {
+        "name": "TeamPCP",
+        "type": "犯罪組織",
+        "target": "開源供應鏈（npm/PyPI）",
+        "region": "全球"
+      },
+      {
+        "name": "Nitrogen",
+        "type": "勒索軟體組織",
+        "target": "製造業（鴻海北美廠區）",
+        "region": "北美"
+      },
+      {
+        "name": "ShinyHunters",
+        "type": "犯罪組織",
+        "target": "教育平台（Canvas/Instructure）",
+        "region": "全球"
+      }
+    ],
+    "taiwan_specific": {
+      "events": [
+        "鴻海北美廠區遭 Nitrogen 勒索軟體攻擊，8TB 資料外洩",
+        "台灣高鐵遭 SDR 干擾，三列列車停擺近一小時（資安防護缺口揭露）",
+        "金管會預告針對金融業發布 PQC（後量子密碼學）遷移指引",
+        "資策會協助中科院無人機專案通過 CMMC 認證，國防供應鏈資安升級"
+      ]
+    }
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即修補或緩解 Cisco SD-WAN CVE-2026-20182（CVSS 10.0）——CISA 要求 FCEB 機構 2026/05/17 前完成，其他組織應立即優先處理此 KEV 漏洞"
+    },
+    {
+      "priority": "high",
+      "action": "套用 Microsoft 針對 Exchange Server CVE-2026-42897 提供的兩項緩解措施（ExtendedProtectionConfig 設定），CISA 要求 2026/05/29 前完成，目前無正式修補程式"
+    },
+    {
+      "priority": "high",
+      "action": "立即升級 NGINX/NGINX Plus 至已修補版本以修復 CVE-2026-42945（CVSS 9.2）——PoC 已公開且已遭在野利用，風險極高"
+    },
+    {
+      "priority": "high",
+      "action": "全面稽核 npm/PyPI 相依套件，移除或替換受 Mini Shai-Hulud 蠕蟲感染的套件（包含 node-ipc@9.1.6、9.2.3、12.0.1），掃描 CI/CD 環境中的機密資訊外洩"
+    },
+    {
+      "priority": "medium",
+      "action": "更新 Dell ECS 至 3.8.1.8 以上版本，修復 CVE-2026-40636 硬式編碼憑證漏洞（CVSS 9.8）"
+    },
+    {
+      "priority": "medium",
+      "action": "套用 Linux 核心修補程式或既有 Dirty Frag 緩解措施，防範 Fragnesia LPE 漏洞（CVE-2026-46300）"
+    },
+    {
+      "priority": "medium",
+      "action": "立即輪換所有 GitHub Personal Access Token，啟用 Secret Scanning 並設定警示，審查第三方整合存取權限，防範類似 Grafana 事件"
+    },
+    {
+      "priority": "medium",
+      "action": "更新 EDR 偵測規則以涵蓋 Kazuar P2P 殭屍網路與 Cobalt Strike 特徵，封鎖 Turla 及 Ghostwriter 已知 IoC"
+    },
+    {
+      "priority": "low",
+      "action": "強化關鍵基礎設施無線通訊安全，針對鐵路、電力等系統導入頻段異常入侵偵測機制，並進行全面無線安全評估"
+    },
+    {
+      "priority": "low",
+      "action": "依據 G7 SBOM for AI 指引建立 AI 系統軟體物料清單管理機制，評估 AI 輔助攻擊能力提升對現有防禦架構的衝擊"
+    }
+  ],
+  "terms": [
+    {
+      "term": "通用漏洞揭露（CVE）",
+      "term_en": "CVE",
+      "term_zh": "通用漏洞揭露",
+      "definition": "公開已知漏洞的統一編號系統",
+      "id": "cve",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cve"
+    },
+    {
+      "term": "已知遭利用漏洞清單（KEV）",
+      "term_en": "KEV",
+      "term_zh": "已知遭利用漏洞清單",
+      "definition": "CISA 維護的已確認遭實際利用的漏洞清單",
+      "id": "kev",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/kev"
+    },
+    {
+      "term": "供應鏈攻擊（Supply Chain Attack）",
+      "term_en": "Supply Chain Attack",
+      "term_zh": "供應鏈攻擊",
+      "definition": "透過入侵軟體供應商來攻擊最終用戶的手法",
+      "id": "supply_chain_attack",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/supply_chain_attack"
+    },
+    {
+      "term": "進階持續性威脅（APT）",
+      "term_en": "APT",
+      "term_zh": "進階持續性威脅",
+      "definition": "國家級駭客組織發動的長期網路攻擊",
+      "id": "apt",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/apt"
+    },
+    {
+      "term": "跨站腳本（XSS）",
+      "term_en": "XSS",
+      "term_zh": "跨站腳本",
+      "definition": "在網頁中注入惡意腳本的攻擊",
+      "id": "xss",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/xss"
+    },
+    {
+      "term": "蠕蟲（Worm）",
+      "term_en": "Worm",
+      "term_zh": "蠕蟲",
+      "definition": "能自我複製並在網路上傳播的惡意程式",
+      "id": "worm",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/worm"
+    },
+    {
+      "term": "概念驗證（PoC）",
+      "term_en": "PoC",
+      "term_zh": "概念驗證",
+      "definition": "證明漏洞可被利用的示範程式碼",
+      "id": "poc",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/poc"
+    },
+    {
+      "term": "Turla",
+      "term_en": "Turla",
+      "term_zh": "Turla",
+      "definition": "俄羅斯最精密的國家級駭客組織之一",
+      "id": "turla",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/turla"
+    },
+    {
+      "term": "Cobalt Strike",
+      "term_en": "Cobalt Strike",
+      "term_zh": "Cobalt Strike",
+      "definition": "被威脅行為者廣泛濫用的商業滲透測試工具",
+      "id": "cobalt_strike",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cobalt_strike"
+    },
+    {
+      "term": "通用漏洞評分系統（CVSS）",
+      "term_en": "CVSS",
+      "term_zh": "通用漏洞評分系統",
+      "definition": "評估漏洞嚴重程度的標準化計分系統",
+      "id": "cvss",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cvss"
+    }
+  ],
+  "references": [
+    {
+      "title": "CISA KEV: CVE-2026-20182 Cisco Catalyst SD-WAN Controller Authentication Bypass",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20182"
+    },
+    {
+      "title": "CISA KEV: CVE-2026-42897 Microsoft Exchange Server Cross-Site Scripting Vulnerability",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42897"
+    },
+    {
+      "title": "The Hacker News: NGINX CVE-2026-42945 Exploited in the Wild, Causing Worker Crashes and Possible RCE",
+      "url": "https://thehackernews.com/2026/05/nginx-cve-2026-42945-exploited-in-wild.html"
+    },
+    {
+      "title": "The Hacker News: On-Prem Microsoft Exchange Server CVE-2026-42897 Exploited via Crafted Email",
+      "url": "https://thehackernews.com/2026/05/on-prem-microsoft-exchange-server-cve.html"
+    },
+    {
+      "title": "SecurityWeek: Cisco Patches Another SD-WAN Zero-Day, the Sixth Exploited in 2026",
+      "url": "https://www.securityweek.com/cisco-patches-another-sd-wan-zero-day-the-sixth-exploited-in-2026/"
+    },
+    {
+      "title": "CyberScoop: Major Tech Manufacturer Foxconn Confirms Cyberattack Hit North American Factories",
+      "url": "https://cyberscoop.com/foxconn-cyberattack-disrupts-north-america-factories/"
+    },
+    {
+      "title": "SecurityWeek: OpenAI Hit by TanStack Supply Chain Attack",
+      "url": "https://www.securityweek.com/openai-hit-by-tanstack-supply-chain-attack/"
+    },
+    {
+      "title": "SecurityWeek: TeamPCP Ups the Game, Releases Shai-Hulud Worm's Source Code",
+      "url": "https://www.securityweek.com/teampcp-ups-the-game-releases-shai-hulud-worms-source-code/"
+    },
+    {
+      "title": "The Hacker News: Turla Turns Kazuar Backdoor Into Modular P2P Botnet for Persistent Access",
+      "url": "https://thehackernews.com/2026/05/turla-turns-kazuar-backdoor-into.html"
+    },
+    {
+      "title": "The Hacker News: Ghostwriter Targets Ukrainian Government With Geofenced PDF Phishing, Cobalt Strike",
+      "url": "https://thehackernews.com/2026/05/ghostwriter-targets-ukrainian.html"
+    },
+    {
+      "title": "Dark Reading: Taiwan Bullet Train Hack Highlights Cybersecurity Gaps in Rail Systems",
+      "url": "https://www.darkreading.com/ics-ot-security/taiwan-incident-highlights-cybersecurity-gaps"
+    },
+    {
+      "title": "iThome: Linux 再爆本機提權漏洞 Fragnesia，兩週內已經找到第三個",
+      "url": "https://www.ithome.com.tw/news/175850"
+    },
+    {
+      "title": "iThome: Grafana Labs 存取權杖外洩導致其 GitHub 程式碼庫遭竊與勒索",
+      "url": "https://www.ithome.com.tw/news/175878"
+    },
+    {
+      "title": "The Hacker News: Stealer Backdoor Found in 3 Node-IPC Versions Targeting Developer Secrets",
+      "url": "https://thehackernews.com/2026/05/stealer-backdoor-found-in-3-node-ipc.html"
+    },
+    {
+      "title": "Infosecurity Magazine: Mustang Panda Linked to Updated FDMTP Backdoor in Asia-Pacific Espionage Campaign",
+      "url": "https://www.infosecurity-magazine.com/news/mustang-panda-fdmtp-backdoor-apj/"
+    },
+    {
+      "title": "Krebs on Security: Patch Tuesday, May 2026 Edition",
+      "url": "https://krebsonsecurity.com/2026/05/patch-tuesday-may-2026-edition/"
+    },
+    {
+      "title": "Check Point Research: The State of Ransomware – Q1 2026",
+      "url": "https://research.checkpoint.com/2026/the-state-of-ransomware-q1-2026/"
+    },
+    {
+      "title": "Microsoft Security Blog: Kazuar: Anatomy of a Nation-State Botnet",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/14/kazuar-anatomy-of-a-nation-state-botnet/"
+    }
+  ]
+}
