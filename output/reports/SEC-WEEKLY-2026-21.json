@@ -1,0 +1,497 @@
+{
+  "title": "資安週報 2026/05/18 - 2026/05/24",
+  "report_id": "SEC-WEEKLY-2026-21",
+  "period": {
+    "start": "2026-05-18",
+    "end": "2026-05-24"
+  },
+  "publish_date": "2026-05-25",
+  "summary": {
+    "total_events": 15,
+    "total_vulnerabilities": 10,
+    "threat_level": "elevated"
+  },
+  "events": [
+    {
+      "title": "GitHub 內部儲存庫遭 TeamPCP 竊取近 4,000 個",
+      "severity": "critical",
+      "event_type": "資料外洩",
+      "summary": "駭客團體 TeamPCP 利用惡意 Nx Console VS Code 延伸套件感染 GitHub 員工裝置，竊取近 3,800 個內部儲存庫原始碼，並開出 5 萬美元底價兜售。Grafana 亦確認因 TanStack 供應鏈攻擊波及，程式碼庫與相關資料遭竊。起因為開發人員安裝了遭入侵的惡意延伸套件版本，竊資軟體於開發環境中蒐集多種憑證與權杖。",
+      "source": "Infosecurity Magazine",
+      "url": "https://www.infosecurity-magazine.com/news/github-confirms-breach-vs-code/",
+      "date": "2026-05-20"
+    },
+    {
+      "title": "Drupal Core SQL 注入漏洞（CVE-2026-9082）遭積極利用，CISA 列入 KEV",
+      "severity": "high",
+      "event_type": "漏洞利用",
+      "summary": "Drupal Core 的 SQL 注入漏洞 CVE-2026-9082（CVSS 6.5，KEV）遭積極利用，CISA 緊急列入 KEV 目錄，截止修補期限為 2026-05-27。漏洞可導致透過資料庫抽象化 API 構造的特製請求觸發權限提升與遠端程式碼執行，已有數千個 Drupal 網站遭到攻擊。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/05/drupal-core-sql-injection-bug-actively.html",
+      "date": "2026-05-23"
+    },
+    {
+      "title": "CISA 承包商外洩 AWS GovCloud 憑證至公開 GitHub",
+      "severity": "critical",
+      "event_type": "憑證外洩",
+      "summary": "CISA 承包商將高度特權的 AWS GovCloud 帳戶憑證及大量內部系統配置資料上傳至公開 GitHub 儲存庫，其中包含 CISA 如何構建、測試及部署內部軟體的詳細文件。資安專家稱此為近年最嚴重的政府資料外洩之一，CISA 仍在進行事故應變並撤銷外洩憑證，國會兩院議員已要求說明。",
+      "source": "Krebs on Security",
+      "url": "https://krebsonsecurity.com/2026/05/cisa-admin-leaked-aws-govcloud-keys-on-github/",
+      "date": "2026-05-18"
+    },
+    {
+      "title": "LiteSpeed cPanel 外掛 CVE-2026-48172（CVSS 10.0）遭利用執行 root 腳本",
+      "severity": "critical",
+      "event_type": "漏洞利用",
+      "summary": "LiteSpeed cPanel 外掛的最高危漏洞 CVE-2026-48172（CVSS 10.0）遭積極利用，屬於不正確的權限指派問題。任何 cPanel 帳戶（包括遭入侵帳戶）均可濫用此漏洞以 root 權限執行任意腳本，影響所有受影響版本的 Web 主機服務，危及整個伺服器環境安全。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/05/litespeed-cpanel-plugin-cve-2026-48172.html",
+      "date": "2026-05-23"
+    },
+    {
+      "title": "Cisco Secure Workload REST API 最高危漏洞（CVE-2026-20223，CVSS 10.0）已修補",
+      "severity": "critical",
+      "event_type": "漏洞修補",
+      "summary": "Cisco 修補 Secure Workload 的 REST API 漏洞 CVE-2026-20223（CVSS 10.0），未驗證遠端攻擊者可存取敏感資料並取得 Site Admin 最高權限。漏洞源於 REST API 端點對請求缺乏充分驗證與身份認證控制，成功利用後攻擊者可完全控制 Secure Workload 環境。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/05/cisco-patches-cvss-100-secure-workload.html",
+      "date": "2026-05-22"
+    },
+    {
+      "title": "Langflow 原始驗證錯誤漏洞（CVE-2025-34291，CVSS 9.4）CISA 列入 KEV",
+      "severity": "critical",
+      "event_type": "漏洞利用",
+      "summary": "Langflow AI 工作流程平台的高危漏洞 CVE-2025-34291（CVSS 9.4，KEV）遭積極利用，截止修補期限為 2026-06-04。寬鬆的 CORS 配置配合 SameSite=None 的 refresh token Cookie，允許攻擊者自惡意網頁執行跨來源請求呼叫 refresh 端點，進而取得權杖存取已驗證端點並執行任意程式碼，可導致系統完全淪陷。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/05/cisa-adds-exploited-langflow-and-trend.html",
+      "date": "2026-05-22"
+    },
+    {
+      "title": "Trend Micro Apex One 目錄穿越零時差漏洞（CVE-2026-34926）CISA 列入 KEV",
+      "severity": "high",
+      "event_type": "漏洞利用",
+      "summary": "Trend Micro Apex One（On-Premise）的目錄穿越零時差漏洞 CVE-2026-34926 遭積極利用，CISA 列入 KEV，截止修補期限為 2026-06-04。前置驗證本機攻擊者可修改伺服器金鑰資料表並植入惡意程式碼，進而將惡意酬載部署至所有受管理的代理端裝置，危及整個端點管理環境。",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/trendai-patches-apex-one-zero-day-exploited-in-the-wild/",
+      "date": "2026-05-22"
+    },
+    {
+      "title": "Microsoft Defender 兩個零時差漏洞（CVE-2026-41091、CVE-2026-45498）已遭利用，CISA 列入 KEV",
+      "severity": "high",
+      "event_type": "漏洞利用",
+      "summary": "微軟修補 Defender 的兩個零時差漏洞：CVE-2026-41091（連結跟隨本機權限提升）與 CVE-2026-45498（阻斷服務），均在揭露前已遭利用，即資安社群所稱 RedSun 與 UnDefend 漏洞，細節已提前公開。CISA 列入 KEV 要求聯邦機構在 2026-06-03 前完成修補。",
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/news/176053",
+      "date": "2026-05-22"
+    },
+    {
+      "title": "大規模供應鏈攻擊浪潮：Mini Shai-Hulud、Packagist Laravel-Lang、Megalodon",
+      "severity": "high",
+      "event_type": "供應鏈攻擊",
+      "summary": "本週供應鏈攻擊呈現多路並發態勢：Mini Shai-Hulud 蠕蟲感染阿里巴巴 AntV npm 生態系 600+ 套件，竊取 GitHub、AWS、Kubernetes 等 CI/CD 憑證；Packagist 上 8 個 Laravel-Lang PHP 套件被植入跨平台憑證竊取框架；Megalodon 自動化攻擊以偽造身份向 5,561 個 GitHub 儲存庫推送含 base64 編碼酬載的惡意 CI/CD 工作流程，6 小時內共推送 5,718 個惡意提交。",
+      "source": "Microsoft Security Blog",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/20/mini-shai-hulud-compromised-antv-npm-packages-enable-ci-cd-credential-theft/",
+      "date": "2026-05-20"
+    },
+    {
+      "title": "Kimwolf IoT 殭屍網路運營者於加拿大被捕，面臨美加兩國起訴",
+      "severity": "high",
+      "event_type": "執法行動",
+      "summary": "23 歲加拿大渥太華人 Jacob Butler（網路代號 Dort）因操作 Kimwolf IoT 殭屍網路（AISURU 變種）被捕，面臨美加兩國起訴，最高刑期 10 年。Kimwolf 過去 6 個月感染數百萬台物聯網設備，用於大規模 DDoS 攻擊，曾針對資安研究員發動 DDoS、人肉搜索及電話滋擾攻擊。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/05/kimwolf-ddos-botnet-operator-arrested.html",
+      "date": "2026-05-22"
+    },
+    {
+      "title": "Operation Saffron：國際執法行動瓦解 First VPN 犯罪服務",
+      "severity": "high",
+      "event_type": "執法行動",
+      "summary": "法國、荷蘭及北美多國執法機關聯合行動（代號 Operation Saffron）瓦解 First VPN 犯罪服務，管理員遭逮捕，伺服器與域名遭查封。First VPN 曾被 25 個以上勒索軟體組織用於隱藏攻擊來源、進行網路偵察與入侵，幾乎出現在近期每個重大網路犯罪調查中。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/05/first-vpn-dismantled-in-global-takedown.html",
+      "date": "2026-05-22"
+    },
+    {
+      "title": "Ghostwriter（UAC-0057）以 Prometheus 釣魚惡意程式針對烏克蘭政府",
+      "severity": "high",
+      "event_type": "APT 攻擊",
+      "summary": "白俄羅斯對齊威脅行為者 Ghostwriter（UAC-0057/UNC1151）利用遭入侵帳戶發送釣魚電子郵件，以烏克蘭線上學習平台 Prometheus 為誘餌，針對烏克蘭政府組織部署 Prometheus 釣魚惡意程式。烏克蘭電腦緊急應變小組（CERT-UA）已確認此活動並發出警告。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/05/ghostwriter-targets-ukraine-government.html",
+      "date": "2026-05-22"
+    },
+    {
+      "title": "中國 Webworm APT 擴展攻擊歐盟政府，利用 Discord 與 Microsoft Graph 作為 C2",
+      "severity": "high",
+      "event_type": "APT 攻擊",
+      "summary": "ESET 研究發現中國關聯 APT 組織 Webworm 擴展攻擊目標至歐盟政府組織，運用新技術和工具，利用 Discord 與 Microsoft Graph API 作為指揮控制（C2）管道，藉由 SOCKS 代理（如 SoftEther VPN）進行中間人隱匿，對通訊提供商及政府機關展開網路間諜活動。",
+      "source": "Dark Reading",
+      "url": "https://www.darkreading.com/endpoint-security/chinas-webworm-discord-microsoft-graphs",
+      "date": "2026-05-22"
+    },
+    {
+      "title": "Fox Tempest 惡意程式簽署即服務（MSaaS）犯罪基礎設施遭微軟數位犯罪部門瓦解",
+      "severity": "high",
+      "event_type": "執法行動",
+      "summary": "微軟數位犯罪部門（DCU）瓦解 Fox Tempest 的惡意程式簽署即服務（MSaaS）基礎設施。Fox Tempest 是具財務動機的威脅行為者，為 Vanilla Tempest 等多個勒索軟體組織提供惡意程式數位簽章服務，使惡意程式繞過安全防禦偵測，更有效地散布包含勒索軟體在內的惡意程式碼。",
+      "source": "Microsoft Security Blog",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/19/exposing-fox-tempest-a-malware-signing-service-operation/",
+      "date": "2026-05-19"
+    },
+    {
+      "title": "Verizon 2026 DBIR：漏洞利用首次超越憑證盜取，成為資料外洩首要進入向量",
+      "severity": "medium",
+      "event_type": "產業報告",
+      "summary": "Verizon 2026 年資料外洩調查報告（DBIR）顯示，軟體漏洞利用佔資料外洩進入點的 31%，首次超越憑證盜取成為首要存取向量。醫療業社交工程攻擊顯著增加，AI 驅動的攻擊趨勢對供應鏈安全構成新威脅。報告強調 AI 工具加速漏洞發現，企業無藉口忽視修補管理。",
+      "source": "Infosecurity Magazine",
+      "url": "https://www.infosecurity-magazine.com/news/verizon-dbir-exploits-top-access/",
+      "date": "2026-05-20"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-9082",
+      "title": "Drupal Core SQL Injection Vulnerability（⚠️ CISA KEV）",
+      "cvss": 6.5,
+      "severity": "medium",
+      "vendor": "Drupal",
+      "product": "Drupal Core",
+      "description": "Drupal Core 包含 SQL 注入漏洞，可透過資料庫抽象化 API 的特製請求觸發，導致權限提升與遠端程式碼執行。已被 CISA 列入 KEV 目錄，截止修補期限 2026-05-27，已有數千個網站遭到積極攻擊。"
+    },
+    {
+      "cve_id": "CVE-2025-34291",
+      "title": "Langflow Origin Validation Error Vulnerability（⚠️ CISA KEV）",
+      "cvss": 9.4,
+      "severity": "critical",
+      "vendor": "Langflow Inc.",
+      "product": "Langflow",
+      "description": "Langflow 中過於寬鬆的 CORS 配置結合 SameSite=None 的 refresh token Cookie，允許攻擊者自惡意網頁執行跨來源請求呼叫 refresh 端點，取得有效存取權杖後可呼叫已驗證端點執行任意程式碼，導致系統完全淪陷。CISA KEV 截止修補期限 2026-06-04。"
+    },
+    {
+      "cve_id": "CVE-2026-34926",
+      "title": "Trend Micro Apex One Directory Traversal Vulnerability（⚠️ CISA KEV）",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Trend Micro",
+      "product": "Apex One (On-Premise)",
+      "description": "Trend Micro Apex One 本機版包含目錄穿越漏洞，前置驗證本機攻擊者可修改伺服器金鑰資料表，植入惡意程式碼並部署至所有受管理的代理端裝置。此為零時差漏洞，已遭積極利用。CISA KEV 截止修補期限 2026-06-04。"
+    },
+    {
+      "cve_id": "CVE-2026-48172",
+      "title": "LiteSpeed cPanel Plugin Incorrect Privilege Assignment（積極利用中）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "LiteSpeed Technologies",
+      "product": "LiteSpeed User-End cPanel Plugin",
+      "description": "LiteSpeed cPanel 外掛中存在不正確的權限指派漏洞，任何 cPanel 用戶（包含遭入侵帳戶）均可利用此漏洞以 root 提升權限執行任意腳本，危及整個伺服器環境。CVSS 10.0 最高危等級，已遭積極利用。"
+    },
+    {
+      "cve_id": "CVE-2026-20223",
+      "title": "Cisco Secure Workload REST API Authentication Bypass（已修補）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "Cisco",
+      "product": "Cisco Secure Workload",
+      "description": "Cisco Secure Workload 的 REST API 端點缺乏充分的請求驗證與身份認證，未驗證遠端攻擊者可存取敏感資料並取得 Site Admin 最高管理員權限，完全控制 Secure Workload 環境。CVSS 10.0，Cisco 已發布修補。"
+    },
+    {
+      "cve_id": "CVE-2026-41091",
+      "title": "Microsoft Defender Link Following Privilege Escalation（⚠️ CISA KEV）",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Microsoft Defender",
+      "description": "Microsoft Defender 包含連結跟隨漏洞（即 RedSun 漏洞），允許本機授權攻擊者在本機提升權限。此漏洞細節在揭露前已提前公開，且已遭實際利用。CISA KEV 截止修補期限 2026-06-03。"
+    },
+    {
+      "cve_id": "CVE-2026-45498",
+      "title": "Microsoft Defender Denial of Service Vulnerability（⚠️ CISA KEV）",
+      "cvss": 7.1,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Microsoft Defender",
+      "description": "Microsoft Defender 包含阻斷服務漏洞（即 UnDefend 漏洞），攻擊者可利用此漏洞造成 Defender 服務中斷，削弱端點防護能力。此漏洞細節在揭露前已提前公開，且已遭實際利用。CISA KEV 截止修補期限 2026-06-03。"
+    },
+    {
+      "cve_id": "CVE-2026-43618",
+      "title": "Rsync Integer Overflow Memory Disclosure（已修補）",
+      "cvss": 8.1,
+      "severity": "high",
+      "vendor": "rsync",
+      "product": "rsync",
+      "description": "rsync 3.4.2 及以前版本的壓縮 token 解碼器中，32 位元有號計數器未進行溢位檢查，惡意傳送端可觸發整數溢位，使接收端讀取並回傳預期緩衝區外的資料，可能洩露環境變數、密碼、堆疊記憶體及程式庫指標等敏感資訊。"
+    },
+    {
+      "cve_id": "CVE-2026-8775",
+      "title": "Edimax BR-6428NS L2TP Buffer Overflow（廠商未回應）",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Edimax",
+      "product": "BR-6428NS 1.10",
+      "description": "Edimax BR-6428NS 路由器的 formL2TPSetup 函數在處理 POST 請求的 L2TPUserName 參數時存在緩衝區溢位漏洞，遠端攻擊者可透過構造特製請求觸發溢位並執行任意程式碼。漏洞利用程式已公開，廠商未回應揭露。"
+    },
+    {
+      "cve_id": "CVE-2026-47107",
+      "title": "Windmill Sandbox /etc Mount Privilege Escalation（已修補）",
+      "cvss": 8.1,
+      "severity": "high",
+      "vendor": "Windmill Labs",
+      "product": "Windmill",
+      "description": "Windmill 1.703.2 以前版本的 nsjail 沙箱配置錯誤，將 /etc 目錄以可讀寫方式掛載，允許已驗證用戶在腳本執行沙箱中修改 /etc/hosts、/etc/resolv.conf 等檔案，可持久化跨執行環境的 DNS 重定向攻擊。Windmill 1.703.2 已修補。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢以供應鏈攻擊與高危漏洞積極利用為核心，整體威脅等級評估為「elevated（偏高）」。多個國家級 APT 組織持續活躍（中國 Webworm 攻歐、白俄羅斯 Ghostwriter 攻烏、伊朗 Screening Serpens 攻科技業），AI 輔助漏洞發掘加速修補壓力，Verizon DBIR 顯示漏洞利用已超越憑證盜取。同時多起執法行動成功瓦解犯罪基礎設施（First VPN、Fox Tempest、Kimwolf）。CISA KEV 目錄本週新增 10 筆條目，除現行漏洞外亦包含 2008-2010 年的遺留漏洞，顯示老舊系統仍被積極利用。",
+    "attack_techniques": [
+      "供應鏈攻擊（惡意 npm/Composer 套件、VS Code 延伸套件植入、CI/CD 工作流程注入）",
+      "SQL 注入（Drupal CVE-2026-9082，積極利用中）",
+      "目錄穿越（Trend Micro Apex One CVE-2026-34926，零時差）",
+      "CORS 跨來源請求偽造（Langflow CVE-2025-34291）",
+      "域名前置（Underminr 漏洞，影響約 8,800 萬個網域）",
+      "CI/CD 管道憑證竊取（Mini Shai-Hulud、Megalodon 自動化攻擊）",
+      "不當權限指派利用（LiteSpeed CVE-2026-48172，CVSS 10.0）",
+      "遺留漏洞積極利用（CVE-2008-4250 Windows、CVE-2009-3459 Adobe 等）",
+      "使用合法雲端平台作為 C2 通道（Discord、Microsoft Graph API）"
+    ],
+    "active_actors": [
+      {
+        "name": "TeamPCP",
+        "type": "犯罪組織",
+        "region": "不明",
+        "activity": "GitHub 內部儲存庫竊取、npm 供應鏈攻擊（Mini Shai-Hulud）"
+      },
+      {
+        "name": "Ghostwriter / UAC-0057",
+        "type": "國家級威脅行為者",
+        "region": "白俄羅斯",
+        "activity": "利用 Prometheus 釣魚惡意程式針對烏克蘭政府的魚叉式釣魚攻擊"
+      },
+      {
+        "name": "Webworm",
+        "type": "進階持續性威脅（APT）",
+        "region": "中國",
+        "activity": "擴展攻擊至歐盟政府，利用 Discord/Microsoft Graph 作為 C2 通道"
+      },
+      {
+        "name": "Screening Serpens",
+        "type": "進階持續性威脅（APT）",
+        "region": "伊朗",
+        "activity": "利用 AppDomainManager 劫持技術及新型 RAT 變種針對科技與國防業展開間諜活動"
+      },
+      {
+        "name": "Fox Tempest",
+        "type": "犯罪組織（已瓦解）",
+        "region": "不明",
+        "activity": "惡意程式簽署即服務（MSaaS），為勒索軟體組織提供繞過偵測的數位簽章"
+      },
+      {
+        "name": "Kimwolf / Jacob Butler",
+        "type": "犯罪個人（已逮捕）",
+        "region": "加拿大",
+        "activity": "操作 IoT DDoS 殭屍網路（AISURU 變種），感染數百萬裝置"
+      }
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "【緊急，2026-05-27 前】修補 Drupal Core CVE-2026-9082，此為 CISA KEV 強制截止日，數千個網站已遭積極攻擊，並建議部署 WAF 規則攔截 SQL 注入嘗試。"
+    },
+    {
+      "priority": "high",
+      "action": "【緊急，立即執行】更新 LiteSpeed cPanel 外掛至修補版本（CVE-2026-48172，CVSS 10.0），此漏洞正在被積極利用，任何 cPanel 帳戶均可用來取得 root 權限。"
+    },
+    {
+      "priority": "high",
+      "action": "【緊急，立即執行】套用 Cisco Secure Workload 安全更新（CVE-2026-20223，CVSS 10.0），未驗證攻擊者可取得最高管理員權限，應同時限制 REST API 端點的網路存取。"
+    },
+    {
+      "priority": "high",
+      "action": "【2026-06-04 前】修補 Langflow（CVE-2025-34291，CVSS 9.4，KEV）及 Trend Micro Apex One（CVE-2026-34926，KEV）並輪換相關 API 金鑰。"
+    },
+    {
+      "priority": "high",
+      "action": "確認 Microsoft 2026 年 5 月 Patch Tuesday 已完整部署，優先確保 Defender 零時差漏洞（CVE-2026-41091、CVE-2026-45498）已修補，CISA KEV 截止 2026-06-03。"
+    },
+    {
+      "priority": "medium",
+      "action": "全面稽核開發環境中已安裝的 VS Code 延伸套件，特別是近期安裝的套件（如 Nx Console），移除可疑或未通過驗證的版本；輪換開發環境中的所有存取憑證。"
+    },
+    {
+      "priority": "medium",
+      "action": "稽核 npm 與 Composer 套件依賴，識別並移除受 Mini Shai-Hulud（AntV 生態系）或 Packagist Laravel-Lang 供應鏈攻擊影響的套件，並立即輪換 CI/CD 管道憑證。"
+    },
+    {
+      "priority": "medium",
+      "action": "檢查 GitHub Actions 工作流程，識別未經授權新增的惡意 workflow 檔案（Megalodon 式攻擊），並啟用 Actions 工作流程的審核審批流程。"
+    },
+    {
+      "priority": "low",
+      "action": "為 npm 套件發布啟用分段發布（Staged Publishing）與 2FA 驗證功能，參考 GitHub 最新推出的安全強化機制，降低套件維護者帳戶遭入侵後的供應鏈風險。"
+    },
+    {
+      "priority": "low",
+      "action": "評估 Underminr 域名前置漏洞對組織 DNS 過濾策略的影響（約 8,800 萬個網域受波及），並部署行為偵測工具識別利用 Discord/Microsoft Graph 進行 C2 通訊的異常流量（防範 Webworm）。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "通用漏洞揭露 (CVE)",
+      "term_en": "CVE",
+      "term_zh": "通用漏洞揭露",
+      "definition": "公開已知漏洞的統一編號系統",
+      "id": "cve",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cve"
+    },
+    {
+      "term": "已知遭利用漏洞清單 (KEV)",
+      "term_en": "KEV",
+      "term_zh": "已知遭利用漏洞清單",
+      "definition": "CISA 維護的已確認遭實際利用的漏洞清單",
+      "id": "kev",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/kev"
+    },
+    {
+      "term": "通用漏洞評分系統 (CVSS)",
+      "term_en": "CVSS",
+      "term_zh": "通用漏洞評分系統",
+      "definition": "評估漏洞嚴重程度的標準化計分系統",
+      "id": "cvss",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cvss"
+    },
+    {
+      "term": "進階持續性威脅 (APT)",
+      "term_en": "APT",
+      "term_zh": "進階持續性威脅",
+      "definition": "國家級駭客組織發動的長期網路攻擊",
+      "id": "apt",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/apt"
+    },
+    {
+      "term": "殭屍網路 (Botnet)",
+      "term_en": "Botnet",
+      "term_zh": "殭屍網路",
+      "definition": "由攻擊者控制的大量受感染電腦組成的網路",
+      "id": "botnet",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/botnet"
+    },
+    {
+      "term": "分散式阻斷服務攻擊 (DDoS)",
+      "term_en": "DDoS",
+      "term_zh": "分散式阻斷服務攻擊",
+      "definition": "利用大量流量癱瘓目標服務的攻擊",
+      "id": "ddos",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/ddos"
+    },
+    {
+      "term": "虛擬私人網路 (VPN)",
+      "term_en": "VPN",
+      "term_zh": "虛擬私人網路",
+      "definition": "透過加密通道在公共網路上建立私密連線",
+      "id": "vpn",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/vpn"
+    },
+    {
+      "term": "權限提升 (Privilege Escalation)",
+      "term_en": "Privilege Escalation",
+      "term_zh": "權限提升",
+      "definition": "攻擊者取得更高系統權限的技術",
+      "id": "privilege_escalation",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/privilege_escalation"
+    },
+    {
+      "term": "域名前置 (Domain Fronting)",
+      "term_en": "Domain Fronting",
+      "term_zh": "域名前置",
+      "definition": "利用受信任域名隱藏惡意連線的技術",
+      "id": "domain_fronting",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/domain_fronting"
+    },
+    {
+      "term": "惡意程式簽署即服務 (MSaaS)",
+      "term_en": "Malware Signing as a Service",
+      "term_zh": "惡意程式簽署即服務",
+      "definition": "提供惡意程式合法簽章的犯罪服務",
+      "id": "malware_signing_as_a_service",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/malware_signing_as_a_service"
+    }
+  ],
+  "references": [
+    {
+      "title": "GitHub Confirms Breach of Internal Repositories Via Malicious VS Code Extension",
+      "url": "https://www.infosecurity-magazine.com/news/github-confirms-breach-vs-code/"
+    },
+    {
+      "title": "Drupal Core SQL Injection Bug Actively Exploited, Added to CISA KEV",
+      "url": "https://thehackernews.com/2026/05/drupal-core-sql-injection-bug-actively.html"
+    },
+    {
+      "title": "CISA Admin Leaked AWS GovCloud Keys on Github",
+      "url": "https://krebsonsecurity.com/2026/05/cisa-admin-leaked-aws-govcloud-keys-on-github/"
+    },
+    {
+      "title": "LiteSpeed cPanel Plugin CVE-2026-48172 Exploited to Run Scripts as Root",
+      "url": "https://thehackernews.com/2026/05/litespeed-cpanel-plugin-cve-2026-48172.html"
+    },
+    {
+      "title": "Cisco Patches CVSS 10.0 Secure Workload REST API Flaw Enabling Data Access",
+      "url": "https://thehackernews.com/2026/05/cisco-patches-cvss-100-secure-workload.html"
+    },
+    {
+      "title": "CISA Adds Exploited Langflow and Trend Micro Apex One Vulnerabilities to KEV",
+      "url": "https://thehackernews.com/2026/05/cisa-adds-exploited-langflow-and-trend.html"
+    },
+    {
+      "title": "TrendAI Patches Apex One Zero-Day Exploited in the Wild",
+      "url": "https://www.securityweek.com/trendai-patches-apex-one-zero-day-exploited-in-the-wild/"
+    },
+    {
+      "title": "First VPN Dismantled in Global Takedown Over Use by 25 Ransomware Groups",
+      "url": "https://thehackernews.com/2026/05/first-vpn-dismantled-in-global-takedown.html"
+    },
+    {
+      "title": "Megalodon GitHub Attack Targets 5,561 Repos with Malicious CI/CD Workflows",
+      "url": "https://thehackernews.com/2026/05/megalodon-github-attack-targets-5561.html"
+    },
+    {
+      "title": "Mini Shai Hulud: Compromised @antv npm packages enable CI/CD credential theft",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/20/mini-shai-hulud-compromised-antv-npm-packages-enable-ci-cd-credential-theft/"
+    },
+    {
+      "title": "Packagist Supply Chain Attack Infects 8 Packages Using GitHub-Hosted Linux Malware",
+      "url": "https://thehackernews.com/2026/05/packagist-supply-chain-attack-infects-8.html"
+    },
+    {
+      "title": "Kimwolf DDoS Botnet Operator Arrested in Canada Over DDoS-for-Hire Attacks",
+      "url": "https://thehackernews.com/2026/05/kimwolf-ddos-botnet-operator-arrested.html"
+    },
+    {
+      "title": "China's Webworm Uses Discord, Microsoft Graphs to Hack EU Governments",
+      "url": "https://www.darkreading.com/endpoint-security/chinas-webworm-discord-microsoft-graphs"
+    },
+    {
+      "title": "Ghostwriter Targets Ukraine Government Entities with Prometheus Phishing Malware",
+      "url": "https://thehackernews.com/2026/05/ghostwriter-targets-ukraine-government.html"
+    },
+    {
+      "title": "Exposing Fox Tempest: A malware-signing service operation",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/19/exposing-fox-tempest-a-malware-signing-service-operation/"
+    },
+    {
+      "title": "Verizon DBIR: Vulnerability Exploits Overtake Credentials as Top Access Vector",
+      "url": "https://www.infosecurity-magazine.com/news/verizon-dbir-exploits-top-access/"
+    },
+    {
+      "title": "'Underminr' Vulnerability Lets Attackers Hide Malicious Connections Behind Trusted Domains",
+      "url": "https://www.securityweek.com/underminr-vulnerability-lets-attackers-hide-malicious-connections-behind-trusted-domains/"
+    },
+    {
+      "title": "npm Adds 2FA-Gated Publishing and Package Install Controls Against Supply Chain Attacks",
+      "url": "https://thehackernews.com/2026/05/npm-adds-2fa-gated-publishing-and.html"
+    },
+    {
+      "title": "CISA Known Exploited Vulnerabilities Catalog",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}
