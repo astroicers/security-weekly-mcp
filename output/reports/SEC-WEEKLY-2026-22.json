@@ -1,0 +1,419 @@
+{
+  "title": "資安週報 2026/05/25 - 2026/05/31",
+  "report_id": "SEC-WEEKLY-2026-22",
+  "period": {
+    "start": "2026-05-25",
+    "end": "2026-05-31"
+  },
+  "publish_date": "2026-06-01",
+  "summary": {
+    "total_events": 13,
+    "total_vulnerabilities": 7,
+    "threat_level": "elevated"
+  },
+  "events": [
+    {
+      "title": "台灣EVERY8D企業簡訊平台遭駭，F-ISAC啟動黃燈級供應鏈危機應變",
+      "severity": "critical",
+      "event_type": "供應鏈攻擊",
+      "summary": "台灣主要企業簡訊平台互動資通（EVERY8D）遭駭客入侵，攻擊者透過簡訊平台滲透多家企業客戶系統，引發國家級供應鏈安全危機。金融資訊分享與分析中心（F-ISAC）發布黃燈級資安事件警訊，啟動緊急應變。此事件顯示第三方服務供應商已成為攻擊重要跳板。",
+      "source": "iThome 資安",
+      "url": "https://www.ithome.com.tw/news/176215",
+      "date": "2026-05-29"
+    },
+    {
+      "title": "UAT-8616駭客組織利用Cisco Catalyst SD-WAN滿分漏洞（CVE-2026-20182，CVSS 10.0）發動攻擊",
+      "severity": "critical",
+      "event_type": "漏洞利用",
+      "summary": "駭客組織UAT-8616積極利用Cisco Catalyst SD-WAN身份驗證繞過漏洞（CVE-2026-20182，CVSS：10.0），允許未經驗證的遠端攻擊者發送特製請求取得高權限帳號管理權限。TWCERT/CC已發布緊急公告，台灣多家使用SD-WAN的企業面臨風險。",
+      "source": "TWCERT/CC 資安新聞",
+      "url": "https://www.twcert.org.tw/",
+      "date": "2026-05-29"
+    },
+    {
+      "title": "Palo Alto PAN-OS GlobalProtect身份驗證繞過漏洞（CVE-2026-0257）遭積極利用並列入CISA KEV",
+      "severity": "critical",
+      "event_type": "漏洞利用",
+      "summary": "Palo Alto Networks警告PAN-OS及Prisma Access的身份驗證繞過漏洞（CVE-2026-0257，CVSS 7.8）已遭野外積極利用。攻擊者可利用此漏洞建立未授權的VPN連線，繞過網路存取控制。CISA已列入KEV清單，要求聯邦機構於2026-06-01前完成修補。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/05/pan-os-globalprotect-authentication.html",
+      "date": "2026-05-30"
+    },
+    {
+      "title": "Nx Console及TanStack遭供應鏈攻擊，惡意版本列入CISA KEV",
+      "severity": "critical",
+      "event_type": "供應鏈攻擊",
+      "summary": "Nx Console（CVE-2026-48027）與TanStack（CVE-2026-45321）相繼遭供應鏈攻擊，惡意版本被發布至npm套件倉庫，可自磁碟及記憶體中竊取開發者憑證。CISA已將兩者均列入KEV清單，影響全球數百萬開發者環境。",
+      "source": "CISA KEV",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "date": "2026-05-27"
+    },
+    {
+      "title": "荷蘭當局瓦解涉及1,700萬台感染設備的殭屍網路，逮捕協助俄羅斯攻擊的主機業者",
+      "severity": "high",
+      "event_type": "執法行動",
+      "summary": "荷蘭當局宣布瓦解一個由逾1,700萬台受感染設備組成的殭屍網路，超過200台命令與控制（C2）伺服器被查扣，並逮捕兩名為俄羅斯網路攻擊提供基礎設施的主機業者。荷蘭國家網路安全中心（NCSC）指出，受感染設備涵蓋電腦、平板、手機及IoT裝置。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/05/dutch-authorities-dismantle-botnet.html",
+      "date": "2026-05-31"
+    },
+    {
+      "title": "裝置碼釣魚攻擊（Device Code Phishing）成新興威脅，EvilTokens PhaaS平台助長企業組織受害",
+      "severity": "high",
+      "event_type": "網路釣魚",
+      "summary": "攻擊者利用EvilTokens釣魚即服務（PhaaS）平台，結合AI自動化工具針對企業發動裝置碼釣魚攻擊。攻擊者誘騙使用者在官方OAuth頁面輸入惡意裝置碼，完成授權後即可取得存取權杖，有效繞過多因子驗證（MFA），無需竊取密碼即可入侵企業帳號。",
+      "source": "TWCERT/CC 資安新聞",
+      "url": "https://www.twcert.org.tw/",
+      "date": "2026-05-29"
+    },
+    {
+      "title": "ChatGPhish漏洞使ChatGPT網頁摘要功能成為網路釣魚介面",
+      "severity": "high",
+      "event_type": "漏洞揭露",
+      "summary": "資安研究人員揭露ChatGPT中的ChatGPhish漏洞，攻擊者可利用ChatGPT對Markdown連結和圖片的隱式信任，注入惡意內容將其網頁摘要功能轉化為釣魚介面，誘騙使用者點擊惡意連結並洩漏憑證。此漏洞展示生成式AI工具在資安方面的新型攻擊面。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/05/chatgphish-vulnerability-turns-chatgpt.html",
+      "date": "2026-05-29"
+    },
+    {
+      "title": "攻擊者在Marimo RCE漏洞（CVE-2026-39987）利用後，首度使用LLM代理執行後滲透行動",
+      "severity": "high",
+      "event_type": "漏洞利用",
+      "summary": "未知威脅行為者在利用Marimo開源Python筆記本框架的遠端程式碼執行漏洞（CVE-2026-39987）後，使用LLM代理（AI Agent）自動執行後滲透行動，包含橫向移動和資料外洩。這是首次觀察到攻擊者在真實環境中使用AI代理進行後滲透自動化，標誌著AI輔助攻擊的新里程碑。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/05/attackers-use-llm-agent-for-post.html",
+      "date": "2026-05-29"
+    },
+    {
+      "title": "俄羅斯新型APT組織GREYVIBE以AI驅動的網路攻擊持續鎖定烏克蘭",
+      "severity": "high",
+      "event_type": "APT活動",
+      "summary": "一個此前未有記錄的威脅行為者GREYVIBE被歸因於自2025年8月起持續針對烏克蘭及相關實體的攻擊活動。GREYVIBE的特色在於大規模使用AI工具輔助攻擊，手法包含AI生成的魚叉式網路釣魚、惡意程式部署及關鍵基礎設施攻擊，代表AI在國家級網路作戰中的深度應用。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/05/new-russian-linked-greyvibe-targets.html",
+      "date": "2026-05-29"
+    },
+    {
+      "title": "惡意npm套件以依賴混淆攻擊竊取開發者雲端憑證及CI/CD機密",
+      "severity": "high",
+      "event_type": "供應鏈攻擊",
+      "summary": "微軟發現33個惡意npm套件以依賴混淆（Dependency Confusion）手法攻擊開發者環境，竊取雲端憑證和CI/CD管線機密。另有惡意Sicoob NuGet套件假冒巴西合作金融系統SDK，竊取銀行客戶端憑證。攻擊者將開發者環境作為進入企業生產系統的跳板。",
+      "source": "Microsoft Security Blog",
+      "url": "https://www.microsoft.com/en-us/security/blog/",
+      "date": "2026-05-30"
+    },
+    {
+      "title": "北韓Kimsuky部署新型HTTPSpy惡意程式，擴大利用VS Code Tunnels及HelloDoor後門",
+      "severity": "high",
+      "event_type": "APT活動",
+      "summary": "北韓國家支持的APT組織Kimsuky（Velvet Chollima）針對南韓軍事與企業實體發動新一波攻擊，部署新型HTTPSpy惡意程式，並擴大使用VS Code遠端隧道（Tunnels）及HelloDoor後門進行持久化。此手法利用合法開發工具規避端點偵測。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/05/kimsuky-deploys-httpspy-expands-arsenal.html",
+      "date": "2026-05-29"
+    },
+    {
+      "title": "CrowdStrike聯合Google及Shadowserver瓦解Glassworm開源供應鏈殭屍網路",
+      "severity": "medium",
+      "event_type": "執法行動",
+      "summary": "CrowdStrike與Google及Shadowserver合作瓦解Glassworm殭屍網路，該網路專門針對開源軟體供應鏈發動攻擊，已感染數百個套件及倉庫。此次行動剝奪了威脅行為者的基礎設施存取，但突顯出開源生態系統面臨的持續安全威脅。",
+      "source": "CyberScoop",
+      "url": "https://cyberscoop.com/crowdstrike-glassworm-botnet-takedown/",
+      "date": "2026-05-27"
+    },
+    {
+      "title": "歐盟《網路韌性法案》（CRA）漏洞通報義務將於2026年9月正式強制執行",
+      "severity": "medium",
+      "event_type": "法規合規",
+      "summary": "歐盟《網路韌性法案》（CRA）第14條「漏洞通報義務」將於2026年9月11日正式強制執行。所有進入歐盟市場的具數位功能產品，若發現被積極利用的漏洞，須強制通報並管理軟體物料清單（SBOM）。全球聯網製造商面臨合規壓力，台灣科技業者亦受波及。",
+      "source": "TWCERT/CC 資安新聞",
+      "url": "https://www.twcert.org.tw/",
+      "date": "2026-05-29"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-20182",
+      "title": "Cisco Catalyst SD-WAN Manager 身份驗證繞過漏洞",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "Cisco",
+      "product": "Catalyst SD-WAN Manager",
+      "description": "未經驗證的遠端攻擊者可透過發送特製請求繞過身份驗證機制，取得高權限帳號管理權限。UAT-8616組織已積極利用此滿分漏洞發動攻擊。",
+      "in_kev": true,
+      "kev_due_date": "立即修補",
+      "priority": "P1 — 立即修補"
+    },
+    {
+      "cve_id": "CVE-2026-0257",
+      "title": "Palo Alto Networks PAN-OS GlobalProtect 身份驗證繞過漏洞",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Palo Alto Networks",
+      "product": "PAN-OS / Prisma Access",
+      "description": "攻擊者可繞過安全限制並建立未授權的 VPN 連線，已遭野外積極利用。CISA KEV 要求聯邦機構於 2026-06-01 前完成修補。",
+      "in_kev": true,
+      "kev_due_date": "2026-06-01",
+      "priority": "P1 — 立即修補"
+    },
+    {
+      "cve_id": "CVE-2026-48027",
+      "title": "Nx Console 嵌入惡意程式碼漏洞（供應鏈攻擊）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Nx",
+      "product": "Nx Console (npm)",
+      "description": "惡意版本的 Nx Console 被發布至 npm，可從磁碟及記憶體中竊取開發者憑證（含 API 金鑰、雲端憑證）。",
+      "in_kev": true,
+      "kev_due_date": "2026-06-10",
+      "priority": "P1 — 立即移除惡意版本"
+    },
+    {
+      "cve_id": "CVE-2026-45321",
+      "title": "TanStack 嵌入惡意程式碼漏洞（供應鏈攻擊）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "TanStack",
+      "product": "TanStack (npm)",
+      "description": "惡意版本被發布至 npm 以竊取憑證，允許在受信任身份下發布憑證竊取惡意程式。",
+      "in_kev": true,
+      "kev_due_date": "2026-06-10",
+      "priority": "P1 — 立即移除惡意版本"
+    },
+    {
+      "cve_id": "CVE-2026-48172",
+      "title": "LiteSpeed cPanel Plugin 權限提升漏洞",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "LiteSpeed",
+      "product": "LiteSpeed cPanel Plugin",
+      "description": "任何 cPanel 使用者帳號均可濫用此漏洞，以 root 權限執行任意腳本。已列入 CISA KEV。",
+      "in_kev": true,
+      "kev_due_date": "2026-05-29",
+      "priority": "P1 — 立即修補"
+    },
+    {
+      "cve_id": "CVE-2026-8398",
+      "title": "Daemon Tools Lite 嵌入惡意程式碼漏洞",
+      "cvss": 8.5,
+      "severity": "high",
+      "vendor": "Daemon",
+      "product": "Daemon Tools Lite",
+      "description": "對機密性、完整性及可用性具高度影響的未知漏洞，已被積極利用。已列入 CISA KEV。",
+      "in_kev": true,
+      "kev_due_date": "2026-05-30",
+      "priority": "P1 — 立即修補"
+    },
+    {
+      "cve_id": "CVE-2026-39987",
+      "title": "Marimo Python Notebook 遠端程式碼執行漏洞",
+      "cvss": 9.0,
+      "severity": "critical",
+      "vendor": "Marimo",
+      "product": "Marimo (Python Notebook Framework)",
+      "description": "攻擊者可在可公開存取的 Marimo 伺服器上執行任意程式碼，已被利用於部署 LLM 代理執行後滲透自動化行動。",
+      "in_kev": false,
+      "priority": "P2 — 儘速修補"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢以AI輔助攻擊與供應鏈攻擊為核心雙主軸。AI工具不再只是防守工具，已成為攻擊者自動化後滲透、生成釣魚內容、規模化部署攻擊的核心武器。供應鏈攻擊從開源套件（npm/NuGet）擴展到企業服務（EVERY8D），顯示攻擊者正系統性地尋找軟體供應鏈中的薄弱環節。裝置碼釣魚作為MFA繞過的新手法急速升溫，傳統MFA防護效果受到嚴峻挑戰。",
+    "attack_techniques": [
+      "AI代理後滲透自動化（LLM-powered post-exploitation）",
+      "裝置碼釣魚繞過MFA（Device Code Phishing / OAuth Abuse）",
+      "依賴混淆供應鏈攻擊（Dependency Confusion）",
+      "VS Code Tunnels合法工具濫用（Living off the Land）",
+      "PhaaS平台規模化釣魚攻擊",
+      "滿分漏洞遠端身份驗證繞過（CVSS 10.0 Auth Bypass）"
+    ],
+    "active_actors": [
+      {
+        "name": "UAT-8616",
+        "origin": "未知",
+        "target": "SD-WAN基礎設施",
+        "technique": "CVE-2026-20182 Authentication Bypass"
+      },
+      {
+        "name": "GREYVIBE",
+        "origin": "俄羅斯",
+        "target": "烏克蘭政府與關鍵基礎設施",
+        "technique": "AI驅動APT攻擊、魚叉式網路釣魚"
+      },
+      {
+        "name": "Kimsuky (Velvet Chollima)",
+        "origin": "北韓",
+        "target": "南韓軍事與企業",
+        "technique": "HTTPSpy惡意程式 + VS Code Tunnels + HelloDoor後門"
+      }
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "【P1】立即套用 Cisco Catalyst SD-WAN（CVE-2026-20182，CVSS 10.0）修補程式，此漏洞已遭積極利用，允許未授權遠端存取，台灣TWCERT/CC已發緊急公告。"
+    },
+    {
+      "priority": "high",
+      "action": "【P1】立即套用 Palo Alto PAN-OS GlobalProtect（CVE-2026-0257）修補程式，CISA KEV截止日期為2026-06-01（今日），所有使用PAN-OS的組織應優先處理。"
+    },
+    {
+      "priority": "high",
+      "action": "【P1】稽核 npm/NuGet 依賴項，移除 Nx Console（CVE-2026-48027）及 TanStack（CVE-2026-45321）受感染惡意版本，並立即撤銷可能外洩的雲端憑證及API金鑰。"
+    },
+    {
+      "priority": "high",
+      "action": "【P1】評估台灣業務中使用EVERY8D簡訊平台的系統，立即稽核第三方簡訊服務供應商的存取權限，並依F-ISAC指引啟動事件應變程序。"
+    },
+    {
+      "priority": "medium",
+      "action": "【P2】部署條件式存取（Conditional Access）政策，偵測並阻斷裝置碼釣魚（Device Code Phishing）OAuth濫用行為；考慮停用非必要的裝置碼授權流程。"
+    },
+    {
+      "priority": "medium",
+      "action": "【P2】更新 LiteSpeed cPanel Plugin（CVE-2026-48172）及 Daemon Tools Lite（CVE-2026-8398），兩者均已列入CISA KEV且截止日期已過。"
+    },
+    {
+      "priority": "medium",
+      "action": "【P2】強化開發環境安全：實施CI/CD機密掃描（secret scanning）、建立私有套件倉庫並設定優先使用內部套件，防範依賴混淆攻擊。"
+    },
+    {
+      "priority": "low",
+      "action": "【P3】盤點出口歐盟市場的產品清單，啟動SBOM管理流程及漏洞通報機制，為2026年9月CRA第14條漏洞通報義務完成合規準備。"
+    },
+    {
+      "priority": "low",
+      "action": "【P3】訂閱TWCERT/CC及F-ISAC資安警訊，持續監控GREYVIBE及Kimsuky的入侵指標（IoC），並針對VS Code Tunnels異常使用進行監控。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "殭屍網路",
+      "term_en": "Botnet",
+      "term_zh": "殭屍網路",
+      "definition": "由攻擊者控制的大量受感染電腦組成的網路",
+      "id": "botnet",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/botnet"
+    },
+    {
+      "term": "命令與控制 (C2)",
+      "term_en": "C2",
+      "term_zh": "命令與控制",
+      "definition": "攻擊者用來遠端控制受感染系統的基礎設施",
+      "id": "c2",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/c2"
+    },
+    {
+      "term": "供應鏈攻擊",
+      "term_en": "Supply Chain Attack",
+      "term_zh": "供應鏈攻擊",
+      "definition": "透過入侵軟體供應商來攻擊最終用戶的手法",
+      "id": "supply_chain_attack",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/supply_chain_attack"
+    },
+    {
+      "term": "多因子驗證 (MFA)",
+      "term_en": "MFA",
+      "term_zh": "多因子驗證",
+      "definition": "要求使用者提供兩種以上驗證因子的身分驗證方式",
+      "id": "mfa",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/mfa"
+    },
+    {
+      "term": "已知遭利用漏洞清單 (KEV)",
+      "term_en": "KEV",
+      "term_zh": "已知遭利用漏洞清單",
+      "definition": "CISA 維護的已確認遭實際利用的漏洞清單",
+      "id": "kev",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/kev"
+    },
+    {
+      "term": "釣魚即服務 (PhaaS)",
+      "term_en": "PhaaS",
+      "term_zh": "釣魚即服務",
+      "definition": "以訂閱制提供網路釣魚攻擊套件的服務",
+      "id": "phaas",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/phaas"
+    },
+    {
+      "term": "裝置碼釣魚攻擊",
+      "term_en": "Device Code Phishing",
+      "term_zh": "裝置碼釣魚攻擊",
+      "definition": "利用OAuth裝置碼流程繞過MFA的釣魚手法",
+      "id": "device_code_phishing",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/device_code_phishing"
+    },
+    {
+      "term": "依賴混淆攻擊",
+      "term_en": "Dependency Confusion",
+      "term_zh": "依賴混淆攻擊",
+      "definition": "在公開套件庫發布同名套件以取代私有套件",
+      "id": "dependency_confusion",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/dependency_confusion"
+    },
+    {
+      "term": "軟體物料清單 (SBOM)",
+      "term_en": "SBOM",
+      "term_zh": "軟體物料清單",
+      "definition": "列出軟體所有元件與依賴關係的清冊",
+      "id": "sbom",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/sbom"
+    },
+    {
+      "term": "Kimsuky",
+      "term_en": "Kimsuky",
+      "term_zh": "Kimsuky",
+      "definition": "北韓針對南韓的網路間諜組織",
+      "id": "kimsuky",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/kimsuky"
+    }
+  ],
+  "references": [
+    {
+      "title": "iThome 資安週報 0525~0529：EVERY8D遭駭供應鏈危機",
+      "url": "https://www.ithome.com.tw/news/176215"
+    },
+    {
+      "title": "TWCERT/CC：UAT-8616鎖定Cisco Catalyst SD-WAN滿分漏洞",
+      "url": "https://www.twcert.org.tw/"
+    },
+    {
+      "title": "The Hacker News：PAN-OS GlobalProtect CVE-2026-0257積極利用",
+      "url": "https://thehackernews.com/2026/05/pan-os-globalprotect-authentication.html"
+    },
+    {
+      "title": "The Hacker News：Dutch Authorities Dismantle 17M-Device Botnet",
+      "url": "https://thehackernews.com/2026/05/dutch-authorities-dismantle-botnet.html"
+    },
+    {
+      "title": "CISA Known Exploited Vulnerabilities Catalog",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "Microsoft Security Blog：Malicious npm packages abuse dependency confusion",
+      "url": "https://www.microsoft.com/en-us/security/blog/"
+    },
+    {
+      "title": "The Hacker News：GREYVIBE Russia-Linked AI-Powered Cyberattacks on Ukraine",
+      "url": "https://thehackernews.com/2026/05/new-russian-linked-greyvibe-targets.html"
+    },
+    {
+      "title": "The Hacker News：Kimsuky Deploys HTTPSpy with VS Code Tunnels",
+      "url": "https://thehackernews.com/2026/05/kimsuky-deploys-httpspy-expands-arsenal.html"
+    },
+    {
+      "title": "The Hacker News：LLM Agent Post-Exploitation via Marimo CVE-2026-39987",
+      "url": "https://thehackernews.com/2026/05/attackers-use-llm-agent-for-post.html"
+    },
+    {
+      "title": "The Hacker News：ChatGPhish Vulnerability in ChatGPT",
+      "url": "https://thehackernews.com/2026/05/chatgphish-vulnerability-turns-chatgpt.html"
+    },
+    {
+      "title": "CyberScoop：CrowdStrike Disrupts Glassworm Botnet Targeting Open-Source Supply Chain",
+      "url": "https://cyberscoop.com/crowdstrike-glassworm-botnet-takedown/"
+    },
+    {
+      "title": "TWCERT/CC：歐盟CRA強制合規SBOM管理新挑戰",
+      "url": "https://www.twcert.org.tw/"
+    }
+  ]
+}
