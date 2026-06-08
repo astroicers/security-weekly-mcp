@@ -1,0 +1,454 @@
+{
+  "title": "資安週報 2026/06/01 - 2026/06/07",
+  "report_id": "SEC-WEEKLY-2026-23",
+  "period": {
+    "start": "2026-06-01",
+    "end": "2026-06-07"
+  },
+  "publish_date": "2026-06-08",
+  "summary": {
+    "total_events": 13,
+    "total_vulnerabilities": 12,
+    "threat_level": "elevated"
+  },
+  "events": [
+    {
+      "title": "Miasma蠕蟲供應鏈攻擊入侵73個Microsoft GitHub儲存庫",
+      "severity": "critical",
+      "event_type": "supply_chain_attack",
+      "summary": "自我複製的Miasma供應鏈蠕蟲感染微軟旗下73個GitHub儲存庫，涵蓋Azure、Azure-Samples、Microsoft、MicrosoftDocs四個組織。攻擊者利用postinstall腳本機制植入惡意程式，並透過GitHub Actions工作流程進行自我複製傳播，GitHub已緊急停用受影響儲存庫。同週npm生態系亦遭IronWorm與Miasma雙波攻擊，逾50個合法套件遭汙染。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/miasma-worm-hits-73-microsoft-github.html",
+      "date": "2026-06-06"
+    },
+    {
+      "title": "Cisco Catalyst SD-WAN Manager CVE-2026-20245零時差漏洞遭積極利用（全年第7個）",
+      "severity": "critical",
+      "event_type": "zero_day_exploitation",
+      "summary": "Cisco警告Catalyst SD-WAN Manager存在高危漏洞CVE-2026-20245（CVSS 7.8），可允許攻擊者以root身份執行任意指令，目前無修補程式可用，是2026年Cisco SD-WAN系列遭利用的第7個零時差漏洞，影響On-Prem、Cloud-Pro、Cloud及FedRAMP等所有部署類型。",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/cisco-warns-of-7th-sd-wan-zero-day-exploited-in-2026/",
+      "date": "2026-06-05"
+    },
+    {
+      "title": "IronWorm與Miasma雙波攻擊衝擊npm生態系，逾700個程式碼庫遭汙染",
+      "severity": "critical",
+      "event_type": "supply_chain_attack",
+      "summary": "JFrog揭露兩波npm供應鏈攻擊：IronWorm以Rust語言撰寫，透過eBPF核心rootkit隱藏自身，可竊取超過80種機密資料（含GitHub OAuth token、雲端平台憑證）並透過Tor傳送；Miasma蠕蟲則感染逾90版本的@redhat-cloud-services套件，在CI/CD環境中自我複製擴散。兩波攻擊合計汙染逾700個GitHub程式碼庫。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/ironworm-and-new-miasma-worm-variant.html",
+      "date": "2026-06-05"
+    },
+    {
+      "title": "Everest Forms Pro CVE-2026-3300（CVSS 9.8）遭積極利用，可完全接管WordPress網站",
+      "severity": "critical",
+      "event_type": "vulnerability_exploitation",
+      "summary": "WordPress表單外掛Everest Forms Pro（約4,000個活躍安裝）存在遠端程式碼執行漏洞CVE-2026-3300，CVSS評分高達9.8，影響1.9.12及以下所有版本。攻擊者已積極利用此漏洞執行任意程式碼並完全接管受影響網站，Wordfence於3個月前已通報並取得修補，但仍有大量網站未更新。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/hackers-exploit-critical-everest-forms.html",
+      "date": "2026-06-05"
+    },
+    {
+      "title": "CISA將SolarWinds Serv-U CVE-2026-28318 DoS漏洞列入已知遭利用漏洞清單（KEV）",
+      "severity": "high",
+      "event_type": "kev_alert",
+      "summary": "CISA確認SolarWinds Serv-U多協定檔案伺服器存在高危DoS漏洞CVE-2026-28318（CVSS 7.5），攻擊者無需驗證即可透過使用Content-Encoding: deflate標頭的特製POST請求讓Serv-U服務崩潰。已列入KEV，政府機關修補期限為2026-06-19。",
+      "source": "The Hacker News / CISA",
+      "url": "https://thehackernews.com/2026/06/cisa-adds-actively-exploited-solarwinds.html",
+      "date": "2026-06-06"
+    },
+    {
+      "title": "Meta AI支援機器人遭利用劫持高知名度Instagram帳號",
+      "severity": "high",
+      "event_type": "ai_security_incident",
+      "summary": "駭客透過社交工程手法欺騙Meta AI支援聊天機器人，偽造受害者身份並誘使其重設帳號密碼，成功接管多個知名Instagram帳號（含美國太空部隊指揮士官長、歐巴馬白宮帳號），並發布親伊朗圖文。Telegram上已出現詳細操作教學，攻擊工具化程度高。",
+      "source": "Krebs on Security",
+      "url": "https://krebsonsecurity.com/2026/06/hackers-used-metas-ai-support-bot-to-seize-instagram-accounts/",
+      "date": "2026-06-01"
+    },
+    {
+      "title": "五眼聯盟示警：中國間諜透過求職平台系統性鎖定政府及軍方人員",
+      "severity": "high",
+      "event_type": "espionage",
+      "summary": "美英加澳紐五眼聯盟發布聯合警示，中國情報官員在LinkedIn等求職平台偽裝成獵頭顧問，系統性地鎖定具備機密或特權資訊存取權的政府、軍方及國防承包商人員，誘導其提供機密資訊或招募為長期眼線。",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/five-eyes-chinese-spies-target-government-military-staff-with-fake-job-opportunities/",
+      "date": "2026-06-05"
+    },
+    {
+      "title": "Palo Alto Networks CVE-2026-0257遭積極利用，初始風險遭低估",
+      "severity": "high",
+      "event_type": "vulnerability_exploitation",
+      "summary": "Palo Alto Networks PAN-OS漏洞CVE-2026-0257在初期被低估其影響，但Unit 42與SentinelOne隨後確認已遭積極利用。TA4922（中國關聯威脅行為者）等攻擊組織已將此漏洞納入武器庫，凸顯漏洞評估初期低估的潛在風險。",
+      "source": "Unit 42 / CyberScoop",
+      "url": "https://unit42.paloaltonetworks.com/active-exploitation-of-pan-os-cve-2026-0257/",
+      "date": "2026-06-05"
+    },
+    {
+      "title": "AI代理以約1,000美元成本自動發現FFmpeg 21個零時差漏洞",
+      "severity": "high",
+      "event_type": "vulnerability_research",
+      "summary": "資安業者depthfirst透過自主AI代理，以約1,000美元成本自動掃描廣泛應用的開源影音函式庫FFmpeg，發現21個零時差漏洞；同週Google Chrome 149亦修補創紀錄的429個漏洞（逾100個為嚴重或高危）。AI輔助漏洞挖掘能力的快速商業化正重新定義弱點揭露的速度與規模。",
+      "source": "The Hacker News / iThome",
+      "url": "https://thehackernews.com/2026/06/ai-agent-uncovers-21-zero-days-in.html",
+      "date": "2026-06-06"
+    },
+    {
+      "title": "聯合國WFP系統遭駭，約60萬加薩家庭受益人資料外洩",
+      "severity": "high",
+      "event_type": "data_breach",
+      "summary": "聯合國世界糧食計畫署（WFP）系統遭駭，約60萬加薩家庭的受益人資料外洩，被認為是迄今最大規模的人道救援組織受益人資料外洩事件。受影響資料包括脆弱人口的個人識別資訊，可能對受益人安全造成直接威脅。",
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/news/176415",
+      "date": "2026-06-08"
+    },
+    {
+      "title": "Claude Code GitHub Action提示注入漏洞允許儲存庫劫持",
+      "severity": "medium",
+      "event_type": "ai_security_incident",
+      "summary": "資安研究員RyotaK（GMO Cybersecurity）發現Anthropic Claude Code GitHub Action存在提示注入漏洞，攻擊者僅需開啟一個GitHub Issue即可劫持使用該Action的公開儲存庫並存取工作流程機密。由於Anthropic自身的Action儲存庫亦使用相同工作流程，潛在影響範圍涵蓋所有下游使用者。Anthropic已完成修補。",
+      "source": "The Hacker News / Microsoft Security Blog",
+      "url": "https://thehackernews.com/2026/06/claude-code-github-action-flaw-let-one.html",
+      "date": "2026-06-04"
+    },
+    {
+      "title": "台電揭露每日平均遭受3萬次駭客攻擊，台灣能源關鍵基礎設施持續承壓",
+      "severity": "medium",
+      "event_type": "critical_infrastructure_threat",
+      "summary": "台灣電力公司（台電）在DSET論壇上揭露，隨地緣政治風險升溫，台電每日平均遭受約3萬次駭客攻擊。同週美國CISA與FBI亦示警自動儲槽計量系統（ATG）遭鎖定，惡意行為者企圖遠端修改儲槽設定並停用警報，顯示全球關鍵基礎設施面臨持續高強度威脅。",
+      "source": "TechNews 資安",
+      "url": "https://infosecu.technews.tw/2026/06/06/taipower-electiricity-is-getting-attacked-by-hacker/",
+      "date": "2026-06-06"
+    },
+    {
+      "title": "PCPJack劫持230台AWS/GCP/Azure雲端伺服器建立隱密SMTP中繼網路",
+      "severity": "medium",
+      "event_type": "cloud_attack",
+      "summary": "威脅行為者PCPJack劫持橫跨美國、歐洲、亞洲的230台商業雲端伺服器（AWS、Google Cloud、Azure），將其悄悄轉換為SMTP電子郵件中繼代理，每5分鐘同步至下游消費端，用於大規模傳送垃圾郵件或網路釣魚攻擊，且難以透過來源IP封鎖識別。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/pcpjack-hijacks-230-aws-google-cloud.html",
+      "date": "2026-06-05"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-3300",
+      "title": "WordPress Everest Forms Pro 遠端程式碼執行漏洞",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "WPEverest",
+      "product": "Everest Forms Pro ≤1.9.12",
+      "description": "WordPress表單外掛Everest Forms Pro存在遠端程式碼執行漏洞，允許未驗證攻擊者在受影響伺服器上執行任意程式碼，導致網站完全被接管。已遭積極利用。[KEV: 否]"
+    },
+    {
+      "cve_id": "CVE-2026-45247",
+      "title": "Mirasvit Full Page Cache Warmer 反序列化遠端程式碼執行漏洞",
+      "cvss": 9.0,
+      "severity": "critical",
+      "vendor": "Mirasvit",
+      "product": "Full Page Cache Warmer (Magento Extension)",
+      "description": "Mirasvit Full Page Cache Warmer存在反序列化不受信任資料漏洞，可讓未驗證攻擊者透過CacheWarmer Cookie提供特製序列化PHP物件以實現遠端程式碼執行。已列入CISA KEV（期限2026-06-06）。[KEV: 是 ⚠️]"
+    },
+    {
+      "cve_id": "CVE-2026-20245",
+      "title": "Cisco Catalyst SD-WAN Manager 任意指令執行零時差漏洞",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Cisco",
+      "product": "Catalyst SD-WAN Manager (所有部署類型)",
+      "description": "Cisco Catalyst SD-WAN Manager存在高危漏洞，允許攻擊者以root身份執行任意指令。目前無修補程式可用，已遭積極利用，為2026年Cisco SD-WAN第7個遭利用零時差漏洞。[KEV: 否，已積極利用 ⚠️]"
+    },
+    {
+      "cve_id": "CVE-2026-28318",
+      "title": "SolarWinds Serv-U 不受控資源消耗阻斷服務漏洞",
+      "cvss": 7.5,
+      "severity": "high",
+      "vendor": "SolarWinds",
+      "product": "Serv-U",
+      "description": "SolarWinds Serv-U存在不受控資源消耗漏洞，允許未驗證攻擊者透過特製Content-Encoding: deflate的POST請求讓服務崩潰。已列入CISA KEV，政府機關修補期限2026-06-19。[KEV: 是 ⚠️]"
+    },
+    {
+      "cve_id": "CVE-2026-0257",
+      "title": "Palo Alto Networks PAN-OS 遠端程式碼執行漏洞",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Palo Alto Networks",
+      "product": "PAN-OS",
+      "description": "Palo Alto Networks PAN-OS存在安全漏洞，已遭TA4922等中國關聯威脅行為者積極利用。初期被低估風險，Unit 42與SentinelOne已確認積極利用現象。[KEV: 否，已積極利用 ⚠️]"
+    },
+    {
+      "cve_id": "CVE-2026-20230",
+      "title": "Cisco Unified CM 伺服器端請求偽造（SSRF）漏洞",
+      "cvss": 8.6,
+      "severity": "high",
+      "vendor": "Cisco",
+      "product": "Unified Communications Manager / Unified CM SME",
+      "description": "Cisco Unified CM存在SSRF漏洞，允許未驗證網路攻擊者透過特製HTTP請求寫入檔案，後續可被濫用於提升至root權限。PoC已公開。[KEV: 否]"
+    },
+    {
+      "cve_id": "CVE-2026-47294",
+      "title": "Microsoft SharePoint 反序列化遠端程式碼執行漏洞",
+      "cvss": 8.0,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "SharePoint",
+      "description": "Microsoft SharePoint存在不受信任資料反序列化漏洞，授權攻擊者可透過網路執行程式碼。已於本週修補。[KEV: 否]"
+    },
+    {
+      "cve_id": "CVE-2025-48595",
+      "title": "Android Framework 整數溢出本機權限提升漏洞",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Google",
+      "product": "Android Framework",
+      "description": "Android Framework存在整數溢出漏洞，可導致程式碼執行並允許本機權限提升。已列入CISA KEV（期限2026-06-05）。[KEV: 是 ⚠️]"
+    },
+    {
+      "cve_id": "CVE-2022-0492",
+      "title": "Linux Kernel cgroups v1 不當驗證權限提升漏洞",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Linux",
+      "product": "Linux Kernel (cgroups v1)",
+      "description": "Linux Kernel存在不當驗證漏洞，可透過cgroups v1 release_agent功能進行權限提升，常被容器逃逸攻擊利用。已列入CISA KEV（期限2026-06-05）。[KEV: 是 ⚠️]"
+    },
+    {
+      "cve_id": "CVE-2026-10206",
+      "title": "D-Link DI-8400 堆疊型緩衝區溢出漏洞",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "D-Link",
+      "product": "DI-8400 ≤16.07.26A1",
+      "description": "D-Link DI-8400路由器的/dbsrv.asp存在堆疊型緩衝區溢出漏洞，可允許已驗證的遠端攻擊者執行任意程式碼。漏洞細節已公開。[KEV: 否]"
+    },
+    {
+      "cve_id": "CVE-2026-10270",
+      "title": "D-Link DI-7001 MINI 堆疊型緩衝區溢出漏洞",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "D-Link",
+      "product": "DI-7001 MINI ≤19.09.19A1",
+      "description": "D-Link DI-7001 MINI路由器的/httpd_debug.asp API端點存在堆疊型緩衝區溢出漏洞，可允許已驗證的遠端攻擊者執行任意程式碼。漏洞細節已公開。[KEV: 否]"
+    },
+    {
+      "cve_id": "CVE-2026-35563",
+      "title": "LDAP 用戶端憑證主機名稱驗證缺失漏洞",
+      "cvss": 8.5,
+      "severity": "high",
+      "vendor": "N/A",
+      "product": "LDAP Client 2.1.7",
+      "description": "LDAP用戶端2.1.7版在驗證伺服器憑證時未確認主機名稱是否與預期LDAP主機相符，雖驗證憑證鏈，但缺少端點識別，導致中間人攻擊（MITM）風險。[KEV: 否]"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅格局由AI驅動攻擊與供應鏈攻擊主導：Miasma蠕蟲與IronWorm連番衝擊npm與GitHub生態系，展示蠕蟲式自我複製供應鏈攻擊的強大擴散力。AI技術的雙重角色日益凸顯——一方面AI代理可以極低成本發現大量漏洞，另一方面駭客已開始利用AI聊天機器人執行帳號劫持攻擊並測試惡意程式的EDR規避能力。中國關聯威脅行為者持續活躍，TA4922擴張至拉丁美洲，五眼聯盟示警中國透過求職平台系統性招募間諜。台灣關鍵基礎設施（能源、電力）仍持續面臨高強度網路攻擊壓力。",
+    "active_actors": [
+      {
+        "name": "TA4922",
+        "origin": "中國",
+        "target": "全球（拉丁美洲、東亞）",
+        "technique": "供應鏈攻擊、網路釣魚"
+      },
+      {
+        "name": "OP-512",
+        "origin": "中國（評估）",
+        "target": "Microsoft IIS 伺服器",
+        "technique": "Web Shell 部署、間諜活動"
+      },
+      {
+        "name": "ShinyHunters",
+        "origin": "不明",
+        "target": "醫療、金融",
+        "technique": "資料竊取、勒索"
+      },
+      {
+        "name": "PCPJack",
+        "origin": "不明",
+        "target": "雲端基礎設施",
+        "technique": "雲端伺服器劫持、SMTP中繼"
+      },
+      {
+        "name": "Handala (伊朗 MOIS)",
+        "origin": "伊朗",
+        "target": "美國、以色列",
+        "technique": "混合網路-實體威脅行動"
+      }
+    ],
+    "attack_techniques": [
+      "供應鏈攻擊（npm套件汙染、GitHub Actions濫用）",
+      "AI提示注入（AI chatbot社交工程帳號劫持）",
+      "零時差漏洞利用（Cisco SD-WAN、PAN-OS）",
+      "蠕蟲式自我複製惡意程式（IronWorm、Miasma）",
+      "雲端伺服器劫持建立代理網路（PCPJack）",
+      "社交工程職業招募（中國間諜偽裝獵頭）",
+      "AI自動化漏洞探索（FFmpeg 21個零時差）"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即修補Cisco SD-WAN Manager CVE-2026-20245（暫無patch，實施網路隔離與ACL管控），期限 2026-06-09"
+    },
+    {
+      "priority": "high",
+      "action": "更新WordPress Everest Forms Pro至最新版（CVE-2026-3300，CVSS 9.8，已遭積極利用），期限 2026-06-09"
+    },
+    {
+      "priority": "high",
+      "action": "於2026-06-19前修補SolarWinds Serv-U（CVE-2026-28318，KEV政府機關強制期限）"
+    },
+    {
+      "priority": "high",
+      "action": "全面稽核npm及GitHub Actions工作流程，排除Miasma/IronWorm供應鏈感染風險，期限 2026-06-10"
+    },
+    {
+      "priority": "medium",
+      "action": "修補Cisco Unified CM CVE-2026-20230 SSRF漏洞（PoC已公開），期限 2026-06-12"
+    },
+    {
+      "priority": "medium",
+      "action": "部署Chrome 149更新，修補429個漏洞（含逾100個嚴重或高危），期限 2026-06-10"
+    },
+    {
+      "priority": "medium",
+      "action": "更新Claude Code GitHub Action至最新版並審查工作流程機密存取範圍，期限 2026-06-10"
+    },
+    {
+      "priority": "medium",
+      "action": "對社交媒體帳號啟用FIDO2硬體安全金鑰，防範AI機器人帳號劫持攻擊，期限 2026-06-15"
+    },
+    {
+      "priority": "low",
+      "action": "對員工進行中國間諜社交工程識別培訓（五眼聯盟示警），限制職務資訊在公開平台曝露，期限 2026-06-30"
+    },
+    {
+      "priority": "low",
+      "action": "檢查關鍵基礎設施ATG系統是否有網際網路曝露介面，更換預設密碼，期限 2026-06-20"
+    }
+  ],
+  "terms": [
+    {
+      "term": "通用漏洞評分系統 (CVSS)",
+      "definition": "評估漏洞嚴重程度的標準化計分系統",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cvss"
+    },
+    {
+      "term": "已知遭利用漏洞清單 (KEV)",
+      "definition": "CISA 維護的已確認遭實際利用的漏洞清單",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/kev"
+    },
+    {
+      "term": "通用漏洞揭露 (CVE)",
+      "definition": "公開已知漏洞的統一編號系統",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cve"
+    },
+    {
+      "term": "進階持續性威脅 (APT)",
+      "definition": "國家級駭客組織發動的長期網路攻擊",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/apt"
+    },
+    {
+      "term": "供應鏈攻擊 (Supply Chain Attack)",
+      "definition": "藉由第三方軟體或服務入侵目標的攻擊手法",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/supply_chain_attack"
+    },
+    {
+      "term": "零時差漏洞 (Zero-Day Vulnerability)",
+      "definition": "尚無官方修補程式的安全漏洞",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/zero_day"
+    },
+    {
+      "term": "勒索軟體 (Ransomware)",
+      "definition": "加密受害者檔案並索取贖金的惡意程式",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/ransomware"
+    },
+    {
+      "term": "提示注入 (Prompt Injection)",
+      "definition": "操控AI系統執行惡意指令的攻擊",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/prompt_injection"
+    },
+    {
+      "term": "五眼聯盟 (Five Eyes)",
+      "definition": "美英加澳紐五國情報共享聯盟",
+      "url": "https://astroicers.github.io/security-glossary-tw/glossary/five_eyes"
+    }
+  ],
+  "references": [
+    {
+      "title": "Miasma Worm Hits 73 Microsoft GitHub Repositories in Major Supply Chain Attack",
+      "url": "https://thehackernews.com/2026/06/miasma-worm-hits-73-microsoft-github.html"
+    },
+    {
+      "title": "IronWorm and New Miasma Worm Variant Hit npm in Supply Chain Attacks",
+      "url": "https://thehackernews.com/2026/06/ironworm-and-new-miasma-worm-variant.html"
+    },
+    {
+      "title": "Preinstall to persistence: Inside the Red Hat npm Miasma credential-stealing campaign",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/06/02/preinstall-persistence-inside-red-hat-npm-miasma-credential-stealing-campaign/"
+    },
+    {
+      "title": "Cisco Warns of 7th SD-WAN Zero-Day Exploited in 2026",
+      "url": "https://www.securityweek.com/cisco-warns-of-7th-sd-wan-zero-day-exploited-in-2026/"
+    },
+    {
+      "title": "Cisco Catalyst SD-WAN Manager CVE-2026-20245 Flaw Actively Exploited – No Patch Available",
+      "url": "https://thehackernews.com/2026/06/cisco-catalyst-sd-wan-manager-cve-2026.html"
+    },
+    {
+      "title": "Hackers Exploit Critical Everest Forms Pro WordPress Plugin Flaw to Take Over Sites",
+      "url": "https://thehackernews.com/2026/06/hackers-exploit-critical-everest-forms.html"
+    },
+    {
+      "title": "CISA Adds Actively Exploited SolarWinds Serv-U DoS Flaw to KEV Catalog",
+      "url": "https://thehackernews.com/2026/06/cisa-adds-actively-exploited-solarwinds.html"
+    },
+    {
+      "title": "Hackers Used Meta's AI Support Bot to Seize Instagram Accounts",
+      "url": "https://krebsonsecurity.com/2026/06/hackers-used-metas-ai-support-bot-to-seize-instagram-accounts/"
+    },
+    {
+      "title": "Five Eyes: Chinese Spies Target Government, Military Staff With Fake Job Opportunities",
+      "url": "https://www.securityweek.com/five-eyes-chinese-spies-target-government-military-staff-with-fake-job-opportunities/"
+    },
+    {
+      "title": "Threat Brief: Active Exploitation of PAN-OS CVE-2026-0257",
+      "url": "https://unit42.paloaltonetworks.com/active-exploitation-of-pan-os-cve-2026-0257/"
+    },
+    {
+      "title": "AI Agent Uncovers 21 Zero-Days in FFmpeg; Chrome Patches Record 429 Bugs",
+      "url": "https://thehackernews.com/2026/06/ai-agent-uncovers-21-zero-days-in.html"
+    },
+    {
+      "title": "Chrome 149 Patches 429 Vulnerabilities",
+      "url": "https://www.securityweek.com/chrome-149-patches-429-vulnerabilities/"
+    },
+    {
+      "title": "世界糧食計劃署系統被駭，外洩高達60萬加薩家庭資訊",
+      "url": "https://www.ithome.com.tw/news/176415"
+    },
+    {
+      "title": "Claude Code GitHub Action Flaw Let One Malicious Issue Hijack Repositories",
+      "url": "https://thehackernews.com/2026/06/claude-code-github-action-flaw-let-one.html"
+    },
+    {
+      "title": "持續強化能源設施資安，台電：每天平均3萬次駭客攻擊",
+      "url": "https://infosecu.technews.tw/2026/06/06/taipower-electiricity-is-getting-attacked-by-hacker/"
+    },
+    {
+      "title": "PCPJack Hijacks 230 AWS, Google Cloud, and Azure Servers for Covert SMTP Relay Network",
+      "url": "https://thehackernews.com/2026/06/pcpjack-hijacks-230-aws-google-cloud.html"
+    },
+    {
+      "title": "Cisco Patches CVE-2026-20230 in Unified CM as Exploit Code Goes Public",
+      "url": "https://thehackernews.com/2026/06/cisco-patches-cve-2026-20230-in-unified.html"
+    },
+    {
+      "title": "NVD - CVE-2026-47294 (Microsoft SharePoint)",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47294"
+    },
+    {
+      "title": "TWCERT/CC 沛盛資訊 OMICARD EDM IDOR漏洞公告",
+      "url": "https://www.twcert.org.tw/tw/cp-132-10947-027a7-1.html"
+    }
+  ]
+}
