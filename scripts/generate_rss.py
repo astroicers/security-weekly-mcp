@@ -27,9 +27,9 @@ from security_glossary_tw import Glossary  # noqa: E402
 
 # 初始化術語庫
 GLOSSARY = Glossary(terms_dir=PROJECT_ROOT / "packages" / "glossary" / "terms")
-GLOSSARY_BASE_URL = "https://astroicers.github.io/security-glossary-tw/glossary"
+GLOSSARY_BASE_URL = "https://glossary.astroicers.link/glossary"
 
-SITE_URL = "https://astroicers.github.io/security-glossary-tw/weekly"
+SITE_URL = "https://glossary.astroicers.link/weekly"
 FEED_TITLE = "資安週報 | Security Weekly TW"
 
 
