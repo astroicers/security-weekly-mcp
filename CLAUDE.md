@@ -148,7 +148,7 @@ security-weekly-mcp/                    # Monorepo (uv workspace)
 術語連結規則：
 
 - 每個術語只在首次出現時加連結（避免過多連結干擾閱讀）
-- 連結指向 `https://astroicers.github.io/security-glossary-tw/glossary/{term_id}`
+- 連結指向 `https://glossary.astroicers.link/glossary/{term_id}`
 
 ## 術語自動提取設計
 
@@ -166,7 +166,7 @@ security-weekly-mcp/                    # Monorepo (uv workspace)
     "term_zh": "進階持續性威脅",
     "definition": "國家級駭客組織發動的長期網路攻擊",
     "id": "apt",
-    "url": "https://astroicers.github.io/security-glossary-tw/glossary/apt"
+    "url": "https://glossary.astroicers.link/glossary/apt"
   }
 ]
 ```

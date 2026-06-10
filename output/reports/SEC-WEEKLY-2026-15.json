@@ -160,7 +160,7 @@
       "term_zh": "供應鏈攻擊",
       "definition": "透過入侵軟體供應商來攻擊最終用戶的手法",
       "id": "supply_chain_attack",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/supply_chain_attack"
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
     },
     {
       "term": "遠端存取木馬",
@@ -168,7 +168,7 @@
       "term_zh": "遠端存取木馬",
       "definition": "允許攻擊者遠端控制受感染系統的惡意程式",
       "id": "rat",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/rat"
+      "url": "https://glossary.astroicers.link/glossary/rat"
     },
     {
       "term": "通用漏洞揭露",
@@ -176,7 +176,7 @@
       "term_zh": "通用漏洞揭露",
       "definition": "公開已知漏洞的統一編號系統",
       "id": "cve",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cve"
+      "url": "https://glossary.astroicers.link/glossary/cve"
     },
     {
       "term": "投放器",
@@ -184,7 +184,7 @@
       "term_zh": "投放器",
       "definition": "將內嵌的惡意程式釋放到系統的程式",
       "id": "dropper",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/dropper"
+      "url": "https://glossary.astroicers.link/glossary/dropper"
     },
     {
       "term": "遠端程式碼執行",
@@ -192,7 +192,7 @@
       "term_zh": "遠端程式碼執行",
       "definition": "攻擊者可遠端在目標系統執行任意程式碼的漏洞",
       "id": "rce",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/rce"
+      "url": "https://glossary.astroicers.link/glossary/rce"
     },
     {
       "term": "通用漏洞評分系統",
@@ -200,7 +200,7 @@
       "term_zh": "通用漏洞評分系統",
       "definition": "評估漏洞嚴重程度的標準化計分系統",
       "id": "cvss",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cvss"
+      "url": "https://glossary.astroicers.link/glossary/cvss"
     },
     {
       "term": "STX RAT",
@@ -208,7 +208,7 @@
       "term_zh": "STX 遠端存取木馬",
       "definition": "透過供應鏈攻擊傳播的遠端存取木馬程式",
       "id": "stx_rat",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/stx_rat"
+      "url": "https://glossary.astroicers.link/glossary/stx_rat"
     },
     {
       "term": "GlassWorm",
@@ -216,7 +216,7 @@
       "term_zh": "GlassWorm 攻擊",
       "definition": "針對開發者 IDE 的持續攻擊活動",
       "id": "glassworm",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/glassworm"
+      "url": "https://glossary.astroicers.link/glossary/glassworm"
     }
   ],
   "references": [

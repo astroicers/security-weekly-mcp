@@ -330,47 +330,47 @@
     {
       "term": "通用漏洞評分系統 (CVSS)",
       "definition": "評估漏洞嚴重程度的標準化計分系統",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cvss"
+      "url": "https://glossary.astroicers.link/glossary/cvss"
     },
     {
       "term": "已知遭利用漏洞清單 (KEV)",
       "definition": "CISA 維護的已確認遭實際利用的漏洞清單",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/kev"
+      "url": "https://glossary.astroicers.link/glossary/kev"
     },
     {
       "term": "通用漏洞揭露 (CVE)",
       "definition": "公開已知漏洞的統一編號系統",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cve"
+      "url": "https://glossary.astroicers.link/glossary/cve"
     },
     {
       "term": "進階持續性威脅 (APT)",
       "definition": "國家級駭客組織發動的長期網路攻擊",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/apt"
+      "url": "https://glossary.astroicers.link/glossary/apt"
     },
     {
       "term": "供應鏈攻擊 (Supply Chain Attack)",
       "definition": "藉由第三方軟體或服務入侵目標的攻擊手法",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/supply_chain_attack"
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
     },
     {
       "term": "零時差漏洞 (Zero-Day Vulnerability)",
       "definition": "尚無官方修補程式的安全漏洞",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/zero_day"
+      "url": "https://glossary.astroicers.link/glossary/zero_day"
     },
     {
       "term": "勒索軟體 (Ransomware)",
       "definition": "加密受害者檔案並索取贖金的惡意程式",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/ransomware"
+      "url": "https://glossary.astroicers.link/glossary/ransomware"
     },
     {
       "term": "提示注入 (Prompt Injection)",
       "definition": "操控AI系統執行惡意指令的攻擊",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/prompt_injection"
+      "url": "https://glossary.astroicers.link/glossary/prompt_injection"
     },
     {
       "term": "五眼聯盟 (Five Eyes)",
       "definition": "美英加澳紐五國情報共享聯盟",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/five_eyes"
+      "url": "https://glossary.astroicers.link/glossary/five_eyes"
     }
   ],
   "references": [

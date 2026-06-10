@@ -473,7 +473,7 @@
       "term_zh": "資料外洩",
       "definition": "攻擊者將竊取的資料傳送出目標網路",
       "id": "data_exfiltration",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/data_exfiltration"
+      "url": "https://glossary.astroicers.link/glossary/data_exfiltration"
     },
     {
       "term": "網路安全",
@@ -481,7 +481,7 @@
       "term_zh": "網路安全",
       "definition": "保護資訊系統免受網路攻擊的實務與技術",
       "id": "cybersecurity",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cybersecurity"
+      "url": "https://glossary.astroicers.link/glossary/cybersecurity"
     },
     {
       "term": "惡意程式",
@@ -489,7 +489,7 @@
       "term_zh": "惡意程式",
       "definition": "設計用來損害系統或竊取資料的軟體總稱",
       "id": "malware",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/malware"
+      "url": "https://glossary.astroicers.link/glossary/malware"
     },
     {
       "term": "網路間諜活動",
@@ -497,7 +497,7 @@
       "term_zh": "網路間諜活動",
       "definition": "透過網路入侵竊取機密資訊的活動",
       "id": "cyber_espionage",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cyber_espionage"
+      "url": "https://glossary.astroicers.link/glossary/cyber_espionage"
     },
     {
       "term": "國家支持的",
@@ -505,7 +505,7 @@
       "term_zh": "國家支持的",
       "definition": "由國家政府資助或指揮的網路行動",
       "id": "state_sponsored",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/state_sponsored"
+      "url": "https://glossary.astroicers.link/glossary/state_sponsored"
     },
     {
       "term": "資料抹除程式",
@@ -513,7 +513,7 @@
       "term_zh": "資料抹除程式",
       "definition": "專門破壞或刪除資料的惡意程式",
       "id": "wiper",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/wiper"
+      "url": "https://glossary.astroicers.link/glossary/wiper"
     },
     {
       "term": "駭客行動主義者",
@@ -521,7 +521,7 @@
       "term_zh": "駭客行動主義者",
       "definition": "基於政治或社會理念進行網路攻擊的駭客",
       "id": "hacktivist",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/hacktivist"
+      "url": "https://glossary.astroicers.link/glossary/hacktivist"
     },
     {
       "term": "零日漏洞",
@@ -529,7 +529,7 @@
       "term_zh": "零日漏洞",
       "definition": "尚未有修補程式的漏洞",
       "id": "zero_day",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/zero_day"
+      "url": "https://glossary.astroicers.link/glossary/zero_day"
     },
     {
       "term": "資料外洩事件",
@@ -537,7 +537,7 @@
       "term_zh": "資料外洩事件",
       "definition": "敏感資料被未授權存取或洩露的安全事件",
       "id": "data_breach",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/data_breach"
+      "url": "https://glossary.astroicers.link/glossary/data_breach"
     },
     {
       "term": "安全超文字傳輸協定",
@@ -545,7 +545,7 @@
       "term_zh": "安全超文字傳輸協定",
       "definition": "使用 TLS 加密的安全網頁傳輸協定",
       "id": "https",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/https"
+      "url": "https://glossary.astroicers.link/glossary/https"
     },
     {
       "term": "漏洞",
@@ -553,7 +553,7 @@
       "term_zh": "漏洞",
       "definition": "系統或軟體中可被利用的安全弱點",
       "id": "vulnerability",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/vulnerability"
+      "url": "https://glossary.astroicers.link/glossary/vulnerability"
     },
     {
       "term": "身分驗證",
@@ -561,7 +561,7 @@
       "term_zh": "身分驗證",
       "definition": "驗證使用者或系統身分的過程",
       "id": "authentication",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/authentication"
+      "url": "https://glossary.astroicers.link/glossary/authentication"
     },
     {
       "term": "網路釣魚",
@@ -569,7 +569,7 @@
       "term_zh": "網路釣魚",
       "definition": "透過偽造信件或網站騙取敏感資訊的攻擊手法",
       "id": "phishing",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/phishing"
+      "url": "https://glossary.astroicers.link/glossary/phishing"
     },
     {
       "term": "勒索軟體",
@@ -577,7 +577,7 @@
       "term_zh": "勒索軟體",
       "definition": "加密受害者資料並要求贖金的惡意程式",
       "id": "ransomware",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/ransomware"
+      "url": "https://glossary.astroicers.link/glossary/ransomware"
     },
     {
       "term": "緩衝區溢位",
@@ -585,7 +585,7 @@
       "term_zh": "緩衝區溢位",
       "definition": "程式寫入資料超過緩衝區大小的漏洞",
       "id": "buffer_overflow",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/buffer_overflow"
+      "url": "https://glossary.astroicers.link/glossary/buffer_overflow"
     }
   ],
   "references": [

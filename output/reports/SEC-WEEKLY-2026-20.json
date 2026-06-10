@@ -347,7 +347,7 @@
       "term_zh": "通用漏洞揭露",
       "definition": "公開已知漏洞的統一編號系統",
       "id": "cve",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cve"
+      "url": "https://glossary.astroicers.link/glossary/cve"
     },
     {
       "term": "已知遭利用漏洞清單（KEV）",
@@ -355,7 +355,7 @@
       "term_zh": "已知遭利用漏洞清單",
       "definition": "CISA 維護的已確認遭實際利用的漏洞清單",
       "id": "kev",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/kev"
+      "url": "https://glossary.astroicers.link/glossary/kev"
     },
     {
       "term": "供應鏈攻擊（Supply Chain Attack）",
@@ -363,7 +363,7 @@
       "term_zh": "供應鏈攻擊",
       "definition": "透過入侵軟體供應商來攻擊最終用戶的手法",
       "id": "supply_chain_attack",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/supply_chain_attack"
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
     },
     {
       "term": "進階持續性威脅（APT）",
@@ -371,7 +371,7 @@
       "term_zh": "進階持續性威脅",
       "definition": "國家級駭客組織發動的長期網路攻擊",
       "id": "apt",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/apt"
+      "url": "https://glossary.astroicers.link/glossary/apt"
     },
     {
       "term": "跨站腳本（XSS）",
@@ -379,7 +379,7 @@
       "term_zh": "跨站腳本",
       "definition": "在網頁中注入惡意腳本的攻擊",
       "id": "xss",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/xss"
+      "url": "https://glossary.astroicers.link/glossary/xss"
     },
     {
       "term": "蠕蟲（Worm）",
@@ -387,7 +387,7 @@
       "term_zh": "蠕蟲",
       "definition": "能自我複製並在網路上傳播的惡意程式",
       "id": "worm",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/worm"
+      "url": "https://glossary.astroicers.link/glossary/worm"
     },
     {
       "term": "概念驗證（PoC）",
@@ -395,7 +395,7 @@
       "term_zh": "概念驗證",
       "definition": "證明漏洞可被利用的示範程式碼",
       "id": "poc",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/poc"
+      "url": "https://glossary.astroicers.link/glossary/poc"
     },
     {
       "term": "Turla",
@@ -403,7 +403,7 @@
       "term_zh": "Turla",
       "definition": "俄羅斯最精密的國家級駭客組織之一",
       "id": "turla",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/turla"
+      "url": "https://glossary.astroicers.link/glossary/turla"
     },
     {
       "term": "Cobalt Strike",
@@ -411,7 +411,7 @@
       "term_zh": "Cobalt Strike",
       "definition": "被威脅行為者廣泛濫用的商業滲透測試工具",
       "id": "cobalt_strike",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cobalt_strike"
+      "url": "https://glossary.astroicers.link/glossary/cobalt_strike"
     },
     {
       "term": "通用漏洞評分系統（CVSS）",
@@ -419,7 +419,7 @@
       "term_zh": "通用漏洞評分系統",
       "definition": "評估漏洞嚴重程度的標準化計分系統",
       "id": "cvss",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cvss"
+      "url": "https://glossary.astroicers.link/glossary/cvss"
     }
   ],
   "references": [

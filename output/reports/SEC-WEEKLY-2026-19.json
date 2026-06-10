@@ -286,61 +286,61 @@
       "term": "通用漏洞揭露（CVE）",
       "term_en": "CVE",
       "definition": "公開已知漏洞的統一編號系統",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cve"
+      "url": "https://glossary.astroicers.link/glossary/cve"
     },
     {
       "term": "遠端程式碼執行（RCE）",
       "term_en": "RCE",
       "definition": "攻擊者可遠端在目標系統執行任意程式碼的漏洞",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/rce"
+      "url": "https://glossary.astroicers.link/glossary/rce"
     },
     {
       "term": "供應鏈攻擊",
       "term_en": "Supply Chain Attack",
       "definition": "透過入侵軟體供應商來攻擊最終用戶的手法",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/supply_chain_attack"
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
     },
     {
       "term": "ClickFix 攻擊",
       "term_en": "ClickFix",
       "definition": "誘騙使用者執行惡意指令的社交工程技術（本週新增術語）",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/clickfix"
+      "url": "https://glossary.astroicers.link/glossary/clickfix"
     },
     {
       "term": "ShinyHunters",
       "term_en": "ShinyHunters",
       "definition": "以大規模資料外洩著稱的國際駭客組織（本週新增術語）",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/shinyhunters"
+      "url": "https://glossary.astroicers.link/glossary/shinyhunters"
     },
     {
       "term": "Dirty Frag 漏洞",
       "term_en": "Dirty Frag",
       "definition": "Linux 核心頁面快取本機提權漏洞（本週新增術語）",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/dirty_frag"
+      "url": "https://glossary.astroicers.link/glossary/dirty_frag"
     },
     {
       "term": "工業控制系統（ICS）",
       "term_en": "ICS",
       "definition": "控制工業流程的電腦系統",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/ics"
+      "url": "https://glossary.astroicers.link/glossary/ics"
     },
     {
       "term": "社交工程",
       "term_en": "Social Engineering",
       "definition": "利用人性弱點操縱受害者的攻擊手法",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/social_engineering"
+      "url": "https://glossary.astroicers.link/glossary/social_engineering"
     },
     {
       "term": "簡訊廣播器（SMS Blaster）",
       "term_en": "SMS Blaster",
       "definition": "偽裝基地臺大量發送釣魚簡訊的裝置（本週新增術語）",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/sms_blaster"
+      "url": "https://glossary.astroicers.link/glossary/sms_blaster"
     },
     {
       "term": "緩衝區溢位",
       "term_en": "Buffer Overflow",
       "definition": "程式寫入資料超過緩衝區大小的漏洞",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/buffer_overflow"
+      "url": "https://glossary.astroicers.link/glossary/buffer_overflow"
     }
   ],
   "references": [

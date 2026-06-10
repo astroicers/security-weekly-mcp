@@ -276,7 +276,7 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
     elif name == "add_term_links":
         text = arguments["text"]
         fmt = arguments.get("format", "markdown")
-        base_url = "https://astroicers.github.io/security-glossary-tw/glossary"
+        base_url = "https://glossary.astroicers.link/glossary"
 
         result = glossary.add_links(text, format=fmt, base_url=base_url)
         return [TextContent(type="text", text=result)]
@@ -334,7 +334,7 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
                             "term_zh": term.term_zh,
                             "definition": term.definitions.brief,
                             "id": term.id,
-                            "url": f"https://astroicers.github.io/security-glossary-tw/glossary/{term.id}",
+                            "url": f"https://glossary.astroicers.link/glossary/{term.id}",
                         }
                     )
                 if len(unique_terms) >= max_terms:

@@ -574,7 +574,7 @@
       "term_zh": "資料抹除程式",
       "definition": "專門破壞或刪除資料的惡意程式",
       "id": "wiper",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/wiper"
+      "url": "https://glossary.astroicers.link/glossary/wiper"
     },
     {
       "term": "通用漏洞揭露",
@@ -582,7 +582,7 @@
       "term_zh": "通用漏洞揭露",
       "definition": "公開已知漏洞的統一編號系統",
       "id": "cve",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cve"
+      "url": "https://glossary.astroicers.link/glossary/cve"
     },
     {
       "term": "通用漏洞評分系統",
@@ -590,7 +590,7 @@
       "term_zh": "通用漏洞評分系統",
       "definition": "評估漏洞嚴重程度的標準化計分系統",
       "id": "cvss",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cvss"
+      "url": "https://glossary.astroicers.link/glossary/cvss"
     },
     {
       "term": "偵察",
@@ -598,7 +598,7 @@
       "term_zh": "偵察",
       "definition": "攻擊前蒐集目標資訊的活動",
       "id": "reconnaissance",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/reconnaissance"
+      "url": "https://glossary.astroicers.link/glossary/reconnaissance"
     },
     {
       "term": "漏洞",
@@ -606,7 +606,7 @@
       "term_zh": "漏洞",
       "definition": "系統或軟體中可被利用的安全弱點",
       "id": "vulnerability",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/vulnerability"
+      "url": "https://glossary.astroicers.link/glossary/vulnerability"
     },
     {
       "term": "輸入驗證",
@@ -614,7 +614,7 @@
       "term_zh": "輸入驗證",
       "definition": "檢查和清理使用者輸入的安全措施",
       "id": "input_validation",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/input_validation"
+      "url": "https://glossary.astroicers.link/glossary/input_validation"
     },
     {
       "term": "漏洞利用套件",
@@ -622,7 +622,7 @@
       "term_zh": "漏洞利用套件",
       "definition": "自動化利用瀏覽器漏洞感染訪客的工具包",
       "id": "exploit_kit",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/exploit_kit"
+      "url": "https://glossary.astroicers.link/glossary/exploit_kit"
     },
     {
       "term": "網路釣魚",
@@ -630,7 +630,7 @@
       "term_zh": "網路釣魚",
       "definition": "透過偽造信件或網站騙取敏感資訊的攻擊手法",
       "id": "phishing",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/phishing"
+      "url": "https://glossary.astroicers.link/glossary/phishing"
     },
     {
       "term": "國家支持的",
@@ -638,7 +638,7 @@
       "term_zh": "國家支持的",
       "definition": "由國家政府資助或指揮的網路行動",
       "id": "state_sponsored",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/state_sponsored"
+      "url": "https://glossary.astroicers.link/glossary/state_sponsored"
     },
     {
       "term": "蠕蟲",
@@ -646,7 +646,7 @@
       "term_zh": "蠕蟲",
       "definition": "能自我複製並在網路上傳播的惡意程式",
       "id": "worm",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/worm"
+      "url": "https://glossary.astroicers.link/glossary/worm"
     }
   ],
   "references": []

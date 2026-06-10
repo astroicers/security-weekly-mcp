@@ -400,7 +400,7 @@ CI/CD 已設定 `submodules: recursive`，自動處理。
 • 威脅等級：中
 
 閱讀完整報告：
-https://astroicers.github.io/security-glossary-tw/weekly/reports/SEC-WEEKLY-2026-W08.html
+https://glossary.astroicers.link/weekly/reports/SEC-WEEKLY-2026-W08.html
 ```
 
 ### 手動發送測試

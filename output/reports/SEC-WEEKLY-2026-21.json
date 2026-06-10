@@ -341,7 +341,7 @@
       "term_zh": "通用漏洞揭露",
       "definition": "公開已知漏洞的統一編號系統",
       "id": "cve",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cve"
+      "url": "https://glossary.astroicers.link/glossary/cve"
     },
     {
       "term": "已知遭利用漏洞清單 (KEV)",
@@ -349,7 +349,7 @@
       "term_zh": "已知遭利用漏洞清單",
       "definition": "CISA 維護的已確認遭實際利用的漏洞清單",
       "id": "kev",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/kev"
+      "url": "https://glossary.astroicers.link/glossary/kev"
     },
     {
       "term": "通用漏洞評分系統 (CVSS)",
@@ -357,7 +357,7 @@
       "term_zh": "通用漏洞評分系統",
       "definition": "評估漏洞嚴重程度的標準化計分系統",
       "id": "cvss",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cvss"
+      "url": "https://glossary.astroicers.link/glossary/cvss"
     },
     {
       "term": "進階持續性威脅 (APT)",
@@ -365,7 +365,7 @@
       "term_zh": "進階持續性威脅",
       "definition": "國家級駭客組織發動的長期網路攻擊",
       "id": "apt",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/apt"
+      "url": "https://glossary.astroicers.link/glossary/apt"
     },
     {
       "term": "殭屍網路 (Botnet)",
@@ -373,7 +373,7 @@
       "term_zh": "殭屍網路",
       "definition": "由攻擊者控制的大量受感染電腦組成的網路",
       "id": "botnet",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/botnet"
+      "url": "https://glossary.astroicers.link/glossary/botnet"
     },
     {
       "term": "分散式阻斷服務攻擊 (DDoS)",
@@ -381,7 +381,7 @@
       "term_zh": "分散式阻斷服務攻擊",
       "definition": "利用大量流量癱瘓目標服務的攻擊",
       "id": "ddos",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/ddos"
+      "url": "https://glossary.astroicers.link/glossary/ddos"
     },
     {
       "term": "虛擬私人網路 (VPN)",
@@ -389,7 +389,7 @@
       "term_zh": "虛擬私人網路",
       "definition": "透過加密通道在公共網路上建立私密連線",
       "id": "vpn",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/vpn"
+      "url": "https://glossary.astroicers.link/glossary/vpn"
     },
     {
       "term": "權限提升 (Privilege Escalation)",
@@ -397,7 +397,7 @@
       "term_zh": "權限提升",
       "definition": "攻擊者取得更高系統權限的技術",
       "id": "privilege_escalation",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/privilege_escalation"
+      "url": "https://glossary.astroicers.link/glossary/privilege_escalation"
     },
     {
       "term": "域名前置 (Domain Fronting)",
@@ -405,7 +405,7 @@
       "term_zh": "域名前置",
       "definition": "利用受信任域名隱藏惡意連線的技術",
       "id": "domain_fronting",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/domain_fronting"
+      "url": "https://glossary.astroicers.link/glossary/domain_fronting"
     },
     {
       "term": "惡意程式簽署即服務 (MSaaS)",
@@ -413,7 +413,7 @@
       "term_zh": "惡意程式簽署即服務",
       "definition": "提供惡意程式合法簽章的犯罪服務",
       "id": "malware_signing_as_a_service",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/malware_signing_as_a_service"
+      "url": "https://glossary.astroicers.link/glossary/malware_signing_as_a_service"
     }
   ],
   "references": [

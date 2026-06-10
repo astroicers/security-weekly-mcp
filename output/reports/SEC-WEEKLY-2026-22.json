@@ -291,7 +291,7 @@
       "term_zh": "殭屍網路",
       "definition": "由攻擊者控制的大量受感染電腦組成的網路",
       "id": "botnet",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/botnet"
+      "url": "https://glossary.astroicers.link/glossary/botnet"
     },
     {
       "term": "命令與控制 (C2)",
@@ -299,7 +299,7 @@
       "term_zh": "命令與控制",
       "definition": "攻擊者用來遠端控制受感染系統的基礎設施",
       "id": "c2",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/c2"
+      "url": "https://glossary.astroicers.link/glossary/c2"
     },
     {
       "term": "供應鏈攻擊",
@@ -307,7 +307,7 @@
       "term_zh": "供應鏈攻擊",
       "definition": "透過入侵軟體供應商來攻擊最終用戶的手法",
       "id": "supply_chain_attack",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/supply_chain_attack"
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
     },
     {
       "term": "多因子驗證 (MFA)",
@@ -315,7 +315,7 @@
       "term_zh": "多因子驗證",
       "definition": "要求使用者提供兩種以上驗證因子的身分驗證方式",
       "id": "mfa",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/mfa"
+      "url": "https://glossary.astroicers.link/glossary/mfa"
     },
     {
       "term": "已知遭利用漏洞清單 (KEV)",
@@ -323,7 +323,7 @@
       "term_zh": "已知遭利用漏洞清單",
       "definition": "CISA 維護的已確認遭實際利用的漏洞清單",
       "id": "kev",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/kev"
+      "url": "https://glossary.astroicers.link/glossary/kev"
     },
     {
       "term": "釣魚即服務 (PhaaS)",
@@ -331,7 +331,7 @@
       "term_zh": "釣魚即服務",
       "definition": "以訂閱制提供網路釣魚攻擊套件的服務",
       "id": "phaas",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/phaas"
+      "url": "https://glossary.astroicers.link/glossary/phaas"
     },
     {
       "term": "裝置碼釣魚攻擊",
@@ -339,7 +339,7 @@
       "term_zh": "裝置碼釣魚攻擊",
       "definition": "利用OAuth裝置碼流程繞過MFA的釣魚手法",
       "id": "device_code_phishing",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/device_code_phishing"
+      "url": "https://glossary.astroicers.link/glossary/device_code_phishing"
     },
     {
       "term": "依賴混淆攻擊",
@@ -347,7 +347,7 @@
       "term_zh": "依賴混淆攻擊",
       "definition": "在公開套件庫發布同名套件以取代私有套件",
       "id": "dependency_confusion",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/dependency_confusion"
+      "url": "https://glossary.astroicers.link/glossary/dependency_confusion"
     },
     {
       "term": "軟體物料清單 (SBOM)",
@@ -355,7 +355,7 @@
       "term_zh": "軟體物料清單",
       "definition": "列出軟體所有元件與依賴關係的清冊",
       "id": "sbom",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/sbom"
+      "url": "https://glossary.astroicers.link/glossary/sbom"
     },
     {
       "term": "Kimsuky",
@@ -363,7 +363,7 @@
       "term_zh": "Kimsuky",
       "definition": "北韓針對南韓的網路間諜組織",
       "id": "kimsuky",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/kimsuky"
+      "url": "https://glossary.astroicers.link/glossary/kimsuky"
     }
   ],
   "references": [

@@ -392,7 +392,7 @@ Claude 執行：
 
 | 術語 | 說明 |
 |------|------|
-| [APT](https://astroicers.github.io/security-glossary-tw/glossary/apt/) | 進階持續性威脅。國家級駭客組織發動的長期網路攻擊 |
+| [APT](https://glossary.astroicers.link/glossary/apt/) | 進階持續性威脅。國家級駭客組織發動的長期網路攻擊 |
 
 ---
 
@@ -421,7 +421,7 @@ Claude 執行：
 ### 術語連結格式
 
 ```markdown
-[術語名稱](https://astroicers.github.io/security-glossary-tw/glossary/{id}/)
+[術語名稱](https://glossary.astroicers.link/glossary/{id}/)
 ```
 
 ### 驗證報告格式

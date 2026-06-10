@@ -111,7 +111,7 @@ def format_weekly_summary(report: dict) -> str:
     # 加入報告連結
     if report_id:
         report_url = (
-            f"https://astroicers.github.io/security-glossary-tw/weekly/reports/{report_id}.html"
+            f"https://glossary.astroicers.link/weekly/reports/{report_id}.html"
         )
         lines.append(f"閱讀完整報告：\n{report_url}")
 

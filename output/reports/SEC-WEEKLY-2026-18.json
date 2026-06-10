@@ -307,7 +307,7 @@
       "term_zh": "通用漏洞揭露",
       "definition": "公開已知漏洞的統一編號系統",
       "id": "cve",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cve"
+      "url": "https://glossary.astroicers.link/glossary/cve"
     },
     {
       "term": "已知遭利用漏洞清單 (KEV)",
@@ -315,7 +315,7 @@
       "term_zh": "已知遭利用漏洞清單",
       "definition": "CISA 維護的已確認遭實際利用的漏洞清單",
       "id": "kev",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/kev"
+      "url": "https://glossary.astroicers.link/glossary/kev"
     },
     {
       "term": "通用漏洞評分系統 (CVSS)",
@@ -323,7 +323,7 @@
       "term_zh": "通用漏洞評分系統",
       "definition": "評估漏洞嚴重程度的標準化計分系統",
       "id": "cvss",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/cvss"
+      "url": "https://glossary.astroicers.link/glossary/cvss"
     },
     {
       "term": "供應鏈攻擊",
@@ -331,7 +331,7 @@
       "term_zh": "供應鏈攻擊",
       "definition": "透過入侵軟體供應商來攻擊最終用戶的手法",
       "id": "supply_chain_attack",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/supply_chain_attack"
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
     },
     {
       "term": "資料抹除程式 (Wiper)",
@@ -339,7 +339,7 @@
       "term_zh": "資料抹除程式",
       "definition": "專門破壞或刪除資料的惡意程式",
       "id": "wiper",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/wiper"
+      "url": "https://glossary.astroicers.link/glossary/wiper"
     },
     {
       "term": "勒索軟體 (Ransomware)",
@@ -347,7 +347,7 @@
       "term_zh": "勒索軟體",
       "definition": "加密受害者資料並要求贖金的惡意程式",
       "id": "ransomware",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/ransomware"
+      "url": "https://glossary.astroicers.link/glossary/ransomware"
     },
     {
       "term": "進階持續性威脅 (APT)",
@@ -355,7 +355,7 @@
       "term_zh": "進階持續性威脅",
       "definition": "國家級駭客組織發動的長期網路攻擊",
       "id": "apt",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/apt"
+      "url": "https://glossary.astroicers.link/glossary/apt"
     },
     {
       "term": "網路釣魚 (Phishing)",
@@ -363,7 +363,7 @@
       "term_zh": "網路釣魚",
       "definition": "透過偽造信件或網站騙取敏感資訊的攻擊手法",
       "id": "phishing",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/phishing"
+      "url": "https://glossary.astroicers.link/glossary/phishing"
     },
     {
       "term": "BlueNoroff 組織",
@@ -371,7 +371,7 @@
       "term_zh": "BlueNoroff 組織",
       "definition": "北韓國家級加密貨幣竊取組織",
       "id": "bluenoroff",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/bluenoroff"
+      "url": "https://glossary.astroicers.link/glossary/bluenoroff"
     },
     {
       "term": "Vect 勒索軟體",
@@ -379,7 +379,7 @@
       "term_zh": "Vect 勒索軟體",
       "definition": "兼具抹除功能的 RaaS 勒索軟體",
       "id": "vect_ransomware",
-      "url": "https://astroicers.github.io/security-glossary-tw/glossary/vect_ransomware"
+      "url": "https://glossary.astroicers.link/glossary/vect_ransomware"
     }
   ],
   "references": [
