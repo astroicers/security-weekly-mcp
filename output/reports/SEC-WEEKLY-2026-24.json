@@ -1,0 +1,481 @@
+{
+  "title": "資安週報 2026/06/09 - 2026/06/15",
+  "report_id": "SEC-WEEKLY-2026-24",
+  "period": {
+    "start": "2026-06-09",
+    "end": "2026-06-15"
+  },
+  "publish_date": "2026-06-15",
+  "summary": {
+    "total_events": 13,
+    "total_vulnerabilities": 8,
+    "threat_level": "high"
+  },
+  "events": [
+    {
+      "title": "ShinyHunters 利用 Oracle PeopleSoft 零時差漏洞（CVE-2026-35273）大規模入侵大學與企業",
+      "severity": "critical",
+      "event_type": "資料外洩／零時差漏洞利用",
+      "summary": "駭客組織 ShinyHunters 自 5 月底起積極利用 Oracle PeopleSoft 零時差漏洞 CVE-2026-35273（CISA KEV），已入侵逾百家大學與企業，竊取大量敏感資料後向受害者勒索。Oracle 已於 6 月 10 日發布緩解措施，但尚未正式承認野外利用情況。Mandiant 與 Google 威脅情報團隊（GTIG）均已確認此漏洞遭主動利用。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/shinyhunters-exploits-oracle-peoplesoft.html",
+      "date": "2026-06-11"
+    },
+    {
+      "title": "Ivanti Sentry OS 命令注入漏洞（CVE-2026-10520）公開 24 小時內遭野外利用",
+      "severity": "critical",
+      "event_type": "漏洞利用／未授權 RCE",
+      "summary": "Ivanti Sentry（前身 MobileIron Sentry）OS 命令注入漏洞 CVE-2026-10520 已被 CISA 列入 KEV 清單，允許遠端未授權攻擊者以 root 權限執行任意程式碼。蜜罐已偵測到利用嘗試，攻擊者似乎事先已完成目標基礎架構踩點，於揭露後 24 小時內即發動攻擊。",
+      "source": "Dark Reading",
+      "url": "https://www.darkreading.com/vulnerabilities-threats/max-severity-ivanti-flaw-exploited-24-hours-after-disclosure",
+      "date": "2026-06-11"
+    },
+    {
+      "title": "Splunk Enterprise 重大 RCE 漏洞 CVE-2026-20253（CVSS 9.8）允許未授權遠端執行程式碼",
+      "severity": "critical",
+      "event_type": "重大漏洞修補",
+      "summary": "Splunk 發布 6 月安全更新，修補 CVE-2026-20253（CVSS 9.8），影響 Splunk Enterprise 10.2.4 以下及 10.0.7 以下版本。未授權攻擊者可利用此漏洞建立或截斷任意檔案，進而達成遠端程式碼執行。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/critical-splunk-enterprise-flaw-lets.html",
+      "date": "2026-06-13"
+    },
+    {
+      "title": "Microsoft 六月 Patch Tuesday 破紀錄修補 206 個 CVE，含 Exchange 郵件偽造零時差",
+      "severity": "high",
+      "event_type": "大規模安全修補",
+      "summary": "Microsoft 六月 Patch Tuesday 修補創紀錄的 206 個漏洞，研究人員指出 AI 輔助漏洞發現已加速漏洞揭露速度與規模。修補內容涵蓋 RCE、權限提升與零時差漏洞，包括 Microsoft Exchange「Ghost-Sender」郵件偽造漏洞，可讓攻擊者冒充任意電子郵件地址，已證實遭野外惡意利用。",
+      "source": "Krebs on Security",
+      "url": "https://krebsonsecurity.com/2026/06/a-record-breaking-patch-tuesday-for-june-2026/",
+      "date": "2026-06-09"
+    },
+    {
+      "title": "Arch Linux AUR 逾 400 個套件遭供應鏈攻擊，植入資訊竊取程式與 eBPF Rootkit",
+      "severity": "high",
+      "event_type": "軟體供應鏈攻擊",
+      "summary": "攻擊者接管 Arch User Repository（AUR）逾 400 個套件，改寫建置腳本以在開發者機器上安裝憑證竊取程式及 eBPF rootkit。惡意程式具備自動化憑證竊取能力，並利用 eBPF 技術在核心層級隱藏活動，使端點偵測工具難以察覺。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/over-400-arch-linux-aur-packages.html",
+      "date": "2026-06-12"
+    },
+    {
+      "title": "Google Chromium V8 越界讀寫漏洞（CVE-2026-11645）遭野外利用，列入 CISA KEV",
+      "severity": "high",
+      "event_type": "瀏覽器漏洞利用",
+      "summary": "Google Chromium V8 JavaScript 引擎存在越界讀寫漏洞 CVE-2026-11645，可讓遠端攻擊者透過惡意 HTML 頁面在沙箱內執行任意程式碼，影響 Chrome、Edge、Opera 等多款 Chromium 系瀏覽器。Chrome 149 更新已同步修補 28 個漏洞，CISA 已要求聯邦機構於 6 月 23 日前完成修補。",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/chrome-149-update-patches-28-vulnerabilities/",
+      "date": "2026-06-12"
+    },
+    {
+      "title": "The Gentlemen 勒索組織宣稱 478 名受害者，惡意程式具蠕蟲式橫向擴散能力",
+      "severity": "high",
+      "event_type": "勒索軟體攻擊",
+      "summary": "The Gentlemen 新興勒索軟體組織以積極招募成員策略快速成長，目前宣稱已有 478 名受害者，成為活躍度第二高的勒索組織。其惡意程式具備蠕蟲式橫向移動能力，能在受害網路內自動擴散，並採用雙重勒索策略同時加密資料與威脅公開外洩。Krebs on Security 獨家調查其幕後組成。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/the-gentlemen-ransomware-claims-478.html",
+      "date": "2026-06-11"
+    },
+    {
+      "title": "新型 Agentjacking 攻擊可挾持 AI 程式撰寫代理執行惡意程式碼，LangGraph 同週揭露 RCE 漏洞鏈",
+      "severity": "high",
+      "event_type": "新型攻擊手法",
+      "summary": "資安研究人員揭露 Agentjacking 攻擊手法，可透過惡意提示注入或竄改工具定義，誘騙 AI 程式撰寫代理（如 OpenClaw）在開發者機器上執行任意程式碼或洩漏敏感資料。LangGraph 同週亦揭露三個已修補漏洞，包含可導致遠端程式碼執行的嚴重漏洞鏈，AI 工具供應鏈安全問題日趨嚴峻。",
+      "source": "Infosecurity Magazine",
+      "url": "https://www.infosecuritymagazine.com/news/new-agentjacking-attacks-could-hijack-ai/",
+      "date": "2026-06-11"
+    },
+    {
+      "title": "中國駭客組織 VPanda 在 Linux 登入系統植入後門長達近十年",
+      "severity": "high",
+      "event_type": "國家級網路間諜",
+      "summary": "Sygnia 研究發現 China-nexus 威脅組織 VPanda 在 Linux 登入軟體（PAM/SSH）植入後門，長達近十年未被偵測，得以持續存取受害系統而不留下明顯痕跡。此攻擊手法鎖定防禦者較少監控的作業系統核心元件，凸顯 Linux 系統基礎元件完整性驗證的重要性。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/china-linked-hackers-backdoored-linux.html",
+      "date": "2026-06-12"
+    },
+    {
+      "title": "伊朗 Handala 入侵美國加州水務局，竊取 5GB 資料含客戶個資與 RTKBase 憑證",
+      "severity": "high",
+      "event_type": "關鍵基礎設施攻擊",
+      "summary": "伊朗 Handala 駭客組織聲稱成功入侵美國加州水務局（Cal Water），竊取逾 5GB 資料，包含客戶個人資訊及 RTKBase 平台的操作憑證。此事件再次凸顯水務等關鍵基礎設施面臨的網路攻擊威脅，OT/IT 融合環境的安全防護急需加強。",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/iranian-cyber-group-handala-claims-cal-water-hack/",
+      "date": "2026-06-12"
+    },
+    {
+      "title": "INTERPOL「Operation Ramz」打擊 Sniper Dz 網路釣魚即服務平台，逮捕管理者",
+      "severity": "medium",
+      "event_type": "執法行動",
+      "summary": "INTERPOL 代號 Operation Ramz 的行動成功瓦解運作十年的 Sniper Dz PhaaS（網路釣魚即服務）平台，逮捕其管理者。Group-IB 揭露 Sniper Dz 曾為大量網路犯罪者提供現成釣魚工具組與基礎架構，影響數百萬潛在受害者。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/interpol-operation-takes-down-sniper-dz.html",
+      "date": "2026-06-12"
+    },
+    {
+      "title": "Europol 瓦解 AudiA6 加密貨幣洗錢服務，多個勒索軟體組織受波及",
+      "severity": "medium",
+      "event_type": "執法行動",
+      "summary": "Europol 聯合 FBI 等機構查扣 AudiA6 暗網加密貨幣洗錢服務的網域並逮捕嫌疑人。AudiA6 長期為多個勒索軟體組織提供贖金洗錢管道，此次行動將影響相關勒索組織的資金流通能力，是繼 2024 年 LockBit 後規模最大的勒索生態打擊行動之一。",
+      "source": "Infosecurity Magazine",
+      "url": "https://www.infosecuritymagazine.com/news/ransomware-payment-crypto-laundering/",
+      "date": "2026-06-12"
+    },
+    {
+      "title": "CISA 發布新漏洞修補指令，高風險漏洞需 3 天內完成修補，標誌漏洞管理策略重大轉變",
+      "severity": "medium",
+      "event_type": "法規政策",
+      "summary": "CISA 發布新版 Binding Operational Directive（BOD 26-02），要求聯邦機構依實際風險而非 CVSS 嚴重性分數排序漏洞修補優先順序。同時滿足四項高風險條件的漏洞須在 3 天內完成修補，此政策標誌著美國政府漏洞管理策略的重大轉變，業界普遍預期此模式將成為行業最佳實踐。",
+      "source": "CISA / CyberScoop",
+      "url": "https://cyberscoop.com/cisa-vulnerability-remediation-directive-bod-26-02/",
+      "date": "2026-06-10"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-35273",
+      "title": "Oracle PeopleSoft Enterprise PeopleTools 缺少關鍵功能驗證漏洞（★ CISA KEV）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Oracle",
+      "product": "PeopleSoft Enterprise PeopleTools",
+      "description": "Oracle PeopleSoft Enterprise PeopleTools 存在缺少關鍵功能驗證漏洞，允許未經驗證的攻擊者完全接管系統。ShinyHunters 自 5 月底起積極利用此漏洞攻擊大學與企業，Oracle 已發布緩解措施。CISA 已列入 KEV，原修補截止日為 2026-06-15。"
+    },
+    {
+      "cve_id": "CVE-2026-10520",
+      "title": "Ivanti Sentry OS 命令注入漏洞，可允許遠端未授權 Root 執行（★ CISA KEV）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Ivanti",
+      "product": "Sentry（原 MobileIron Sentry）",
+      "description": "Ivanti Sentry 存在 OS 命令注入漏洞，允許遠端未授權使用者達成 root 層級遠端程式碼執行。適用於 Sentry 設備處於非管理狀態且端點可從外部存取的情況。使用 mTLS 或透過 Neurons for MDM 限制 HTTPS 存取可降低風險。已列入 CISA KEV，截止日 2026-06-14。"
+    },
+    {
+      "cve_id": "CVE-2026-20253",
+      "title": "Splunk Enterprise 未授權遠端程式碼執行漏洞，CVSS 9.8",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Splunk",
+      "product": "Splunk Enterprise（< 10.2.4, < 10.0.7）",
+      "description": "Splunk Enterprise 版本低於 10.2.4 及 10.0.7 的系統中，未授權使用者可建立或截斷任意檔案，進而達成遠端程式碼執行。此漏洞無需任何身份驗證即可觸發。請立即升級至 10.2.4 或 10.0.7 以上版本。"
+    },
+    {
+      "cve_id": "CVE-2026-11645",
+      "title": "Google Chromium V8 越界讀寫漏洞，可透過惡意網頁在沙箱內執行任意程式碼（★ CISA KEV）",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Google",
+      "product": "Chromium V8（影響 Chrome、Edge、Opera 等）",
+      "description": "Google Chromium V8 JavaScript 引擎存在越界讀寫漏洞，允許遠端攻擊者透過精心製作的 HTML 頁面在沙箱內執行任意程式碼。影響所有使用 Chromium 的瀏覽器。已列入 CISA KEV，聯邦機構截止日為 2026-06-23。Chrome 149 已修補。"
+    },
+    {
+      "cve_id": "CVE-2026-20245",
+      "title": "Cisco Catalyst SD-WAN Manager 輸出編碼不當漏洞，可允許本地 Root 命令執行（★ CISA KEV）",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Cisco",
+      "product": "Catalyst SD-WAN Manager（原 SD-WAN vManage）",
+      "description": "Cisco Catalyst SD-WAN Manager 存在輸出編碼不當漏洞，允許已驗證的本地攻擊者提供精心製作的檔案，進而以 root 身份執行任意命令。已列入 CISA KEV，聯邦機構截止日為 2026-06-23。"
+    },
+    {
+      "cve_id": "CVE-2026-7473",
+      "title": "Arista EOS 不完整比較漏洞，導致意外隧道封包解封裝與轉發（★ CISA KEV）",
+      "cvss": 7.5,
+      "severity": "high",
+      "vendor": "Arista",
+      "product": "Extensible Operating System（EOS）",
+      "description": "Arista EOS 在比較隧道封包目的地 IP 時存在不完整比較漏洞，導致交換器意外解封裝並轉發非預期的隧道封包。已列入 CISA KEV，聯邦機構截止日為 2026-06-23。"
+    },
+    {
+      "cve_id": "CVE-2026-46444",
+      "title": "Flowise LLM 平台 OpenAI Assistants Vector Store API 端點缺乏驗證中介層",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "FlowiseAI",
+      "product": "Flowise（< 3.1.2）",
+      "description": "Flowise 3.1.2 以前版本的 OpenAI Assistants Vector Store CRUD 端點缺乏驗證中介層，即使路由不在白名單中，也未透過 API 金鑰驗證保護，允許任何人對向量儲存進行未授權操作。請升級至 3.1.2。"
+    },
+    {
+      "cve_id": "CVE-2026-11522",
+      "title": "Tenda 多款路由器（W20E/AC18/CX12L）Stack-Based Buffer Overflow 可遠端執行任意程式碼",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Tenda",
+      "product": "W20E 15.11.0.6 / AC18 15.03.05.05 / CX12L 16.03.53.12",
+      "description": "Tenda 多款路由器 Web 管理介面存在堆疊型緩衝區溢位漏洞，已驗證的遠端攻擊者可透過操控特定參數觸發漏洞，進而執行任意程式碼。多個 CVE（CVE-2026-11522/11524/11528/11503/11504）影響不同功能端點，漏洞已公開揭露。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢嚴峻（高），以下三大趨勢值得高度關注：（1）AI 系統成為新攻擊面：Agentjacking 攻擊與 LangGraph RCE 漏洞鏈顯示 AI 工具供應鏈安全問題日趨嚴重，開發環境首當其衝；（2）國家級行為者持續活躍：中國 VPanda 組織長期潛伏 Linux 系統近十年、俄羅斯 Void Blizzard 成員遭美國起訴、伊朗 Handala 攻擊水務關鍵基礎設施，地緣政治驅動的網路攻擊全面升溫；（3）勒索軟體演化加速：The Gentlemen 以蠕蟲式傳播機制顯著提升攻擊效率，雙重勒索模式持續擴大受害範圍。漏洞管理壓力持續上升，Microsoft Patch Tuesday 創下 206 CVE 歷史記錄，AI 輔助漏洞發現技術正加速漏洞揭露速度，預計此趨勢將持續。",
+    "active_actors": [
+      {
+        "name": "ShinyHunters",
+        "type": "financially_motivated",
+        "origin": "unknown",
+        "activity": "利用 Oracle PeopleSoft 零時差漏洞（CVE-2026-35273）大規模攻擊全球大學與企業",
+        "ttps": ["零時差漏洞利用", "資料竊取", "勒索"]
+      },
+      {
+        "name": "VPanda",
+        "type": "nation_state",
+        "origin": "China",
+        "activity": "在 Linux PAM/SSH 登入系統植入後門，長期潛伏近十年",
+        "ttps": ["供應鏈後門", "長期潛伏", "低噪音間諜活動"]
+      },
+      {
+        "name": "Void Blizzard",
+        "type": "nation_state",
+        "origin": "Russia",
+        "activity": "針對美國企業執行大規模網路間諜活動，成員 Denis Obrezko 遭美國起訴",
+        "ttps": ["網路間諜", "資料竊取"]
+      },
+      {
+        "name": "Handala",
+        "type": "hacktivist",
+        "origin": "Iran",
+        "activity": "入侵美國加州水務局，竊取客戶資料與 OT 系統憑證",
+        "ttps": ["關鍵基礎設施攻擊", "資料竊取", "輿論戰"]
+      },
+      {
+        "name": "The Gentlemen",
+        "type": "ransomware_group",
+        "origin": "unknown",
+        "activity": "蠕蟲式勒索攻擊擴散，已宣稱 478 名受害者，為活躍度第二高勒索組織",
+        "ttps": ["雙重勒索", "蠕蟲式橫向移動", "資料外洩威脅"]
+      },
+      {
+        "name": "Chinese Smishing Network",
+        "type": "cybercrime",
+        "origin": "China",
+        "activity": "利用 Gemini AI 發動 AI 強化簡訊釣魚攻擊，Google 已提起訴訟",
+        "ttps": ["AI 輔助釣魚", "簡訊釣魚 (Smishing)", "身分詐騙"]
+      }
+    ],
+    "attack_techniques": [
+      "零時差漏洞利用（Oracle PeopleSoft CVE-2026-35273）",
+      "軟體供應鏈攻擊（AUR 套件植入 eBPF Rootkit）",
+      "AI 代理人挾持（Agentjacking）",
+      "蠕蟲式勒索軟體橫向移動",
+      "OS 命令注入（Ivanti Sentry CVE-2026-10520）",
+      "Linux 登入系統後門植入（VPanda / PAM Backdoor）",
+      "AI 強化網路釣魚（Gemini Smishing）"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "【立即】修補 CVE-2026-35273（Oracle PeopleSoft）、CVE-2026-10520（Ivanti Sentry）、CVE-2026-20253（Splunk Enterprise）三項 CVSS 9.8 危急漏洞，此三項均已確認遭野外利用或列入 CISA KEV，不得延遲。"
+    },
+    {
+      "priority": "high",
+      "action": "【立即】更新所有 Chromium 系瀏覽器（Chrome、Microsoft Edge）至最新版本以修補 CVE-2026-11645（CISA KEV，已遭野外利用），並強制啟用自動更新機制。"
+    },
+    {
+      "priority": "high",
+      "action": "【本週】優先部署 Microsoft 六月 Patch Tuesday 更新，特別關注零時差漏洞及 Exchange Ghost-Sender 郵件偽造漏洞（已確認遭野外利用）的修補。建議測試後 7 天內完成關鍵系統更新。"
+    },
+    {
+      "priority": "medium",
+      "action": "【本週】稽核組織內 AI 代理工具（Coding Agent、LLM 工具組、LangGraph）的供應鏈完整性，限制 AI 代理的系統存取權限，套用 LangGraph 最新安全更新，防範 Agentjacking 攻擊。"
+    },
+    {
+      "priority": "medium",
+      "action": "【本週】使用 Arch Linux AUR 的開發者應立即稽核近期安裝的套件，對所有可能受影響的機器進行完整掃描，並重設系統憑證、SSH 金鑰及 API 存取金鑰。"
+    },
+    {
+      "priority": "medium",
+      "action": "【本月】稽核組織 Linux 伺服器的 PAM 模組與 SSH 設定檔完整性，部署以行為為基礎的 Linux 端點偵測（EDR）以識別潛在長期潛伏後門，定期執行 FIM（檔案完整性監控）。"
+    },
+    {
+      "priority": "medium",
+      "action": "【本月】評估現有漏洞管理流程是否符合 CISA BOD 26-02 新指令要求，建立以實際風險情境（而非純 CVSS 分數）為基礎的漏洞優先排序機制，高風險漏洞目標應在 3 天內完成修補。"
+    },
+    {
+      "priority": "low",
+      "action": "強化勒索軟體防護縱深：加強網路分段（特別是 SMB 橫向移動路徑）、確保關鍵資料有可驗證的離線備份、監控異常的 SMB 和 RDP 連線模式，以應對 The Gentlemen 等蠕蟲式勒索軟體。"
+    },
+    {
+      "priority": "low",
+      "action": "修補 Cisco Catalyst SD-WAN Manager（CVE-2026-20245）及 Arista EOS（CVE-2026-7473）的 CISA KEV 漏洞，聯邦機構須於 2026-06-23 前完成，一般企業應納入近期修補計畫。"
+    },
+    {
+      "priority": "low",
+      "action": "關鍵基礎設施營運商（水務、能源等）應強化 OT/IT 網路隔離，審查 SCADA/ICS 及 RTKBase 系統的外部存取控制，輪換所有系統憑證，參考 Handala 攻擊事件加強防禦。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "CVE（通用漏洞揭露）",
+      "term_en": "CVE",
+      "term_zh": "通用漏洞揭露",
+      "definition": "公開已知漏洞的統一編號系統",
+      "id": "cve",
+      "url": "https://glossary.astroicers.link/glossary/cve"
+    },
+    {
+      "term": "KEV（已知遭利用漏洞清單）",
+      "term_en": "KEV",
+      "term_zh": "已知遭利用漏洞清單",
+      "definition": "CISA 維護的已確認遭實際利用的漏洞清單",
+      "id": "kev",
+      "url": "https://glossary.astroicers.link/glossary/kev"
+    },
+    {
+      "term": "RCE（遠端程式碼執行）",
+      "term_en": "RCE",
+      "term_zh": "遠端程式碼執行",
+      "definition": "攻擊者可遠端在目標系統執行任意程式碼的漏洞",
+      "id": "rce",
+      "url": "https://glossary.astroicers.link/glossary/rce"
+    },
+    {
+      "term": "供應鏈攻擊",
+      "term_en": "Supply Chain Attack",
+      "term_zh": "供應鏈攻擊",
+      "definition": "透過入侵軟體供應商來攻擊最終用戶的手法",
+      "id": "supply_chain_attack",
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
+    },
+    {
+      "term": "Rootkit（根套件）",
+      "term_en": "Rootkit",
+      "term_zh": "根套件",
+      "definition": "隱藏惡意活動並維持特權存取的工具集",
+      "id": "rootkit",
+      "url": "https://glossary.astroicers.link/glossary/rootkit"
+    },
+    {
+      "term": "零日漏洞",
+      "term_en": "Zero-Day",
+      "term_zh": "零日漏洞",
+      "definition": "尚未有修補程式的漏洞",
+      "id": "zero_day",
+      "url": "https://glossary.astroicers.link/glossary/zero_day"
+    },
+    {
+      "term": "Agentjacking（AI 代理人挾持）",
+      "term_en": "Agentjacking",
+      "term_zh": "AI 代理人挾持",
+      "definition": "誘騙 AI 代理執行惡意程式的攻擊",
+      "id": "agentjacking",
+      "url": "https://glossary.astroicers.link/glossary/agentjacking"
+    },
+    {
+      "term": "PhaaS（網路釣魚即服務）",
+      "term_en": "PhaaS",
+      "term_zh": "網路釣魚即服務",
+      "definition": "以服務形式提供的釣魚攻擊平台",
+      "id": "phaas",
+      "url": "https://glossary.astroicers.link/glossary/phaas"
+    },
+    {
+      "term": "ShinyHunters",
+      "term_en": "ShinyHunters",
+      "term_zh": "ShinyHunters 駭客組織",
+      "definition": "以大規模資料竊取勒索聞名的駭客組織",
+      "id": "shinyhunters",
+      "url": "https://glossary.astroicers.link/glossary/shinyhunters"
+    },
+    {
+      "term": "The Gentlemen（Gentlemen 勒索組織）",
+      "term_en": "The Gentlemen",
+      "term_zh": "Gentlemen 勒索組織",
+      "definition": "具蠕蟲擴散能力的新興勒索組織",
+      "id": "the_gentlemen",
+      "url": "https://glossary.astroicers.link/glossary/the_gentlemen"
+    }
+  ],
+  "references": [
+    {
+      "title": "Critical Splunk Enterprise Flaw Lets Attackers Run Code Without Authentication",
+      "url": "https://thehackernews.com/2026/06/critical-splunk-enterprise-flaw-lets.html"
+    },
+    {
+      "title": "ShinyHunters Exploits Oracle PeopleSoft Zero-Day (CVE-2026-35273) to Breach Universities",
+      "url": "https://thehackernews.com/2026/06/shinyhunters-exploits-oracle-peoplesoft.html"
+    },
+    {
+      "title": "Google Confirms Exploitation of Oracle PeopleSoft Zero-Day by ShinyHunters",
+      "url": "https://www.securityweek.com/google-confirms-exploitation-of-oracle-peoplesoft-zero-day-by-shinyhunters/"
+    },
+    {
+      "title": "Over 400 Arch Linux AUR Packages Hijacked to Deploy Infostealer and eBPF Rootkit",
+      "url": "https://thehackernews.com/2026/06/over-400-arch-linux-aur-packages.html"
+    },
+    {
+      "title": "Agentjacking Attack Tricks AI Coding Agents Into Running Malicious Code",
+      "url": "https://thehackernews.com/2026/06/agentjacking-attack-tricks-ai-coding.html"
+    },
+    {
+      "title": "LangGraph Flaw Chain Exposes Self-Hosted AI Agents to Remote Code Execution",
+      "url": "https://thehackernews.com/2026/06/langgraph-flaw-chain-exposes.html"
+    },
+    {
+      "title": "INTERPOL Operation Takes Down Sniper Dz Phishing Platform, Arrests Administrator",
+      "url": "https://thehackernews.com/2026/06/interpol-operation-takes-down-sniper-dz.html"
+    },
+    {
+      "title": "Europol Disrupts AudiA6 Crypto Laundering Service Used by Ransomware Gangs",
+      "url": "https://thehackernews.com/2026/06/europol-disrupts-audia6-crypto.html"
+    },
+    {
+      "title": "The Gentlemen Ransomware Claims 478 Victims, Can Spread Like a Worm",
+      "url": "https://thehackernews.com/2026/06/the-gentlemen-ransomware-claims-478.html"
+    },
+    {
+      "title": "Who Runs the Ransomware Group 'The Gentlemen?'",
+      "url": "https://krebsonsecurity.com/2026/06/who-runs-the-ransomware-group-the-gentlemen/"
+    },
+    {
+      "title": "China-Linked Hackers Backdoored Linux Login Software to Hide for Nearly a Decade",
+      "url": "https://thehackernews.com/2026/06/china-linked-hackers-backdoored-linux.html"
+    },
+    {
+      "title": "Max-Severity Ivanti Flaw Exploited 24 Hours After Disclosure",
+      "url": "https://www.darkreading.com/vulnerabilities-threats/max-severity-ivanti-flaw-exploited-24-hours-after-disclosure"
+    },
+    {
+      "title": "Ivanti Sentry Exploitation Attempts Hitting Honeypots",
+      "url": "https://www.securityweek.com/ivanti-sentry-exploitation-attempts-hitting-honeypots/"
+    },
+    {
+      "title": "A Record-Breaking Patch Tuesday for June 2026",
+      "url": "https://krebsonsecurity.com/2026/06/a-record-breaking-patch-tuesday-for-june-2026/"
+    },
+    {
+      "title": "Microsoft Exchange Flaw Lets Attackers Spoof Any Email Address",
+      "url": "https://www.darkreading.com/application-security/microsoft-exchange-flaw-ghost-sender-email-spoof"
+    },
+    {
+      "title": "CISA Orders Agencies to Patch by Risk, Not Severity",
+      "url": "https://www.infosecuritymagazine.com/news/cisa-orders-agencies-patch-risk/"
+    },
+    {
+      "title": "CISA directive orders agencies to prioritize vulnerability patching in a new way",
+      "url": "https://cyberscoop.com/cisa-vulnerability-remediation-directive-bod-26-02/"
+    },
+    {
+      "title": "Iranian Cyber Group Handala Claims Cal Water Hack",
+      "url": "https://www.securityweek.com/iranian-cyber-group-handala-claims-cal-water-hack/"
+    },
+    {
+      "title": "Russian national charged in connection with Void Blizzard espionage campaign",
+      "url": "https://cyberscoop.com/russian-national-charged-void-blizzard-espionage/"
+    },
+    {
+      "title": "Chrome 149 Update Patches 28 Vulnerabilities",
+      "url": "https://www.securityweek.com/chrome-149-update-patches-28-vulnerabilities/"
+    },
+    {
+      "title": "CISA Known Exploited Vulnerabilities Catalog",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "【資安日報】6月12日，Oracle PeopleSoft零時差漏洞被用於大規模攻擊 - iThome",
+      "url": "https://www.ithome.com.tw/news/security"
+    },
+    {
+      "title": "【資安週報】0608-0612，全球漏洞治理迎來新變革 - iThome",
+      "url": "https://www.ithome.com.tw/news/security"
+    }
+  ]
+}
