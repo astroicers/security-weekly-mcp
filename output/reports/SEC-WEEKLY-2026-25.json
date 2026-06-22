@@ -1,0 +1,402 @@
+{
+  "title": "資安週報 2026/06/15 - 2026/06/21",
+  "report_id": "SEC-WEEKLY-2026-25",
+  "period": {
+    "start": "2026-06-15",
+    "end": "2026-06-21"
+  },
+  "publish_date": "2026-06-22",
+  "summary": {
+    "total_events": 12,
+    "total_vulnerabilities": 10,
+    "threat_level": "elevated"
+  },
+  "events": [
+    {
+      "title": "FortiBleed：86,644 台 Fortinet 設備憑證大規模外洩，台灣受影響全球第三",
+      "severity": "critical",
+      "event_type": "大規模憑證竊取",
+      "summary": "攻擊者對逾 8 萬台暴露於網際網路的 FortiGate 防火牆與 VPN 設備展開大規模憑證竊取攻擊，受害範圍涵蓋財星 500 企業及 15 國以上政府機構。台灣受影響設備數量居全球第三，CISA 緊急要求用戶更新 FortiOS 並啟用多因素驗證。",
+      "source": "iThome 資安",
+      "url": "https://www.ithome.com.tw/news/10366855",
+      "date": "2026-06-18"
+    },
+    {
+      "title": "Splunk CVE-2026-20253（CVSS 9.8）列入 CISA KEV，少量漏洞利用已確認",
+      "severity": "critical",
+      "event_type": "漏洞遭利用",
+      "summary": "Splunk Enterprise 缺少關鍵功能驗證漏洞（CVE-2026-20253）被 CISA 加入已知遭利用漏洞清單（KEV），截止修補期限為 6 月 21 日。未驗證身份的攻擊者可透過 PostgreSQL 側車服務端點建立或截斷任意檔案，Splunk 產品安全事故應變團隊已確認少量漏洞利用活動。",
+      "source": "iThome 資安",
+      "url": "https://www.ithome.com.tw/news/10366654",
+      "date": "2026-06-19"
+    },
+    {
+      "title": "Operation Endgame 國際執法：瓦解 SocGholish 殭屍網路，清除近 15,000 個 WordPress 受害網站",
+      "severity": "high",
+      "event_type": "國際執法行動",
+      "summary": "荷蘭、加拿大、德國、美國聯合執法行動「Operation Endgame」成功瓦解與 Evil Corp 有關聯的 SocGholish 惡意下載器基礎設施，共清除 14,971 個受感染 WordPress 網站。SocGholish 長期偽裝成瀏覽器更新，作為勒索軟體的初始存取工具。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/operation-endgame-disrupts-socgholish.html",
+      "date": "2026-06-19"
+    },
+    {
+      "title": "usbliter8：Apple A12/A13 晶片 BootROM 不可修補漏洞，可繞過安全開機鏈",
+      "severity": "high",
+      "event_type": "硬體漏洞揭露",
+      "summary": "資安研究團隊 Paradigm Shift 公布名為 usbliter8 的 BootROM 漏洞利用程式，可在 Apple A12 和 A13 晶片的 SecureROM 中實現任意程式碼執行，繞過安全開機鏈。由於漏洞程式碼燒錄於晶片中，無法透過任何軟體更新修補，影響 iPhone XR、iPhone 11 等裝置的整個使用生命週期。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/unpatchable-usbliter8-exploit-breaks.html",
+      "date": "2026-06-19"
+    },
+    {
+      "title": "AutoJack：Microsoft 揭露 AI 瀏覽代理人劫持攻擊鏈，可觸發主機端程式碼執行",
+      "severity": "high",
+      "event_type": "AI 安全威脅",
+      "summary": "Microsoft 研究人員詳細說明名為 AutoJack 的攻擊鏈，可將 AI 瀏覽代理人轉化為遠端程式碼執行的傳遞載具。攻擊者透過提示注入漏洞操控 AI 代理人，最終在主機端執行任意程式碼，標誌著 AI 代理人安全進入全新威脅階段。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/autojack-attack-lets-one-web-page.html",
+      "date": "2026-06-19"
+    },
+    {
+      "title": "Gentlemen RaaS 組織部署 GentleKiller EDR 終結框架，專門針對 400 個資安程序",
+      "severity": "high",
+      "event_type": "勒索軟體即服務",
+      "summary": "The Gentlemen 勒索軟體即服務組織積極開發並維護名為 GentleKiller 的 EDR 終結框架，可針對 400 個端點資安程序，協助勒索軟體附屬組織在攻擊前停用防護機制。此工具被分發給多個附屬犯罪組織使用，大幅降低發動攻擊的技術門檻。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/the-gentlemen-raas-uses-gentlekiller.html",
+      "date": "2026-06-19"
+    },
+    {
+      "title": "DragonForce 勒索軟體濫用 Microsoft Teams TURN 轉送伺服器隱匿 C2 流量",
+      "severity": "high",
+      "event_type": "勒索軟體新技術",
+      "summary": "Symantec 與 Carbon Black 研究人員揭露，DragonForce 勒索軟體組織採用罕見隱匿手法，將命令與控制流量偽裝成 Microsoft Teams 的 TURN（NAT 穿越中繼）協定流量，利用企業普遍允許 Teams 通訊的防火牆規則來躲避偵測。",
+      "source": "iThome 資安",
+      "url": "https://www.ithome.com.tw/news/10366853",
+      "date": "2026-06-18"
+    },
+    {
+      "title": "INC Ransomware 自 2023 年累積 830+ 名受害者，2026 年成為最活躍 RaaS 威脅",
+      "severity": "high",
+      "event_type": "勒索軟體即服務",
+      "summary": "資安研究人員追蹤 INC 勒索軟體即服務組織的發展軌跡，自 2023 年起至今已累積超過 830 名受害者，成為 2026 年最主要的網路犯罪威脅之一。INC 持續擴招附屬組織並精進攻擊工具，目標涵蓋醫療、教育、製造等多個關鍵產業。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/inc-ransomware-emerges-as-major-raas.html",
+      "date": "2026-06-18"
+    },
+    {
+      "title": "Velvet Ant 中國 APT 組織入侵美加研究機構，潛伏逾一年竊取軍事與學術資料",
+      "severity": "high",
+      "event_type": "國家級網路間諜",
+      "summary": "Google 揭露中國 APT 組織 Velvet Ant 入侵美國及加拿大多個學術、醫療及軍事研究機構，在網路中隱匿一年以上而未被察覺。攻擊者藉由篡改 Linux 驗證核心元件建立隱蔽後門，竊取與研究相關的敏感資料。",
+      "source": "CyberScoop",
+      "url": "https://cyberscoop.com/google-exposes-china-espionage-velvet-ant-2026",
+      "date": "2026-06-15"
+    },
+    {
+      "title": "M365 Copilot 提示注入資訊外洩攻擊：點擊連結即可誘導 AI 助理洩漏企業敏感資料",
+      "severity": "high",
+      "event_type": "AI 安全威脅",
+      "summary": "資安研究人員揭露結合提示注入漏洞與 M365 Copilot 的新型攻擊手法，攻擊者可透過惡意連結誘導 AI 助理自動提取並洩漏企業的敏感資料，無需傳統釣魚攻擊的複雜步驟，對擁有大量 Copilot 授權的企業構成重大威脅。",
+      "source": "iThome 資安",
+      "url": "https://www.ithome.com.tw/news/10366851",
+      "date": "2026-06-18"
+    },
+    {
+      "title": "Novo Nordisk 遭 FulcrumSec 入侵，聲稱竊取逾 1TB 資料鎖定軟體開發管線",
+      "severity": "high",
+      "event_type": "企業資料外洩",
+      "summary": "勒索組織 FulcrumSec 宣稱成功入侵丹麥製藥巨擘諾和諾德，竊取超過 1TB 資料，索贖 7.9 億元遭拒。此次外洩暴露了企業軟體開發供應鏈管線的風險，Novo Nordisk 已確認事件並展開調查。",
+      "source": "TechNews 資安",
+      "url": "https://technews.tw/2026/06/17/novo-nordisk-breach-fulcrumsec/",
+      "date": "2026-06-17"
+    },
+    {
+      "title": "Popa Android 殭屍網路：數百萬台電視盒遭強制作為流量轉發節點，與以色列上市公司相關",
+      "severity": "medium",
+      "event_type": "殭屍網路",
+      "summary": "資安研究人員揭露名為 Popa 的 Android 電視盒殭屍網路，四年來持續強制數百萬台消費者設備轉發網際網路流量，被用於廣告欺詐和代理服務。調查顯示此殭屍網路與一家以色列上市公司存在關聯，引發供應鏈安全疑慮。",
+      "source": "Krebs on Security",
+      "url": "https://krebsonsecurity.com/2026/06/popa-botnet-linked-to-publicly-traded-israeli-firm/",
+      "date": "2026-06-18"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-20253",
+      "title": "Splunk Enterprise 缺少關鍵功能驗證漏洞",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Splunk",
+      "product": "Splunk Enterprise",
+      "description": "未驗證身份的攻擊者可透過 PostgreSQL 側車服務端點建立或截斷任意檔案，已列入 CISA KEV 並確認少量遭利用活動，截止修補日期 2026-06-21。"
+    },
+    {
+      "cve_id": "CVE-2026-48907",
+      "title": "Joomla Content Editor 不當存取控制漏洞",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Widget Factory",
+      "product": "Joomla Content Editor",
+      "description": "未驗證身份的用戶可透過建立新編輯器設定檔上傳並執行任意 PHP 程式碼，已列入 CISA KEV，截止修補日期 2026-06-19。"
+    },
+    {
+      "cve_id": "CVE-2026-12165",
+      "title": "WordPress Contest Gallery Plugin 權限提升漏洞",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "BestWebSoft",
+      "product": "WordPress Contest Gallery Plugin",
+      "description": "30.0.2 及以前版本中，Contributor 等級用戶可透過 RegistryUserRole 參數將自身權限提升至管理員，修補版本 30.0.3 已釋出。"
+    },
+    {
+      "cve_id": "CVE-2026-47835",
+      "title": "Spring AI Vector Stores SQL 注入漏洞",
+      "cvss": 8.6,
+      "severity": "high",
+      "vendor": "VMware Spring",
+      "product": "Spring AI（Elasticsearch / OpenSearch / GemFire VectorDB Store）",
+      "description": "特殊字元可強制在 Elasticsearch、OpenSearch 及 GemFire VectorDB 中執行任意查詢，影響 Spring AI 1.0.0~1.0.x（修補版本 1.0.9）及 1.1.0~1.1.x（修補版本 1.1.8）。"
+    },
+    {
+      "cve_id": "CVE-2026-12057",
+      "title": "PDF 沙箱 JavaScript 執行任意程式碼漏洞",
+      "cvss": 8.6,
+      "severity": "high",
+      "vendor": "未揭露",
+      "product": "PDF 沙箱執行環境",
+      "description": "沙箱執行 PDF 內嵌 JavaScript 時未攔截部分危險介面，允許遠端腳本載入並執行任意程式碼。"
+    },
+    {
+      "cve_id": "CVE-2026-50656",
+      "title": "Microsoft Defender 惡意程式防護引擎權限提升漏洞（RoguePlanet）",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Microsoft Defender / Malware Protection Engine",
+      "description": "Microsoft Malware Protection Engine 中的本機權限提升漏洞（內部代號 RoguePlanet），修補更新正在準備中。"
+    },
+    {
+      "cve_id": "CVE-2026-0063",
+      "title": "Android PhoneInterfaceManager 本機權限提升漏洞",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Google",
+      "product": "Android PhoneInterfaceManager",
+      "description": "setAllowedCarriers 中的邏輯錯誤導致可在無額外執行權限的情況下停用電信商限制，進而本機提升權限，無需用戶互動。"
+    },
+    {
+      "cve_id": "CVE-2026-48294",
+      "title": "Adobe Acrobat Chrome 擴充功能跨來源資料洩露漏洞（UXSS）",
+      "cvss": 7.4,
+      "severity": "high",
+      "vendor": "Adobe",
+      "product": "Adobe Acrobat PDF Extension for Chrome",
+      "description": "26.5.2.2 及以前版本存在 UXSS 級別跨來源資料洩露漏洞，攻擊者可竊取受害者的 session 資料，需用戶造訪惡意 URL 或互動遭入侵頁面，修補版本 26.5.2.3 已釋出。"
+    },
+    {
+      "cve_id": "CVE-2026-35295",
+      "title": "Oracle WebCenter Sites 遠端低權限用戶接管漏洞",
+      "cvss": 7.5,
+      "severity": "high",
+      "vendor": "Oracle",
+      "product": "Oracle WebCenter Sites 12.2.1.4.0 / 14.1.2.0.0",
+      "description": "低權限用戶可透過 HTTP 網路存取難以利用的漏洞，成功可導致 Oracle WebCenter Sites 被完全接管（機密性、完整性、可用性均受影響）。"
+    },
+    {
+      "cve_id": "CVE-2026-11409",
+      "title": "TP-Link TL-WR940N v6 作業系統指令注入漏洞",
+      "cvss": 7.2,
+      "severity": "high",
+      "vendor": "TP-Link",
+      "product": "TP-Link TL-WR940N v6",
+      "description": "IPv6 PPPoE 設定處理常式因未適當清理用戶輸入，管理員權限的攻擊者可執行任意系統指令，等待廠商提供修補更新。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢以 AI 安全攻擊面擴大與大規模基礎設施憑證竊取為雙主軸。FortiBleed 事件顯示，針對邊界防護設備的憑證竊取攻擊已成為國家級與犯罪組織的首選初始存取手段。同時，AI 代理人（Agentic AI）普及帶來提示注入攻擊的新威脅面，AutoJack 與 M365 Copilot 攻擊手法標誌著 AI 安全進入全新戰場。EDR 終結工具的商品化（GentleKiller）使勒索軟體攻擊成功率提升，而 DragonForce 濫用合法基礎設施（Teams TURN）隱匿 C2 流量的手法代表高級迴避技術的普及化趨勢。",
+    "attack_techniques": [
+      "憑證竊取 - 大規模掃描暴露於網際網路的管理介面",
+      "EDR 終結 - 商品化工具降低攻擊技術門檻",
+      "提示注入 - AI 代理人成為新攻擊媒介",
+      "合法基礎設施濫用 - Teams TURN 作為 C2 通道",
+      "BootROM 漏洞利用 - 不可修補的硬體級攻擊",
+      "供應鏈攻擊 - 軟體開發管線入侵"
+    ],
+    "active_actors": [
+      {
+        "name": "Velvet Ant",
+        "type": "中國 APT",
+        "activity": "潛伏一年以上竊取美加研究機構資料"
+      },
+      {
+        "name": "The Gentlemen",
+        "type": "RaaS 組織",
+        "activity": "分發 GentleKiller EDR 終結框架"
+      },
+      {
+        "name": "DragonForce",
+        "type": "勒索軟體組織",
+        "activity": "濫用 Teams TURN 伺服器隱匿 C2"
+      },
+      {
+        "name": "INC Ransomware",
+        "type": "RaaS 組織",
+        "activity": "2026 年最活躍 RaaS 組織，830+ 受害者"
+      },
+      {
+        "name": "Evil Corp / SocGholish",
+        "type": "犯罪組織",
+        "activity": "Operation Endgame 已瓦解其殭屍網路基礎設施"
+      }
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即修補 Splunk Enterprise CVE-2026-20253（CISA KEV，截止 2026-06-21）。隔離 PostgreSQL 側車服務端口，確認 Splunk 未暴露於公開網際網路。"
+    },
+    {
+      "priority": "high",
+      "action": "稽核所有 Fortinet FortiGate / FortiOS 設備：更新至最新 FortiOS 版本、停用外部暴露管理介面、啟用多因素驗證、輪換所有管理員憑證。台灣企業尤需優先處理（全球第三大受影響國）。"
+    },
+    {
+      "priority": "high",
+      "action": "修補 Joomla Content Editor CVE-2026-48907（CISA KEV，截止 2026-06-19）。稽核所有使用 Joomla 的公開網站，禁用或更新受影響套件。"
+    },
+    {
+      "priority": "medium",
+      "action": "更新 Spring AI 至 1.0.9（1.0.x 分支）或 1.1.8（1.1.x 分支），修補 CVE-2026-47835 SQL 注入漏洞（影響 AI 向量資料庫元件）。"
+    },
+    {
+      "priority": "medium",
+      "action": "盤點組織內 AI 代理人（Copilot、自建 Agent）的存取範圍與系統權限，實施最小權限原則，針對提示注入攻擊（AutoJack、M365 Copilot）部署行為監控。"
+    },
+    {
+      "priority": "medium",
+      "action": "強化 EDR 的防篡改保護（Tamper Protection），部署多層防禦架構，監控安全程序的異常終止事件，應對 GentleKiller 等 EDR 終結工具威脅。"
+    },
+    {
+      "priority": "low",
+      "action": "更新 Adobe Acrobat Chrome 擴充功能至 26.5.2.3 以上，修補 CVE-2026-48294 跨站腳本漏洞，防止 session 資料洩露。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "KEV（已知遭利用漏洞清單）",
+      "definition": "CISA 維護的已確認遭實際利用的漏洞清單",
+      "url": "https://glossary.astroicers.link/glossary/kev"
+    },
+    {
+      "term": "RaaS（勒索軟體即服務）",
+      "definition": "將勒索軟體以服務形式提供給其他犯罪者的商業模式",
+      "url": "https://glossary.astroicers.link/glossary/raas"
+    },
+    {
+      "term": "EDR（端點偵測與回應）",
+      "definition": "監控端點設備以偵測和回應威脅的安全解決方案",
+      "url": "https://glossary.astroicers.link/glossary/edr"
+    },
+    {
+      "term": "EDR Killer（EDR 終結工具）",
+      "definition": "專門停用端點防護軟體的惡意工具",
+      "url": "https://glossary.astroicers.link/glossary/edr_killer"
+    },
+    {
+      "term": "C2（命令與控制）",
+      "definition": "攻擊者用來遠端控制受感染系統的基礎設施",
+      "url": "https://glossary.astroicers.link/glossary/c2"
+    },
+    {
+      "term": "提示注入（Prompt Injection）",
+      "definition": "透過惡意輸入操控 AI 語言模型執行非預期指令",
+      "url": "https://glossary.astroicers.link/glossary/prompt_injection"
+    },
+    {
+      "term": "SocGholish（SocGholish 惡意下載器）",
+      "definition": "偽裝成瀏覽器更新的下載器惡意程式",
+      "url": "https://glossary.astroicers.link/glossary/socgholish"
+    },
+    {
+      "term": "Velvet Ant APT 組織",
+      "definition": "潛伏多年的中國網路間諜組織",
+      "url": "https://glossary.astroicers.link/glossary/velvet_ant"
+    },
+    {
+      "term": "BootROM（BootROM 安全韌體）",
+      "definition": "晶片中燒錄的不可修改開機程式",
+      "url": "https://glossary.astroicers.link/glossary/bootrom"
+    },
+    {
+      "term": "DragonForce（DragonForce 勒索軟體組織）",
+      "definition": "濫用 Teams 基礎設施隱匿 C2 流量的勒索組織",
+      "url": "https://glossary.astroicers.link/glossary/dragonforce"
+    }
+  ],
+  "references": [
+    {
+      "title": "FortiBleed曝光逾7萬臺Fortinet設備憑證資料，臺灣受影響數量居全球第三 - iThome",
+      "url": "https://www.ithome.com.tw/news/10366855"
+    },
+    {
+      "title": "CISA Warns Fortinet Customers as FortiBleed Hits 86,644 FortiGate Devices - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/cisa-warns-fortinet-customers-as.html"
+    },
+    {
+      "title": "Splunk近期9.8分重大漏洞被CISA列入KEV，6月21日須完成修補 - iThome",
+      "url": "https://www.ithome.com.tw/news/10366654"
+    },
+    {
+      "title": "Operation Endgame Disrupts SocGholish Servers, Cleans 14,971 WordPress Sites - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/operation-endgame-disrupts-socgholish.html"
+    },
+    {
+      "title": "Unpatchable 'usbliter8' Exploit Breaks Apple A12 and A13 SecureROM Boot Chain - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/unpatchable-usbliter8-exploit-breaks.html"
+    },
+    {
+      "title": "AutoJack Attack Lets One Web Page Hijack AI Agent for Host Code Execution - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/autojack-attack-lets-one-web-page.html"
+    },
+    {
+      "title": "The Gentlemen RaaS Uses GentleKiller EDR Framework Targeting 400 Security Processes - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/the-gentlemen-raas-uses-gentlekiller.html"
+    },
+    {
+      "title": "勒索軟體DragonForce濫用Microsoft Teams轉送伺服器隱匿C&C流量 - iThome",
+      "url": "https://www.ithome.com.tw/news/10366853"
+    },
+    {
+      "title": "INC Ransomware Emerges as Major RaaS Threat in 2026 with 830+ Victims Since 2023 - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/inc-ransomware-emerges-as-major-raas.html"
+    },
+    {
+      "title": "Google exposes China espionage group (Velvet Ant) lurking in networks since 2023 - CyberScoop",
+      "url": "https://cyberscoop.com/google-exposes-china-espionage-velvet-ant-2026"
+    },
+    {
+      "title": "資安業者揭露M365 Copilot資訊外洩攻擊手法，透過點擊連結即可誘導AI助理洩漏敏感資料 - iThome",
+      "url": "https://www.ithome.com.tw/news/10366851"
+    },
+    {
+      "title": "駭客稱竊取藥廠諾和諾德逾1TB資料，勒索7.9億元遭拒 - TechNews",
+      "url": "https://technews.tw/2026/06/17/novo-nordisk-breach-fulcrumsec/"
+    },
+    {
+      "title": "'Popa' Botnet Linked to Publicly-Traded Israeli Firm - Krebs on Security",
+      "url": "https://krebsonsecurity.com/2026/06/popa-botnet-linked-to-publicly-traded-israeli-firm/"
+    },
+    {
+      "title": "NVD CVE-2026-20253 - Splunk Enterprise Missing Authentication",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20253"
+    },
+    {
+      "title": "NVD CVE-2026-47835 - Spring AI Vector Stores SQL Injection",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47835"
+    },
+    {
+      "title": "NVD CVE-2026-48907 - Widget Factory Joomla Content Editor Improper Access Control",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48907"
+    }
+  ]
+}
