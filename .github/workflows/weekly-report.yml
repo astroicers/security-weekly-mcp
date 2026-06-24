@@ -76,18 +76,30 @@ jobs:
           fi
           cd ../..
 
+      - name: Generate glossary App token
+        id: app_token
+        if: steps.check_changes.outputs.has_pending == 'true'
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ vars.GLOSSARY_APP_ID }}
+          private-key: ${{ secrets.GLOSSARY_APP_PRIVATE_KEY }}
+          owner: astroicers
+          repositories: security-glossary-tw
+
       - name: Commit pending terms to glossary submodule
         if: steps.check_changes.outputs.has_pending == 'true'
         continue-on-error: true
         env:
-          GLOSSARY_DEPLOY_TOKEN: ${{ secrets.GLOSSARY_DEPLOY_TOKEN }}
+          GH_TOKEN: ${{ steps.app_token.outputs.token }}
+          APP_SLUG: ${{ steps.app_token.outputs.app-slug }}
         run: |
           cd packages/glossary
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git config user.name "github-actions[bot]"
+          BOT_USER_ID="$(gh api "/users/${APP_SLUG}[bot]" --jq .id)"
+          git config user.email "${BOT_USER_ID}+${APP_SLUG}[bot]@users.noreply.github.com"
+          git config user.name "${APP_SLUG}[bot]"
           git add pending/ terms/
           git commit -m "terms: add and approve discovered terms from weekly report $(date +%Y-W%V)"
-          git remote set-url origin "https://x-access-token:${GLOSSARY_DEPLOY_TOKEN}@github.com/astroicers/security-glossary-tw.git"
+          git remote set-url origin "https://x-access-token:${{ steps.app_token.outputs.token }}@github.com/astroicers/security-glossary-tw.git"
           # If push fails, rollback the local commit so the submodule pointer stays clean
           if ! git push origin HEAD:main; then
             echo "::warning::Failed to push glossary terms — rolling back local commit to avoid stale submodule SHA"
