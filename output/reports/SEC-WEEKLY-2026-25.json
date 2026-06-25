@@ -8,7 +8,7 @@
   "publish_date": "2026-06-25",
   "summary": {
     "total_events": 14,
-    "total_vulnerabilities": 13,
+    "total_vulnerabilities": 14,
     "threat_level": "elevated"
   },
   "events": [
