@@ -1,9 +1,9 @@
 name: Weekly Security Report
 
 on:
-  schedule:
-    - cron: '0 1 * * MON'  # UTC 01:00 = 台灣 09:00
-  workflow_dispatch:  # 手動觸發
+  # 排程已停用 — 週報「產生」改由 claude.ai 雲端 routine 每週一處理；
+  # 發布仍由 deploy-rss.yml 的 on:push 自動觸發。保留 workflow_dispatch 當人工備援。
+  workflow_dispatch:  # 手動備援
 
 env:
   UV_CACHE_DIR: /tmp/.uv-cache
