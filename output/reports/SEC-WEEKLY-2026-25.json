@@ -5,10 +5,10 @@
     "start": "2026-06-15",
     "end": "2026-06-21"
   },
-  "publish_date": "2026-06-22",
+  "publish_date": "2026-06-25",
   "summary": {
-    "total_events": 12,
-    "total_vulnerabilities": 10,
+    "total_events": 14,
+    "total_vulnerabilities": 13,
     "threat_level": "elevated"
   },
   "events": [
@@ -31,6 +31,15 @@
       "date": "2026-06-19"
     },
     {
+      "title": "ShapedPlugin WordPress 套件供應鏈攻擊（CVE-2026-49777，CVSS 10.0）：三款付費外掛植入後門",
+      "severity": "critical",
+      "event_type": "軟體供應鏈攻擊",
+      "summary": "攻擊者入侵 ShapedPlugin 的建置與發布管線，自 5 月 21 日起將後門植入 Product Slider Pro、Real Testimonials Pro 及 Smart Post Show Pro 三款 WordPress 付費外掛。惡意程式具備 webshell 遠端執行、REST API 任意檔案寫入、竊取管理員憑證與 TOTP 雙因素驗證金鑰等能力，CVSS 評分達滿分 10.0，影響所有 4 月至 6 月間安裝或更新這些外掛的網站。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/shapedplugin-wordpress-pro-plugins.html",
+      "date": "2026-06-15"
+    },
+    {
       "title": "Operation Endgame 國際執法：瓦解 SocGholish 殭屍網路，清除近 15,000 個 WordPress 受害網站",
       "severity": "high",
       "event_type": "國際執法行動",
@@ -38,6 +47,15 @@
       "source": "The Hacker News",
       "url": "https://thehackernews.com/2026/06/operation-endgame-disrupts-socgholish.html",
       "date": "2026-06-19"
+    },
+    {
+      "title": "F5 發布 NGINX 緊急帶外修補：HTTP/3 與 HTTP/2 模組均存在 CVSS 9.2 遠端程式碼執行漏洞",
+      "severity": "high",
+      "event_type": "重大漏洞修補",
+      "summary": "F5 於 6 月 17 日發布 NGINX 帶外緊急安全修補，修復 CVE-2026-42530（HTTP/3 use-after-free，CVSS 9.2）及 CVE-2026-42055（HTTP/2 代理模組堆積溢位，CVSS 9.2），均允許遠端未驗證攻擊者發動拒絕服務攻擊或在特定條件下執行任意程式碼。NGINX 廣泛部署於全球 Web 伺服器、反向代理及 Kubernetes Ingress 環境，受影響範圍極廣，NGINX Open Source 用戶須升級至 1.31.2 或 1.30.3。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/f5-patches-two-critical-nginx-open.html",
+      "date": "2026-06-18"
     },
     {
       "title": "usbliter8：Apple A12/A13 晶片 BootROM 不可修補漏洞，可繞過安全開機鏈",
@@ -97,7 +115,7 @@
       "title": "M365 Copilot 提示注入資訊外洩攻擊：點擊連結即可誘導 AI 助理洩漏企業敏感資料",
       "severity": "high",
       "event_type": "AI 安全威脅",
-      "summary": "資安研究人員揭露結合提示注入漏洞與 M365 Copilot 的新型攻擊手法，攻擊者可透過惡意連結誘導 AI 助理自動提取並洩漏企業的敏感資料，無需傳統釣魚攻擊的複雜步驟，對擁有大量 Copilot 授權的企業構成重大威脅。",
+      "summary": "資安研究人員揭露結合提示注入漏洞與 M365 Copilot 的新型攻擊手法，攻擊者可透過惡意連結誘導 AI 助理自動提取並洩漏企業的敏感資料，無需傳統網路釣魚攻擊的複雜步驟，對擁有大量 Copilot 授權的企業構成重大威脅。",
       "source": "iThome 資安",
       "url": "https://www.ithome.com.tw/news/10366851",
       "date": "2026-06-18"
@@ -123,6 +141,15 @@
   ],
   "vulnerabilities": [
     {
+      "cve_id": "CVE-2026-49777",
+      "title": "ShapedPlugin WordPress 付費外掛供應鏈後門（滿分 CVSS 10.0）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "ShapedPlugin",
+      "product": "Product Slider Pro、Real Testimonials Pro、Smart Post Show Pro（WordPress 付費外掛）",
+      "description": "攻擊者入侵 ShapedPlugin 建置管線，自 2026-05-21 起在三款付費外掛中植入後門，可執行任意程式碼、竊取管理員憑證與 TOTP 金鑰，CVSS 10.0。所有 4 月至 6 月間安裝或更新這些外掛的網站均應視為已受感染，須立即掃描並輪換所有憑證。"
+    },
+    {
       "cve_id": "CVE-2026-20253",
       "title": "Splunk Enterprise 缺少關鍵功能驗證漏洞",
       "cvss": 9.8,
@@ -139,6 +166,33 @@
       "vendor": "Widget Factory",
       "product": "Joomla Content Editor",
       "description": "未驗證身份的用戶可透過建立新編輯器設定檔上傳並執行任意 PHP 程式碼，已列入 CISA KEV，截止修補日期 2026-06-19。"
+    },
+    {
+      "cve_id": "CVE-2026-50751",
+      "title": "Check Point Security Gateway IKEv1 VPN 身份驗證繞過漏洞（CISA KEV，Qilin 勒索軟體積極利用）",
+      "cvss": 9.3,
+      "severity": "critical",
+      "vendor": "Check Point",
+      "product": "Check Point Security Gateway（Remote Access / Mobile Access，IKEv1 設定）",
+      "description": "IKEv1 金鑰交換流程中的邏輯瑕疵允許未驗證攻擊者無需有效憑證即建立 VPN 連線，已確認遭 Qilin 勒索軟體附屬組織利用。CISA 於 6 月 8 日列入 KEV，TWCERT/CC 於 6 月 15 日發布警報，應立即套用 Check Point 發布的 hotfix 並停用 IKEv1。"
+    },
+    {
+      "cve_id": "CVE-2026-42530",
+      "title": "F5 NGINX HTTP/3 use-after-free 遠端程式碼執行漏洞",
+      "cvss": 9.2,
+      "severity": "critical",
+      "vendor": "F5 / NGINX",
+      "product": "NGINX Open Source 1.31.0-1.31.1（啟用 HTTP/3 QUIC 模組）",
+      "description": "ngx_http_v3_module 中的 use-after-free 漏洞，攻擊者可透過重新開啟已關閉的 QPACK 編碼串流觸發記憶體損毀，導致 Worker 處理序崩潰或在 ASLR 被繞過時執行任意程式碼，遠端未驗證可觸發。應立即升級至 NGINX 1.31.2 或 1.30.3；緩解措施：從所有 listen 指令中移除 quic。"
+    },
+    {
+      "cve_id": "CVE-2026-42055",
+      "title": "F5 NGINX HTTP/2 代理與 gRPC 模組堆積溢位遠端程式碼執行漏洞",
+      "cvss": 9.2,
+      "severity": "critical",
+      "vendor": "F5 / NGINX",
+      "product": "NGINX Open Source 及 NGINX Plus（proxy_http_version 2 或 grpc_pass 設定）",
+      "description": "ngx_http_proxy_v2_module 及 ngx_http_grpc_module 中的堆積溢位，透過 HTTP/2 代理至上游時可導致 DoS 或潛在 RCE。條件：ignore_invalid_headers off 且 large_client_header_buffers ≥ 2MB。應升級 NGINX 並調整上述設定。"
     },
     {
       "cve_id": "CVE-2026-12165",
@@ -214,14 +268,14 @@
     }
   ],
   "threat_trends": {
-    "summary": "本週威脅態勢以 AI 安全攻擊面擴大與大規模基礎設施憑證竊取為雙主軸。FortiBleed 事件顯示，針對邊界防護設備的憑證竊取攻擊已成為國家級與犯罪組織的首選初始存取手段。同時，AI 代理人（Agentic AI）普及帶來提示注入攻擊的新威脅面，AutoJack 與 M365 Copilot 攻擊手法標誌著 AI 安全進入全新戰場。EDR 終結工具的商品化（GentleKiller）使勒索軟體攻擊成功率提升，而 DragonForce 濫用合法基礎設施（Teams TURN）隱匿 C2 流量的手法代表高級迴避技術的普及化趨勢。",
+    "summary": "本週威脅態勢以 AI 安全攻擊面擴大、大規模基礎設施憑證竊取與供應鏈攻擊升溫為三大主軸。FortiBleed 事件與 Check Point IKEv1 VPN 漏洞均指向邊界防護設備遭鎖定的趨勢，台灣企業需優先檢視外部暴露的防火牆與 VPN 設備。ShapedPlugin 供應鏈攻擊（CVSS 10.0）與 NGINX 嚴重 RCE 漏洞顯示基礎 Web 元件安全的系統性風險。AI 代理人（Agentic AI）普及帶來提示注入攻擊的新威脅面，AutoJack 與 M365 Copilot 攻擊手法標誌著 AI 安全進入全新戰場。EDR 終結工具商品化（GentleKiller）使勒索軟體攻擊成功率提升，DragonForce 濫用合法基礎設施（Teams TURN）隱匿 C2 代表高級迴避技術普及化趨勢。",
     "attack_techniques": [
-      "憑證竊取 - 大規模掃描暴露於網際網路的管理介面",
-      "EDR 終結 - 商品化工具降低攻擊技術門檻",
-      "提示注入 - AI 代理人成為新攻擊媒介",
-      "合法基礎設施濫用 - Teams TURN 作為 C2 通道",
-      "BootROM 漏洞利用 - 不可修補的硬體級攻擊",
-      "供應鏈攻擊 - 軟體開發管線入侵"
+      "憑證竊取 - 大規模掃描暴露於網際網路的管理介面（Fortinet、Check Point VPN）",
+      "供應鏈後門植入 - 入侵廠商建置管線（ShapedPlugin、SocGholish）",
+      "EDR 終結 - 商品化工具降低攻擊技術門檻（GentleKiller）",
+      "提示注入 - AI 代理人成為新攻擊媒介（AutoJack、M365 Copilot）",
+      "合法基礎設施濫用 - Teams TURN 作為 C2 通道（DragonForce）",
+      "BootROM 漏洞利用 - 不可修補的硬體級攻擊（usbliter8）"
     ],
     "active_actors": [
       {
@@ -232,7 +286,7 @@
       {
         "name": "The Gentlemen",
         "type": "RaaS 組織",
-        "activity": "分發 GentleKiller EDR 終結框架"
+        "activity": "分發 GentleKiller EDR 終結框架，830+ 受害者"
       },
       {
         "name": "DragonForce",
@@ -245,6 +299,11 @@
         "activity": "2026 年最活躍 RaaS 組織，830+ 受害者"
       },
       {
+        "name": "Qilin",
+        "type": "勒索軟體組織",
+        "activity": "積極利用 Check Point CVE-2026-50751 VPN 漏洞取得初始存取"
+      },
+      {
         "name": "Evil Corp / SocGholish",
         "type": "犯罪組織",
         "activity": "Operation Endgame 已瓦解其殭屍網路基礎設施"
@@ -254,7 +313,19 @@
   "action_items": [
     {
       "priority": "high",
+      "action": "立即稽核使用 ShapedPlugin 付費外掛（Product Slider Pro、Real Testimonials Pro、Smart Post Show Pro）的 WordPress 網站，視所有 4 月至 6 月間更新的網站為已受感染，掃描惡意程式、移除可疑帳號、輪換 WordPress / 資料庫 / SMTP 憑證，並重新產生所有雙因素驗證金鑰。"
+    },
+    {
+      "priority": "high",
+      "action": "立即套用 Check Point Security Gateway hotfix 以修補 CVE-2026-50751（CISA KEV，Qilin 勒索軟體積極利用），停用或限制 IKEv1 VPN 設定，台灣企業需特別關注（TWCERT/CC 已於 6 月 15 日發布警報）。"
+    },
+    {
+      "priority": "high",
       "action": "立即修補 Splunk Enterprise CVE-2026-20253（CISA KEV，截止 2026-06-21）。隔離 PostgreSQL 側車服務端口，確認 Splunk 未暴露於公開網際網路。"
+    },
+    {
+      "priority": "high",
+      "action": "升級所有 NGINX 實例至 1.31.2 或 1.30.3，修補 CVE-2026-42530 及 CVE-2026-42055（均 CVSS 9.2）。若無法立即升級，HTTP/3 環境應從 listen 指令移除 quic，HTTP/2 代理環境應調整 ignore_invalid_headers 及 large_client_header_buffers 設定。"
     },
     {
       "priority": "high",
@@ -313,6 +384,11 @@
       "url": "https://glossary.astroicers.link/glossary/prompt_injection"
     },
     {
+      "term": "供應鏈攻擊（Supply Chain Attack）",
+      "definition": "透過入侵軟體供應商來攻擊最終用戶的手法",
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
+    },
+    {
       "term": "SocGholish（SocGholish 惡意下載器）",
       "definition": "偽裝成瀏覽器更新的下載器惡意程式",
       "url": "https://glossary.astroicers.link/glossary/socgholish"
@@ -326,11 +402,6 @@
       "term": "BootROM（BootROM 安全韌體）",
       "definition": "晶片中燒錄的不可修改開機程式",
       "url": "https://glossary.astroicers.link/glossary/bootrom"
-    },
-    {
-      "term": "DragonForce（DragonForce 勒索軟體組織）",
-      "definition": "濫用 Teams 基礎設施隱匿 C2 流量的勒索組織",
-      "url": "https://glossary.astroicers.link/glossary/dragonforce"
     }
   ],
   "references": [
@@ -345,6 +416,18 @@
     {
       "title": "Splunk近期9.8分重大漏洞被CISA列入KEV，6月21日須完成修補 - iThome",
       "url": "https://www.ithome.com.tw/news/10366654"
+    },
+    {
+      "title": "ShapedPlugin WordPress Pro Plugins Backdoored in Supply Chain Attack - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/shapedplugin-wordpress-pro-plugins.html"
+    },
+    {
+      "title": "F5 Patches Two Critical NGINX Open Source Flaws Enabling Remote Code Execution - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/f5-patches-two-critical-nginx-open.html"
+    },
+    {
+      "title": "Critical Check Point VPN Flaw Exploited to Bypass Passwords in IKEv1 Setups - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/critical-check-point-vpn-flaw-exploited.html"
     },
     {
       "title": "Operation Endgame Disrupts SocGholish Servers, Cleans 14,971 WordPress Sites - The Hacker News",
@@ -397,6 +480,26 @@
     {
       "title": "NVD CVE-2026-48907 - Widget Factory Joomla Content Editor Improper Access Control",
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48907"
+    },
+    {
+      "title": "CVE-2026-50751 Detail - Check Point Security Gateway Authentication Bypass - NVD",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50751"
+    },
+    {
+      "title": "F5 NGINX CVE-2026-42530 & CVE-2026-42055 Security Advisories - nginx.org",
+      "url": "https://nginx.org/en/security_advisories.html"
+    },
+    {
+      "title": "ShapedPlugin Supply Chain Attack - CVE-2026-49777 CVSS 10.0 - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/shapedplugin-update-flow-hacked-to-infect-wordpress-sites/"
+    },
+    {
+      "title": "Qilin ransomware affiliate exploited Check Point VPN zero-day (CVE-2026-50751) - Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/06/08/check-point-cve-2026-50751-qilin-ransomware/"
+    },
+    {
+      "title": "CISA Known Exploited Vulnerabilities Catalog",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
     }
   ]
 }
