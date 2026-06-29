@@ -1,0 +1,421 @@
+{
+  "title": "資安週報 2026/06/22 - 2026/06/28",
+  "report_id": "SEC-WEEKLY-2026-26",
+  "period": {
+    "start": "2026-06-22",
+    "end": "2026-06-28"
+  },
+  "publish_date": "2026-06-29",
+  "summary": {
+    "total_events": 10,
+    "total_vulnerabilities": 9,
+    "threat_level": "elevated"
+  },
+  "events": [
+    {
+      "title": "Ubiquiti UniFi OS 三重滿分漏洞（CVE-2026-34908/34909/34910，CVSS 10.0）：Mirai/Gaafgyt 殭屍網路偽造管理員帳號，CISA 啟動三日緊急修補令",
+      "severity": "critical",
+      "event_type": "漏洞遭利用",
+      "summary": "CISA 於 6 月 23 日將 Ubiquiti UniFi OS 三個滿分漏洞一併列入 KEV，並依 BOD 26-04 要求聯邦機構於 6 月 26 日前完成修補——史上最短的聯邦修補期限之一。三個漏洞可鏈式組合：CVE-2026-34908（不當存取控制）作為未驗證初始立足點，CVE-2026-34909（路徑穿越）讀取並篡改底層作業系統檔案，CVE-2026-34910（輸入驗證不足）注入並執行任意指令，最終完全接管設備。研究人員觀察到自動化攻擊活動透過 Tor 進行掃描，在受害 UniFi 設備上建立名為「John Sim」的偽造管理員帳號。所有 UniFi Cloud Gateway、Network Controller、Protect NVR、Access Hub 及 Talk 設備均受影響，台灣採用 Ubiquiti 方案的企業應視為高風險優先處理。",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/critical-ubiquiti-vulnerabilities-in-attackers-crosshairs/",
+      "date": "2026-06-23"
+    },
+    {
+      "title": "Operation Endgame 第二波國際聯合執法（Europol，6 月 24 日）：StealC、Amadey、SocGholish 基礎設施瓦解，扣押 4,100 萬歐元加密資產",
+      "severity": "critical",
+      "event_type": "國際執法行動",
+      "summary": "Europol 協調德、法、荷、加、英、美多國執法機關及 Bitdefender、Bitsight、ESET、Microsoft 等資安廠商，於 6 月 24 日公布 Operation Endgame 第二波行動成果。此波行動針對 StealC 竊密程式即服務、Amadey 惡意程式載入器及 SocGholish 惡意下載器後端基礎設施，共摧毀 326 台伺服器、查扣 142 個網域、凍結 4,100 萬歐元犯罪加密資產，並回收 2,700 萬筆遭竊帳號憑證。這些惡意程式構成勒索軟體攻擊、金融詐欺及關鍵基礎設施攻擊的「犯罪組裝線」，此次行動為 2026 年規模最大的國際資安執法行動。",
+      "source": "Europol",
+      "url": "https://www.europol.europa.eu/media-press/newsroom/news/global-cyber-strike-disrupts-socgholish-amadey-and-stealc-malware-networks",
+      "date": "2026-06-24"
+    },
+    {
+      "title": "PTC Windchill CVE-2026-12569（CVSS 9.3）史上首次 PTC 產品列入 CISA KEV：攻擊者部署 JSP Webshell 竊取製造業研發資料",
+      "severity": "critical",
+      "event_type": "漏洞遭利用",
+      "summary": "PTC 確認旗下 Windchill PDMLink 及 FlexPLM 企業產品生命週期管理（PLM）平台遭到利用，CVE-2026-12569 為不受信任資料的不安全反序列化漏洞（CVSS 9.3），無需任何憑證即可透過網路執行任意程式碼。攻擊者在 /Windchill/login/ 目錄下植入 JSP Webshell，用於指令執行與資料竊取，目標為掌握大量製造設計圖、供應鏈及研發機密的製造業與國防承包商。CISA 於 6 月 25 日將其列入 KEV，聯邦機構修補期限為 6 月 28 日。台灣高科技製造業大量採用 PTC 產品，應立即套用 Windchill 11.0 M030 及 13.1.1 修補版本。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/cisa-adds-exploited-ptc-windchill-rce.html",
+      "date": "2026-06-25"
+    },
+    {
+      "title": "Cisco Unified Communications Manager CVE-2026-20230 遭積極利用：WebDialer SSRF 鏈接 Webshell，CISA 設 6 月 28 日修補期限",
+      "severity": "high",
+      "event_type": "漏洞遭利用",
+      "summary": "Cisco Unified CM 的 WebDialer 服務存在伺服器端請求偽造（SSRF）漏洞，可連鎖提升為偽造 Apache Axis 服務並寫入 Webshell 的根層級代碼執行路徑。資安公司 Defused 的蜜罐於 6 月 21 日至 22 日週末首次觀察到自動化掃描，攻擊者透過 Tor 發動攻擊並植入 Webshell。CISA 於 6 月 25 日將 CVE-2026-20230 列入 KEV，設定聯邦修補期限為 6 月 28 日。Cisco 已於 6 月 3 日釋出修補程式（修補發布至遭利用間隔近三週），WebDialer 服務預設未啟用，啟用此服務的部署環境需立即採取行動。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/cisco-unified-cm-flaw-exploited-after.html",
+      "date": "2026-06-25"
+    },
+    {
+      "title": "Cordyceps CI/CD 供應鏈漏洞：300+ 知名開源專案（含微軟、Google）工作流程可被免費帳號攻擊者劫持",
+      "severity": "high",
+      "event_type": "軟體供應鏈威脅",
+      "summary": "資安公司 Novee Security 揭露名為 Cordyceps 的系統性 CI/CD 工作流程漏洞類別，掃描約 30,000 個高影響力 GitHub 儲存庫後，確認逾 300 個存在完全可利用的攻擊鏈，受影響對象包含微軟 Azure Sentinel、Google AI Agent Development Kit、Apache、Cloudflare 及 Python 軟體基金會等知名專案。攻擊者僅需一個免費 GitHub 帳號即可偽造審核、推送惡意代碼或竊取 CI 環境憑證，無需組織成員資格。漏洞類型涵蓋指令注入、破損的驗證邏輯、製品投毒鏈及工作流程內的權限提升。目前尚無大規模實際利用證據，受影響廠商已完成修補。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/cordyceps-cicd-flaws-expose-300-github.html",
+      "date": "2026-06-24"
+    },
+    {
+      "title": "MuddyWater 伊朗 APT 以 Chaos 勒索軟體為偽旗，透過 Microsoft Teams 植入 Darkcomp 後門竊取機密",
+      "severity": "high",
+      "event_type": "國家級網路間諜",
+      "summary": "Rapid7 研究人員揭露伊朗情報安全部（MOIS）旗下 APT 組織 MuddyWater（又稱 Mango Sandstorm）以 Chaos 勒索軟體偽旗掩蓋間諜行動。攻擊者透過 Microsoft Teams 與受害員工建立畫面共享連線，藉此竊取憑證、操控多因素驗證保護並接管帳號，從未部署加密勒索軟體，而是將 Chaos 相關程式作為偽旗植入以混淆歸因。後門程式 Darkcomp（Game.exe）支援指令執行、檔案操控與持久化 Shell，使用與 MuddyWater 過往行動相關的憑證簽署，C2 網域亦有先例關聯。",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/iranian-apt-intrusion-masquerades-as-chaos-ransomware-attack/",
+      "date": "2026-06-24"
+    },
+    {
+      "title": "Lantronix EDS5000 CVE-2025-67038（CVSS 9.8）：OT 環境工業設備伺服器自 4 月起遭 Chaya_006 針對性利用",
+      "severity": "high",
+      "event_type": "OT/ICS 漏洞利用",
+      "summary": "Forescout Research Vedere Labs 發現威脅行為者 Chaya_006 自 4 月 5 日起即針對 Lantronix EDS5000 工業設備伺服器的 CVE-2025-67038 展開利用。EDS5000 是連接工業控制系統（PLC、RTU、感測器等）與 IP 網路的工業級設備伺服器，位於 OT 與 IT 邊界的關鍵通訊路徑，遭入侵後可中斷工業流程、竊取生產資料或以此為跳板深入 OT 網路。漏洞允許在使用者名稱欄位注入作業系統指令並以 root 權限執行。CISA 於 6 月 23 日列入 KEV，聯邦修補期限 6 月 26 日。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/cisa-warns-critical-lantronix-eds5000.html",
+      "date": "2026-06-25"
+    },
+    {
+      "title": "AryStinger 殭屍網路：4,300 台老舊 D-Link 路由器遭入侵建構偵察代理，南韓台灣東南亞高風險",
+      "severity": "high",
+      "event_type": "殭屍網路",
+      "summary": "資安研究人員揭露名為 AryStinger 的殭屍網路，利用 13 年前揭露的漏洞（CVE-2013-3307 等）入侵 D-Link DIR-850L 及 DIR-818LW 路由器，累計感染逾 4,300 台設備。殭屍網路主要用於偵察規模化掃描——控制器可向數百台節點下發掃描任務以繪製目標網路圖，並具備竄改 DNS 設定的能力，可將受害者流量導向網路釣魚頁面或監聽所有流量。地理分布以南韓（48.5%）、中國（31.8%）、瑞典（6.4%）、馬來西亞（3.5%）、新加坡（2.5%）為主，亞太地區企業尤須留意老舊網路設備汰換。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/arystinger-malware-infects-4300-legacy.html",
+      "date": "2026-06-22"
+    },
+    {
+      "title": "Linux CVE-2026-46331「pedit COW」本機提權：PoC 一天內公開，無特權用戶可污染頁面快取取得 root",
+      "severity": "high",
+      "event_type": "嚴重漏洞揭露",
+      "summary": "Linux 核心流量控制子系統 tc 中的 act_pedit 封包編輯行動存在頁面快取損毀漏洞（CVE-2026-46331，俗稱 pedit COW）。tcf_pedit_act() 在計算寫入時複製（COW）範圍時遺漏了型別化鍵值在執行期加入的偏移量，導致寫入未私有化的共享頁面快取，可污染記憶體中的 setuid root 二進位檔（如 /bin/su）並注入 Payload 取得 root Shell。任何本機無特權用戶在可存取 act_pedit 且啟用無特權使用者命名空間的系統上均可利用。公開的可驗證 PoC 於 CVE 揭露後一天內出現，Linux 主線及 Red Hat、AlmaLinux 均已完成修補。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/new-linux-pedit-cow-exploit-enables.html",
+      "date": "2026-06-26"
+    },
+    {
+      "title": "Grafana Labs 發布 TanStack npm 供應鏈攻擊事後檢討：Mandiant 確認無代碼竄改或客戶資料外洩",
+      "severity": "medium",
+      "event_type": "供應鏈事件閉案",
+      "summary": "Grafana Labs 於 6 月 23 日發布 5 月 TanStack npm 供應鏈攻擊事後檢討報告。攻擊者透過被入侵的 GitHub CI 令牌存取並下載 Grafana 源代碼庫，並提出勒索要求遭拒。Mandiant 完成獨立稽核後確認：無公開儲存庫或生產版本代碼遭竄改，無客戶正式環境或 Grafana Cloud 平台受影響，Grafana 已大幅強化 GitHub Actions 安全態勢。此事件與 Cordyceps 研究同週揭露，為 CI/CD 管線安全的系統性警示——開源工具開發商同樣是軟體供應鏈攻擊的高價值目標。",
+      "source": "Grafana Labs",
+      "url": "https://grafana.com/blog/grafana-security-update-post-incident-review-for-github-workflow-vulnerability-and-whats-next/",
+      "date": "2026-06-23"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-34908",
+      "title": "Ubiquiti UniFi OS 不當存取控制漏洞（CISA KEV，CVSS 10.0）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "Ubiquiti",
+      "product": "UniFi OS（所有 Cloud Gateway、Network Controller、Protect NVR、Access Hub、Talk 設備）",
+      "description": "未驗證攻擊者可在無需任何憑證的情況下對 UniFi OS 設備進行未授權操作，作為三漏洞攻擊鏈的初始立足點。Mirai/Gaafgyt 殭屍網路已將此漏洞武器化，建立偽造管理員帳號。CISA KEV（6 月 23 日，3 日修補令）。應立即升級至 UniFi OS SAB-064 修補版本。"
+    },
+    {
+      "cve_id": "CVE-2026-34909",
+      "title": "Ubiquiti UniFi OS 路徑穿越漏洞（CISA KEV，CVSS 10.0）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "Ubiquiti",
+      "product": "UniFi OS（同 CVE-2026-34908）",
+      "description": "路徑穿越弱點允許存取並操控底層作業系統任意檔案，可用於讀取敏感設定或提升至系統帳號。CISA KEV（6 月 23 日），與 CVE-2026-34908 及 CVE-2026-34910 組成完整設備接管攻擊鏈。"
+    },
+    {
+      "cve_id": "CVE-2026-34910",
+      "title": "Ubiquiti UniFi OS 輸入驗證不足指令注入漏洞（CISA KEV，CVSS 10.0）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "Ubiquiti",
+      "product": "UniFi OS（同 CVE-2026-34908）",
+      "description": "輸入驗證不足允許透過網路注入並執行任意系統指令，為三漏洞攻擊鏈的最終執行段，可達到完整根層級代碼執行。CISA KEV（6 月 23 日），聯邦修補截止日 2026-06-26。"
+    },
+    {
+      "cve_id": "CVE-2025-67038",
+      "title": "Lantronix EDS5000 作業系統指令注入漏洞（CISA KEV，CVSS 9.8）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Lantronix",
+      "product": "Lantronix EDS5000（版本 2.1.0.0R3 及以前）",
+      "description": "HTTP RPC 模組在驗證失敗時以 Shell 指令記錄使用者名稱，未進行任何清理即拼接至指令，導致攻擊者可注入任意 OS 指令並以 root 權限執行。自 4 月 5 日起即有 Chaya_006 威脅行為者針對 OT/ICS 環境中的 EDS5000 展開利用。CISA KEV（6 月 23 日），修補截止日 2026-06-26。應升級至 EDS5000 2.2.0.0R1 版本。"
+    },
+    {
+      "cve_id": "CVE-2026-20262",
+      "title": "Cisco Catalyst SD-WAN Manager 遠端程式碼執行漏洞（CISA KEV，CVSS 9.9）",
+      "cvss": 9.9,
+      "severity": "critical",
+      "vendor": "Cisco",
+      "product": "Cisco Catalyst SD-WAN Manager",
+      "description": "遠端未驗證攻擊者可利用此漏洞在 Cisco Catalyst SD-WAN Manager 上執行任意程式碼，CISA 已確認積極利用活動並設定聯邦機構修補截止日 2026-06-29。企業 SD-WAN 基礎設施廣泛部署於台灣電信及製造業，應立即套用廠商修補程式。"
+    },
+    {
+      "cve_id": "CVE-2026-12569",
+      "title": "PTC Windchill PDMLink／FlexPLM 不安全反序列化遠端程式碼執行漏洞（CISA KEV，CVSS 9.3）",
+      "cvss": 9.3,
+      "severity": "critical",
+      "vendor": "PTC",
+      "product": "PTC Windchill PDMLink、PTC FlexPLM",
+      "description": "不受信任資料的不安全反序列化允許無需憑證的遠端攻擊者透過網路執行任意程式碼。攻擊者於 /Windchill/login/ 路徑植入 JSP Webshell 以持久化存取並竊取製造設計資料。史上首個 PTC 產品列入 CISA KEV（6 月 25 日），聯邦修補截止日 2026-06-28。應套用 Windchill 11.0 M030 及 13.1.1 修補版本。"
+    },
+    {
+      "cve_id": "CVE-2026-20230",
+      "title": "Cisco Unified Communications Manager WebDialer SSRF 至根層級代碼執行漏洞（CISA KEV，CVSS 8.6）",
+      "cvss": 8.6,
+      "severity": "high",
+      "vendor": "Cisco",
+      "product": "Cisco Unified Communications Manager、Cisco Unified CM SME（WebDialer 服務啟用時）",
+      "description": "WebDialer 服務對特定 HTTP 請求的輸入驗證不足，允許未驗證遠端攻擊者發動 SSRF 並寫入底層作業系統檔案。已觀察到攻擊者透過 Tor 鏈接偽造 Apache Axis 服務以部署 Webshell。CISA KEV（6 月 25 日），聯邦修補截止日 2026-06-28。Cisco 已於 6 月 3 日釋出修補程式，WebDialer 預設停用。"
+    },
+    {
+      "cve_id": "CVE-2026-46331",
+      "title": "Linux 核心 tc act_pedit 頁面快取損毀本機提權漏洞（pedit COW，公開 PoC）",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Linux Kernel",
+      "product": "Linux 核心（啟用無特權使用者命名空間且 act_pedit 可存取的系統）",
+      "description": "tc 子系統 act_pedit 封包編輯行動在計算 COW 範圍時遺漏型別化鍵值的執行期偏移量，導致寫入未私有化的共享頁面快取。可污染 /bin/su 等 setuid root 二進位檔的記憶體映像，注入 Payload 後以 root 權限執行。CVE 揭露後一天內即有公開可驗證 PoC，任何本機無特權用戶均可利用。Linux 主線及 Red Hat、AlmaLinux 已釋出修補版本。"
+    },
+    {
+      "cve_id": "CVE-2022-0492",
+      "title": "Linux 核心 cgroup_release_agent_write 權限提升漏洞（CISA KEV 二度確認）",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Linux Kernel",
+      "product": "Linux 核心（cgroups v1，使用者命名空間可存取）",
+      "description": "已知的舊版 Linux 核心 cgroup release_agent 路徑中的不適當驗證，CISA 於 6 月 2 日再次確認此漏洞遭積極利用。攻擊者可在支援使用者命名空間（如 Ubuntu 預設設定）的系統上從容器逃脫並提升至主機 root。確認未修補的 Linux 主機（特別是舊版容器化環境）應立即套用核心更新。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢以邊界與網路設備的滿分漏洞積極利用、CI/CD 供應鏈系統性安全缺口曝光及國際執法重大斬獲三大主軸為核心。Ubiquiti UniFi OS 三個 CVSS 10.0 漏洞遭殭屍網路全自動利用，印證網路設備漏洞武器化速度持續加快。PTC Windchill 及 Cisco Unified CM 的工業與企業通訊軟體遭鎖定，顯示攻擊者持續拓展 KEV 利用範圍至傳統上被低度關注的企業基礎設施。Cordyceps 揭露的 CI/CD 系統性漏洞類別與 Grafana 事後檢討同週出現，強調開源供應鏈的安全欠債已達臨界點。Operation Endgame 第二波行動扣押 4,100 萬歐元並瓦解三大惡意程式家族，短期內可降低勒索軟體初始存取工具的可用性，但犯罪生態系通常在數週內重組。OT 環境遭攻擊持續升溫：Lantronix EDS5000 在 OT/IT 橋接位置的利用，及 AryStinger 殭屍網路對老舊路由器的偵察代理用途，均指向攻擊者積極繪製工業網路地圖並蓄積橫向移動能力。",
+    "attack_techniques": [
+      "滿分漏洞自動化武器化 - 殭屍網路在 KEV 列入後數小時內全自動掃描利用（Ubiquiti UniFi OS）",
+      "反序列化 RCE - 企業 PLM 及業務軟體的不受信任資料處理（PTC Windchill）",
+      "SSRF 鏈至 Webshell - 伺服器端請求偽造連鎖代碼執行（Cisco Unified CM）",
+      "CI/CD 工作流程劫持 - 免費帳號即可偽造審核或竊取 CI 憑證（Cordyceps）",
+      "OT 邊界設備指令注入 - 針對工業設備伺服器取得 OT 環境初始存取（Lantronix EDS5000）",
+      "偽旗勒索軟體 - 以勒索軟體工具掩蓋國家級間諜行動（MuddyWater / Chaos）",
+      "頁面快取污染本機提權 - 核心 COW 漏洞毒化 setuid 二進位檔（Linux pedit COW）",
+      "老舊設備殭屍網路偵察代理 - 利用十三年前漏洞控制路由器以繪製目標網路（AryStinger）"
+    ],
+    "active_actors": [
+      {
+        "name": "Mirai/Gaafgyt 殭屍網路",
+        "type": "自動化殭屍網路",
+        "activity": "全自動利用 Ubiquiti UniFi OS CVSS 10.0 三重漏洞，於受害設備建立偽造管理員帳號"
+      },
+      {
+        "name": "MuddyWater（Mango Sandstorm）",
+        "type": "伊朗國家級 APT",
+        "activity": "透過 Microsoft Teams 發動社交工程攻擊，以 Chaos 勒索軟體偽旗掩蓋間諜行動，部署 Darkcomp 後門"
+      },
+      {
+        "name": "Chaya_006",
+        "type": "威脅行為者（OT 鎖定）",
+        "activity": "自 4 月起針對 Lantronix EDS5000 工業設備伺服器持續利用 CVE-2025-67038"
+      },
+      {
+        "name": "AryStinger 操控者",
+        "type": "殭屍網路操控組織",
+        "activity": "控制 4,300 台 D-Link 路由器建構亞太地區偵察代理網路，具備 DNS 竄改能力"
+      },
+      {
+        "name": "Evil Corp / SocGholish（遭瓦解）",
+        "type": "犯罪組織（已受重創）",
+        "activity": "Operation Endgame 第二波行動已瓦解其 SocGholish、Amadey 及 StealC 基礎設施"
+      }
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即升級所有 Ubiquiti UniFi OS 設備，套用 SAB-064 修補版本以修補 CVE-2026-34908、CVE-2026-34909、CVE-2026-34910（均 CVSS 10.0，CISA KEV）。搜尋管理介面中是否存在「John Sim」等異常管理員帳號，稽核 6 月 23 日後的所有系統變更記錄。"
+    },
+    {
+      "priority": "high",
+      "action": "立即套用 PTC Windchill 11.0 M030 及 13.1.1 修補版本（CVE-2026-12569，CISA KEV，截止 2026-06-28）。掃描 /Windchill/login/ 目錄是否存在可疑 JSP 檔案，稽核 6 月 18 日後的所有存取記錄，確認 Windchill 服務未直接暴露於網際網路。"
+    },
+    {
+      "priority": "high",
+      "action": "套用 Cisco 6 月 3 日釋出的 Unified CM 修補程式（CVE-2026-20230，CISA KEV，截止 2026-06-28）。若無法立即升級，應停用 WebDialer 服務以消除攻擊向量。搜尋非預期的 .jsp 或 .jspx 檔案於 Unified CM 應用程式目錄。"
+    },
+    {
+      "priority": "high",
+      "action": "升級 Lantronix EDS5000 至 2.2.0.0R1（CVE-2025-67038，CISA KEV，截止 2026-06-26）。稽核工廠 OT/IT 邊界中所有 Lantronix 設備的網路存取記錄，確認是否有自 4 月 5 日起的可疑連線活動，並考慮將設備管理介面移至獨立的 OT 管理網段。"
+    },
+    {
+      "priority": "high",
+      "action": "立即套用 Cisco Catalyst SD-WAN Manager 修補程式（CVE-2026-20262，CVSS 9.9，CISA KEV，截止 2026-06-29）。稽核 SD-WAN 管理介面的存取記錄，確認所有管理員帳號活動的合法性。"
+    },
+    {
+      "priority": "high",
+      "action": "稽核所有 GitHub Actions CI/CD 工作流程，識別並修補 Cordyceps 揭露的三類漏洞模式：（1）pull_request_target 觸發器未隔離不受信任代碼；（2）過度授權的工作流程 GITHUB_TOKEN；（3）未固定的協力廠商 Actions 版本。使用 StepSecurity Harden-Runner 或 Zizmor 等工具進行自動化掃描。"
+    },
+    {
+      "priority": "medium",
+      "action": "更新所有 Linux 系統核心以修補 CVE-2026-46331（pedit COW）。在 Ubuntu 等預設啟用無特權使用者命名空間的發行版上此漏洞更易被利用，應評估是否限制 unprivileged_userns_clone（`sysctl kernel.unprivileged_userns_clone=0`）作為暫時緩解措施。"
+    },
+    {
+      "priority": "medium",
+      "action": "盤點並汰換使用 D-Link DIR-850L 及 DIR-818LW 等已停止支援路由器的網路設備。如無法立即汰換，應關閉遠端管理介面、變更預設憑證，並監控是否有異常的 DNS 設定變更（AryStinger 殭屍網路利用 DNS 竄改重導流量）。"
+    },
+    {
+      "priority": "medium",
+      "action": "針對使用 Microsoft Teams 的環境強化外部通訊安全策略：限制外部使用者發起通訊請求，禁止或限制畫面共享功能，並訓練員工識別 MuddyWater 式的社交工程攻擊（透過 Teams 建立信任後進行畫面共享以竊取憑證）。"
+    },
+    {
+      "priority": "low",
+      "action": "藉 Operation Endgame 執法行動扣押 2,700 萬筆遭竊憑證的機會，主動掃描組織帳號是否出現在本次行動回收的憑證集中。許多 StealC 及 Amadey 受害者帳號可能在相關平台上被告知，應預防性輪換高風險帳號密碼並啟用多因素驗證。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "KEV（已知遭利用漏洞清單）",
+      "definition": "CISA 維護的已確認遭實際利用的漏洞清單",
+      "url": "https://glossary.astroicers.link/glossary/kev"
+    },
+    {
+      "term": "SSRF（伺服器端請求偽造）",
+      "definition": "誘使伺服器對攻擊者指定的內部目標發出請求的攻擊",
+      "url": "https://glossary.astroicers.link/glossary/ssrf"
+    },
+    {
+      "term": "反序列化攻擊（Deserialization Attack）",
+      "definition": "利用不安全反序列化機制執行任意程式碼的攻擊手法",
+      "url": "https://glossary.astroicers.link/glossary/deserialization_attack"
+    },
+    {
+      "term": "CI/CD（持續整合/持續部署）",
+      "definition": "自動化軟體建置、測試與部署的開發流程",
+      "url": "https://glossary.astroicers.link/glossary/cicd"
+    },
+    {
+      "term": "供應鏈攻擊（Supply Chain Attack）",
+      "definition": "透過入侵軟體供應商來攻擊最終用戶的手法",
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
+    },
+    {
+      "term": "Webshell",
+      "definition": "植入 Web 伺服器的惡意腳本，提供攻擊者遠端控制能力",
+      "url": "https://glossary.astroicers.link/glossary/webshell"
+    },
+    {
+      "term": "OT（營運技術）",
+      "definition": "用於監控和控制實體工業設備的硬體與軟體系統",
+      "url": "https://glossary.astroicers.link/glossary/ot"
+    },
+    {
+      "term": "偽旗行動（False Flag Operation）",
+      "definition": "偽裝成其他威脅行為者或事件類型以混淆歸因的欺騙手法",
+      "url": "https://glossary.astroicers.link/glossary/false_flag"
+    },
+    {
+      "term": "C2（命令與控制）",
+      "definition": "攻擊者用來遠端控制受感染系統的基礎設施",
+      "url": "https://glossary.astroicers.link/glossary/c2"
+    },
+    {
+      "term": "本機提權（Local Privilege Escalation）",
+      "definition": "利用漏洞將低權限用戶提升至系統管理員或 root 的攻擊",
+      "url": "https://glossary.astroicers.link/glossary/lpe"
+    }
+  ],
+  "references": [
+    {
+      "title": "Critical Ubiquiti Vulnerabilities in Attackers' Crosshairs - SecurityWeek",
+      "url": "https://www.securityweek.com/critical-ubiquiti-vulnerabilities-in-attackers-crosshairs/"
+    },
+    {
+      "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog (June 23, 2026) - CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/06/23/cisa-adds-four-known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "CVE-2026-34908: UniFi OS Takeover Exploited (CVSS 10.0) - ZeroDay Hub",
+      "url": "https://zerodayhub.co.uk/2026/06/24/ubiquiti-unifi-os-takeover-cve-2026-34908/"
+    },
+    {
+      "title": "Global cyber strike disrupts SocGholish, Amadey, and StealC malware networks - Europol",
+      "url": "https://www.europol.europa.eu/media-press/newsroom/news/global-cyber-strike-disrupts-socgholish-amadey-and-stealc-malware-networks"
+    },
+    {
+      "title": "Operation Endgame Disrupts StealC, Amadey and SocGholish Malware Networks - Infosecurity Magazine",
+      "url": "https://www.infosecurity-magazine.com/news/operation-endgame-stealc-amadey/"
+    },
+    {
+      "title": "CISA Adds Exploited PTC Windchill RCE Flaw to KEV as Web Shell Attacks Continue - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/cisa-adds-exploited-ptc-windchill-rce.html"
+    },
+    {
+      "title": "CVE-2026-12569: PTC Windchill RCE Exploited in the Wild - ZeroDay Hub",
+      "url": "https://zerodayhub.co.uk/2026/06/27/ptc-windchill-rce-cve-2026-12569/"
+    },
+    {
+      "title": "Cisco Unified CM Flaw Exploited After PoC Reveals File-Write Path to Root - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/cisco-unified-cm-flaw-exploited-after.html"
+    },
+    {
+      "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog (June 25, 2026) - CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/06/25/cisa-adds-two-known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "Cisco Unified CM flaw actively exploited to drop webshells (CVE-2026-20230) - Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/06/24/cisco-unified-cm-flaw-exploited-to-drop-webshells-cve-2026-20230/"
+    },
+    {
+      "title": "Cordyceps CI/CD Flaws Expose 300+ GitHub Repositories to Supply-Chain Attacks - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/cordyceps-cicd-flaws-expose-300-github.html"
+    },
+    {
+      "title": "Cordyceps: The Silent Parasite Consuming Your Supply Chain - Novee Security",
+      "url": "https://novee.security/blog/cordyceps/"
+    },
+    {
+      "title": "Iranian APT Intrusion Masquerades as Chaos Ransomware Attack - SecurityWeek",
+      "url": "https://www.securityweek.com/iranian-apt-intrusion-masquerades-as-chaos-ransomware-attack/"
+    },
+    {
+      "title": "Muddying the Tracks: The State-Sponsored Shadow Behind Chaos Ransomware - Rapid7",
+      "url": "https://www.rapid7.com/blog/post/tr-muddying-tracks-state-sponsored-shadow-behind-chaos-ransomware/"
+    },
+    {
+      "title": "CISA Warns Critical Lantronix EDS5000 Flaw Is Being Actively Exploited - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/cisa-warns-critical-lantronix-eds5000.html"
+    },
+    {
+      "title": "AryStinger Malware Infects 4,300 Legacy Routers to Build Reconnaissance Proxy Network - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/arystinger-malware-infects-4300-legacy.html"
+    },
+    {
+      "title": "AryStinger botnet infected thousands of D-Link routers worldwide - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/arystinger-botnet-infected-thousands-of-d-link-routers-worldwide/"
+    },
+    {
+      "title": "New Linux pedit COW Exploit Enables Root Access by Poisoning Cached Binaries - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/new-linux-pedit-cow-exploit-enables.html"
+    },
+    {
+      "title": "pedit-cow (CVE-2026-46331): Linux tc Flaw Grants Root - TuxCare",
+      "url": "https://tuxcare.com/blog/pedit-cow-cve/"
+    },
+    {
+      "title": "Grafana security update: post-incident review for GitHub workflow vulnerability and what's next - Grafana Labs",
+      "url": "https://grafana.com/blog/grafana-security-update-post-incident-review-for-github-workflow-vulnerability-and-whats-next/"
+    },
+    {
+      "title": "CISA Known Exploited Vulnerabilities Catalog",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "NVD CVE-2026-12569 Detail - PTC Windchill Deserialization RCE",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12569"
+    },
+    {
+      "title": "NVD CVE-2026-20230 Detail - Cisco Unified CM SSRF",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20230"
+    },
+    {
+      "title": "Cisco Unified Communications Manager Server-Side Request Forgery Vulnerability - Cisco",
+      "url": "https://www.cisco.com/c/en/us/support/docs/csa/cisco-sa-cucm-ssrf-cXPnHcW.html"
+    }
+  ]
+}
