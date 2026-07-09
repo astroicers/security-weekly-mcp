@@ -1,0 +1,394 @@
+{
+  "title": "資安週報 2026/06/29 - 2026/07/05",
+  "report_id": "SEC-WEEKLY-2026-27",
+  "period": {
+    "start": "2026-06-29",
+    "end": "2026-07-05"
+  },
+  "publish_date": "2026-07-06",
+  "summary": {
+    "total_events": 8,
+    "total_vulnerabilities": 8,
+    "threat_level": "high"
+  },
+  "events": [
+    {
+      "title": "SimpleHelp CVE-2026-48558（CVSS 10.0，CISA KEV）：OIDC 令牌偽造繞過身份驗證，攻擊者植入 TaskWeaver 與 Djinn Stealer 竊密程式，MSP 供應鏈面臨全面淪陷風險",
+      "severity": "critical",
+      "event_type": "漏洞遭利用",
+      "summary": "CISA 於 6 月 29 日將 SimpleHelp 遠端監控與管理（RMM）軟體的 CVE-2026-48558 列入 KEV，設定聯邦機構 7 月 2 日修補期限——僅 3 天。漏洞根源在於 SimpleHelp 啟用 OpenID Connect（OIDC）驗證時，接受 OIDC 令牌卻完全跳過簽章驗證，未驗證攻擊者可偽造含任意身份聲明的令牌、自行建立具備管理員權限的技術員帳號，並繞過 MFA（首次登入可自行登錄 MFA 方法）。Arctic Wolf 及 Horizon3.ai 研究人員確認實際利用活動：攻擊者植入兩個新型惡意程式家族——重度混淆的 Node.js 載入器 TaskWeaver（建立加密可重用的有效載荷傳遞通道），以及竊密程式 Djinn Stealer（鎖定 Windows/macOS/Linux 上的 AI 服務、雲端供應商 API 金鑰及瀏覽器憑證）。估計網際網路暴露的 SimpleHelp 伺服器約 14,000 台，其中約 1,000 台直接存在漏洞。受影響版本為 5.5.15 及以前，以及所有 6.0 預發布版本；應升級至 5.5.16 或 6.0 RC2。此漏洞對 MSP（受管服務供應商）生態系尤為危險，單一 SimpleHelp 伺服器被攻陷即可橫向觸及所有受管客戶端點，形成供應鏈式級聯攻擊。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/06/attackers-exploit-simplehelp-cve-2026.html",
+      "date": "2026-06-30"
+    },
+    {
+      "title": "Adobe ColdFusion 七個 CVSS 10.0 滿分漏洞（7 月 1 日釋出修補）：CVE-2026-48282 路徑穿越遭披露後數小時內即遭利用",
+      "severity": "critical",
+      "event_type": "嚴重漏洞揭露",
+      "summary": "Adobe 於 7 月 1 日在安全公告 APSB26-64 中披露 ColdFusion 2023/2025 與 Campaign Classic v7 共 9 個漏洞，其中 7 個 CVSS 10.0 滿分，均可達成未驗證遠端任意程式碼執行。CVE-2026-48282（路徑穿越，CVSS 10.0）於公告釋出後數小時內即觀察到積極利用活動，攻擊者可讀取或覆寫伺服器上任意檔案；CVE-2026-48276 與 CVE-2026-48283（不受限制檔案上傳，CVSS 10.0）允許上傳任意 Web Shell；CVE-2026-48277、CVE-2026-48281、CVE-2026-48316（輸入驗證不足，CVSS 10.0）可注入並執行任意指令；CVE-2026-48286（Campaign Classic 不當授權，CVSS 10.0）影響行銷自動化平台。ColdFusion 在台灣政府、企業入口網站及電子商務平台仍有大量部署，歷史上有 16 個 ColdFusion CVE 已列入 CISA KEV，此次批次漏洞將成為攻擊者近期優先武器化目標。應立即升級至 ColdFusion 2025 Update 10 或 ColdFusion 2023 Update 21。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/07/adobe-patches-7-cvss-100-flaws-in.html",
+      "date": "2026-07-01"
+    },
+    {
+      "title": "Progress Kemp LoadMaster CVE-2026-8037（CVSS 9.6）：watchTowr 揭露 Pre-Auth 堆積未初始化至 RCE 的完整攻擊鏈，利用活動於 PoC 發布當日（6/29）即開始",
+      "severity": "critical",
+      "event_type": "漏洞遭利用",
+      "summary": "watchTowr Labs 於 6 月 29 日發布 CVE-2026-8037 的完整技術分析，揭露 Progress Kemp LoadMaster 應用程式交付控制器存在前驗證（Pre-Auth）作業系統指令注入漏洞（CVSS 9.6）。漏洞位於 escape_quotes() 函數：該函數使用 malloc() 分配緩衝區但遺漏空終止符，在後續 sprintf/system() 鏈中，sprintf 可讀取超出預期緩衝區的相鄰堆積記憶體，將攻擊者控制的堆積資料注入 Shell 指令並以 root 權限執行。此為完全無需身份驗證的遠端代碼執行路徑。eSentire 威脅回應小組於 PoC 發布同日（6 月 29 日）即偵測到針對此漏洞的攻擊活動，且 LoadMaster 亦是企業常見的邊界設備，通常面向網際網路。受影響版本為 LoadMaster GA v7.2.63.1 及以前、LTSF v7.2.54.17 及以前（需啟用 API）；應升級至 GA v7.2.63.2 或 LTSF v7.2.54.18。此漏洞亦影響 ECS Connection Manager、Object Scale Connection Manager 及 MOVEit WAF 產品線。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/07/latest-progress-kemp-loadmaster-pre.html",
+      "date": "2026-07-01"
+    },
+    {
+      "title": "Microsoft SharePoint CVE-2026-45659（CVSS 8.8，CISA KEV）：中國連結威脅行為者 Storm-2603 利用反序列化 RCE 部署 Warlock 勒索軟體",
+      "severity": "high",
+      "event_type": "勒索軟體攻擊",
+      "summary": "CISA 於 7 月 1 日將 Microsoft SharePoint Server 的 CVE-2026-45659 列入 KEV，設定聯邦機構 7 月 4 日（美國國慶日）前修補的史上最緊迫時限之一。此漏洞為不受信任資料的反序列化缺陷（CVSS 8.8），僅需 Site Member 最低權限即可在 SharePoint Server 上執行任意程式碼，全面遠端接管目標系統。微軟已於 5 月 2026 年例行修補日釋出修補程式（KB5002863/KB5002868/KB5002870），但披露後約 4 週即確認遭利用。Microsoft 安全中心追蹤的 Storm-2603（又稱 GOLD SALEM）——被認定具中國背景的威脅行為者——利用此漏洞搭配 DLL 搜尋順序劫持部署 Warlock 勒索軟體，2025 年該組織即以 ToolShell 攻擊鏈針對 SharePoint 發動類似行動。攻擊者可能已於修補前儲存 ASP.NET 機器金鑰以維持持久化存取，即使補丁套用後仍可能存在後門，需輪換 ASP.NET machineKey 並回溯稽核。台灣公部門與金融機構廣泛採用本地部署 SharePoint，應視為高風險優先處理。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/07/sharepoint-rce-cve-2026-45659-added-to.html",
+      "date": "2026-07-01"
+    },
+    {
+      "title": "FortiBleed 憑證竊取行動歸因：SOCRadar 確認 INC 與 Lynx 勒索軟體集團在幕後，43 萬台 FortiGate 防火牆遭掃描、354 台完整淪陷並已有 12 起勒索軟體部署",
+      "severity": "high",
+      "event_type": "威脅情報歸因",
+      "summary": "SOCRadar 與 The Hacker News 於 7 月 3 日發布 FortiBleed 行動的完整歸因分析，揭露此大規模 Fortinet 防火牆憑證竊取行動與 INC 及 Lynx 兩個勒索軟體組織存在直接連結。FortiBleed 威脅行為者使用自製 Golang 工具 FortigateSniffer，濫用 FortiOS 原生診斷封包擷取指令被動攔截 24 種協定的身份驗證流量。行動規模：掃描逾 150 國約 11,250 個 FortiGate 管理入口、確認 409 個目標具管理員層級存取、完整攻擊鏈成功執行 354 個目標，並已造成至少 12 起勒索軟體部署，波及數百個端點。SOCRadar 分析的內部追蹤文件顯示這是一個約 20 人的結構化組織，其中一名 FortiBleed 基礎設施相關操控者被發現同時活躍於 INC 和 Lynx 的勒索談判面板——首次直接將大規模 FortiGate 憑證竊取與後續勒索軟體部署行動串連起來。台灣企業廣泛使用 Fortinet FortiGate 作為邊界防火牆，應立即稽核設備是否受 FortiBleed 影響。",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/07/fortibleed-credential-theft-linked-to.html",
+      "date": "2026-07-03"
+    },
+    {
+      "title": "Fortinet FortiClient EMS CVE-2026-35616 遭積極利用：EKZ Stealer 偽裝成官方修補程式植入能源業客戶，竊取 Chromium 及 Firefox 瀏覽器憑證",
+      "severity": "high",
+      "event_type": "漏洞遭利用",
+      "summary": "eSentire 威脅回應小組披露 Fortinet FortiClient EMS（端點管理伺服器）身份驗證繞過漏洞 CVE-2026-35616 遭積極利用，鎖定能源、公用事業及廢棄物處理業客戶。攻擊者利用此不當存取控制漏洞繞過 API 身份驗證並取得特權存取，隨後投放偽裝成官方修補程式（FortiEndpoint_Patch.exe）的 EKZ Stealer 惡意程式。EKZ Stealer 針對 Chromium 系瀏覽器及 Firefox 的本地憑證儲存庫，並透過 Base64 編碼的 HTTP POST 請求外洩竊取的帳密資料至 C2 伺服器。Arctic Wolf 研究人員揭露 EKZ Stealer 採用複雜的編譯器混淆手法（間接跳轉/呼叫 + 控制流程扁平化），需使用 Binary Ninja 工作流程進行去混淆分析。受影響版本為 FortiClient EMS 7.4.5 至 7.4.6。此事件與 FortiBleed 行動同週曝光，顯示 Fortinet 產品線在本週成為攻擊者的集中鎖定目標，台灣企業使用 Fortinet 產品應全面稽核是否存在可疑活動。",
+      "source": "eSentire",
+      "url": "https://www.esentire.com/blog/fortinet-vulnerability-cve-2026-35616-and-ekz-stealer-attacking-obfuscating-compilers-with-binary-ninja-workflows",
+      "date": "2026-07-01"
+    },
+    {
+      "title": "FBI 警告勒索軟體集團與 TeamPCP 建立工業化攻擊聯盟：專業分工「攻擊組裝線」模式預警將引發空前規模的勒索事件",
+      "severity": "medium",
+      "event_type": "威脅趨勢預警",
+      "summary": "FBI 與資安研究人員於 7 月 3 日警告，勒索軟體集團正與名為 TeamPCP 的專業駭客組織建立正式合作聯盟，形成高度分工的「攻擊工業化」模型。在此架構下，TeamPCP 負責技術突破——包括零時差漏洞開發、初始存取取得及防禦規避——而勒索軟體集團則專注於後期的橫向移動、資料竊取與勒索軟體部署。這種專業分工大幅降低了每個參與者的技術門檻，同時提升整體攻擊效率與成功率。研究人員警告此合作模式與 2020 年代初期的勒索軟體即服務（RaaS）興起對企業造成的衝擊相當，預期將導致大規模關鍵基礎設施勒索事件。對台灣企業而言，此趨勢意味著即使面對技術能力相對較弱的勒索集團，其初始存取技術深度已顯著提升。",
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/security",
+      "date": "2026-07-03"
+    },
+    {
+      "title": "Supermicro 台灣與新加坡伺服器異常運輸事件：警方介入調查，供應鏈安全可信任性再受質疑",
+      "severity": "medium",
+      "event_type": "供應鏈安全事件",
+      "summary": "The Register 於 7 月 2 日報導 Supermicro 在台灣與新加坡的異常伺服器運輸批次吸引警方注意並展開調查。具體細節目前仍在調查中，但此事件引發對科技供應鏈完整性的廣泛擔憂。Supermicro 為全球最大伺服器製造商之一，其主要製造與組裝設施位於台灣，該公司自 2018 年 Bloomberg「超級微型間諜晶片」報導事件以來，一直處於供應鏈安全審查的核心。此次事件再次凸顯全球資訊科技供應鏈的脆弱性，以及對高價值硬體的運輸與物流安全管控需求。鑒於台灣在全球半導體與伺服器製造的核心地位，供應鏈安全事件對台灣科技業聲譽具有系統性影響。",
+      "source": "The Register",
+      "url": "https://www.theregister.com/legal/2026/07/02/trouble-keeps-finding-supermicro-as-strange-server-shipments-attract-police-attention-in-taiwan-and-singapore/5265520",
+      "date": "2026-07-02"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-48558",
+      "title": "SimpleHelp RMM OIDC 身份驗證繞過漏洞（CISA KEV，CVSS 10.0）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "SimpleHelp",
+      "product": "SimpleHelp Remote Monitoring and Management（版本 5.5.15 及以前、6.0 所有預發布版本）",
+      "description": "啟用 OIDC 驗證的 SimpleHelp 伺服器在驗證 OIDC 令牌時完全跳過簽章驗證，未驗證攻擊者可偽造含任意身份聲明的令牌，建立具管理員權限的技術員帳號，並在首次登入時自行登錄 MFA 方法以繞過多因素驗證。取得技術員帳號後可遠端控制所有受管端點、執行腳本，形成 MSP 供應鏈級聯攻擊向量。已確認利用活動部署 TaskWeaver 載入器及 Djinn Stealer 竊密程式。CISA KEV（6 月 29 日），修補截止日 2026-07-02。應立即升級至 SimpleHelp 5.5.16 或 6.0 RC2。"
+    },
+    {
+      "cve_id": "CVE-2026-48282",
+      "title": "Adobe ColdFusion 路徑穿越漏洞（CVSS 10.0，披露後數小時即遭利用）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "Adobe",
+      "product": "Adobe ColdFusion 2025（Update 9 及以前）、ColdFusion 2023（Update 20 及以前）",
+      "description": "ColdFusion 路徑穿越漏洞允許未驗證遠端攻擊者讀取或覆寫伺服器上任意檔案，可藉此讀取 cfadmin 設定檔竊取管理員憑證或覆寫可執行檔以取得遠端代碼執行。此為本週 Adobe APSB26-64 公告中 7 個 CVSS 10.0 漏洞之一，安全研究人員觀察到披露後數小時內即有利用活動。ColdFusion 歷史上已有 16 個 CVE 列入 CISA KEV。應立即升級至 ColdFusion 2025 Update 10 或 ColdFusion 2023 Update 21。"
+    },
+    {
+      "cve_id": "CVE-2026-48276",
+      "title": "Adobe ColdFusion 不受限制檔案上傳漏洞（CVSS 10.0）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "Adobe",
+      "product": "Adobe ColdFusion 2025（Update 9 及以前）、ColdFusion 2023（Update 20 及以前）",
+      "description": "不受限制檔案上傳漏洞允許未驗證遠端攻擊者上傳任意 Web Shell 或可執行惡意程式至 ColdFusion 伺服器，取得持久化遠端代碼執行能力。與 CVE-2026-48283（同類漏洞）共同構成不受限制檔案上傳攻擊面，為 Adobe APSB26-64 公告 7 個 CVSS 10.0 漏洞之一。應立即套用 Adobe 7 月 1 日修補程式。"
+    },
+    {
+      "cve_id": "CVE-2026-8037",
+      "title": "Progress Kemp LoadMaster Pre-Auth 作業系統指令注入漏洞（CVSS 9.6，積極利用中）",
+      "cvss": 9.6,
+      "severity": "critical",
+      "vendor": "Progress Software",
+      "product": "Progress Kemp LoadMaster（GA v7.2.63.1 及以前）、LTSF（v7.2.54.17 及以前）、ECS Connection Manager、Object Scale Connection Manager、MOVEit WAF",
+      "description": "escape_quotes() 函數在計算輸出緩衝區時使用 malloc() 但未寫入空終止符，後續 sprintf/system() 鏈讀取超出緩衝區的相鄰堆積記憶體，允許未驗證攻擊者注入任意 OS 指令並以 root 權限執行。watchTowr Labs 於 6 月 29 日發布完整技術分析及 PoC，eSentire 同日即觀察到利用活動。API 需啟用方可被利用（LoadMaster 預設啟用 API）。應立即升級至 GA v7.2.63.2 或 LTSF v7.2.54.18；若暫無法升級，應停用或限制 API 存取。"
+    },
+    {
+      "cve_id": "CVE-2026-45659",
+      "title": "Microsoft SharePoint Server 反序列化遠端程式碼執行漏洞（CISA KEV，CVSS 8.8）",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "SharePoint Server Subscription Edition、SharePoint Server 2019、SharePoint Enterprise Server 2016",
+      "description": "不受信任資料的反序列化漏洞允許具 Site Member 最低權限的已驗證攻擊者在 SharePoint Server 上執行任意程式碼。Storm-2603（中國背景威脅行為者）已確認積極利用此漏洞，結合 DLL 搜尋順序劫持部署 Warlock 勒索軟體。CISA KEV（7 月 1 日），修補截止日 2026-07-04。微軟已於 5 月 2026 修補月釋出修補程式（KB5002863/KB5002868/KB5002870），套用後仍需輪換 ASP.NET machineKey 以清除潛在的持久化後門。"
+    },
+    {
+      "cve_id": "CVE-2026-35616",
+      "title": "Fortinet FortiClient EMS API 身份驗證繞過漏洞（已遭積極利用）",
+      "cvss": 9.3,
+      "severity": "critical",
+      "vendor": "Fortinet",
+      "product": "Fortinet FortiClient EMS（版本 7.4.5 至 7.4.6）",
+      "description": "不當存取控制漏洞允許未驗證攻擊者繞過 API 身份驗證並傳送特權請求至受影響的 FortiClient EMS 部署，取得對所有受管端點的控制能力。已觀察到攻擊者利用此漏洞入侵 FortiClient EMS 伺服器，投放偽裝成官方修補程式（FortiEndpoint_Patch.exe）的 EKZ Stealer，竊取瀏覽器儲存的帳號密碼後透過 HTTP POST 外洩。能源業為已確認受害產業。應立即套用 Fortinet 修補程式，並稽核 FortiClient EMS 伺服器上是否存在非預期的可執行檔。"
+    },
+    {
+      "cve_id": "CVE-2026-48283",
+      "title": "Adobe ColdFusion 不受限制檔案上傳漏洞（CVSS 10.0，第二個）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "Adobe",
+      "product": "Adobe ColdFusion 2025（Update 9 及以前）、ColdFusion 2023（Update 20 及以前）",
+      "description": "另一個 ColdFusion 不受限制檔案上傳漏洞，可允許未驗證遠端攻擊者上傳任意可執行內容並取得代碼執行，與 CVE-2026-48276 構成雙重不受限制上傳攻擊面。Adobe APSB26-64 七個 CVSS 10.0 漏洞之一，應立即套用 7 月 1 日修補程式。"
+    },
+    {
+      "cve_id": "CVE-2026-48286",
+      "title": "Adobe Campaign Classic 不當授權漏洞（CVSS 10.0）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "Adobe",
+      "product": "Adobe Campaign Classic v7（本地部署版本）",
+      "description": "Campaign Classic v7 本地部署版本中的不當授權漏洞允許未驗證遠端攻擊者執行任意程式碼，完整接管行銷自動化平台伺服器。Campaign Classic 存有客戶個人資料與行銷資料庫，攻擊者可藉此竊取大規模客戶個資並發動內部電子郵件網路釣魚攻擊。Adobe APSB26-64 七個 CVSS 10.0 漏洞之一，應立即套用 Adobe 7 月 1 日修補程式。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢的核心特徵是「漏洞武器化速度達到新高峰」與「攻擊產業鏈深度整合」兩大趨勢的共振。SimpleHelp CVE-2026-48558（CVSS 10.0）從 CISA KEV 列入到積極利用僅數小時；Progress LoadMaster CVE-2026-8037 在 PoC 發布當日即遭攻擊者利用；Adobe ColdFusion CVE-2026-48282 在公告後數小時即遭入侵——三個案例均印證防禦窗口已從「數天」壓縮至「數小時」。Fortinet 產品線成為本週最集中的攻擊目標：CVE-2026-35616（FortiClient EMS）的單點入侵搭配 EKZ Stealer，以及 FortiBleed 行動（43 萬台 FortiGate 掃描）的歸因確認與 INC/Lynx 勒索軟體的直接關聯，共同勾勒出攻擊者針對安全廠商自身產品的系統性策略——最受信任的安全設備反而成為最高價值的初始存取入口。Storm-2603（中國背景）持續深化對 Microsoft SharePoint 的利用，從 2025 年的 ToolShell 到 2026 年的 CVE-2026-45659，顯示國家級威脅行為者以連續漏洞追蹤的方式鎖定企業協作平台。FBI 關於勒索軟體集團與 TeamPCP 建立工業化攻擊聯盟的警告，預示勒索軟體生態系正進入高度分工的「平台化」新階段，技術門檻將持續降低而攻擊效率將顯著提升。MSP 供應鏈風險在本週以 SimpleHelp 漏洞為具體案例再次具象化，強調受管服務模式下的單點妥協即可導致下游數百客戶同步淪陷的級聯威脅。",
+    "active_actors": [
+      {
+        "name": "Storm-2603（GOLD SALEM）",
+        "type": "中國背景威脅行為者",
+        "activity": "利用 Microsoft SharePoint CVE-2026-45659 反序列化 RCE，結合 DLL 搜尋順序劫持部署 Warlock 勒索軟體，持續延伸 2025 年 ToolShell 攻擊鏈戰術"
+      },
+      {
+        "name": "INC / Lynx 勒索軟體集團",
+        "type": "勒索軟體即服務（RaaS）組織",
+        "activity": "幕後主導 FortiBleed 行動，將 43 萬台 FortiGate 防火牆憑證竊取轉化為勒索軟體初始存取，已完成至少 12 起成功勒索軟體部署"
+      },
+      {
+        "name": "FortiBleed 行動操控組織",
+        "type": "初始存取仲介（IAB）",
+        "activity": "約 20 人結構化組織，使用 Golang FortigateSniffer 工具被動攔截 FortiGate 身份驗證流量，出售存取權給 INC 與 Lynx 勒索軟體集團"
+      },
+      {
+        "name": "未知威脅行為者（SimpleHelp 攻擊）",
+        "type": "未歸因威脅行為者",
+        "activity": "利用 CVE-2026-48558 在 SimpleHelp RMM 平台偽造技術員帳號，植入 TaskWeaver 載入器和 Djinn Stealer 竊取 AI/雲端服務 API 金鑰"
+      },
+      {
+        "name": "TeamPCP",
+        "type": "專業駭客組織（攻擊-即-服務）",
+        "activity": "與勒索軟體集團建立正式合作聯盟，提供零時差漏洞開發、初始存取及防禦規避服務，預計顯著放大勒索軟體攻擊規模"
+      }
+    ],
+    "attack_techniques": [
+      "OIDC 令牌偽造繞過身份驗證 - RMM 平台無需攻擊者任何憑證即可建立管理員帳號（SimpleHelp CVE-2026-48558）",
+      "Pre-Auth 堆積未初始化至 RCE - 應用程式交付控制器前驗證根層級指令注入（LoadMaster CVE-2026-8037）",
+      "反序列化 RCE 搭配 DLL 搜尋順序劫持 - 企業協作平台持久化後勒索軟體部署（SharePoint CVE-2026-45659）",
+      "批次 CVSS 10.0 漏洞零日至利用 - 公告後數小時即武器化（Adobe ColdFusion 7 個 CVSS 10.0）",
+      "被動身份驗證流量攔截 - 濫用設備原生診斷功能竊取憑證（FortiBleed / FortigateSniffer）",
+      "偽裝官方修補程式投放竊密程式 - 社會工程結合身份驗證繞過（FortiClient EMS + EKZ Stealer）",
+      "MSP 供應鏈橫向移動 - 單一 RMM 伺服器入侵觸及所有受管客戶端點（SimpleHelp 生態系）",
+      "勒索軟體工業化分工聯盟 - 專業初始存取組織與勒索集團正式合作（TeamPCP + 勒索軟體集團）"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即升級所有 SimpleHelp 伺服器至 5.5.16 或 6.0 RC2（CVE-2026-48558，CVSS 10.0，CISA KEV，截止 2026-07-02）。稽核 SimpleHelp 管理介面中的技術員帳號清單，刪除任何非由內部人員建立的帳號，並輪換所有技術員帳號密碼。特別注意使用 OIDC 驗證的部署——這是唯一的漏洞觸發條件。啟用 SimpleHelp 稽核記錄並回溯稽核過去 2 週的存取記錄。"
+    },
+    {
+      "priority": "high",
+      "action": "立即套用 Adobe ColdFusion 修補程式（APSB26-64），升級至 ColdFusion 2025 Update 10 或 ColdFusion 2023 Update 21（7 個 CVSS 10.0 漏洞，CVE-2026-48282 已確認遭利用）。優先確認 ColdFusion 伺服器是否面向網際網路，掃描 Web 根目錄是否有未預期的 .cfm/.jsp 及可執行檔，稽核 6 月 30 日後的所有檔案系統變更記錄。"
+    },
+    {
+      "priority": "high",
+      "action": "立即套用 Microsoft SharePoint Server 5 月修補程式（CVE-2026-45659，CVSS 8.8，CISA KEV，截止 2026-07-04，KB5002863/KB5002868/KB5002870）。即使已套用修補，必須輪換 SharePoint 伺服器的 ASP.NET machineKey——Storm-2603 的歷史 ToolShell 攻擊模式顯示攻擊者在補丁前可能已竊取金鑰以維持持久化存取。回溯稽核 5 月 2026 後的所有 SharePoint 存取記錄，確認是否有可疑的 Site Member 帳號活動。"
+    },
+    {
+      "priority": "high",
+      "action": "立即升級 Progress Kemp LoadMaster 至 GA v7.2.63.2 或 LTSF v7.2.54.18（CVE-2026-8037，CVSS 9.6，利用活動自 6 月 29 日起已開始）。若暫無法升級，停用或嚴格限制 LoadMaster API 存取（漏洞需 API 啟用）。稽核 6 月 29 日後的 LoadMaster 管理存取記錄，確認是否有來自未知 IP 的可疑存取。"
+    },
+    {
+      "priority": "high",
+      "action": "全面稽核組織 FortiGate 防火牆是否受 FortiBleed 行動影響：（1）搜尋是否有主動使用 'diagnose sniffer packet' 指令的異常診斷活動；（2）確認所有 FortiGate 管理介面是否開啟於網際網路並限縮存取；（3）重置所有 FortiGate 管理員密碼並啟用多因素驗證；（4）若組織曾使用 FortiClient EMS 7.4.5-7.4.6，立即套用修補並稽核是否有可疑可執行檔執行記錄。"
+    },
+    {
+      "priority": "high",
+      "action": "立即升級 Fortinet FortiClient EMS 至受影響版本以外的修補版本（CVE-2026-35616）。稽核 EMS 伺服器上是否存在名稱含 'FortiEndpoint_Patch.exe' 或類似偽裝名稱的可執行檔。搜尋端點行為記錄中是否有異常的瀏覽器憑證存取與 HTTP POST 外洩活動，特別是能源業環境。"
+    },
+    {
+      "priority": "medium",
+      "action": "針對本週 Adobe ColdFusion、SimpleHelp、LoadMaster 三個 CVSS 10.0/9.6 漏洞的武器化時間壓縮趨勢，重新評估並優化組織的修補週期策略：（1）建立邊界設備與網際網路面向服務的緊急修補流程，目標在漏洞公告後 24 小時內完成；（2）訂閱 CISA KEV RSS 或 API 通知並設定即時告警；（3）針對高風險產品（ColdFusion、SharePoint、Fortinet、Progress 等）建立優先修補清單並追蹤版本狀態。"
+    },
+    {
+      "priority": "medium",
+      "action": "針對 MSP 及使用 RMM 工具（SimpleHelp、ConnectWise、Kaseya 等）的組織，加強 RMM 平台的存取控制稽核：（1）盤點所有 RMM 平台的身份驗證機制，確認 SSO/OIDC 設定安全性；（2）實施 RMM 存取的條件式存取策略（IP 白名單、設備合規性）；（3）定期稽核 RMM 技術員帳號清單；（4）評估是否有受管客戶端點需要額外告知 SimpleHelp 事件潛在影響。"
+    },
+    {
+      "priority": "medium",
+      "action": "鑒於 Supermicro 台灣伺服器異常運輸調查事件，重新稽核組織高價值伺服器硬體的採購、運輸與驗收流程：（1）確認供應商硬體固件版本完整性；（2）對關鍵基礎設施伺服器實施到貨後固件稽核；（3）評估是否引入硬體供應鏈信任驗證機制（如 NIST SP 800-193 平台固件彈性）。"
+    },
+    {
+      "priority": "low",
+      "action": "針對 FBI 警告的勒索軟體集團與 TeamPCP 工業化攻擊聯盟趨勢，強化組織的勒索軟體防禦縱深：（1）確認所有關鍵業務系統的離線備份策略並定期測試還原流程；（2）強化端點偵測（EDR）規則以識別 DLL 搜尋順序劫持（Storm-2603 / Warlock 攻擊手法）；（3）審查 Microsoft 365 / 本地 SharePoint 的稽核記錄保留政策，確保至少 90 天可追溯；（4）對高階主管與 IT 人員實施勒索軟體社會工程演練。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "RMM（遠端監控與管理）",
+      "definition": "MSP 遠端監控與管理客戶端點的軟體平台",
+      "url": "https://glossary.astroicers.link/glossary/rmm"
+    },
+    {
+      "term": "OIDC（OpenID Connect）",
+      "definition": "基於 OAuth 2.0 的身份驗證協定，使用 JWT 令牌",
+      "url": "https://glossary.astroicers.link/glossary/oidc"
+    },
+    {
+      "term": "KEV（已知遭利用漏洞清單）",
+      "definition": "CISA 維護的已確認遭實際利用的漏洞清單",
+      "url": "https://glossary.astroicers.link/glossary/kev"
+    },
+    {
+      "term": "竊密程式（Infostealer）",
+      "definition": "專門竊取帳號密碼、Cookie 及敏感資料的惡意程式",
+      "url": "https://glossary.astroicers.link/glossary/infostealer"
+    },
+    {
+      "term": "反序列化攻擊（Deserialization Attack）",
+      "definition": "利用不安全反序列化機制執行任意程式碼的攻擊手法",
+      "url": "https://glossary.astroicers.link/glossary/deserialization_attack"
+    },
+    {
+      "term": "初始存取仲介（IAB）",
+      "definition": "專門取得企業網路初始存取後出售給其他攻擊者的組織",
+      "url": "https://glossary.astroicers.link/glossary/iab"
+    },
+    {
+      "term": "DLL 搜尋順序劫持（DLL Search Order Hijacking）",
+      "definition": "利用 Windows DLL 載入機制缺陷以執行惡意 DLL 的提權手法",
+      "url": "https://glossary.astroicers.link/glossary/dll_hijacking"
+    },
+    {
+      "term": "供應鏈攻擊（Supply Chain Attack）",
+      "definition": "透過入侵軟體供應商來攻擊最終用戶的手法",
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
+    },
+    {
+      "term": "勒索軟體即服務（RaaS）",
+      "definition": "將勒索軟體工具與基礎設施作為服務提供給附屬攻擊者的商業模式",
+      "url": "https://glossary.astroicers.link/glossary/raas"
+    },
+    {
+      "term": "MSP（受管服務供應商）",
+      "definition": "為客戶提供 IT 基礎設施遠端管理服務的第三方業者",
+      "url": "https://glossary.astroicers.link/glossary/msp"
+    }
+  ],
+  "references": [
+    {
+      "title": "Attackers Exploit SimpleHelp CVE-2026-48558 to Deploy TaskWeaver and Djinn Stealer - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/attackers-exploit-simplehelp-cve-2026.html"
+    },
+    {
+      "title": "CVE-2026-48558: SimpleHelp RMM Authentication Bypass — OIDC Tokens Enable Unauthenticated Technician Access (CISA KEV) - Threat-Modeling.com",
+      "url": "https://threat-modeling.com/cve-2026-48558-simplehelp-rmm-authentication-bypass-cisa-kev/"
+    },
+    {
+      "title": "CVE-2026-48558 | Critical Authentication Bypass Vulnerability in SimpleHelp RMM - Arctic Wolf",
+      "url": "https://arcticwolf.com/resources/blog/cve-2026-48558-critical-authentication-bypass-vulnerability-in-simplehelp-rmm-exploited-for-credential-theft-and-malware-delivery/"
+    },
+    {
+      "title": "CVE-2026-48558: SimpleHelp Auth Bypass IOCs - Horizon3.ai",
+      "url": "https://horizon3.ai/attack-research/disclosures/cve-2026-48558-simplehelp-authentication-bypass-iocs/"
+    },
+    {
+      "title": "SimpleHelp vulnerability exploited to deliver Djinn Stealer (CVE-2026-48558) - Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/06/30/simplehelp-vulnerability-exploited-cve-2026-48558/"
+    },
+    {
+      "title": "Adobe Patches 7 CVSS 10.0 Flaws in ColdFusion and Campaign Classic - The Hacker News",
+      "url": "https://thehackernews.com/2026/07/adobe-patches-7-cvss-100-flaws-in.html"
+    },
+    {
+      "title": "Adobe Security Bulletin APSB26-64 - Adobe",
+      "url": "https://helpx.adobe.com/security/products/coldfusion/apsb26-64.html"
+    },
+    {
+      "title": "Progress Kemp LoadMaster Pre-Auth RCE Flaw Faces Active Exploitation Attempts - The Hacker News",
+      "url": "https://thehackernews.com/2026/07/latest-progress-kemp-loadmaster-pre.html"
+    },
+    {
+      "title": "Enterprise Tech In, Shell Out (Progress Kemp LoadMaster Uninitialized Heap to Pre-Auth RCE CVE-2026-8037) - watchTowr Labs",
+      "url": "https://labs.watchtowr.com/enterprise-tech-in-shell-out-progress-kemp-loadmaster-uninitialized-heap-to-pre-auth-rce-cve-2026-8037/"
+    },
+    {
+      "title": "Progress Kemp LoadMaster Vulnerability Targeted (CVE-2026-8037) - eSentire",
+      "url": "https://www.esentire.com/security-advisories/progress-kemp-loadmaster-vulnerability-targeted-cve-2026-8037"
+    },
+    {
+      "title": "SharePoint RCE CVE-2026-45659 Added to CISA KEV After Active Exploitation - The Hacker News",
+      "url": "https://thehackernews.com/2026/07/sharepoint-rce-cve-2026-45659-added-to.html"
+    },
+    {
+      "title": "CISA Adds One Known Exploited Vulnerability to Catalog (July 1, 2026) - CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/07/01/cisa-adds-one-known-exploited-vulnerability-catalog"
+    },
+    {
+      "title": "CVE-2026-45659: SharePoint on KEV and Warlock ransomware - Hard2bit",
+      "url": "https://hard2bit.com/en/blog/cve-2026-45659-sharepoint-kev-storm2603-warlock/"
+    },
+    {
+      "title": "Storm-2603 Ransomware Campaign Targets Microsoft SharePoint - Picus Security",
+      "url": "https://www.picussecurity.com/resource/blog/storm-2603-ransomware-campaign-targets-microsoft-sharepoint-in-2025-activity-and-ttp-analysis"
+    },
+    {
+      "title": "FortiBleed Credential Theft Linked to INC and Lynx Ransomware Operations - The Hacker News",
+      "url": "https://thehackernews.com/2026/07/fortibleed-credential-theft-linked-to.html"
+    },
+    {
+      "title": "FortiBleed Campaign Linked to INC, Lynx Ransomware Attacks - SecurityWeek",
+      "url": "https://www.securityweek.com/fortibleed-campaign-linked-to-inc-lynx-ransomware-attacks/"
+    },
+    {
+      "title": "SOCRadar Links FortiBleed Campaign to INC and Lynx Ransomware Operations - SOCRadar",
+      "url": "https://socradar.io/blog/fortibleed-inc-lynx-ransomware-link/"
+    },
+    {
+      "title": "Fortinet Vulnerability CVE-2026-35616 and EKZ Stealer - eSentire",
+      "url": "https://www.esentire.com/blog/fortinet-vulnerability-cve-2026-35616-and-ekz-stealer-attacking-obfuscating-compilers-with-binary-ninja-workflows"
+    },
+    {
+      "title": "FortiClient EMS Exploited via CVE-2026-35616 to Deliver EKZ Infostealer Disguised as a Fortinet Patch - Arctic Wolf",
+      "url": "https://arcticwolf.com/resources/blog/forticlient-ems-exploited-via-cve-2026-35616-to-deliver-ekz-infostealer-disguised-as-a-fortinet-patch/"
+    },
+    {
+      "title": "Trouble keeps finding Supermicro as strange server shipments attract police attention in Taiwan and Singapore - The Register",
+      "url": "https://www.theregister.com/legal/2026/07/02/trouble-keeps-finding-supermicro-as-strange-server-shipments-attract-police-attention-in-taiwan-and-singapore/5265520"
+    },
+    {
+      "title": "CISA Known Exploited Vulnerabilities Catalog",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "Weekly CISA KEV Updates: 29 June 2026 - Six New Known Exploited Vulnerabilities Added - Hackerstorm",
+      "url": "https://www.hackerstorm.com/articles/our-blog/government-regulatory-cyber-alerts/weekly-cisa-kev-updates-29-june-2026-six-new-known-exploited-vulnerabilities-added"
+    },
+    {
+      "title": "NVD CVE-2026-48558 Detail - SimpleHelp Authentication Bypass",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48558"
+    },
+    {
+      "title": "NVD CVE-2026-45659 Detail - Microsoft SharePoint Deserialization RCE",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45659"
+    }
+  ]
+}
