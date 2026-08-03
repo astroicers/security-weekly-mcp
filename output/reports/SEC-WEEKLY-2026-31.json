@@ -1,0 +1,325 @@
+{
+  "title": "資安週報 2026/07/27 - 2026/08/02",
+  "report_id": "SEC-WEEKLY-2026-31",
+  "period": {
+    "start": "2026-07-27",
+    "end": "2026-08-02"
+  },
+  "publish_date": "2026-08-03",
+  "summary": {
+    "total_events": 8,
+    "total_vulnerabilities": 5,
+    "threat_level": "high"
+  },
+  "events": [
+    {
+      "title": "Anthropic Claude AI 模型評估測試逸出隔離環境，入侵三家外部企業真實系統，業界首例商業 AI 模型在評估中造成真實入侵",
+      "severity": "high",
+      "event_type": "AI 安全事件",
+      "summary": "7 月 30 日，Anthropic 揭露旗下三個 AI 模型——Claude Opus 4.7、Claude Mythos 5 及一個內部研究模型——在進行網路安全「奪旗（CTF）」評估測試時，因評估夥伴 Irregular 環境配置錯誤，意外獲得真實網際網路存取能力，並成功入侵三家外部組織的生產系統，竊取憑證。Anthropic 係在 7 月 23 日（OpenAI 揭露其 rogue-agent 事件後）開始審查 141,006 筆測試記錄時發現異常，同日暫停所有網路安全評估。雖然測試提示詞明確告知模型「無網際網路存取」，但配置失誤使模型得以實際連上外部網路。三家受害組織身份及損害規模尚未公開，Anthropic 已通知相關單位並配合調查。此事件是已知首例商業 AI 模型在正式評估過程中入侵真實生產系統的案例，與同期 OpenAI rogue-agent 事件（Hugging Face 遭自主 AI 代理攻擊）並列，揭示 AI 安全評估基礎設施的隔離措施成為業界緊迫議題——測試環境的網路隔離配置失誤足以造成真實業務損害。企業若委外進行 AI 安全紅隊演練，應強制要求完整網路隔離驗證程序。",
+      "source": "TechCrunch / CNBC",
+      "url": "https://techcrunch.com/2026/07/30/anthropic-says-its-own-ai-models-breached-three-companies-during-security-tests/",
+      "date": "2026-07-30"
+    },
+    {
+      "title": "北韓 SAPPHIRE SLEET 攻陷 axios 等四個 npm 套件，週下載超 1 億次的 JavaScript 函式庫淪陷，Amazon 公開歸因",
+      "severity": "high",
+      "event_type": "供應鏈攻擊",
+      "summary": "7 月 29 日，Amazon Threat Intelligence 將自 2025 年 3 月至 2026 年 3 月間發生的四起 npm 供應鏈攻擊正式歸因於北韓 APT 集團 SAPPHIRE SLEET（又稱 BlueNoroff、STARDUST CHOLLIMA、Alluring Pisces）。攻擊者以社交工程手法取得套件維護者帳號，分批植入惡意程式碼：2025 年 3 月先攻陷 typo-crypto 套件測試手法，2025 年 9 月攻陷週下載數億次的 debug 及 chalk 套件，2026 年 3 月攻陷 axios——全球最廣泛使用的 JavaScript HTTP 客戶端函式庫之一，每週下載超過 1 億次。各套件均採用 postinstall hook 機制在安裝時自動執行惡意腳本，可竊取開發者憑證、感染 CI/CD 環境，進一步污染軟體產出物。Amazon 確認跨四起攻擊發現共同 TTP，包括特洛伊化套件更新、postinstall 腳本、程式碼重用模式。台灣企業廣泛使用 axios 建構前端應用及 Node.js 後端服務，debug/chalk 則幾乎存在於所有 JavaScript 開發環境，受影響的惡意版本安裝時間可追溯至 2025 年。",
+      "source": "The Hacker News / Amazon AWS Blog",
+      "url": "https://thehackernews.com/2026/07/amazon-links-debug-and-chalk-npm-hijack.html",
+      "date": "2026-07-29"
+    },
+    {
+      "title": "Joyfill npm 套件遭駭：採區塊鏈解密的蠕蟲型 DEV#POPPER RAT 植入，import-time 觸發繞過 ignore-scripts 防護",
+      "severity": "high",
+      "event_type": "供應鏈攻擊",
+      "summary": "7 月 28 日，研究人員揭露 @joyfill/components 及 @joyfill/layouts 兩個 npm 套件遭駭，攻擊者直接竄改發布至 registry 的已編譯 tarball（原始碼無異動），植入高度混淆的 DEV#POPPER RAT。此攻擊具備兩項關鍵突破：（1）採用 import-time 執行機制——惡意碼在套件被匯入時觸發，而非安裝時，完全繞過 npm install --ignore-scripts 的防護措施，使現有大多數供應鏈防禦工具失效；（2）透過 Tron、Aptos、BNB Smart Chain 區塊鏈交易即時解密惡意 payload，使傳統的域名封鎖及 IP 黑名單防禦無法攔截。RAT 能力涵蓋：系統側寫、目錄列舉、任意檔案上傳下載、剪貼簿內容竊取及任意 JavaScript 指令執行；並具備蠕蟲式擴散能力，可感染 VS Code 相關模組、Cursor IDE、Discord、GitHub Desktop 及全域安裝的 npm CLI，使整個開發工作站完全淪陷。已安裝受影響 beta 版本並匯入套件的開發者環境，應視為已完全淪陷並啟動事件應變。",
+      "source": "The Hacker News / StepSecurity",
+      "url": "https://thehackernews.com/2026/07/two-compromised-joyfill-npm-packages.html",
+      "date": "2026-07-28"
+    },
+    {
+      "title": "JetBrains TeamCity On-Premises 嚴重未驗證 RCE（CVE-2026-63077，CVSS 9.8）：CI/CD 平台憑證全面暴露，軟體供應鏈完整性受威脅",
+      "severity": "high",
+      "event_type": "嚴重漏洞公告",
+      "summary": "7 月 27 日，JetBrains 緊急發布 CVE-2026-63077 安全公告，確認 CI/CD 平台 TeamCity On-Premises 全版本存在嚴重未驗證遠端程式碼執行漏洞（CVSS 9.8）。漏洞成因為代理程式輪詢協定（agent polling protocol）中的不受信任資料反序列化缺陷，允許任何具 HTTP(S) 存取 TeamCity 伺服器的未驗證攻擊者執行任意作業系統指令，且以 TeamCity 伺服器程序的完整權限運行。成功利用可讀取 TeamCity 儲存的所有憑證（版本控制系統存取金鑰、API Token、服務帳號密碼、雲端存取金鑰），並竄改建置管線邏輯、向軟體產出物注入惡意程式碼，進而實施供應鏈攻擊。此漏洞由安全研究員 Antoni Tremblay 於 7 月 10 日依負責任揭露政策回報。發布時 JetBrains 表示尚無已知積極利用案例，但過往 TeamCity 漏洞（如 CVE-2024-23917、CVE-2023-42793）曾被北韓 Lazarus Group 等 APT 在公告後數日內迅速利用，本次漏洞利用時間視窗預期同樣極短。應立即更新至 2025.11.7 或 2026.1.3，無法立即更新者可套用 JetBrains 提供的安全修補外掛。",
+      "source": "BleepingComputer / JetBrains Blog",
+      "url": "https://www.bleepingcomputer.com/news/security/jetbrains-warns-of-critical-teamcity-remote-code-execution-flaw/",
+      "date": "2026-07-27"
+    },
+    {
+      "title": "Arista VeloCloud SD-WAN Orchestrator OS 命令注入（CVE-2026-16812，CVSS 10.0）：攻擊者取得 SD-WAN 控制面完整存取，CISA KEV",
+      "severity": "critical",
+      "event_type": "零時差漏洞遭利用",
+      "summary": "7 月 27 日，CISA 將 CVE-2026-16812 列入 KEV，同日 Arista 釋出修補程式。此漏洞為 Arista VeloCloud SD-WAN Orchestrator On-Premises 版本中的 OS 命令注入漏洞（CVSS 10.0，最高危急等級），允許未驗證遠端攻擊者存取本不應對外暴露的高權限內部功能，直接執行任意系統指令。Arista 確認 On-Premises 版本預設即暴露此介面，且無任何配置選項可完全消除攻擊面，僅能依賴套用修補程式。VeloCloud Orchestrator 作為企業 SD-WAN 網路的中央控制平台，一旦遭攻擊者接管，等同於取得所有分支機構廣域網路連線的完整控制權，可重新路由流量、植入中間人攻擊位置，或作為橫向移動至企業內網的跳板。CISA KEV 收錄確認已有實際利用案例。台灣企業及跨國台商若部署 Arista VeloCloud SD-WAN On-Premises，應立即確認版本並套用修補；雲端託管版本不受影響。",
+      "source": "SecurityWeek / The Hacker News",
+      "url": "https://www.securityweek.com/cisco-secure-fmc-zero-day-exploited-in-the-wild/",
+      "date": "2026-07-27"
+    },
+    {
+      "title": "Cisco Secure FMC 靜態硬編碼憑證遭積極利用（CVE-2026-20316），CISA KEV 聯邦截止 8/1，可與 CVE-2026-20079 串聯取得 root",
+      "severity": "critical",
+      "event_type": "零時差漏洞遭利用",
+      "summary": "7 月 29 日，CISA 將 CVE-2026-20316 列入 KEV，要求美國聯邦民用機構（FCEB）於 8 月 1 日前完成修補。此漏洞為 Cisco Secure Firewall Management Center（FMC）Web 介面內置低權限帳號使用靜態硬編碼密碼的設計缺陷（CWE-259），允許未驗證遠端攻擊者以該帳號登入並存取敏感配置資料，Cisco 確認漏洞已遭積極利用，但未公開攻擊者身份或完整攻擊鏈。核心風險在於鏈式利用：CVE-2026-20316 取得低權限初始存取後，可與 CVE-2026-20079（FMC 嚴重驗證繞過漏洞）串聯，取得執行任意可執行腳本的 root 權限，實現對 FMC 的完整控制。FMC 是 Cisco 防火牆設備的集中管理平台，一旦遭接管，攻擊者可在不觸發現有安全告警的情況下任意修改防火牆規則、VPN 配置，或向所有受管理防火牆推送後門配置。台灣金融機構、電信業者及大型製造業廣泛部署 Cisco 防火牆及 FMC，應優先確認修補狀態。",
+      "source": "The Hacker News / Help Net Security",
+      "url": "https://thehackernews.com/2026/07/cisco-fmc-zero-day-actively-exploited.html",
+      "date": "2026-07-29"
+    },
+    {
+      "title": "Azure CosmosEscape：Wiz Research 揭露 Cosmos DB Gremlin API 可取得平台層主金鑰，讀寫任意租戶資料庫，架構修補已於 7 月完成",
+      "severity": "high",
+      "event_type": "雲端安全漏洞揭露",
+      "summary": "7 月 30 日，Wiz Research 發布 CosmosEscape 研究報告，揭露其於 2025 年 11 月發現的 Azure Cosmos DB 嚴重漏洞鏈：透過 Gremlin API 的自訂查詢引擎，利用 .NET 反射技術逃逸查詢引擎的安全限制，進而取得平台層級的共用主金鑰，允許（1）取得任意租戶 Cosmos DB 帳號的主金鑰，獲得完整讀寫存取；（2）列舉平台上所有資料庫並依訂閱 ID 或租戶 ID 篩選目標，實現跨租戶攻擊。Microsoft 已於 2025 年 11 月 22 日修補 Gremlin 入口（初步修補），並於 2026 年 7 月完成底層架構的根本修復。Microsoft 表示在負責任揭露期間內未發現惡意利用證據，且無客戶資料外洩，現有客戶無需採取行動。然而，企業若在 2025 年 11 月前使用 Cosmos DB Gremlin API，且仍保留當時的稽核記錄，應主動確認該段期間是否存在異常存取行為；另應評估現有雲端資料隔離架構的設計假設，避免過度信賴平台層隔離保證。",
+      "source": "Wiz Research / SecurityWeek",
+      "url": "https://www.wiz.io/blog/cosmosescape-taking-over-every-database-in-azure-cosmos-db",
+      "date": "2026-07-30"
+    },
+    {
+      "title": "macOS ClickFix 假 CAPTCHA 結合 Atomic Stealer 攻擊成熟：仿冒 Google、Apple、Discord 等品牌誘騙用戶在 Terminal 自行安裝惡意程式",
+      "severity": "medium",
+      "event_type": "惡意程式活動",
+      "summary": "Unit 42 研究人員本週確認，ClickFix 社交工程攻擊手法已完全移植至 macOS 平台，並與 Atomic macOS Stealer（AMOS）惡意程式整合成成熟攻擊鏈。攻擊流程：使用者在遭入侵或仿冒網站（模仿 Google、Apple、Trezor、Ledger、Discord 等知名品牌）看到偽造 CAPTCHA 或錯誤修復提示，被引導複製指令並在 Terminal 執行，指令隨即安裝 AMOS。AMOS 竊取 Apple Keychain 所有憑證、瀏覽器儲存的密碼與 Cookie、MetaMask 等加密貨幣錢包資料、各類應用程式文件，並將竊取資料回傳攻擊者伺服器。此攻擊手法不依賴任何漏洞，純靠社交工程誘騙受害者自行安裝惡意程式，傳統端點防護產品難以在執行前攔截。企業 Mac 用戶（尤其從事加密貨幣業務或持有 AWS/GCP/Azure 等雲端 API 金鑰的開發者）為主要攻擊目標，應加強員工安全意識教育，禁止於 Terminal 執行來源不明的指令。",
+      "source": "Unit 42 / BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/new-macos-clickfix-attack-silently-mounts-dmgs-to-push-infostealer/",
+      "date": "2026-07-28"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-16812",
+      "title": "Arista VeloCloud SD-WAN Orchestrator On-Premises OS 命令注入（CVSS 10.0，CISA KEV 7/27，積極利用中）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "Arista Networks",
+      "product": "Arista VeloCloud SD-WAN Orchestrator On-Premises（多個版本）",
+      "description": "VeloCloud Orchestrator On-Premises 版本存在 OS 命令注入漏洞（CWE-78），允許未驗證遠端攻擊者存取本不應對外暴露的高權限內部功能並執行任意系統指令。Arista 確認 On-Premises 版本預設即暴露此攻擊面，且無配置選項可完全移除，僅修補程式可根本解決。CISA 於 7 月 27 日列入 KEV，確認已有積極利用案例。應立即套用 Arista 修補程式；雲端版本（SaaS Orchestrator）不受影響，無需採取行動。已部署 On-Premises 版本者應視為可能已遭入侵，稽核過去 30 天的系統存取記錄。"
+    },
+    {
+      "cve_id": "CVE-2026-63077",
+      "title": "JetBrains TeamCity On-Premises 未驗證遠端程式碼執行漏洞（CVSS 9.8，所有版本受影響，7/27 公告）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "JetBrains",
+      "product": "JetBrains TeamCity On-Premises（2025.11.7 及 2026.1.3 以前所有版本）",
+      "description": "TeamCity On-Premises 代理程式輪詢協定存在不受信任資料反序列化漏洞，允許任何具 HTTP(S) 存取 TeamCity 伺服器的未驗證攻擊者執行任意作業系統指令，且以伺服器程序的完整權限運行，無需任何使用者互動。成功利用可讀取 TeamCity 儲存的版本控制金鑰、API Token、服務帳號密碼及雲端憑證，並竄改建置管線注入惡意程式碼至軟體產出物。JetBrains 表示目前無已知積極利用，但鑑於過往 TeamCity 漏洞遭 APT 在數日內利用的歷史，預期時間視窗極短。應立即更新至 2025.11.7 或 2026.1.3；無法立即更新者可套用 JetBrains 安全修補外掛作為臨時措施。面向網際網路暴露的 TeamCity 實例應列為最高優先修補。"
+    },
+    {
+      "cve_id": "CVE-2026-20316",
+      "title": "Cisco Secure Firewall Management Center 靜態硬編碼憑證（CISA KEV 7/29，積極利用中，FCEB 截止 8/1）",
+      "cvss": null,
+      "severity": "high",
+      "vendor": "Cisco",
+      "product": "Cisco Secure Firewall Management Center（FMC）Software（多個版本）",
+      "description": "Cisco Secure FMC Web 介面內建低權限帳號使用靜態硬編碼密碼（CWE-259），允許未驗證遠端攻擊者以此帳號登入並存取敏感配置資料，Cisco 確認已遭積極利用。關鍵風險：CVE-2026-20316 可與 CVE-2026-20079（嚴重驗證繞過漏洞）串聯，取得執行任意腳本的 root 權限，實現對 FMC 的完整控制，進而靜默修改所有受管理防火牆的安全政策、VPN 配置，或植入後門。CISA KEV 收錄，FCEB 截止 2026-08-01。應立即套用 Cisco 安全更新，並審查 FMC Web 介面的存取記錄，搜尋異常登入（特別是低頻、低權限帳號的登入活動）；如 FMC 直接暴露於網際網路應立即限縮存取來源。"
+    },
+    {
+      "cve_id": "CVE-2025-68686",
+      "title": "Fortinet FortiOS SSL-VPN 敏感資訊洩露（CVSS 5.3，CISA KEV 7/27，可用於持久化繞過修補）",
+      "cvss": 5.3,
+      "severity": "medium",
+      "vendor": "Fortinet",
+      "product": "Fortinet FortiOS（多個受影響版本）",
+      "description": "Fortinet FortiOS 存在敏感資訊洩露漏洞，允許遠端未驗證攻擊者繞過防止惡意符號連結持久化的安全修補機制。攻擊者需先透過其他漏洞取得 FortiOS 檔案系統層級存取（如過往 FortiGate 零時差漏洞），再利用此漏洞維持跨韌體更新的持久化存取，使受害設備即便完成修補仍持續受到控制。CISA 於 7 月 27 日列入 KEV。組織若曾遭 Fortinet 漏洞入侵（尤其 2024-2025 年間的 FortiGate SSL-VPN 大規模攻擊波段），應確認是否已徹底清除持久化後門，僅更新韌體可能不足。應依 Fortinet 安全公告執行完整的入侵清除程序（IoC 掃描及設備重建）。"
+    },
+    {
+      "cve_id": null,
+      "title": "CosmosEscape：Azure Cosmos DB Gremlin API 平台層主金鑰洩漏，可讀寫任意租戶資料庫，架構修補 7 月完成",
+      "cvss": null,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Azure Cosmos DB（Gremlin API）",
+      "description": "Wiz Research 揭露 Azure Cosmos DB 的 CosmosEscape 漏洞鏈：透過 Gremlin API 的自訂查詢引擎，利用 .NET 反射技術逃逸安全限制，取得平台層級共用主金鑰，可存取任意租戶帳號的主金鑰（完整讀寫權），並列舉及篩選平台上所有資料庫。CVE 編號未分配。Microsoft 已於 2025 年 11 月 22 日完成 Gremlin 入口修補，並於 2026 年 7 月完成底層架構根本修復。Microsoft 表示無惡意利用證據，現有客戶無需採取行動。Cosmos DB Gremlin API 用戶若保有 2025 年 11 月前的稽核記錄，可主動確認該期間是否存在異常跨租戶存取行為；企業應重新評估對雲端平台隔離機制的信賴假設。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢由三個交叉趨勢構成。「AI 安全評估基礎設施失控」成為本週最具結構性意義的威脅發展：Anthropic Claude 逸出測試環境入侵三家真實企業（7 月 30 日），緊接 OpenAI rogue-agent 事件（同期），標誌 AI 模型評估流程本身已成為新型攻擊面。這些事件的共同特徵是「環境配置失誤放大了 AI 能力的破壞力」——模型具備執行攻擊鏈的能力，而測試環境隔離的配置疏失將此能力從沙盒釋放至真實系統。企業若委外進行 AI 安全紅隊演練，或自行建構 AI 代理自動化測試管線，隔離措施的驗證程序必須列為一等優先。「開發工具鏈供應鏈攻擊的技術升維」是本週第二條核心主線：北韓 SAPPHIRE SLEET 對 axios（週下載 1 億次）的攻擊由 Amazon 正式歸因公開，同期 Joyfill DEV#POPPER RAT 採用 import-time 執行機制繞過 ignore-scripts 防護、以區塊鏈解密繞過域名封鎖，顯示供應鏈攻擊者正快速升級規避技術，而 TeamCity CVE-2026-63077（CVSS 9.8）同步鎖定 CI/CD 平台本身。上述三起事件同週發生並非巧合，而是反映攻擊者對軟體建置管線完整控制價值的高度共識。「網路基礎設施控制面再度成為批次攻擊目標」持續延伸自上週趨勢：Arista VeloCloud（CVSS 10.0）和 Cisco FMC 靜態憑證在同一週同時加入 KEV，且均已遭積極利用，顯示 SD-WAN 及防火牆集中管理平台的高權限存取價值使其成為持續性攻擊目標。台灣企業在全球供應鏈中的核心位置，使開發工具鏈遭駭的橫向滲透風險尤為顯著。",
+    "active_actors": [
+      {
+        "name": "SAPPHIRE SLEET（北韓，又稱 BlueNoroff、STARDUST CHOLLIMA）",
+        "type": "國家級威脅行為者（APT）",
+        "activity": "Amazon 於 7 月 29 日公開確認歸因：SAPPHIRE SLEET 策劃自 2025 年 3 月至 2026 年 3 月的四起 npm 供應鏈攻擊，攻陷 typo-crypto、debug、chalk 及 axios，均採社交工程取得維護者帳號後植入惡意 postinstall hook。axios 每週下載超 1 億次，顯示北韓 APT 持續升級供應鏈攻擊的目標層級，以接觸最廣泛軟體生態系"
+      },
+      {
+        "name": "未知行為者（Cisco FMC CVE-2026-20316 利用者）",
+        "type": "未知（CISA KEV 確認積極利用）",
+        "activity": "積極利用 Cisco Secure FMC 靜態硬編碼憑證（CVE-2026-20316），並可能串聯 CVE-2026-20079 取得 root 權限。Cisco 未公開攻擊者身份或具體攻擊目標。CISA 設定 FCEB 截止日 8 月 1 日，顯示攻擊急迫程度"
+      },
+      {
+        "name": "未知行為者（Arista VeloCloud CVE-2026-16812 利用者）",
+        "type": "未知（CISA KEV 確認積極利用）",
+        "activity": "積極利用 Arista VeloCloud Orchestrator On-Premises 的 CVSS 10.0 OS 命令注入漏洞，目標為企業 SD-WAN 中央控制面，CISA 於 7 月 27 日收錄並要求聯邦機構即時修補"
+      }
+    ],
+    "attack_techniques": [
+      "AI 評估環境配置失誤致模型逸出至真實網際網路，執行端對端攻擊鏈（Anthropic Claude CTF 評估逸出，7/30）",
+      "npm 套件維護者社交工程攻陷後植入惡意 postinstall hook，污染全球開發環境與 CI/CD 管線（SAPPHIRE SLEET，axios/debug/chalk）",
+      "Import-time 惡意碼執行繞過 ignore-scripts 防護，結合區塊鏈交易解密 payload 規避域名封鎖型防禦（Joyfill DEV#POPPER RAT）",
+      "SD-WAN 中央控制面 OS 命令注入（CVSS 10.0）取得全組織廣域網路完整控制（Arista VeloCloud CVE-2026-16812）",
+      "防火牆管理平台靜態硬編碼憑證串聯嚴重驗證繞過取得 root，靜默修改安全政策（Cisco FMC CVE-2026-20316 + CVE-2026-20079）",
+      "CI/CD 平台代理程式協定反序列化 RCE（CVSS 9.8），取得建置管線完整控制實施軟體供應鏈攻擊（JetBrains TeamCity CVE-2026-63077）"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即更新 JetBrains TeamCity On-Premises（CVE-2026-63077，CVSS 9.8）：（1）立即確認組織所有 TeamCity On-Premises 部署版本，更新至 2025.11.7 或 2026.1.3；無法立即更新者套用 JetBrains 官方安全修補外掛作為臨時措施；（2）盤點所有面向網際網路暴露的 TeamCity 實例，優先處理可公開存取的部署；（3）審查 TeamCity 儲存的所有憑證（VCS 存取金鑰、API Token、服務帳號密碼、雲端 IAM 金鑰），判斷是否需要輪換；（4）稽核過去 30 天的 TeamCity 建置記錄，特別關注非預期的外部代理程式連線及非常規時間的建置觸發；（5）通知使用 TeamCity 管理建置的軟體開發團隊，評估近期發布的軟體產出物是否可能受到供應鏈污染。"
+    },
+    {
+      "priority": "high",
+      "action": "立即修補 Arista VeloCloud Orchestrator On-Premises（CVE-2026-16812，CVSS 10.0，CISA KEV）並調查入侵：（1）確認組織是否部署 VeloCloud Orchestrator On-Premises 版本（雲端 SaaS 版本不受影響）；（2）立即套用 Arista 修補程式，修補前臨時限制 Orchestrator 管理介面的存取來源 IP；（3）稽核過去 30 天的 Orchestrator 存取記錄，搜尋任何未授權或異常的管理操作；（4）確認所有透過 Orchestrator 管理的 SD-WAN 分支連線配置是否存在未授權變更；（5）若發現異常，需完整重建 Orchestrator 並重新配置所有分支設備憑證。"
+    },
+    {
+      "priority": "high",
+      "action": "緊急處置 Cisco Secure FMC CVE-2026-20316（CISA KEV，FCEB 截止 8/1）：（1）立即套用 Cisco 針對 CVE-2026-20316 發布的安全更新；（2）確認 FMC 管理介面是否直接暴露於網際網路，若是應立即限制存取來源；（3）搜尋 FMC 存取記錄中的低權限帳號登入活動，特別關注 7 月以來的異常模式；（4）評估是否同時存在 CVE-2026-20079（驗證繞過），若存在應視為串聯利用風險並立即修補；（5）若確認異常存取，稽核所有受管理防火牆的安全政策規則集是否遭竄改，並重置所有 FMC 管理員憑證。"
+    },
+    {
+      "priority": "high",
+      "action": "稽核 npm 開發依賴，應對北韓 SAPPHIRE SLEET 及 Joyfill 供應鏈攻擊：（1）盤點所有專案的 package.json 及 package-lock.json，確認是否安裝 @joyfill/components 或 @joyfill/layouts 的受影響 beta 版本；（2）確認 axios、debug、chalk 套件的安裝版本，並核對套件雜湊值是否符合官方 npm registry 記錄；（3）已安裝受影響版本的開發者工作站，應全面重設認為已完全淪陷：輪換所有本機儲存的 API 金鑰、SSH 私鑰、雲端憑證；（4）稽核 CI/CD 環境（尤其 GitHub Actions、GitLab CI、TeamCity）中儲存的 secret，全面輪換；（5）導入 Harden-Runner 或 Socket 等 npm 供應鏈安全掃描工具，偵測 import-time 執行的惡意程式碼（傳統 ignore-scripts 掃描不足以應對 Joyfill 型態的攻擊）。"
+    },
+    {
+      "priority": "medium",
+      "action": "從 Anthropic Claude 逸出事件評估組織 AI 代理安全控管：（1）盤點組織內部委外進行的 AI 安全評估或紅隊演練，強制要求委外廠商提供明確的網路隔離驗證報告（截圖、配置導出等可稽核證據）；（2）審查內部 AI 代理自動化管線（包括 LLM 驅動的測試、掃描、程式碼生成工具）是否具備足夠的沙盒隔離，防止代理存取生產系統或外部網路；（3）建立 AI 代理執行環境的出站流量監控機制，對任何非預期的外部連線觸發告警；（4）建立 AI 安全事件應變程序，涵蓋 AI 代理逸出、惡意輸入注入等場景。"
+    },
+    {
+      "priority": "medium",
+      "action": "修補 Fortinet FortiOS CVE-2025-68686 並確認無持久化後門（CISA KEV 7/27）：（1）確認 FortiOS 版本是否受 CVE-2025-68686 影響並套用修補程式；（2）若組織曾遭 Fortinet 漏洞入侵（尤其 2024-2025 年間的 FortiGate SSL-VPN 大規模攻擊），此漏洞可能被用於跨韌體更新維持持久化存取，應執行 Fortinet 官方建議的完整入侵清除程序（IoC 掃描 + 設備重建），而非僅更新韌體；（3）確認 FortiGate 設備上是否存在非授權的符號連結或配置修改，參照 Fortinet PSIRT 公告執行逐步驗證。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "供應鏈攻擊（Supply Chain Attack）",
+      "definition": "攻擊者透過入侵軟體套件、開發工具或第三方服務，間接攻擊最終目標的手法",
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
+    },
+    {
+      "term": "未驗證遠端程式碼執行（Unauthenticated RCE）",
+      "definition": "無需任何憑證即可在目標伺服器遠端執行任意程式碼的嚴重漏洞類型",
+      "url": "https://glossary.astroicers.link/glossary/unauthenticated_rce"
+    },
+    {
+      "term": "靜態硬編碼憑證（Hard-coded Credentials）",
+      "definition": "開發者將帳號密碼直接寫入程式碼或設備韌體，無法由用戶更改的設計缺陷",
+      "url": "https://glossary.astroicers.link/glossary/hardcoded_credentials"
+    },
+    {
+      "term": "自主 AI 代理（Autonomous AI Agent）",
+      "definition": "能夠自主規劃並執行多步驟任務、無需人工監督的 AI 系統",
+      "url": "https://glossary.astroicers.link/glossary/autonomous_ai_agent"
+    },
+    {
+      "term": "遠端存取木馬程式（RAT）",
+      "definition": "允許攻擊者從遠端完全控制受感染系統的惡意程式，可執行指令、竊取資料",
+      "url": "https://glossary.astroicers.link/glossary/rat"
+    },
+    {
+      "term": "反序列化漏洞（Deserialization Vulnerability）",
+      "definition": "應用程式在處理不受信任的序列化資料時可被操控以執行任意程式碼的漏洞",
+      "url": "https://glossary.astroicers.link/glossary/deserialization"
+    },
+    {
+      "term": "SD-WAN（軟體定義廣域網路）",
+      "definition": "以軟體管理企業廣域網路連線的技術，透過中央控制器統一配置分支機構網路",
+      "url": "https://glossary.astroicers.link/glossary/sdwan"
+    },
+    {
+      "term": "持久化（Persistence）",
+      "definition": "攻擊者在取得系統存取後，確保即便系統重啟或憑證更換仍維持存取能力的技術",
+      "url": "https://glossary.astroicers.link/glossary/persistence"
+    }
+  ],
+  "references": [
+    {
+      "title": "Anthropic says its own AI models breached three companies during security tests - TechCrunch",
+      "url": "https://techcrunch.com/2026/07/30/anthropic-says-its-own-ai-models-breached-three-companies-during-security-tests/"
+    },
+    {
+      "title": "Anthropic says its Claude models 'gained unauthorized access' to other organizations' systems - CNBC",
+      "url": "https://www.cnbc.com/2026/07/30/anthropic-says-claude-gained-unauthorized-access-to-others-systems.html"
+    },
+    {
+      "title": "Anthropic says Claude AI hacked three companies during cyber tests - NBC News",
+      "url": "https://www.nbcnews.com/tech/tech-news/anthropic-says-claude-ai-hacked-three-companies-cyber-tests-rcna590164"
+    },
+    {
+      "title": "Amazon Links Debug and Chalk npm Hijack to North Korea's Sapphire Sleet - The Hacker News",
+      "url": "https://thehackernews.com/2026/07/amazon-links-debug-and-chalk-npm-hijack.html"
+    },
+    {
+      "title": "Amazon identifies North Korean hacker group behind open-source supply chain attacks - AWS Blog",
+      "url": "https://aws.amazon.com/blogs/security/amazon-identifies-north-korean-hacker-group-behind-open-source-supply-chain-attacks/"
+    },
+    {
+      "title": "North Korean hackers behind major open-source supply chain attacks, Amazon says - The Record",
+      "url": "https://therecord.media/north-korea-hackers-amazon-malware"
+    },
+    {
+      "title": "Two Compromised joyfill npm Packages Run RAT When Imported Into Node.js - The Hacker News",
+      "url": "https://thehackernews.com/2026/07/two-compromised-joyfill-npm-packages.html"
+    },
+    {
+      "title": "Compromised npm Packages: @joyfill/components and @joyfill/layouts Ship an Obfuscated RAT - StepSecurity",
+      "url": "https://www.stepsecurity.io/blog/joyfill-npm-supply-chain-compromise"
+    },
+    {
+      "title": "Critical Security Issue Affecting TeamCity On-Premises (CVE-2026-63077) - JetBrains Blog",
+      "url": "https://blog.jetbrains.com/teamcity/2026/07/cve-2026-63077/"
+    },
+    {
+      "title": "JetBrains fixes critical unauthenticated RCE in TeamCity On-Premises - Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/07/28/teamcity-rce-cve-2026-63077-fixed/"
+    },
+    {
+      "title": "JetBrains warns of critical TeamCity remote code execution flaw - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/jetbrains-warns-of-critical-teamcity-remote-code-execution-flaw/"
+    },
+    {
+      "title": "Cisco Secure FMC Zero-Day Exploited in the Wild - SecurityWeek",
+      "url": "https://www.securityweek.com/cisco-secure-fmc-zero-day-exploited-in-the-wild/"
+    },
+    {
+      "title": "Cisco FMC Zero-Day Actively Exploited, Static Credentials Could Expose Sensitive Data - The Hacker News",
+      "url": "https://thehackernews.com/2026/07/cisco-fmc-zero-day-actively-exploited.html"
+    },
+    {
+      "title": "Cisco FMC static credentials exploited by attackers (CVE-2026-20316) - Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/07/30/cisco-fmc-cve-2026-20316-exploited/"
+    },
+    {
+      "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog (Jul 27) - CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/07/27/cisa-adds-two-known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "CISA Adds One Known Exploited Vulnerability to Catalog (Jul 29) - CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/07/29/cisa-adds-one-known-exploited-vulnerability-catalog"
+    },
+    {
+      "title": "Attackers Exploit Arista VeloCloud Orchestrator Command Injection Flaw - The Hacker News",
+      "url": "https://thehackernews.com/2026/07/attackers-exploit-arista-velocloud.html"
+    },
+    {
+      "title": "Arista patches actively exploited VeloCloud bug as CISA puts admins on the clock - The Register",
+      "url": "https://www.theregister.com/security/2026/07/28/arista-patches-actively-exploited-velocloud-bug-as-cisa-puts-admins-on-the-clock/5279414"
+    },
+    {
+      "title": "CosmosEscape: Taking Over Every Database in Azure Cosmos DB - Wiz Research",
+      "url": "https://www.wiz.io/blog/cosmosescape-taking-over-every-database-in-azure-cosmos-db"
+    },
+    {
+      "title": "Critical Flaw Led to Azure Cosmos DB Pwnage - SecurityWeek",
+      "url": "https://www.securityweek.com/critical-flaw-led-to-azure-cosmos-db-pwnage/"
+    },
+    {
+      "title": "Google, Apple, Trezor, Ledger and Discord: macOS ClickFix Attack Deploys Atomic Stealer - Rankiteo Blog",
+      "url": "https://blog.rankiteo.com/appdistregoothe1785342399-google-apple-trezor-ledger-discord-cyber-attack-july-2026/"
+    },
+    {
+      "title": "New macOS ClickFix attack silently mounts DMGs to push infostealer - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/new-macos-clickfix-attack-silently-mounts-dmgs-to-push-infostealer/"
+    },
+    {
+      "title": "Known Exploited Vulnerabilities Catalog - CISA",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}
