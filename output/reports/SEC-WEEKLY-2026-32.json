@@ -1,0 +1,359 @@
+{
+  "title": "資安週報 2026/08/03 - 2026/08/09",
+  "report_id": "SEC-WEEKLY-2026-32",
+  "period": {
+    "start": "2026-08-03",
+    "end": "2026-08-09"
+  },
+  "publish_date": "2026-08-10",
+  "summary": {
+    "total_events": 8,
+    "total_vulnerabilities": 7,
+    "threat_level": "high"
+  },
+  "events": [
+    {
+      "title": "N-able N-central RMM 平台認證繞過（CVE-2026-18577，CVSS 8.2）遭積極利用：攻擊者接管 MSP 受管端點並植入 Cloudflare 隧道持久化，CISA KEV 8/3",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "8 月 1 日起，攻擊者積極利用 N-able N-central 遠端監控與管理（RMM）平台的認證繞過漏洞 CVE-2026-18577，此為 7 月先前披露的 CVE-2026-18556（不完整修補）的繞過版本。N-central 廣泛部署於受管服務提供商（MSP）環境，單一伺服器可管控數千台客戶端點，攻擊者一旦接管 N-central 即可橫向入侵所有受管系統。攻擊者利用平台內建的「Take Control」遠端存取功能直接存取受管端點，並部署 cloudflared（Cloudflare Tunnel 客戶端）建立持久化反向通道，即便客戶端點位於防火牆後仍可持續存取。N-able 於 8 月 3 日發布 Hotfix 1（版本 2026.3.1.7），但同日 CISA 即將 CVE-2026-18577 列入 KEV，CVE-2026-18556 隨後於 8 月 5 日亦被收錄。8 月 6 日持續監控發現相關攻擊路徑，N-able 當日緊急發布 Hotfix 2（版本 2026.3.1.10），包含額外強化措施並取代 Hotfix 1。Huntress 研究人員確認多起客戶環境遭入侵案例，受害者包含使用受影響 MSP 的中小型企業。台灣製造業與金融業廣泛透過 MSP 管理 IT 基礎設施，若 MSP 使用 N-central 且尚未更新，應立即確認其修補狀態。",
+      "source": "The Hacker News / Help Net Security / Huntress",
+      "url": "https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html",
+      "date": "2026-08-03"
+    },
+    {
+      "title": "JetBrains TeamCity CVE-2026-63077（CVSS 9.8）確認遭積極利用，CISA KEV 8/5 列入並設 8/8 修補截止，CI/CD 管線供應鏈安全告急",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "7 月 27 日 JetBrains 披露的 TeamCity On-Premises 未驗證遠端程式碼執行漏洞（CVE-2026-63077，CVSS 9.8），於 8 月 5 日被 CISA 列入 KEV，同日 JetBrains 亦更新公告確認接獲多起積極利用與未遂利用報告，與歷史預測一致——過往 TeamCity 嚴重漏洞（CVE-2024-23917、CVE-2023-42793）均在公告後數日內遭 APT 利用。CISA 設定的 FCEB 修補截止日期 8 月 8 日（不到 72 小時），為近期 KEV 截止時間最短的案例之一，反映漏洞利用的急迫程度。攻擊者在取得 TeamCity 伺服器存取後，可完整讀取儲存的版本控制金鑰、API Token、雲端憑證，並竄改建置管線向軟體產出物注入惡意程式碼，實施下游供應鏈攻擊。目前尚無公開的攻擊歸因，但依 2024 年 Lazarus 攻擊 TeamCity 的前例，國家級威脅行為者介入風險高。台灣科技製造業及半導體廠商多有自建 CI/CD 管線，應確認 TeamCity 版本並立即更新至 2025.11.7 或 2026.1.3。",
+      "source": "CISA / The Hacker News / SecurityWeek",
+      "url": "https://thehackernews.com/2026/08/cisa-flags-teamcity-cve-2026-63077-rce.html",
+      "date": "2026-08-05"
+    },
+    {
+      "title": "Metabase 零時差 SQL Injection（CVE-2026-72898，CVSS 10.0）8/6 揭露即遭實際利用，密碼重設端點不需驗證即可竊取全部資料庫憑證，N8n 及 Kilo Code 確認受害",
+      "severity": "high",
+      "event_type": "零時差漏洞遭利用",
+      "summary": "8 月 6 日，Metabase 發布 CVE-2026-72898 安全公告，揭露其密碼重設 API 端點（POST /api/session/reset_password）存在嚴重未驗證 SQL 注入漏洞（CVSS 10.0）。根本原因為請求主體的欄位驗證缺失，攻擊者可在不需任何身份驗證的情況下，透過注入惡意欄位影響後端 SQL 查詢，進而取得平台的管理員控制權、存取所有已連線資料庫的憑證，並能讀取或匯出這些資料庫中的任意資料。Wiz 研究人員確認此漏洞在揭露前已遭積極利用（零時差狀態），且有針對 Metabase Cloud 託管環境的攻擊案例，受確認的受害企業包含工作流程自動化平台 N8n 及 AI 程式碼協作工具 Kilo Code。Metabase 廣泛用於中小型企業的商業智慧（BI）及資料分析，已連線資料庫通常包含生產資料庫——外洩資料遠超 Metabase 平台本身。受影響版本為 1.58 至最新版，修補版本為 x.63.5（x.63.x）、x.62.9（x.62.x）等各分支。CISA 於 8 月 11 日將本漏洞列入 KEV。台灣製造業及電商業者使用 Metabase 進行銷售與供應鏈資料分析者應立即評估暴露風險。",
+      "source": "The Hacker News / Wiz Blog / BleepingComputer",
+      "url": "https://thehackernews.com/2026/08/metabase-zero-day-exploited-in-wild.html",
+      "date": "2026-08-06"
+    },
+    {
+      "title": "Progress Kemp LoadMaster OS 命令注入（CVE-2026-8037，CVSS 9.6）CISA KEV 8/7，792 次攻擊嘗試確認，FCEB 截止 8/10",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "8 月 7 日，CISA 將 Progress Kemp LoadMaster 負載均衡器的 OS 命令注入漏洞（CVE-2026-8037，CVSS 9.6）列入 KEV，要求 FCEB 機構於 8 月 10 日前完成修補。漏洞源於應用程式 escape_quotes() 函數對使用者輸入的處理不當，允許未驗證遠端攻擊者透過多個命令端點注入任意 OS 指令並以高權限執行。攻擊者可完整控制 LoadMaster 設備，進而截取或竄改流量、關閉負載均衡功能造成服務中斷，或作為橫向移動至後端伺服器的跳板。根據遙測資料，41 天內已記錄 792 次利用嘗試，來自 18 個國家的 65 個唯一 IP，顯示攻擊已具規模。Progress 已於 6 月發布修補版本（GA 7.2.63.2 及 LTSF 7.2.54.18）距今已逾兩個月，未修補者應立即升級。台灣電信業、金融業及大型資料中心業者若使用 Kemp LoadMaster 提供高可用性服務，面對此漏洞暴露風險尤高。",
+      "source": "The Hacker News / CISA / SecurityWeek",
+      "url": "https://thehackernews.com/2026/08/progress-kemp-loadmaster-flaw-hits-cisa.html",
+      "date": "2026-08-07"
+    },
+    {
+      "title": "Clop 勒索軟體集團攻擊全球金融科技龍頭 FIS Global，竊取 874GB 資料威脅公開，金融業供應商安全風險再升",
+      "severity": "high",
+      "event_type": "勒索軟體攻擊",
+      "summary": "8 月 4 日至 5 日間，勒索軟體集團 Clop 聲稱對全球最大金融科技基礎設施提供商之一 FIS Global（Fidelity National Information Services）發動攻擊，竊取 874GB 資料後於暗網公告威脅若談判失敗將全數公開。Clop 本次攻擊關聯漏洞 CVE-2026-12569，延續其利用企業廣泛部署的商業應用平台零時差漏洞進行大規模資料竊取的慣用手法（前例包括 MOVEit、GoAnywhere 攻擊波段）。FIS 為全球超過 20,000 家金融機構提供核心銀行、支付處理及資本市場基礎設施，其客戶資料遭竊對下游金融機構可能產生連鎖影響。台灣金融業及銀行業廣泛使用 FIS 相關服務（包含支付清算、國際交易等），應主動確認 FIS 服務合約中的資料處理範圍，評估是否有資料落入受竊範圍，並要求 FIS 就此次事件提供正式通知。",
+      "source": "Malware News / DeXpose / Ransomware.live",
+      "url": "https://malware.news/t/clop-ransomware-targets-fis-global/124620",
+      "date": "2026-08-05"
+    },
+    {
+      "title": "北韓 Lazarus Operation Dream Job 利用 Windows WinSock 核心零時差（CVE-2026-68820）部署 FudModule v3.1 rootkit，鎖定國防航太業取得 SYSTEM 權限並癱瘓 EDR",
+      "severity": "high",
+      "event_type": "APT 攻擊 / 零時差漏洞利用",
+      "summary": "Check Point Research 揭露北韓 Lazarus 集團最新一波 Operation Dream Job 攻擊活動，透過 LinkedIn 等平台以假徵才信息誘騙國防、航太及軍事技術領域的目標下載惡意檔案，並在攻擊鏈中利用 Windows Ancillary Function Driver（AFD.sys）的 use-after-free 零時差漏洞（CVE-2026-68820，CVSS 7.0）進行本地提權至 SYSTEM，隨後部署 FudModule v3.1——Lazarus 的招牌核心態 rootkit 的最新升級版本。FudModule v3.1 具備多項關鍵能力：停用 ETW 遙測提供者、移除 Minifilter 驅動程式、關閉崩潰轉儲記錄，徹底使 EDR 工具喪失偵測能力，隱蔽性顯著高於前版。Check Point 於 7 月 28 日將本漏洞回報 Microsoft，8 月 5 日確認指派 CVE 編號，8 月 11 日隨 Patch Tuesday 一併修補。攻擊中同時部署新型後門 Troy 作為第二階段植入。本波攻擊主要鎖定歐洲及印度的國防承包商，台灣國防供應鏈（如航太零組件廠商及國防系統整合商）及軍事相關研究機構應高度警戒，並優先套用 Windows 8 月 Patch Tuesday 安全更新。",
+      "source": "Check Point Research / The Hacker News / cybersecuritynews.com",
+      "url": "https://thehackernews.com/2026/08/microsoft-patches-398-flaws-including.html",
+      "date": "2026-08-05"
+    },
+    {
+      "title": "Head Mare 駭客組織入侵 TrueConf 視訊會議伺服器，將客戶端安裝程式木馬化植入 PhantomCore 與 PhantomGraph 雙後門（8/8）",
+      "severity": "medium",
+      "event_type": "供應鏈攻擊",
+      "summary": "8 月 8 日，Kaspersky Securelist 研究人員揭露反烏克蘭駭客組織 Head Mare 透過入侵 TrueConf On-Premises 視訊會議伺服器，在用戶下載更新時散布木馬化安裝程式的供應鏈攻擊活動。攻擊者利用兩個 TrueConf Server 漏洞（KLCERT-26-057 及 KLCERT-26-058，影響未修補至 5.3.9/5.4.9/5.5.5 版的部署），取得伺服器遠端程式碼執行及提權能力，進而將合法客戶端安裝程式替換為植入 PhantomCore 後門的木馬版本；PhantomGraph（透過 OneDrive 帳號作為 C2 通道的獨立後門）隨後被部署於受害端點以提供持久化存取。主要攻擊目標為俄羅斯的儀器製造、電子、交通、能源、IT 及軟體開發業者，TrueConf 在俄羅斯政府及國企環境廣泛使用。此攻擊手法與同期 Joyfill npm 木馬事件類似，均以「更新安裝程式」為媒介，提醒企業在集中部署視訊會議系統更新前，須驗證安裝程式完整性（雜湊值核對）。TrueConf 修補版本已於 6 月 18 日發布，On-Premises 部署者應立即確認版本狀態。",
+      "source": "Securelist (Kaspersky) / BleepingComputer / SC Media",
+      "url": "https://securelist.com/tr/head-mare-targets-trueconf-server-with-phantomcore/120988/",
+      "date": "2026-08-08"
+    },
+    {
+      "title": "Linux 核心 OVSwrap（CVE-2026-64531，CVSS 7.8）PoC 公開：13 年歷史的 Open vSwitch 整數溢位允許本地用戶取得 root，約 800 個核心版本受影響",
+      "severity": "medium",
+      "event_type": "漏洞揭露",
+      "summary": "8 月 5 日，研究人員 Asim Viladi Oglu Manizada 公開 CVE-2026-64531（OVSwrap）技術細節及概念驗證（PoC）攻擊程式，該漏洞存在於 Linux 核心的 Open vSwitch（OVS）資料平面實作中，長達 13 年未被發現。漏洞根本原因為 OVS 建構巢狀 Netlink 動作串流時的 16 位元長度欄位整數溢位，使核心在處理溢位後的記憶體時誤認攻擊者控制的資料為合法 OVS 動作，形成確定性記憶體損壞路徑（非典型不穩定堆積漏洞），可被本地無特權用戶利用取得 root 權限。上游修補已於 7 月 24 日進入穩定核心樹，但 PoC 現已公開且附帶約 800 個核心版本的預建利用記錄，大幅降低攻擊門檻。Open vSwitch 廣泛用於雲端運算及虛擬化基礎設施（如 OpenStack、KVM、容器網路），多數預設設定的 Linux 發行版均載入 OVS 模組。台灣雲端服務商、電信業者及使用 KVM 虛擬化的資料中心業者應優先套用包含此修補的核心更新，並評估具本地存取帳號的多租戶環境橫向移動風險。",
+      "source": "GBHackers / Security Affairs / CloudLinux",
+      "url": "https://securityaffairs.com/196657/hacking/ovswrap-13-year-old-linux-kernel-flaw-lets-local-users-become-root.html",
+      "date": "2026-08-05"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-18577",
+      "title": "N-able N-central 認證繞過（CVSS 8.2，CISA KEV 8/3，積極利用中），攻擊者可取得 MSP 管理員控制並橫向入侵所有受管端點",
+      "cvss": 8.2,
+      "severity": "high",
+      "vendor": "N-able",
+      "product": "N-able N-central（2026.3.1.10 以前版本）",
+      "description": "CVE-2026-18577 為 CVE-2026-18556（先前不完整修補）的認證繞過，允許遠端未驗證攻擊者繞過 N-central 認證機制，取得管理員控制並接管 N-central 伺服器。取得管理員後，攻擊者利用平台內建「Take Control」功能直接遠端存取所有受管端點，並部署 Cloudflare Tunnel 客戶端（cloudflared）作為持久化反向通道。N-able 8 月 6 日發布 Hotfix 2（2026.3.1.10）包含完整修補，CVE-2026-18556 亦於 8 月 5 日同時列入 KEV。應立即更新至 2026.3.1.10；如已應用 Hotfix 1 亦須再套用 Hotfix 2。需確認 N-central 伺服器的過去 30 天存取記錄，搜尋異常管理員操作及非預期 cloudflared 程序或服務。"
+    },
+    {
+      "cve_id": "CVE-2026-63077",
+      "title": "JetBrains TeamCity On-Premises 未驗證遠端程式碼執行（CVSS 9.8，CISA KEV 8/5，積極利用中，FCEB 截止 8/8）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "JetBrains",
+      "product": "JetBrains TeamCity On-Premises（2025.11.7 及 2026.1.3 以前所有版本）",
+      "description": "TeamCity On-Premises 代理程式輪詢協定存在不受信任資料反序列化漏洞，允許任何具 HTTP(S) 存取 TeamCity 伺服器的未驗證攻擊者執行任意作業系統指令，且以伺服器程序的完整權限運行。CISA 於 8 月 5 日列入 KEV，確認已遭積極利用，8/8 設為 FCEB 修補截止——為近期最短截止時間之一。應立即更新至 2025.11.7 或 2026.1.3；無法立即更新者須套用 JetBrains 安全修補外掛。更新後須全面稽核近 30 天的建置記錄，確認建置產出物未遭篡改，並輪換 TeamCity 儲存的所有憑證。"
+    },
+    {
+      "cve_id": "CVE-2026-72898",
+      "title": "Metabase 未驗證 SQL Injection 密碼重設端點（CVSS 10.0，零時差，CISA KEV 8/11，積極利用中）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "Metabase",
+      "product": "Metabase 0.58/1.58 至 0.63.4/1.63.4（各版本）",
+      "description": "Metabase 密碼重設 API 端點（POST /api/session/reset_password）未正確限制請求主體欄位，允許未驗證攻擊者注入惡意欄位影響後端 SQL 查詢，取得管理員存取後可竊取所有已連線資料庫的憑證、讀取資料庫內任意資料。由於 Metabase 通常連接生產資料庫（客戶資料、銷售資料、財務資料），外洩範圍遠超 Metabase 平台本身。此漏洞在 8 月 6 日揭露前已遭零時差利用，確認受害者包含 N8n、Kilo Code 等 SaaS 企業，Metabase Cloud 託管環境亦受影響。應立即升級至修補版本（x.63.5、x.62.9、x.61.11、x.60.17、x.59.21、x.58.24）；若使用 Metabase Cloud 則無需自行操作（由 Metabase 代管修補），但應稽核 Metabase 連線的資料庫是否有異常存取。"
+    },
+    {
+      "cve_id": "CVE-2026-8037",
+      "title": "Progress Kemp LoadMaster OS 命令注入（CVSS 9.6，CISA KEV 8/7，792 次攻擊嘗試確認，FCEB 截止 8/10）",
+      "cvss": 9.6,
+      "severity": "critical",
+      "vendor": "Progress Software",
+      "product": "Progress Kemp LoadMaster（GA 7.2.63.2 及 LTSF 7.2.54.18 以前版本）",
+      "description": "LoadMaster 負載均衡器 escape_quotes() 函數對使用者輸入的處理不當，允許未驗證遠端攻擊者透過多個命令端點注入任意 OS 指令並以高權限執行，完整控制負載均衡設備。攻擊成功可導致服務中斷、流量截取竄改，或以設備為跳板橫向移動至後端伺服器。根據遙測資料，此漏洞在 41 天內已被 65 個唯一 IP（來自 18 個國家）嘗試利用達 792 次。Progress 早於 6 月已發布修補版本（GA 7.2.63.2、LTSF 7.2.54.18），應立即升級；尚無可用修補版本的情況下，應透過防火牆嚴格限制 LoadMaster 管理介面的存取來源。"
+    },
+    {
+      "cve_id": "CVE-2026-68820",
+      "title": "Windows Ancillary Function Driver（AFD.sys）Use-After-Free 提權零時差（CVSS 7.0，Lazarus 積極利用中，8/11 Patch Tuesday 修補）",
+      "cvss": 7.0,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Windows（多個支援版本）",
+      "description": "Windows 套接字 API 核心驅動程式 AFD.sys（Ancillary Function Driver for WinSock）存在 use-after-free 競態條件漏洞，允許已認證本地攻擊者透過特製應用程式提升至 SYSTEM 權限，無需用戶互動。Check Point Research 確認此漏洞自 2026 年初即被北韓 Lazarus 集團用於 Operation Dream Job 攻擊活動，在取得初始存取後用以提權並部署 FudModule v3.1 核心態 rootkit（該 rootkit 能關閉 ETW 遙測、移除 EDR Minifilter 驅動程式）。Check Point 於 7 月 28 日回報 Microsoft，漏洞已於 8 月 11 日 Patch Tuesday 修補。應立即套用 8 月 Patch Tuesday Windows 安全更新；防禦縱深建議：監控 AFD.sys 相關的異常核心驅動程式載入行為，以及 SYSTEM 帳號的非預期程序建立。"
+    },
+    {
+      "cve_id": "CVE-2026-64531",
+      "title": "Linux 核心 Open vSwitch OVSwrap 整數溢位本地提權（CVSS 7.8，PoC 已公開，約 800 個受影響核心版本）",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Linux Kernel / Open vSwitch",
+      "product": "Linux 核心（包含 OVS 模組的版本，上游修補於 7/24 進入穩定樹）",
+      "description": "Linux 核心 Open vSwitch 資料平面實作在建構巢狀 Netlink 動作串流時，16 位元長度欄位發生整數溢位，使核心將攻擊者控制的記憶體區域誤認為合法 OVS 動作處理，形成確定性記憶體損壞路徑，允許本地無特權用戶取得 root 權限。此漏洞潛伏 13 年，PoC 現已公開並附帶 800 個預建核心版本的利用記錄，大幅降低攻擊門檻。Open vSwitch 廣泛用於雲端及虛擬化基礎設施（OpenStack、KVM、容器網路），具本地存取的多租戶環境（如雲端 VPS 用戶）面臨橫向移動風險。應立即套用包含 CVE-2026-64531 修補的 Linux 核心安全更新；雲端環境應確認 hypervisor 層的 OVS 版本。"
+    },
+    {
+      "cve_id": "CVE-2026-66066",
+      "title": "Ruby on Rails Active Storage 任意檔案讀取及潛在 RCE（KindaRails2Shell，CVSS 9.5），secrets 外洩可升級為完整伺服器入侵",
+      "cvss": 9.5,
+      "severity": "critical",
+      "vendor": "Ruby on Rails",
+      "product": "Rails 7.0.0–7.2.3.1、8.0.0–8.0.5、8.1.0–8.1.3（使用 libvips 圖像處理者）",
+      "description": "Rails Active Storage 在使用 libvips 進行圖像處理時，未充分過濾上傳的圖像 URI 方案，允許未驗證攻擊者透過特製圖像上傳讀取伺服器上的任意檔案，包括 Rails 環境變數及 config/credentials.yml.enc。外洩的 secret_key_base、Rails 主金鑰、資料庫密碼、雲端儲存憑證、API Token 等可被進一步利用為遠端程式碼執行或橫向移動。此漏洞於 7 月 29 日披露，研究人員命名為 KindaRails2Shell，Akamai 及 Rapid7 均已發布詳細技術分析及防護指南。修補版本為 7.2.3.2、8.0.5.1、8.1.3.1；僅更新 Rails 版本不足，亦須確認 libvips 版本為 8.13 或以上。台灣電商及新創公司廣泛採用 Rails 建構後端 API，應立即確認受影響版本範圍。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢呈現三條交叉主線。「RMM 及 IT 管理平台成為 MSP 供應鏈攻擊的槓桿」是本週最具結構性影響的趨勢：N-able N-central 認證繞過（CVE-2026-18577）遭積極利用，攻擊者接管 MSP 管理伺服器後以合法遠端存取功能橫向入侵所有受管客戶端點，此模式使單一入侵即可在 MSP 服務的整個客戶生態系中建立立足點，影響倍數效應顯著。Progress Kemp LoadMaster 命令注入同週列入 KEV，顯示網路負載均衡設備同樣成為批次攻擊目標。「CI/CD 管線及資料平台的高價值憑證仍是核心目標」持續延伸：TeamCity CVE-2026-63077 從公告轉為確認積極利用（歷時僅 9 天），與歷史規律一致；Metabase 零時差 SQL Injection 則以更隱蔽的路徑——商業智慧平台的資料庫連線憑證——達成同等效果，且在修補前已有真實受害者。兩者共同揭示攻擊者對「存放大量高權限憑證的中介平台」的系統性偵察與利用。「Lazarus 核心態 rootkit 技術持續升級，目標鎖定關鍵產業」是本週最具戰略警示意義的趨勢：FudModule v3.1 新增關閉崩潰轉儲記錄及更廣泛的 EDR 遙測阻斷能力，使 Lazarus 在取得 SYSTEM 權限後的 EDR 規避能力達到新高度，搭配 Windows WinSock 核心零時差（CVE-2026-68820）形成端到端的高隱蔽攻擊鏈。台灣在亞太地區半導體及精密製造業的核心地位，使其供應鏈廠商與相關研究機構長期處於國家級 APT 的優先攻擊目標範圍。",
+    "active_actors": [
+      {
+        "name": "Lazarus（北韓，UNC4736，Diamond Sleet）",
+        "type": "國家級威脅行為者（APT）",
+        "activity": "Operation Dream Job 最新波次：透過 LinkedIn 假徵才信息誘騙國防、航太、軍事技術領域目標，利用 Windows AFD.sys 核心零時差（CVE-2026-68820）提升至 SYSTEM 並部署 FudModule v3.1 rootkit（可關閉 ETW 遙測及 EDR Minifilter），同時植入新型後門 Troy。Check Point 確認攻擊主要針對歐洲及印度的國防承包商。"
+      },
+      {
+        "name": "Clop（東歐勒索軟體集團）",
+        "type": "財務動機威脅行為者（勒索軟體集團）",
+        "activity": "利用 CVE-2026-12569 對全球金融科技基礎設施提供商 FIS Global 發動攻擊，竊取 874GB 資料並於暗網公告施壓。Clop 延續以大型企業軟體平台零時差漏洞進行批次資料竊取的慣用 TTP（前例：MOVEit、GoAnywhere 波段），金融服務供應商為本年度重點目標。"
+      },
+      {
+        "name": "Head Mare（hacktivist，反烏克蘭立場）",
+        "type": "駭客行動主義組織",
+        "activity": "入侵 TrueConf On-Premises 視訊會議伺服器，將客戶端安裝程式替換為木馬化版本（含 PhantomCore 後門），並部署 PhantomGraph（以 OneDrive 為 C2 的獨立後門），鎖定俄羅斯工業、能源及 IT 業者。此攻擊將軟體更新機制作為散布惡意程式的媒介，屬供應鏈攻擊型態。"
+      }
+    ],
+    "attack_techniques": [
+      "RMM 平台認證繞過後以合法遠端存取功能橫向移動至所有受管端點，並植入 Cloudflare 隧道持久化（N-able N-central CVE-2026-18577）",
+      "商業智慧平台未驗證 SQL Injection 竊取已連線生產資料庫憑證，範疇遠超平台本身（Metabase CVE-2026-72898，零時差）",
+      "CI/CD 平台反序列化 RCE（CVSS 9.8）取得建置管線控制，在公告後 9 天確認遭積極利用（TeamCity CVE-2026-63077）",
+      "Windows 核心 WinSock 驅動程式 use-after-free 零時差提至 SYSTEM，配合 FudModule v3.1 rootkit 關閉 EDR 遙測實現持久隱蔽駐留（Lazarus CVE-2026-68820）",
+      "視訊會議伺服器供應鏈攻擊：入侵 On-Premises 更新伺服器後木馬化客戶端安裝程式，以 OneDrive 作為 C2 通道的後門（Head Mare / TrueConf）",
+      "負載均衡設備 OS 命令注入（CVSS 9.6）以 792 次嘗試攻擊規模進行批次掃描利用（Progress Kemp LoadMaster CVE-2026-8037）"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即更新 N-able N-central 至 2026.3.1.10（CVE-2026-18577，CISA KEV 8/3）：（1）立即確認所有 N-central 部署版本，升級至 2026.3.1.10（Hotfix 2）——已套用 Hotfix 1（2026.3.1.7）亦須再次更新；（2）審查 N-central 伺服器過去 30 天的管理員登入記錄，搜尋未預期的 IP 來源及異常時間的登入；（3）在受管端點清查是否存在非預期的 cloudflared 服務或程序（攻擊者用於持久化的 Cloudflare Tunnel 客戶端）；（4）確認「Take Control」功能的存取審計記錄，評估是否有非 MSP 人員啟動的遠端工作階段；（5）若確認受損，需將 N-central 視為完全淪陷，重建後通知所有受管客戶評估端點完整性。"
+    },
+    {
+      "priority": "high",
+      "action": "確認 JetBrains TeamCity 已更新並調查建置產出物完整性（CVE-2026-63077，CISA KEV 8/5）：（1）確認所有 TeamCity On-Premises 部署已更新至 2025.11.7 或 2026.1.3，或已套用官方安全修補外掛；（2）稽核 8 月 5 日之後（CISA KEV 列入日）至完成修補期間的所有建置記錄，確認無異常外部代理程式連線或非常規建置觸發；（3）全面輪換 TeamCity 儲存的憑證（版本控制存取金鑰、API Token、雲端 IAM 金鑰、服務帳號密碼）；（4）對 7 月 27 日後建置並已部署的所有軟體產出物進行雜湊值驗證，評估供應鏈污染可能性；（5）限制 TeamCity 管理介面的外部存取，並啟用管理員操作稽核記錄。"
+    },
+    {
+      "priority": "high",
+      "action": "立即修補 Metabase（CVE-2026-72898，CVSS 10.0）並稽核已連線資料庫異常存取：（1）自托管 Metabase 用戶立即升級至修補版本（x.63.5、x.62.9、x.61.11、x.60.17、x.59.21、x.58.24）；Metabase Cloud 用戶由 Metabase 代為修補，無需自行操作；（2）稽核 Metabase 連線的所有資料庫，查詢過去 30 天是否存在來自 Metabase 服務帳號的異常大量資料匯出或非預期查詢模式；（3）稽核 Metabase 應用程式記錄中是否有針對 /api/session/reset_password 端點的異常 POST 請求（含非預期欄位）；（4）若確認被入侵，需輪換 Metabase 連線的所有資料庫密碼及 API 金鑰，並評估資料外洩通報義務。"
+    },
+    {
+      "priority": "high",
+      "action": "套用 Windows 8 月 Patch Tuesday 安全更新，優先處理 CVE-2026-68820（Lazarus 積極利用中）：（1）立即套用 8 月 11 日 Microsoft Patch Tuesday 更新，優先確保包含 CVE-2026-68820（AFD.sys WinSock 零時差）在內的所有安全性更新已套用；（2）針對國防、航太、半導體等高價值目標產業，啟用進階 EDR 核心防護（Kernel Sensor），監控 AFD.sys 及 afd.sys 相關的異常核心驅動程式載入；（3）對 LinkedIn 或其他社群平台接收到的招募相關訊息及附件提高戒備，並加強員工識別 Operation Dream Job 社交工程技巧的訓練；（4）確認端點 EDR 的 ETW 遙測管道完整性，若發現遙測中斷應立即調查。"
+    },
+    {
+      "priority": "high",
+      "action": "立即更新 Progress Kemp LoadMaster（CVE-2026-8037，CVSS 9.6，CISA KEV 8/7，FCEB 截止 8/10）：（1）確認 LoadMaster 版本並升級至 GA 7.2.63.2 或 LTSF 7.2.54.18；（2）修補前臨時透過防火牆限制 LoadMaster 管理介面的存取來源 IP，至少排除所有網際網路直接存取；（3）稽核 LoadMaster 的管理操作記錄，搜尋過去 41 天內的異常命令執行或配置變更；（4）確認 LoadMaster 後端伺服器是否存在非預期的新連線或服務啟動，排除已被用作橫向移動跳板的可能性。"
+    },
+    {
+      "priority": "medium",
+      "action": "修補 Rails Active Storage（CVE-2026-66066，KindaRails2Shell，CVSS 9.5）並更新 libvips：（1）確認 Rails 應用程式版本，升級至 7.2.3.2、8.0.5.1 或 8.1.3.1；（2）同步確認 libvips 版本為 8.13 或以上——單獨升級 Rails 版本不足；（3）稽核 Rails 應用程式記錄，搜尋異常的圖像上傳請求，特別關注含 file:// 或 URI 方案的 URL；（4）如應用程式可暫時關閉圖像上傳功能，修補前可作為臨時緩解措施；（5）稽核伺服器環境變數及 config/ 目錄，確認 secret_key_base 等敏感資料是否已外洩，必要時輪換。"
+    },
+    {
+      "priority": "medium",
+      "action": "套用 Linux 核心安全更新修補 OVSwrap（CVE-2026-64531，CVSS 7.8），評估雲端多租戶環境橫向移動風險：（1）確認 Linux 核心版本並套用包含 CVE-2026-64531 修補的安全更新（上游修補已於 7 月 24 日進入穩定核心樹，各 Linux 發行版應已發布對應安全更新）；（2）對使用 KVM 虛擬化或 OpenStack 的雲端及資料中心環境，評估具本地存取帳號的多租戶場景中橫向移動風險；（3）若 OVS 並非必要功能，評估卸除 openvswitch 核心模組作為臨時緩解措施（rmmod openvswitch）；（4）監控系統記錄中與 OVS Netlink 介面相關的異常存取模式。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "遠端監控與管理（RMM）",
+      "definition": "MSP 用於集中管理大量客戶端點的平台，一旦遭入侵可橫向存取所有受管設備",
+      "url": "https://glossary.astroicers.link/glossary/rmm"
+    },
+    {
+      "term": "認證繞過（Authentication Bypass）",
+      "definition": "攻擊者在不提供有效憑證的情況下，繞過身份驗證機制取得未授權存取的漏洞",
+      "url": "https://glossary.astroicers.link/glossary/authentication_bypass"
+    },
+    {
+      "term": "SQL 注入（SQL Injection）",
+      "definition": "攻擊者將惡意 SQL 陳述式注入應用程式的資料庫查詢，讀取或篡改資料庫內容",
+      "url": "https://glossary.astroicers.link/glossary/sql_injection"
+    },
+    {
+      "term": "本地權限提升（Local Privilege Escalation）",
+      "definition": "已取得系統低權限存取的攻擊者，利用漏洞將自身權限提升至管理員或 root 等級",
+      "url": "https://glossary.astroicers.link/glossary/lpe"
+    },
+    {
+      "term": "核心態 rootkit",
+      "definition": "在作業系統核心層執行的惡意程式，可隱蔽自身並關閉安全工具的偵測能力",
+      "url": "https://glossary.astroicers.link/glossary/kernel_rootkit"
+    },
+    {
+      "term": "供應鏈攻擊（Supply Chain Attack）",
+      "definition": "攻擊者透過入侵軟體套件、開發工具或第三方服務，間接攻擊最終目標的手法",
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
+    },
+    {
+      "term": "CI/CD 管線（Continuous Integration/Continuous Delivery）",
+      "definition": "自動化軟體建置、測試及部署的工作流程，一旦遭入侵可污染所有發布的軟體產出物",
+      "url": "https://glossary.astroicers.link/glossary/cicd"
+    },
+    {
+      "term": "OS 命令注入（OS Command Injection）",
+      "definition": "應用程式未充分過濾使用者輸入即傳入系統命令，允許攻擊者執行任意作業系統指令",
+      "url": "https://glossary.astroicers.link/glossary/command_injection"
+    }
+  ],
+  "references": [
+    {
+      "title": "CISA Adds Exploited N-able N-central Flaw to KEV After Customer Compromises - The Hacker News",
+      "url": "https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html"
+    },
+    {
+      "title": "N-able Patches Vulnerability Exploited to Hack N-central Servers - SecurityWeek",
+      "url": "https://www.securityweek.com/n-able-patches-vulnerability-exploited-to-hack-n-central-servers/"
+    },
+    {
+      "title": "Attackers exploit N-able N-central flaw to reach managed endpoints (CVE-2026-18577) - Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/08/03/cve-2026-18577-n-able-n-central-vulnerability/"
+    },
+    {
+      "title": "N-able Says Attackers Take Over N-central Servers After Initial Fix Proves Incomplete - The Hacker News",
+      "url": "https://thehackernews.com/2026/08/n-able-says-attackers-take-over-n.html"
+    },
+    {
+      "title": "N-central Security Update – August 10, 2026 - N-able Blog",
+      "url": "https://www.n-able.com/blog/n-central-security-update-august-6-2026"
+    },
+    {
+      "title": "CISA Flags TeamCity CVE-2026-63077 RCE Flaw Under Active Exploitation - The Hacker News",
+      "url": "https://thehackernews.com/2026/08/cisa-flags-teamcity-cve-2026-63077-rce.html"
+    },
+    {
+      "title": "Hackers Start Exploiting Recent JetBrains TeamCity Vulnerability - SecurityWeek",
+      "url": "https://www.securityweek.com/hackers-start-exploiting-recent-jetbrains-teamcity-vulnerability/"
+    },
+    {
+      "title": "CVE-2026-63077: Additional Guidance Following Reports of Active Exploitation - JetBrains Blog",
+      "url": "https://blog.jetbrains.com/teamcity/2026/08/cve-2026-63077-update/"
+    },
+    {
+      "title": "Metabase Zero-Day Exploited in Wild Allows Admin Access Without Authentication - The Hacker News",
+      "url": "https://thehackernews.com/2026/08/metabase-zero-day-exploited-in-wild.html"
+    },
+    {
+      "title": "Inside the Metabase SQLi: Exploited in the Wild - Wiz Blog",
+      "url": "https://www.wiz.io/blog/inside-the-metabase-sqli-exploited-in-the-wild"
+    },
+    {
+      "title": "Critical SQL Injection in Metabase via Password Reset: CVE-2026-72898 - Bishop Fox",
+      "url": "https://bishopfox.com/blog/critical-sql-injection-in-metabase-via-password-reset-cve-2026-72898"
+    },
+    {
+      "title": "Progress Kemp LoadMaster Flaw Hits CISA KEV After 792 Reported Exploit Attempts - The Hacker News",
+      "url": "https://thehackernews.com/2026/08/progress-kemp-loadmaster-flaw-hits-cisa.html"
+    },
+    {
+      "title": "CISA Urges Immediate Patching of Exploited Progress LoadMaster Vulnerability - SecurityWeek",
+      "url": "https://www.securityweek.com/cisa-urges-immediate-patching-of-exploited-progress-loadmaster-vulnerability/"
+    },
+    {
+      "title": "Clop Ransomware Targets FIS Global - Malware News",
+      "url": "https://malware.news/t/clop-ransomware-targets-fis-global/124620"
+    },
+    {
+      "title": "Microsoft Patches 398 Flaws Including a Windows Driver Zero-Day Under Active Attack - The Hacker News",
+      "url": "https://thehackernews.com/2026/08/microsoft-patches-398-flaws-including.html"
+    },
+    {
+      "title": "August 2026 Patch Tuesday: Microsoft Fixes 421 CVEs, One Exploited Zero-Day - SecurityWeek",
+      "url": "https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day/"
+    },
+    {
+      "title": "Windows AFD.sys 0-Day Actively Exploited by Lazarus Hackers to Deploy FudModule Rootkit - CybersecurityNews",
+      "url": "https://cybersecuritynews.com/windows-afd-sys-zero-day-exploited/"
+    },
+    {
+      "title": "State Sponsored Hackers Use Fake Job Offers to Deliver New Zero Day Exploit - Check Point Blog",
+      "url": "https://blog.checkpoint.com/research/state-sponsored-hackers-use-fake-job-offers-to-deliver-new-zero-day-exploit"
+    },
+    {
+      "title": "Head Mare delivers PhantomCore and PhantomGraph backdoors via an unpatched TrueConf server - Securelist",
+      "url": "https://securelist.com/tr/head-mare-targets-trueconf-server-with-phantomcore/120988/"
+    },
+    {
+      "title": "Hackers breach TrueConf to trojanize client installers with backdoors - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-breach-trueconf-to-trojanize-client-installers-with-backdoors/"
+    },
+    {
+      "title": "OVSwrap: 13-Year-Old Linux Kernel Flaw Lets Local Users Become Root - Security Affairs",
+      "url": "https://securityaffairs.com/196657/hacking/ovswrap-13-year-old-linux-kernel-flaw-lets-local-users-become-root.html"
+    },
+    {
+      "title": "CVE-2026-64531 OVSwrap Linux Root Flaw Explained - TuxCare",
+      "url": "https://tuxcare.com/blog/ovswrap-cve/"
+    },
+    {
+      "title": "KindaRails2Shell: CVE-2026-66066, Critical Arbitrary File Read and Possible RCE in Ruby on Rails - Rapid7",
+      "url": "https://www.rapid7.com/blog/post/etr-kindarails2shell-cve-2026-66066-critical-arbitrary-file-read-and-possible-remote-code-execution-in-ruby-on-rails/"
+    },
+    {
+      "title": "Rails patches critical Active Storage flaw with RCE potential - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/rails-patches-critical-active-storage-flaw-with-rce-potential/"
+    },
+    {
+      "title": "Known Exploited Vulnerabilities Catalog - CISA",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "Vulnerability Summary for the Week of August 3, 2026 - CISA",
+      "url": "https://www.cisa.gov/news-events/bulletins/sb26-222"
+    }
+  ]
+}
