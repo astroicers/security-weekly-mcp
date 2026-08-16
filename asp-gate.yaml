@@ -1,0 +1,37 @@
+# asp-gate.yaml — 檢查單一事實源(asp-ng ADR-000 §7;P0-6 掛載試跑)
+# 渲染(於 asp-ng):`asp render gate -s <此檔> -o .asp/gate.sh`
+#              `asp render ci --consumer -s <此檔> --out-dir <repo 根>`
+# 本地 gate 與 CI 跑同一份渲染物 → 判定一致由構造保證。
+version: 0.1
+checks:
+  - id: lint
+    layer: gate
+    tool: builtin-lint
+    args:
+      yaml: yamllint
+      markdown: markdownlint-cli2
+    severity: warning
+    origin: "asp-ng P0-6 掛載;MegaLinter 於 CI 端同源擴展"
+
+  - id: gitleaks
+    layer: gate
+    tool: gitleaks
+    args: [protect, --staged, --config, .asp/gitleaks.toml]
+    severity: blocker
+    origin: "asp-ng gitleaks 規則(含模型金鑰 pattern);本 repo 首次掛載 secret 掃描"
+
+  - id: commit-format
+    layer: gate
+    tool: builtin-regex
+    args:
+      pattern: '^(feat|fix|docs|refactor|test|chore|report|ci)(\([a-z0-9-]+\))?: .+'
+    severity: blocker
+    origin: "Conventional Commits;含本 repo 慣用 report 型別(近 40 筆分佈:chore 17/report 14/fix 5/docs 4)"
+    notes: "驗最近一筆非 merge commit;merge 訊息由 forge 產生,豁免"
+
+  - id: python-lint
+    layer: ci
+    tool: ruff
+    args: [check, packages]
+    severity: warning
+    origin: "repo 既有 dev 依賴 ruff;僅 CI(MegaLinter PYTHON_RUFF)"
