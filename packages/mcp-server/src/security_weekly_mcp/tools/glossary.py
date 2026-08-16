@@ -529,9 +529,7 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
 
         # 檢查術語庫是否已有此 ID
         if glossary.get(term_id):
-            return [
-                TextContent(type="text", text=f"ℹ️ 術語已存在於術語庫中：{term_id}")
-            ]
+            return [TextContent(type="text", text=f"ℹ️ 術語已存在於術語庫中：{term_id}")]
 
         # 檢查術語庫是否已有相同 term_en 名稱
         existing = glossary.get_by_name(term_en)
@@ -584,8 +582,6 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
         with open(pending_file, "w", encoding="utf-8") as fp:
             yaml.dump(data, fp, allow_unicode=True, default_flow_style=False, sort_keys=False)
 
-        return [
-            TextContent(type="text", text=f"✅ 已建立待審術語：{filename}")
-        ]
+        return [TextContent(type="text", text=f"✅ 已建立待審術語：{filename}")]
 
     return [TextContent(type="text", text=f"未知工具: {name}")]
