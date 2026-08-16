@@ -19,7 +19,7 @@ Monorepo(uv workspace),完整目錄樹見 `README.md`「專案結構」:
 
 - 文件與 commit 訊息使用繁體中文;技術名詞保留英文。
 - Python 遵循 PEP 8,以 ruff 檢查與格式化(`make lint` / `make format`)。
-- 週報與術語內容遵循 `packages/glossary/meta/style_guide.yaml` 用詞規範(單一事實源),常見對照:駭客(非「黑客」)、惡意程式(非「病毒」)、特洛伊木馬程式(非「木馬」)、暴力攻擊(非「暴力破解」)、身份驗證用「驗證」(非「認證」)。
+- 週報與術語內容遵循 `packages/glossary/meta/style_guide.yaml` 用詞規範(單一事實源),常見對照:駭客(非「黑客」)、惡意程式(非「病毒」)、特洛伊木馬程式(非「木馬」)、暴力破解(非「爆破」)、身份驗證用「驗證」(非「認證」)。
 
 ## 分支與提交
 
@@ -63,6 +63,7 @@ make dev          # MCP Inspector 開發模式
 - `brief_definition` 長度 ≤ 30 字元(create 與 approve 均驗證)。
 - `extract_terms` 去重並保留術語出現順序。
 - 術語連結:每個術語只在首次出現時加連結(避免干擾閱讀);連結指向 `https://glossary.astroicers.link/glossary/{term_id}`;HTML 週報底部「本期術語區塊」最多 10 個。
+- 週報新聞過濾條件(CVSS 門檻、時間窗、關鍵字加權)之單一事實源為 `config/sources.yaml` 與 `packages/mcp-server/.../news.py`、`generate_weekly_report.py`,勿在文件另抄數值。
 
 ## Submodule 慣例
 
