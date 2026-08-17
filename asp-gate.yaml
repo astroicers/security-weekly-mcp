@@ -35,3 +35,21 @@ checks:
     args: [check, packages]
     severity: warning
     origin: "repo 既有 dev 依賴 ruff;僅 CI(MegaLinter PYTHON_RUFF)"
+
+  - id: render-drift
+    layer: gate
+    tool: builtin-script
+    args:
+      inputs: "env:ASP_GATE_PROJ 的 asp-gate.yaml 與渲染物 header;皆無→skip 200"
+    severity: blocker
+    origin: "asp-ng issue #43:consumer 模式無 asp CLI,改了 source 未重渲染今天無從發現"
+    notes: "本 repo 為消費端,渲染在 asp-ng 端執行;本檢查以 source sha256 對帳,不需 CLI"
+
+  - id: vendor-verify
+    layer: gate
+    tool: builtin-script
+    args:
+      inputs: "env:ASP_GATE_PROJ 的 .asp/checks/VENDOR.lock;無 lock→skip 200"
+    severity: blocker
+    origin: "asp-ng issue #43:vendored 檢查本體與上游對帳"
+    notes: "本地竄改偵測;上游同步偵測待 asp-ng 轉 public 後 raw 比對(#43 第二段)"
