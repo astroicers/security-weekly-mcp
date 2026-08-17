@@ -1,9 +1,10 @@
 # ⚠️ 由 `asp render ci` 產生 — 勿手改(單一事實源:asp-gate.yaml)
-# source sha256: 7cd45c24767e09ac1c79365ec37df60694c7f455dfd919939576001e89d02485
+# source sha256: 2d0071e3a1c0440d6b40ad1c6bacf77470d11a90b6f7cd5dfb76d0c8773e5f91
 name: asp-ci
 on:
   pull_request:
     branches: [develop, main]
+  merge_group: {}  # merge queue rebase 後重跑(asp-forge.yaml develop-protect)
 permissions: read-all  # PR job 零 secrets(ADR-000 §7 兩段式)
 jobs:
   gate:
