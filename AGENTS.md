@@ -13,7 +13,7 @@ Monorepo(uv workspace),完整目錄樹見 `README.md`「專案結構」:
 - `scripts/` — 自動化腳本(如 `generate_rss.py` 產 HTML/RSS)。
 - `skill/` — Claude Code Skill 定義(自然語言介面的原始碼)。
 - `tests/` — pytest 測試。
-- `.asp/` — gate 渲染物(`gate.sh`、`gitleaks.toml`);單一事實源為根目錄 `asp-gate.yaml`,渲染物勿手改。
+- `.asp/` — gate 渲染物(`gate.sh`、`gitleaks.toml`);單一事實源為根目錄 `asp-gate.yaml`,渲染物勿手改。另含 `pr.md`——asp-ng worker 出勤的 PR 描述快照(每票覆寫,main 恆為最近一票;asp-ng 決策 24/#183 已知邊界,人勿編輯)。
 
 ## 語言與風格
 
