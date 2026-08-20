@@ -4,12 +4,15 @@ name: asp-ci
 on:
   pull_request:
     branches: [develop, main]
-  merge_group: {}  # merge queue rebase 後重跑(asp-forge.yaml develop-protect)
+  push:
+    branches: [develop, main]  # 可信段觸發(§7:僅 merged 碼)
+  merge_group: {}  # merge queue rebase 後重跑
 permissions: read-all  # PR job 零 secrets(ADR-000 §7 兩段式)
 jobs:
   gate:
     name: gate
-    runs-on: ubuntu-latest  # P2 改自架 ephemeral runner(ADR-000 §7)
+    if: github.event_name != 'push'
+    runs-on: [self-hosted, swm-pr]  # 無 docker、無密鑰(D2 複製)
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
         with:
@@ -17,11 +20,11 @@ jobs:
       - name: gate(committed 渲染物,與本地同一份 → 判定一致)
         run: bash .asp/gate.sh
   megalinter:
-    runs-on: ubuntu-latest
+    if: github.event_name == 'push'  # 可信段:僅 merged 碼(D2)
+    runs-on: [self-hosted, swm-trusted]  # 有 docker,僅 push
     steps:
+      - name: clean root-owned leftovers（自架:上一輪 MegaLinter 容器留的 root 檔(.ruff_cache 等))
+        run: docker run --rm -v "$GITHUB_WORKSPACE:/w" alpine:latest sh -c 'rm -rf /w/..?* /w/.[!.]* /w/* 2>/dev/null || true'
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
-      - name: MegaLinter
+      - name: MegaLinter（需 docker）
         uses: oxsecurity/megalinter/flavors/python@15e5b45552097e318c93de385779ce3b1084052c  # v10.0.0
-        env:
-          # 映像 digest 佔位欄位:P2 vendored base image 落地後填實(AC-1)
-          MEGALINTER_IMAGE_DIGEST: "sha256:TBD-P2-vendoring"
