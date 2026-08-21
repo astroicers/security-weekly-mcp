@@ -29,6 +29,12 @@ Monorepo(uv workspace),完整目錄樹見 `README.md`「專案結構」:
 - `report` 型別專用於每週週報產出 commit,如 `report: weekly security report 2026-W32`。
 - 提交前跑本地 gate:`bash .asp/gate.sh`(lint、gitleaks staged 秘密掃描、commit 格式);本地 gate 與 CI 跑同一份渲染物,判定一致由構造保證。
 
+### 分支流(2026-08-21 起)
+
+- **develop = 整合層**:asp-ng worker 的 PR 一律以 develop 為 base;CI 全套照跑。
+- **main = 部署面**:push main 會觸發 deploy-rss(RSS 發布)——develop→main 的促升
+  PR **必由人審併**,這是本 repo 的部署閘,不在任何自動化放權路徑上。
+
 ## 票與 PR
 
 - PR 清楚描述變更內容、關聯對應 issue(`Closes #n`)、確保 CI 綠後才請 review。
