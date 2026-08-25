@@ -1,0 +1,14 @@
+# ⚠️ 自 Aries-Crew/asp-ng 複製而來(2026-08-25,C 級 onboarding 前置)。
+# 本檔與同目錄三套表單是 asp-ng 治理協定的一部分:derive 的 `has_ac` 讀 issue body
+# 的驗收段,沒有表單則本 repo 的票會全部停在 `idea` 而不被派工。
+# 上游變更時以 asp-ng 的版本為準(對帳缺口見 asp-ng #43)。
+# issue 入口設定(ADR-000 §4 票型三合一 + §19 需求提出;issue #46 裁定)
+# - 表單僅 proposal/design/bug 三套,AC 欄位維持必填 Given/When/Then(§4「AC 治理:
+#   issue 模板強制 Given/When/Then」)——表單服務已成形的結構化工作。
+# - blank issue 開啟:§19「裸 issue(未 triage、無 AC)天然就是 idea,主管 triage 時
+#   補 AC 或歸檔——不設專屬票型」;idea 走 blank issue,附錄 A 決策 71 已刪 type:idea。
+blank_issues_enabled: true
+contact_links:
+  - name: 想提 idea?開 blank issue
+    url: https://github.com/astroicers/security-weekly-mcp/issues/new
+    about: 想法階段的票走這裡(AC 留白即可);主管 triage 時補齊 Given/When/Then 或歸檔。上面三套表單供 AC 已成形的結構化工作使用。
