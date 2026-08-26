@@ -1,0 +1,31 @@
+name: Design(RFC 票)
+description: 交付物為設計文件 PR;QA 依四項驗完備性
+labels: ["type:design"]
+body:
+  - type: input
+    id: roadmap-ref
+    attributes: {label: roadmap-ref}
+    validations: {required: true}
+  - type: textarea
+    id: goal
+    attributes: {label: 目標}
+    validations: {required: true}
+  - type: textarea
+    id: alternatives
+    attributes: {label: 替代案(至少兩案,各附 steelman)}
+    validations: {required: true}
+  - type: textarea
+    id: risks
+    attributes: {label: 風險}
+    validations: {required: true}
+  - type: textarea
+    id: test-strategy
+    attributes: {label: 測試策略}
+    validations: {required: true}
+  - type: textarea
+    id: ac
+    attributes:
+      label: 驗收準則(Given/When/Then)
+      description: 每條含可觀察結果;文件 PR 的完備性即以此驗收
+      placeholder: "Given …\nWhen …\nThen …"
+    validations: {required: true}
