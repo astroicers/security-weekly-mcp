@@ -15,14 +15,23 @@ repo: astroicers/security-weekly-mcp
 rulesets:
   # ── main:生產面 ──
   # main 的 push 觸發 deploy-rss(生產部署),故它是這個 repo 爆炸半徑最大的分支。
-  # 僅人親手 merge:require PR + codeowner review。**無 bypass actor**——
-  # 牆對設牆的人也要成立,否則它是一個提醒不是一道牆。
+  # 僅人親手 merge:require PR + CI 綠 + 不可直推 + 不可 force-push/刪除。
+  # **無 bypass actor**——牆對設牆的人也要成立,否則它是一個提醒不是一道牆。
+  #
+  # `required_approving_review_count: 0` 而非 1——**本 repo 只有一個 collaborator**
+  # (`astroicers`,2026-08-26 實測),而 GitHub **不允許自己核准自己的 PR**。
+  # 取 1 就是死鎖:唯一的維護者再也發不了版,而發版正是 main 存在的理由。
+  # 一道讓人繞不過去也走不過去的牆,不是牆,是磚。
+  #
+  # 這一格的價值不在核准數,在另外四件:**必須走 PR**(擋直推)、**CI 必須綠**、
+  # **不可 force-push**、**不可刪除**。四件都與核准數無關,且都真的生效。
+  # 之後有第二位審查者時,把 0 改成 1 是一行——那時它才買得到東西。
   - name: main-protect
     target_branches: [main]
     enforcement: active
     rules:
       pull_request:
-        required_approving_review_count: 1
+        required_approving_review_count: 0
         require_code_owner_review: true
         dismiss_stale_reviews_on_push: true
         require_last_push_approval: false
