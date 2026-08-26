@@ -1,6 +1,11 @@
 # .asp/checks/VENDOR.lock — vendored 檢查本體來源記錄(asp-ng issue #43)
-# 格式:<檔名> <上游 repo> <上游路徑> <sha256>
+# 格式:<檔名> <上游 repo> <上游路徑> <sha256> [<ref>]
 # 更新方式:自上游重新 vendoring 後以 sha256sum 更新對應列;勿就地改檔。
 # 註:.asp/gate.sh 等渲染物不列此處——它們由 render-drift 以 source sha256 對帳。
-render-drift.sh astroicers/asp-ng .asp/checks/render-drift.sh 12191096bb68a5f46f6dd4b865ad98d3c5f21b1a73600963ef33c1256489c7bd
-vendor-verify.sh astroicers/asp-ng .asp/checks/vendor-verify.sh b3e0e175f2992f82f1f4f8081937e382cada4b6b47dafbedd3e38d67ec549432
+# 2026-08-26:上游 repo 名自 astroicers/asp-ng 更正為 Aries-Crew/asp-ng
+#            (2026-08-22 遷入 org;舊網址對 git 以重導向仍可用,但記錄該記真名),
+#            並補第五欄 ref(2026-09-30 起缺它判紅,見 docs/vendor-reconciliation.md)。
+# upstream-checked: 2026-08-26
+render-drift.sh Aries-Crew/asp-ng .asp/checks/render-drift.sh cb18f3e54817fe9f70c03f75e2a22bbfd9951f4a4282176f0a18e82d8afa3cca v0.28.0
+vendor-verify.sh Aries-Crew/asp-ng .asp/checks/vendor-verify.sh 43099717701b18f1b933a0b186af4cb5213d6e53ef81105d0f983b41f7065564 v0.28.0
+../../policies/labels.yaml Aries-Crew/asp-ng policies/labels.yaml 54e64e87d317bde621f81d99fae968b2197488f6b85bd480159b0d79b3a87dd9 v0.28.0
