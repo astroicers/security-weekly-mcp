@@ -1,0 +1,27 @@
+# CODEOWNERS — 治理路徑分權(C 級 onboarding 前置;asp-ng ADR-000 §2)
+#
+# 已知限制:GitHub App 不能作 codeowner,故所有路徑一律由 @astroicers 代持。
+# 後面規則優先於前面規則(last match wins)。
+#
+# **已知強度**:CODEOWNERS 只在 forge 端有 ruleset 要求 review 時才有強制力。
+# 本 repo 為 public,rulesets 可用(2026-08-26 實測 `/rulesets` 回 `[]`),
+# 故這一份**有機會**真的成為牆——套用走 `asp apply`(人親手)。
+# 在那之前它是提示,不是牆。
+
+# ── 治理檔:單一事實源 ──
+/asp-gate.yaml @astroicers
+/asp-forge.yaml @astroicers
+/policies/ @astroicers
+
+# ── 渲染物與檢查本體 ──
+/.asp/ @astroicers
+
+# ── CI 定義與部署面 ──
+# deploy-rss.yml 由 main 觸發生產部署;release.yml 發版。
+/.github/workflows/ @astroicers
+
+# ── 牆自身 ──
+# CODEOWNERS 與 issue 表單受自身保護:牆必須把自己圍在牆內,
+# 否則改弱宣告本身不需任何人點頭。
+/.github/CODEOWNERS @astroicers
+/.github/ISSUE_TEMPLATE/ @astroicers

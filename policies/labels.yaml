@@ -1,0 +1,49 @@
+# label 詞彙單一源(P3-S2;決策 89 之個人帳號形——asp-ng 即事實上的 asp-meta)。
+# 對帳只補缺與修漂,遠端多出的不動;同步:asp labels sync(逐 repo 見 --repo/--all)。
+#
+# 2026-08-25(#390 留言的缺口二):補上 `type:*` 與 `needs-human`。在此之前這兩類
+# **全 repo 都在用、卻不在詞彙表裡**——issue 表單的 `labels:` 欄逐張票貼 `type:*`,
+# derive 的煞車與 act 的交人路徑貼 `needs-human`——於是對新 repo 跑 labels sync
+# 也建不出表單需要的 label,副官只好照遠端實況手工複製。那等於承認詞彙表不是
+# 事實源。`tests/test_labels.py` 現在釘住:表單 `labels:` 欄用到的每一個 label
+# 都要在本檔裡,交人路徑用的 `needs-human` 也是。
+# 狀態 label 極簡主義:凡可自 GitHub 原生物件重推導的**不設 label**(第二份帳
+# 會過期)。僅兩個狀態 label:asp:assigned(在途,租約留言為權威)、asp:stale
+# (裁定結果,防 clock 抖動);其餘皆裁量/分類詞彙。
+---
+version: 0.1
+labels:
+  - name: "tier:1"
+    color: "0e8a16"
+    description: "小票:單檔/文件級,T1 判級(§6)"
+  - name: "tier:2"
+    color: "fbca04"
+    description: "中票:跨檔邏輯,T2 判級"
+  - name: "tier:3"
+    color: "d93f0b"
+    description: "大票:架構面,T3 判級"
+  - name: "asp:assigned"
+    color: "1d76db"
+    description: "在途 worker——租約留言 <!-- asp:lease:v1 --> 為權威(§2)"
+  - name: "asp:stale"
+    color: "bfbfbf"
+    description: "停滯逾期,降 later;人撕掉即重啟(§5/§11,不自動關單)"
+  # 票型詞彙(§4 票型三合一):`.github/ISSUE_TEMPLATE/*.yml` 的 `labels:` 欄
+  # 逐張票貼。**沒有 `type:task`**——task 表單已於 P1-4 移除(票型三合一,
+  # tests/test_issue_forms.py::test_task_form_removed 釘住),詞彙表不記不存在
+  # 的票型;若日後表單復活,上面那支測試會先紅。
+  - name: "type:proposal"
+    color: "c5def5"
+    description: "提案票——roadmap/policy/skill 三 scope(§4;AI 僅有提案權)"
+  - name: "type:design"
+    color: "0075ca"
+    description: "RFC/設計票——交付物為文件 PR,merge 即核准(§4)"
+  - name: "type:bug"
+    color: "d73a4a"
+    description: "缺陷票——附重現測試(AGENTS.md 測試三層)"
+  - name: "needs-human"
+    color: "b60205"
+    description: "交人:會簽/仲裁/隔離的共同煞車——人撕掉即重啟(§5/§9/§11)"
+  - name: "external"
+    color: "5319e7"
+    description: "外部作者票——永不直接派工,主管另開內部工單(§19 淨化閘)"
