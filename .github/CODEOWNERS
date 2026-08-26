@@ -13,6 +13,11 @@
 /asp-forge.yaml @astroicers
 /policies/ @astroicers
 
+# ── ADR:決策鏈 ──
+# 本 repo 有自己的 docs/adr/,它與 asp-ng 的 ADR-000 是兩份不同的憲法;
+# 治理路徑判定看的是「這個 repo 裡有沒有」,而它有。
+/docs/adr/ @astroicers
+
 # ── 渲染物與檢查本體 ──
 /.asp/ @astroicers
 
