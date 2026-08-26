@@ -1,0 +1,69 @@
+# asp-forge.yaml — forge 硬邊界單一事實源(asp-ng ADR-000 §7 Forge 層)
+#
+# 套用(**人親手**,鐵則):`asp apply -s <本檔>`;先跑 `--dry-run` 看將套用什麼。
+# 對帳看門:`asp apply --check`(漂移即 exit 3,永不寫入)。
+#
+# **本 repo 為 public,rulesets 因此可用**——2026-08-26 實測
+# `gh api repos/astroicers/security-weekly-mcp/rulesets` 回 `[]`、
+# `permissions.admin=true`。對照組:private 的 Aries-Crew/asp-ng 同一組憑證回 403
+# 「Upgrade to GitHub Pro or make this repository public」。**權利跟著 repo 的
+# visibility 走**,不跟著方案。故本檔套得上去,不需要任何採購。
+---
+version: 0.1
+repo: astroicers/security-weekly-mcp
+
+rulesets:
+  # ── main:生產面 ──
+  # main 的 push 觸發 deploy-rss(生產部署),故它是這個 repo 爆炸半徑最大的分支。
+  # 僅人親手 merge:require PR + codeowner review。**無 bypass actor**——
+  # 牆對設牆的人也要成立,否則它是一個提醒不是一道牆。
+  - name: main-protect
+    target_branches: [main]
+    enforcement: active
+    rules:
+      pull_request:
+        required_approving_review_count: 1
+        require_code_owner_review: true
+        dismiss_stale_reviews_on_push: true
+        require_last_push_approval: false
+        required_review_thread_resolution: false
+      required_status_checks:
+        required_status_checks:
+          - context: gate
+        strict_required_status_checks_policy: true
+      non_fast_forward: {}
+      deletion: {}
+
+  # ── develop:worker 的代發目標 ──
+  # PR 必經 gate 綠。approving review count 取 0 而非 1:worker PR 由 QA App
+  # 出裁決(四眼),而 GitHub 的 review count 數的是人;取 1 會讓每一張 worker PR
+  # 都卡在人手動 approve,那正是 asp-ng 想消滅的觸碰。
+  # codeowner review 仍為 true:治理檔的改動照樣需要人點頭。
+  - name: develop-protect
+    target_branches: [develop]
+    enforcement: active
+    rules:
+      pull_request:
+        required_approving_review_count: 0
+        require_code_owner_review: true
+        dismiss_stale_reviews_on_push: true
+        require_last_push_approval: false
+        required_review_thread_resolution: false
+      required_status_checks:
+        required_status_checks:
+          - context: gate
+        strict_required_status_checks_policy: true
+      non_fast_forward: {}
+      deletion: {}
+
+# ── 刻意不宣告的東西,與其理由 ──
+#
+# **merge_queue**:需 org;`astroicers` 是個人帳號,不是 org。宣告一個結構上
+# 不可能生效的規則,比不宣告更糟——它會讓看板顯示「已設定」而實際上什麼都沒有。
+#
+# **required_signatures**:本 repo 現有的 commit 未全數簽章,開了會擋住既有
+# 工作流。要開的話先讓所有參與者設好簽章再單獨提一次 PR——那是一個決定,
+# 不該夾帶在 onboarding 裡。
+#
+# **megalinter 未列入 required_status_checks**:它在本 repo 目前是 skipping
+# (條件觸發)。把一個常態 skip 的檢查設為必要,PR 會永遠等不到它。
