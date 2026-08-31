@@ -1,0 +1,275 @@
+{
+  "title": "資安週報 2026/08/24 - 2026/08/30",
+  "report_id": "SEC-WEEKLY-2026-35",
+  "period": {
+    "start": "2026-08-24",
+    "end": "2026-08-30"
+  },
+  "publish_date": "2026-08-31",
+  "summary": {
+    "total_events": 6,
+    "total_vulnerabilities": 6,
+    "threat_level": "high"
+  },
+  "events": [
+    {
+      "title": "China-nexus APT 利用 VMware vCenter CVE-2026-59310（CVSS 9.8）部署 Babuk 衍生勒索軟體為煙霧彈，以 linuxFile 後門竊取 47 國資料",
+      "severity": "high",
+      "event_type": "APT 攻擊 / 勒索軟體部署",
+      "summary": "Broadcom 與德國事件應變公司 QUIRSO 揭露，一個具中國背景的 APT 組織自 2026 年 8 月 3 日起（Broadcom 7/29 修補發布後僅 5 天），積極利用 VMware vCenter Syslog 路徑穿越漏洞（CVE-2026-59310，CVSS 9.8）。QUIRSO 追蹤到 47 國共 361 個受影響 IP，目標橫跨科技、研究、教育及電信業。攻擊者利用 vCSA 遠端 syslog 功能，透過路徑穿越將惡意 cron 工作寫入 /etc/cron.d 而非日誌目錄，取得 vCenter Server Appliance（VCSA）的 root 層級存取權限，隨後植入名為「linuxFile」的自訂後門以建立持久存取。本週新確認的攻擊手法是部署 Babuk 衍生 ESXi 勒索軟體——Broadcom 研究評估此部署很可能是煙霧彈，目的在分散防禦者注意力並透過加密 ESXi 日誌阻礙事件調查，而非以勒索財務為主要動機。CISA 已於 8/18 將 CVE-2026-59310 列入 KEV，FCEB 機構修補截止已過。VMware vCenter 廣泛部署於台灣製造業、半導體廠商的虛擬化基礎設施，此漏洞對台灣科技供應鏈構成直接威脅。",
+      "source": "The Hacker News / QUIRSO GmbH / Broadcom Security",
+      "url": "https://thehackernews.com/2026/08/suspected-china-nexus-actor-exploits.html",
+      "date": "2026-08-25"
+    },
+    {
+      "title": "Gitea CVE-2026-60004（CVSS 9.8）遭積極利用植入挖礦載荷，CISA KEV 8/25 確認，FCEB 截止 8/28",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "8 月 25 日，CISA 將 Gitea 遠端程式碼執行漏洞（CVE-2026-60004，CVSS 9.8）列入已知被利用漏洞（KEV）目錄，確認攻擊已在野外發生，並要求 FCEB 機構於 8 月 28 日前完成修補。漏洞根本原因為 Gitea 的 diffpatch 端點允許具儲存庫寫入權限的已驗證用戶安裝並執行 Git hook——危險之處在於 Gitea 預設啟用開放式註冊，攻擊者只需自行建立帳號及儲存庫即可完成利用。確認的攻擊案例中，攻擊者在 Gitea 容器內以 git 用戶執行程式碼，先將 RCE 概念驗證寫回 Git 分支，再下載通用殼層載入器並植入類加密貨幣挖礦程式，在 CPU 資源上爭搶算力。Help Net Security 及 SOC Prime 均已記錄多起實際攻擊案例。修補版本為 Gitea 1.27.2，已開放自架版本的 Gitea 管理員應立即確認版本並評估伺服器是否已遭入侵。台灣科技業和學術研究機構若使用 Gitea 作為私有版本控制平台，面臨直接的程式碼倉庫入侵與供應鏈污染風險。",
+      "source": "Help Net Security / The Hacker News / CISA",
+      "url": "https://www.helpnetsecurity.com/2026/08/26/gitea-cve-2026-60004-exploited-in-the-wild/",
+      "date": "2026-08-25"
+    },
+    {
+      "title": "ServiceNow AI 平台三個 CVSS 10.0 漏洞同時披露（CVE-2026-18885、CVE-2026-18886、CVE-2026-74820），未驗證攻擊者可執行任意代碼及 SQL 注入",
+      "severity": "high",
+      "event_type": "漏洞揭露",
+      "summary": "8 月 25 日至 28 日，ServiceNow 揭露其 AI 平台存在三個 CVSS v4.0 達滿分 10.0 的嚴重漏洞。CVE-2026-18885 及 CVE-2026-18886 均為代碼注入漏洞，允許未驗證用戶在 ServiceNow 平台上執行任意程式碼並存取或修改實例資料；其中 CVE-2026-18886 可進一步導至權限提升。CVE-2026-74820 為嚴重 SQL 注入漏洞，允許未驗證攻擊者對底層資料庫執行任意 SQL 陳述式，可讀取或竄改 ServiceNow 儲存的所有業務資料。三個漏洞均可由無特權攻擊者在低複雜度條件下發動，且無需用戶互動。ServiceNow 已對其雲端託管平台完成修補，並建議使用 ServiceNow Now 平台的自架（on-premises）客戶立即套用修補。截至 8 月 28 日，ServiceNow 尚未通報已知的惡意利用案例，亦未列入 CISA KEV。ServiceNow 廣泛部署於全球大型企業的 ITSM（IT 服務管理）、HR 服務及工作流程自動化，平台存有大量員工資料、IT 基礎設施詳情及業務流程資料，一旦遭利用影響範圍極廣。台灣金融、製造及政府機關採用 ServiceNow 的組織應立即確認版本狀態並完成自架版本更新。",
+      "source": "The Hacker News / BleepingComputer / GBHackers",
+      "url": "https://thehackernews.com/2026/08/three-cvss-100-servicenow-flaws-could.html",
+      "date": "2026-08-26"
+    },
+    {
+      "title": "台灣連接線束大廠貿聯-KY 遭網路攻擊，8/24 發布重大訊息股價跌停，延遲三日公告引發透明度爭議",
+      "severity": "medium",
+      "event_type": "企業資安事件",
+      "summary": "8 月 24 日清晨，台灣上市連接線束大廠貿聯-KY（股票代號 3665）於股市公開資訊觀測站發布重大訊息，揭露公司於 8 月 21 日偵測到部分資訊系統遭受網路攻擊，已立即啟動資安應變機制，隔離受影響的資訊系統，並委請外部資安專家協助復原與調查。公司初步評估此次事件對整體營運及財務無重大影響。消息公告後，市場信心受衝擊，貿聯-KY 股價當日亮燈跌停，報 2,050 元。此事件引發爭議：公司早於 8 月 21 日（週五）即偵測到異常，卻延遲至 8 月 24 日（週一）開盤前才發布公告，三日的資訊落差引發市場對公司內部風控機制與資訊揭露透明度的質疑。貿聯-KY 為全球主要連接器及線束製造商，客戶涵蓋電動車、工業自動化及伺服器供應鏈等領域，製造業資訊系統遭攻擊恐影響生產排程及供應鏈交付。攻擊手法及後續調查結果尚未公布。",
+      "source": "iThome / Yahoo Finance 台灣 / 鉅亨網",
+      "url": "https://www.ithome.com.tw/news/178357",
+      "date": "2026-08-24"
+    },
+    {
+      "title": "CISA 8/26 一次新增六個 KEV，含 Citrix NetScaler CVE-2026-8452（CVSS 8.8）及 Linux 核心寫入漏洞，FCEB 截止 8/29",
+      "severity": "medium",
+      "event_type": "漏洞遭積極利用",
+      "summary": "8 月 26 日，CISA 一次新增六個漏洞至已知被利用漏洞（KEV）目錄，顯示多個平台已遭實際攻擊。本次列入的高嚴重度漏洞包括：Citrix NetScaler ADC 及 NetScaler Gateway 的記憶體溢位漏洞（CVE-2026-8452，CVSS 8.8），允許低權限認證攻擊者觸發記憶體損壞以執行任意程式碼，CISA 設定 FCEB 機構修補截止日為 8 月 29 日；以及 Linux 核心的寫入漏洞。其他列入的漏洞涵蓋兩個 Red Hat 平台的漏洞及 Ajax.NET 的安全缺陷。Citrix NetScaler 廣泛部署於企業應用交付控制（ADC）及 VPN 閘道，歷史上多次成為攻擊者的高價值目標。本週 KEV 新增總計六個漏洞反映了攻擊者在廣泛平台上的積極掃描與利用活動。台灣金融業、電信業及大型資料中心業者應確認所有 Citrix NetScaler 版本並立即套用修補。",
+      "source": "CISA / Infosecurity Magazine / Senserva",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/08/26/cisa-adds-six-known-exploited-vulnerabilities-catalog",
+      "date": "2026-08-26"
+    },
+    {
+      "title": "伊朗 Nimbus Manticore APT 新工具集曝光：TWOSTROKE 類後門及 SSH 隧道工具，擴大鎖定歐洲中東關鍵基礎設施（8/26）",
+      "severity": "medium",
+      "event_type": "威脅情報揭露",
+      "summary": "8 月 26 日，Group-IB 發布研究報告，揭露伊朗 APT 組織 Nimbus Manticore（又名 Tortoiseshell、Imperial Kitten、Smoke Sandstorm，歸因於伊朗革命衛隊相關行為者）的新工具集與基礎設施。研究人員發現跨越歐洲與中東的廣泛基礎設施，並識別出兩種新惡意元件：一個具備執行 Shell/檔案命令、上傳下載及偵察能力的 C++ 後門（與 TWOSTROKE 家族相似），以及一個 SSH 隧道工具，用於在受入侵網路中建立隱蔽通道。Nimbus Manticore 主要攻擊目標為國防、航太、IT 服務提供商及軍事組織，本次擴大至歐洲目標表明其行動範圍持續擴張。Group-IB 評估 Nimbus Manticore 為 2026 年最活躍的伊朗 APT 組織之一。攻擊者大量利用 Azure App Service 及 Cloudflare 作為基礎設施，借助合法雲端服務隱藏指揮控制（C2）流量。台灣國防相關研究機構及航太業者應留意此組織的擴張趨勢。",
+      "source": "Group-IB Blog / The Hacker News / SC Media",
+      "url": "https://thehackernews.com/2026/08/nimbus-manticore-expands-toolset-with.html",
+      "date": "2026-08-26"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-59310",
+      "title": "VMware vCenter Syslog 路徑穿越 → root RCE（CVSS 9.8，CISA KEV 8/18，China-nexus APT 積極利用，47 國 361 個 IP 受影響）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Broadcom (VMware)",
+      "product": "VMware vCenter Server（8.0 Update3j 及以前版本）、VMware Cloud Foundation、VMware Telco Cloud Platform（所有版本）",
+      "description": "VMware vCenter Server 的 Syslog 伺服器元件存在目錄穿越漏洞，具有網路存取能力的未驗證攻擊者可傳送含路徑穿越序列的惡意請求，逸出 Syslog 服務的預期目錄範圍，向 vCenter 服務帳號可控制的位置寫入可執行檔，隨即觸發程式碼執行。攻擊者藉此取得 vCenter Server Appliance（VCSA）的 root 層級控制，植入「linuxFile」後門並以惡意 cron 工作維持持久存取，另部署 Babuk 衍生 ESXi 勒索軟體作為煙霧彈以阻礙調查。Broadcom 已於 7/29 發布修補版本，必須更新至 vCenter 9.1.0.0300、9.0.2.0100、8.0 U3k 或 8.0 U2f；廠商確認無緩解措施，僅能透過更新解決。應稽核 vCenter 的 syslog 設定及 /etc/cron.d 目錄，確認無異常 cron 工作；並檢視過去 30 天的 vCenter 存取記錄及 ESXi 主機上的非預期程序。"
+    },
+    {
+      "cve_id": "CVE-2026-60004",
+      "title": "Gitea 遠端程式碼執行（CVSS 9.8，CISA KEV 8/25，積極利用中，FCEB 截止 8/28），具儲存庫寫入權限用戶可植入 Git hook 執行任意命令",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Gitea",
+      "product": "Gitea（1.27.2 以前所有版本）",
+      "description": "Gitea 的 diffpatch 端點允許具儲存庫寫入權限的已驗證用戶透過儲存庫控制的內容安裝並執行 Git hook。由於 Gitea 預設啟用開放式自行註冊，外部攻擊者可自行建立帳號與儲存庫後立即發動攻擊，實際上等同於未驗證 RCE。CISA 於 8/25 列入 KEV，確認已有實際攻擊案例，攻擊者以 git 用戶在容器內執行命令後下載並植入加密貨幣挖礦程式。修補版本為 Gitea 1.27.2，應立即升級。若 Gitea 不需對公眾開放，應停用開放式註冊（禁止自行建立帳號）；同時審查現有帳號的異常儲存庫建立活動及 Git hook 設定。"
+    },
+    {
+      "cve_id": "CVE-2026-18885",
+      "title": "ServiceNow AI 平台代碼注入（CVSS 10.0），未驗證攻擊者可執行任意程式碼並存取修改所有實例資料",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "ServiceNow",
+      "product": "ServiceNow Now 平台（2026 年 8 月修補前之自架版本）",
+      "description": "ServiceNow AI 平台存在代碼注入漏洞，允許未驗證攻擊者在低複雜度、無用戶互動的條件下，於 ServiceNow 平台上執行任意程式碼，取得對所有實例資料（包括 ITSM 工單、HR 資料、IT 基礎設施配置資訊等）的讀取及修改能力。ServiceNow 雲端版本已由廠商代為修補，無需用戶操作；自架版本管理員須立即套用修補。截至 8/28 ServiceNow 尚未通報已知利用案例。此漏洞與 CVE-2026-18886、CVE-2026-74820 同批披露，三者均達 CVSS 10.0，應視為同批次修補處理。"
+    },
+    {
+      "cve_id": "CVE-2026-18886",
+      "title": "ServiceNow AI 平台代碼注入權限提升（CVSS 10.0），未驗證攻擊者可建立或修改實例資料並提升至管理員",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "ServiceNow",
+      "product": "ServiceNow Now 平台（2026 年 8 月修補前之自架版本）",
+      "description": "此漏洞為 CVE-2026-18885 的配對漏洞，允許未驗證攻擊者不僅執行任意程式碼，更可建立或修改實例資料，導致在 ServiceNow 平台中將自身帳號或操作提升至管理員層級。兩個漏洞可串接利用，形成更完整的攻擊鏈。修補及緩解措施與 CVE-2026-18885 相同，應一並套用。"
+    },
+    {
+      "cve_id": "CVE-2026-74820",
+      "title": "ServiceNow AI 平台未驗證 SQL 注入（CVSS 10.0），攻擊者可對底層資料庫執行任意 SQL 陳述式",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "ServiceNow",
+      "product": "ServiceNow Now 平台（2026 年 8 月修補前之自架版本）",
+      "description": "ServiceNow AI 平台存在嚴重 SQL 注入漏洞，允許未驗證攻擊者對平台底層資料庫執行任意 SQL 陳述式，可讀取、修改或刪除資料庫中的任意資料，影響範圍包含所有 ServiceNow 管理的業務流程資料、員工資料及工作流程資料。ServiceNow 雲端版本已修補，自架版本需立即套用廠商修補。目前尚無已知利用案例，但 CVSS 10.0 的嚴重程度及攻擊複雜度低的特性，使此漏洞極具被優先利用的風險。"
+    },
+    {
+      "cve_id": "CVE-2026-8452",
+      "title": "Citrix NetScaler ADC/Gateway 記憶體溢位（CVSS 8.8，CISA KEV 8/26，FCEB 截止 8/29），低權限用戶可觸發記憶體損壞執行任意程式碼",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Citrix (Cloud Software Group)",
+      "product": "Citrix NetScaler ADC、NetScaler Gateway（受影響版本，6 月修補已發布）",
+      "description": "Citrix NetScaler ADC 及 NetScaler Gateway 存在記憶體溢位漏洞，允許具有低權限（已驗證）的攻擊者觸發記憶體損壞，進而執行任意程式碼。CISA 於 8/26 將其列入 KEV，確認已遭實際利用，並設定 FCEB 機構修補截止日為 8/29（僅三天）。Citrix 早於 6 月底即發布修補，未修補者距今已超過兩個月。Citrix NetScaler 是台灣金融業、電信業廣泛使用的應用交付控制器及 VPN 閘道，一旦遭入侵可作為存取後端業務系統的跳板。應立即確認 NetScaler 版本並套用修補；同時稽核近 30 天的管理操作記錄及異常設定變更。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢以「虛擬化基礎設施與 IT 管理平台成為首要攻擊目標」為主軸，並顯現三條值得注意的結構性趨勢。「漏洞修補後的超短利用窗口」本週再次驗證：VMware vCenter CVE-2026-59310 在 Broadcom 發布修補後僅 5 天即遭積極利用，攻擊者對公開的 CVSS 9.8 漏洞的偵察和武器化速度已壓縮至一週以內，遠低於多數企業的修補週期。「勒索軟體作為戰略煙霧彈」是本週最具認知顛覆性的觀察：China-nexus APT 在 vCenter 攻擊中部署 Babuk 衍生勒索軟體，研究人員評估其主要目的不是加密勒索，而是透過加密 ESXi 日誌阻礙取證分析，並分散防禦者對真正的後門（linuxFile）的注意——這意味著企業在面對勒索軟體攻擊時，必須同時調查是否存在更深層的持久存取，而非僅聚焦在加密復原。「CVSS 10.0 漏洞的集中披露壓力」本週亦極為突出：ServiceNow AI 平台三個滿分漏洞同批披露，疊加現有的 VMware vCenter、Gitea 積極利用態勢，使本週的修補優先排程壓力高於過去四週平均。台灣方面，貿聯-KY 事件是今年台灣上市製造業第三起公告的網路攻擊重大訊息，反映製造業 OT/IT 整合環境仍是攻擊者偏好的目標，而延遲公告爭議也再次引發台灣主管機關對資安事件揭露時效規範的關注。",
+    "active_actors": [
+      {
+        "name": "China-nexus APT（未具名，UTC+08:00 時區，QUIRSO 中等信心度歸因）",
+        "type": "國家級威脅行為者（APT）",
+        "activity": "積極利用 VMware vCenter CVE-2026-59310 路徑穿越漏洞在全球 47 國 361 個目標部署 linuxFile 後門，以 Babuk 衍生 ESXi 勒索軟體作為煙霧彈阻礙取證。主要目標為科技、研究、教育及電信業，與中國國家利益情報竊取模式一致。"
+      },
+      {
+        "name": "Nimbus Manticore（伊朗，又名 Tortoiseshell、Imperial Kitten、Smoke Sandstorm，歸因伊朗革命衛隊）",
+        "type": "國家級威脅行為者（APT）",
+        "activity": "Group-IB 8/26 揭露新工具集：TWOSTROKE 類 C++ 後門（可執行 Shell 命令、上傳下載、偵察）及 SSH 隧道工具。持續擴大針對歐洲與中東國防、航太、IT 服務業的間諜活動，基礎設施大量濫用 Azure App Service 及 Cloudflare 隱藏 C2 流量。"
+      },
+      {
+        "name": "加密貨幣挖礦威脅行為者（財務動機，匿名）",
+        "type": "財務動機威脅行為者",
+        "activity": "積極掃描並利用 Gitea CVE-2026-60004（CVSS 9.8）RCE 漏洞，以 Gitea 容器的 git 用戶權限執行任意命令，部署加密貨幣挖礦程式佔用 CPU 算力。攻擊目標為所有未修補的公開可及 Gitea 實例。"
+      }
+    ],
+    "attack_techniques": [
+      "VMware vCenter Syslog 路徑穿越（CVE-2026-59310）：惡意請求逸出 Syslog 目錄限制，直接在 /etc/cron.d 植入後門，取得 VCSA root 控制，並以 Babuk 勒索軟體加密日誌阻礙取證",
+      "Gitea diffpatch 端點 Git hook 劫持（CVE-2026-60004）：透過儲存庫寫入權限安裝可執行 Git hook，在 Gitea 服務帳號上下文執行任意命令，植入加密貨幣挖礦程式",
+      "ServiceNow 代碼注入/SQL 注入三漏洞串鏈（CVE-2026-18885/18886/74820，CVSS 10.0）：未驗證攻擊者可在 IT 服務管理平台執行任意程式碼及資料庫操作，取得業務資料完整存取",
+      "Citrix NetScaler 記憶體溢位（CVE-2026-8452，CVSS 8.8）：低權限已驗證攻擊者觸發記憶體損壞執行任意程式碼，取得應用交付控制器及 VPN 閘道控制",
+      "Nimbus Manticore 偽工作誘餌社交工程配合自訂後門：假徵才信息誘騙目標下載 TWOSTROKE 類 C++ 後門，配合 SSH 隧道工具在受害網路建立隱蔽持久存取"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即修補 VMware vCenter CVE-2026-59310（CVSS 9.8，CISA KEV 8/18，China-nexus APT 積極利用中）：（1）確認所有 vCenter 版本，立即更新至 vCenter 9.1.0.0300、9.0.2.0100、8.0 U3k 或 8.0 U2f，廠商確認無緩解措施；（2）稽核 /etc/cron.d 目錄，確認無非預期的 cron 工作（特別是名稱包含「linuxFile」或具可疑內容的項目）；（3）檢視 vCenter Syslog 設定，確認 syslog 目的地設定未被竄改；（4）審查過去 30 天 vCenter 的外部連線記錄，搜尋來自非預期 IP 的存取；（5）對 ESXi 主機進行完整性核查，確認是否存在非預期的後門或排程工作；（6）若確認受損，應假設 vCenter 管理的所有 ESXi 主機均已遭入侵，進行全面取證調查。"
+    },
+    {
+      "priority": "high",
+      "action": "立即升級 Gitea 至 1.27.2 並評估是否已遭入侵（CVE-2026-60004，CVSS 9.8，CISA KEV 8/25，FCEB 截止 8/28）：（1）確認所有 Gitea 實例版本，升級至 1.27.2；（2）若暫時無法升級，立即停用開放式自行註冊功能，或將存取限制至信任網路；（3）稽核所有儲存庫的 Git hook 設定（.git/hooks/ 目錄），搜尋非預期的可執行 hook 腳本；（4）檢視 Gitea 容器/服務的程序記錄，搜尋以 git 用戶執行的非預期外部連線或下載行為；（5）確認 CPU 使用率，若有異常高值應優先排查加密貨幣挖礦程式。"
+    },
+    {
+      "priority": "high",
+      "action": "修補 ServiceNow 自架版本三個 CVSS 10.0 漏洞（CVE-2026-18885、CVE-2026-18886、CVE-2026-74820）：（1）ServiceNow 雲端版本用戶由廠商代為修補，無需操作，但應確認應用程式版本已升至修補版本；（2）ServiceNow 自架版本管理員立即套用廠商發布的安全修補；（3）修補後稽核 ServiceNow 存取記錄，確認修補前是否有針對未授權端點的異常存取嘗試；（4）確認 ServiceNow 實例的網路存取是否限制至信任來源 IP，降低未驗證攻擊者的暴露面；（5）評估 ServiceNow 中儲存的敏感業務資料範圍，為潛在的資料外洩準備應變預案。"
+    },
+    {
+      "priority": "high",
+      "action": "立即修補 Citrix NetScaler CVE-2026-8452（CVSS 8.8，CISA KEV 8/26，FCEB 截止 8/29）：（1）確認所有 Citrix NetScaler ADC 及 NetScaler Gateway 版本，套用廠商 6 月已發布的修補版本；（2）透過防火牆限制 NetScaler 管理介面的存取來源 IP，至少排除所有網際網路直接存取；（3）稽核 NetScaler 的管理操作記錄，搜尋近期異常的命令執行或設定變更；（4）確認 NetScaler 後端連線的業務系統是否存在非預期的新連線或服務啟動，排除已被用作橫向移動跳板的可能性。"
+    },
+    {
+      "priority": "medium",
+      "action": "貿聯-KY 事件啟示：製造業應建立即時資安事件揭露流程，同時強化 IT/OT 邊界防護：（1）參考貿聯-KY 延遲公告爭議，確認企業資安事件應變計畫已包含「發現異常後 24 小時內完成初步研判並準備揭露評估」的程序，符合主管機關資訊安全相關規範；（2）對製造業 OT（操作技術）與 IT 的整合介面進行風險評估，特別是生產排程系統、ERP 與工廠自動化系統的橫向連接點；（3）委請外部資安廠商進行年度滲透測試，驗證當前防護架構在攻擊者進入 IT 後是否能有效阻止進入 OT 環境；（4）確認企業的資安應變計畫包含「偵測到攻擊後立即隔離受影響系統」的標準作業程序（SOP）。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "路徑穿越（Path Traversal）",
+      "definition": "攻擊者透過在檔案路徑中插入 ../ 等序列，逸出應用程式預期的目錄邊界，存取或寫入系統中任意位置的漏洞類型",
+      "url": "https://glossary.astroicers.link/glossary/path_traversal"
+    },
+    {
+      "term": "Git hook",
+      "definition": "在 Git 特定操作（如 commit、push）前後自動執行的腳本，若被攻擊者植入惡意腳本可在所有對應 Git 操作時執行任意命令",
+      "url": "https://glossary.astroicers.link/glossary/git_hook"
+    },
+    {
+      "term": "代碼注入（Code Injection）",
+      "definition": "攻擊者將惡意程式碼注入應用程式並使其執行的漏洞，通常因應用程式未充分驗證輸入內容所致",
+      "url": "https://glossary.astroicers.link/glossary/code_injection"
+    },
+    {
+      "term": "應用交付控制器（ADC）",
+      "definition": "部署於應用伺服器前端的網路設備，提供負載均衡、SSL 卸載、應用加速及安全功能，Citrix NetScaler 為代表產品",
+      "url": "https://glossary.astroicers.link/glossary/adc"
+    },
+    {
+      "term": "煙霧彈（Smokescreen / False Flag）",
+      "definition": "攻擊者刻意製造明顯的干擾活動（如部署勒索軟體），以轉移防禦者注意力，掩護真正目的的攻擊手法",
+      "url": "https://glossary.astroicers.link/glossary/smokescreen"
+    },
+    {
+      "term": "ITSM（IT 服務管理）",
+      "definition": "管理 IT 服務生命週期的方法論與平台，ServiceNow 為代表產品，通常儲存大量員工資料、IT 資產清單及業務流程資訊",
+      "url": "https://glossary.astroicers.link/glossary/itsm"
+    },
+    {
+      "term": "重大訊息（Material Information Disclosure）",
+      "definition": "上市公司依法規須即時揭露、可能影響投資人決策的重要資訊，台灣上市公司資安事件達一定規模須於股市公開資訊觀測站公告",
+      "url": "https://glossary.astroicers.link/glossary/material_disclosure"
+    },
+    {
+      "term": "SSH 隧道（SSH Tunneling）",
+      "definition": "利用 SSH 協定的加密特性建立隱蔽的通訊通道，攻擊者常用以在受入侵網路中建立持久的加密後門連線",
+      "url": "https://glossary.astroicers.link/glossary/ssh_tunnel"
+    }
+  ],
+  "references": [
+    {
+      "title": "Suspected China-Nexus Actor Exploits VMware vCenter Flaw, Deploys Babuk-Derived Ransomware - The Hacker News",
+      "url": "https://thehackernews.com/2026/08/suspected-china-nexus-actor-exploits.html"
+    },
+    {
+      "title": "Global Exploitation of CVE-2026-59310 by Suspected Chinese-Nexus APT - QUIRSO GmbH Medium",
+      "url": "https://medium.com/@quirso_de/global-exploitation-of-cve-2026-59310-by-suspected-chinese-nexus-apt-related-cve-2026-59309-443a79e1466d"
+    },
+    {
+      "title": "CISA Warns of VMware vCenter Path Traversal Vulnerability Actively Exploited in Attacks - CybersecurityNews",
+      "url": "https://cybersecuritynews.com/vmware-vcenter-path-traversal-vulnerability-exploited/"
+    },
+    {
+      "title": "Attackers Exploit VMware vCenter Vulnerability to Gain Persistent Remote Access - The Hacker News",
+      "url": "https://thehackernews.com/2026/08/attackers-exploit-vmware-vcenter.html"
+    },
+    {
+      "title": "Critical Gitea RCE Actively Exploited as Reported Attack Drops Miner-Like Payload - The Hacker News",
+      "url": "https://thehackernews.com/2026/08/critical-gitea-rce-actively-exploited.html"
+    },
+    {
+      "title": "Critical Gitea vulnerability now exploited in the wild (CVE-2026-60004) - Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/08/26/gitea-cve-2026-60004-exploited-in-the-wild/"
+    },
+    {
+      "title": "Three CVSS 10.0 ServiceNow Flaws Could Let Unauthenticated Attackers Execute Code and SQL - The Hacker News",
+      "url": "https://thehackernews.com/2026/08/three-cvss-100-servicenow-flaws-could.html"
+    },
+    {
+      "title": "ServiceNow warns of three max severity security vulnerabilities - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/servicenow-warns-of-three-max-severity-security-vulnerabilities/"
+    },
+    {
+      "title": "貿聯部分資訊系統遭網路攻擊，已啟動資安應變及隔離措施 - iThome",
+      "url": "https://www.ithome.com.tw/news/178357"
+    },
+    {
+      "title": "CISA Adds Six Known Exploited Vulnerabilities to Catalog - CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/08/26/cisa-adds-six-known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "CISA Warns of Six Exploited Flaws in Microsoft, Linux and Citrix - Infosecurity Magazine",
+      "url": "https://www.infosecurity-magazine.com/news/cisa-kev-microsoft-citrix/"
+    },
+    {
+      "title": "Nimbus Manticore Expands Toolset With TWOSTROKE-Like Backdoor and SSH Tunneler - The Hacker News",
+      "url": "https://thehackernews.com/2026/08/nimbus-manticore-expands-toolset-with.html"
+    },
+    {
+      "title": "Tortoiseshell: New Toolset and Operational Infrastructure Exposed - Group-IB Blog",
+      "url": "https://www.group-ib.com/blog/tortoiseshell-apt-toolset-infrastructure/"
+    },
+    {
+      "title": "Known Exploited Vulnerabilities Catalog - CISA",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}
