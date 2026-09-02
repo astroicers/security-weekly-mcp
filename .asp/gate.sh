@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ⚠️ 由 `asp render gate` 產生 — 勿手改(單一事實源:asp-gate.yaml)
-# source sha256: 7cd45c24767e09ac1c79365ec37df60694c7f455dfd919939576001e89d02485
-# gate 子集:lint, gitleaks, commit-format
+# source sha256: 2d0071e3a1c0440d6b40ad1c6bacf77470d11a90b6f7cd5dfb76d0c8773e5f91
+# gate 子集:lint, gitleaks, commit-format, render-drift, vendor-verify
 set -u
 STRICT="${ASP_GATE_STRICT:-0}"
 WARNINGS=0
@@ -16,9 +16,16 @@ run_check() {  # id severity required_bin cmd...
     fi
     skip "$id" "工具未安裝:$req(vendoring 由 P2 base image 落地)"; return 0
   fi
-  if "$@" >/dev/null 2>&1; then
+  # 輸出捕捉後透傳(issue #33):失敗必印診斷。skip 契約 = exit 200
+  # (ASP 自有檢查專用,與輸出內容無關——對雜訊雙向免疫,QA 輪裁定)
+  local out rc
+  out="$("$@" 2>&1)"; rc=$?
+  if [ "$rc" -eq 200 ]; then
+    [ -n "$out" ] && printf "%s\n" "$out" || skip "$id" "子檢查自報跳過"
+  elif [ "$rc" -eq 0 ]; then
     echo "✅ $id"
   else
+    [ -n "$out" ] && printf "%s\n" "$out"
     case "$sev" in
       blocker) echo "❌ BLOCKER $id"; exit 1 ;;
       warning) echo "⚠️  $id(warning)"; WARNINGS=$((WARNINGS+1)) ;;
@@ -34,6 +41,16 @@ if [ -z "$(git log -1 --no-merges --format=%s 2>/dev/null)" ]; then
   skip 'commit-format' '無非 merge commit 可驗(淺 clone)'
 else
   run_check 'commit-format' blocker git bash -c 'git log -1 --no-merges --format=%s | grep -qE "^(feat|fix|docs|refactor|test|chore|report|ci)(\([a-z0-9-]+\))?: .+"'
+fi
+if [ -f "${ASP_GATE_HOME:-.}/.asp/checks/render-drift.sh" ]; then
+  run_check 'render-drift' blocker bash bash "${ASP_GATE_HOME:-.}/.asp/checks/render-drift.sh"
+else
+  skip 'render-drift' '檢查腳本未落地(.asp/checks/render-drift.sh)'
+fi
+if [ -f "${ASP_GATE_HOME:-.}/.asp/checks/vendor-verify.sh" ]; then
+  run_check 'vendor-verify' blocker bash bash "${ASP_GATE_HOME:-.}/.asp/checks/vendor-verify.sh"
+else
+  skip 'vendor-verify' '檢查腳本未落地(.asp/checks/vendor-verify.sh)'
 fi
 
 echo "gate 通過(warnings=$WARNINGS)"

@@ -1,0 +1,6 @@
+# .asp/checks/VENDOR.lock — vendored 檢查本體來源記錄(asp-ng issue #43)
+# 格式:<檔名> <上游 repo> <上游路徑> <sha256>
+# 更新方式:自上游重新 vendoring 後以 sha256sum 更新對應列;勿就地改檔。
+# 註:.asp/gate.sh 等渲染物不列此處——它們由 render-drift 以 source sha256 對帳。
+render-drift.sh astroicers/asp-ng .asp/checks/render-drift.sh 12191096bb68a5f46f6dd4b865ad98d3c5f21b1a73600963ef33c1256489c7bd
+vendor-verify.sh astroicers/asp-ng .asp/checks/vendor-verify.sh b3e0e175f2992f82f1f4f8081937e382cada4b6b47dafbedd3e38d67ec549432

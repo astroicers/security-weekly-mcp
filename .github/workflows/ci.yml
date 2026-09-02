@@ -2,16 +2,16 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [develop, main]
   pull_request:
-    branches: [main]
+    branches: [develop, main]
 
 env:
   UV_CACHE_DIR: /tmp/.uv-cache
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, swm-pr]  # 額度罄搬自架(2026-08-20);無 docker 面
     strategy:
       matrix:
         python-version: ["3.11", "3.12", "3.13"]
@@ -56,7 +56,7 @@ jobs:
             "from security_weekly_mcp.server import app; print(f'MCP Server: {app.name}')"
 
   lint:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, swm-pr]  # 額度罄搬自架(2026-08-20);無 docker 面
     steps:
       - uses: actions/checkout@v4
         with:
@@ -75,7 +75,7 @@ jobs:
         run: uv run ruff format --check packages/mcp-server/
 
   security:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, swm-pr]  # 額度罄搬自架(2026-08-20);無 docker 面
     steps:
       - uses: actions/checkout@v4
         with:

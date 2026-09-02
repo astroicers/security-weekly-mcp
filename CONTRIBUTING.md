@@ -80,16 +80,10 @@ uv run ruff format --check packages/
 
 ```bash
 git add .
-git commit -m "feat: add your feature description"
+git commit -m "feat: 新增你的功能描述"
 ```
 
-提交訊息格式：
-- `feat:` - 新功能
-- `fix:` - Bug 修復
-- `docs:` - 文件更新
-- `test:` - 測試相關
-- `refactor:` - 重構
-- `chore:` - 雜項維護
+提交訊息遵循 Conventional Commits，允許的型別清單與範例見 [AGENTS.md「分支與提交」](AGENTS.md#分支與提交)（單一事實源為 `asp-gate.yaml` 的 `commit-format` 檢查，本檔不另列一份清單以免漂移）。
 
 ### 6. 建立 Pull Request
 
