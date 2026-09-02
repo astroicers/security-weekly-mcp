@@ -8,7 +8,7 @@ MCP Server 架構的資安週報與術語庫管理系統，專為台灣資安社
 - **兩階段週報架構** - GitHub Actions 保存原始資料，Claude 分析產生高品質報告
 - **WebSearch/WebFetch 整合** - 透過 Claude Code 補充 RSS 無法取得的資訊
 - **歷史週報支援** - 可產生任意時間範圍的歷史報告
-- **術語庫整合** - 自動提取並標註資安術語 (471 個術語)
+- **術語庫整合** - 自動提取並標註資安術語(規模見 [`packages/glossary`](packages/glossary))
 - **術語審核工具** - 批准/拒絕待審術語的完整工作流程
 - **HTML 週報** - 透過 GitHub Pages 發布的線上週報
 - **安全審計** - CI 整合 pip-audit 自動檢測依賴漏洞
@@ -19,7 +19,7 @@ MCP Server 架構的資安週報與術語庫管理系統，專為台灣資安社
 ### 1. 安裝依賴
 
 ```bash
-git clone --recursive https://github.com/your-repo/security-weekly-mcp.git
+git clone --recursive https://github.com/astroicers/security-weekly-mcp.git
 cd security-weekly-mcp
 uv sync
 ```
@@ -32,7 +32,7 @@ uv sync
 {
   "mcpServers": {
     "security-weekly-tw": {
-      "command": "/home/ubuntu/.local/bin/uv",
+      "command": "uv",
       "args": [
         "run",
         "--directory",
@@ -435,6 +435,11 @@ ln -s /path/to/security-weekly-mcp/skill ~/.claude/skills/security-weekly-tw
 ```
 
 ---
+
+## 回報與維護
+
+- 問題與建議 → [GitHub Issues](https://github.com/astroicers/security-weekly-mcp/issues)
+- 維護者:[@astroicers](https://github.com/astroicers)
 
 ## 授權
 
