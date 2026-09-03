@@ -1,0 +1,320 @@
+{
+  "title": "資安週報 2026/08/24 - 2026/08/30",
+  "report_id": "SEC-WEEKLY-2026-35",
+  "period": {
+    "start": "2026-08-24",
+    "end": "2026-08-30"
+  },
+  "publish_date": "2026-08-31",
+  "summary": {
+    "total_events": 7,
+    "total_vulnerabilities": 6,
+    "threat_level": "high"
+  },
+  "events": [
+    {
+      "title": "APT24 再度入侵台灣廣告供應鏈，新聞網站太報與小說狂人遭植入 BadAudio，約 8 萬次點擊中 76% 受害者來自台灣",
+      "severity": "high",
+      "event_type": "國家級供應鏈攻擊",
+      "summary": "Google 威脅情報小組追蹤的中國駭客組織 APT24 於 8 月 27 日再度被 iThome 及資安人揭露，以台灣某數位行銷業者為跳板，對採用其廣告聯播服務的知名網站發動水坑攻擊。此次攻擊目標為台灣新聞媒體太報（Taisounds）及小說平台小說狂人（CZBooks）。攻擊者在廣告商廣告程式碼中植入混淆的惡意 JavaScript「FingerprintJS2」，向造訪網站的 Windows 使用者收集瀏覽器指紋，透過隱蔽的 Beacon 通訊將指紋資料回傳至攻擊者控制的分析伺服器 analytics.czbook[.]org，再對符合特定條件的目標投放 BadAudio 惡意程式酬載。根據研究人員統計，本次攻擊共偵測到約 80,000 次惡意廣告點擊，其中 76% 源自台灣本地，其餘主要為海外台灣僑民社群。APT24 自 2022 年起即多次入侵同一家台灣數位行銷業者的供應鏈，顯示攻擊者對台灣廣告生態系的持續滲透意圖，以及台灣廣告中間層業者遭重複入侵而未能有效根除後門的深層問題。任何採用受影響廣告聯播服務的台灣網站，均可能在不知情的情況下成為供應鏈攻擊的中繼站。",
+      "source": "iThome 資安日報 8/27 / 資安人 / Google Threat Intelligence",
+      "url": "https://www.ithome.com.tw/news/178472",
+      "date": "2026-08-27"
+    },
+    {
+      "title": "貿聯-KY 8/21 偵測系統遭網路入侵、8/24 公告後股價跌停，延遲揭露引發市場透明度質疑",
+      "severity": "high",
+      "event_type": "台灣企業資安事件",
+      "summary": "台灣連接器及電源管理元件廠商貿聯-KY（股票代號 3665）於 8 月 24 日開盤前發布重大訊息，公告公司於 8 月 21 日（星期五）偵測到部分資訊系統遭受網路安全入侵，已立即啟動資安應變機制、隔離受影響系統，並聘請外部資安專家協助調查與復原。公司初步評估認為此事件對整體營運及財務無重大影響，但尚未公開說明攻擊類型、受影響系統範圍及潛在資料外洩情形。消息公告後，市場信心受損，當日股價跌停至 2,050 元。市場投資人與媒體對公司從 8 月 21 日偵測異常到 8 月 24 日公告的三天延遲提出質疑，認為可能觸及重大訊息即時揭露義務，凸顯台灣上市企業在資安事件揭露時程與透明度方面的監理灰色地帶。貿聯-KY 為台灣高科技製造業的代表性廠商，客戶涵蓋 AI 資料中心及半導體設備領域，供應鏈連動影響值得持續關注。",
+      "source": "iThome 資安 / Yahoo 財經 / 民視財經 / 壹蘋新聞",
+      "url": "https://www.ithome.com.tw/news/178357",
+      "date": "2026-08-24"
+    },
+    {
+      "title": "中國 UNC5174 以 SNOWLIGHT 下載器利用 Oracle CVE-2026-21962（CVSS 10.0）攻擊 100 國以上政府與商業基礎設施，CISA KEV 8/24 列入",
+      "severity": "high",
+      "event_type": "國家級 APT 攻擊",
+      "summary": "CISA 於 8 月 24 日將 Oracle HTTP Server 及 Oracle WebLogic Server Proxy Plug-in 的最高危漏洞 CVE-2026-21962（CVSS 10.0）列入 KEV，要求聯邦民事機構於 8 月 27 日前完成修補。此漏洞允許未驗證攻擊者僅需透過 HTTP 網路存取，即可取得 Oracle HTTP Server 及 WebLogic Server 的關鍵資料存取權限或對其進行改動，無需任何憑證或使用者互動。儘管 Oracle 早在 2026 年 1 月 CPU 更新中已發布修補，研究機構 CloudSEK 的蜜罐在漏洞公開 PoC 後 12 天內記錄了超過 14 萬次攻擊嘗試，源自 21 個國家。最值得警惕的是，安全公司 SOCRadar 及 Google 研究人員確認，與中國國家安全部承包商相關的威脅行為者 UNC5174 已將 CVE-2026-21962 整合入涵蓋 11 個不同漏洞利用鏈的工具集，配合 GoCobaltStrike（中國 Cobalt Strike 破解版）及 SNOWLIGHT 下載器，對 100 個以上國家的政府與商業基礎設施發動大規模網路間諜攻擊，目標高度集中在台灣地區。台灣政府機關、金融機構及大型企業若仍部署未更新的 Oracle HTTP Server 或 WebLogic，應立即套用 1 月 CPU 修補。",
+      "source": "The Hacker News / SecurityWeek / SOCRadar / TechTimes / CISA",
+      "url": "https://www.securityweek.com/cisa-warns-of-exploited-oracle-weblogic-vulnerability/",
+      "date": "2026-08-24"
+    },
+    {
+      "title": "Citrix NetScaler CVE-2026-8452 確認可達 pre-auth RCE（原廠僅宣稱 DoS），CISA KEV 8/26 列入，FCEB 截止 8/29",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "8 月 26 日，CISA 將 Citrix NetScaler ADC 及 NetScaler Gateway 的 CVE-2026-8452 列入 KEV，同時資安研究機構 watchTowr 公布技術分析，揭示此漏洞的實際危害遠超 Citrix 原廠宣稱的範疇。Citrix 在 6 月修補公告中僅說明攻擊者可利用此漏洞執行拒絕服務攻擊，但 watchTowr 於 8 月證明，在設定 Gateway VPN 或 AAA（驗證、授權、稽核）虛擬伺服器的 NetScaler 設備上，成功利用此記憶體溢位漏洞可達成以 root 身份執行任意程式碼，完全不需任何身份憑證或使用者互動。防禦方已在受駭設備上發現 Web Shell 及後攻擊偵察活動，確認攻擊者正以規模化方式掃描並入侵未修補的 NetScaler 設備。受影響版本為 NetScaler ADC/Gateway 14.1（早於 73.32）及 13.1（早於 63.21）。CISA 要求聯邦機構於 8 月 29 日前完成修補。Citrix NetScaler ADC/Gateway 廣泛部署於台灣企業的網路邊界及遠端存取閘道，應立即確認版本並升級至已修補版本。",
+      "source": "SecurityWeek / Help Net Security / CISA / watchTowr / BleepingComputer",
+      "url": "https://www.helpnetsecurity.com/2026/08/27/netscaler-adc-gateway-cve-2026-8452/",
+      "date": "2026-08-27"
+    },
+    {
+      "title": "PaperCut NG/MF 零日漏洞鏈（CVE-2026-82078 + CVE-2026-81578）遭積極利用，組合可達 pre-auth RCE，緊急修補發布 48 小時後首版被繞過",
+      "severity": "high",
+      "event_type": "零日漏洞積極利用",
+      "summary": "PaperCut Software 於 8 月 27 日緊急揭露兩個零日漏洞，確認已有客戶確認遭受實際攻擊。CVE-2026-81578（CVSS 8.8）為 PaperCut NG 及 PaperCut MF 網頁管理介面的不當存取控制漏洞，允許未驗證遠端攻擊者修改系統設定；CVE-2026-82078（CVSS 9.4）為資料庫連線工具中的不安全動態類別載入缺陷，可導致任意 Java 程式碼執行。兩個漏洞串連使用，可達成完整的 pre-authentication 遠端程式碼執行攻擊鏈，毋須任何憑證或使用者互動，影響 PaperCut NG 及 PaperCut MF 版本 24、25、26。PaperCut 於 8 月 28 日（澳洲東部時間凌晨 2:10）發布緊急修補，但 48 小時後確認首版修補可被繞過，隨即發布第二版修補方能完整封閉漏洞。CISA 於 8 月 31 日將兩個 CVE 列入 KEV。PaperCut 廣泛用於企業及教育機構的列印管理，台灣大學校園及大型企業應立即確認版本並套用最新修補，未能立即修補者應將 PaperCut 應用伺服器的網路存取限制為僅允許受信任 IP。",
+      "source": "Rapid7 / Help Net Security / SecurityWeek / eSentire / Qualys / CISA",
+      "url": "https://www.rapid7.com/blog/post/etr-papercut-ng-mf-critical-zero-day-exploited-in-the-wild/",
+      "date": "2026-08-27"
+    },
+    {
+      "title": "Nevada 州政府 60 餘機構遭勒索軟體癱瘓，根因為員工遭 SEO 毒化下載惡意 IT 工具，復原耗時 28 天、花費 150 萬美元",
+      "severity": "medium",
+      "event_type": "勒索軟體攻擊",
+      "summary": "8 月 24 日，勒索軟體攻擊導致美國內華達州政府系統大規模停擺，受影響機構超過 60 個，包含機動車輛局（DMV）、衛生與公共服務部、公共安全部，全州網站、電話服務及臨場服務均告中斷，僅 911 緊急通報及薪資系統維持運作。事後調查揭露，攻擊起源於 5 月 14 日，一名員工透過遭 SEO 毒化廣告推廣的假冒網站，下載了含有惡意程式的系統管理工具。攻擊者潛伏三個多月，在網路內橫向移動、竊取 26 個帳戶憑證、刪除備份磁碟區並加密虛擬機器，直到 20 分鐘後州長技術辦公室發現全州中斷才被察覺。調查顯示約 26,408 個檔案遭存取，3,241 個疑備準備外洩，但無明確證據確認資料已成功外傳。內華達州拒絕支付贖金，歷時 28 天恢復約 90% 受影響資料，共需外部支援費用 131 萬美元及員工加班費 21 萬美元以上。此案凸顯 SEO 毒化攻擊（透過付費廣告抬升惡意網站排名）作為勒索軟體初始入侵媒介的隱蔽性，以及政府機關在備份隔離與特權帳戶管理上的典型不足。",
+      "source": "Cybersecurity Dive / StateScoop / The Nevada Independent / Paubox",
+      "url": "https://www.cybersecuritydive.com/news/nevada-ransomware-attack-traced-back-to-malware-download-by-employee/805011/",
+      "date": "2026-08-24"
+    },
+    {
+      "title": "群光電子 8/30 偵測資安事件系統已隔離；OpenSSL 修補 9 個漏洞含 QUIC double-free DoS 及 CMS 堆疊越界寫入",
+      "severity": "medium",
+      "event_type": "台灣企業事件 / 修補程式發布",
+      "summary": "台灣電腦零組件製造商群光電子（Compucase）於 8 月 30 日偵測到網路安全事件，事件影響範圍局限於部分電腦網路，公司已立即隔離受影響系統並引入外部資安專家協助調查。初步評估顯示無個人或機密資料外洩，整體營運不受影響。群光電子為繼上週貿聯-KY 後，本週台灣第二家公開披露資安事件的製造業廠商，顯示台灣製造業近期持續承受網路攻擊壓力。與此同時，OpenSSL 於 8 月 28 日發布安全更新，修補影響版本 4.0、3.6、3.5、3.4 及 3.0 的 9 個漏洞，其中最值得關注的是 CVE-2026-18798（QUIC 伺服器堆疊 double-free），攻擊者可發送畸形 QUIC INITIAL 封包（Destination Connection ID 短於 8 bytes），觸發通道建立失敗後對同一 QRX 接收物件的兩次釋放，損壞堆積記憶體並導致伺服器程序終止（DoS）；遠端程式碼執行機率極低，但誘發條件相對容易。CVE-2026-63072 為 CMS_decrypt() 在 CMS 金鑰解包時的確定性 8 bytes 越界堆疊寫入缺陷，同樣可能導致 DoS。任何部署 OpenSSL QUIC 的企業（包含使用 QUIC 的 Web 伺服器及通訊系統）應盡快套用更新。",
+      "source": "CyberPress / iThome 資安日報 8/28 / Hendryadrian.com",
+      "url": "https://cyberpress.org/openssl-patches-nine-vulnerabilities/",
+      "date": "2026-08-28"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-21962",
+      "title": "Oracle HTTP Server / WebLogic Server Proxy 不當存取控制（CVSS 10.0，中國 UNC5174 積極利用，CISA KEV 8/24，FCEB 截止 8/27，100+ 國家受害）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "Oracle",
+      "product": "Oracle HTTP Server（含 WebLogic Server Proxy Plug-in for Apache HTTP Server 及 Microsoft IIS）",
+      "description": "CVE-2026-21962 是 Oracle HTTP Server 及 Oracle WebLogic Server Proxy Plug-in 中的不當存取控制漏洞（CVSS 10.0），允許未驗證攻擊者僅需透過 HTTP 網路連線，即可存取或改動 Oracle HTTP Server 及 WebLogic Server 中的關鍵資料，毋須任何憑證或使用者互動。Oracle 已於 2026 年 1 月 CPU 更新修補，但眾多企業未完成修補。中國 MSS 承包商 UNC5174 將此漏洞整合於 11 個漏洞利用鏈工具集中，配合 SNOWLIGHT 下載器及 GoCobaltStrike 對 100+ 國家政府及商業基礎設施發動大規模網路間諜攻擊。CloudSEK 蜜罐在 PoC 公開後 12 天內記錄超過 14 萬次攻擊嘗試。CISA 8/24 列入 KEV，FCEB 截止 8/27。應立即套用 2026 年 1 月 Oracle CPU 修補，並稽核過去 90 天 Oracle HTTP Server 的非預期存取記錄。"
+    },
+    {
+      "cve_id": "CVE-2026-82078",
+      "title": "PaperCut NG/MF 資料庫連線工具不安全動態類別載入（CVSS 9.4，與 CVE-2026-81578 組合達 pre-auth RCE，零日積極利用，CISA KEV 8/31）",
+      "cvss": 9.4,
+      "severity": "critical",
+      "vendor": "PaperCut Software",
+      "product": "PaperCut NG 及 PaperCut MF（版本 24、25、26）",
+      "description": "CVE-2026-82078 是 PaperCut NG/MF 資料庫連線工具中的不安全動態 Java 類別載入缺陷，可導致任意 Java 程式碼遠端執行。與 CVE-2026-81578（不當存取控制）串連，形成完整的 pre-authentication RCE 攻擊鏈，毋須任何憑證或使用者互動。PaperCut 於 8 月 27 日確認已有客戶確認遭受實際攻擊，屬零日利用。8 月 28 日發布緊急修補，但首版 48 小時後確認可被繞過，隨即發布第二版完整修補，CISA 8/31 列入 KEV。應立即升級至最新修補版本；無法立即修補者，應透過網路 ACL 或防火牆限制 PaperCut 應用伺服器僅允許受信任 IP 存取，並停止對網際網路暴露應用伺服器管理埠。"
+    },
+    {
+      "cve_id": "CVE-2026-81578",
+      "title": "PaperCut NG/MF 網頁管理介面不當存取控制（CVSS 8.8，與 CVE-2026-82078 組合達 pre-auth RCE，零日積極利用，CISA KEV 8/31）",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "PaperCut Software",
+      "product": "PaperCut NG 及 PaperCut MF（版本 24、25、26）",
+      "description": "CVE-2026-81578 是 PaperCut NG/MF 網頁管理介面中的不當存取控制漏洞（CVSS 8.8），允許未驗證遠端攻擊者修改系統設定，作為 pre-auth RCE 攻擊鏈的初始入口（搭配 CVE-2026-82078）。此漏洞屬零日利用，PaperCut 已確認存在客戶受害案例。應立即套用 PaperCut 最新緊急修補（8 月 28 日第二版），並稽核系統設定是否有非預期改動、管理員帳號是否有新增或異動。"
+    },
+    {
+      "cve_id": "CVE-2026-8452",
+      "title": "Citrix NetScaler ADC/Gateway 記憶體溢位（CVSS 8.8，原廠稱 DoS 實為 pre-auth root RCE，CISA KEV 8/26，FCEB 截止 8/29）",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Citrix (Cloud Software Group)",
+      "product": "Citrix NetScaler ADC 及 NetScaler Gateway（14.1 早於 73.32；13.1 早於 63.21）",
+      "description": "CVE-2026-8452 是 Citrix NetScaler ADC 及 NetScaler Gateway 中的記憶體溢位漏洞（CVSS v4.0 8.8），影響設定 Gateway VPN 或 AAA 虛擬伺服器的設備。Citrix 在 6 月修補公告中僅說明攻擊面為 DoS，但 watchTowr 於 8 月公布的技術分析證實，攻擊者在特定設定下可實現以 root 身份執行任意程式碼（pre-auth RCE），毋須憑證或使用者互動。防禦方已在受駭設備上發現 Web Shell 及後攻擊偵察活動，確認攻擊者規模化掃描並入侵未修補設備。CISA 8/26 列入 KEV，FCEB 截止 8/29。應立即升級至 14.1-73.32、13.1-63.21 或更新版本（參照 Citrix 公告 CTX696604）；修補後掃描設備上的非預期 Web Shell 及帳號。"
+    },
+    {
+      "cve_id": "CVE-2026-18798",
+      "title": "OpenSSL QUIC 伺服器堆疊 double-free（CVSS 7.5，畸形封包可導致 DoS，8/28 修補）",
+      "cvss": 7.5,
+      "severity": "high",
+      "vendor": "OpenSSL",
+      "product": "OpenSSL 4.0、3.6、3.5、3.4、3.0（含 QUIC 功能）",
+      "description": "CVE-2026-18798 是 OpenSSL QUIC 伺服器堆疊中的 double-free 漏洞。攻擊者可發送畸形 QUIC INITIAL 封包（Destination Connection ID 短於 8 bytes），觸發通道建立失敗後對同一 QRX 接收物件的兩次 free 操作，損壞堆積記憶體並導致 OpenSSL 伺服器程序終止（DoS）。OpenSSL 說明遠端程式碼執行機率極低，但誘發條件門檻相對低。8 月 28 日安全更新修補。任何面向網際網路的 OpenSSL QUIC 端點（QUIC-based Web 伺服器、通訊系統）應套用更新，並評估使用 QUIC 的業務連續性影響。"
+    },
+    {
+      "cve_id": "CVE-2026-63072",
+      "title": "OpenSSL CMS_decrypt() 8 bytes 越界堆疊寫入（CVSS 7.5，CMS 金鑰解包可觸發 DoS，8/28 修補）",
+      "cvss": 7.5,
+      "severity": "high",
+      "vendor": "OpenSSL",
+      "product": "OpenSSL 4.0、3.6、3.5、3.4、3.0（CMS 功能）",
+      "description": "CVE-2026-63072 是 OpenSSL CMS_decrypt() 函式在 CMS 金鑰解包過程中的確定性 8 bytes 越界堆疊寫入缺陷，可能導致解析特製 CMS 訊息時發生記憶體損壞及 DoS。此漏洞影響使用 OpenSSL CMS 加解密功能的應用程式（如處理 S/MIME 郵件的系統）。應套用 8 月 28 日發布的 OpenSSL 安全更新。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢的核心主線為「台灣供應鏈持續成為中國 APT 滲透媒介」與「漏洞修補窗口持續壓縮——原廠宣稱 DoS 實為 RCE 的認知落差正被攻擊者利用」。APT24 對台灣廣告供應鏈的再度利用，延續了 2022 年以來的固定攻擊模式：以台灣數位行銷業者為跳板，對採用其廣告聯播的知名新聞及內容平台發動水坑攻擊，精準鎖定台灣境內使用者投放 BadAudio；同一行銷業者遭反覆入侵而未能根除，暴露了台灣中間層數位服務業者資安防護的系統性不足。貿聯-KY 與群光電子在同一週相繼披露資安事件，顯示台灣製造業（特別是高科技及電子供應鏈）面臨的持續滲透壓力未減；貿聯案的三天延遲公告亦凸顯台灣上市企業重大訊息揭露制度在資安事件適用上的灰色地帶。在漏洞層面，本週最具警示性的案例是 Citrix NetScaler CVE-2026-8452：Citrix 在 6 月修補公告中將攻擊面界定為 DoS，致使部分企業降低修補優先順序，而 8 月底 watchTowr 公布的完整 RCE 分析及積極利用確認，使這類「廠商低估嚴重度」的漏洞成為攻擊者的優質目標。PaperCut 零日（CVE-2026-82078/81578）在首版修補 48 小時內即被繞過的情形，亦提醒修補並非「安裝即完成」——應同時稽核補丁後的系統狀態以確認無殘留 IoC。UNC5174/SNOWLIGHT 以 Oracle CVE-2026-21962 對 100+ 國政府基礎設施的大規模行動，在台灣尤具針對性意涵，顯示中國 APT 承包商體系對台灣政府及商業系統的多面向滲透已是結構性態勢，而非個案。",
+    "active_actors": [
+      {
+        "name": "APT24（中國國家級駭客，亦稱 BadAudio）",
+        "type": "國家級威脅行為者（APT）",
+        "activity": "本週持續針對台灣廣告供應鏈發動水坑攻擊，入侵台灣某數位行銷業者，利用其廣告聯播服務在太報（Taisounds）及小說狂人（CZBooks）植入惡意 FingerprintJS2 程式碼，收集造訪 Windows 使用者的瀏覽器指紋，並向特定目標投放 BadAudio 惡意程式。約 80,000 次惡意點擊中，76% 受害者位於台灣。Google 威脅情報小組自 2022 年起追蹤 APT24 對同一行銷業者的重複入侵活動。"
+      },
+      {
+        "name": "UNC5174（中國 MSS 承包商，SNOWLIGHT 行動）",
+        "type": "國家級威脅行為者（APT）",
+        "activity": "以 11 個漏洞利用鏈工具集（含 CVE-2026-21962 Oracle 最高危漏洞、GoCobaltStrike 及 SNOWLIGHT 下載器），對 100 個以上國家的政府及商業基礎設施發動大規模網路間諜行動，目標高度集中在台灣地區。UNC5174 與中國 MSS 承包商體系相關，研究人員同時將其與存取代理 UNC6586 關聯。"
+      },
+      {
+        "name": "未知威脅行為者（Citrix NetScaler 大規模掃描）",
+        "type": "財務動機或國家級威脅行為者（歸因待確認）",
+        "activity": "8 月底在 watchTowr 公布 CVE-2026-8452 完整 RCE 細節後，防禦方已在受駭 NetScaler 設備上發現 Web Shell 及後攻擊偵察活動，確認攻擊者正以規模化方式掃描並入侵未修補的 Citrix NetScaler ADC/Gateway 設備，惟歸因尚待確認。"
+      }
+    ],
+    "attack_techniques": [
+      "數位廣告供應鏈水坑攻擊：入侵廣告行銷業者，在廣告聯播程式碼中植入混淆 JavaScript 進行瀏覽器指紋收集，再對符合條件的特定使用者（台灣境內 Windows 系統）投放次級惡意酬載（BadAudio），實現廣覆蓋、低雜訊的精準目標攻擊",
+      "漏洞利用鏈多路平行攻擊：UNC5174 以 11 個不同漏洞利用鏈並行作業，將 CVE-2026-21962（CVSS 10.0）整合為初始存取向量之一，配合 SNOWLIGHT 下載器及 GoCobaltStrike 實現大規模網路間諜行動",
+      "修補後逆向工程即時利用：PaperCut CVE-2026-82078/81578 及 Oracle CVE-2026-21962 的攻擊者均在修補公告後自行逆向工程漏洞，在安全社群未公布 PoC 的情況下率先發動攻擊，顯示攻擊者已具備快速差異分析能力",
+      "廠商嚴重度降格漏洞優先利用：Citrix NetScaler CVE-2026-8452 原廠宣稱為 DoS，致使部分企業降低修補優先順序，攻擊者利用此認知落差在完整 RCE 分析公開後迅速轉入規模化利用",
+      "SEO 毒化初始入侵：Nevada 州政府攻擊者透過付費廣告抬升含惡意 IT 管理工具的假冒網站排名，誘騙員工下載惡意軟體，實現長達三個月的隱蔽潛伏，再於適機發動勒索軟體加密"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即修補 Oracle HTTP Server / WebLogic Server Proxy CVE-2026-21962（CVSS 10.0，中國 UNC5174 積極利用）：（1）確認所有 Oracle HTTP Server 及 WebLogic Server（含 Proxy Plug-in for Apache HTTP Server 及 Microsoft IIS）版本，套用 2026 年 1 月 Oracle CPU 修補（若尚未更新）；（2）檢查 Oracle HTTP Server 過去 90 天的存取記錄，搜尋源自非預期地理位置或 IP 的非授權存取嘗試，以及大量 404 或異常 HTTP 回應；（3）若確認使用 Oracle HTTP Server 且對網際網路暴露，立即評估是否能透過防火牆限制存取來源至受信任 IP 範圍作為臨時緩解；（4）確認 Oracle WebLogic 後端應用伺服器是否有非預期的新建連線或進程，評估 SNOWLIGHT 下載器感染的可能性（IoC：異常的網路外傳流量、新建 cron job 或排程任務）。"
+    },
+    {
+      "priority": "high",
+      "action": "立即修補 PaperCut NG/MF 雙零日漏洞（CVE-2026-82078 + CVE-2026-81578）並稽核後 IoC：（1）確認所有 PaperCut NG 及 PaperCut MF 部署版本（24、25、26），立即套用 8 月 28 日發布的第二版緊急修補（須確認為最新版，首版修補已被繞過）；（2）無法立即修補者，立即透過防火牆或 ACL 限制 PaperCut 應用伺服器管理埠（9191 及 9192 等）僅允許受信任 IP 存取，並停止對網際網路直接暴露；（3）修補後應稽核系統設定是否有非預期改動（如新建管理員帳號、修改設定）；（4）搜尋 Web Shell 特徵：PaperCut 應用伺服器目錄中的非預期 JSP 或 Groovy 腳本檔案，以及 server-command.log 中的異常命令執行記錄；（5）確認是否有非預期的外部連線（反向 Shell 或遠端存取工具的出站連線）。"
+    },
+    {
+      "priority": "high",
+      "action": "立即修補 Citrix NetScaler ADC/Gateway CVE-2026-8452（pre-auth RCE，CISA KEV 8/26，FCEB 截止 8/29）：（1）確認所有 NetScaler ADC 及 NetScaler Gateway 版本，立即升級至 14.1-73.32、13.1-63.21 或更新版本（參照 Citrix 公告 CTX696604）；（2）修補後掃描設備上的非預期 Web Shell（特別是 NetScaler 的 /netscaler/ 及 /nsconfig/ 目錄）；（3）稽核設備管理員登入記錄及 AAA 事件記錄，確認是否有未授權的認證嘗試或設定變更；（4）若有設備尚未修補，應立即透過網路 ACL 限制 Gateway VPN 及 AAA 虛擬伺服器的存取來源，並優先修補面向網際網路的設備。"
+    },
+    {
+      "priority": "high",
+      "action": "確認 APT24 廣告供應鏈攻擊影響並加強台灣廣告聯播安全：（1）若組織網站採用第三方廣告聯播服務，應立即聯繫廣告聯播商確認其系統是否受 APT24 相關入侵影響；（2）稽核網站前端程式碼（含廣告腳本），搜尋呼叫非預期外部域名（如 analytics.czbook[.]org）的 JavaScript 片段；（3）部署內容安全政策（CSP）限制網站允許載入的第三方腳本來源，降低廣告腳本投毒的攻擊面；（4）員工若使用台灣新聞網站或小說平台（包含太報、小說狂人等），應確認端點防護是否已偵測到 BadAudio 相關 IoC，並確認近期無異常網路連線至 analytics.czbook[.]org。"
+    },
+    {
+      "priority": "medium",
+      "action": "套用 OpenSSL 8/28 安全更新並評估 QUIC 服務暴露面：（1）確認所有部署 OpenSSL 4.0、3.6、3.5、3.4 或 3.0 版本的系統（特別是使用 QUIC 功能的伺服器），套用 8 月 28 日發布的安全更新；（2）識別組織內對外暴露 QUIC 服務的端點（如使用 HTTP/3 的 Web 伺服器），評估其對 CVE-2026-18798 的暴露風險；（3）若使用 OpenSSL CMS 功能處理外部傳入的 S/MIME 或 CMS 訊息，應確認 CVE-2026-63072 的修補已套用，避免惡意 CMS 訊息導致的 DoS 攻擊。"
+    },
+    {
+      "priority": "medium",
+      "action": "加強台灣製造業廠商入侵偵測並縮短事件揭露時程：（1）貿聯-KY 及群光電子事件提醒台灣高科技製造業應持續強化網路側向移動偵測能力（使用者行為分析、異常登入偵測）；（2）台灣上市企業資安長應確認重大資安事件揭露流程符合主管機關要求，縮短從偵測到公告的時間差（貿聯案延遲三天），避免監理及市場信任風險；（3）供應鏈連動評估：確認自家廠商及客戶中是否有同類製造業者近期遭受攻擊，評估橫向連動風險。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "供應鏈攻擊（Supply Chain Attack）",
+      "definition": "攻擊者透過入侵軟體套件、廣告服務或第三方業者，間接對最終目標發動攻擊的手法",
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
+    },
+    {
+      "term": "水坑攻擊（Watering Hole Attack）",
+      "definition": "攻擊者入侵目標族群頻繁造訪的合法網站，植入惡意程式等待目標自行造訪時受害",
+      "url": "https://glossary.astroicers.link/glossary/watering_hole_attack"
+    },
+    {
+      "term": "瀏覽器指紋（Browser Fingerprinting）",
+      "definition": "透過收集瀏覽器的硬體、軟體及行為特徵，在不使用 Cookie 的情況下識別特定使用者的技術",
+      "url": "https://glossary.astroicers.link/glossary/browser_fingerprinting"
+    },
+    {
+      "term": "SNOWLIGHT 下載器",
+      "definition": "中國 APT 組織 UNC5174 使用的惡意下載器，用於在受害系統植入後續工具並維持持久化存取",
+      "url": "https://glossary.astroicers.link/glossary/snowlight"
+    },
+    {
+      "term": "SEO 毒化（SEO Poisoning）",
+      "definition": "攻擊者透過付費廣告或搜尋引擎優化技術，將惡意網站推至搜尋結果頂端，誘騙用戶下載惡意程式",
+      "url": "https://glossary.astroicers.link/glossary/seo_poisoning"
+    },
+    {
+      "term": "遠端程式碼執行（RCE）",
+      "definition": "攻擊者在目標系統上遠端執行任意程式碼，通常可取得完整系統控制權",
+      "url": "https://glossary.astroicers.link/glossary/rce"
+    },
+    {
+      "term": "存取代理（Access Broker）",
+      "definition": "在網路犯罪生態系中，專門為其他威脅行為者建立並出售受害系統初始存取權限的中間人",
+      "url": "https://glossary.astroicers.link/glossary/access_broker"
+    },
+    {
+      "term": "內容安全政策（CSP）",
+      "definition": "Web 安全標準，透過 HTTP 標頭宣告允許載入的資源來源，限制跨站腳本等攻擊的執行空間",
+      "url": "https://glossary.astroicers.link/glossary/csp"
+    }
+  ],
+  "references": [
+    {
+      "title": "中國駭客APT24傳出入侵臺灣廣告供應鏈，在新聞與小說網站植入惡意程式碼 – iThome",
+      "url": "https://www.ithome.com.tw/news/178472"
+    },
+    {
+      "title": "【資安週報】0824~0828，再傳中國駭客組織APT24入侵臺灣廣告行銷業者 – iThome",
+      "url": "https://www.ithome.com.tw/news/178489"
+    },
+    {
+      "title": "台灣某行銷公司遭中國APT組織反覆入侵 超過千個網域淪供應鏈攻擊跳板 – 資安人",
+      "url": "https://www.informationsecurity.com.tw/article/article_detail.aspx?aid=12482"
+    },
+    {
+      "title": "貿聯部分資訊系統遭網路攻擊，已啟動資安應變及隔離措施 – iThome",
+      "url": "https://www.ithome.com.tw/news/178357"
+    },
+    {
+      "title": "資安風暴突襲貿聯-KY！股價跌停至2050元 – Yahoo 財經",
+      "url": "https://tw.stock.yahoo.com/news/%E8%B3%87%E5%AE%89%E9%A2%A8%E6%9A%B4%E7%AA%81%E8%A5%B2%E8%B2%BF%E8%81%AF-ky-%E8%82%A1%E5%83%B9%E8%B7%8C%E5%81%9C%E8%87%B32050%E5%85%83-%E5%85%AC%E5%8F%B8-%E5%B7%B2%E9%9A%94%E9%9B%A2%E5%8F%97%E5%BD%B1%E9%9F%BF%E7%B3%BB%E7%B5%B1-061045447.html"
+    },
+    {
+      "title": "Actively Exploited Oracle WebLogic Flaw Lets Unauthenticated Attackers Access Critical Data – The Hacker News",
+      "url": "https://thehackernews.com/2026/08/actively-exploited-oracle-weblogic-flaw.html"
+    },
+    {
+      "title": "CISA Warns of Exploited Oracle WebLogic Vulnerability – SecurityWeek",
+      "url": "https://www.securityweek.com/cisa-warns-of-exploited-oracle-weblogic-vulnerability/"
+    },
+    {
+      "title": "Oracle Proxy Flaw CVE-2026-21962 Fueled China-Linked Attacks on 100+ Governments – TechTimes",
+      "url": "https://www.techtimes.com/articles/325583/20260826/oracle-proxy-flaw-cve-2026-21962-fueled-china-linked-attacks-100-governments.htm"
+    },
+    {
+      "title": "CISA Adds One Known Exploited Vulnerability to Catalog (Aug 24) – CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/08/24/cisa-adds-one-known-exploited-vulnerability-catalog"
+    },
+    {
+      "title": "Previously patched Citrix NetScaler flaw exploited in the wild (CVE-2026-8452) – Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/08/27/netscaler-adc-gateway-cve-2026-8452/"
+    },
+    {
+      "title": "Recent Citrix NetScaler Vulnerability Exploited in the Wild – SecurityWeek",
+      "url": "https://www.securityweek.com/recent-citrix-netscaler-vulnerability-exploited-in-the-wild/"
+    },
+    {
+      "title": "CISA orders feds to patch Citrix NetScaler RCE flaw – BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-hackers-now-exploiting-citrix-netscaler-rce-flaw-in-attacks/"
+    },
+    {
+      "title": "PaperCut NG/MF vulnerabilities exploited in zero-day attacks – Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/08/27/papercut-ng-mf-vulnerability-attack/"
+    },
+    {
+      "title": "PaperCut NG/MF Critical Zero-Day Exploited in the Wild – Rapid7",
+      "url": "https://www.rapid7.com/blog/post/etr-papercut-ng-mf-critical-zero-day-exploited-in-the-wild/"
+    },
+    {
+      "title": "More Details Emerge on Exploited PaperCut Vulnerabilities – SecurityWeek",
+      "url": "https://www.securityweek.com/more-details-emerge-on-exploited-papercut-vulnerabilities/"
+    },
+    {
+      "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog (Aug 31) – CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/08/31/cisa-adds-two-known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "Nevada ransomware attack traced back to malware download by employee – Cybersecurity Dive",
+      "url": "https://www.cybersecuritydive.com/news/nevada-ransomware-attack-traced-back-to-malware-download-by-employee/805011/"
+    },
+    {
+      "title": "Nevada details ransomware attack and 28-day recovery in transparent report – Paubox",
+      "url": "https://www.paubox.com/blog/nevada-details-ransomware-attack-and-28-day-recovery-in-transparent-report"
+    },
+    {
+      "title": "OpenSSL Patches Nine Vulnerabilities Enabling Remote Denial-of-Service Attacks – CyberPress",
+      "url": "https://cyberpress.org/openssl-patches-nine-vulnerabilities/"
+    },
+    {
+      "title": "UNC5174's evolution in China's ongoing cyber warfare: From SNOWLIGHT to VShell – Sysdig",
+      "url": "https://www.sysdig.com/blog/unc5174-chinese-threat-actor-vshell"
+    },
+    {
+      "title": "Compucase Cybersecurity Incident Update (Aug 30, 2026)",
+      "url": "https://www.hendryadrian.com/compucase-cybersecurity-incident-update-aug-30-2026/"
+    },
+    {
+      "title": "Known Exploited Vulnerabilities Catalog – CISA",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}
