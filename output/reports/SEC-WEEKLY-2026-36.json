@@ -1,0 +1,321 @@
+{
+  "title": "資安週報 2026/08/31 - 2026/09/06",
+  "report_id": "SEC-WEEKLY-2026-36",
+  "period": {
+    "start": "2026-08-31",
+    "end": "2026-09-06"
+  },
+  "publish_date": "2026-09-07",
+  "summary": {
+    "total_events": 7,
+    "total_vulnerabilities": 6,
+    "threat_level": "critical"
+  },
+  "events": [
+    {
+      "title": "APT24 中國駭客組織再度入侵台灣廣告供應鏈（BadAudio），在太報、小說狂人等網站植入惡意程式碼，8萬次點擊76%來自台灣",
+      "severity": "critical",
+      "event_type": "供應鏈攻擊",
+      "summary": "中國駭客組織 APT24 於 8 月 26 日被發現再度入侵台灣數位行銷業者，透過廣告供應鏈在多個知名新聞網站（太報 Taisounds）及小說平台（小說狂人 CZBooks）植入經混淆處理的惡意程式碼 FingerprintJS2。惡意程式碼的功能是收集瀏覽用戶的裝置指紋資料，透過 Beacon 通訊回傳 analytics.czbook[.]org，並對特定 Windows 用戶投放惡意酬載。Gen Digital 觀察到約 8 萬次觸及，其中 76% 來自台灣、其餘來自海外台灣僑胞社群。這是 APT24 針對台灣廣告供應鏈的系列攻擊之一，延續過去對台灣數位行銷業者的持續滲透模式，屬於水坑式攻擊手法。台灣媒體業者、廣告聯播網客戶及讀者均應確認是否存取上述受感染網站，並掃描端點設備，同時廣告主應稽核第三方廣告指令碼的完整性。",
+      "source": "iThome",
+      "url": "https://www.ithome.com.tw/news/178479",
+      "date": "2026-08-27"
+    },
+    {
+      "title": "台灣雲端部署平台 Zeabur 遭入侵，612GB 客戶環境變數資料及多項高權限雲端憑證疑外洩",
+      "severity": "high",
+      "event_type": "資料外洩",
+      "summary": "台灣新創雲端部署平台 Zeabur 於 8 月 27 日確認一起未授權存取事件：攻擊者取得一組高權限 AWS 服務帳號憑證後，存取儲存客戶專案環境變數的資料庫，可能暴露用戶在 Zeabur 變數面板中儲存的 API 金鑰、存取憑證及其他密鑰。暗網情報顯示，攻擊者聲稱取得 Zeabur 原始程式碼、PostgreSQL 及 MongoDB 資料庫轉儲、AWS 基礎設施秘密金鑰、具 Project Owner 權限的 GCP 服務帳號、Google Workspace 管理員存取、GitHub PAT 及程式碼封存，以及 Stripe API 金鑰、Kubernetes 叢集管理員存取和 WireGuard VPN 存取，壓縮後資料量約 612GB。Zeabur 平台廣泛用於台灣及亞太區 AI 新創與獨立開發者。使用 Zeabur 的用戶應立即輪換所有曾儲存於平台的 API 金鑰及憑證，並稽核使用這些憑證建立的雲端資源活動記錄。",
+      "source": "Zeabur Status / AlphaMatch",
+      "url": "https://status.zeabur.com/incident/1037896",
+      "date": "2026-08-27"
+    },
+    {
+      "title": "SonicWall SMA1000 雙重零時差漏洞（CVE-2026-83548 CVSS 10.0 + CVE-2026-83549）可串聯實現未驗證 RCE，CISA KEV 聯邦截止日 9/5",
+      "severity": "critical",
+      "event_type": "零時差漏洞遭利用",
+      "summary": "SonicWall 於 9 月 1 日揭露 SMA1000 系列網路存取閘道的兩個零時差漏洞，已確認遭積極利用。CVE-2026-83548（CVSS 10.0）為 Workplace 介面的未驗證伺服器端請求偽造（SSRF）漏洞，允許遠端未驗證攻擊者透過替代存取路徑存取敏感功能；CVE-2026-83549（CVSS 7.8）為管理主控台（AMC）的 OS 命令注入漏洞，單獨利用需要管理員驗證，但攻擊者可先利用 CVE-2026-83548 的 SSRF 繞過驗證，再串聯觸發 CVE-2026-83549 實現完整的未驗證遠端程式碼執行。受影響型號為 SMA1000 6210、7210 及 8200v，CISA 隨即將兩個 CVE 列入 KEV，聯邦民用機構截止日為 9 月 5 日。SMA1000 廣泛部署於企業遠端存取環境，台灣企業應立即升級至 12.4.3-03526、12.5.0-02952 或更高版本，修補前應限制管理介面的網際網路存取，並稽核過去 30 天的異常存取記錄。",
+      "source": "The Hacker News / Rapid7",
+      "url": "https://thehackernews.com/2026/09/attackers-exploit-two-sonicwall-sma.html",
+      "date": "2026-09-01"
+    },
+    {
+      "title": "PaperCut NG/MF 零時差漏洞鏈（CVE-2026-81578 + CVE-2026-82078）遭積極利用，攻擊者從偵察升級為植入遠端存取工具的手動入侵",
+      "severity": "critical",
+      "event_type": "零時差漏洞遭利用",
+      "summary": "PaperCut Software 於 8 月 27 日緊急公告其列印管理軟體 NG 及 MF 遭積極利用，Huntress 於 8 月 26 日即在公開揭露前偵測到第一起真實攻擊。兩個漏洞組合成預驗證攻擊鏈：CVE-2026-81578 為未驗證攻擊者可遠端修改部分系統配置的驗證繞過漏洞；CVE-2026-82078 為不安全的動態類別載入缺陷，可在 PaperCut 伺服器程序內觸發任意 Java 位元組碼執行，最終實現完整的伺服器端程式碼執行。9 月 1 日 PaperCut 發布緊急修補程式（Release 3）。攻擊從初期的自動化偵察快速升級至手動入侵階段，攻擊者在受感染的 PaperCut 伺服器上植入遠端存取工具（RAT）維持持久化存取。PaperCut 廣泛用於大學、醫療機構及企業環境，使用者應立即套用緊急修補程式，並確認伺服器是否已遭入侵（檢查異常程序及網路連線）。",
+      "source": "SecurityWeek / Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/08/31/papercut-attack-remote-access-tools/",
+      "date": "2026-08-31"
+    },
+    {
+      "title": "全球約 22,000 台 Microsoft Exchange Server 暴露於危急漏洞 CVE-2026-62911，PoC 已公開且台灣約 250 台仍未修補",
+      "severity": "high",
+      "event_type": "漏洞曝險公告",
+      "summary": "Microsoft 於 8 月 11 日修補的 Exchange Server 危急漏洞 CVE-2026-62911，截至 9 月 2 日仍有約 22,000 台伺服器未套用修補程式，其中美國 6,200 台、德國 5,100 台居首，台灣約 250 台受影響。CVE-2026-62911 為「驗證繞過（capture-replay）」漏洞，由 DEVCORE Orange Tsai 在 Pwn2Own Berlin 2026 以三漏洞串聯鏈揭露，成功利用可讓具基本權限的攻擊者接管目標伺服器上所有郵件信箱、閱讀傳送郵件及存取附件。漏洞 PoC 程式碼已公開於 GitHub，大幅降低攻擊門檻。受影響版本包括 Exchange Server 2016、2019 及 SE（Subscription Edition），Exchange Online 不受影響。台灣企業若使用本地部署 Exchange Server 應立即確認是否已套用 2026 年 8 月安全性更新，並稽核近期郵件伺服器存取記錄。",
+      "source": "Help Net Security / BleepingComputer",
+      "url": "https://www.helpnetsecurity.com/2026/09/02/microsoft-exchange-cve-2026-62911-critical-authentication-bypass-flaw/",
+      "date": "2026-09-02"
+    },
+    {
+      "title": "Google Chrome V8 型別混淆零時差（CVE-2026-85046，CVSS 8.8）遭積極利用，緊急修補至 152.0.7977.82",
+      "severity": "high",
+      "event_type": "零時差漏洞遭利用",
+      "summary": "Google 於 9 月 4 日發布 Chrome 152.0.7977.82/.83 緊急更新，修補一個已遭積極利用的 V8 JavaScript 引擎型別混淆零時差漏洞 CVE-2026-85046（CVSS 8.8）。漏洞由研究員 Salvatore Gulizia 於 8 月 4 日通報，攻擊者可透過精心製作的 HTML 或 JavaScript 內容觸發 V8 型別混淆，取得任意記憶體讀寫能力，在瀏覽器沙箱內執行攻擊者控制的程式碼。CISA 於 9 月 4 日將 CVE-2026-85046 列入 KEV。與上週（Week 35）已修補的四個高風險 Chrome 沙箱逃逸漏洞不同，本漏洞已有確認的積極利用案例，攻擊者通常將此類 V8 漏洞與沙箱逃逸漏洞串聯使用。所有 Chrome 用戶應立即更新至 152.0.7977.82（Windows/macOS/Linux），企業用戶應確認集中式更新政策已推送至所有工作站。",
+      "source": "The Hacker News / Help Net Security",
+      "url": "https://thehackernews.com/2026/09/google-releases-chrome-update-to-patch.html",
+      "date": "2026-09-04"
+    },
+    {
+      "title": "Storm、Rhysida 等新興勒索軟體組織8月下旬至9月初持續攻擊醫療及關鍵基礎設施，能源業同步遭受壓力",
+      "severity": "medium",
+      "event_type": "勒索軟體攻擊",
+      "summary": "8 月下旬至 9 月初，多個新興勒索軟體組織持續鎖定醫療及關鍵基礎設施：新興組織 Storm 聲稱攻擊美國醫療業者 OVP Health，竊取約 130GB 資料含病患、員工記錄及財務資料；Rhysida 組織對德國柏林市參議院網路發動勒索軟體攻擊；Krybit 組織攻擊 ProHealth Medical Group，聲稱竊取超過 114GB 資料。整體而言，8 月醫療業遭受的勒索軟體攻擊數量較前一季明顯上升，攻擊手法以 VMware ESXi 虛擬化環境加密為主（印度主機商 HostDZire 8 月 5 日遭加密致永久資料損失）。能源業在上週伊朗 APT OT 攻擊的背景下持續承壓。台灣醫療及能源機構應評估勒索軟體防護能力，特別關注虛擬化基礎設施的備份完整性及 VMware ESXi 的存取控制配置。",
+      "source": "CM-Alliance / BlackFog",
+      "url": "https://www.cm-alliance.com/cybersecurity-blog/major-cyber-attacks-data-breaches-ransomware-attacks-in-august-2026",
+      "date": "2026-09-01"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-83548",
+      "title": "SonicWall SMA1000 未驗證 SSRF 漏洞（CVSS 10.0，CISA KEV 9/2，積極利用中，FCEB 截止 9/5）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "SonicWall",
+      "product": "SonicWall SMA1000 系列（6210、7210、8200v，12.4.3-03526 及 12.5.0-02952 以前版本）",
+      "description": "SonicWall SMA1000 Workplace 介面存在伺服器端請求偽造（SSRF）漏洞（CWE-918），允許遠端未驗證攻擊者透過替代存取路徑對敏感功能執行未授權操作，取得閘道對內部服務的請求能力。單獨利用即可取得敏感資料，並可作為攻擊者串聯 CVE-2026-83549 命令注入的前置跳板，實現完整的未驗證遠端程式碼執行。SMA1000 為企業遠端存取網路邊界設備，一旦攻陷可作為橫向移動的立足點。CISA 於 9 月 2 日列入 KEV，FCEB 截止日 9 月 5 日。應立即升級至 12.4.3-03526、12.5.0-02952 或更高版本；修補前確保管理介面不直接暴露於網際網路，並搜尋異常的對內部網路的 SSRF 流量模式。"
+    },
+    {
+      "cve_id": "CVE-2026-83549",
+      "title": "SonicWall SMA1000 OS 命令注入漏洞（CVSS 7.8，CISA KEV 9/2，可與 CVE-2026-83548 串聯成未驗證 RCE）",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "SonicWall",
+      "product": "SonicWall SMA1000 系列（6210、7210、8200v，12.4.3-03526 及 12.5.0-02952 以前版本）",
+      "description": "SonicWall SMA1000 管理主控台（AMC）存在 OS 命令注入漏洞（CWE-78），起因為對特殊元素的不當過濾。單獨利用需要已驗證的管理員帳號及特定系統條件；然而當攻擊者透過 CVE-2026-83548 的 SSRF 建立存取路徑後，可串聯觸發此命令注入以 root 權限執行任意作業系統命令，形成完整的未驗證遠端程式碼執行攻擊鏈。CISA 於 9 月 2 日列入 KEV，與 CVE-2026-83548 同步修補。修補指引同 CVE-2026-83548，需同時套用以阻斷攻擊鏈。"
+    },
+    {
+      "cve_id": "CVE-2026-81578",
+      "title": "PaperCut NG/MF 未驗證驗證繞過漏洞（積極利用中，CISA KEV 列入，可串聯 CVE-2026-82078 實現 RCE）",
+      "cvss": null,
+      "severity": "critical",
+      "vendor": "PaperCut Software",
+      "product": "PaperCut NG 及 PaperCut MF（所有版本，Emergency Patch Release 3 以前）",
+      "description": "PaperCut NG/MF 應用程式伺服器存在驗證繞過漏洞，允許遠端未驗證攻擊者修改特定系統配置，無需任何身份憑證。作為攻擊鏈第一步，攻擊者取得配置修改能力後，即可觸發 CVE-2026-82078 的不安全類別載入執行任意 Java 程式碼。Huntress 於 8 月 26 日（公開揭露前）偵測到第一起真實攻擊；攻擊已從自動化偵察升級為手動入侵，攻擊者在受感染伺服器植入遠端存取工具（RAT）。CVSS 評分待確認，惟因可實現未驗證 RCE 且積極利用，應視為最高優先處置。應立即套用 PaperCut Emergency Patch Release 3；若無法立即修補，應將 PaperCut 應用程式伺服器限制為僅內部網路可存取。"
+    },
+    {
+      "cve_id": "CVE-2026-82078",
+      "title": "PaperCut NG/MF 不安全動態類別載入（任意 Java 位元組碼執行，積極利用中，可與 CVE-2026-81578 串聯）",
+      "cvss": null,
+      "severity": "critical",
+      "vendor": "PaperCut Software",
+      "product": "PaperCut NG 及 PaperCut MF（所有版本，Emergency Patch Release 3 以前）",
+      "description": "PaperCut NG/MF 應用程式伺服器因動態類別載入機制不安全，允許在 PaperCut 伺服器程序內執行攻擊者控制的任意 Java 位元組碼，達到伺服器端完整程式碼執行（RCE）。單獨利用可能需要一定條件，但當與 CVE-2026-81578 驗證繞過串聯後，可形成完整的預驗證 RCE 攻擊鏈。PaperCut 廣泛部署於大學、醫療機構及企業列印環境，攻陷後攻擊者可存取所有列印作業（含潛在的敏感文件）及網路橫向移動的跳板地位。處置措施同 CVE-2026-81578。"
+    },
+    {
+      "cve_id": "CVE-2026-85046",
+      "title": "Google Chrome V8 型別混淆零時差（CVSS 8.8，CISA KEV 9/4，積極利用中）",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Google",
+      "product": "Google Chrome（152.0.7977.82 以前版本）",
+      "description": "Google Chrome V8 JavaScript 及 WebAssembly 引擎存在型別混淆漏洞（CWE-843），允許遠端攻擊者透過精心製作的 HTML 頁面觸發記憶體物件型別處理錯誤，取得任意記憶體讀寫能力並在瀏覽器沙箱內執行攻擊者控制的程式碼。Google 確認已有積極利用案例，CISA 於 9 月 4 日列入 KEV。V8 型別混淆漏洞通常與沙箱逃逸漏洞串聯使用以完整攻陷主機系統；攻擊方式為誘騙用戶以 Chrome 開啟惡意網頁，攻擊不需要使用者互動（無彈窗點擊）。緊急更新至 Chrome 152.0.7977.82 或以上（Windows/macOS：.82 或 .83，Linux：.82）；企業應確認集中式瀏覽器更新政策已推送至所有工作站。"
+    },
+    {
+      "cve_id": "CVE-2026-62911",
+      "title": "Microsoft Exchange Server 危急驗證繞過（capture-replay）漏洞，PoC 已公開，全球 22,000 台伺服器仍暴露",
+      "cvss": null,
+      "severity": "critical",
+      "vendor": "Microsoft",
+      "product": "Microsoft Exchange Server 2016、2019、SE（Subscription Edition），Exchange Online 不受影響",
+      "description": "CVE-2026-62911 為 Exchange Server 的驗證繞過（capture-replay）漏洞，由 DEVCORE Orange Tsai 在 Pwn2Own Berlin 2026 以三漏洞串聯鏈揭露。成功利用可讓具基本網路存取能力的攻擊者接管目標 Exchange Server 上所有郵件信箱，包括閱讀、傳送郵件及存取附件。Microsoft 於 8 月 11 日發布修補程式，惟截至 9 月 2 日全球仍有約 22,000 台伺服器未修補（台灣約 250 台），且利用 PoC 已公開於 GitHub，攻擊門檻已大幅降低。CVSS 評分待確認，惟因可完整接管 Exchange 郵件環境，實際影響等同危急等級。應立即套用 2026 年 8 月 Exchange 安全性更新，並稽核過去 30 天的郵件伺服器存取記錄，確認是否存在大量信箱存取或異常 EWS API 呼叫。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢以「台灣成為多維度攻擊目標」與「邊界設備零時差集中爆發」為核心特徵。台灣面向：APT24 廣告供應鏈攻擊（8/26）與 Zeabur 雲端平台入侵（8/27）同週發生，顯示中國相關威脅行為者在持續對台灣數位基礎設施施壓的同時，開始將雲端原生新創及廣告生態作為新攻擊面——前者影響台灣媒體讀者的端點安全，後者威脅台灣 AI 新創的雲端基礎設施憑證。此外，台灣約 250 台 Exchange Server 仍暴露於 PoC 已公開的危急漏洞，反映修補落差形成的系統性風險。邊界設備零時差面向：SonicWall SMA1000（CVSS 10.0）及 PaperCut NG/MF 兩個預驗證攻擊鏈於本週同時遭積極利用，延續過去數季「網路邊界及關鍵管理平台成為優先攻擊目標」的趨勢；SonicWall SMA1000 本季已是第三度出現被積極利用的零時差漏洞，顯示攻擊者對該平台具有持續的研究投入。勒索軟體方面，Storm、Rhysida 等新興組織在已成熟的 LockBit、Cl0p 外進一步填充生態，醫療業成為本週最集中的目標產業。從整體態勢看，攻擊者同步利用：（1）預驗證邊界設備 RCE 取得初始存取；（2）廣告及雲端供應鏈作為橫向擴散管道；（3）未修補的郵件伺服器作為長期潛伏的持久化路徑，三條路徑相互補強形成本週的高威脅態勢。",
+    "active_actors": [
+      {
+        "name": "APT24（中國關聯）",
+        "type": "國家級 APT 組織",
+        "activity": "8 月 26 日再度入侵台灣廣告供應鏈，透過受感染的數位行銷業者將惡意程式碼 FingerprintJS2 注入太報（Taisounds）及小說狂人（CZBooks）等知名網站，以水坑手法收集台灣用戶指紋並投放惡意酬載。此為 APT24 針對台灣廣告生態的系列攻擊延伸，目標為在不引起注意的情況下對台灣特定讀者群體建立入侵管道。"
+      },
+      {
+        "name": "Storm",
+        "type": "新興勒索軟體集團",
+        "activity": "8 月下旬攻擊美國醫療業者 OVP Health，竊取約 130GB 資料並列名洩漏站點，所竊資料含病患記錄、員工資料、醫療文件及財務資料，為 Storm 集團首次大規模公開勒索行動之一。"
+      },
+      {
+        "name": "Rhysida",
+        "type": "勒索軟體集團",
+        "activity": "8 月下旬至 9 月初攻擊德國柏林市參議院網路，針對公部門的攻擊行動延續 Rhysida 過去鎖定政府及教育機構的策略，顯示其已將攻擊範圍從英語系國家擴展至歐洲政府機構。"
+      }
+    ],
+    "attack_techniques": [
+      "廣告供應鏈水坑攻擊（Watering Hole via Ad Supply Chain）- APT24 入侵台灣廣告代理商並在其所服務的新聞及小說平台注入混淆 JavaScript，在目標讀者訪問合法網站時觸發惡意程式碼，無需直接入侵目標設備",
+      "預驗證邊界設備 RCE 攻擊鏈 - SonicWall SMA1000 CVE-2026-83548（SSRF）串聯 CVE-2026-83549（命令注入）實現未驗證完整 RCE，以及 PaperCut CVE-2026-81578（驗證繞過）串聯 CVE-2026-82078（任意 Java 位元組碼執行），攻擊者無需任何憑證即可完全控制目標系統",
+      "PaperCut 攻擊後植入遠端存取工具（RAT）- 攻擊者在取得 PaperCut 伺服器存取後，從自動化偵察升級為手動入侵並植入 RAT，建立可長期潛伏的持久化存取管道",
+      "雲端平台服務帳號憑證竊取 - Zeabur 事件顯示，攻擊者入侵雲端部署平台的內部服務帳號後，可同時取得客戶的 API 金鑰、雲端憑證及原始程式碼，一次入侵造成的橫向影響遠超單一組織範圍",
+      "郵件伺服器驗證繞過（Capture-Replay）- CVE-2026-62911 以 capture-replay 手法繞過 Exchange Server 驗證，PoC 公開後攻擊門檻大幅降低，未修補的郵件伺服器成為可利用的高價值目標",
+      "瀏覽器引擎型別混淆（V8 Type Confusion）+ 沙箱逃逸潛力 - CVE-2026-85046 透過精心製作的 JavaScript 觸發 Chrome V8 記憶體物件型別混淆，可在沙箱內執行程式碼，並具備與其他沙箱逃逸漏洞串聯的高風險"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即修補 SonicWall SMA1000 CVE-2026-83548（CVSS 10.0，CISA KEV，FCEB 截止 9/5）：（1）盤點所有 SMA1000 6210、7210、8200v 型號，確認版本是否低於 12.4.3-03526 或 12.5.0-02952；（2）立即升級至上述修補版本；（3）若無法立即修補，確保管理主控台（AMC）及 Workplace 介面不直接暴露於網際網路，並配置存取來源限制；（4）稽核過去 30 天的 SMA1000 連線記錄，尋找異常的內部服務存取行為（SSRF 特徵：非預期的對 169.254.x.x 或 10.x.x.x 的出站請求）；（5）若系統已暴露於網際網路且未修補，應視為可能已遭入侵並啟動事件應變程序。"
+    },
+    {
+      "priority": "high",
+      "action": "立即套用 PaperCut NG/MF 緊急修補程式（CVE-2026-81578 + CVE-2026-82078，積極利用中，攻擊已升級至手動入侵）：（1）確認 PaperCut NG/MF 應用程式伺服器版本並立即套用 Emergency Patch Release 3；（2）若無法立即修補，立即限制 PaperCut 應用程式伺服器僅限內部網路存取，禁止任何直接的網際網路連線；（3）檢查伺服器上是否存在異常程序、未知的 Java 程序或非預期的網路連線（遠端存取工具特徵）；（4）稽核 PaperCut 管理員帳號及配置變更記錄，特別注意 8 月 26 日以後的任何異常變更；（5）若發現入侵跡象，隔離伺服器並重建，不應僅修補後繼續使用。"
+    },
+    {
+      "priority": "high",
+      "action": "立即套用 Exchange Server 2026 年 8 月安全性更新修補 CVE-2026-62911（PoC 已公開，台灣約 250 台暴露）：（1）確認所有本地部署 Exchange Server 2016、2019 及 SE 版本是否已套用 2026 年 8 月累積更新；（2）若尚未修補，優先安排立即修補，PoC 已公開代表任何攻擊者均可輕易利用；（3）稽核過去 30 天的 Exchange 存取記錄，特別關注大量信箱存取、異常 EWS（Exchange Web Services）API 呼叫，或非工作時間的管理員活動；（4）確認 Exchange 管理介面未直接暴露於網際網路，並啟用多因素驗證（MFA）；（5）Exchange Online 用戶不受影響，無需採取額外行動。"
+    },
+    {
+      "priority": "high",
+      "action": "立即更新 Google Chrome 至 152.0.7977.82（CVE-2026-85046，CVSS 8.8，CISA KEV 9/4，積極利用中）：（1）所有工作站的 Chrome 版本應更新至 152.0.7977.82（Windows/macOS 為 .82 或 .83，Linux 為 .82）以上；（2）企業使用集中式瀏覽器管理（Intune、Endpoint Manager）者應確認更新政策已推送並驗證部署完成率；（3）V8 型別混淆漏洞的攻擊向量為惡意網頁，應提醒員工避免點擊不明來源連結；（4）確認其他 Chromium 核心瀏覽器（Edge、Brave 等）的廠商是否已跟進修補。"
+    },
+    {
+      "priority": "medium",
+      "action": "審查 Zeabur 及雲端部署平台的憑證安全（台灣 AI 新創及開發者應優先處置）：（1）曾在 Zeabur 平台使用變數面板儲存 API 金鑰、存取憑證的用戶應立即輪換所有相關憑證，包括 AWS、GCP、OpenAI、Anthropic 及其他 API 金鑰；（2）稽核使用這些憑證的雲端資源在 8 月 27 日後的活動記錄，確認是否存在未授權的資源建立或費用異常；（3）評估現有雲端部署平台的憑證儲存架構，避免將高權限憑證儲存於第三方平台的環境變數功能中；（4）考慮採用雲端原生的密鑰管理服務（AWS Secrets Manager、GCP Secret Manager）替代環境變數。"
+    },
+    {
+      "priority": "medium",
+      "action": "稽核第三方廣告及行銷指令碼，防範 APT24 供應鏈攻擊（台灣媒體、電商及內容平台應優先處置）：（1）盤點組織網站上載入的所有第三方 JavaScript 指令碼及廣告聯播網來源，確認是否存在來自 czbook[.]org 或其他可疑網域的通訊；（2）部署內容安全政策（Content Security Policy, CSP）限制可載入的第三方腳本來源，阻斷未授權的廣告指令碼載入；（3）對廣告平台業者進行安全稽核，要求提供其程式碼簽章及完整性驗證機制；（4）若網站有可能被植入惡意 JavaScript，應通知用戶注意可疑的跳轉行為或異常彈窗。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "供應鏈攻擊（Supply Chain Attack）",
+      "definition": "攻擊者滲透軟體供應商、廠商或服務提供者，再藉其產品或服務散布惡意程式碼至下游目標",
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
+    },
+    {
+      "term": "水坑攻擊（Watering Hole Attack）",
+      "definition": "攻擊者入侵目標常訪問的合法網站，等待目標主動造訪時觸發惡意程式碼",
+      "url": "https://glossary.astroicers.link/glossary/watering_hole"
+    },
+    {
+      "term": "伺服器端請求偽造（SSRF）",
+      "definition": "誘使伺服器對攻擊者指定的位置發送請求，進而存取內部服務或敏感資源",
+      "url": "https://glossary.astroicers.link/glossary/ssrf"
+    },
+    {
+      "term": "型別混淆（Type Confusion）",
+      "definition": "程式以錯誤的型別存取記憶體物件，可被攻擊者利用取得任意記憶體讀寫能力",
+      "url": "https://glossary.astroicers.link/glossary/type_confusion"
+    },
+    {
+      "term": "驗證繞過（Authentication Bypass）",
+      "definition": "繞過正常身份驗證機制取得未授權存取的漏洞類型",
+      "url": "https://glossary.astroicers.link/glossary/auth_bypass"
+    },
+    {
+      "term": "零時差漏洞（Zero-Day Vulnerability）",
+      "definition": "廠商尚未發布修補程式但已遭實際利用的安全漏洞",
+      "url": "https://glossary.astroicers.link/glossary/zero_day"
+    },
+    {
+      "term": "遠端存取工具（RAT）",
+      "definition": "允許攻擊者遠端控制受感染系統的惡意程式，常用於維持持久化存取",
+      "url": "https://glossary.astroicers.link/glossary/rat"
+    },
+    {
+      "term": "勒索軟體即服務（RaaS）",
+      "definition": "犯罪集團提供勒索軟體基礎設施給附屬攻擊者使用的商業模式",
+      "url": "https://glossary.astroicers.link/glossary/raas"
+    }
+  ],
+  "references": [
+    {
+      "title": "Attackers Exploit Two SonicWall SMA 1000 Zero-Days That May Form an Attack Chain - The Hacker News",
+      "url": "https://thehackernews.com/2026/09/attackers-exploit-two-sonicwall-sma.html"
+    },
+    {
+      "title": "Critical SonicWall SMA1000 Vulnerabilities CVE-2026-83548, CVE-2026-83549 Exploited in the Wild - Rapid7",
+      "url": "https://www.rapid7.com/blog/post/etr-critical-sonicwall-sma1000-vulnerabilities-cve-2026-83548-cve-2026-83549-exploited-in-the-wild/"
+    },
+    {
+      "title": "SonicWall SMA 1000 appliances under attack via zero-day flaws - Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/09/02/sonicwall-sma-1000-cve-2026-83548-cve-2026-83549-zero-day-attacks/"
+    },
+    {
+      "title": "SonicWall SMA1000 vulnerabilities (CVE-2026-83548, CVE-2026-83549) in active exploitation - Sophos",
+      "url": "https://www.sophos.com/en-us/blog/sonicwall-83548-83549"
+    },
+    {
+      "title": "Attackers plant remote access tools on compromised PaperCut servers - Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/08/31/papercut-attack-remote-access-tools/"
+    },
+    {
+      "title": "PaperCut Zero-Day Exploited in Attacks, Affecting All NG and MF Versions - The Hacker News",
+      "url": "https://thehackernews.com/2026/09/papercut-zero-day-exploited-in-attacks.html"
+    },
+    {
+      "title": "PaperCut NG/MF Critical Zero-Day Exploited in the Wild - Rapid7",
+      "url": "https://www.rapid7.com/blog/post/etr-papercut-ng-mf-critical-zero-day-exploited-in-the-wild/"
+    },
+    {
+      "title": "PaperCut Discloses Zero-Day Vulnerabilities (CVE-2026-82078 and CVE-2026-81578) - eSentire",
+      "url": "https://www.esentire.com/security-advisories/apercut-discloses-zero-day-vulnerabilities-cve-2026-82078-and-cve-2026-81578"
+    },
+    {
+      "title": "Google Releases Chrome Update to Patch Actively Exploited V8 Zero-Day - The Hacker News",
+      "url": "https://thehackernews.com/2026/09/google-releases-chrome-update-to-patch.html"
+    },
+    {
+      "title": "Google patches actively exploited Chrome zero-day (CVE-2026-85046) - Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/09/04/google-chrome-zero-day-cve-2026-85046/"
+    },
+    {
+      "title": "Nearly 22,000 Microsoft Exchange servers remain exposed to critical security flaw (CVE-2026-62911) - Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/09/02/microsoft-exchange-cve-2026-62911-critical-authentication-bypass-flaw/"
+    },
+    {
+      "title": "Nearly 22,000 Microsoft Exchange servers vulnerable to hijack attacks - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/nearly-22-000-microsoft-exchange-servers-vulnerable-to-hijack-attacks/"
+    },
+    {
+      "title": "中國駭客APT24傳出入侵臺灣廣告供應鏈，在新聞與小說網站植入惡意程式碼 - iThome",
+      "url": "https://www.ithome.com.tw/news/178479"
+    },
+    {
+      "title": "【資安週報】0824~0828，再傳中國駭客組織APT24入侵臺灣廣告行銷業者 - iThome",
+      "url": "https://www.ithome.com.tw/news/178489"
+    },
+    {
+      "title": "Zeabur Unauthorized Access to Project Environment Variable Data - Zeabur Status",
+      "url": "https://status.zeabur.com/incident/1037896"
+    },
+    {
+      "title": "Zeabur Environment Variable Leak: Stolen API Keys Drain Claude & OpenRouter Balances - AlphaMatch",
+      "url": "https://www.alphamatch.ai/blog/zeabur-env-variable-leak-api-keys-2026"
+    },
+    {
+      "title": "Weekly CVE Report: 10 Exploited Vulnerabilities Hit CISA KEV - SecurityOnline",
+      "url": "https://securityonline.info/weekly-cve-report-10-exploited-vulnerabilities-hit-cisa-kev/"
+    },
+    {
+      "title": "CISA Adds Seven Known Exploited Vulnerabilities to Catalog (September 2, 2026) - CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "CISA Adds One Known Exploited Vulnerability to Catalog (September 4, 2026) - CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/04/cisa-adds-one-known-exploited-vulnerability-catalog"
+    },
+    {
+      "title": "Major Cyber Attacks, Data Breaches, Ransomware Attacks in August 2026 - CM-Alliance",
+      "url": "https://www.cm-alliance.com/cybersecurity-blog/major-cyber-attacks-data-breaches-ransomware-attacks-in-august-2026"
+    },
+    {
+      "title": "The State of Ransomware: August 2026 - BlackFog",
+      "url": "https://www.blackfog.com/the-state-of-ransomware-august-2026/"
+    },
+    {
+      "title": "Known Exploited Vulnerabilities Catalog - CISA",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}
