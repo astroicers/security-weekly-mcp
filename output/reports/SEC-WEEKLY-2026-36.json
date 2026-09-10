@@ -7,247 +7,214 @@
   },
   "publish_date": "2026-09-07",
   "summary": {
-    "total_events": 8,
-    "total_vulnerabilities": 8,
+    "total_events": 7,
+    "total_vulnerabilities": 6,
     "threat_level": "high"
   },
   "events": [
     {
-      "title": "台灣新創 Zeabur 資料外洩延燒：AWS 管理金鑰遭竊後取得主資料庫存取，暗網聲稱求售 612 GB 完整資料庫，AI API 金鑰大規模暴露，創辦人公開致歉",
+      "title": "台灣 AI 雲端平台 Zeabur 環境變數外洩：OpenAI、Anthropic、AWS 等多類 API 金鑰恐大規模遭竊，攻擊者即時刷光 AI 服務額度",
       "severity": "high",
       "event_type": "資料外洩",
-      "summary": "台灣雲端應用部署新創 Zeabur 於 8 月 25 日前後遭遇重大資安事件，攻擊者取得一把內部洩漏的 AWS 管理金鑰後，進入位於東京的 AWS 共享叢集（shared cluster），繼而取得控制平面的 VPN 存取權限，最終連上主資料庫並對使用者的環境變數進行針對性查詢與匯出。外洩範圍涵蓋儲存於環境變數中的 OpenAI、Anthropic、AWS、GitHub、OpenRouter 及 Stripe 等服務的 API 金鑰與憑證，且格式偵測不限於標準欄位名稱，以其他名稱儲存但值符合可識別憑證格式者亦確認暴露。事件發生後，有使用者回報 AI 帳單暴增近 10 倍，創辦人林源霖公開道歉並確認 API 金鑰被盜用。9 月初，暗網出現聲稱持有 612 GB Zeabur 完整資料庫的求售帖文，Zeabur 官方表示無證據佐證。Zeabur 確認帳號憑證、個人資料、伺服器資料及付款資訊未受影響，但 AI API 金鑰外洩的直接財務損失已發生。Zeabur 計畫於 9 月 30 日前完成已確認受害案例的補償。本次事件的核心教訓：一把 AWS 管理金鑰若缺乏最小權限設計，可作為穿越多層環境直抵主資料庫的主幹道，雲端環境中憑證最小權限與金鑰輪換策略的落實已是基本防護要件。",
-      "source": "iThome / 數位時代 BusinessNext / 動區動趨 / Yahoo 新聞",
-      "url": "https://www.ithome.com.tw/news/178540",
-      "date": "2026-09-01"
+      "summary": "Zeabur 是台灣知名的一鍵部署雲端平台，在 Vibe Coding 社群尤為廣泛使用，支援直接從 GitHub 部署應用並自動管理環境變數、資料庫與 SSL。8 月 27 日，Zeabur 確認一起資安事件：其內部服務憑證遭未授權存取，導致使用者儲存於專案中的環境變數被外部讀取。外洩的環境變數涵蓋 OpenAI、Anthropic（Claude API）、OpenRouter、Gemini、GitHub Token、AWS 金鑰、Cloudflare、Stripe，以及資料庫連接字串、JWT Secret 等高敏感憑證。多數受害者的第一個徵兆是信用卡帳單異常、OpenRouter 自動補款通知或 Anthropic 用量暴增——而非 Zeabur 的主動通知。事件在 8 月底至 9 月初持續發酵，眾多個人開發者、AI Agent 應用及 Telegram 機器人的部署環境均受波及。目前 Zeabur 已輪換內部憑證並通知受影響使用者，但已外洩金鑰需由用戶自行強制輪換。此事件凸顯雲端部署平台作為集中式憑證儲存庫的高風險特性：一旦平台本身遭入侵，所有托管應用的第三方憑證均可能瞬間大規模暴露。",
+      "source": "King of Computer Media / AlphaMatch AI / iThome",
+      "url": "https://en.kocpc.com.tw/archives/24934",
+      "date": "2026-08-31"
     },
     {
-      "title": "SonicWall SMA1000 雙零時差鏈式 RCE（CVE-2026-83548 CVSS 10.0 + CVE-2026-83549）：SSRF 串接命令注入達成未驗證遠端程式碼執行，9/1 揭露同日確認積極利用，9/2 CISA KEV 列入",
+      "title": "中國駭客 APT24 持續對台灣廣告供應鏈發動攻擊：新聞與小說網站植入 BadAudio 惡意程式碼，8 萬次點擊 76% 來自台灣",
       "severity": "high",
-      "event_type": "零時差漏洞遭積極利用",
-      "summary": "9 月 1 日，SonicWall PSIRT 揭露 SMA1000 系列設備存在兩個高危漏洞並確認已遭積極利用。CVE-2026-83548（CVSS 10.0）是位於 SMA1000 Appliance Work Place 介面的伺服器端請求偽造（SSRF）漏洞，允許未驗證的遠端攻擊者觸達內部資源或執行未授權指令。CVE-2026-83549 是 SMA1000 設備管理主控台（AMC）中的 OS 命令注入漏洞，讓具管理員權限的已驗證攻擊者執行任意 OS 指令。兩個漏洞可串接成完整的未驗證遠端程式碼執行攻擊鏈：攻擊者先利用 CVE-2026-83548 的 SSRF 繞過驗證門檻，再觸發 CVE-2026-83549 的命令注入執行任意程式碼，整個過程無需任何憑證。CISA 於 9 月 2 日將兩個 CVE 同時列入 KEV，要求聯邦機構在規定期限內完成修補。SonicWall 已發布熱修補程式。SonicWall SMA1000 作為企業遠端存取閘道廣泛部署於政府機關與大型企業，此類遠端存取設備一旦淪陷攻擊者即可直接進入內網，應立即評估暴露狀況並套用修補。",
-      "source": "The Hacker News / Rapid7 / Help Net Security / eSentire / CISA",
-      "url": "https://thehackernews.com/2026/09/attackers-exploit-two-sonicwall-sma.html",
-      "date": "2026-09-01"
+      "event_type": "國家級網路攻擊 / 供應鏈攻擊",
+      "summary": "8 月 27 日，iThome 報導中國駭客組織 APT24 再度入侵台灣廣告行銷業者，藉由污染廣告供應鏈，在多個知名台灣新聞網站及小說閱讀網站植入混淆的惡意程式碼，目標是對特定 Windows 使用者散布 BadAudio 惡意程式。Gen Digital 研究人員分析，攻擊者在受害頁面注入 JavaScript，收集瀏覽器指紋資料以過濾攻擊目標後，才投放惡意酬載。此波攻擊共記錄約 8 萬次點擊，其中 76% 來自台灣境內，另有部分來自台灣海外社群，印證 APT24 對台灣的長期定向情報蒐集意圖。APT24 歷史上曾多次以台灣數位行銷供應鏈為跳板——2024 年底及 2026 年 11 月均有類似行動記錄——顯示廣告技術生態系已成為該組織反覆利用的入侵管道。BadAudio 惡意程式主要針對 Windows 終端，具備偵察功能。台灣各大媒體平台、入口網站若採用第三方廣告服務，均應評估廣告供應鏈是否遭污染，並建立廣告內容完整性驗證機制。本週（8/31 起）相關事件後續影響持續發酵，為第 36 週重要背景威脅。",
+      "source": "iThome 資安日報 / Gen Digital",
+      "url": "https://www.ithome.com.tw/news/178479",
+      "date": "2026-08-31"
     },
     {
-      "title": "PaperCut NG/MF 零時差鏈式 RCE（CVE-2026-82078 CVSS 9.4 + CVE-2026-81578）積極利用：攻擊者部署遠端存取工具，首波修補發布 48 小時後遭繞過，9/1 緊急修補 Release 3，CISA KEV 8/31 列入",
-      "severity": "high",
-      "event_type": "零時差漏洞遭積極利用",
-      "summary": "PaperCut 於 8 月 27 日率先警告，旗下 NG 及 MF 打印管理解決方案已發生確認的客戶資安事件，並緊急要求用戶限制網頁存取來源。CVE-2026-82078（CVSS 9.4）是資料庫連線工具中的不安全動態類別載入漏洞；CVE-2026-81578（CVSS 8.8）是網頁管理介面中的不當存取控制漏洞。未驗證攻擊者可將兩個漏洞串接成完整的預驗證遠端程式碼執行路徑，無需任何憑證即可完整控制 PaperCut Application Server。尤為嚴重的是，攻擊者在首批修補發布約 48 小時後即發現繞過方法，迫使 PaperCut 於 9 月 1 日發布第三次緊急修補（Release 3）。確認入侵的受害者環境中，攻擊者已在受損 PaperCut 伺服器上部署遠端存取工具以維持持久化存取。依 ShadowServer 資料，目前仍有逾千台 PaperCut NG/MF 設備暴露於網際網路。CISA 於 8 月 31 日將兩個 CVE 列入 KEV。PaperCut 廣泛用於台灣教育機構、政府機關及企業的列印管理，部署量不低，應立即確認是否已套用 Release 3。",
-      "source": "PaperCut / SecurityWeek / Help Net Security / BleepingComputer / CISA",
-      "url": "https://www.securityweek.com/papercut-exploitation-escalates-to-active-intrusions/",
-      "date": "2026-09-01"
-    },
-    {
-      "title": "JFrog Artifactory CVE-2026-82329（CVSS 9.8）揭露三天遭攻擊者偽造管理員 Token：未驗證取得管理員權限，CISA KEV 9/2 列入，截止日 9/5",
+      "title": "PaperCut NG/MF 零日漏洞鏈 CVE-2026-82078 + CVE-2026-81578 積極利用升級為實際入侵：攻擊者由偵察轉向鍵盤操控，所有版本受影響",
       "severity": "high",
       "event_type": "漏洞遭積極利用",
-      "summary": "JFrog 於 8 月 28 日揭露並修補 Artifactory 的不當驗證漏洞 CVE-2026-82329（CVSS 9.8，CWE-287），允許未驗證攻擊者透過網路存取在受影響的 Artifactory 自建部署（self-managed）實例上取得管理員級別權限。此漏洞存在於預設設定中，JFrog Cloud 雲端環境已受到保護。修補發布後僅三天，暴露管理平台公司 watchTowr 於 9 月 1 日即偵測到攻擊者已在積極利用漏洞偽造管理員 Token，並對使用者、群組、憑證及聯邦存取關係進行枚舉探查。Artifactory 作為 DevOps 供應鏈的核心元件——儲存映像檔、套件、程式碼及建置產物——管理員憑證一旦遭偽造，攻擊者可植入惡意套件實施供應鏈攻擊，影響範圍遠超 Artifactory 本身。CISA 於 9 月 2 日將 CVE-2026-82329 列入 KEV，截止日設為 9 月 5 日，為近期截止期最短的案例之一。應立即確認 Artifactory 版本並更新，若已暴露於網際網路應優先處理，同時稽核近期的管理員操作記錄。",
-      "source": "The Hacker News / SecurityWeek / BleepingComputer / Qualys ThreatPROTECT / CISA",
+      "summary": "PaperCut Software 於 8 月 27 日發布緊急公告，說明兩個零日漏洞正遭積極利用，影響 PaperCut NG 及 PaperCut MF 所有版本（包含 24、25、26 系列）。CVE-2026-81578 是一個驗證繞過漏洞，允許未驗證遠端攻擊者修改特定系統設定；CVE-2026-82078 是資料庫連線工具中不安全的動態類別載入缺陷，可觸發任意 Java 程式碼執行。兩者鏈式利用可達未驗證遠端程式碼執行（RCE）。Huntress 研究人員最早於 8 月 26 日即偵測到利用跡象，PaperCut 日誌中出現 Base64 編碼的偵察指令。進入本週（8/31 起），多家資安廠商確認攻擊已從初期偵察明顯升級為「hands-on-keyboard」的實際入侵階段，攻擊者開始在受害系統上執行更複雜的橫向移動及持久化操作。PaperCut 已發布緊急修補版本，CISA 於本週將 CVE-2026-82078 與 CVE-2026-81578 列入 KEV。PaperCut 廣泛部署於台灣大學、醫院及企業的列印管理基礎設施，應立即評估部署版本並套用緊急修補。",
+      "source": "The Hacker News / Rapid7 / Qualys ThreatPROTECT / Help Net Security",
+      "url": "https://thehackernews.com/2026/08/papercut-zero-day-exploited-in-attacks.html",
+      "date": "2026-09-01"
+    },
+    {
+      "title": "JFrog Artifactory CVE-2026-82329（CVSS 9.8）披露三天即遭利用：攻擊者無需驗證即可偽造管理員 Token，建立後門帳戶滲透軟體供應鏈",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "JFrog 於 8 月 28 日公開披露 Artifactory 的嚴重驗證繞過漏洞 CVE-2026-82329（CVSS 9.8）：預設設定下，未驗證的遠端攻擊者只需具備網路存取能力，即可透過 JFrog Access 信任邏輯的缺陷，取得管理員等級的身份令牌（Admin Token），繞過所有存取控制。攻擊不需要任何憑證、特殊權限或使用者互動。曝光揭露後不到三天，9 月 1 日，曝險管理公司 watchTowr 即觀察到攻擊者積極利用此漏洞對已暴露的 Artifactory 實例偽造管理員 Token，隨後進行使用者清單、群組、憑證及聯合存取關係的全面枚舉。在部分攻擊案例中，攻擊者更進一步建立後門帳戶以維持持久化存取。CISA 於 9 月 2 日將此漏洞列入 KEV。JFrog Artifactory 是企業軟體供應鏈的核心——存放二進位製品、Docker 映像、Maven 套件及 npm 模組，一旦被攻擊者取得管理員權限，後果涵蓋竊取所有私有套件、注入惡意製品對下游系統發動供應鏈攻擊，或取得 CI/CD 流水線的完整存取權。應立即升級至 Artifactory 7.161.20，JFrog 雲端部署版本已由 JFrog 完成修補。",
+      "source": "The Hacker News / BleepingComputer / SecurityWeek / Qualys ThreatPROTECT",
       "url": "https://thehackernews.com/2026/09/attackers-exploit-critical-jfrog.html",
-      "date": "2026-09-02"
-    },
-    {
-      "title": "Aurora 勒索軟體集團濫用 Cursor AI 代理對 ESXi 發動攻擊：Claude Sonnet 輔助偵察與 Kerberos 提升權限，逾 20 家跨國企業受害，AI 編程工具被用作攻擊加速器",
-      "severity": "medium",
-      "event_type": "勒索軟體攻擊 / AI 濫用",
-      "summary": "9 月 1 日，多家資安廠商發布調查報告揭露，一個 Aurora 勒索軟體附屬組織於 4 月 8 日至 5 月 21 日期間，利用 Cursor 的 AI 代理功能（搭載 Anthropic Claude Sonnet）輔助對至少 10 個目標組織進行入侵作業，覆蓋偵察、憑證竊取及 Kerberos/Active Directory 權限提升等環節。同一集團在 4 月至 7 月間共入侵 9 個國家的逾 20 家組織，在 17 個組織中取得域管或互動式存取。攻擊者部署以 Zig 語言撰寫的勒索軟體，包含針對 Windows 的版本以及專為 VMware ESXi 環境設計的 Linux 變種——後者使用自動化腳本 esxi_finder.py 探索 Hypervisor，並在加密磁碟前安全終止客戶機虛擬機器程序。研究人員指出，AI 代理的大多數指令在第一次嘗試時失敗，需要人工操作員反覆精煉調整，顯示 AI 功能是以「加速器」而非「自主攻擊者」的角色運作。這是繼台灣政府 AI 代理攻擊事件之後，又一起以具體案例佐證 AI 工具正式進入勒索軟體集團工具鏈的確認報告，對部署 ESXi 環境的台灣製造業與金融業構成直接風險。",
-      "source": "The Hacker News / Infosecurity Magazine / Cloud Security Alliance / Gambit Security",
-      "url": "https://thehackernews.com/2026/08/aurora-ransomware-operators-use-cursor.html",
       "date": "2026-09-01"
     },
     {
-      "title": "Langflow CVE-2026-0768（CVSS 9.8）積極利用：AI 框架已成憑證收割基礎設施，9/1 確認蜜罐捕獲 360 次攻擊嘗試，CISA KEV 9/2 列入",
-      "severity": "medium",
+      "title": "SonicWall SMA1000 雙零日漏洞 CVE-2026-83548（CVSS 10.0）+ CVE-2026-83549 確認遭積極利用：未驗證 SSRF 鏈 OS 命令注入可達完整 RCE",
+      "severity": "high",
       "event_type": "漏洞遭積極利用",
-      "summary": "9 月 1 日，VulnCheck 透過英國境內的蜜罐確認 Langflow AI 框架的 CVE-2026-0768 已進入積極利用階段，共記錄 360 次攻擊嘗試。CVE-2026-0768（CVSS 9.8）位於 Langflow 自定義元件編輯器的 validate 端點，漏洞成因為將使用者提供的程式碼參數直接傳入 Python exec() 函數而未進行任何過濾，允許未驗證攻擊者在伺服器上執行任意程式碼。Langflow 的預設自動登入功能往往使公開網際網路上的實例不需要任何驗證即可存取，進一步降低攻擊門檻。攻擊者行為模式為安靜、持續的憑證提取——系統性查詢環境變數並鎖定 /root/.cache/langflow/secret_key 等敏感路徑，目標是竊取儲存的 OpenAI 金鑰、AWS 憑證等 AI 服務認證。這是 Langflow 在 2026 年內第 12 個遭利用的漏洞，全年利用嘗試已超過 15,000 次，印證 AI 開發框架已系統性地成為憑證收割基礎設施。CISA 於 9 月 2 日將 CVE-2026-0768 列入 KEV。使用 Langflow 的 AI 開發者應立即更新版本，確認實例未暴露於公開網際網路，並輪換所有儲存於 Langflow 環境變數中的憑證。",
-      "source": "The Hacker News / SecurityWeek / Dark Reading / Cloud Security Alliance / CISA",
-      "url": "https://thehackernews.com/2026/09/attackers-exploit-critical-langflow-and.html",
-      "date": "2026-09-02"
+      "summary": "9 月 1 日，SonicWall 發布緊急公告，揭露 SMA1000 系列設備（含 SMA 6210、SMA 7210、SMA 8200v）存在兩個零日漏洞，並確認均已遭積極利用。CVE-2026-83548（CVSS 10.0）是 SMA1000 Appliance Work Place 介面中的預驗證伺服器端請求偽造（SSRF）漏洞，允許未驗證的遠端攻擊者存取敏感功能並透過非預期的替代存取路徑執行未授權操作。CVE-2026-83549 是 Appliance Management Console（AMC）中的 OS 命令注入漏洞，單獨利用需要已驗證管理員帳戶，但攻擊者可透過鏈式利用——先以 CVE-2026-83548 的 SSRF 繞過驗證門檻，再利用 CVE-2026-83549 執行任意作業系統指令——達成完整的未驗證遠端程式碼執行。SonicWall 確認兩個漏洞均已遭在野利用，CISA 於 9 月 2 日同步列入 KEV。受影響版本為 12.4.3 及 12.5.0 平台熱修復版本，修補版本為 12.4.3-03526 及 12.5.0-02952。SMA1000 系列部署於企業及政府機關的遠端存取閘道，一旦淪陷攻擊者即可完全控制 VPN 基礎設施，橫向進入內網。台灣使用 SonicWall 遠端存取設備的組織應立即確認版本並升級。",
+      "source": "Rapid7 / eSentire / Sophos / SecurityOnline",
+      "url": "https://www.rapid7.com/blog/post/etr-critical-sonicwall-sma1000-vulnerabilities-cve-2026-83548-cve-2026-83549-exploited-in-the-wild/",
+      "date": "2026-09-01"
     },
     {
-      "title": "Adobe Commerce/Magento 零時差 CVE-2026-75650（CVSS 10.0）StyleSmuggler：未驗證 RCE 植入 Rust 後門，9/4 零時差確認、9/7 緊急修補，影響所有 2.4.4 至 2.4.9 版本",
+      "title": "Google Chrome V8 零日漏洞 CVE-2026-85046（CVSS 8.8）遭積極利用：2026 年第三個 V8 零日，Chrome 152.0.7977.82 緊急修補，CISA 要求 9/18 前完成更新",
       "severity": "high",
-      "event_type": "零時差漏洞遭積極利用",
-      "summary": "9 月 4 日，電商資安公司 Sansec 發布研究報告揭露 Adobe Commerce 及 Magento 的零時差漏洞 CVE-2026-75650（CVSS 10.0），命名為 StyleSmuggler。漏洞位於 Magento 的範本系統，攻擊者透過觸發「付款交易失敗提醒」郵件，將攻擊者控制的 PHP 內容注入 Magento 可存取的檔案，利用 Magento 範本處理鏈中的依賴注入掃描器功能，以 PHP include/require_once 載入中毒檔案並執行其中的 PHP 程式碼，整個過程無需任何身份驗證。攻擊者已利用此零時差漏洞在受害伺服器上部署連接至外部伺服器的 Rust 語言 Linux 後門，以及可執行任意 PHP 命令的 PHP 網頁殼程式，成功入侵後即可完全控制電商伺服器及其客戶交易資料。受影響版本涵蓋 Adobe Commerce 2.4.4 至 2.4.9 所有版本，普及度極廣。Adobe 於 9 月 7 日發布緊急修補程式。台灣電子商務平台、製造業訂單系統及零售業廣泛使用 Adobe Commerce/Magento，應立即套用緊急修補並稽核近期的伺服器檔案異動。",
-      "source": "The Hacker News / Sansec / SecurityOnline / CISA",
-      "url": "https://thehackernews.com/2026/09/adobe-patches-magento-zero-day.html",
+      "event_type": "漏洞遭積極利用",
+      "summary": "9 月 3 日，Google 發布 Chrome 緊急穩定版更新（152.0.7977.82/83），修補包含 CVE-2026-85046 在內的 12 個安全漏洞。CVE-2026-85046 是 Chrome V8 JavaScript/WebAssembly 引擎中的型別混淆（Type Confusion）漏洞（CVSS 8.8），根本原因為 V8 編譯器中一個使陣列接收不正確映射的缺陷，可被轉化為對 JavaScript 堆疊的任意讀寫能力。成功利用後，遠端攻擊者可在受害者瀏覽特製 HTML 頁面後，在 Chrome 沙箱內執行任意程式碼。此漏洞由研究人員 Salvatore Gulizia（Serotav）於 8 月 4 日回報，Google 確認在修補前已遭在野利用。這是 Chrome 2026 年第六個零日漏洞，也是同年第三個直接鎖定 V8 的零日，顯示有組織性的持續研究專門針對全球部署最廣泛的瀏覽器引擎核心元件。CISA 於 9 月 4 日列入 KEV，設定聯邦機構修補截止日為 9 月 18 日。受影響版本為早於 152.0.7977.82 的所有 Chrome 版本；Microsoft Edge（基於 Chromium）及其他 Chromium 衍生瀏覽器亦可能受到影響，應確認各自廠商的更新時程。",
+      "source": "The Hacker News / Help Net Security / BleepingComputer / TechTimes",
+      "url": "https://thehackernews.com/2026/09/google-releases-chrome-update-to-patch.html",
       "date": "2026-09-04"
     },
     {
-      "title": "Google Chrome V8 零時差 CVE-2026-85046（CVSS 8.8）：類型混淆漏洞遭積極利用，2026 年 Chrome 第六個零時差，9/3 緊急更新，CISA KEV 9/4 列入",
+      "title": "ZaWoo 新型勒索軟體集團崛起：鎖定科技與製造業，完全覆寫原始檔名實施雙重勒索，已在歐洲發動多起攻擊",
       "severity": "medium",
-      "event_type": "零時差漏洞遭積極利用",
-      "summary": "9 月 3 日，Google 針對 Chrome 瀏覽器發布緊急穩定版更新（152.0.7977.82/.83），修補 V8 JavaScript 與 WebAssembly 引擎中的類型混淆漏洞 CVE-2026-85046（CVSS 8.8），並確認漏洞已在野外遭積極利用。該漏洞由資安研究員 Salvatore Gulizia 於 8 月 4 日向 Google 回報。技術成因為 V8 在處理特製 HTML 或 JavaScript 內容時，對記憶體物件類型判斷錯誤，形成任意讀寫能力，最終允許攻擊者控制的程式碼在瀏覽器沙箱內執行。CISA 於 9 月 4 日將 CVE-2026-85046 列入 KEV，要求各機構優先更新。CVE-2026-85046 是 2026 年 Google 修補的第六個 Chrome 零時差漏洞，V8 引擎的類型混淆漏洞已是連年重覆出現的攻擊面。Chrome 瀏覽器在企業與個人端的普及率極高，此類已遭利用的零時差漏洞往往被針對特定目標的魚叉式網路釣魚攻擊所採用。應確保所有端點的 Chrome 已更新至最新版本，並確認企業管理的設備強制套用自動更新政策。",
-      "source": "Google / The Hacker News / BleepingComputer / Help Net Security / Qualys ThreatPROTECT / CISA",
-      "url": "https://thehackernews.com/2026/09/google-releases-chrome-update-to-patch.html",
-      "date": "2026-09-03"
+      "event_type": "勒索軟體攻擊",
+      "summary": "8 月底至 9 月初，資安研究人員追蹤到一個新興勒索軟體集團 ZaWoo 開始積極活動。ZaWoo 採用人工操控網路入侵手法（human-operated），以釣魚郵件及商品化惡意程式作為初始存取管道，隨後進行精準的橫向移動。其加密行為有一獨特特徵：相較於一般勒索軟體僅在原始檔名後附加副檔名，ZaWoo 會完全覆寫原始檔名及副檔名，使受害者難以判斷檔案類型及受影響範圍。8 月 30 日，ZaWoo 公告對德國知名軟體開發商 Vectorsoft AG 及捷克工業軟體商 BOTEC-CZ 發動攻擊，並採用 AI 數據報告、直接勒索及雙重勒索的複合施壓模式。ASEC（AhnLab 安全緊急應變中心）在 9 月第一週的暗網情報追蹤中確認 ZaWoo 本週持續活躍。目前 ZaWoo 的主要受害者集中於歐洲科技及製造業，但其使用的滲透手法（釣魚 + 橫向移動）在台灣製造業及中小型 IT 廠商中同樣具備高成功率風險。台灣企業應特別注意員工的釣魚意識培訓及 AD 環境的橫向移動偵測能力。",
+      "source": "ASEC / AhnLab / DeXpose / WatchGuard Technologies",
+      "url": "https://asec.ahnlab.com/en/95223/",
+      "date": "2026-09-01"
     }
   ],
   "vulnerabilities": [
     {
-      "cve_id": "CVE-2026-75650",
-      "title": "Adobe Commerce/Magento 未驗證遠端程式碼執行（CVSS 10.0，StyleSmuggler 零時差，9/4 確認積極利用，9/7 緊急修補，版本 2.4.4-2.4.9 全受影響）",
-      "cvss": 10.0,
-      "severity": "critical",
-      "vendor": "Adobe",
-      "product": "Adobe Commerce / Magento Open Source 2.4.4 至 2.4.9（所有版本）",
-      "description": "CVE-2026-75650（CVSS 10.0）是 Adobe Commerce 及 Magento 的零時差未驗證遠端程式碼執行漏洞，由 Sansec 命名為 StyleSmuggler。攻擊者濫用 Magento 的範本處理機制，透過付款失敗提醒郵件觸發流程，將惡意 PHP 程式碼注入伺服器可載入的檔案中，再由 Magento 的依賴注入掃描器以 include/require_once 執行。整個攻擊流程無需身份驗證。攻擊者已利用此漏洞部署 Rust 語言 Linux 後門及 PHP 網頁殼程式。Adobe 於 9/7 發布緊急修補。台灣電商平台應立即套用修補，並稽核近期的伺服器檔案異動及非預期的對外連線。"
-    },
-    {
       "cve_id": "CVE-2026-83548",
-      "title": "SonicWall SMA1000 Appliance Work Place 未驗證伺服器端請求偽造（CVSS 10.0，9/1 揭露同日確認積極利用，可與 CVE-2026-83549 鏈接達成未驗證 RCE，CISA KEV 9/2）",
+      "title": "SonicWall SMA1000 Appliance Work Place 預驗證 SSRF（CVSS 10.0，零日積極利用，可鏈接 CVE-2026-83549 達成未驗證 RCE，CISA KEV 9/2）",
       "cvss": 10.0,
       "severity": "critical",
       "vendor": "SonicWall",
-      "product": "SonicWall SMA1000 Series Appliances（受影響版本）",
-      "description": "CVE-2026-83548（CVSS 10.0）是 SonicWall SMA1000 Appliance Work Place 介面中的伺服器端請求偽造（SSRF）漏洞，允許未驗證遠端攻擊者觸達內部資源或執行未授權指令。與 CVE-2026-83549（SMA1000 AMC 命令注入）串接可達成完整的未驗證遠端程式碼執行。SonicWall 揭露漏洞當日即確認積極利用，CISA 9/2 列入 KEV。應立即套用 SonicWall 發布的熱修補程式，並隔離 SMA1000 管理介面的對外存取直到完成修補。"
+      "product": "SonicWall SMA1000 系列（SMA 6210、SMA 7210、SMA 8200v，受影響版本：12.4.3 及 12.5.0 平台熱修復版本）",
+      "description": "CVE-2026-83548 是 SonicWall SMA1000 Appliance Work Place 介面中的預驗證伺服器端請求偽造（SSRF）漏洞，CVSS 10.0。攻擊者無需任何憑證或使用者互動，即可透過未預期的替代存取路徑存取敏感功能並執行未授權操作。此漏洞與 CVE-2026-83549（AMC OS 命令注入）鏈式利用，可達成完整的未驗證遠端程式碼執行，完全接管 SMA1000 遠端存取閘道。SonicWall 9/1 確認積極利用，CISA 9/2 列入 KEV。應立即升級至 12.4.3-03526 或 12.5.0-02952；修補前建議透過防火牆規則限制 SMA 管理介面及 Work Place 存取來源。修補後稽核設備日誌確認無異常存取及配置變更。"
     },
     {
       "cve_id": "CVE-2026-82329",
-      "title": "JFrog Artifactory 不當驗證允許未驗證攻擊者取得管理員權限（CVSS 9.8，8/28 揭露，三天後遭積極利用偽造管理員 Token，CISA KEV 9/2，截止日 9/5）",
+      "title": "JFrog Artifactory 預驗證管理員 Token 偽造（CVSS 9.8，披露三天即遭利用，攻擊者建立後門帳戶，CISA KEV 9/2）",
       "cvss": 9.8,
       "severity": "critical",
       "vendor": "JFrog",
-      "product": "JFrog Artifactory 自建部署（self-managed）所有受影響版本",
-      "description": "CVE-2026-82329（CVSS 9.8，CWE-287）是 JFrog Artifactory 中的不當驗證漏洞，允許未驗證攻擊者取得管理員權限並偽造管理員 Token。此漏洞存在於預設設定中，JFrog Cloud 雲端版本不受影響。揭露後三天（9/1）已確認攻擊者偽造管理員 Token 並枚舉使用者、群組及憑證。作為 DevOps 供應鏈核心的 Artifactory 一旦遭入侵，攻擊者可植入惡意套件發動供應鏈攻擊。CISA 9/2 列入 KEV，截止日 9/5。應立即更新至安全版本，稽核管理員操作記錄及套件完整性。"
-    },
-    {
-      "cve_id": "CVE-2026-0768",
-      "title": "Langflow AI 框架未驗證遠端程式碼執行（CVSS 9.8，9/1 確認積極利用，360 次攻擊嘗試，用於竊取 AI API 金鑰與雲端憑證，CISA KEV 9/2）",
-      "cvss": 9.8,
-      "severity": "critical",
-      "vendor": "Langflow",
-      "product": "Langflow（受影響版本）",
-      "description": "CVE-2026-0768（CVSS 9.8）是 Langflow AI 框架自定義元件 validate 端點的未驗證遠端程式碼執行漏洞，成因為使用者提供的程式碼直接傳入 Python exec() 而無過濾。Langflow 預設啟用自動登入功能，使公開暴露的實例無需驗證。攻擊者利用此漏洞系統性提取環境變數中的 OpenAI 金鑰、AWS 憑證等 AI 服務認證。VulnCheck 蜜罐記錄 360 次攻擊嘗試（9/1），為 2026 年 Langflow 第 12 個遭利用漏洞。CISA 9/2 列入 KEV。應立即更新 Langflow，確認實例未對公開網路暴露，並輪換所有儲存於環境變數的憑證。"
+      "product": "JFrog Artifactory（7.161.20 之前的所有版本；JFrog 雲端部署已自動修補）",
+      "description": "CVE-2026-82329 是 JFrog Artifactory 的嚴重驗證繞過漏洞（CVSS 9.8）：預設設定下，未驗證攻擊者可利用 JFrog Access 服務的信任或註冊邏輯缺陷，偽造管理員等級身份令牌，取得對整個 Artifactory 實例的完整管理權限。披露（8/28）三天後，9/1 即確認積極利用，攻擊者利用偽造的管理員 Token 枚舉使用者、群組、憑證及聯合存取關係，並在部分案例建立後門帳戶實現持久化存取。CISA 9/2 列入 KEV。應立即升級至 Artifactory 7.161.20；升級後稽核管理員帳戶清單及過去 30 天的存取記錄，確認無非預期管理員帳戶或異常令牌活動；稽核 Artifactory 中所有製品的完整性，評估是否有惡意製品被注入。"
     },
     {
       "cve_id": "CVE-2026-82078",
-      "title": "PaperCut NG/MF 資料庫連線工具不安全動態類別載入（CVSS 9.4，可與 CVE-2026-81578 鏈接達成未驗證 RCE，CISA KEV 8/31，9/1 第三次緊急修補）",
-      "cvss": 9.4,
+      "title": "PaperCut NG/MF 不安全動態類別載入 RCE（零日，與 CVE-2026-81578 鏈接達成未驗證 RCE，攻擊已升級為實際入侵，CISA KEV）",
+      "cvss": 9.0,
       "severity": "critical",
       "vendor": "PaperCut Software",
-      "product": "PaperCut NG 及 PaperCut MF（多個受影響版本）",
-      "description": "CVE-2026-82078（CVSS 9.4）是 PaperCut NG/MF 資料庫連線工具中的不安全動態類別載入漏洞，可與 CVE-2026-81578（網頁管理介面不當存取控制，CVSS 8.8）串接成未驗證遠端程式碼執行攻擊鏈。PaperCut 確認首批修補發布約 48 小時後即遭攻擊者繞過，攻擊者在受損伺服器部署遠端存取工具。9/1 發布 Release 3 緊急修補。CISA 8/31 列入 KEV。逾千台 PaperCut 伺服器暴露於網際網路。應確認已套用最新 Release 3 修補，並稽核伺服器的遠端存取工具安裝情況。"
+      "product": "PaperCut NG / PaperCut MF（所有版本，包含 24、25、26 系列）",
+      "description": "CVE-2026-82078 是 PaperCut NG/MF 資料庫連線工具中不安全的動態類別載入缺陷，可觸發任意 Java 程式碼執行。與 CVE-2026-81578（驗證繞過，允許未驗證攻擊者修改特定系統設定）鏈式利用後，可達成完整的未驗證遠端程式碼執行。Huntress 最早於 8/26 偵測到利用跡象（Base64 編碼偵察指令），本週已確認攻擊升級為 hands-on-keyboard 入侵階段，攻擊者開始橫向移動。CISA 已將兩個 CVE 均列入 KEV。PaperCut 已發布緊急修補版本，應立即升級並稽核列印伺服器日誌確認無入侵跡象；修補前可考慮暫時從公網隔離 PaperCut 管理介面作為緩解措施。"
     },
     {
       "cve_id": "CVE-2026-85046",
-      "title": "Google Chrome V8 JavaScript 引擎類型混淆（CVSS 8.8，2026 年第六個 Chrome 零時差，9/3 緊急更新，CISA KEV 9/4）",
+      "title": "Google Chrome V8 引擎型別混淆零日（CVSS 8.8，2026 年第三個 V8 零日，積極利用中，CISA KEV 9/4，截止 9/18）",
       "cvss": 8.8,
       "severity": "high",
       "vendor": "Google",
-      "product": "Google Chrome 152.0.7977.82 以前版本（Windows/macOS/Linux）",
-      "description": "CVE-2026-85046（CVSS 8.8）是 Chrome V8 JavaScript 與 WebAssembly 引擎中的類型混淆漏洞，特製 HTML/JavaScript 內容可使 V8 錯誤處理記憶體物件類型，形成任意讀寫能力並在瀏覽器沙箱內執行攻擊者控制的程式碼。Google 於 9/3 在修補的同時確認野外積極利用。此為 2026 年 Chrome 第六個零時差漏洞。應確保所有端點 Chrome 已更新至 152.0.7977.82 或更新版本，並啟用自動更新。"
+      "product": "Google Chrome（早於 152.0.7977.82 的所有版本）",
+      "description": "CVE-2026-85046 是 Chrome V8 JavaScript 引擎的型別混淆零日漏洞（CVSS 8.8），根本原因為 V8 編譯器使陣列接收不正確的 PACKED_SMI_ELEMENTS 映射，可被轉化為對 JavaScript 堆疊的任意讀寫。成功利用後遠端攻擊者可在 Chrome 沙箱內執行任意程式碼，受害者僅需瀏覽特製 HTML 頁面即可遭到攻擊。Google 9/3 發布 Chrome 152.0.7977.82 修補此漏洞，CISA 9/4 列入 KEV，聯邦機構截止日 9/18。這是 2026 年第六個 Chrome 零日，第三個直接鎖定 V8，顯示有組織性的持續研究針對 V8 引擎。應立即確認並更新至 Chrome 152.0.7977.82 或更新版本；Microsoft Edge 及其他 Chromium 衍生瀏覽器應確認各廠商修補版本。"
     },
     {
       "cve_id": "CVE-2026-81578",
-      "title": "PaperCut NG/MF 網頁管理介面不當存取控制（CVSS 8.8，與 CVE-2026-82078 鏈接達成未驗證 RCE，CISA KEV 8/31）",
-      "cvss": 8.8,
+      "title": "PaperCut NG/MF 驗證繞過（零日，可與 CVE-2026-82078 鏈接達成未驗證 RCE，CISA KEV）",
+      "cvss": 8.6,
       "severity": "high",
       "vendor": "PaperCut Software",
-      "product": "PaperCut NG 及 PaperCut MF（多個受影響版本）",
-      "description": "CVE-2026-81578（CVSS 8.8）是 PaperCut NG/MF 網頁管理介面中的不當存取控制漏洞，與 CVE-2026-82078 串接可允許未驗證攻擊者完整控制 PaperCut Application Server。詳見 CVE-2026-82078 說明。應確認已套用 Release 3 緊急修補。"
+      "product": "PaperCut NG / PaperCut MF（所有版本，包含 24、25、26 系列）",
+      "description": "CVE-2026-81578 是 PaperCut NG/MF 的驗證繞過漏洞，允許未驗證的遠端攻擊者修改特定系統設定，繞過應有的身份驗證檢查。此漏洞為 PaperCut 零日攻擊鏈的第一階段，與 CVE-2026-82078（不安全動態類別載入 RCE）鏈式利用，可達成完整未驗證遠端程式碼執行。應立即套用 PaperCut 緊急修補版本，並參考 CVE-2026-82078 的相關建議措施。"
     },
     {
       "cve_id": "CVE-2026-83549",
-      "title": "SonicWall SMA1000 AMC OS 命令注入（與 CVE-2026-83548 鏈接達成未驗證 RCE，9/1 揭露，CISA KEV 9/2）",
+      "title": "SonicWall SMA1000 AMC OS 命令注入（與 CVE-2026-83548 SSRF 鏈接後可達未驗證 RCE，CISA KEV 9/2）",
       "cvss": 8.1,
       "severity": "high",
       "vendor": "SonicWall",
-      "product": "SonicWall SMA1000 Series Appliances（受影響版本）",
-      "description": "CVE-2026-83549 是 SonicWall SMA1000 設備管理主控台（AMC）中的 OS 命令注入漏洞，允許具管理員權限的已驗證攻擊者執行任意 OS 指令。與 CVE-2026-83548（SSRF，CVSS 10.0）串接後，攻擊者可以未驗證身份達成完整遠端程式碼執行。CISA 9/2 列入 KEV。應立即套用 SonicWall 熱修補程式。"
+      "product": "SonicWall SMA1000 系列（SMA 6210、SMA 7210、SMA 8200v，受影響版本：12.4.3 及 12.5.0 平台熱修復版本）",
+      "description": "CVE-2026-83549 是 SonicWall SMA1000 Appliance Management Console（AMC）中的 OS 命令注入漏洞。單獨利用此漏洞需要已驗證管理員帳戶，但攻擊者可與 CVE-2026-83548（SSRF）鏈式利用，藉由 SSRF 繞過驗證要求後，直接觸發 OS 命令注入執行任意系統指令，實現完整的未驗證遠端程式碼執行。SonicWall 9/1 確認積極利用，CISA 9/2 列入 KEV。應立即升級至 12.4.3-03526 或 12.5.0-02952，參考 CVE-2026-83548 相關緩解建議。"
     }
   ],
   "threat_trends": {
-    "summary": "本週最顯著的主線是 AI 工具的雙向戰場化——既成為攻擊者的武器，也成為攻擊的目標。Aurora 勒索軟體集團將 Cursor AI 代理（搭載 Claude Sonnet）整合進入侵工作流程，輔助偵察與 Active Directory 提升權限，並針對 VMware ESXi 環境部署 Linux 勒索軟體變種；同期，Langflow 成為 2026 年第 12 個遭利用的漏洞、台灣 AI 新創 Zeabur 遭 AWS 管理金鑰竊取後大規模 AI 憑證外洩——AI 開發基礎設施的每個環節（框架、部署平台、憑證管理）均成為攻擊面。遠端存取與網路邊界設備持續是高優先攻擊目標，SonicWall SMA1000 雙零時差在揭露當日即確認積極利用，PaperCut 的首批修補 48 小時內被繞過、第三次緊急修補迅速跟進——兩案均揭示企業修補窗口的極度壓縮。JFrog Artifactory 的積極利用加上攻擊者偽造管理員 Token，再次凸顯 DevOps 供應鏈環節（套件管理、映像倉庫）的高危屬性。電商領域的 Adobe Commerce/Magento StyleSmuggler 零時差（CVSS 10.0）部署 Rust 後門，顯示攻擊者正積極將現代語言（Rust、Zig）用於難以偵測的持久化惡意程式。Chrome 的第六個年度零時差提醒瀏覽器端點仍是高優先魚叉式攻擊媒介。",
+    "summary": "本週威脅態勢以「軟體供應鏈基礎設施的系統性攻擊」為核心主線，同時延續 APT24 對台灣廣告生態系的定向滲透。最具衝擊性的是 JFrog Artifactory CVE-2026-82329（CVSS 9.8）在披露三天後即遭利用——Artifactory 是企業軟體製品庫的核心，攻擊者取得管理員 Token 後可注入惡意套件污染整個下游供應鏈，這與 LiteLLM 供應鏈投毒的影響邏輯完全一致。PaperCut 雙零日攻擊由偵察升級為實際入侵，顯示企業列印基礎設施的資安優先級長期被低估。SonicWall SMA1000 CVSS 10.0 零日確認遭利用，再度印證遠端存取設備作為攻擊者最愛的「邊界破洞」角色——這已是第 36 週內遠端存取設備遭積極利用的第三起重大案例（前兩起為第 32、33 週的 Cisco ASA 及 VPN 閘道事件）。台灣 Zeabur 事件代表雲端部署平台成為新型高風險憑證儲存庫：一個平台帳戶遭入侵即可批次收割所有租戶的 AI API 金鑰，且攻擊者即時套現的速度遠快於受害者的察覺速度。Chrome V8 連續三個零日顯示有系統性的漏洞研究持續針對瀏覽器引擎核心，修補週期的壓縮已成為企業瀏覽器管理的新基準要求。",
     "active_actors": [
       {
-        "name": "Aurora 勒索軟體附屬集團（具體身份未公開歸因）",
-        "type": "財務動機威脅行為者（勒索軟體附屬集團）",
-        "activity": "4 月至 7 月 2026 年：在 9 個國家的逾 20 家組織中取得域管或互動式存取，於 4 月 8 日至 5 月 21 日期間使用 Cursor AI 代理（搭載 Claude Sonnet）輔助對至少 10 個目標組織進行偵察、憑證竊取及 Kerberos/AD 權限提升作業。同期部署 Zig 語言勒索軟體，Windows 版及針對 VMware ESXi 的 Linux 版（esxi_finder.py 自動探索 Hypervisor）。AI 代理作為技能提升工具，人工操作員仍主導整體入侵決策。"
+        "name": "APT24（中國國家級駭客組織）",
+        "type": "國家級威脅行為者（APT）",
+        "activity": "8 月 27 日至 9 月初：再度入侵台灣廣告行銷業者，透過受污染的廣告供應鏈，在台灣知名新聞網站及小說閱讀平台植入混淆惡意程式碼（BadAudio），收集 Windows 使用者瀏覽器指紋並投放惡意酬載。本波攻擊共記錄約 8 萬次點擊，76% 來自台灣境內，攻擊目標高度集中於台灣使用者群，顯示持續的情報蒐集意圖。APT24 此前曾多次（含 2024 年底、2026 年 11 月）以台灣數位行銷供應鏈為跳板發動攻擊。"
       },
       {
-        "name": "未知威脅行為者（SonicWall / PaperCut / JFrog 攻擊者）",
-        "type": "不明動機威脅行為者（可能財務動機）",
-        "activity": "8 月底至 9 月初：快速利用新揭露的高危漏洞（SonicWall SMA1000 CVE-2026-83548/83549、PaperCut CVE-2026-82078/81578、JFrog Artifactory CVE-2026-82329），在 PaperCut 受損伺服器部署遠端存取工具，在 JFrog 偽造管理員 Token 並進行使用者和憑證枚舉，顯示具系統性的偵察與持久化意圖。"
+        "name": "ZaWoo（新興財務動機威脅行為者）",
+        "type": "財務動機威脅行為者（勒索軟體集團）",
+        "activity": "8 月底至 9 月初：以人工操控入侵手法（human-operated）鎖定科技與製造業，採用完全覆寫原始檔名的加密技術，並結合 AI 數據報告與雙重勒索策略施壓受害者。已確認攻擊德國 Vectorsoft AG 及捷克 BOTEC-CZ，ASEC 9 月第一週仍追蹤到持續活動。"
       },
       {
-        "name": "Langflow AI 框架憑證收割攻擊者（多個行為者）",
-        "type": "財務動機威脅行為者",
-        "activity": "9 月 1 日起：系統性利用 CVE-2026-0768 針對公開暴露的 Langflow 實例，靜默提取環境變數中的 OpenAI 金鑰、AWS 憑證及 Langflow 秘密金鑰，行為特徵為「安靜、持續的憑證提取」，2026 年全年針對 Langflow 各漏洞的攻擊嘗試已超過 15,000 次。"
+        "name": "未知威脅行為者（JFrog Artifactory 攻擊）",
+        "type": "財務或國家級威脅行為者",
+        "activity": "9 月 1 日起：積極利用 CVE-2026-82329 偽造 JFrog Artifactory 管理員 Token，對已曝露的 Artifactory 實例執行廣泛枚舉，並在部分案例建立後門帳戶實現持久化存取，手法具備明顯的供應鏈攻擊準備特徵。"
       }
     ],
     "attack_techniques": [
-      "AI 代理輔助入侵（Cursor Agent + Claude Sonnet）：勒索軟體集團將商業 AI 編程工具整合入侵工作流程，用於偵察、憑證竊取及 Active Directory 提升權限，以「加速器」角色放大技能下限較低的人工操作員的攻擊效率",
-      "遠端存取設備雙零時差鏈式攻擊（SonicWall CVE-2026-83548 + CVE-2026-83549）：SSRF 漏洞繞過驗證後觸發命令注入，達成未驗證遠端程式碼執行，在揭露當日即確認積極利用",
-      "打印管理伺服器漏洞鏈利用（PaperCut CVE-2026-82078 + CVE-2026-81578）：首批修補 48 小時即遭繞過，部署遠端存取工具建立持久化，逾千台暴露實例為大規模攻擊提供條件",
-      "DevOps 倉庫管理員 Token 偽造（JFrog Artifactory CVE-2026-82329）：偽造管理員憑證後進行使用者/群組枚舉及供應鏈植入準備，揭露至利用不足 72 小時",
-      "電商範本引擎注入（Adobe Commerce CVE-2026-75650 StyleSmuggler）：濫用付款失敗郵件觸發流程，將 PHP 程式碼注入伺服器可載入路徑，部署 Rust 後門及 PHP 網頁殼程式建立持久控制",
-      "AI 開發框架 exec() 注入憑證收割（Langflow CVE-2026-0768）：直接傳入 exec() 的使用者輸入允許未驗證 RCE，靜默提取 AI API 金鑰和雲端憑證，AI 框架已系統性成為憑證收割基礎設施",
-      "雲端管理金鑰橫向移動（Zeabur AWS 管理金鑰竊取）：單一高權限憑證在雲端環境中實現多層穿越（AWS 叢集→控制平面 VPN→主資料庫），攻擊者精準針對環境變數中的 AI API 金鑰"
+      "廣告供應鏈投毒（APT24）：入侵台灣廣告行銷業者，污染第三方廣告腳本，在多家高流量媒體平台植入混淆 JavaScript 收集指紋並投放惡意程式碼",
+      "雲端平台憑證大規模收割（Zeabur）：攻擊雲端部署平台集中式憑證儲存機制，批次取得所有租戶的 AI API 金鑰與雲端服務憑證，並即時套現",
+      "軟體製品庫管理員接管（JFrog CVE-2026-82329）：利用 Artifactory 驗證繞過偽造管理員 Token，為供應鏈注入惡意製品建立立足點",
+      "列印管理伺服器鏈式 RCE（PaperCut CVE-2026-82078 + CVE-2026-81578）：驗證繞過串聯不安全動態類別載入，在無憑證條件下達成完整 Java RCE，攻擊目標為企業核心基礎設施",
+      "遠端存取閘道 SSRF 鏈 OS 命令注入（SonicWall CVE-2026-83548 + CVE-2026-83549）：以 SSRF 繞過驗證要求後觸發命令注入，完整接管 VPN 閘道並滲入內網",
+      "瀏覽器引擎型別混淆任意程式碼執行（Chrome V8 CVE-2026-85046）：透過特製 HTML 觸發 V8 堆疊任意讀寫，在 Chrome 沙箱內執行惡意程式碼"
     ]
   },
   "action_items": [
     {
       "priority": "high",
-      "action": "立即修補 SonicWall SMA1000（CVE-2026-83548 + CVE-2026-83549，揭露當日確認積極利用，CISA KEV 9/2）：（1）確認所有 SonicWall SMA1000 系列設備的韌體版本，立即套用 SonicWall 發布的熱修補程式（SNWLID-2026-0016）；（2）修補前作為緊急緩解措施，透過防火牆規則或 ACL 限制 SMA1000 Appliance Work Place 介面及 AMC 管理主控台對網際網路的暴露，僅允許受信任管理 IP 存取；（3）修補完成後稽核 SMA1000 的存取記錄，搜尋 8 月 31 日後任何可疑的非正常存取模式或未知 IP 的連線；（4）確認 SMA1000 整合的 VPN 使用者帳號無異常新增或權限變更；（5）遠端存取設備一旦疑似受損，應立即隔離並啟動全面的網路側向移動評估，檢查相鄰系統是否遭滲透。"
+      "action": "立即修補 SonicWall SMA1000 CVE-2026-83548/83549（CVSS 10.0，零日積極利用，CISA KEV 9/2）：（1）確認所有 SMA1000 部署版本，立即升級至 12.4.3-03526 或 12.5.0-02952；（2）修補前緊急緩解：透過防火牆規則嚴格限制 SMA 管理介面（AMC）及 Work Place 介面的存取來源 IP，僅允許已知信任的管理工作站；（3）修補後稽核設備日誌，確認無非預期的設定變更、管理員帳戶建立或異常的對外連線；（4）評估 SMA1000 是否曾遭入侵——若設備在 9 月 1 日前已曝露於公網且未修補，應假設已遭滲透並啟動鑑識調查，特別是稽核過去 30 天的 VPN 存取記錄確認是否有攻擊者進入內網。"
     },
     {
       "priority": "high",
-      "action": "立即套用 PaperCut NG/MF Release 3 緊急修補（CVE-2026-82078 + CVE-2026-81578，CISA KEV 8/31，多次繞過確認）：（1）確認所有 PaperCut NG 及 MF 伺服器版本，立即升級至包含 Release 3 修補的最新版本——先前版本的修補已確認可被繞過，僅 Release 3 提供有效保護；（2）若無法立即升級，立即將 PaperCut Application Server 的網頁管理介面存取限制為僅允許受信任的內部管理 IP；（3）稽核所有 PaperCut 伺服器上已安裝的軟體清單，搜尋非預期的遠端存取工具（如 AnyDesk、TeamViewer、Ngrok 或不明的系統服務）；（4）檢查 PaperCut 伺服器的執行程序、排程工作及系統啟動項，確認無惡意持久化機制；（5）評估 PaperCut 伺服器所在網段與核心業務系統的隔離程度，縮小潛在的橫向移動影響範圍。"
+      "action": "立即修補 JFrog Artifactory CVE-2026-82329（CVSS 9.8，CISA KEV 9/2）並稽核製品完整性：（1）本地部署版本立即升級至 Artifactory 7.161.20；JFrog 雲端部署已由 JFrog 完成修補，無需客戶操作；（2）升級後強制輪換所有已存在的 Access Token，避免攻擊者在升級前已建立的 Token 仍然有效；（3）稽核管理員帳戶清單，移除任何非預期的帳戶及其對應的 Token；（4）稽核過去 30 天 Artifactory 上所有製品的上傳記錄，確認無可疑的惡意套件被注入；（5）若確認被入侵，應評估所有下游系統（CI/CD、開發環境、生產環境）是否已消費受污染的製品。"
     },
     {
       "priority": "high",
-      "action": "立即修補 JFrog Artifactory（CVE-2026-82329，CVSS 9.8，CISA KEV 9/2，截止日 9/5 已過）並稽核供應鏈完整性：（1）確認所有自建部署（self-managed）Artifactory 版本並立即升級至安全版本——JFrog Cloud 不受影響；（2）稽核 Artifactory 管理員操作記錄，搜尋 8 月 28 日後的任何非預期管理員登入、Token 建立、使用者新增或權限變更；（3）稽核所有 Artifactory 倉庫中近期上傳的套件和映像檔，確認無未授權的修改（尤其關注 npm、PyPI、Docker 映像及 Maven 套件）；（4）輪換所有在此期間可能暴露的 Artifactory 管理員 Token 及服務帳號憑證；（5）確認 CI/CD 流水線從 Artifactory 取得的套件雜湊值未被竄改。"
+      "action": "立即修補 PaperCut NG/MF CVE-2026-82078 + CVE-2026-81578（零日，攻擊已升級為實際入侵，CISA KEV）：（1）立即升級至 PaperCut 緊急修補版本（適用版本 24、25、26 系列）；（2）修補前緊急緩解：將 PaperCut 管理介面限制為僅內部網路存取，移除任何對公網的暴露；（3）稽核 PaperCut 日誌，特別尋找 Base64 編碼的命令執行記錄（如 `cmd.exe /c` 或 `powershell`）、非預期的管理員登入或設定變更；（4）若列印伺服器已遭入侵，須評估攻擊者是否已橫向移動至其他內網系統。"
     },
     {
       "priority": "high",
-      "action": "立即套用 Adobe Commerce/Magento CVE-2026-75650（StyleSmuggler）緊急修補（9/7 發布，CVSS 10.0 零時差）：（1）確認所有 Adobe Commerce 及 Magento Open Source 版本（2.4.4 至 2.4.9 全受影響），立即套用 Adobe 9/7 發布的緊急修補程式；（2）稽核所有 Magento/Commerce 伺服器的近期檔案系統異動，特別搜尋非預期的 PHP 檔案、.so 共享函式庫及具可執行權限的新增二進制檔案（Rust 後門）；（3）確認伺服器是否有非預期的對外連線，尤其是針對未知 IP 的出站連線（Rust 後門的 C2 通訊）；（4）稽核 Magento 的 email 範本設定及近期的郵件觸發記錄，確認是否有異常的「付款交易失敗」郵件觸發記錄；（5）若確認受損，立即隔離伺服器、保留取證映像，並評估客戶交易資料及付款資訊的洩漏範圍。"
+      "action": "立即更新 Google Chrome 至 152.0.7977.82 或更新版本（CVE-2026-85046，CISA KEV 9/4，截止 9/18）：（1）全企業確認並強制更新 Chrome 至最新穩定版（152.0.7977.82+）——若使用企業政策管理 Chrome 版本，須立即推送強制更新；（2）Microsoft Edge（Chromium）及其他 Chromium 衍生瀏覽器確認各廠商對應的修補版本並同步更新；（3）評估是否有用戶在 9 月 3 日修補前曾遭到針對性的網路釣魚攻擊（結合特製 HTML 頁面的 drive-by 攻擊）；（4）啟用 Chrome 的自動更新機制，確保後續零日漏洞可自動獲得修補，縮短曝險窗口。"
     },
     {
       "priority": "high",
-      "action": "確認 Langflow 部署安全性並輪換 AI API 憑證（CVE-2026-0768，CVSS 9.8，CISA KEV 9/2）：（1）確認組織內所有 Langflow 部署實例的版本，立即升級至已修補版本；（2）確認 Langflow 實例是否暴露於公開網際網路——若是，立即加設驗證層或暫時下線；（3）輪換所有儲存於 Langflow 環境變數中的憑證，包含但不限於 OpenAI API 金鑰、AWS 金鑰、Anthropic API 金鑰及其他 AI 服務認證；（4）確認 Langflow 伺服器的 /root/.cache/langflow/secret_key 路徑是否已有非授權存取跡象；（5）建議針對 AI 開發框架實施統一的憑證管理政策，使用 Vault 或 AWS Secrets Manager 集中管理敏感憑證，避免直接儲存於環境變數。"
+      "action": "Zeabur 使用者緊急輪換所有外洩憑證，評估 AI API 金鑰使用異常：（1）曾在 Zeabur 平台部署應用的開發者，立即稽核所有儲存於 Zeabur 環境變數中的憑證，包含 OpenAI、Anthropic、OpenRouter、Gemini、GitHub、AWS、Cloudflare、Stripe API 金鑰及資料庫連接字串；（2）強制輪換所有上述憑證，不論是否收到 Zeabur 的入侵通知——被動等待平台確認無法防止已外洩金鑰被濫用；（3）稽核 OpenAI、Anthropic 等 AI 平台的用量記錄，確認是否有非正常的 API 呼叫（異常的 Token 消耗高峰、非常用時段的大量呼叫）；（4）未來評估雲端部署平台的安全性時，應將環境變數保護機制（靜態加密、存取控制、稽核記錄）納入必要評估項目。"
     },
     {
       "priority": "medium",
-      "action": "確認 Google Chrome 已更新並強化企業端點更新管理（CVE-2026-85046，CVSS 8.8，CISA KEV 9/4）：（1）確認所有端點（含 Windows、macOS 及 Linux）的 Chrome 版本已更新至 152.0.7977.82 或更新版本；（2）透過企業管理工具（如 Google Admin、Intune、JAMF）確認強制自動更新政策已生效，確保所有受管裝置在合理時間內完成更新；（3）提醒使用者注意可疑的電子郵件連結，避免在更新完成前瀏覽不受信任的網頁內容；（4）若組織部署基於 Chromium 的企業瀏覽器（Edge 等），確認相關版本亦已更新。"
+      "action": "強化廣告供應鏈安全防護（因應 APT24 台灣廣告供應鏈攻擊）：（1）台灣媒體、入口網站及任何嵌入第三方廣告服務的網站，立即稽核廣告腳本來源，確認無未授權的外部 JavaScript 注入；（2）部署子資源完整性（Subresource Integrity, SRI）機制對第三方腳本進行雜湊驗證，防止廣告腳本遭竄改後未被偵測；（3）終端使用者安全意識：建議使用廣告封鎖及指紋保護的瀏覽器擴充套件，減少成為廣告供應鏈攻擊目標的風險；（4）企業網路建議部署 DNS 過濾及 Web Proxy，封鎖已知惡意廣告網路及 APT24 使用的 C2 基礎設施。"
     },
     {
       "priority": "medium",
-      "action": "稽核 AI 開發基礎設施的憑證安全（以 Zeabur 事件為鑑）：（1）清查所有雲端服務帳號的 IAM 權限設計，識別並撤銷不符合最小權限原則的管理員級別金鑰，每個憑證應僅具備其功能所需的最低權限；（2）確認開發與測試環境中使用的 AWS/GCP/Azure 服務帳號，不應具備能橫向存取生產環境資料庫的路徑；（3）啟用 CloudTrail 或對應的雲端稽核日誌，設定針對高權限操作（如資料庫直接存取、VPN 設定變更）的異常警報；（4）對所有使用 AI 服務（OpenAI、Anthropic 等）的應用程式執行 API 金鑰清查，確認是否有過去 30 天的異常用量（如帳單暴增）；（5）評估組織內的 AI 開發平台（Zeabur、Render、Railway 等）的安全設定，確認環境變數中的敏感憑證受到妥善加密與存取控制保護。"
+      "action": "加強 ZaWoo 等新興勒索軟體防護（製造業及科技業優先）：（1）確認所有對外的 RDP、VPN 及遠端存取服務已套用最新修補並啟用 MFA；（2）強化電子郵件安全防護，部署釣魚郵件偵測及沙箱分析——ZaWoo 以釣魚作為主要初始存取手法；（3）部署 AD（Active Directory）橫向移動偵測機制，設定異常的管理員帳戶活動警報；（4）稽核並更新端點備份策略，確保備份與主網路隔離（air-gapped 或不可變備份），以降低勒索軟體攻擊後的業務中斷影響。"
     }
   ],
   "terms": [
     {
       "term": "伺服器端請求偽造（SSRF）",
-      "definition": "攻擊者透過伺服器發出請求，存取原本無法從外部觸達的內部資源或服務",
+      "definition": "攻擊者誘使伺服器向攻擊者指定的內部或外部位址發送請求，繞過防火牆存取限制",
       "url": "https://glossary.astroicers.link/glossary/ssrf"
     },
     {
-      "term": "零時差漏洞（Zero-Day）",
-      "definition": "廠商尚未知悉或尚未發布修補程式即遭積極利用的安全漏洞",
-      "url": "https://glossary.astroicers.link/glossary/zero_day"
-    },
-    {
-      "term": "命令注入（Command Injection）",
-      "definition": "攻擊者透過在輸入欄位注入惡意命令，使應用程式在作業系統層級執行未授權指令",
-      "url": "https://glossary.astroicers.link/glossary/command_injection"
-    },
-    {
-      "term": "勒索軟體（Ransomware）",
-      "definition": "惡意程式的一種，加密受害者檔案後要求支付贖金換取解密金鑰",
-      "url": "https://glossary.astroicers.link/glossary/ransomware"
-    },
-    {
-      "term": "類型混淆（Type Confusion）",
-      "definition": "程式在處理記憶體物件時因類型判斷錯誤，導致攻擊者可讀寫任意記憶體位置的漏洞類型",
+      "term": "型別混淆（Type Confusion）",
+      "definition": "程式在處理資料時誤用錯誤的型別，攻擊者可藉此操控記憶體讀寫，常見於瀏覽器引擎漏洞",
       "url": "https://glossary.astroicers.link/glossary/type_confusion"
     },
     {
-      "term": "遠端程式碼執行（RCE）",
-      "definition": "攻擊者在目標系統上遠端執行任意程式碼，通常可取得完整系統控制權",
-      "url": "https://glossary.astroicers.link/glossary/rce"
+      "term": "驗證繞過（Authentication Bypass）",
+      "definition": "攻擊者在不提供有效憑證的情況下，透過邏輯缺陷取得本應受保護的系統存取權限",
+      "url": "https://glossary.astroicers.link/glossary/authentication_bypass"
+    },
+    {
+      "term": "軟體製品庫（Artifact Repository）",
+      "definition": "集中存放已建置的軟體製品（套件、Docker 映像等）的平台，是 CI/CD 供應鏈的核心元件",
+      "url": "https://glossary.astroicers.link/glossary/artifact_repository"
+    },
+    {
+      "term": "雙重勒索（Double Extortion）",
+      "definition": "勒索軟體攻擊者同時加密受害者資料並竊取副本，以公開資料為額外要脅手段",
+      "url": "https://glossary.astroicers.link/glossary/double_extortion"
     },
     {
       "term": "供應鏈攻擊（Supply Chain Attack）",
@@ -255,79 +222,67 @@
       "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
     },
     {
-      "term": "AI 代理（AI Agent）",
-      "definition": "能自主規劃行動、使用工具並根據環境回饋動態調整策略的 AI 系統",
-      "url": "https://glossary.astroicers.link/glossary/ai_agent"
+      "term": "人工操控勒索軟體（Human-Operated Ransomware）",
+      "definition": "由攻擊者手動操控滲透、橫向移動及加密過程的勒索軟體攻擊模式，相較於自動化變種危害更深",
+      "url": "https://glossary.astroicers.link/glossary/human_operated_ransomware"
     }
   ],
   "references": [
     {
-      "title": "臺灣新創Zeabur資料外洩，駭客聲稱竊得612 GB內部資料 – iThome",
-      "url": "https://www.ithome.com.tw/news/178540"
+      "title": "Zeabur Environment Variable Leak: Stolen API Keys Drain Claude & OpenRouter Balances – AlphaMatch AI",
+      "url": "https://www.alphamatch.ai/blog/zeabur-env-variable-leak-api-keys-2026"
     },
     {
-      "title": "Zeabur遭駭懶人包：一組外洩AWS憑證，如何偷走用戶AI金鑰？ – 數位時代 BusinessNext",
-      "url": "https://www.bnext.com.tw/article/92061/zeabur-env-var-leak-api-key-stolen"
+      "title": "Taiwanese AI startup Zeabur leaks environment variables – King of Computer Media",
+      "url": "https://en.kocpc.com.tw/archives/24934"
     },
     {
-      "title": "Zeabur災情延燒》暗網傳開賣 612GB 完整資料庫，官方：沒證據佐證 – 動區動趨",
-      "url": "https://www.blocktempo.com/zeabur-dark-web-seller-claims-full-database-founder-denies-evidence/"
+      "title": "中國駭客APT24傳出入侵臺灣廣告供應鏈，在新聞與小說網站植入惡意程式碼 – iThome",
+      "url": "https://www.ithome.com.tw/news/178472"
     },
     {
-      "title": "Attackers Exploit Two SonicWall SMA 1000 Zero-Days That May Form an Attack Chain – The Hacker News",
-      "url": "https://thehackernews.com/2026/09/attackers-exploit-two-sonicwall-sma.html"
+      "title": "【資安日報】8月27日，中國駭客APT24傳出入侵臺灣廣告供應鏈 – iThome",
+      "url": "https://www.ithome.com.tw/news/178479"
     },
     {
-      "title": "Critical SonicWall SMA1000 Vulnerabilities CVE-2026-83548, CVE-2026-83549 Exploited in the Wild – Rapid7",
-      "url": "https://www.rapid7.com/blog/post/etr-critical-sonicwall-sma1000-vulnerabilities-cve-2026-83548-cve-2026-83549-exploited-in-the-wild/"
-    },
-    {
-      "title": "SonicWall SMA 1000 appliances under attack via zero-day flaws – Help Net Security",
-      "url": "https://www.helpnetsecurity.com/2026/09/02/sonicwall-sma-1000-cve-2026-83548-cve-2026-83549-zero-day-attacks/"
+      "title": "PaperCut Zero-Day Exploited in Attacks, Affecting All NG and MF Versions – The Hacker News",
+      "url": "https://thehackernews.com/2026/08/papercut-zero-day-exploited-in-attacks.html"
     },
     {
       "title": "PaperCut Exploitation Escalates to Active Intrusions – SecurityWeek",
-      "url": "https://www.securityweek.com/papercut-exploitation-escalates-to-active-intrusions/"
+      "url": "https://www.securityweek.com/papercut-exploitation-escalates-to-active-intrusions/amp/"
     },
     {
-      "title": "Attackers plant remote access tools on compromised PaperCut servers – Help Net Security",
-      "url": "https://www.helpnetsecurity.com/2026/08/31/papercut-attack-remote-access-tools/"
-    },
-    {
-      "title": "Recently patched PaperCut zero-days used in data theft attacks – BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/recently-patched-papercut-zero-days-used-in-data-theft-attacks/"
+      "title": "PaperCut NG/MF Zero-day Vulnerability Exploited (CVE-2026-82078 & CVE-2026-81578) – Qualys ThreatPROTECT",
+      "url": "https://threatprotect.qualys.com/2026/08/31/papercut-ng-mf-zero-day-vulnerability-exploited-in-the-attacks-cve-2026-82078-cve-2026-81578/"
     },
     {
       "title": "Attackers Exploit Critical JFrog Artifactory Flaw to Mint Admin Tokens Days After Disclosure – The Hacker News",
       "url": "https://thehackernews.com/2026/09/attackers-exploit-critical-jfrog.html"
     },
     {
+      "title": "Hackers exploit critical JFrog Artifactory flaw to forge admin tokens – BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-jfrog-artifactory-flaw-to-forge-admin-tokens/"
+    },
+    {
       "title": "Critical JFrog Artifactory Vulnerability Reportedly Exploited in the Wild – SecurityWeek",
       "url": "https://www.securityweek.com/critical-jfrog-artifactory-vulnerability-reportedly-exploited-in-the-wild/"
     },
     {
-      "title": "Aurora Ransomware Operators Use Cursor AI in Attacks Against 10 Targets – The Hacker News",
-      "url": "https://thehackernews.com/2026/08/aurora-ransomware-operators-use-cursor.html"
+      "title": "CISA Added JFrog Artifactory Vulnerability to its Known Exploited Vulnerabilities Catalog (CVE-2026-82329) – Qualys ThreatPROTECT",
+      "url": "https://threatprotect.qualys.com/2026/09/03/cisa-added-jfrog-artifactory-vulnerability-to-its-known-exploited-vulnerabilities-catalog-cve-2026-82329/"
     },
     {
-      "title": "Aurora Ransomware Targets VMware ESXi and Abuses Cursor Agent – Security Online",
-      "url": "https://securityonline.info/aurora-ransomware-esxi/"
+      "title": "Critical SonicWall SMA1000 Vulnerabilities CVE-2026-83548, CVE-2026-83549 Exploited in the Wild – Rapid7",
+      "url": "https://www.rapid7.com/blog/post/etr-critical-sonicwall-sma1000-vulnerabilities-cve-2026-83548-cve-2026-83549-exploited-in-the-wild/"
     },
     {
-      "title": "Attackers Exploit Critical Langflow and Rails Flaws in Credential-Probing and C2 Activity – The Hacker News",
-      "url": "https://thehackernews.com/2026/09/attackers-exploit-critical-langflow-and.html"
+      "title": "Critical Vulnerabilities in SonicWall SMA1000 Series Appliances Under Active Exploitation – Beazley Security",
+      "url": "https://beazley.security/alerts-advisories/critical-vulnerabilities-in-sonicwall-sma1000-series-appliances-under-active-exploitation-cve-2026-83548-cve-2026-83549"
     },
     {
-      "title": "Langflow Zero-Day Exploited to Harvest AI and Cloud Credentials – Cloud Security Alliance",
-      "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-langflow-ai-framework-credential-harvestin/"
-    },
-    {
-      "title": "Adobe Patches Magento Zero-Day Exploited to Deploy Rust Backdoor and PHP Web Shell – The Hacker News",
-      "url": "https://thehackernews.com/2026/09/adobe-patches-magento-zero-day.html"
-    },
-    {
-      "title": "StyleSmuggler: Magento and Adobe Commerce 0-day RCE (CVE-2026-75650) under active attack – Sansec",
-      "url": "https://sansec.io/research/stylesmuggler-0day"
+      "title": "SonicWall SMA1000 vulnerabilities in active exploitation – Sophos",
+      "url": "https://www.sophos.com/en-us/blog/sonicwall-83548-83549"
     },
     {
       "title": "Google Releases Chrome Update to Patch Actively Exploited V8 Zero-Day – The Hacker News",
@@ -338,16 +293,28 @@
       "url": "https://www.helpnetsecurity.com/2026/09/04/google-chrome-zero-day-cve-2026-85046/"
     },
     {
-      "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog (Aug 31) – CISA",
-      "url": "https://www.cisa.gov/news-events/alerts/2026/08/31/cisa-adds-two-known-exploited-vulnerabilities-catalog"
+      "title": "Chrome Patches Sixth Zero-Day of 2026 as V8 Compiler Exploit Hits Wild – TechTimes",
+      "url": "https://www.techtimes.com/articles/326749/20260905/chrome-patches-sixth-zero-day-2026-v8-compiler-exploit-hits-wild.htm"
     },
     {
-      "title": "CISA Adds Seven Known Exploited Vulnerabilities to Catalog (Sep 2) – CISA",
+      "title": "CISA Adds Seven Known Exploited Vulnerabilities to Catalog (Sep 2, 2026) – CISA",
       "url": "https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog"
     },
     {
-      "title": "CISA Adds One Known Exploited Vulnerability to Catalog (Sep 4) – CISA",
-      "url": "https://www.cisa.gov/news-events/alerts/2026/09/04/cisa-adds-one-known-exploited-vulnerability-catalog"
+      "title": "CISA Adds Seven Exploited Flaws as Attackers Deploy Reverse Shells and Crypto Miners – The Hacker News",
+      "url": "https://thehackernews.com/2026/09/cisa-adds-seven-exploited-flaws-as.html"
+    },
+    {
+      "title": "Ransom & Dark Web Issues Week 1, September 2026 – ASEC / AhnLab",
+      "url": "https://asec.ahnlab.com/en/95223/"
+    },
+    {
+      "title": "ZaWoo Strikes German Software Developer Vectorsoft AG – DeXpose",
+      "url": "https://www.dexpose.io/zawoo-strikes-german-software-developer-vectorsoft-ag/"
+    },
+    {
+      "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog (Aug 31, 2026) – CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/08/31/cisa-adds-two-known-exploited-vulnerabilities-catalog"
     },
     {
       "title": "Known Exploited Vulnerabilities Catalog – CISA",
