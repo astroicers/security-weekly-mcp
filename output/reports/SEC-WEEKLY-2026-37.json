@@ -1,0 +1,345 @@
+{
+  "title": "資安週報 2026/09/07 - 2026/09/13",
+  "report_id": "SEC-WEEKLY-2026-37",
+  "period": {
+    "start": "2026-09-07",
+    "end": "2026-09-13"
+  },
+  "publish_date": "2026-09-14",
+  "summary": {
+    "total_events": 7,
+    "total_vulnerabilities": 6,
+    "threat_level": "high"
+  },
+  "events": [
+    {
+      "title": "中科院採購網委外廠商隱蔽管理介面遭境外 IP 破解，國防部長顧立雄要求全面檢討究責（9/6 確認）",
+      "severity": "high",
+      "event_type": "供應鏈資安事件",
+      "summary": "8 月 28 日，中科院採購網出現異常，系統大量重新對合作供應商發送詢價案件通知函，初期中科院誤判為「AI 代理人出包」。9 月 5 日調查後還原真相：委外程式開發商為方便管理，在系統內藏隱蔽排程管理介面，且該介面未受充分保護，遭境外 IP 位址破解後觸發特定排程指令，導致系統重新派送大量過期採購資訊。中科院坦承，這套系統於民國 108 年 3 月建置，未依後來制定的軟體物料清單（SBOM）政策進行回溯清查，委外廠商在系統中留下的隱蔽管理後門，在漫長的維護期間從未被識別出來。國防部長顧立雄於 9 月 6 日確認委外廠商管理介面遭境外入侵屬實，中科院第一時間未能察覺，將就系統管理、資安查核及事件通報過程全面檢討，要求究責。此案暴露台灣國防相關機構委外廠商管理的系統性風險——隱蔽後門在採購驗收時難以發現，並在多年後成為實際攻擊入口。",
+      "source": "iThome / 中央廣播電臺 / 大紀元 / 中華日報",
+      "url": "https://www.ithome.com.tw/news/178727",
+      "date": "2026-09-06"
+    },
+    {
+      "title": "商周集團、城邦媒體旗下全線上服務 9/8 遭惡意攻擊中斷，台灣媒體出版業同日雙重打擊",
+      "severity": "medium",
+      "event_type": "惡意網路攻擊",
+      "summary": "9 月 8 日，台灣兩大媒體出版集團同日遭受惡意網路攻擊。商周集團旗下網站（含商業周刊線上、Smart 智富、e天下等）服務中斷，集團宣告「因應惡意網路攻擊，第一時間啟動應變機制」，委託第三方專業團隊協助檢視及復原，強調「受影響範圍較大，預計完整修復需要一定的時間」，但紙本雜誌出刊及配送不受影響。城邦媒體控股集團（旗下包含城邦讀書花園、漫畫基地等服務）同樣於 9 月 8 日公告遭到攻擊，部分網站及線上服務暫時無法使用，已委請第三方資安機構協助鑑識、確認影響範圍及進行系統復原，並承諾妥善處理讀者、訂戶及合作夥伴的相關權益。目前兩家集團均未公開攻擊者身分或技術細節，iThome 資安日報 9 月 10 日確認事件，外界研判可能涉及 DDoS 攻擊或網站入侵。台灣媒體出版業首度在同一天遭受雙重打擊，凸顯內容產業資安防護薄弱的結構性問題。",
+      "source": "iThome 資安日報 / 自由財經 / 中時新聞網",
+      "url": "https://www.ithome.com.tw/news/178827",
+      "date": "2026-09-08"
+    },
+    {
+      "title": "GitLab CVE-2026-85706（CVSS 10.0）修補後一天遭積極探測，CISA KEV 9/11 列入並設 9/14 截止，未驗證路徑遍歷可讀取任意伺服器檔案含 CI/CD 秘鑰",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "9 月 10 日，GitLab 發布 19.3.2、19.2.6、19.1.8 修補版本，關閉 CVE-2026-85706——一個存在於 Repository Commits API 中的路徑遍歷漏洞（CVSS 10.0）。漏洞根本原因為 API 端點在處理路徑輸入時未強制實施路徑限制，且缺乏驗證機制，允許任何未驗證的攻擊者透過特製請求讀取 GitLab 伺服器上的任意檔案，目標包括設定檔、儲存在磁碟的秘鑰、CI/CD Pipeline 配置、SSH 金鑰及部署腳本，而無需任何帳號憑證。修補後僅約一天，9 月 11 日 06:00 UTC，watchTowr 確認已觀測到野外積極探測（in-the-wild probes），評估「極有可能在極短時間內過渡至大規模無差別利用」。同日 CISA 將 CVE-2026-85706 列入 KEV，設 9 月 14 日為 FCEB 機構修補截止日，並依 BOD 26-04 要求受影響機構進行鑑識分類。GitLab 廣泛用於企業軟體開發、CI/CD 流程與 DevSecOps，伺服器通常儲存高價值機密——一旦攻擊者讀取 Runner 金鑰或雲端服務憑證，即可橫向入侵整個軟體供應鏈。所有自管 GitLab 執行個體應立即升級。",
+      "source": "The Hacker News / BleepingComputer / watchTowr / CISA / SecurityWeek",
+      "url": "https://thehackernews.com/2026/09/gitlab-cvss-10-file-read-flaw-draws-in.html",
+      "date": "2026-09-11"
+    },
+    {
+      "title": "N-able N-central CVE-2026-86218（CVSS 10.0）五週第四次熱修復仍遭野外利用，MSP 工具平台淪為攻擊跳板，CISA KEV 截止 9/11",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "N-able N-central 遠端監控與管理（RMM）平台爆發嚴重資安危機：CVE-2026-86218（靜態程式碼注入，CVSS 10.0）允許未驗證攻擊者在 N-central 伺服器上執行任意程式碼，影響 2026.3.1.14 之前的所有版本。9 月 4 日，資安廠商 Huntress 在調查一起客戶完整修補環境遭入侵事件時，確認此漏洞已在野外遭到利用；N-able 隨即於 9 月 5 日緊急發布 Hotfix 4。這是 N-able 在五週內針對不同嚴重漏洞發出的第四次熱修復，顯示 N-central 平台存在系統性安全問題。CISA 將漏洞列入 KEV，要求 FCEB 機構於 9 月 11 日前完成修補。N-central 的攻擊衝擊遠超單一漏洞：MSP（受管服務提供商）工具平台因管理大量客戶環境，單一平台淪陷等同對所有下游客戶環境開放存取，此類「MSP 供應鏈攻擊」模式已是近年威脅行為者的慣用戰術。台灣使用 N-central 的 MSP 及其客戶應立即確認是否已套用最新 Hotfix，並審查過去兩週的管理操作記錄。",
+      "source": "The Hacker News / Huntress / CybersecurityNews / CISA",
+      "url": "https://thehackernews.com/2026/09/n-able-n-central-pre-auth-rce-flaw.html",
+      "date": "2026-09-05"
+    },
+    {
+      "title": "微軟 9 月 Patch Tuesday 修補創紀錄 974 個漏洞含 113 個關鍵等級，2 個遭積極利用 Windows 零日（ALPC + Update Stack），CISA KEV 9/8 列入",
+      "severity": "high",
+      "event_type": "修補程式發布",
+      "summary": "9 月 8 日，微軟發布 9 月例行安全更新，修補 974 個漏洞（含 113 個關鍵等級），為 Patch Tuesday 歷史最高單月修補量，約為 8 月更新（423 個）的兩倍以上。本月最受關注的是兩個已遭積極利用的 Windows 零日提升權限漏洞：CVE-2026-85880（Windows ALPC heap buffer overflow，CVSS 7.8）存在於 Windows 高階本機程序呼叫（ALPC）機制，由 Volexity 及 Proofpoint 研究人員通報，本地攻擊者利用後可提升至 SYSTEM 權限；CVE-2026-81963（Windows Update Stack 不當連結解析，CVSS 7.8）為過去五年 Update Stack 修補的七個漏洞中首度被標記為零日的案例，由 MSTIC 及 Romain Deperne 通報。兩個零日均被確認在修補前已遭利用，攻擊複雜度低、無需使用者互動，CISA 於 9 月 8 日將兩者列入 KEV，截止日 9 月 22 日。微軟尚未公開具體攻擊者身分或攻擊規模。此外，Help Net Security 指出本次更新含一個「SigRed 後繼者」類型的 DNS 伺服器嚴重漏洞，需特別留意。台灣企業應優先確認本月 Windows 更新已套用，特別是執行 ALPC 密集業務系統的環境。",
+      "source": "SecurityWeek / BleepingComputer / Tenable / CrowdStrike / Help Net Security",
+      "url": "https://www.securityweek.com/microsoft-patches-record-974-vulnerabilities-including-two-exploited-zero-days/",
+      "date": "2026-09-08"
+    },
+    {
+      "title": "Citrix NetScaler CVE-2026-19490（CVSS 9.3）驗證繞過野外遭利用，PoC 公開後十天即入 CISA KEV，截止 9/12，VPN 閘道完全敞開",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "Citrix NetScaler ADC 及 NetScaler Gateway 的重大驗證繞過漏洞 CVE-2026-19490（CVSS 9.3）在本週進入積極利用高峰期。時間線：8 月 19/20 日 Citrix 發布修補；9 月 2 日 GitHub 出現公開 PoC；9 月 3 日確認野外利用；9 月 9 日 CISA 列入 KEV，截止日 9 月 12 日。漏洞影響設定為驗證、授權與稽核（AAA）虛擬伺服器或閘道服務的 NetScaler 設備，涵蓋 SSL VPN、ICA Proxy、CVPN 及 RDP Proxy 功能的部署。未驗證的遠端攻擊者可完全繞過驗證流程，直接取得受保護服務的存取權限，且無需任何帳號憑證。Field Effect 的 Field Effect Intelligence 研究人員確認在 PoC 公開後三天即在野外觀測到利用行為，並指出目前尚無勒索軟體使用此漏洞的確認案例，但結合公開 PoC、面向網際網路的 VPN 基礎設施及已確認利用，修補為最高優先級。Citrix NetScaler 廣泛部署於台灣企業、金融機構及政府機關作為遠端存取閘道，VPN 閘道遭繞過意味著所有遠端存取機制失效，後果極其嚴重。",
+      "source": "SecurityWeek / CybersecurityNews / Field Effect / CISA / SOCFortress",
+      "url": "https://www.securityweek.com/critical-netscaler-vulnerability-exploited-in-attacks/",
+      "date": "2026-09-09"
+    },
+    {
+      "title": "Fortinet CVE-2025-25249 持續遭利用部署 AI 輔助 PivotC2 RAT，30,000+ FortiGate 為目標、178 台確認遭入侵，CISA 截止 9/12",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "FortiOS 及 FortiSwitchManager 的 heap buffer overflow 漏洞 CVE-2025-25249 雖已於 2026 年 1 月修補，但 SOCRadar 9 月初確認攻擊活動自至少 7 月起持續至今且仍在擴大。威脅行為者利用此未驗證的 cw_acd 守護程序溢位漏洞取得初始存取後，部署 PivotC2——一套以 Node.js 撰寫的功能完整遠端存取木馬程式（RAT），具備互動式 Shell、通道化（tunneling）、網路掃描及設定收割（configuration harvesting）能力，並整合 AI 輔助功能加速後利用階段的偵察作業。攻擊者持有的目標清單包含逾 30,000 個 FortiGate IP 位址，其中 178 台已確認遭入侵並植入 PivotC2。研究人員評估攻擊者為具俄語背景、以財務為動機的威脅行為者。CISA 於 9 月 9 日設定 FCEB 機構截止日 9 月 12 日。FortiGate 防火牆廣泛部署於台灣企業邊界，使用 FortiOS 7.x 及更早版本且尚未修補的設備風險尤高。應立即確認 FortiOS 版本並套用修補，並審查防火牆上是否有不明程序或對外連線。",
+      "source": "The Hacker News / SOCRadar / SecurityWeek / Huntress / CISA / GBHackers",
+      "url": "https://thehackernews.com/2026/09/cisa-flags-exploited-cisco-citrix.html",
+      "date": "2026-09-09"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-85706",
+      "title": "GitLab 未驗證路徑遍歷任意檔案讀取（CVSS 10.0，修補後一天即遭積極探測，CISA KEV 9/11，截止 9/14）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "GitLab",
+      "product": "GitLab CE/EE（19.3.2、19.2.6、19.1.8 之前所有版本）",
+      "description": "CVE-2026-85706 是 GitLab CE/EE Repository Commits API 中的路徑遍歷漏洞（CVSS 10.0），缺乏路徑限制與驗證機制，允許任何未驗證攻擊者讀取 GitLab 伺服器上的任意檔案——包括 /etc/passwd、SSL 私鑰、GitLab 設定中的秘鑰、CI/CD Runner 金鑰及儲存的環境變數。GitLab 9 月 10 日發布修補，修補後一天即遭積極探測，CISA 9 月 11 日列入 KEV，截止日 9 月 14 日並要求鑑識分類。應立即升級至 19.3.2/19.2.6/19.1.8，升級後稽核 GitLab 存取記錄中對 Commits API 端點的異常請求（特別是含 ../ 路徑序列的請求），並輪換儲存於 GitLab 設定及 CI/CD 變數中的所有秘鑰。"
+    },
+    {
+      "cve_id": "CVE-2026-86218",
+      "title": "N-able N-central 未驗證靜態程式碼注入任意遠端程式碼執行（CVSS 10.0，野外已利用，CISA KEV 截止 9/11，MSP 供應鏈高風險）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "N-able",
+      "product": "N-central RMM（2026.3.1.14 之前所有版本）",
+      "description": "CVE-2026-86218 是 N-able N-central 遠端監控與管理平台中的靜態程式碼注入漏洞（CVSS 10.0），允許未驗證攻擊者在 N-central 伺服器上執行任意程式碼，進而取得對所有受管客戶環境的存取權限。9 月 4 日確認野外利用，9 月 5 日發布 Hotfix 4（五週內第四次緊急修復）。因 N-central 用於集中管理 MSP 客戶的所有端點，平台遭入侵等同對所有下游客戶環境開放存取，供應鏈衝擊倍增。應立即升級至 N-central 2026.3 Hotfix 4，並審查 N-central 管理記錄中過去兩週的異常存取及未授權的客戶環境操作。"
+    },
+    {
+      "cve_id": "CVE-2026-19490",
+      "title": "Citrix NetScaler ADC/Gateway 未驗證驗證繞過（CVSS 9.3，PoC 公開 10 天後入 CISA KEV，截止 9/12，SSL VPN 完全失效）",
+      "cvss": 9.3,
+      "severity": "critical",
+      "vendor": "Citrix",
+      "product": "Citrix NetScaler ADC 及 NetScaler Gateway（多個受影響版本）",
+      "description": "CVE-2026-19490 是 Citrix NetScaler 驗證、授權與稽核（AAA）虛擬伺服器及閘道服務中的驗證繞過漏洞（CVSS 9.3），影響 SSL VPN、ICA Proxy、CVPN 及 RDP Proxy 配置。未驗證攻擊者可完全跳過驗證序列直接取得受保護服務存取權，無需任何帳號。8/19 修補，9/2 PoC 公開，9/3 確認野外利用，9/9 CISA KEV，截止 9/12。應立即確認所有 NetScaler 部署版本並套用 Citrix 修補；確認修補期間 VPN 備援方案可用；修補後稽核 AAA 及閘道日誌中的異常存取嘗試。"
+    },
+    {
+      "cve_id": "CVE-2026-85880",
+      "title": "Windows ALPC Heap Buffer Overflow 提升至 SYSTEM（CVSS 7.8，零日已遭利用，CISA KEV 9/8，截止 9/22）",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Windows（多個支援版本）",
+      "description": "CVE-2026-85880 是 Windows 高階本機程序呼叫（ALPC）機制中的 heap buffer overflow 漏洞（CVSS 7.8），本地攻擊者利用後可提升至 SYSTEM 權限。攻擊複雜度低、無需使用者互動，已在修補前遭到積極利用（零日）。由 Volexity 及 Proofpoint 研究人員通報，CISA 9/8 列入 KEV，截止 9/22。應立即套用 9 月 Patch Tuesday 更新；確認端點偵測方案覆蓋 ALPC 相關異常行為；此類本地提權漏洞通常與初始存取手段組合使用，搭配的初始入侵需一併調查。"
+    },
+    {
+      "cve_id": "CVE-2026-81963",
+      "title": "Windows Update Stack 不當連結解析提升至 SYSTEM（CVSS 7.8，零日已遭利用，Update Stack 五年首見零日，CISA KEV 9/8）",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Windows（多個支援版本）",
+      "description": "CVE-2026-81963 是 Windows Update Stack 中的不當連結解析（link following）漏洞（CVSS 7.8），本地攻擊者利用後可提升至 SYSTEM 權限——為過去五年 Update Stack 七個修補漏洞中首度被標記為遭積極利用的零日，由 MSTIC 及 Romain Deperne 通報。攻擊複雜度低、無需使用者互動，CISA 9/8 列入 KEV，截止 9/22。應立即套用 9 月 Patch Tuesday，確認 Windows Update 元件的完整性，並監控本地符號連結建立行為。"
+    },
+    {
+      "cve_id": "CVE-2025-25249",
+      "title": "Fortinet FortiOS/FortiSwitchManager cw_acd 未驗證 Heap Buffer Overflow RCE（持續遭利用部署 PivotC2 RAT，30,000+ 目標設備，CISA 截止 9/12）",
+      "cvss": 9.0,
+      "severity": "critical",
+      "vendor": "Fortinet",
+      "product": "FortiOS 及 FortiSwitchManager（2026 年 1 月修補前所有版本）",
+      "description": "CVE-2025-25249 是 Fortinet FortiOS 及 FortiSwitchManager 的 cw_acd 守護程序中的 heap buffer overflow 漏洞，允許未驗證的遠端攻擊者執行任意程式碼。威脅行為者利用此漏洞部署 PivotC2（Node.js RAT），具備互動式 Shell、通道化、網路掃描及 AI 輔助後利用能力；攻擊者持有超過 30,000 個 FortiGate IP 目標清單，178 台確認遭入侵。雖已於 1 月修補，活躍攻擊至今仍持續。應立即確認 FortiOS 及 FortiSwitchManager 已更新至含修補的版本；稽核防火牆上的異常對外連線（PivotC2 使用通道化技術繞過出站過濾）；搜尋非預期程序及 Node.js 執行檔；審查設定收割跡象（設定檔、VPN 帳號異常）。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢以「高價值管理平台的系統性攻擊」與「台灣基礎設施的多點壓力測試」為主要特徵。最具戰略意義的趨勢是威脅行為者持續以 MSP、DevOps 及遠端存取基礎設施為核心攻擊目標：N-central RMM（CVE-2026-86218，CVSS 10.0）遭利用意味著攻擊者不再需要逐一攻破每個客戶，而是藉由入侵管理平台一次性取得對所有下游環境的控制；GitLab（CVE-2026-85706，CVSS 10.0）的軟體開發秘鑰竊取，則將軟體供應鏈攻擊向量進一步具體化。台灣本週承受罕見的多點壓力：中科院採購網委外廠商管理介面遭境外入侵，揭示台灣國防相關機構長期存在的委外廠商隱蔽後門問題；商周集團與城邦媒體同日遭攻擊，顯示台灣媒體出版業面臨組織性威脅，且業界整體的資安投入與防禦成熟度明顯落後於科技產業。在漏洞利用速度方面，本週數據同樣令人警覺：GitLab 修補後一天即遭探測、Citrix NetScaler PoC 公開後三天即確認野外利用、SAP 修補三天後的持續蔓延模式——「修補窗口」已被壓縮至幾乎無法依賴的程度。Fortinet PivotC2 攻擊活動中出現的 AI 輔助後利用能力，呼應了前一月中國 AI 代理攻擊台灣政府基礎設施的趨勢，顯示 AI 增強工具的採用已不限於國家級行為者，開始向財務動機犯罪集團擴散。微軟 974 個漏洞的創紀錄 Patch Tuesday 則說明現代作業系統的技術債持續累積，兩個已遭利用的 Windows 提權零日也再次提醒本地提升 SYSTEM 的攻擊鏈仍極具實用價值。",
+    "active_actors": [
+      {
+        "name": "疑似境外 IP 入侵者（中科院採購網事件，歸因待確認）",
+        "type": "威脅行為者（動機及歸因未公開）",
+        "activity": "8 月 28 日至 9 月 6 日確認：透過委外廠商在中科院採購網中藏置的隱蔽排程管理介面取得存取權限，觸發特定排程指令，導致系統大量重新派送過期採購案件通知。國防部長顧立雄確認屬境外入侵，具體攻擊者及手法尚未公開。"
+      },
+      {
+        "name": "疑似俄語系財務動機威脅行為者（Fortinet/PivotC2 攻擊活動）",
+        "type": "財務動機威脅行為者",
+        "activity": "至少自 7 月起持續至今：利用 Fortinet CVE-2025-25249 heap buffer overflow 對逾 30,000 個 FortiGate IP 發動攻擊，178 台確認遭入侵並植入 PivotC2 RAT（Node.js 框架，具 AI 輔助後利用能力），持續從事設定收割、憑證竊取及橫向移動。"
+      },
+      {
+        "name": "未知威脅行為者（GitLab、Citrix NetScaler、N-central 利用浪潮）",
+        "type": "廣泛威脅行為者群體（可能多組）",
+        "activity": "9 月 7 日至 13 日：多個威脅行為者利用 GitLab CVE-2026-85706（CVSS 10.0）進行積極探測嘗試讀取伺服器檔案；同步利用 Citrix NetScaler CVE-2026-19490 繞過 VPN 驗證；N-central CVE-2026-86218（CVSS 10.0）亦於 9 月 4 日確認遭利用，暗示多條攻擊活動同時進行，目標皆為可橫向擴展的管理基礎設施。"
+      }
+    ],
+    "attack_techniques": [
+      "MSP 供應鏈橫向擴展：利用 N-central RMM 平台（CVE-2026-86218）取得 MSP 管理環境存取後，一次性橫向入侵所有受管客戶端點，以單一漏洞實現對多個目標組織的同步控制",
+      "DevOps 基礎設施秘鑰收割：利用 GitLab Commits API 路徑遍歷（CVE-2026-85706）讀取 CI/CD 秘鑰、Runner 金鑰及雲端憑證，作為軟體供應鏈攻擊或雲端橫向移動的入口",
+      "VPN 驗證繞過取得網路存取：利用 Citrix NetScaler CVE-2026-19490 完全跳過 AAA 驗證，直接取得 SSL VPN 及遠端存取閘道背後的內網存取，可無縫延伸至後續橫向移動",
+      "委外廠商隱蔽管理介面作為持久化入口：攻擊者辨識並利用委外廠商在系統維護期間留置的隱蔽管理介面（中科院採購網案），在客戶毫不知情的情況下長期維持存取",
+      "AI 輔助後利用加速攻擊鏈：PivotC2 RAT 整合 AI 功能協助攻擊者加速網路偵察、目標分類及設定收割，降低後利用階段所需的手動操作，與國家級 AI 代理攻擊工具化趨勢並行",
+      "本地提升 SYSTEM 組合拳：Windows 零日 CVE-2026-85880（ALPC）及 CVE-2026-81963（Update Stack）皆為本地提權至 SYSTEM，通常與初始入侵手段（釣魚、漏洞 RCE）組合使用形成完整攻擊鏈"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即修補 GitLab CVE-2026-85706（CVSS 10.0，CISA KEV 截止 9/14 今日）：（1）所有自管 GitLab CE/EE 執行個體立即升級至 19.3.2、19.2.6 或 19.1.8——此為 FCEB 機構今日截止的 CISA KEV，自管環境無法再等候；（2）升級後立即審查 GitLab 存取日誌，搜尋過去 72 小時內針對 /api/v4/projects/*/repository/commits API 端點且含路徑遍歷字符（../ 或 %2F%2E%2E）的異常請求；（3）強制輪換所有儲存於 GitLab Settings > CI/CD > Variables 中的秘鑰，包括雲端服務金鑰（AWS、GCP、Azure）、Container Registry 憑證、外部 API 金鑰及部署用 SSH 私鑰——攻擊者讀取設定檔即可直接取用這些憑證；（4）檢查 GitLab Runner 設定，確認 Runner 金鑰（registration token）未洩露，並考慮輪換所有 Runner 金鑰；（5）使用 GitLab 無法立即升級者，應立即在反向代理（Nginx/Cloudflare）層封鎖 /api/v4/projects/*/repository/commits 端點的匿名存取作為緊急緩解，待升級完成後解除。"
+    },
+    {
+      "priority": "high",
+      "action": "立即修補 N-able N-central CVE-2026-86218（CVSS 10.0）並進行入侵調查：（1）確認所有 N-central 部署版本，立即升級至 N-central 2026.3 Hotfix 4（版本 2026.3.1.14）；（2）鑑於漏洞允許完整 RCE，修補後應視環境已受損進行調查——稽核過去兩週 N-central 管理記錄，搜尋非預期的管理員帳號建立、客戶環境中的批量操作及非授權的代理部署；（3）對所有 N-central 下游客戶環境進行快速掃描，確認是否有非預期的新代理安裝或設定變更；（4）若 N-central 作為 MSP 服務多家客戶，應主動通知各客戶進行自身環境的安全稽核；（5）評估過去五週四次熱修復的系統性問題，考慮是否有替代方案或進一步的深度防禦措施。"
+    },
+    {
+      "priority": "high",
+      "action": "確認 Citrix NetScaler 已修補 CVE-2026-19490 並稽核 VPN 閘道（CISA KEV 截止 9/12，今日應已完成）：（1）確認所有 NetScaler ADC 及 NetScaler Gateway 設備已升級至 Citrix 8 月 19/20 日發布的修補版本；（2）針對 9 月 3 日後的 AAA 及閘道存取日誌進行重點稽核，搜尋成功繞過驗證（無有效 session token 但取得後端存取）的異常模式；（3）確認 SSL VPN、ICA Proxy、CVPN 及 RDP Proxy 設定無異常；（4）NetScaler 部署在台灣金融業及政府機關尤為普遍，未完成修補者應立即與廠商支援確認修補版本；（5）即使已確認修補，也應稽核 9 月 2 日（PoC 公開日）後的所有成功 VPN 連線記錄，確認無可疑的憑證重用或異常來源 IP。"
+    },
+    {
+      "priority": "high",
+      "action": "立即套用 9 月 Patch Tuesday 並優先處理兩個 Windows 零日：（1）確保所有 Windows 端點已套用 9 月 8 日 Patch Tuesday 更新，優先部署 CVE-2026-85880（ALPC）及 CVE-2026-81963（Update Stack）修補，CISA KEV 截止日 9 月 22 日；（2）兩個零日均為本地提升至 SYSTEM，表示攻擊者已取得初始存取才能利用——應同步調查是否有異常的本地權限提升事件，在 Windows 事件日誌中搜尋 4672（特殊特權已指派）及 4648（使用明確憑證登入嘗試）；（3）評估 Help Net Security 所指「SigRed 後繼者」DNS 伺服器嚴重漏洞，確認 Windows DNS 伺服器已套用相關修補；（4）本月 974 個漏洞中含 113 個關鍵等級，建議使用 Microsoft 的 Exploitability Index 及 CVSS 分數排定修補批次優先順序。"
+    },
+    {
+      "priority": "high",
+      "action": "確認 Fortinet FortiOS/FortiSwitchManager 已修補 CVE-2025-25249 並清除 PivotC2 感染：（1）確認所有 FortiOS 及 FortiSwitchManager 部署已升級至 2026 年 1 月含修補版本——30,000+ 設備被列為攻擊目標，178 台確認遭入侵，台灣企業也在目標範圍內；（2）即使已修補，仍應稽查感染跡象：搜尋設備上的 Node.js 執行檔及非預期程序，確認是否有對外的通道化連線（攻擊者使用 tunneling 繞過出站過濾）；（3）審查防火牆設定完整性，確認 VPN 帳號清單無新增的非授權帳號；（4）若懷疑已遭入侵，應立即隔離設備並進行鑑識分析，PivotC2 支援持久化功能，可能在設備重啟後仍維持存取；（5）聯繫 Fortinet 技術支援取得最新的 PivotC2 入侵指標（IoC）清單。"
+    },
+    {
+      "priority": "medium",
+      "action": "審查委外廠商管理介面安全（中科院採購網事件教訓）：（1）盤點所有現有委外廠商開發或維護的系統，確認是否存在廠商維護用的管理介面或後門帳號；（2）依 SBOM（軟體物料清單）政策對現有系統進行回溯清查，特別是 2022 年前建置且尚未更新的系統；（3）要求委外廠商提供書面承諾，說明其在系統中嵌入的所有管理端點及存取機制；（4）政府機關及國防相關機構應優先委託第三方進行委外系統的黑箱滲透測試，專門尋找隱蔽管理介面；（5）建立委外廠商網路存取審計機制，記錄所有廠商維護操作，並設定境外 IP 存取即時警報。"
+    },
+    {
+      "priority": "medium",
+      "action": "媒體出版業強化 DDoS 防護及應變能力（商周、城邦事件）：（1）台灣媒體、出版業者應評估現有 DDoS 防護方案的覆蓋範圍及有效性，考慮部署 CDN 層防護或委託專業 DDoS 防護服務；（2）建立清楚的事件應變程序，特別是在遭受攻擊時的對外公告及內部協調流程——商周、城邦的應對顯示良好的危機溝通至關重要；（3）對讀者訂閱資料、付款資訊進行加密儲存，確認資料外洩不影響訂閱者財務安全；（4）評估業務連續性方案，確保線上服務中斷時，讀者可透過其他管道（紙本、電子郵件通知）取得重要資訊。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "路徑遍歷（Path Traversal）",
+      "definition": "攻擊者利用不充分的路徑驗證，存取伺服器上位於預期目錄之外的任意檔案",
+      "url": "https://glossary.astroicers.link/glossary/path_traversal"
+    },
+    {
+      "term": "受管服務提供商（MSP, Managed Service Provider）",
+      "definition": "替客戶遠端管理 IT 系統的服務廠商，平台一旦遭入侵即影響所有下游客戶",
+      "url": "https://glossary.astroicers.link/glossary/msp"
+    },
+    {
+      "term": "遠端存取木馬程式（RAT, Remote Access Trojan）",
+      "definition": "讓攻擊者遠端完整控制受害系統的惡意程式，通常具持久化與隱匿功能",
+      "url": "https://glossary.astroicers.link/glossary/rat"
+    },
+    {
+      "term": "初始存取權限掮客（IAB, Initial Access Broker）",
+      "definition": "在地下市場販售已取得的企業系統存取權限給其他犯罪集團的威脅行為者",
+      "url": "https://glossary.astroicers.link/glossary/iab"
+    },
+    {
+      "term": "軟體物料清單（SBOM, Software Bill of Materials）",
+      "definition": "列舉軟體元件、相依套件及其版本的清單，用於識別供應鏈安全風險",
+      "url": "https://glossary.astroicers.link/glossary/sbom"
+    },
+    {
+      "term": "Heap Buffer Overflow（堆緩衝區溢位）",
+      "definition": "程式在堆積記憶體中寫入超出分配大小的資料，攻擊者可藉此覆蓋關鍵記憶體結構執行任意程式碼",
+      "url": "https://glossary.astroicers.link/glossary/heap_buffer_overflow"
+    },
+    {
+      "term": "零日漏洞（Zero-Day）",
+      "definition": "在開發商發布修補程式前即遭攻擊者積極利用的安全漏洞，防禦者無可用修補",
+      "url": "https://glossary.astroicers.link/glossary/zero_day"
+    },
+    {
+      "term": "驗證繞過（Authentication Bypass）",
+      "definition": "攻擊者利用漏洞跳過系統的身份驗證機制，在無有效憑證的情況下取得存取權限",
+      "url": "https://glossary.astroicers.link/glossary/auth_bypass"
+    }
+  ],
+  "references": [
+    {
+      "title": "中科院傳出採購網大量派送過期資訊，起因是遭遇外部攻擊 – iThome",
+      "url": "https://www.ithome.com.tw/news/178727"
+    },
+    {
+      "title": "中科院採購網遭境外破解 顧立雄要求檢討究責 – 中華日報",
+      "url": "https://www.cdns.com.tw/articles/1455508"
+    },
+    {
+      "title": "採購網大量派送過期資訊 中科院：遭境外IP破解導致 – 中央廣播電臺",
+      "url": "https://www.rti.org.tw/news?uid=3&pid=230269"
+    },
+    {
+      "title": "【資安日報】9月10日，商周集團公告旗下網站遭到攻擊，網站與線上服務中斷 – iThome",
+      "url": "https://www.ithome.com.tw/news/178846"
+    },
+    {
+      "title": "商周集團公告旗下網站遭到攻擊，網站與系統服務中斷 – iThome",
+      "url": "https://www.ithome.com.tw/news/178827"
+    },
+    {
+      "title": "商周集團遭惡意網攻！網站線上服務中斷 修復需一定時間 – 自由財經",
+      "url": "https://ec.ltn.com.tw/article/breakingnews/5568647"
+    },
+    {
+      "title": "GitLab CVSS 10 File-Read Flaw Draws In-the-Wild Probes After Disclosure – The Hacker News",
+      "url": "https://thehackernews.com/2026/09/gitlab-cvss-10-file-read-flaw-draws-in.html"
+    },
+    {
+      "title": "GitLab urges users to patch max severity path traversal flaw – BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/gitlab-urges-users-to-patch-max-severity-path-traversal-flaw/"
+    },
+    {
+      "title": "CVE-2026-85706: GitLab Path Traversal – Horizon3",
+      "url": "https://horizon3.ai/attack-research/vulnerabilities/cve-2026-85706/"
+    },
+    {
+      "title": "Rapid Reaction: GitLab Path Traversal Vulnerability (CVE-2026-85706) – watchTowr",
+      "url": "https://watchtowr.com/resources/rapid-reaction-gitlab-critical-path-traversal-vulnerability-cve-2026-85706/"
+    },
+    {
+      "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog (Sep 9) – CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/09/cisa-adds-four-known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "N-able N-central Pre-Auth RCE Flaw Exploited in the Wild – The Hacker News",
+      "url": "https://thehackernews.com/2026/09/n-able-n-central-pre-auth-rce-flaw.html"
+    },
+    {
+      "title": "Rapid Response: Critical N-able N-central Vulnerability and Active Exploitation – Huntress",
+      "url": "https://www.huntress.com/blog/n-able-vulnerability-exploitation"
+    },
+    {
+      "title": "Microsoft Patches Record 974 Vulnerabilities, Including Two Exploited Zero-Days – SecurityWeek",
+      "url": "https://www.securityweek.com/microsoft-patches-record-974-vulnerabilities-including-two-exploited-zero-days/"
+    },
+    {
+      "title": "Microsoft September 2026 Patch Tuesday fixes 966 flaws, 2 zero-days – BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-september-2026-patch-tuesday-fixes-966-flaws-2-zero-days/"
+    },
+    {
+      "title": "September 2026 Microsoft Patch Tuesday | Tenable® – Tenable",
+      "url": "https://www.tenable.com/blog/microsofts-september-2026-patch-tuesday-addresses-964-cves-cve-2026-81963-cve-2026-85880"
+    },
+    {
+      "title": "September 2026 Patch Tuesday: Record patch count, 2 zero-days, and a SigRed successor – Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/09/09/september-2026-patch-tuesday-zero-days-sigred-successor/"
+    },
+    {
+      "title": "September 2026 Patch Tuesday: Updates and Analysis – CrowdStrike",
+      "url": "https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-september-2026/"
+    },
+    {
+      "title": "Critical NetScaler Vulnerability Exploited in Attacks – SecurityWeek",
+      "url": "https://www.securityweek.com/critical-netscaler-vulnerability-exploited-in-attacks/"
+    },
+    {
+      "title": "Early exploitation of Citrix NetScaler authentication bypass vulnerability – Field Effect",
+      "url": "https://fieldeffect.com/blog/early-exploitation-citrix-netscaler-vulnerability"
+    },
+    {
+      "title": "CISA Flags Exploited Cisco, Citrix, Fortinet Flaws, Sets Sept. 12 Federal Patch Deadline – The Hacker News",
+      "url": "https://thehackernews.com/2026/09/cisa-flags-exploited-cisco-citrix.html"
+    },
+    {
+      "title": "CVE-2026-19490: Critical Citrix NetScaler Flaw – SOC Prime",
+      "url": "https://socprime.com/blog/cve-2026-19490-analysis/"
+    },
+    {
+      "title": "Fortinet Code Execution Flaw Exploited in PivotC2 RAT Attacks – SecurityWeek",
+      "url": "https://www.securityweek.com/fortinet-code-execution-flaw-exploited-in-pivotc2-rat-attacks/"
+    },
+    {
+      "title": "CVE-2025-25249 Exploitation Delivers PivotC2, a FortiGate Post-Exploitation RAT – SOCRadar",
+      "url": "https://socradar.io/blog/cve-2025-25249-pivotc2-fortigate-rat/"
+    },
+    {
+      "title": "【資安週報】0907~0911，歐盟CRA通報義務上路、SEMI E187驗證標章亮相，產品安全進入落地新階段 – iThome",
+      "url": "https://www.ithome.com.tw/news/178884"
+    },
+    {
+      "title": "CISA Adds Seven Known Exploited Vulnerabilities to Catalog (Sep 2) – CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "Known Exploited Vulnerabilities Catalog – CISA",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}
