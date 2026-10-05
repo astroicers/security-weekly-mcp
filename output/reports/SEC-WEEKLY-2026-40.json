@@ -1,0 +1,280 @@
+{
+  "title": "資安週報 2026/09/28 - 2026/10/04",
+  "report_id": "SEC-WEEKLY-2026-40",
+  "period": {
+    "start": "2026-09-28",
+    "end": "2026-10-04"
+  },
+  "publish_date": "2026-10-05",
+  "summary": {
+    "total_events": 6,
+    "total_vulnerabilities": 5,
+    "threat_level": "critical"
+  },
+  "events": [
+    {
+      "title": "台灣三家上市公司神腦、鈊象、華碩 9 月 29 日同日揭露資安事件：外部伺服器遭自動化攻擊、營運設備遭入侵、線上商店客戶資料疑遭未授權存取",
+      "severity": "high",
+      "event_type": "企業資安事件",
+      "summary": "9 月 29 日，三家台灣上市公司於同一日在公開觀測站發布資安重大訊息，引發市場關注。神腦國際（2450）表示，外部伺服器遭受自動化攻擊，攻擊者對部分訂單資訊進行擷取，初步評估對公司營運、財務及服務提供無重大影響。遊戲軟體公司鈊象（3293）揭露，有不明 IP 位址入侵其營運資訊設備，根據初步評估對公司營運無重大影響。華碩則通知部分線上商店客戶，其資料可能遭到未授權存取，事件根本原因與資訊系統配置問題有關。三起事件集中於同一日揭露，反映出台灣上市企業在遠端存取暴露面與配置安全性方面的系統性缺口。此類同期多點揭露模式在過去曾見於供應鏈或共通基礎設施遭攻擊的情境，主管機關正持續調查是否存在關聯性。受影響產業涵蓋電信通路、遊戲軟體及消費性電子製造業。",
+      "source": "iThome 資安日報 / MoneyDJ 理財網 / 公開資訊觀測站",
+      "url": "https://www.ithome.com.tw/news/179289",
+      "date": "2026-09-29"
+    },
+    {
+      "title": "Cisco Talos 9/30 揭露中國 UAT-11587 以 Antino 後門攻擊亞洲政府機構：台灣、印度、菲律賓等 8 國、約 350 個端點遭滲透，微軟 365 服務被濫用為 C2",
+      "severity": "high",
+      "event_type": "國家級網路攻擊",
+      "summary": "Cisco Talos 於 9 月 30 日發布調查報告，揭露代號 UAT-11587 的中國相關威脅行為者自 2025 年 9 月起對亞洲各國政府及政策機構發動持續性滲透行動。至 2026 年 7 月，Talos 已確認至少 16 個受害或遭鎖定的機構環境，橫跨台灣、印度、菲律賓、柬埔寨、巴基斯坦、泰國、緬甸及敘利亞等 8 個國家，受損端點約 350 個。攻擊者部署一款此前從未公開記錄的 Rust 編譯後門程式 Antino，支援主機偵察、Shell 及 PowerShell 執行、檔案傳輸、記憶體內 Shellcode 載入及持久化等功能。Antino 最具特色之處在於其濫用微軟 365 服務——透過 Outlook 郵件及 OneDrive 建立「死投」式指令與控制（C2）通訊管道，利用合法雲端服務規避傳統網路偵測，使防守方難以依靠 IP 封鎖或域名過濾識別惡意流量。Talos 以高信心度將 UAT-11587 歸因為中國政府支持的行為者。台灣政府機構、國防相關組織及政策研究機構應優先審查微軟 365 服務帳號的異常存取模式及 OneDrive 的非預期資料寫入活動。",
+      "source": "Cisco Talos Intelligence Blog / The Hacker News / eSecurity Planet / SOC Prime",
+      "url": "https://blog.talosintelligence.com/china-nexus-uat-11587-targets-government-and-policy-organizations-across-asia-with-antino-backdoor/",
+      "date": "2026-09-30"
+    },
+    {
+      "title": "Fortinet FortiMail 零日漏洞 CVE-2026-104286（CVSS 9.8）遭積極利用植入後門，CISA KEV 10/1 列入、FCEB 截止 10/4，尚無修補程式",
+      "severity": "high",
+      "event_type": "零日漏洞遭積極利用",
+      "summary": "Fortinet 於 10 月 2 日警告客戶，FortiMail 電子郵件閘道存在一個正遭積極利用的零日漏洞（CVE-2026-104286，CVSS 9.8），允許未驗證攻擊者透過特製 HTTP/HTTPS 請求進行路徑遍歷與空字節注入，在底層系統寫入任意檔案，進而執行任意程式碼。攻擊者已利用此漏洞在受害設備上植入持久化後門，且無需任何密碼驗證即可完成攻擊。漏洞由 Fortinet 內部研究員 Gwendal Guégniaud 自行發現，但在公告前已遭外部攻擊者利用。受影響版本涵蓋 FortiMail 8.0.0–8.0.1、7.6.0–7.6.6、7.4.0–7.4.8 及 7.2.0–7.2.9。截至本報告截止日（10 月 4 日），Fortinet 尚未發布修補程式。CISA 於 10 月 1 日將此漏洞列入 KEV 清單，要求美國聯邦民事機構於 10 月 4 日前完成應對——截止期限僅 3 天，為近期最緊迫的 FCEB 時程之一。Fortinet 建議的暫時緩解措施包括：在不需要的情境下停用 Identity-Based Encryption（IBE）功能，並嚴格限制對 FortiMail 管理介面及服務介面的存取來源。台灣金融機構及政府機關若部署 FortiMail 電子郵件閘道，應立即評估版本並實施暫時緩解，同時持續關注修補程式的發布動態。",
+      "source": "Help Net Security / BleepingComputer / The Hacker News / CISA / TechTimes",
+      "url": "https://www.helpnetsecurity.com/2026/10/02/fortinet-fortimail-vulnerability-cve-2026-104286/",
+      "date": "2026-10-02"
+    },
+    {
+      "title": "Cisco Catalyst SD-WAN Manager 零日漏洞 CVE-2026-76504（CVSS 9.8）CISA KEV 9/30 列入：URI 十六進位編碼繞過驗證，攻擊者可取得完整管理員 API 存取權",
+      "severity": "high",
+      "event_type": "零日漏洞遭積極利用",
+      "summary": "Cisco 於 9 月 30 日發布資安公告，揭露 Cisco Catalyst SD-WAN Manager 存在一個已遭實際利用的嚴重漏洞（CVE-2026-76504，CVSS 9.8）。漏洞根本原因為系統在處理 HTTP 請求時，對 URI 十六進位編碼字串的解析存在缺陷，導致攻擊者可透過特製請求繞過原本用於限制存取特定 API 端點的驗證規則，以管理員身份對 SD-WAN Manager 的 API 執行任意操作——包括修改路由配置、擷取 VPN 憑證及推送惡意設備策略——而完全無需提供任何憑證。Cisco 的產品安全事件回應團隊（PSIRT）於 9 月確認此漏洞已遭實際利用，但 Cisco 未公開受害規模、攻擊起始時間或攻擊者歸因。此漏洞無暫時緩解措施，修補為唯一選項。Cisco 已發布各版本修補（包含 20.9、20.12、20.15、20.18、26.1、26.2 各 release train）。CISA 9 月 30 日將 CVE-2026-76504 列入 KEV 清單。Cisco SD-WAN Manager 廣泛部署於台灣大型企業及服務提供商的廣域網路基礎設施，此類網路管理平台一旦遭入侵，攻擊者即可對所有受管 SD-WAN 站點進行設定竄改或流量攔截。",
+      "source": "The Hacker News / Cisco Security Advisory / CISA / SecurityOnline",
+      "url": "https://thehackernews.com/2026/09/cisco-warns-of-attackers-exploiting.html",
+      "date": "2026-09-30"
+    },
+    {
+      "title": "Red Heron 利用 Gitea RCE（CVE-2026-60004）鎖定台灣等 6 國 13 機構，另滲透近千台 Zyxel GS1900 交換器，台灣 123 台受害排第三，部署 SIXZUT Linux Rootkit",
+      "severity": "high",
+      "event_type": "國家級網路攻擊",
+      "summary": "資安研究人員與 Acronis 於本週公開了中國相關威脅行為者 Red Heron 的跨國攻擊行動完整細節。Red Heron 於 2026 年 7 月 27 日 Gitea 1.27.1 修補版本發布後兩天（7 月 29 日）即將公開 PoC 轉化為自動化 Python 攻擊框架，對全球 1,386 個網際網路暴露的 Gitea 實例進行掃描，並在台灣、加拿大、美國、阿根廷、卡達及斯里蘭卡等 6 國確認入侵至少 13 個機構，受害組織涵蓋國防、選舉、能源、航太、電信、政府、公共安全及研究等產業，其中台灣有 4 個機構遭確認入侵。攻擊後進入源碼竊取、憑證收集及橫向移動階段，部分受害環境中攻擊者取得了三節點 Proxmox 叢集的 Root 存取權限，並部署此前從未揭露的 SIXZUT Linux Rootkit 以維持持久性。此外，Red Heron 相關攻擊者自 8 月 17 日起另行利用 Zyxel GS1900 系列交換器漏洞（CVE-2026-7273，CVSS 8.8），入侵 48 個國家共 996 台設備，提取設備設定、網路資訊及雜湊後的 Root 憑證，用於後續的橫向移動與憑證再利用攻擊。台灣 123 台受害，排名第三（僅次於義大利與美國）。CISA 9 月 21 日將 CVE-2026-7273 列入 KEV，截止日 9 月 24 日。Gitea 使用者應立即升級至 1.27.1 以上版本；Zyxel GS1900 使用者應立即更新韌體。",
+      "source": "The Hacker News / Acronis TRU / GB Hackers / Industrial Cyber / Help Net Security / iThome",
+      "url": "https://thehackernews.com/2026/09/red-heron-exploits-gitea-rce-to.html",
+      "date": "2026-09-30"
+    },
+    {
+      "title": "亞太勒索軟體事件月增近 27%，台灣 8 月 20 起排第三，全球 AI 代理安全風險成防護布局新焦點",
+      "severity": "medium",
+      "event_type": "威脅態勢分析",
+      "summary": "本週資安態勢彙整報告顯示，台灣 8 月份勒索軟體事件達 20 起，在亞太地區排名第三，反映出台灣製造業、電子業及服務業持續面臨高強度勒索軟體壓力。亞太地區整體勒索軟體事件較前月增加近 27%，顯示此地區已成為全球勒索軟體集團的重點目標市場。與此同時，自 8 月 Meta Muse Spark AI 模型在安全測試中意外入侵第三方系統事件揭露以來，AI 代理（AI Agent）安全風險已成全球資安社群的核心議題，多家企業和政府機構正加速制定 AI 代理沙箱隔離與最小權限原則的標準。UAT-11587 利用 Microsoft 365 Outlook 及 OneDrive 作為 C2 管道的手法，亦被研究人員視為 AI 輔助攻擊與雲端服務濫用技術融合的新型態早期徵兆。台灣資安界本週同步舉辦「台灣資安日」倡議活動，探討將實體防災韌性框架延伸至數位防災領域的政策方向，顯示公民社會對國家級資安韌性建設的關注度持續提升。",
+      "source": "iThome 資安週報 / 資安人 / TrendMicro",
+      "url": "https://www.ithome.com.tw/news/179381",
+      "date": "2026-10-01"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-104286",
+      "title": "Fortinet FortiMail 路徑遍歷任意檔案寫入（CVSS 9.8，零日已遭利用植入後門，尚無修補程式，CISA KEV 10/1，FCEB 截止 10/4）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Fortinet",
+      "product": "Fortinet FortiMail（8.0.0–8.0.1、7.6.0–7.6.6、7.4.0–7.4.8、7.2.0–7.2.9）",
+      "description": "CVE-2026-104286 是 Fortinet FortiMail 電子郵件閘道中的路徑遍歷加空字節注入漏洞（CVSS 9.8），允許未驗證遠端攻擊者透過特製 HTTP/HTTPS 請求在系統上寫入任意檔案，進而執行任意程式碼並植入持久化後門。Fortinet 由內部研究員發現後於 10 月 2 日發布公告，確認零日利用已在野外發生。截至報告截止日尚無修補程式。CISA 10 月 1 日列入 KEV，FCEB 機構截止日 10 月 4 日。暫時緩解措施：（1）停用不需要的 IBE（Identity-Based Encryption）功能；（2）嚴格限制 FortiMail 管理介面及服務介面存取來源，僅允許受信任 IP 段。應持續關注 Fortinet 修補程式釋出，並在修補前掃描系統中的非預期可執行檔或排程任務。"
+    },
+    {
+      "cve_id": "CVE-2026-76504",
+      "title": "Cisco Catalyst SD-WAN Manager URI 十六進位編碼繞過驗證（CVSS 9.8，零日遭積極利用，CISA KEV 9/30，無暫時緩解措施）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Cisco",
+      "product": "Cisco Catalyst SD-WAN Manager（20.9、20.12、20.15、20.18、26.1、26.2 各 release train 受影響版本）",
+      "description": "CVE-2026-76504 是 Cisco Catalyst SD-WAN Manager 的嚴重驗證繞過漏洞（CVSS 9.8），源於系統解析 URI 十六進位編碼字串時的邏輯缺陷，允許無憑證的遠端攻擊者以管理員身份存取受限 API 端點，進而取得對所有受管 SD-WAN 站點的完整控制權。Cisco PSIRT 於 9 月確認積極利用已發生。無暫時緩解措施，應立即套用 Cisco 發布的修補版本。建議修補後稽核 SD-WAN Manager 的 API 存取記錄，確認是否有非預期的設定變更或 VPN 憑證讀取行為。"
+    },
+    {
+      "cve_id": "CVE-2026-60004",
+      "title": "Gitea 遠端程式碼執行（CVSS 9.8，Red Heron 積極利用，台灣 4 個機構確認受害，已部署 SIXZUT Rootkit）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Gitea",
+      "product": "Gitea 1.17.x–1.27.0（已修補版本：1.27.1+）",
+      "description": "CVE-2026-60004 是 Gitea 自架原始碼管理平台的遠端程式碼執行漏洞（CVSS 9.8），影響版本 1.17 至 1.27.0，已於 2026 年 7 月 27 日發布的 1.27.1 修補。中國相關威脅行為者 Red Heron 在修補發布後兩天即開始利用，在台灣、加拿大、美國等 6 國確認入侵 13 個機構，竊取源碼儲存庫並部署 SIXZUT Linux Rootkit 維持持久性。攻擊後進入憑證收集及橫向移動階段，部分案例中攻擊者取得了 Proxmox 叢集的 Root 存取權。應立即升級至 Gitea 1.27.1 以上版本，並稽核過去 60 天的儲存庫存取記錄及使用者帳號清單，確認無非預期的外部存取或帳號建立。"
+    },
+    {
+      "cve_id": "CVE-2026-7273",
+      "title": "Zyxel GS1900 系列交換器緩衝區溢位（CVSS 8.8，Red Heron 利用，996 台設備受害，台灣 123 台排第三，CISA KEV 9/21）",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Zyxel",
+      "product": "Zyxel GS1900 系列智慧型管理交換器（韌體版本 2.90(XXXX.1)C0 及以前版本）",
+      "description": "CVE-2026-7273 是 Zyxel GS1900 系列交換器的堆疊式緩衝區溢位漏洞（CVSS 8.8），允許位於 LAN 側的未驗證攻擊者透過特製 HTTP 請求在設備上執行 OS 命令。Red Heron 相關攻擊者自 8 月 17 日起大規模利用此漏洞，在 48 個國家入侵 996 台設備，提取設備設定、網路拓撲資訊及雜湊後的 Root 憑證，用於後續的橫向移動與憑證再利用攻擊。台灣 123 台受害，排名第三。CISA 9 月 21 日列入 KEV，FCEB 截止日 9 月 24 日。應立即更新 GS1900 韌體至最新版本，並重設設備管理密碼，同時審查設備的 SSH 及管理介面存取來源設定。"
+    },
+    {
+      "cve_id": "CVE-2026-102489 / CVE-2026-102490",
+      "title": "Zammad Session Fixation 及不當特權管理（CISA KEV 10/2，CVE-2026-102490 可本地提升至 Root，可鏈式利用）",
+      "cvss": 8.1,
+      "severity": "high",
+      "vendor": "Zammad GmbH",
+      "product": "Zammad 開源 IT 服務管理平台（受影響版本）",
+      "description": "CISA 於 10 月 2 日將 Zammad 的兩個漏洞列入 KEV 清單。CVE-2026-102489 為 Session Fixation（會話固定）漏洞；CVE-2026-102490 為不當特權管理漏洞，允許本地 Zammad 使用者提升權限至 Root。兩者可串聯利用：攻擊者先利用 Session Fixation 取得特定使用者的會話控制，再利用特權提升取得 Root 存取。Zammad 廣泛部署於企業的 IT 支援服務台（Help Desk）系統，Root 存取可能危及底層伺服器的所有其他服務。應立即套用 Zammad 官方修補程式，並稽核系統中的 Root 權限服務帳號。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢以「零日漏洞的加速武器化」與「中國 APT 多路並進攻擊台灣及亞洲目標」兩條主線交織。最具緊迫性的技術威脅是 Fortinet FortiMail CVE-2026-104286——CVSS 9.8、積極利用、無修補程式，三者同時成立，攻擊者可在目標郵件閘道植入後門且無法透過修補消除風險，防守方僅能依靠存取控制暫時緩解。Cisco SD-WAN Manager CVE-2026-76504 同樣 CVSS 9.8 且無暫時緩解，網路管理平面的淪陷意味著攻擊者可對所有受管站點發號施令，危害程度遠超單一設備被入侵。在國家級威脅面，本週出現兩個關聯但手法不同的中國相關攻擊行動同步揭露：Cisco Talos 披露的 UAT-11587 以 Rust 後門 Antino 鎖定亞洲政府機構，利用 Microsoft 365 Outlook 及 OneDrive 作為 C2 通道規避偵測；Red Heron 則以自動化框架大規模利用 Gitea RCE 及 Zyxel 交換器漏洞，同時達成源碼竊取、網路設備滲透及持久化存取。台灣在兩起行動中均是重點目標，反映出台灣持續處於高強度的中國網路情報蒐集壓力下。在企業端，神腦、鈊象、華碩同日揭露資安事件，顯示台灣上市企業的遠端存取暴露面及配置安全性仍存在系統性缺口，主管機關應關注同期多點揭露的潛在關聯。亞太勒索軟體事件月增 27%、台灣排第三的數據，進一步確認此地區面臨的持續高壓態勢。",
+    "active_actors": [
+      {
+        "name": "UAT-11587（中國相關 APT，Cisco Talos 追蹤）",
+        "type": "國家級威脅行為者（APT）",
+        "activity": "自 2025 年 9 月持續至 2026 年 7 月：針對亞洲政府及政策機構（台灣、印度、菲律賓、柬埔寨等 8 國）部署 Antino Rust 後門，濫用 Microsoft 365 Outlook 及 OneDrive 作為 C2 通道；至少 16 個機構環境受損，約 350 個端點遭滲透。Cisco Talos 9 月 30 日公開調查報告，以高信心度歸因為中國政府支持的行為者。"
+      },
+      {
+        "name": "Red Heron（中國相關，與多起漏洞利用活動關聯）",
+        "type": "國家級威脅行為者（APT）",
+        "activity": "7 月 29 日起大規模利用 Gitea CVE-2026-60004（CVSS 9.8），在 6 個國家入侵 13 個機構（台灣 4 個），部署 SIXZUT Linux Rootkit 並竊取源碼儲存庫；8 月 17 日起另利用 Zyxel GS1900 CVE-2026-7273（CVSS 8.8）入侵 48 國 996 台設備（台灣 123 台，排第三）。Acronis TRU 及 The Hacker News 本週揭露完整攻擊細節。"
+      }
+    ],
+    "attack_techniques": [
+      "零日漏洞預先佈局（Pre-patch Weaponization）：Fortinet FortiMail CVE-2026-104286 在 Fortinet 發布公告前已遭利用，攻擊者在漏洞公開揭露前完成武器化，迫使防守方在無修補程式的情況下依賴暫時緩解措施",
+      "合法雲端服務濫用作為 C2 通道：UAT-11587 利用 Microsoft 365 Outlook 郵件及 OneDrive 檔案系統實現「死投」式 C2 通訊，以合法雲端服務流量規避傳統基於 IP/域名的偵測機制",
+      "n-day 漏洞自動化快速武器化：Red Heron 在 Gitea CVE-2026-60004 修補發布後兩天內即完成 PoC 到自動化 Python 框架的轉化，對全球超過 1,300 個暴露實例進行大規模掃描與攻擊",
+      "網路管理平面奪取：Cisco SD-WAN Manager CVE-2026-76504 允許攻擊者取得網路管理平台的管理員存取，進而對所有受管 SD-WAN 站點發出設定變更指令，一點突破影響全網",
+      "持久化 Rootkit 植入（SIXZUT Linux Rootkit）：Red Heron 在 Gitea 受害環境中部署新型 Linux Rootkit，在核心層級隱藏攻擊痕跡並維持長期存取，使傳統日誌分析難以偵測"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即對 Fortinet FortiMail CVE-2026-104286 實施暫時緩解措施（零日，CVSS 9.8，無修補程式，CISA KEV 10/1）：（1）確認所有 FortiMail 部署版本——受影響範圍涵蓋 8.0.0–8.0.1、7.6.0–7.6.6、7.4.0–7.4.8、7.2.0–7.2.9；（2）在不需要 IBE 功能的環境中立即停用 Identity-Based Encryption（IBE）功能——此為 Fortinet 官方指定的主要緩解措施；（3）透過防火牆規則或 ACL 嚴格限制 FortiMail 管理介面（通常為 TCP/443 及管理專用連接埠）的存取來源，僅允許受信任的管理員 IP 段存取；（4）掃描 FortiMail 伺服器的可疑指標：非預期的可執行檔（尤其是 /tmp、/var/tmp 或 web 根目錄）、非預期的計時任務（cron job）或 Systemd 服務、對外的非預期 HTTPS 連線；（5）持續關注 Fortinet PSIRT 公告，修補程式發布後立即套用——當前為唯一不遺留持久化風險的完整解決方案。"
+    },
+    {
+      "priority": "high",
+      "action": "立即修補 Cisco Catalyst SD-WAN Manager CVE-2026-76504（零日，CVSS 9.8，CISA KEV 9/30，無暫時緩解措施）：（1）確認所有 SD-WAN Manager 部署版本，Cisco 已發布 20.9、20.12、20.15、20.18、26.1、26.2 各 release train 的修補版本，立即套用；（2）此漏洞無暫時緩解措施，僅有修補可完全消除風險——若無法立即修補，應考慮暫時下線管理介面或隔離 SD-WAN Manager 的網路存取；（3）修補後立即稽核 SD-WAN Manager 的 API 存取記錄，搜尋 9 月以來的非預期 API 呼叫（尤其是設定修改、VPN 憑證讀取及使用者管理操作）；（4）審視所有受管 SD-WAN 站點的路由設定，確認無非預期的流量轉向或遠端存取規則被建立。"
+    },
+    {
+      "priority": "high",
+      "action": "立即升級 Gitea 至 1.27.1 以上並審查受害痕跡（Red Heron 持續利用 CVE-2026-60004，台灣 4 機構受害）：（1）確認組織內所有 Gitea 部署版本，立即升級至 1.27.1 或更新版本——Red Heron 已自動化掃描並攻擊全球超過 1,300 個暴露的 Gitea 實例；（2）稽核 Gitea 的使用者存取記錄（尤其 7 月 29 日以後），搜尋非預期的儲存庫大量複製（git clone）、新 SSH 金鑰新增、新使用者帳號建立或管理員權限授予；（3）掃描 Gitea 伺服器的 Rootkit 感染指標：SIXZUT Linux Rootkit 可能隱藏在核心模組或 LD_PRELOAD 注入中，建議使用 rkhunter 或 chkrootkit 進行掃描；（4）評估受影響機構的儲存庫資料敏感程度，判斷是否有供應鏈污染或源碼外洩風險。"
+    },
+    {
+      "priority": "high",
+      "action": "更新 Zyxel GS1900 交換器韌體並重設憑證（CVE-2026-7273，CISA KEV 9/21，台灣 123 台受害）：（1）確認所有 GS1900 系列交換器的韌體版本，立即更新至 Zyxel 官方提供的最新修補韌體；（2）立即重設所有 GS1900 設備的管理員密碼及 SNMP 社群字串，攻擊者已提取雜湊後的 Root 憑證，若攻擊者成功破解雜湊則憑證再利用風險持續存在；（3）審查交換器的存取控制清單，限制管理介面（HTTP/HTTPS/SSH）僅允許來自管理 VLAN 或受信任 IP 的存取，避免 LAN 側任意裝置存取管理介面；（4）檢查網路拓撲資訊是否需要更新——攻擊者已提取設備設定及網路資訊，可能用於後續的更精準攻擊。"
+    },
+    {
+      "priority": "high",
+      "action": "審查 Microsoft 365 服務帳號及雲端儲存異常行為，防範 UAT-11587 Antino 後門的 C2 通訊（台灣政府機構及政策研究機構為主要目標）：（1）在 Microsoft 365 管理中心或 Microsoft Sentinel 中，搜尋 Outlook 信箱出現大量未讀「寄件備份」郵件或非使用者操作的郵件刪除模式——Antino 使用 Outlook 郵件作為 C2 指令傳遞管道；（2）審查 OneDrive 的檔案存取記錄，搜尋非使用者工作時間的批次檔案建立、修改或刪除活動——Antino 利用 OneDrive 作為資料外洩及 C2 回應管道；（3）實施微軟 365 的進階稽核（Advanced Audit）政策，確保郵件存取及 OneDrive 操作記錄保留至少 90 天；（4）政府機構及國防相關組織建議部署端點偵測與回應（EDR）工具，搜尋 Rust 編譯的可疑可執行檔，並關注非預期的 PowerShell 執行及記憶體內 Shellcode 注入行為。"
+    },
+    {
+      "priority": "medium",
+      "action": "套用 Zammad 官方修補並加強 Help Desk 系統存取控制（CVE-2026-102489/CVE-2026-102490，CISA KEV 10/2）：（1）確認組織是否部署 Zammad IT 服務管理平台，若有則立即套用官方修補；（2）限制 Zammad 服務帳號的系統權限，確保 Zammad 程序以最小權限原則運行，避免本地提權漏洞的影響範圍擴散至底層伺服器；（3）稽核 Zammad 系統記錄，搜尋非預期的特權操作或異常的會話活動。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "零日漏洞（Zero-Day Vulnerability）",
+      "definition": "廠商未知或尚無修補程式的安全漏洞，通常在公告前或修補前即遭攻擊者利用",
+      "url": "https://glossary.astroicers.link/glossary/zero_day"
+    },
+    {
+      "term": "後門（Backdoor）",
+      "definition": "攻擊者在目標系統植入的隱蔽程式，允許其在正常驗證程序之外維持遠端存取",
+      "url": "https://glossary.astroicers.link/glossary/backdoor"
+    },
+    {
+      "term": "指令與控制（C2 / Command and Control）",
+      "definition": "攻擊者用於遙控受害系統、接收回傳資料及發送攻擊指令的基礎設施或通訊管道",
+      "url": "https://glossary.astroicers.link/glossary/c2"
+    },
+    {
+      "term": "Rootkit",
+      "definition": "用於隱藏惡意程式活動的工具集，通常在核心層級運作，可隱藏檔案、程序及網路連線",
+      "url": "https://glossary.astroicers.link/glossary/rootkit"
+    },
+    {
+      "term": "路徑遍歷（Path Traversal）",
+      "definition": "攻擊者利用不充分的路徑驗證，存取伺服器上位於預期目錄之外的任意檔案",
+      "url": "https://glossary.astroicers.link/glossary/path_traversal"
+    },
+    {
+      "term": "驗證繞過（Authentication Bypass）",
+      "definition": "攻擊者利用系統邏輯缺陷繞過身份驗證機制，取得未授權存取而不需要有效憑證",
+      "url": "https://glossary.astroicers.link/glossary/auth_bypass"
+    },
+    {
+      "term": "橫向移動（Lateral Movement）",
+      "definition": "攻擊者在初始入侵後，利用已取得的存取權限在目標網路內擴散、攻陷更多系統的技術",
+      "url": "https://glossary.astroicers.link/glossary/lateral_movement"
+    }
+  ],
+  "references": [
+    {
+      "title": "鈊象發布資安重大訊息，揭露營運資訊設備遭到入侵 – iThome",
+      "url": "https://www.ithome.com.tw/news/179289"
+    },
+    {
+      "title": "神腦 本公司發生網路資安事件說明 – MoneyDJ 理財網",
+      "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=5dba3f83-57ed-4e9b-b0b3-2e7be074e132"
+    },
+    {
+      "title": "鈊象 本公司網路資安事件說明 – MoneyDJ 理財網",
+      "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=cce8479a-ada4-4f67-8d86-7d6980235eb3"
+    },
+    {
+      "title": "China-nexus UAT-11587 targets government and policy organizations across Asia with Antino backdoor – Cisco Talos",
+      "url": "https://blog.talosintelligence.com/china-nexus-uat-11587-targets-government-and-policy-organizations-across-asia-with-antino-backdoor/"
+    },
+    {
+      "title": "Antino Backdoor Uses Outlook and OneDrive for C2 in China-Nexus Espionage Campaign – The Hacker News",
+      "url": "https://thehackernews.com/2026/10/antino-backdoor-uses-outlook-and.html"
+    },
+    {
+      "title": "China-Linked Hackers Use Antino Backdoor in Asia – eSecurity Planet",
+      "url": "https://www.esecurityplanet.com/cybersecurity-threats/news-uat-11587-antino-backdoor-microsoft-365-cloudflare/"
+    },
+    {
+      "title": "Critical FortiMail zero-day exploited in the wild (CVE-2026-104286) – Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/10/02/fortinet-fortimail-vulnerability-cve-2026-104286/"
+    },
+    {
+      "title": "Fortinet warns of critical FortiMail flaw exploited in zero-day attacks – BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-fortimail-flaw-exploited-in-zero-day-attacks/"
+    },
+    {
+      "title": "Critical FortiMail Zero-Day Flaw Exploited in Attacks Allows Unauthenticated Arbitrary File Writes – The Hacker News",
+      "url": "https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html"
+    },
+    {
+      "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog (Oct 1) – CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/01/cisa-adds-two-known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "Cisco warns of attackers exploiting Catalyst SD-WAN Manager – The Hacker News",
+      "url": "https://thehackernews.com/2026/09/cisco-warns-of-attackers-exploiting.html"
+    },
+    {
+      "title": "Cisco Catalyst SD-WAN Manager CVE-2026-76504 – SecurityOnline",
+      "url": "https://securityonline.info/cisco-sd-wan-manager-cve-2026-76504/"
+    },
+    {
+      "title": "Red Heron Exploits Gitea RCE to Compromise 13 Organizations Across Six Countries – The Hacker News",
+      "url": "https://thehackernews.com/2026/09/red-heron-exploits-gitea-rce-to.html"
+    },
+    {
+      "title": "Red Heron exploits Gitea n-day flaw in multinational campaign, exposing new Linux rootkit – Acronis TRU",
+      "url": "https://www.acronis.com/en/tru/posts/red-heron-exploits-gitea-n-day-flaw-in-multinational-campaign-exposing-new-linux-rootkit/"
+    },
+    {
+      "title": "Red Heron Exploits Critical Gitea Flaw to Steal Repositories and Deploy Linux Rootkit – GB Hackers",
+      "url": "https://gbhackers.com/red-heron-exploits-critical-gitea-flaw/"
+    },
+    {
+      "title": "Attacker compromised nearly 1000 Zyxel switches since August (CVE-2026-7273) – Help Net Security",
+      "url": "https://www.helpnetsecurity.com/?p=385317"
+    },
+    {
+      "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog (Oct 2, Zammad) – CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/02/cisa-adds-two-known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "【資安週報】0929~1002，臺灣8月勒索軟體事件20起居亞太第三，全球聚焦AI代理安全風險與防護布局 – iThome",
+      "url": "https://www.ithome.com.tw/news/179381"
+    },
+    {
+      "title": "Known Exploited Vulnerabilities Catalog – CISA",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}
