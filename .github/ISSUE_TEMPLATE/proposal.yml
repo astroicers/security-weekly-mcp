@@ -1,0 +1,28 @@
+name: Proposal(提案票)
+description: 對治理文件的變更提案;人類裁決 merge
+labels: ["type:proposal"]
+body:
+  - type: dropdown
+    id: scope
+    attributes: {label: scope, options: ["roadmap", "policy", "skill"]}
+    validations: {required: true}
+  - type: textarea
+    id: diff
+    attributes: {label: 提案內容 / diff}
+    validations: {required: true}
+  - type: textarea
+    id: rationale
+    attributes:
+      label: 理由與影響
+      description: >-
+        新編排機制須含**人類頻寬指標**之預期影響——人類觸碰次數/單位交付是升是降、依據為何
+        (ADR-000 決策 92:瓶頸資源是人的注意力)。非編排類提案寫「不適用」並附一句理由。
+      placeholder: "理由:…\n人類頻寬影響:每交付觸碰 N → M,因為…"
+    validations: {required: true}
+  - type: textarea
+    id: ac
+    attributes:
+      label: 驗收準則(Given/When/Then)
+      description: 每條含可觀察結果;寫不成可測形式=開 design 票的訊號
+      placeholder: "Given …\nWhen …\nThen …"
+    validations: {required: true}

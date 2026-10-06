@@ -1,5 +1,7 @@
 # ⚠️ 由 `asp render ci` 產生 — 勿手改(單一事實源:asp-gate.yaml)
 # source sha256: 2d0071e3a1c0440d6b40ad1c6bacf77470d11a90b6f7cd5dfb76d0c8773e5f91
+# renderer sha256: 5d96df4deb5722c7c54a3b7795ec01240f3a75078eb91970d7f0916ac1ace772
+# ↑ 渲染器座標(#605):src/asp_cli/render.py+schema.py 的內容雜湊——asp-gate.yaml 沒動而渲染器動了時,只有這一行會變
 # flavor 取捨屬 ADR-000 §15 待議;v0.1 取 python(含 YAML/MARKDOWN/REPOSITORY 基線)
 # 無 MegaLinter 對映的 check(dprint/builtin-*)由 workflow 的 gate 全集 step 涵蓋
 ENABLE_LINTERS:
