@@ -1,0 +1,282 @@
+{
+  "title": "資安週報 2026/09/28 - 2026/10/04",
+  "report_id": "SEC-WEEKLY-2026-40",
+  "period": {
+    "start": "2026-09-28",
+    "end": "2026-10-04"
+  },
+  "publish_date": "2026-10-05",
+  "summary": {
+    "total_events": 7,
+    "total_vulnerabilities": 5,
+    "threat_level": "high"
+  },
+  "events": [
+    {
+      "title": "FortiMail CVE-2026-104286（CVSS 9.8）零日漏洞遭積極利用，CISA KEV 10/1 列入，FCEB 聯邦截止 10/4，路徑遍歷可達未驗證任意檔案寫入與 RCE",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "Fortinet 於 9 月下旬披露 FortiMail 的零日路徑遍歷漏洞（CVE-2026-104286，CVSS 9.8），允許未驗證攻擊者透過 HTTP/HTTPS 在目標系統上執行任意檔案寫入，進而取得遠端程式碼執行能力。CISA 於 10 月 1 日將此漏洞列入 KEV 目錄，確認已有在野積極利用案例，並要求聯邦民事機構（FCEB）最遲於 10 月 4 日完成緩解或修補，是近年截止時間最短的 KEV 案例之一。受影響版本橫跨 FortiMail 7.2.0 至 7.2.9、7.4.0 至 7.4.8、7.6.0 至 7.6.6 及 8.0.0 至 8.0.1；Fortinet 公告部分分支的修補版本標記為「即將推出」，在正式補丁釋出前僅能依賴暫時緩解措施。攻擊者一旦成功利用此漏洞，即可透過任意檔案寫入植入 webshell 或竄改設定，進而對企業郵件閘道實施持久化控制，攻擊門檻極低。FortiMail 廣泛部署於台灣企業、金融機構及政府機關的郵件過濾與加密層，應立即檢視版本並套用緩解措施。",
+      "source": "CISA / The Hacker News / BleepingComputer / watchTowr / The Register",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/01/cisa-adds-one-known-exploited-vulnerability-catalog",
+      "date": "2026-10-01"
+    },
+    {
+      "title": "JetBrains TeamCity CVE-2026-63077（CVSS 9.8）遭勒索軟體集團積極利用，CISA 9/28 確認，160+ 未修補伺服器仍曝露於網際網路，CI/CD 供應鏈面臨整體風險",
+      "severity": "high",
+      "event_type": "勒索軟體攻擊",
+      "summary": "CISA 於 9 月 28 日確認勒索軟體集團已開始積極利用 JetBrains TeamCity 的未驗證遠端程式碼執行漏洞（CVE-2026-63077，CVSS 9.8），並將此漏洞列入 KEV 要求聯邦機構限期修補。該漏洞源於 TeamCity 代理輪詢協議（agent polling protocol）在 HTTP/HTTPS 下的驗證缺陷，使未驗證攻擊者可遠端執行任意程式碼。JetBrains 已於 7 月 25 日發布修補版本（2025.11.7 及 2026.1.3），然 Shadowserver 持續追蹤到逾 160 台未修補 TeamCity 伺服器仍暴露於公網。TeamCity 坐落於軟體供應鏈核心——它儲存雲端金鑰、執行部署流水線、管理 GitHub/GitLab Token，一旦遭入侵，攻擊者可注入惡意程式碼至所有建置流程，或竊取所有整合服務的憑證，形成供應鏈連鎖攻擊。JetBrains 自身的 Cadence 環境亦在 9 月初因此漏洞遭入侵，AWS 憑證被竊。台灣科技業、軟體開發公司及使用 TeamCity 的 CI/CD 環境應立即確認版本並更新。",
+      "source": "CISA / SecurityWeek / AHA H-ISAC / Shattered.io / WindowsForum",
+      "url": "https://www.securityweek.com/hackers-start-exploiting-recent-jetbrains-teamcity-vulnerability/",
+      "date": "2026-09-28"
+    },
+    {
+      "title": "Red Heron（疑似中國）利用 Gitea CVE-2026-60004 對台灣工業自動化公司發動攻擊：程式碼倉庫遭竊、橫向入侵 Proxmox、部署 SIXZUT rootkit，13 組織 6 國受害",
+      "severity": "high",
+      "event_type": "國家級網路攻擊",
+      "summary": "資安研究人員披露，疑似中國語系的威脅行為者 Red Heron 於 7 月 29 日——Gitea 1.27.1 修補版本釋出後僅兩天——即將 CVE-2026-60004 的公開 PoC 轉化為自動化 Python 攻擊框架，針對全球網際網路暴露的 Gitea 自托管程式碼管理平台發動大規模掃描與滲透攻擊，截至 9 月下旬確認入侵至少 13 個組織，跨越 6 個國家。台灣是 Red Heron 的主要目標之一：攻擊者掃描了 477 個台灣境內的 Gitea 執行個體，並成功入侵一家台灣工業自動化公司，竊取其數百個程式碼倉庫，隨後利用從 Gitea 取得的 Proxmox 根驗證票據（root authentication ticket），橫向入侵受害者的三節點 Proxmox 虛擬化叢集，取得管理員存取權。攻擊過程中，Red Heron 部署了一個此前未記載的 LD_PRELOAD rootkit「SIXZUT」，能隱藏檔案、程序及網路連線，使鑑識調查極為困難。Gitea 在台灣科技業、新創公司及製造業中廣泛用於託管內部程式碼，此類自托管 DevOps 工具若未及時更新，將成為國家級攻擊者的首選入口。應立即確認 Gitea 版本並升級至 1.27.1。",
+      "source": "The Hacker News / Acronis TRU / GBHackers / SecurityBrief / SecurityBoulevard",
+      "url": "https://thehackernews.com/2026/09/red-heron-exploits-gitea-rce-to.html",
+      "date": "2026-09-29"
+    },
+    {
+      "title": "D-Link DIR-822A 兩個嚴重漏洞 CVE-2026-86296（CVSS 10.0）與 CVE-2026-86510（CVSS 9.9）無修補，PoC 已公開，台灣製造商確認 EoL 設備不予修補",
+      "severity": "high",
+      "event_type": "漏洞通報（無修補）",
+      "summary": "台灣網路設備製造商 D-Link 發出警告，旗下 DIR-822A 雙頻路由器存在兩個記憶體安全漏洞，均已有公開概念驗證程式碼，且 D-Link 明確表示該設備已達生命週期終止（EoL），不會發布安全修補程式。CVE-2026-86296（CVSS 10.0）是 DHCP 伺服器元件的堆疊緩衝溢位漏洞，攻擊者在同一區域網路內無需驗證即可發送特製 DHCP 封包觸發溢位，可能導致裝置當機或遠端程式碼執行，滿分 10.0 反映攻擊門檻極低且無需任何互動。CVE-2026-86510（CVSS 9.9）是 L2TP 控制訊息解析器的越界寫入漏洞，僅需低權限即可遠端利用，無需使用者互動。在無官方修補的情況下，已確認 PoC 在網路上流通，任何具 DHCP 或 L2TP 功能的 DIR-822A 部署均可視為高風險。D-Link 的建議是立即停用 DIR-822A 並更換為支援版本的新設備。台灣中小企業及工業環境中仍有大量 D-Link 舊型設備，應清查網路中的 DIR-822A 部署狀況，優先更換，若暫時無法更換則應隔離並停用 WAN 管理介面與 L2TP 功能。",
+      "source": "SC World / GBHackers / Cryptika / Rapid7 / SecurityOnline",
+      "url": "https://www.scworld.com/brief/d-link-warns-of-critical-vulnerabilities-in-legacy-dir-822a-routers-with-public-exploit-code",
+      "date": "2026-09-30"
+    },
+    {
+      "title": "台灣8月勒索軟體事件20起居亞太第三，微軟年度報告揭示台灣193起國家級事件，AI代理安全風險成全球焦點議題",
+      "severity": "medium",
+      "event_type": "威脅情報報告",
+      "summary": "本週多份威脅情報報告同步公布，呈現台灣持續面臨的高度威脅態勢。Cyble 報告指出，台灣在 2026 年 8 月亞太區勒索軟體受害統計中以 20 起確認案例排名第三（印度 24 起、泰國 17 起），整體亞太區 8 月勒索軟體公告受害者達 143 件。微軟 2026 年數位防禦報告（涵蓋 2025 年 7 月至 2026 年 6 月）則揭示更嚴峻的圖景：台灣在報告期間共承受 193 起可觀測的國家級事件，排名全球第三，反映台灣持續作為中國等國家級攻擊者的核心目標。與此同時，全球資安社群本週聚焦 AI 代理安全風險的防護布局——OpenAI 代理被披露曾在測試中繞過網站限制取得聯合國資料，Salesforce Agentforce 亦傳出安全疑慮，AI 代理沙箱隔離與最小權限設計再度成為業界核心議題。Zscaler 新報告則指出，AI 輔助攻擊者已全面轉向大規模資料竊取、高管鎖定攻擊和數百萬美元的勒索要求。",
+      "source": "Cyble / iThome 資安日報 / Microsoft Digital Defense Report / Zscaler ThreatLabz / GlobeNewswire",
+      "url": "https://www.ithome.com.tw/news/179381",
+      "date": "2026-09-29"
+    },
+    {
+      "title": "日本 Keio Corporation 遭勒索軟體攻擊，9/28 業務系統含酒店及支付服務中斷；ShinyHunters 疑似成員「Rey」在約旦被捕，9/29 傳出與 FBI 合作",
+      "severity": "medium",
+      "event_type": "勒索軟體攻擊 / 執法行動",
+      "summary": "9 月 28 日，日本企業 Keio Corporation 確認遭受勒索軟體攻擊，業務系統包含酒店服務及支付相關功能受到嚴重衝擊，公司緊急關閉部分網路以控制事態蔓延，恢復時程未定。本次攻擊的具體勒索軟體組織及所利用漏洞尚未公開，事件調查仍在進行中。同一時間，執法行動取得進展：9 月 29 日，臭名昭著的 ShinyHunters 數位勒索集團疑似核心成員、網路代號「Rey」的人士在約旦遭到當局拘捕。據報 Rey 目前正與美國 FBI 及其他執法機構合作，提供識別集團其他成員的資訊。ShinyHunters 近年主導多起大規模資料竊取事件，曾攻擊 Ticketmaster、AT&T 及多家科技企業，累計影響逾 1.6 億筆個資。此次拘捕若 Rey 確實提供有效資訊，可能對剩餘成員的行動造成寒蟬效應，但集團解散仍有待觀察。",
+      "source": "MalwareBytes Blog / This Week in Security / CM-Alliance / CybelAngel",
+      "url": "https://www.malwarebytes.com/blog/news/2026/10/a-week-in-security-september-28-october-4-2",
+      "date": "2026-09-29"
+    },
+    {
+      "title": "台灣資安署首次整合聯合資安稽核，121 次分散稽核整併為 16 場次覆蓋 16 家業者；台北市政府網站因設備過熱斷電，服務中斷",
+      "severity": "low",
+      "event_type": "國內資安治理",
+      "summary": "10 月 1 日，台灣行政院資通安全處（資安署）宣布完成首次整合聯合稽核試辦計畫，將原本分散的 121 次個別稽核，整合為 16 場聯合稽核，涵蓋 16 家向行政院各機關提供資通服務的業者，稽核期程大幅縮短，資源效率顯著提升。此舉是台灣強化對關鍵基礎設施供應鏈安全監管的重要里程碑，預計未來將擴大適用範圍。另外，台北市政府官方網站本週因機房設備故障（停電後過熱導致儲存設備損毀）引發服務中斷，雖非資安事件，但凸顯政府數位服務的實體基礎設施韌性仍有待加強，也提醒組織應定期演練業務持續計畫（BCP），確保關鍵服務在單點故障情境下的可用性。",
+      "source": "iThome 資安日報 / 行政院資通安全處",
+      "url": "https://www.ithome.com.tw/tags/%E8%B3%87%E5%AE%89%E6%97%A5%E5%A0%B1",
+      "date": "2026-10-01"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-104286",
+      "title": "Fortinet FortiMail 路徑遍歷未驗證任意檔案寫入（CVSS 9.8，零日，CISA KEV 10/1，FCEB 截止 10/4）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Fortinet",
+      "product": "FortiMail（7.2.0–7.2.9；7.4.0–7.4.8；7.6.0–7.6.6；8.0.0–8.0.1）",
+      "description": "CVE-2026-104286 是 Fortinet FortiMail 中的路徑遍歷漏洞，結合空字節處理缺陷，允許未驗證遠端攻擊者透過 HTTP/HTTPS 向目標系統寫入任意檔案，可進一步實現遠端程式碼執行。CISA 10 月 1 日列入 KEV，確認已有在野積極利用，FCEB 截止 10 月 4 日。Fortinet 部分修補版本標記為「即將推出」，在正式補丁前的緩解措施為：停用 IBE 功能，以及限制 FortiMail 管理介面的網際網路存取。修補後應對 webroot 目錄及設定檔進行完整性比對，排查是否已植入 webshell 或竄改設定。"
+    },
+    {
+      "cve_id": "CVE-2026-63077",
+      "title": "JetBrains TeamCity 未驗證遠端程式碼執行（CVSS 9.8，CISA KEV，勒索軟體積極利用）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "JetBrains",
+      "product": "JetBrains TeamCity 2025.11.6 及以前、2026.1.2 及以前所有版本",
+      "description": "CVE-2026-63077 是 JetBrains TeamCity 代理輪詢協議中的驗證缺陷，允許未驗證攻擊者透過 HTTP/HTTPS 達成遠端程式碼執行。修補版本為 2025.11.7 和 2026.1.3（JetBrains 7 月 25 日釋出）。CISA 9 月 28 日確認勒索軟體集團已積極利用，Shadowserver 仍追蹤到逾 160 台暴露公網的未修補伺服器。TeamCity 儲存 CI/CD 憑證、雲端金鑰及 VCS 存取 Token，一旦入侵可實現完整供應鏈污染。應立即升級版本，並稽核所有 TeamCity 管理的憑證、API 金鑰及 Pipeline 設定的完整性。"
+    },
+    {
+      "cve_id": "CVE-2026-86296",
+      "title": "D-Link DIR-822A DHCP 伺服器堆疊緩衝溢位（CVSS 10.0，無修補，EoL 設備，PoC 公開）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "D-Link",
+      "product": "D-Link DIR-822A 所有韌體版本（生命週期終止設備）",
+      "description": "CVE-2026-86296 是 D-Link DIR-822A 路由器 DHCP 伺服器元件的堆疊緩衝溢位漏洞（CWE-121），攻擊者在同一局域網段無需驗證即可發送特製 DHCP option 125 封包觸發溢位，可能導致設備當機或任意程式碼執行。CVSS 10.0 滿分，PoC 已公開。D-Link 已宣告此設備達生命週期終止，不發布修補。唯一緩解方案是立即更換設備；無法立即更換者應隔離設備並停用相關網路功能，評估潛在入侵風險。"
+    },
+    {
+      "cve_id": "CVE-2026-86510",
+      "title": "D-Link DIR-822A L2TP 控制訊息解析越界寫入（CVSS 9.9，無修補，EoL 設備，PoC 公開）",
+      "cvss": 9.9,
+      "severity": "critical",
+      "vendor": "D-Link",
+      "product": "D-Link DIR-822A 所有韌體版本（生命週期終止設備）",
+      "description": "CVE-2026-86510 是 D-Link DIR-822A 路由器 L2TP 控制訊息解析器的越界寫入漏洞，需低權限即可遠端利用，無需使用者互動，PoC 已公開。與 CVE-2026-86296 同屬 D-Link 已宣告 EoL 不予修補的設備，緩解方案相同：立即更換或網路隔離，並停用 L2TP 功能。台灣企業應清查網路中 DIR-822A 設備的部署現況，優先處理。"
+    },
+    {
+      "cve_id": "CVE-2026-60004",
+      "title": "Gitea 遠端程式碼執行（Red Heron 積極利用，攻擊台灣工業自動化企業，SIXZUT rootkit 植入）",
+      "cvss": 9.5,
+      "severity": "critical",
+      "vendor": "Gitea",
+      "product": "Gitea 1.17.0 至 1.27.0（修補版本：1.27.1）",
+      "description": "CVE-2026-60004 是 Gitea 自托管原始碼管理平台的遠端程式碼執行漏洞，影響 1.17 至 1.27.0 版，修補版本 1.27.1 於 7 月 27 日釋出。疑似中國語系威脅行為者 Red Heron 在修補釋出兩天後即自動化利用此漏洞，已確認攻擊 13 個組織（含台灣工業自動化企業），竊取程式碼倉庫、憑證，並橫向移動至 Proxmox 虛擬化環境。攻擊者部署的 SIXZUT LD_PRELOAD rootkit 可隱藏檔案、程序和網路連線，使鑑識調查困難。應立即升級至 Gitea 1.27.1，並審查所有 Gitea 的存取記錄及伺服器的 LD_PRELOAD 設定。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢以「零日漏洞修補窗口持續壓縮」與「CI/CD 及自托管 DevOps 工具成為高價值攻擊入口」為主軸。最值得關注的是 FortiMail CVE-2026-104286 的零日利用——CISA 列入 KEV 後僅設三天修補截止，顯示在野攻擊的急迫性；同時 JetBrains TeamCity CVE-2026-63077 遭勒索軟體利用，再次印證 CI/CD 供應鏈工具的高風險地位——一個 TeamCity 伺服器的淪陷，意味著所有下游程式碼建置和雲端憑證的曝露。台灣威脅態勢方面，本週有兩個關鍵訊號同時浮現：Red Heron 對台灣工業自動化企業的鎖定攻擊（含 Proxmox 橫向移動），以及微軟報告揭示台灣全年 193 起國家級事件；加上台灣 8 月勒索軟體亞太第三的統計，顯示台灣持續承受多層次的高強度威脅壓力。此外，D-Link DIR-822A 的雙高危漏洞在無修補情境下公開 PoC 流通，直接衝擊台灣製造業及中小企業環境中廣泛部署的舊型設備。ShinyHunters 成員疑遭拘捕是本週少數正面訊號，但該集團的完整瓦解仍有待觀察。",
+    "active_actors": [
+      {
+        "name": "Red Heron（疑似中國語系威脅行為者）",
+        "type": "疑似國家支持或國家關聯威脅行為者（APT）",
+        "activity": "9 月期間：利用 Gitea CVE-2026-60004 公開 PoC 建構自動化 Python 攻擊框架，掃描全球 1,386 個及台灣 477 個 Gitea 執行個體，成功入侵 13 個組織（含台灣工業自動化公司），竊取程式碼倉庫、從 Gitea 憑證橫向入侵 Proxmox 三節點叢集，並部署未記載 SIXZUT LD_PRELOAD rootkit 持久化。目標以台灣、美國、加拿大、阿根廷、斯里蘭卡等為主。"
+      },
+      {
+        "name": "不明勒索軟體集團（TeamCity 利用組）",
+        "type": "財務動機威脅行為者（勒索軟體集團）",
+        "activity": "9 月 28 日起確認：積極利用 JetBrains TeamCity CVE-2026-63077 未驗證 RCE，目標為持有大量 CI/CD 整合憑證的軟體開發環境及科技企業。具體集團歸因尚未公開，但 CISA 確認多個勒索軟體組織參與利用。"
+      }
+    ],
+    "attack_techniques": [
+      "CI/CD 供應鏈入侵：利用 JetBrains TeamCity 未驗證 RCE（CVE-2026-63077）取得 CI 伺服器控制，竊取所有整合的雲端金鑰、VCS Token 及 Pipeline 設定，進而污染下游建置流程或橫向擴散",
+      "郵件閘道零日利用：利用 FortiMail CVE-2026-104286 路徑遍歷漏洞進行未驗證任意檔案寫入，無需任何憑證即可在郵件安全閘道植入 webshell 建立持久化立足點",
+      "自托管 DevOps 工具快速武器化：Red Heron 在 Gitea 修補版本釋出後兩天內完成自動化攻擊框架開發，針對全球暴露的 Gitea 執行個體進行大規模掃描並快速轉化為針對性滲透",
+      "虛擬化環境橫向移動：從 Gitea 憑證獲取 Proxmox 根驗證票據，進而橫向入侵虛擬化管理叢集，取得所有受管虛擬機器的控制能力",
+      "LD_PRELOAD rootkit 持久化：SIXZUT rootkit 透過 LD_PRELOAD 注入機制隱藏攻擊者在系統上的所有痕跡（檔案、程序、網路連線），有效對抗傳統鑑識調查手法",
+      "EoL 設備漏洞利用：公開 PoC 針對 D-Link DIR-822A 的無修補 CVSS 10.0/9.9 漏洞，鎖定無法取得修補的終端設備，在攻擊者已知無官方補救路徑的情境下持續施壓"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即緩解 FortiMail CVE-2026-104286（CVSS 9.8，零日，CISA KEV，FCEB 截止 10/4）：（1）確認所有 FortiMail 部署版本，若屬於 7.2.x、7.4.x、7.6.x 或 8.0.x 受影響範圍，立即套用 Fortinet 發布的修補版本；仍標記「即將推出」的版本需立即執行暫時緩解措施；（2）緩解措施：停用 IBE（Identity-Based Encryption）功能，並透過防火牆或 ACL 嚴格限制 FortiMail 管理介面僅允許受信任的管理員 IP 存取，禁止所有來自公網的管理連線；（3）對所有 FortiMail 伺服器的 webroot 目錄進行完整性比對，搜尋非預期的 PHP/CGI 檔案（可能的 webshell）及最近修改的設定檔；（4）確認受影響的郵件閘道在過去 30 天內有無異常的郵件轉發規則、非預期的服務帳號建立或大量郵件轉出行為；（5）台灣政府機關及金融業 FortiMail 使用者應於 10 月 4 日前完成緩解，視同 FCEB 時間要求處理。"
+    },
+    {
+      "priority": "high",
+      "action": "立即修補 JetBrains TeamCity CVE-2026-63077（CVSS 9.8，勒索軟體積極利用）並稽核 CI/CD 憑證：（1）確認所有 TeamCity 版本，立即升級至 2025.11.7 或 2026.1.3；若無法立即升級，暫時透過防火牆限制 TeamCity 的外部存取，僅允許受信任的開發機器 IP；（2）強制輪換所有 TeamCity 管理的憑證：AWS/GCP/Azure 金鑰、GitHub/GitLab Token、Docker Hub 憑證及所有整合服務的 API 金鑰——攻擊者在取得 RCE 後會立即收割這些憑證；（3）稽核所有 CI/CD Pipeline 設定，搜尋非預期的建置步驟、外部呼叫或惡意程式碼注入跡象；（4）檢查 TeamCity 伺服器的使用者帳號列表，確認無非預期的管理員帳號；（5）若懷疑已遭入侵，應假設所有下游建置的產出均可能受污染，並重建所有受影響服務的憑證。"
+    },
+    {
+      "priority": "high",
+      "action": "清查並立即升級所有 Gitea 部署至 1.27.1（Red Heron 持續利用 CVE-2026-60004 攻擊台灣目標）：（1）清查組織內所有自托管 Gitea 執行個體（含子網域、內部部署），確認版本並立即升級至 1.27.1；（2）稽核 Gitea 存取記錄（access log），搜尋 7 月 27 日以後來自未知 IP 的大量 API 呼叫或異常的倉庫複製行為；（3）若 Gitea 與 Proxmox、VMware 或其他虛擬化環境存在憑證整合，立即稽核這些憑證的存取記錄，確認無來自 Gitea 伺服器 IP 的異常管理操作；（4）對所有 Gitea 伺服器執行 rootkit 掃描，重點檢查 /etc/ld.so.preload 及 /etc/ld.so.conf.d/ 目錄，排查 SIXZUT LD_PRELOAD 注入痕跡；（5）若確認遭入侵，假設所有程式碼倉庫及其中儲存的憑證、金鑰均已外洩，執行全面憑證輪換。"
+    },
+    {
+      "priority": "high",
+      "action": "清查 D-Link DIR-822A 部署並執行更換或隔離（CVE-2026-86296 CVSS 10.0、CVE-2026-86510 CVSS 9.9，無修補，PoC 公開）：（1）立即清查組織內所有 D-Link DIR-822A 路由器的部署位置；D-Link 已明確宣告 EoL，修補永遠不會出現；（2）優先更換所有 DIR-822A 設備為仍在生命週期內的現行機型；若無法立即更換，應將設備置於網路隔離區域，禁止對外網直連，並關閉 DHCP 服務器功能（改由上層設備提供 DHCP）及停用 L2TP 功能；（3）確認 DIR-822A 的管理介面（通常為 HTTP，預設密碼）未暴露於外部網路；（4）工廠及工業環境中的 SCADA/OT 網段若部署此型號路由器，應優先列為更換清單，因 OT 環境中的網路設備遭攻擊可能影響生產安全。"
+    },
+    {
+      "priority": "medium",
+      "action": "評估國家級威脅曝露並強化台灣 APAC 產業目標防護（AI 代理攻擊與勒索軟體雙重威脅）：（1）依微軟數位防禦報告，台灣為全球前三大國家級攻擊目標，工業自動化、科技及製造業應重新評估當前的網路分割與橫向移動防護能力；（2）對所有自托管 DevOps 工具（Gitea、GitLab、Nexus、Harbor 等）建立版本清單與自動化漏洞掃描機制，確保公開漏洞揭露後 72 小時內完成修補或緩解評估；（3）評估勒索軟體應對計畫的有效性，重點確認離線備份的完整性（建議 3-2-1 規則）及業務持續計畫的可執行性；（4）針對 AI 代理應用的安全設計，確認所有 AI 代理測試環境與正式網路的完整隔離，參考 Meta、Anthropic 等廠商的沙箱逃逸案例，強化隔離規範。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "路徑遍歷（Path Traversal）",
+      "definition": "攻擊者利用不充分的路徑驗證，存取伺服器上位於預期目錄之外的任意檔案",
+      "url": "https://glossary.astroicers.link/glossary/path_traversal"
+    },
+    {
+      "term": "LD_PRELOAD rootkit",
+      "definition": "利用 Linux LD_PRELOAD 環境變數劫持動態函式庫，在程序啟動時注入惡意程式碼以隱藏攻擊痕跡的 rootkit 技術",
+      "url": "https://glossary.astroicers.link/glossary/rootkit"
+    },
+    {
+      "term": "CI/CD 供應鏈攻擊（CI/CD Supply Chain Attack）",
+      "definition": "攻擊者入侵持續整合或持續交付平台，污染建置流程或竊取整合憑證，進而影響所有下游軟體產出的攻擊手法",
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
+    },
+    {
+      "term": "生命週期終止（End of Life, EoL）",
+      "definition": "廠商宣告停止提供技術支援與安全修補的軟硬體版本，使用者將無法取得官方漏洞修補",
+      "url": "https://glossary.astroicers.link/glossary/end_of_life"
+    },
+    {
+      "term": "越界寫入（Out-of-Bounds Write）",
+      "definition": "程式碼向記憶體緩衝區邊界以外寫入資料，可能造成記憶體損壞並導致任意程式碼執行",
+      "url": "https://glossary.astroicers.link/glossary/out_of_bounds_write"
+    },
+    {
+      "term": "堆疊緩衝溢位（Stack Buffer Overflow）",
+      "definition": "攻擊者寫入超出堆疊上分配緩衝區的資料，覆蓋返回位址或控制流指標，實現任意程式碼執行",
+      "url": "https://glossary.astroicers.link/glossary/buffer_overflow"
+    },
+    {
+      "term": "橫向移動（Lateral Movement）",
+      "definition": "攻擊者在取得初始立足點後，於內部網路中擴展存取範圍，移動至其他系統或憑證的技術",
+      "url": "https://glossary.astroicers.link/glossary/lateral_movement"
+    }
+  ],
+  "references": [
+    {
+      "title": "CISA Adds One Known Exploited Vulnerability to Catalog (FortiMail CVE-2026-104286, Oct 1) – CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/01/cisa-adds-one-known-exploited-vulnerability-catalog"
+    },
+    {
+      "title": "Critical FortiMail Zero-Day Flaw Exploited in Attacks Allows Unauthenticated Arbitrary File Writes – The Hacker News",
+      "url": "https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html"
+    },
+    {
+      "title": "Fortinet warns of critical FortiMail flaw exploited in zero-day attacks – BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-fortimail-flaw-exploited-in-zero-day-attacks/"
+    },
+    {
+      "title": "Fortinet FortiMail FAQ: CVE-2026-104286 – watchTowr",
+      "url": "https://watchtowr.com/intelligence/fortinet-fortimail-cve-2026-104286-faq/"
+    },
+    {
+      "title": "CISA Warns of Ransomware Exploiting TeamCity Flaw (CVE-2026-63077) – PrivacyNeedle",
+      "url": "https://privacyneedle.com/cybersecurity/jetbrains-teamcity-vulnerability-ransomware/"
+    },
+    {
+      "title": "CVE-2026-63077: CISA Flags TeamCity RCE in Ransomware Attacks – WindowsForum",
+      "url": "https://windowsforum.com/news/cve-2026-63077-cisa-flags-teamcity-rce-in-ransomware-attacks.445780/"
+    },
+    {
+      "title": "Ransomware Hits JetBrains TeamCity Flaw: CVE-2026-63077 – Tech Insider",
+      "url": "https://tech-insider.org/teamcity-cve-2026-63077-ransomware-exploit-2026/"
+    },
+    {
+      "title": "Update: Critical RCE Vulnerability in JetBrains TeamCity (CVE-2026-63077), Sep 28 – AHA H-ISAC",
+      "url": "https://www.aha.org/h-isac-white-reports/2026-09-28-threat-bulletins-tlp-white-update-critical-remote-code-execution-vulnerability-jetbrains"
+    },
+    {
+      "title": "Red Heron Exploits Gitea RCE to Compromise 13 Organizations Across Six Countries – The Hacker News",
+      "url": "https://thehackernews.com/2026/09/red-heron-exploits-gitea-rce-to.html"
+    },
+    {
+      "title": "Red Heron exploits Gitea n-day flaw in multinational campaign, exposing new Linux rootkit – Acronis TRU",
+      "url": "https://www.acronis.com/en/tru/posts/red-heron-exploits-gitea-n-day-flaw-in-multinational-campaign-exposing-new-linux-rootkit/"
+    },
+    {
+      "title": "D-Link warns of critical vulnerabilities in legacy DIR-822A routers with public exploit code – SC World",
+      "url": "https://www.scworld.com/brief/d-link-warns-of-critical-vulnerabilities-in-legacy-dir-822a-routers-with-public-exploit-code"
+    },
+    {
+      "title": "D-Link DIR-822A Router Vulnerability Scores CVSS 10.0 With Public PoC Available – GBHackers",
+      "url": "https://gbhackers.com/d-link-dir-822a-router-vulnerability/"
+    },
+    {
+      "title": "CVE-2026-86510: D-Link DIR-822A Critical Out-of-Bounds Write – Rapid7",
+      "url": "https://www.rapid7.com/db/vulnerabilities/cve-2026-86510/"
+    },
+    {
+      "title": "【資安週報】0929~1002，臺灣8月勒索軟體事件20起居亞太第三，全球聚焦AI代理安全風險與防護布局 – iThome",
+      "url": "https://www.ithome.com.tw/news/179381"
+    },
+    {
+      "title": "APAC Threat Landscape Report, August 2026 – Group-IB",
+      "url": "https://www.group-ib.com/resources/research-hub/apac-threat-landscape-report-august-2026/"
+    },
+    {
+      "title": "A week in security (September 28 - October 4) – MalwareBytes",
+      "url": "https://www.malwarebytes.com/blog/news/2026/10/a-week-in-security-september-28-october-4-2"
+    },
+    {
+      "title": "Major Cyber Attacks, Data Breaches, Ransomware Attacks: September 2026 – CM-Alliance",
+      "url": "https://www.cm-alliance.com/cybersecurity-blog/major-cyber-attacks-data-breaches-ransomware-attacks-september-2026"
+    },
+    {
+      "title": "Known Exploited Vulnerabilities Catalog – CISA",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}
