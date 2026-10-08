@@ -1,0 +1,294 @@
+{
+  "title": "資安週報 2026/09/28 - 2026/10/04",
+  "report_id": "SEC-WEEKLY-2026-40",
+  "period": {
+    "start": "2026-09-28",
+    "end": "2026-10-04"
+  },
+  "publish_date": "2026-10-05",
+  "summary": {
+    "total_events": 7,
+    "total_vulnerabilities": 5,
+    "threat_level": "high"
+  },
+  "events": [
+    {
+      "title": "Fortinet FortiMail CVE-2026-104286（CVSS 9.8）零時差漏洞積極利用：未驗證任意寫檔可取得初始存取，CISA KEV 10/1 列入，FCEB 截止 10/4 而修補版本仍未發布",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "Fortinet 於 10 月 1 日揭露 FortiMail 的路徑遍歷與空字元注入組合漏洞 CVE-2026-104286（CVSS 9.8），揭露與 CISA KEV 列入係同一天——顯示 Fortinet 在協調披露前即已知野外利用活動已發生。漏洞成因為 CWE-22（路徑遍歷）與 CWE-158（空字元注入）的組合缺陷，允許未驗證攻擊者透過特製 HTTP/HTTPS 請求在底層作業系統任意寫入檔案，實現無憑證初始存取並部署後續工具。受影響版本涵蓋 FortiMail 8.0.0–8.0.1、7.6.0–7.6.6、7.4.0–7.4.8 及 7.2.0–7.2.9。格外嚴峻的是，修補版本（8.0.2、7.6.7、7.4.9）於 10/1 揭露時尚未發布，FCEB 要求聯邦民事機構於 10/4 截止——此日期內大多數版本仍無可用修補，所有組織僅能仰賴不完整的緩解措施應對積極利用。Fortinet 建議的緩解措施為停用 IBE（身分加密）功能支援，並將管理介面存取限制為受信任網段；Fortinet 同步發布入侵指標（IoC），包含攻擊者 IP 及可疑的組態變更與系統文件路徑。FortiMail 廣泛部署於企業及政府機關作為郵件安全閘道，攻擊者一旦利用此漏洞取得郵件閘道立足點，可讀取、篡改或轉發郵件，或以此為跳板滲透內網。",
+      "source": "Fortinet / CISA / The Register / Help Net Security / eSentire",
+      "url": "https://www.helpnetsecurity.com/2026/10/02/fortinet-fortimail-vulnerability-cve-2026-104286/",
+      "date": "2026-10-01"
+    },
+    {
+      "title": "Red Heron 疑似中國 APT 組織利用 Gitea CVE-2026-60004（CVSS 9.8）入侵台灣工業自動化業者：竊取數百個程式碼儲存庫、在 Proxmox 叢集取得 root 存取，部署未知 Linux rootkit SIXZUT",
+      "severity": "high",
+      "event_type": "APT 攻擊",
+      "summary": "Acronis 威脅研究團隊 9 月 15 日揭露的 Red Heron 攻擊行動，本週仍在台灣及全球範圍持續擴散。此組織針對自架 Gitea 原始碼管理平台，在全球六國 13 個組織造成成功入侵，台灣為主要目標。確認的台灣受害案例中，一家工業自動化業者遭竊數百個程式碼儲存庫；另一台灣環境中，攻擊者從存在漏洞的 Gitea 伺服器橫向移動至三節點 Proxmox 虛擬化叢集並取得 root 存取，可接管所有受管虛擬機器。Red Heron 利用的是 CVE-2026-60004（CVSS 9.8，影響 Gitea 1.17–1.27.0），此漏洞於 7 月 27 日發布修補（版本 1.27.1），攻擊者在修補後僅兩日即自 GitHub 複製公開概念驗證程式碼發動攻擊。Red Heron 事先掃描 1,386 個 Gitea 實例，並針對台灣維護了 477 個台灣系統的獨立目標清單，分類標籤全以簡體中文標記，涵蓋國防與軍事、選舉與投票系統、能源、航太、電信、政府及研究等高敏感產業。在暴露的暫存伺服器上，Acronis 發現先前未記錄的 Linux 核心層級 rootkit SIXZUT，搭配攻擊工具組 JITTERLY，可實現深度持久化並規避端點偵測。歸因方面，Acronis 評為「中等信心」，依據包括簡體中文的使用、將台灣標注為中國一部分的目標分類慣例，以及與中國情報蒐集優先項目高度吻合的目標選擇。台灣半導體、國防供應鏈及工業控制系統業者應視此為直接且正在進行的威脅。",
+      "source": "Acronis / The Hacker News / Security Brief",
+      "url": "https://www.acronis.com/en/tru/posts/red-heron-exploits-gitea-n-day-flaw-in-multinational-campaign-exposing-new-linux-rootkit/",
+      "date": "2026-09-29"
+    },
+    {
+      "title": "Citrix NetScaler ADC/Gateway CVE-2026-88779（CVSS 8.7）SAML 端點零時差積極利用：CISA KEV 10/4 列入，兩週三零時差、2026 年第六個 NetScaler KEV 漏洞",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "Citrix 於 10 月 3 日發布 CTX697174 公告，揭露 NetScaler ADC 及 NetScaler Gateway 的 SAML 端點記憶體溢位漏洞 CVE-2026-88779（CVSS 4.0: 8.7），已確認有針對性的積極利用活動發生於公告發布前。CISA 於 10 月 4 日列入 KEV，要求聯邦民事機構於 10 月 7 日前完成修補。此為 Citrix 在不到兩週內披露的第三個 NetScaler 零時差漏洞（前兩個為 CVE-2026-88771 及 CVE-2026-88772），亦是 2026 年 NetScaler 進入 CISA KEV 的第六個漏洞，顯示 NetScaler 基礎設施已成為攻擊者持續鎖定的高價值目標。技術層面：記憶體溢位（CWE-119）發生於 SAML SP 或 SAML IdP 模式的服務端點，未驗證攻擊者可透過反覆觸發崩潰（第六次崩潰後設備重啟）實現持續性阻斷服務。是否可達成遠端程式碼執行存在爭議——watchTowr 確認重現為 DoS 漏洞；但部分研究人員指出利用嘗試明確包含 shellcode，攻擊者可能嘗試鏈式 RCE 利用。Citrix 官方聲明迄今確認可用性影響，未確認資料完整性受損。此漏洞僅影響客戶自管部署（Customer-Managed），且僅在配置 SAML SP（add authentication samlAction）或 SAML IdP（add authentication samlIdPProfile）的設備上才有暴露風險。修補版本：NetScaler 14.1-73.41 或 13.1-64.28。",
+      "source": "Citrix / CISA / SecurityWeek / BleepingComputer / watchTowr / CyberScoop",
+      "url": "https://thehackernews.com/2026/10/new-netscaler-zero-day-exploited-in.html",
+      "date": "2026-10-03"
+    },
+    {
+      "title": "Warlock 勒索軟體持續利用 SharePoint ToolShell 漏洞攻擊水利、電信等關鍵基礎設施，使用 EDR 停用工具橫向清除 33 台主機防護後批量部署（Symantec 10/1 報告）",
+      "severity": "high",
+      "event_type": "勒索軟體攻擊",
+      "summary": "Symantec 於 10 月 1 日發布分析報告，揭露中國連結勒索軟體組織 Warlock（Symantec 追蹤為 Longlegs，微軟稱 Storm-2603）在 2026 年延續利用 SharePoint ToolShell 漏洞鏈（CVE-2025-49704、CVE-2025-49706 等，僅影響內部部署版 SharePoint Server），確認過去兩個月內攻擊水利業者、電信業者、地區政府機構及大學共至少四個組織。本週最受關注的新發現：攻擊者在橫向移動及勒索軟體部署前，系統性使用客製化工具在 33 台主機上停用端點偵測及回應（EDR）軟體，摘除資安工具後方才透過 SYSVOL 共享路徑在整個受感染環境批量部署 Warlock 勒索軟體。攻擊者的初始存取手法為在受害者 SharePoint 伺服器植入 Webshell，以反序列化 Gadget 偽造簽署酬載達成程式碼執行，並在域控制器層級取得高權限後擴散。CSA 研究摘要指出，已修補但未輪換相關金鑰的 SharePoint 環境仍可能存在殘存風險或已遭入侵。Symantec 亦指出，2026 年度的入侵活動已利用到美國政府近期重點關注的更新版 SharePoint 漏洞。台灣仍在使用內部部署 SharePoint Server 且未完整修補的政府機關及企業應視此為直接威脅，優先確認修補狀態並稽核 Webshell 殘存跡象。",
+      "source": "Symantec / Cloud Security Alliance / BleepingComputer / Security Affairs / Infosecurity Magazine",
+      "url": "https://securityaffairs.com/?p=200304",
+      "date": "2026-10-01"
+    },
+    {
+      "title": "神腦國際（2450）外部伺服器遭自動化攻擊，部分訂單資訊遭未授權擷取（9/29 重大訊息）",
+      "severity": "medium",
+      "event_type": "資料外洩",
+      "summary": "神腦國際（股票代號 2450，上市電信通路商）於 9 月 29 日在公開資訊觀測站發布重大訊息，揭露其外部伺服器遭受自動化攻擊，攻擊者對部分訂單資訊實施擷取。公司表示獲報後立即啟動資安應變機制，採取必要防護與阻斷措施，初步評估對公司營運、財務及服務提供無重大影響。神腦未在公告中說明受影響訂單資訊的具體欄位（如姓名、電話、地址、付款資訊）、確切受影響筆數，亦未說明是否已完成主管機關通報。此事件屬「自動化爬取攻擊（automated scraping）」模式——攻擊者非透過系統後端漏洞，而以自動化工具大量讀取業務 API 或查詢介面，此手法在本週對台灣企業構成的威脅持續活躍，同期柏文（健身工廠母公司，9/23）、商周集團等多家業者亦遭相似手法攻擊，顯示台灣電商與零售業的訂單查詢 API 防護整體仍存在系統性缺口。購買過神腦產品的消費者應留意可能衍生的詐騙電話或釣魚簡訊，並確認訂單中包含的個人資訊範圍。",
+      "source": "公開資訊觀測站 / iThome 資安",
+      "url": "https://www.ithome.com.tw/news/179308",
+      "date": "2026-09-29"
+    },
+    {
+      "title": "大阪市立大學遭勒索軟體攻擊：約 500 台伺服器下線，逾 13 萬師生個資恐外洩，部分課程暫停（10 月初）",
+      "severity": "medium",
+      "event_type": "勒索軟體攻擊",
+      "summary": "10 月初，大阪市立大學（Osaka Metropolitan University）遭勒索軟體攻擊，約 500 台伺服器被迫下線，波及學術系統、行政作業及研究資料，部分課程因此中斷。初步調查顯示，遭竊或暴露的資料涉及逾 13 萬名在學學生及教職員的個人資訊。攻擊發生後，學校緊急隔離受感染網段並通報主管機關，日本警察廳已介入調查，勒索軟體組織及初始入侵手法尚未公開。此為本週 APAC 高等教育機構遭受勒索軟體攻擊的代表案例，攻擊者持續以個資豐富但資安投入相對有限的大學為優先目標——此趨勢同樣適用於台灣學術機構，尤其是近期積極建置 AI 計算設施、對外合作增加的大學環境，應評估備援與隔離防護的完備程度。",
+      "source": "KonBriefing / CM Alliance",
+      "url": "https://konbriefing.com/en-topics/cyber-attacks.html",
+      "date": "2026-10-02"
+    },
+    {
+      "title": "Metaencryptor 勒索軟體鎖定東亞製造業供應鏈：日本汽車零組件製造商與韓國相機模組業者確認遭攻擊（9 月第四週，ASEC 報告）",
+      "severity": "medium",
+      "event_type": "勒索軟體攻擊",
+      "summary": "AhnLab ASEC 9 月第四週（9 月 22–28 日）深色網頁與勒索軟體監控報告指出，新興勒索軟體組織 Metaencryptor 確認攻擊兩家東亞製造業業者：一家韓國相機模組製造商及一家日本汽車零組件製造商。Metaencryptor 採雙重勒索模式（先竊取資料後加密），以不公開資料為籌碼施壓要求贖款，初始入侵手法仍在調查中。此事件凸顯東亞製造業供應鏈對新興勒索軟體組織的持續吸引力，相關製造業的 OT（操作技術）環境若與 IT 網路缺乏適當隔離，受害後波及工廠產線的風險極高。本週台灣亦有製造業背景的上市公司（振曜集團三家子公司及科定）遭 CrazyHunter 勒索軟體攻擊的事件持續受到關注，加上此次 APAC 供應鏈攻擊，顯示台灣汽車零組件、半導體設備及電子製造業者面臨新興勒索軟體組織的日益升溫的威脅，應評估自身的 IT/OT 網路隔離狀態及備份可回復性。",
+      "source": "AhnLab ASEC",
+      "url": "https://asec.ahnlab.com/en/95545/",
+      "date": "2026-09-28"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-104286",
+      "title": "Fortinet FortiMail 未驗證任意寫檔（CVSS 9.8，零時差積極利用，CISA KEV 10/1，FCEB 截止 10/4，揭露時修補版本仍未發布）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Fortinet",
+      "product": "FortiMail 8.0.0–8.0.1、7.6.0–7.6.6、7.4.0–7.4.8、7.2.0–7.2.9",
+      "description": "CVE-2026-104286 為 Fortinet FortiMail 的路徑遍歷與空字元注入組合漏洞（CWE-22 + CWE-158，CVSS 9.8），允許未驗證攻擊者透過特製 HTTP/HTTPS 請求在底層作業系統任意寫入檔案，實現無憑證初始存取並部署後續惡意程式。Fortinet 與 CISA 於 10/1 同日披露及列入 KEV（顯示野外利用先於公告），FCEB 截止 10/4。揭露時大多數版本分支尚無修補版本（8.0.2、7.6.7、7.4.9 尚未發布），組織僅能依賴緩解措施：（1）停用 IBE 功能；（2）防火牆限制管理介面僅允許受信任來源。Fortinet 已公布 IoC（攻擊者 IP 及可疑系統文件路徑），應立即比對現有部署是否已遭利用，確認修補版本發布後立即套用。"
+    },
+    {
+      "cve_id": "CVE-2026-88779",
+      "title": "Citrix NetScaler ADC/Gateway SAML 端點記憶體溢位（CVSS 8.7，零時差積極利用，CISA KEV 10/4，兩週第三個 NetScaler 零時差）",
+      "cvss": 8.7,
+      "severity": "high",
+      "vendor": "Citrix",
+      "product": "NetScaler ADC 及 NetScaler Gateway（客戶自管部署，配置 SAML SP 或 SAML IdP）",
+      "description": "CVE-2026-88779 是 Citrix NetScaler ADC/Gateway SAML 端點的記憶體溢位漏洞（CWE-119，CVSS 4.0: 8.7），在揭露前即已遭積極利用，為 Citrix 兩週內第三個零時差，2026 年 CISA KEV 中第六個 NetScaler 漏洞。確認影響為可用性損失（持續崩潰至設備重啟）；RCE 可行性存在爭議（watchTowr 確認為 DoS；部分研究人員觀察到含 shellcode 的利用嘗試）。僅影響配置 SAML SP 或 SAML IdP 的客戶自管部署，可執行 show authentication samlAction 或 show authentication samlIdPProfile 確認是否暴露。CISA KEV 10/4，FCEB 截止 10/7。修補版本：14.1-73.41 或 13.1-64.28。無法立即修補者應評估臨時停用 SAML 功能。"
+    },
+    {
+      "cve_id": "CVE-2026-21589",
+      "title": "Atlassian 八項產品未驗證任意文件讀取（CVSS 9.3，PoC 發布數小時後遭利用，修補版本 10/5 發布，可鏈接 Crowd 憑證取得管理員權限）",
+      "cvss": 9.3,
+      "severity": "critical",
+      "vendor": "Atlassian",
+      "product": "Bitbucket、Confluence、Jira Service Management、Jira、Bamboo、Crowd、Crucible、Fisheye（10/5 前所有自架版本）",
+      "description": "CVE-2026-21589 是 Atlassian 八項自架產品共用 Web 資源程式庫的未驗證任意文件讀取漏洞（CVSS 4.0: 9.3），攻擊者無需憑證即可讀取 Web 根目錄下的任意文件（需知道確切路徑）。最危險的利用路徑：在整合 Crowd（SSO）的部署中，讀取 WEB-INF/classes/crowd.properties 可取得應用程式憑證，進而在 Crowd 建立管理員帳號。watchTowr 10/6 發布技術分析後數小時，Previdian 蜜罐即偵測到利用嘗試。修補版本 10/5 發布；Atlassian Cloud 已預先修補，僅自架版本受影響。應立即升級，並稽核 Crowd 管理員帳號及 crowd.properties 存取記錄，輪換相關憑證。"
+    },
+    {
+      "cve_id": "CVE-2026-60004",
+      "title": "Gitea 未驗證遠端程式碼執行（CVSS 9.8，Red Heron 疑似中國 APT 積極利用，台灣工業業者確認受害，修補後兩天即遭利用）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Gitea",
+      "product": "Gitea 1.17 至 1.27.0（修補版本：1.27.1，2026/7/27 發布）",
+      "description": "CVE-2026-60004 是 Gitea 自架原始碼管理平台的未驗證遠端程式碼執行漏洞（CVSS 9.8），Red Heron 疑似中國 APT 組織在修補發布後兩日即開始利用，在六國 13 個組織造成確認入侵，台灣工業自動化業者遭竊數百個程式碼儲存庫，另一台灣組織遭橫向移動至 Proxmox 叢集 root 存取。Red Heron 部署了先前未知的 Linux 核心層級 rootkit SIXZUT 實現深度持久化。受 Red Heron 鎖定的高風險台灣目標類型：半導體、國防、能源、航太、電信及政府相關組織。應立即確認 Gitea 版本並升級至 1.27.1 以上，已暴露的組織需進行完整的入侵指標比對（包含 lsmod 稽核以排除 SIXZUT rootkit）。"
+    },
+    {
+      "cve_id": "CVE-2026-102490",
+      "title": "Zammad 本機權限提升至 root（CISA KEV 10/2，與 CVE-2026-102489 Session 劫持組合可實現完整系統入侵）",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Zammad GmbH",
+      "product": "Zammad（開源工單管理系統）",
+      "description": "CVE-2026-102490 是 Zammad 開源工單管理系統的本機權限提升漏洞，可將一般使用者提升至 root。CISA 於 10 月 2 日將其與 CVE-2026-102489（Session 劫持，可導致遠端程式碼執行）一同列入 KEV，顯示兩漏洞已在野外組合使用：攻擊者先透過 CVE-2026-102489 劫持 Session 取得未授權存取，再利用 CVE-2026-102490 提升至系統最高權限。使用 Zammad 進行客服工單或 IT 服務管理的組織應立即確認版本並套用官方修補，並稽核近期管理員帳號操作記錄。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週（2026/09/28–10/04）威脅態勢以「零時差漏洞利用窗口持續壓縮」與「中國 APT 對台灣軟體供應鏈的精準長期滲透」兩條主軸交織。最具緊迫性的是 Fortinet FortiMail CVE-2026-104286——與 CISA 同日披露即確認積極利用，且截止日前修補版本仍未發布，迫使所有組織以不完整的緩解措施應對 CVSS 9.8 的零時差漏洞；這是繼 VMware vCenter（第 33 週）之後，本季第二個「無可用修補即已遭利用」的嚴重案例。Citrix NetScaler 在不到兩週內推出第三個零時差（CVE-2026-88779），2026 年 NetScaler 進入 CISA KEV 累計達六個，顯示 NetScaler 基礎設施已成攻擊者持續高頻鎖定的目標；各組織應重新評估 NetScaler 作為核心存取閘道的長期風險暴露。在台灣威脅面，Red Heron 疑似中國 APT 組織的行動是本週最具戰略意義的事件——攻擊者系統性鎖定台灣半導體、國防供應鏈及工業自動化業者的 Gitea 程式碼儲存庫，以獨立維護的台灣專屬目標清單（477 個系統）顯示高度的預謀性，部署核心層 rootkit SIXZUT 後可長期潛伏而難以被傳統端點工具偵測。iThome 同期（0929–1002 週報）援引微軟資料，指出台灣在 2025/07–2026/06 間遭受 193 起國家級駭客事件居全球第三，8 月勒索軟體事件 20 起居亞太第三，印證台灣面臨的系統性威脅壓力持續升溫。Warlock 勒索軟體本週確認仍活躍利用 SharePoint ToolShell 漏洞，新增的 EDR 停用能力使其對台灣仍使用內部部署 SharePoint 的組織構成即時風險；神腦國際及多家台灣上市公司遭自動化爬取攻擊，則顯示訂單 API 防護已成台灣電商與零售業的系統性薄弱環節。",
+    "active_actors": [
+      {
+        "name": "Red Heron（疑似中國 APT 組織，Acronis 歸因中等信心）",
+        "type": "國家級威脅行為者（APT）",
+        "activity": "利用 Gitea CVE-2026-60004 RCE（修補後兩天即開始利用）對全球六國 13 個組織發動攻擊，台灣為主要目標，確認竊取台灣工業自動化業者數百個程式碼儲存庫，並橫向移動至 Proxmox 叢集取得 root 存取；部署 Linux 核心層級 rootkit SIXZUT 實現深度持久化；目標清單以簡體中文標注，明確鎖定台灣半導體、國防、能源、航太及選舉系統等高敏感產業。"
+      },
+      {
+        "name": "Warlock（Longlegs，Storm-2603，中國連結勒索軟體）",
+        "type": "國家連結威脅行為者（勒索軟體）",
+        "activity": "10 月 1 日 Symantec 確認，持續利用 SharePoint ToolShell 漏洞攻擊水利、電信、地區政府及大學等關鍵基礎設施，過去兩個月至少四個組織受害；使用客製化 EDR 停用工具系統性在 33+ 主機清除端點防護後，透過 SYSVOL 共享路徑批量部署勒索軟體。"
+      },
+      {
+        "name": "Metaencryptor",
+        "type": "財務動機威脅行為者（勒索軟體）",
+        "activity": "9 月第四週確認攻擊韓國相機模組製造商及日本汽車零組件製造商，採雙重勒索手法，東亞製造業供應鏈為其鎖定目標，初始入侵手法仍在調查中。"
+      }
+    ],
+    "attack_techniques": [
+      "n-day 漏洞超短時間利用：CVE-2026-60004（Gitea）修補後兩天即遭利用（Red Heron），CVE-2026-21589（Atlassian）PoC 發布數小時後蜜罐即偵測到利用嘗試，顯示攻擊者持續壓縮「修補到利用」時間窗口至 24–48 小時",
+      "郵件安全閘道作為初始存取入口：FortiMail CVE-2026-104286 未驗證任意寫檔，以企業郵件閘道作為首要突破點，取得立足點後可讀取郵件流量或滲透內網",
+      "SAML 端點阻斷攻擊：Citrix NetScaler CVE-2026-88779 針對 SAML SP/IdP 組態造成認證服務持續崩潰，可中斷企業 VPN 及 SSO 存取流程，部分研究人員認為可能鏈接 RCE",
+      "Linux 核心層級 Rootkit 深度持久化：Red Heron 部署 SIXZUT 核心模組，在受入侵的 Gitea 伺服器及橫向移動至的 Proxmox 主機建立難以移除的持久化通道，並規避端點偵測工具",
+      "SharePoint Webshell 配合 EDR 停用批量部署勒索軟體：Warlock 植入 Webshell 取得初始存取後，以客製化工具系統性停用域內 33+ 主機的 EDR，再透過 SYSVOL 批量推送勒索軟體",
+      "自動化爬取攻擊業務 API：神腦國際及多家台灣上市公司遭自動化工具針對訂單查詢 API 進行大量資料擷取，不依賴後端 RCE 漏洞即可實現個資竊取，API 速率限制與異常行為偵測的不足使此手法持續有效"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即緩解 Fortinet FortiMail CVE-2026-104286（CVSS 9.8，積極利用中，CISA KEV 10/1，大多數版本尚無修補）：（1）確認所有 FortiMail 部署版本（8.0.x、7.6.x、7.4.x、7.2.x）；（2）立即執行緩解措施：（a）停用 IBE（Identity-Based Encryption）功能支援；（b）以 ACL 或防火牆規則限制管理介面，僅允許受信任 IP 存取，封鎖外部對管理埠的直接存取；（3）對照 Fortinet 發布的 IoC 清單（攻擊者 IP、可疑文件路徑及組態變更），稽核現有部署是否已遭利用；（4）稽核 FortiMail 系統日誌，搜尋 10/1 前後的可疑 HTTP/HTTPS 請求（異常路徑遍歷字元序列）；（5）有 FortiMail 暴露於外部網路的組織，優先評估是否可能已遭利用，考慮臨時隔離並進行取證分析；（6）持續關注 Fortinet 修補版本（8.0.2、7.6.7、7.4.9）發布進度，一旦發布立即套用。"
+    },
+    {
+      "priority": "high",
+      "action": "確認 Gitea 已升級並稽核 Red Heron 入侵指標（台灣半導體、國防、能源相關組織尤重要）：（1）確認所有 Gitea 自架實例版本，立即升級至 1.27.1 以上——版本 1.17 至 1.27.0 均受 CVE-2026-60004（CVSS 9.8 RCE）影響；（2）稽核 Gitea 存取記錄，搜尋自 2026/7/29 以來異常的管理員操作、儲存庫複製、大量下載或新建 SSH 金鑰及 webhook；（3）Red Heron 鎖定國防、能源、航太、電信、半導體及政府相關組織——此類組織應進行完整入侵指標比對；（4）確認 Gitea 伺服器的 Linux 環境無非預期核心模組載入（執行 lsmod 並比對正常基線，稽核 /proc/modules），排除 SIXZUT rootkit；（5）若 Gitea 伺服器同處 Proxmox 虛擬化叢集，確認 Proxmox 管理介面無非預期存取記錄及非預期 VM 快照建立。"
+    },
+    {
+      "priority": "high",
+      "action": "確認 Citrix NetScaler 已修補 CVE-2026-88779，稽核 SAML 組態曝險狀態：（1）確認所有 NetScaler ADC 及 Gateway 設備版本，升級至 14.1-73.41 或 13.1-64.28；（2）確認是否配置 SAML SP（show authentication samlAction）或 SAML IdP（show authentication samlIdPProfile）——僅有上述組態的設備才有直接暴露風險；（3）無法立即修補者評估是否可臨時停用 SAML 組態，並以替代方式提供遠端存取；（4）稽核設備記錄，搜尋本週（10/1–10/4）起的 SAML 端點異常請求及非預期系統重啟事件；（5）2026 年已有六個 NetScaler 漏洞進入 CISA KEV——評估是否需要規劃基礎設施升級或替代方案，而非僅被動應對逐一修補。"
+    },
+    {
+      "priority": "high",
+      "action": "立即套用 Atlassian CVE-2026-21589 修補，稽核 Crowd 憑證及管理員帳號：（1）確認所有自架 Atlassian 產品（Jira、Confluence、Bitbucket、Bamboo、Crowd、Jira Service Management、Crucible、Fisheye）已升級至 10/5 發布的修補版本；（2）Crowd 部署須重點稽核：搜尋 WEB-INF/classes/crowd.properties 的存取記錄，確認是否有憑證洩漏；（3）比對管理員帳號建立及群組成員記錄，搜尋 10/1–10/7 期間（漏洞公開窗口）新增的非預期帳號或 jira-administrators 群組成員；（4）Atlassian Cloud 版本已預先修補，僅自架 Data Center 及 Server 版本受影響；（5）自架 Jira DC 可套用 Atlassian 提供的 rewrite.config 臨時緩解檔案作為修補前的過渡措施。"
+    },
+    {
+      "priority": "medium",
+      "action": "稽核內部部署 SharePoint 環境並評估 Warlock 殘存風險，強化 API 速率限制防禦自動化爬取：（1）確認所有內部部署 SharePoint Server 已套用 ToolShell 相關漏洞修補（CVE-2025-49704、CVE-2025-49706 等），並輪換 SharePoint 農場帳號密碼、服務帳號憑證及 Web 應用程式金鑰；（2）搜尋 SharePoint 伺服器上的 Webshell（比對 Symantec IoC 中的已知惡意文件雜湊值及路徑），稽核 SYSVOL 共享目錄是否有非預期執行檔；（3）稽核域內是否有 EDR 服務被停用的主機（Warlock 批量部署勒索軟體的前置步驟）；（4）面向神腦國際等台灣電商與零售業者的自動化爬取事件：評估訂單查詢 API 的速率限制、異常行為偵測（單 IP 高頻請求、非正常使用者代理）及 CAPTCHA 機制是否完備，降低自動化爬取風險。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "零時差漏洞（Zero-Day）",
+      "definition": "在官方修補發布前即遭到利用的安全漏洞，廠商與使用者均無防禦窗口",
+      "url": "https://glossary.astroicers.link/glossary/zero_day"
+    },
+    {
+      "term": "路徑遍歷（Path Traversal）",
+      "definition": "攻擊者利用不充分的路徑驗證，存取伺服器上位於預期目錄之外的任意檔案",
+      "url": "https://glossary.astroicers.link/glossary/path_traversal"
+    },
+    {
+      "term": "Rootkit",
+      "definition": "隱藏於作業系統核心層的惡意程式，可隱匿攻擊者的存在並規避端點安全工具偵測",
+      "url": "https://glossary.astroicers.link/glossary/rootkit"
+    },
+    {
+      "term": "Webshell",
+      "definition": "攻擊者上傳至受感染網頁伺服器的惡意腳本，提供持久化遠端指令執行能力",
+      "url": "https://glossary.astroicers.link/glossary/webshell"
+    },
+    {
+      "term": "進階持續性威脅（APT）",
+      "definition": "國家或組織支持的駭客組織，以長期潛伏、精準目標與持續性存取為特徵",
+      "url": "https://glossary.astroicers.link/glossary/apt"
+    },
+    {
+      "term": "端點偵測及回應（EDR）",
+      "definition": "監控端點行為、偵測威脅並提供事件回應能力的企業端點安全解決方案",
+      "url": "https://glossary.astroicers.link/glossary/edr"
+    }
+  ],
+  "references": [
+    {
+      "title": "Critical FortiMail Zero-Day Flaw Exploited in Attacks Allows Unauthenticated Arbitrary File Writes – The Hacker News",
+      "url": "https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html"
+    },
+    {
+      "title": "Critical FortiMail zero-day exploited in the wild (CVE-2026-104286) – Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/10/02/fortinet-fortimail-vulnerability-cve-2026-104286/"
+    },
+    {
+      "title": "FortiMail Zero-Day Vulnerability (CVE-2026-104286) – eSentire",
+      "url": "https://www.esentire.com/security-advisories/fortimail-zero-day-vulnerability-cve-2026-104286"
+    },
+    {
+      "title": "FortiMail CVE-2026-104286: CVSS 9.8, CISA Alert – Shattered.io",
+      "url": "https://shattered.io/fortimail-zero-day-cvss-9-8-cisa-deadline-2026/"
+    },
+    {
+      "title": "Red Heron exploits Gitea n-day flaw in multinational campaign, exposing new Linux rootkit – Acronis",
+      "url": "https://www.acronis.com/en/tru/posts/red-heron-exploits-gitea-n-day-flaw-in-multinational-campaign-exposing-new-linux-rootkit/"
+    },
+    {
+      "title": "Red Heron Exploits Gitea RCE to Compromise 13 Organizations Across Six Countries – The Hacker News",
+      "url": "https://thehackernews.com/2026/09/red-heron-exploits-gitea-rce-to.html"
+    },
+    {
+      "title": "New NetScaler Zero-Day Exploited in Targeted Attacks Can Knock SAML Deployments Offline – The Hacker News",
+      "url": "https://thehackernews.com/2026/10/new-netscaler-zero-day-exploited-in.html"
+    },
+    {
+      "title": "CVE-2026-88779: Citrix NetScaler Zero-Day Exploited Against SAML Deployments – SOC Prime",
+      "url": "https://socprime.com/blog/cve-2026-88779-citrix-netscaler-zero-day-exploited-against-saml-deployments/"
+    },
+    {
+      "title": "Citrix discloses third actively exploited NetScaler zero-day in less than a week – CyberScoop",
+      "url": "https://cyberscoop.com/citrix-netscaler-third-exploited-zero-day-vulnerability/"
+    },
+    {
+      "title": "Exploitation of Citrix NetScaler Zero-Day Hits Appliances Patched Days Earlier – SecurityWeek",
+      "url": "https://www.securityweek.com/exploitation-of-citrix-netscaler-zero-day-hits-appliances-patched-days-earlier/"
+    },
+    {
+      "title": "Warlock Ransomware Still Exploits Year-Old SharePoint Flaws to Hit Critical Infrastructure – Security Affairs",
+      "url": "https://securityaffairs.com/?p=200304"
+    },
+    {
+      "title": "Warlock Ransomware: Year-Old SharePoint Flaws, Modern EDR Evasion – Cloud Security Alliance Labs",
+      "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-warlock-sharepoint-edr-disable-20261005-cs/"
+    },
+    {
+      "title": "Warlock Ransomware Hitting Victims Globally Through SharePoint ToolShell Exploit – Infosecurity Magazine",
+      "url": "https://www.infosecurity-magazine.com/news/warlock-ransomware-sharepoint/"
+    },
+    {
+      "title": "神腦國際（2450）發生網路資安事件重大訊息 – iThome",
+      "url": "https://www.ithome.com.tw/news/179308"
+    },
+    {
+      "title": "Hackers exploit critical Atlassian flaw after public PoC release – BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-atlassian-flaw-after-public-poc-release/"
+    },
+    {
+      "title": "CVE-2026-21589: Atlassian Jira and Confluence Vulnerability – watchTowr",
+      "url": "https://watchtowr.com/intelligence/atlassian-jira-confluence-arbitrary-file-read-cve-2026-21589/"
+    },
+    {
+      "title": "Exploitation attempts against critical Atlassian flaw have begun (CVE-2026-21589) – Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/10/07/exploitation-critical-atlassian-flaw-cve-2026-21589/"
+    },
+    {
+      "title": "Ransom & Dark Web Issues Week 4, September 2026 – AhnLab ASEC",
+      "url": "https://asec.ahnlab.com/en/95545/"
+    },
+    {
+      "title": "The State of Ransomware: September 2026 – BlackFog",
+      "url": "https://blackfog.com/the-state-of-ransomware-september-2026/"
+    },
+    {
+      "title": "Major Cyber Attacks, Data Breaches, Ransomware Attacks: September 2026 – CM Alliance",
+      "url": "https://www.cm-alliance.com/cybersecurity-blog/major-cyber-attacks-data-breaches-ransomware-attacks-september-2026"
+    },
+    {
+      "title": "CISA Known Exploited Vulnerabilities Catalog – CISA",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}
