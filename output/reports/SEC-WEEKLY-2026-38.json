@@ -1,0 +1,310 @@
+{
+  "title": "資安週報 2026/09/14 - 2026/09/20",
+  "report_id": "SEC-WEEKLY-2026-38",
+  "period": {
+    "start": "2026-09-14",
+    "end": "2026-09-20"
+  },
+  "publish_date": "2026-09-21",
+  "summary": {
+    "total_events": 6,
+    "total_vulnerabilities": 7,
+    "threat_level": "critical"
+  },
+  "events": [
+    {
+      "title": "FortiBleed 後續：96 家台灣企業網域存取權流入地下市場，含 33 家上市公司，駭客開放「賣門票」，資安署 9/14 啟動應變",
+      "severity": "high",
+      "event_type": "台灣資安風暴",
+      "summary": "繼 7 月 17 日 Fortinet FortiBleed 大規模憑證竊取事件（約 7.5 萬台 FortiGate 防火牆及 VPN 設備受影響），9 月 14 日起多家媒體獨家披露：攻擊者已將竊取所得的台灣企業網域存取權搬上地下市場，公開以「Fresh 2026」標籤標示販售，強調存取憑證尚未失效且仍具利用價值。民視財經、Yahoo 奇摩財經取得的受害名單顯示，遭點名企業已由上週曝光的 90 家擴大至 96 家，其中含 33 家上市、上櫃或興櫃公司，涵蓋 AI 半導體、機器人、資安、電信、物流、媒體、生技、餐飲及娛樂等多個產業，Realtek、緯創、友達、台灣大哥大等具代表性企業列名其中。地下市場交易形式從早期批量公開已演變為個別企業「入口存取權限」分售，顯示攻擊者從資料散布轉向精準獲利。數位發展部資安署已於 9 月 14 日啟動緊急應變，將相關情資轉知 Fortinet（設備原廠），並由 TWCERT/CC 提供受害企業技術協助。映藍國際分析指出，攻擊入口主要源於面向網際網路的 FortiGate 邊界設備，強調台灣企業普遍在遠端存取設備的修補與憑證輪換上存在落差。",
+      "source": "民視財經 / Yahoo 奇摩財經 / 映藍國際 / 中華資安國際 / 神威資訊",
+      "url": "https://finance.ftvnews.com.tw/news/detail/2026724W0745",
+      "date": "2026-09-14"
+    },
+    {
+      "title": "中國 APT UAT-7237 入侵台灣虛擬主機業者：長期潛伏竊取 VPN 憑證，部署 SoundBill 後門關聯 Volt Typhoon，Talos/Wiz 9 月揭露",
+      "severity": "high",
+      "event_type": "國家級網路攻擊",
+      "summary": "Cisco Talos 於 9 月 15 日發布詳細技術報告，揭露中國 APT 組織 UAT-7237 於 2025 年 8 月中旬成功入侵一家台灣虛擬主機業者，並長期維持隱蔽駐留。研究人員評估 UAT-7237 為 UAT-5918 的子組織，後者為以繁體中文進行情報操作的中國威脅行為者，與 Volt Typhoon 存在關聯。UAT-7237 的主要目標為存取受害虛擬主機業者的 VPN 及雲端基礎設施，藉此作為進一步攻擊受害者客戶的跳板。攻擊流程為：利用面向網際網路的未修補伺服器漏洞取得初始立足點，隨後選擇性部署 Web Shell，再透過自訂開源 Shellcode Loader「SoundBill」解碼並載入 Cobalt Strike，最後植入 SoftEther VPN 及 RDP 後門確保長期存取。Wiz 威脅情報亦獨立確認此攻擊鏈，並指出 UAT-7237 偏好慢速、隱密的偵察模式——進行大量憑證提取、橫向移動及目標客戶環境測繪，再伺機發動下一階段攻擊。此案例揭示中國 APT 組織「以小博大」的典型手法：透過供應商端單一突破口，取得對其所有客戶的潛在存取路徑，對台灣雲端及虛擬主機生態系統構成系統性風險。",
+      "source": "Cisco Talos / Wiz 威脅情報 / Infosecurity Magazine / SecurityWeek / SecurityAffairs",
+      "url": "https://blog.talosintelligence.com/uat-7237-targets-web-hosting-infra/",
+      "date": "2026-09-15"
+    },
+    {
+      "title": "Cisco Secure Email Gateway CVE-2026-76461（CVSS 9.8）：惡意郵件觸發未驗證 SQL 注入可獲 root 權限，CISA KEV 9/14 列入，截止 9/17",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "Cisco 於 9 月 14 日同步發布安全公告並確認 CVE-2026-76461 已遭積極利用——起因為一起 Cisco TAC 支援案例。漏洞根本原因為 Cisco AsyncOS 郵件解析流程中對輸入驗證不足，屬預驗證 SQL 注入（CWE-89），允許未驗證的遠端攻擊者透過發送一封特製郵件，在目標閘道上以 root 權限執行任意命令。由於電子郵件閘道的正常業務即是處理外部送入郵件，攻擊者無需存取任何管理介面或持有任何憑證，攻擊門檻極低，且可完全自動化。受影響版本為 Cisco AsyncOS 16.5、16.0、15.5 及更早版本，含實體及虛擬閘道設備。CISA 在 Cisco 公告當日（9 月 14 日）即將此漏洞列入 KEV，並設定聯邦民事機構必須在 9 月 17 日（僅三天後）前完成修補。Rapid7 及 Help Net Security 均確認已有有限規模的積極利用活動。Cisco Secure Email Gateway 廣泛部署於台灣政府機關及金融業作為電子郵件安全防護，應立即確認版本並套用修補，無法立即修補者應考慮暫時隔離設備或增加郵件過濾規則。",
+      "source": "Cisco PSIRT / CISA / Rapid7 / Help Net Security / SOCRadar",
+      "url": "https://www.rapid7.com/blog/post/etr-cve-2026-76461-critical-cisco-secure-email-gateway-vulnerability-exploited-in-the-wild/",
+      "date": "2026-09-14"
+    },
+    {
+      "title": "Cisco Identity Services Engine CVE-2026-76460（CVSS 10.0）：零日身份驗證繞過，CISA KEV 9/16 列入並設 9/19 修補截止，4 個 CVSS 10.0 漏洞集中爆發",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "Cisco 本週發布大規模安全公告，揭露 Cisco Identity Services Engine（ISE）及 ISE Passive Identity Connector（ISE-PIC）存在 4 個 CVSS 10.0 漏洞，其中 CVE-2026-76460 為最嚴重的零日身份驗證繞過漏洞，Cisco 表示「已知悉此漏洞的積極利用情況」，CISA 於 9 月 16 日列入 KEV 並設定聯邦機構須於 9 月 19 日（三天後）完成修補。4 個 CVSS 10.0 漏洞涵蓋：CVE-2026-76460（REST API 身份驗證繞過）、CVE-2026-76423（管理員 REST API 存取）及兩個 SQL 注入漏洞（CVE-2026-20282 等），攻擊者可鏈式利用達成遠端程式碼執行、SQL 注入及 XML 外部實體注入，完全控制 ISE 基礎設施。ISE 為企業網路存取控制（NAC）的核心系統，負責管理所有設備的驗證、授權及存取政策——一旦被攻陷，攻擊者可任意修改存取策略、植入後門帳號並在整個企業網路進行橫向移動。台灣金融業、政府機關及大型企業廣泛採用 ISE 作為零信任架構的核心元件，應立即確認 ISE 部署版本並套用修補。",
+      "source": "The Hacker News / CISA / Cisco Security Advisory / ThreatAft / Tech-Insider",
+      "url": "https://thehackernews.com/2026/09/cisco-warns-of-new-zero-day-ise-auth.html",
+      "date": "2026-09-16"
+    },
+    {
+      "title": "Microsoft 9 月 Patch Tuesday 史上最大修補：973 個 CVE、113 個危急、2 個已利用零日（Windows Update Stack 及 ALPC 權限提升），AI 輔助漏洞發現推動「修補量爆炸」趨勢",
+      "severity": "high",
+      "event_type": "修補程式發布",
+      "summary": "9 月 9 日，微軟發布史上規模最大的 Patch Tuesday，修補 973 個漏洞，較 8 月的 423 個幾乎翻倍，其中 113 個評為危急等級，82 個為遠端程式碼執行漏洞，研究人員將此趨勢歸因於 AI 輔助漏洞發掘工具快速擴散。兩個已確認積極利用的零日漏洞為：CVE-2026-81963（Windows Update Stack 特權提升，CVSS 7.8）及 CVE-2026-85880（Windows ALPC 特權提升，CVSS 7.8），兩者均為本地特權提升漏洞，常見於攻擊者取得初始立足點後的橫向移動鏈中。本週（9 月 14-20 日）期間，企業仍在消化這份史上最龐大的修補清單，多個 CVSS 9.8 漏洞持續引發關注：Windows DNS 伺服器、DHCP 伺服器、Skype for Business、Windows Imaging Component、RRAS 及 SSTP 等元件的遠端程式碼執行漏洞，以及 Microsoft Failover Cluster 的危急漏洞。這份「修補量爆炸」不僅測試企業的修補管理能力，也使安全團隊在有限資源下的優先排序成為關鍵挑戰——應優先修補兩個已積極利用的零日及 CVSS 9.8 的 DNS/DHCP RCE 漏洞。",
+      "source": "NTCompatible / Forbes / Trinetri / SecurityWeek / Gadget Hacks",
+      "url": "https://www.ntcompatible.com/story/microsoft-september-2026-patch-tuesday-973-cves-fixed-2-actively-exploited-flaws-confirmed",
+      "date": "2026-09-09"
+    },
+    {
+      "title": "MikroTik RouterOS 雙漏洞鏈「MikroTrick」：CISA KEV 9/10 列入，已被用於大規模路由器劫持，修補完成前路由器持續暴露於全面控制風險",
+      "severity": "medium",
+      "event_type": "漏洞遭積極利用",
+      "summary": "9 月 10 日，CISA 將 MikroTik RouterOS 的兩個漏洞 CVE-2026-67277 及 CVE-2026-86060 列入 KEV，確認正在積極遭利用。CERT Polska 指出，這兩個漏洞的鏈式利用被稱為「MikroTrick」，自 9 月 2 日起即有實際攻擊案例。CVE-2026-67277 為 RouterOS 頻寬測試服務（btest）中的缺少身份驗證漏洞，允許攻擊者揭露核心記憶體及引發拒絕服務；CVE-2026-86060 為命令參數注入漏洞，可實現特權提升。兩者鏈式利用可達成路由器完全控制。本週（9/14-9/20）期間，BleepingComputer 進一步報導攻擊者利用 MikroTrick 劫持大量暴露於網際網路的路由器。MikroTik RouterOS 廣泛部署於台灣 ISP 及企業邊界，且常見於物聯網及分支機構網路中，不少設備長期未更新。修補版本為 RouterOS 6.49.21、7.23.4 及 7.24.2。",
+      "source": "CISA / CERT Polska / BleepingComputer / 加拿大網路安全中心 / GBHackers",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/10/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+      "date": "2026-09-10"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-76460",
+      "title": "Cisco Identity Services Engine (ISE) REST API 零日身份驗證繞過（CVSS 10.0，積極利用，CISA KEV 9/16，截止 9/19）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "Cisco",
+      "product": "Cisco Identity Services Engine (ISE) 及 ISE Passive Identity Connector (ISE-PIC)（多個受影響版本）",
+      "description": "CVE-2026-76460 是 Cisco ISE 的 REST API 零日身份驗證繞過漏洞（CVSS 10.0），Cisco 確認積極利用。攻擊者可完全繞過 REST API 驗證，進一步鏈式利用同套設備中的 SQL 注入（CVE-2026-76423 等）及 XML 外部實體注入漏洞達成遠端程式碼執行，完全控制 ISE 系統。ISE 為企業網路存取控制（NAC）核心，被攻陷後攻擊者可修改全企業的存取政策並植入後門帳號。應立即套用 Cisco 發布的修補版本；修補前應停用 REST API 或嚴格限制其存取來源至受信任 IP。修補後稽核 ISE 管理員帳號清單及存取政策異動記錄。"
+    },
+    {
+      "cve_id": "CVE-2026-76461",
+      "title": "Cisco Secure Email Gateway AsyncOS 預驗證 SQL 注入（CVSS 9.8，惡意郵件觸發 root 執行，CISA KEV 9/14，截止 9/17）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Cisco",
+      "product": "Cisco Secure Email Gateway AsyncOS 16.5、16.0、15.5 及更早版本（實體及虛擬設備）",
+      "description": "CVE-2026-76461 是 Cisco Secure Email Gateway 郵件解析流程中的預驗證 SQL 注入漏洞（CVSS 9.8），攻擊者發送特製郵件即可在閘道上以 root 權限執行任意命令，無需任何憑證或管理員互動，攻擊面為閘道正常接受的外部郵件。Cisco PSIRT 確認積極利用，CISA 9/14 列入 KEV，截止 9/17。應立即升級至 AsyncOS 17.0 或以上；無法立即修補者，考慮增加外部郵件過濾規則以攔截異常格式郵件作為暫時緩解，並稽核設備上的異常 root 層級程序及可疑排程任務。"
+    },
+    {
+      "cve_id": "CVE-2026-83548",
+      "title": "SonicWall SMA1000 預驗證 SSRF（CVSS 10.0，可鏈式達成未驗證 RCE，CISA KEV 9/3，持續積極利用）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "SonicWall",
+      "product": "SonicWall SMA1000 Series（早於 12.4.3-03526 及 12.5.0-02952）",
+      "description": "CVE-2026-83548 是 SonicWall SMA1000 Appliance Work Place 介面的預驗證伺服器端請求偽造（SSRF）漏洞（CVSS 10.0），可與 CVE-2026-83549（OS 命令注入）鏈式利用，實現完全未驗證的遠端程式碼執行。SonicWall 確認兩者均在積極利用中，CISA 9/3 列入 KEV。SMA1000 廣泛用於企業 SSL VPN，一旦被攻陷攻擊者可完整控制遠端存取閘道。應立即升級至 12.4.3-03526 或 12.5.0-02952；修補後稽核閘道連線記錄及是否有非預期的新管理員帳號。"
+    },
+    {
+      "cve_id": "CVE-2026-81963",
+      "title": "Windows Update Stack 特權提升零日（CVSS 7.8，已確認積極利用，9 月 Patch Tuesday）",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Microsoft Windows（多個支援版本）",
+      "description": "CVE-2026-81963 是 Windows Update Stack 的本地特權提升零日漏洞（CVSS 7.8），Microsoft 確認已遭積極利用。本地特權提升漏洞通常用於攻擊者取得初始低權限立足點後，提升至 SYSTEM 權限的第二階段攻擊，是勒索軟體及 APT 攻擊鏈中的常見元件。應立即套用 9 月 Patch Tuesday 更新；已部署端點偵測防護的環境應額外審核近期本地權限提升行為的警示。"
+    },
+    {
+      "cve_id": "CVE-2026-85880",
+      "title": "Windows ALPC 特權提升零日（CVSS 7.8，已確認積極利用，9 月 Patch Tuesday）",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Microsoft Windows（多個支援版本）",
+      "description": "CVE-2026-85880 是 Windows Advanced Local Procedure Call（ALPC）元件的本地特權提升零日漏洞（CVSS 7.8），Microsoft 確認已遭積極利用。ALPC 為 Windows 核心通訊機制，特權提升漏洞在此元件中歷來是攻擊鏈的重要一環。應立即套用 9 月 Patch Tuesday 更新，與 CVE-2026-81963 同等優先級。"
+    },
+    {
+      "cve_id": "CVE-2026-19490",
+      "title": "Citrix NetScaler ADC/Gateway 關鍵身份驗證繞過（CVSS 9.3，PoC 9/2 公開後立即遭利用，CISA KEV 9/9）",
+      "cvss": 9.3,
+      "severity": "critical",
+      "vendor": "Citrix",
+      "product": "Citrix NetScaler ADC 及 NetScaler Gateway（多個受影響版本，設定為 AAA 虛擬伺服器或 Gateway 模式）",
+      "description": "CVE-2026-19490 是 Citrix NetScaler ADC 及 NetScaler Gateway 的關鍵身份驗證繞過漏洞（CVSS 9.3），允許未驗證攻擊者在設備設定為 AAA 虛擬伺服器或 Gateway（SSL VPN/ICA Proxy/CVPN/RDP Proxy）模式時繞過身份驗證。Citrix 8/19 發布修補，9/2 PoC 公開後立即引發大規模掃描與利用，CISA 9/9 列入 KEV。台灣企業及政府廣泛使用 Citrix NetScaler 作為 SSL VPN 及應用程式交付控制器，應確認設備版本並立即套用修補；修補後稽核過去 30 天的 VPN 登入記錄，確認無異常存取。"
+    },
+    {
+      "cve_id": "CVE-2026-67277",
+      "title": "MikroTik RouterOS 雙漏洞鏈「MikroTrick」：缺少驗證+命令注入可達完全設備控制（CISA KEV 9/10，自 9/2 積極利用）",
+      "cvss": 8.1,
+      "severity": "high",
+      "vendor": "MikroTik",
+      "product": "MikroTik RouterOS（早於 6.49.21、7.23.4 及 7.24.2）",
+      "description": "CVE-2026-67277（btest 服務缺少身份驗證）與 CVE-2026-86060（命令參數注入）可鏈式利用達成完全路由器控制，CERT Polska 將此鏈稱為「MikroTrick」，自 9/2 起積極利用，CISA 9/10 列入 KEV。MikroTik RouterOS 廣泛用於台灣 ISP、企業邊界及分支機構，且長期更新率偏低。應立即升級至 RouterOS 6.49.21、7.23.4 或 7.24.2；同時停用未使用的頻寬測試服務（btest），並確認路由器管理介面未暴露於公共網路。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢以「邊界設備的系統性崩潰」與「台灣企業憑證流入地下市場」兩條主線交織，且兩者相互強化：FortiBleed 後竊取的台灣企業存取憑證本週大規模流入地下市場販售，而本週新增的 Cisco Email Gateway（CVSS 9.8）、Cisco ISE（CVSS 10.0）、SonicWall SMA1000（CVSS 10.0）、Citrix NetScaler（CVSS 9.3）及 MikroTik RouterOS 等多個邊界設備的重大漏洞，正在為下一波大規模憑證竊取提供入侵通道。中國 APT UAT-7237 本週的曝光揭示了另一條主線——以台灣虛擬主機業者為跳板，靜默潛伏以取得其客戶環境的存取路徑，這是 Volt Typhoon 系列組織「以供應商為槓桿」的成熟手法延伸。Microsoft 史上最大 Patch Tuesday（973 個 CVE）出現在同一週，標誌著 AI 輔助漏洞發掘工具推動「修補量爆炸」的結構性轉變——企業安全團隊面臨的不再是每月幾十個需要處理的漏洞，而是每月數百個危急漏洞的優先排序挑戰。整體看來，本週台灣企業面臨的風險組合極為複雜：地下市場的既有存取權威脅（FortiBleed後續）、新的邊界設備高危漏洞同時爆發、加上中國 APT 對基礎設施供應鏈的長期佈局，三者疊加使威脅等級維持危急。",
+    "active_actors": [
+      {
+        "name": "UAT-7237（中國 APT，關聯 UAT-5918 及 Volt Typhoon）",
+        "type": "國家級威脅行為者（APT）",
+        "activity": "2025 年 8 月中旬至 2026 年 9 月確認：入侵台灣一家虛擬主機業者，部署 SoundBill Shellcode Loader 載入 Cobalt Strike，以 SoftEther VPN 及 RDP 建立長期持久化存取，主要目標為竊取 VPN 憑證及雲端基礎設施存取，並以受害虛擬主機業者的客戶環境為下一階段攻擊目標。UAT-7237 偏好慢速隱密偵察，長期「沉睡」於受害系統，疑為台灣相關危機時的戰略預置。"
+      },
+      {
+        "name": "FortiBleed 後續攻擊者（歸因待確認，疑多個財務動機組織）",
+        "type": "財務動機威脅行為者（地下市場存取權仲介）",
+        "activity": "9 月 14 日：將 7 月 FortiBleed 事件竊取所得的台灣 96 家企業網域存取憑證搬上地下市場，以「Fresh 2026」標籤逐一販售，標的包含 33 家上市公司，涵蓋 AI 半導體、電信、生技等高價值產業，明確針對台灣企業進行精準獲利。部分企業存取權已對勒索軟體組織招手，顯示後續攻擊波段風險持續升溫。"
+      }
+    ],
+    "attack_techniques": [
+      "電子郵件閘道 SQL 注入：透過特製郵件內容觸發 Cisco Secure Email Gateway 的預驗證 SQL 注入（CVE-2026-76461），無需管理員憑證即可以 root 權限執行命令，攻擊面為閘道正常接受的外部郵件流",
+      "NAC 核心身份驗證繞過：利用 Cisco ISE REST API 零日漏洞（CVE-2026-76460，CVSS 10.0）繞過驗證並鏈式利用 SQL 注入，完全控制企業零信任架構的存取控制核心",
+      "邊界設備漏洞大規模橫掃：本週 SonicWall SMA1000（CVE-2026-83548，CVSS 10.0）、Citrix NetScaler（CVE-2026-19490，CVSS 9.3）、MikroTik RouterOS（MikroTrick 鏈）同時處於積極利用，攻擊者進行面向網際網路邊界設備的系統性掃描與入侵",
+      "虛擬主機供應鏈長期潛伏：UAT-7237 以台灣虛擬主機業者為跳板，長期隱蔽駐留並部署輕量化工具（SoundBill、SoftEther VPN），靜默測繪客戶環境，為後續大規模行動預置戰略存取",
+      "地下市場存取權販售：FortiBleed 後竊取的台灣企業憑證以「Fresh 2026」標籤分售，將大規模憑證竊取轉化為持續獲利的存取仲介模式，對下游勒索軟體組織形成穩定供應鏈"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即修補 Cisco Secure Email Gateway CVE-2026-76461（CVSS 9.8，積極利用，CISA KEV 截止 9/17）：（1）確認所有 Cisco Secure Email Gateway 設備的 AsyncOS 版本，立即升級至 17.0 或以上修補版本；（2）無法立即修補者，評估暫時在上游郵件過濾層增加異常格式郵件攔截規則作為緩解，並確保管理介面不暴露於公共網路；（3）稽核 9/9（Microsoft Patch Tuesday 發布日）至今閘道上的異常 root 層級程序、可疑排程任務及非預期的出站連線；（4）Cisco PSIRT 確認主要影響對象為直接接收外部郵件的閘道，確認郵件路由設定中哪些設備直接暴露。"
+    },
+    {
+      "priority": "high",
+      "action": "立即修補 Cisco ISE CVE-2026-76460（CVSS 10.0，積極利用，CISA KEV 截止 9/19）及同套設備中的其他 CVSS 10.0 漏洞：（1）確認所有 ISE 及 ISE-PIC 部署版本，立即套用 Cisco 發布的修補版本；（2）修補前作為緩解措施，限制 REST API 的存取來源至受信任 IP 範圍，並停用未使用的 API 端點；（3）修補後立即稽核 ISE 管理員帳號清單（搜尋不明帳號）、存取政策異動記錄（過去 30 天）及任何非預期的策略變更；（4）評估 ISE 在企業零信任架構中的核心位置，確認是否有 ISE 管理員帳號具有過度廣泛的存取範圍。"
+    },
+    {
+      "priority": "high",
+      "action": "FortiBleed 後續應變——確認是否在 96 家受害企業名單內並立即輪換憑證：（1）聯繫 TWCERT/CC（service@twcert.org.tw）確認貴單位是否在受害名單中，資安署已掌握完整名單；（2）無論是否在名單中，凡部署 Fortinet FortiGate 防火牆或 SSL VPN 設備的組織應立即稽核所有 VPN 管理員及使用者帳號，並強制輪換所有本地帳號密碼；（3）確認 FortiGate 設備是否已套用 7 月 FortiBleed 相關的憑證重設修補及 Fortinet 建議的後續安全措施；（4）啟用多因素驗證（MFA）於所有 VPN 及遠端存取入口，作為憑證竊取後的最後防線；（5）稽核過去 60 天的 VPN 登入記錄，搜尋來自異常地理位置或在非工作時間的存取模式。"
+    },
+    {
+      "priority": "high",
+      "action": "立即套用 Microsoft 9 月 Patch Tuesday 並優先處理兩個積極利用零日及 CVSS 9.8 RCE 漏洞：（1）優先修補 CVE-2026-81963（Windows Update Stack EoP，積極利用）及 CVE-2026-85880（Windows ALPC EoP，積極利用）——兩者均為本地特權提升零日，常用於攻擊鏈的第二階段；（2）同等優先處理 CVSS 9.8 的 Windows DNS Server 及 DHCP Server 遠端程式碼執行漏洞，面向網路的 DNS/DHCP 服務若被攻陷影響全域；（3）面對 973 個 CVE，建議使用 Microsoft Exploitability Index 及 CVSS 分數雙重篩選，標記「Exploitation More Likely」的漏洞先行處理；（4）確認本月更新覆蓋所有受管 Windows 系統，包含伺服器、工作站及 Azure 混合環境。"
+    },
+    {
+      "priority": "high",
+      "action": "修補 SonicWall SMA1000（CVE-2026-83548/83549，CVSS 10.0）及 Citrix NetScaler（CVE-2026-19490，CVSS 9.3）——兩者均已確認積極利用：（1）SonicWall SMA1000：立即升級至 12.4.3-03526 或 12.5.0-02952，修補後假設設備已被入侵進行鑑識確認——搜尋非預期的新管理員帳號及近期設定變更；（2）Citrix NetScaler：確認設備是否設定為 AAA 虛擬伺服器或 Gateway 模式，套用 8/19 修補（PoC 已於 9/2 公開）；修補後稽核過去 30 天的 VPN 登入記錄及異常會話；（3）若任一設備已確認受損，立即隔離並啟動事件應變，評估攻擊者可能已取得的網路存取範圍。"
+    },
+    {
+      "priority": "medium",
+      "action": "修補 MikroTik RouterOS 並停用未使用服務（CVE-2026-67277/CVE-2026-86060，CISA KEV 9/10，自 9/2 積極利用）：（1）盤點所有 MikroTik RouterOS 設備，立即升級至 6.49.21、7.23.4 或 7.24.2；（2）修補前暫時停用頻寬測試服務（btest）作為緩解措施（/tool bandwidth-server set enabled=no）；（3）確認路由器管理介面（Winbox、WebFig）未暴露於公共網路，限制存取來源至受信任 IP；（4）MikroTik 設備常見於台灣 ISP 及分支機構，建議進行完整網路設備盤點，確認版本覆蓋率。"
+    },
+    {
+      "priority": "medium",
+      "action": "評估虛擬主機及雲端服務供應鏈安全——應對 UAT-7237 型 APT 的新威脅模型：（1）若貴單位使用第三方虛擬主機或雲端託管服務，評估供應商的資安防護狀況，要求提供近期滲透測試報告及事件記錄；（2）稽核企業與虛擬主機供應商之間的憑證共享範圍，確認是否有跨越信任邊界的服務帳號；（3）在企業環境中部署的 SoftEther VPN 及 RDP，確認均已套用存取控制及記錄稽核，因 UAT-7237 以此為持久化工具；（4）對關鍵應用程式的虛擬主機環境增加網路流量異常監控，偵測如 UAT-7237 般的低速隱密偵察行為。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "SQL 注入（SQL Injection）",
+      "definition": "攻擊者在輸入欄位插入惡意 SQL 語法，操控資料庫查詢以竊取資料或執行任意命令",
+      "url": "https://glossary.astroicers.link/glossary/sql_injection"
+    },
+    {
+      "term": "身份驗證繞過（Authentication Bypass）",
+      "definition": "攻擊者利用實作缺陷在不提供有效憑證的情況下存取受保護系統或功能",
+      "url": "https://glossary.astroicers.link/glossary/authentication_bypass"
+    },
+    {
+      "term": "伺服器端請求偽造（SSRF）",
+      "definition": "攻擊者誘使伺服器向攻擊者指定的內部或外部目標發送請求，可用於存取內網資源或鏈式觸發其他漏洞",
+      "url": "https://glossary.astroicers.link/glossary/ssrf"
+    },
+    {
+      "term": "網路存取控制（NAC）",
+      "definition": "管控哪些裝置與使用者可存取企業網路的安全機制，通常整合身份驗證、裝置合規性檢查及存取政策執行",
+      "url": "https://glossary.astroicers.link/glossary/nac"
+    },
+    {
+      "term": "Web Shell",
+      "definition": "攻擊者上傳至受害 Web 伺服器的惡意腳本，提供遠端控制介面以執行命令、竊取資料或維持持久化存取",
+      "url": "https://glossary.astroicers.link/glossary/web_shell"
+    },
+    {
+      "term": "存取仲介（Access Broker）",
+      "definition": "在地下市場販售已入侵企業存取憑證或後門存取權的威脅行為者，通常為勒索軟體組織的上游供應商",
+      "url": "https://glossary.astroicers.link/glossary/access_broker"
+    },
+    {
+      "term": "權限提升（Privilege Escalation）",
+      "definition": "攻擊者利用漏洞將自身帳戶權限從低等級提升至管理員或系統等級的技術",
+      "url": "https://glossary.astroicers.link/glossary/privilege_escalation"
+    }
+  ],
+  "references": [
+    {
+      "title": "獨家／96家企業名單曝光！駭客開始「賣門票」 資安署應變措施出爐 - 民視財經網",
+      "url": "https://finance.ftvnews.com.tw/news/detail/2026724W0745"
+    },
+    {
+      "title": "台灣逾90家企業遭鎖定：從2026資安事件看企業遠端存取暴露風險 - 映藍國際",
+      "url": "https://www.ulane.com.tw/blog/taiwan-enterprise-remote-access-exposure-2026.html"
+    },
+    {
+      "title": "FortiBleed 大規模攻擊解析：台灣中小企業的資安防護新挑戰 - 神威資訊",
+      "url": "https://shen-wei.com.tw/fortibleed-cybersecurity-taiwan-sme-2026/"
+    },
+    {
+      "title": "UAT-7237 targets Taiwanese web hosting infrastructure - Cisco Talos",
+      "url": "https://blog.talosintelligence.com/uat-7237-targets-web-hosting-infra/"
+    },
+    {
+      "title": "UAT-7237 Targets Taiwanese Web Infrastructure Using Customized Open-Source Tools - Wiz Threat Intelligence",
+      "url": "https://threats.wiz.io/all-incidents/uat-7237-targets-taiwanese-web-infrastructure-using-customized-open-source-tools"
+    },
+    {
+      "title": "Chinese APT Group Targets Web Hosting Services in Taiwan - Infosecurity Magazine",
+      "url": "https://www.infosecurity-magazine.com/news/chinese-apt-web-hosting-taiwan/"
+    },
+    {
+      "title": "Web Hosting Firms in Taiwan Attacked by Chinese APT for Access to High-Value Targets - SecurityWeek",
+      "url": "https://www.securityweek.com/web-hosting-firms-in-taiwan-attacked-by-chinese-apt-for-access-to-high-value-targets/"
+    },
+    {
+      "title": "CVE-2026-76461: Critical Cisco Secure Email Gateway Vulnerability Exploited in the Wild - Rapid7",
+      "url": "https://www.rapid7.com/blog/post/etr-cve-2026-76461-critical-cisco-secure-email-gateway-vulnerability-exploited-in-the-wild/"
+    },
+    {
+      "title": "Cisco patches actively exploited email gateway zero-day (CVE-2026-76461) - Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/09/15/cve-2026-76461-cisco-email-gateway-zero-day-exploited/"
+    },
+    {
+      "title": "CISA Adds One Known Exploited Vulnerability to Catalog (Sept 14) - CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/14/cisa-adds-one-known-exploited-vulnerability-catalog"
+    },
+    {
+      "title": "Cisco Warns of New Zero-Day ISE Auth Bypass (CVSS 10.0) Exploited in Active Attacks - The Hacker News",
+      "url": "https://thehackernews.com/2026/09/cisco-warns-of-new-zero-day-ise-auth.html"
+    },
+    {
+      "title": "Cisco Sept 2026 Hardening — CVSS 10.0 ×4 in ISE, KEV - ThreatAft",
+      "url": "https://threataft.com/articles/cisco-september-2026-hardening-mass-disclosure"
+    },
+    {
+      "title": "Microsoft September 2026 Patch Tuesday: 973 CVEs Fixed, 2 Actively Exploited Flaws Confirmed - NTCompatible",
+      "url": "https://www.ntcompatible.com/story/microsoft-september-2026-patch-tuesday-973-cves-fixed-2-actively-exploited-flaws-confirmed"
+    },
+    {
+      "title": "Microsoft Patch Tuesday September 2026: 973 CVEs, 113 Critical, 2 Exploited - Trinetri",
+      "url": "https://trinetriops.com/resources/patch-tuesday/september-2026"
+    },
+    {
+      "title": "Critical SonicWall SMA1000 Vulnerabilities CVE-2026-83548, CVE-2026-83549 Exploited in the Wild - Rapid7",
+      "url": "https://www.rapid7.com/blog/post/etr-critical-sonicwall-sma1000-vulnerabilities-cve-2026-83548-cve-2026-83549-exploited-in-the-wild/"
+    },
+    {
+      "title": "SonicWall warns of actively exploited SMA1000 zero-day flaws - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-actively-exploited-sma1000-zero-day-flaws/"
+    },
+    {
+      "title": "CVE-2026-19490: Critical Vulnerability Affecting Citrix NetScaler ADC and NetScaler Gateway - Rapid7",
+      "url": "https://www.rapid7.com/blog/post/etr-cve-2026-19490-critical-vulnerability-affecting-citrix-netscaler-adc-and-netscaler-gateway/"
+    },
+    {
+      "title": "Critical Citrix NetScaler auth bypass now leveraged in attacks - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-target-critical-citrix-netscaler-auth-bypass-in-attacks/"
+    },
+    {
+      "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog (Sept 10, MikroTik) - CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/09/10/cisa-adds-two-known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "Hackers exploit new MikroTik RouterOS flaws to hijack routers - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-new-mikrotik-routeros-flaws-to-hijack-routers/"
+    },
+    {
+      "title": "Known Exploited Vulnerabilities Catalog - CISA",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}
