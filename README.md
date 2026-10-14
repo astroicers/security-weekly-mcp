@@ -1,5 +1,6 @@
 # Security Weekly MCP
 
+[![SafeSkill 88/100](https://img.shields.io/badge/SafeSkill-88%2F100_Passes%20with%20Notes-yellow)](https://safeskill.dev/scan/astroicers-security-weekly-mcp)
 MCP Server 架構的資安週報與術語庫管理系統，專為台灣資安社群設計。
 
 ## 功能特色
