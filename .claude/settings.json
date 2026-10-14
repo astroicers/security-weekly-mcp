@@ -32,8 +32,6 @@
     "deny": [
       "Bash(docker deploy *)",
       "Bash(docker push *)",
-      "Bash(git push *)",
-      "Bash(git push)",
       "Bash(git rebase *)",
       "Bash(git rebase)",
       "Bash(rm -r *)",
