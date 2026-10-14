@@ -8,297 +8,249 @@
   "publish_date": "2026-10-12",
   "summary": {
     "total_events": 7,
-    "total_vulnerabilities": 3,
-    "threat_level": "critical"
+    "total_vulnerabilities": 5,
+    "threat_level": "elevated"
   },
   "events": [
     {
-      "title": "104人力銀行約12萬筆履歷遭未授權讀取，勞動部依個資法啟動行政監督（10/6）",
+      "title": "104人力銀行App系統遭未授權存取，12萬筆履歷資料外洩",
       "severity": "high",
-      "event_type": "資料外洩",
-      "summary": "10月6日，104人力銀行（一零四資訊科技）發布資安重訊，指出旗下App系統出現異常讀取情形，調查確認約12萬筆求職者履歷資料遭未經授權讀取，已向調查局報案。104表示系統與營運維持正常，並已透過Email個別通知可能受影響的會員；截至10月7日，攻擊手法與遭存取的具體資料欄位仍未對外說明。勞動部7日表示將依個人資料保護法啟動行政監督與管理措施，包含對104人力銀行進行行政檢查。此事件具有高度社交工程衍生風險：駭客取得履歷後可利用求職者的工作經歷、學歷及聯絡方式實施針對性網路釣魚或詐騙電話，台灣104求職者及企業人資應提高警覺。104目前已提醒會員防範冒用104或徵才企業名義的陌生聯繫。",
-      "source": "科技新報 / 中時電子報 / 自由時報 / 經理人 / Yahoo 新聞",
+      "event_type": "data_breach",
+      "summary": "一零四資訊科技（3130）於10月6日傍晚在股市公開資訊觀測站發布資安重大訊息，確認旗下104人力銀行App偵測到異常讀取情形，調查確認約12萬筆履歷資料遭未授權讀取。外洩欄位截至通報時尚未公布，公司已向調查局台北市調查處報案、通報主管機關，並以Email個別通知可能受影響用戶。系統與營運維持正常，外部資安鑑識調查持續進行中。受影響用戶應提高警覺，防範假冒104或徵才企業的詐騙通話與簡訊，官方簡訊簡碼為66104和67104。",
+      "source": "TechNews / 科技新報",
       "url": "https://finance.technews.tw/2026/10/06/104-corporation-hacked/",
       "date": "2026-10-06"
     },
     {
-      "title": "美FBI查封中國永信至誠駭客工具FishHub與MicroScan，台灣20所大學確認遭Flax Typhoon滲透（10/8）",
+      "title": "FBI/DOJ查封Flax Typhoon相關工具Microscan與FishHub七個域名，台灣大學與能源業首當其衝",
       "severity": "high",
-      "event_type": "國家級網路攻擊",
-      "summary": "10月8日，美國司法部與FBI宣布依法院授權查封中國永信至誠科技（Integrity Technology Group）旗下兩款駭客工具的七個域名：漏洞掃描工具MicroScan及網路釣魚工具FishHub。調查文件指出，永信至誠與中國政府存在合約關係，長期與Flax Typhoon駭客組織活動高度重合。FishHub用於發送偽裝釣魚信件並在入侵後植入遠端控制惡意程式，MicroScan則執行漏洞掃描為後續攻擊鋪路。已確認的受害者涵蓋美國電力公司、非政府組織、日本及波蘭機場等關鍵基礎設施，以及約20所台灣大專院校——其中包含新竹市及埔里鎮的兩所大學，分別於2023年3月及2022年8月遭到滲透。CISA同日發布通報AA26-281A，新增五個Flax Typhoon相關CVE至已知遭利用漏洞（KEV）目錄，設定10月11日修補截止日。此行動揭示永信至誠的工具仍在今年持續活躍，FishHub最近至今年3月仍在感染台灣大學。台灣的學術機構、關鍵基礎設施及政府機關應立即核查是否存在相關感染指標（IoC）。",
-      "source": "BleepingComputer / The Register / SecurityWeek / Nextgov/FCW / The Record",
-      "url": "https://www.bleepingcomputer.com/news/security/fbi-disrupts-chinese-hacking-tools-used-to-breach-critical-infrastructure/",
+      "event_type": "law_enforcement_action",
+      "summary": "美國司法部與FBI於10月8日宣布，依賓州聯邦法院授權查封Integrity Technology Group（中國公司）旗下七個域名，分別支援Microscan漏洞掃描工具與FishHub網路釣魚暨惡意程式投遞平台。Microscan透過Mirai殭屍網路IoT設備偽裝來源進行漏洞掃描；FishHub則取得受害主機遠端存取權限並回傳資料至攻擊者伺服器。已知受害者包括約20所台灣大專院校、台灣能源業者、南卡羅來納州電力公司及日本、波蘭機場。FBI確認相關工具用於入侵關鍵基礎設施，但未確認具名機構是否成功遭侵入。查封域名中斷攻擊者存取，但不代表受害網路已完成清查。",
+      "source": "BleepingComputer / GridinSoft Blog",
+      "url": "https://blog.gridinsoft.com/fbi-microscan-fishhub-domains-seized/",
       "date": "2026-10-08"
     },
     {
-      "title": "IDCF Cloud日本勒索軟體攻擊，495家企業及地方政府服務中斷，部分資料恐難復原（10/7）",
+      "title": "FortiMail CVE-2026-104286零時差路徑遍歷漏洞遭積極利用，CISA列入KEV",
+      "severity": "critical",
+      "event_type": "zero_day_exploitation",
+      "summary": "Fortinet於10月2日披露FortiMail路徑遍歷零時差漏洞CVE-2026-104286（CVSS 9.8），未驗證攻擊者可透過HTTP/HTTPS請求寫入任意檔案，並藉此實現程式碼執行。CISA於10月4日將其加入已知遭利用漏洞清單（KEV），要求聯邦機關立即修補或停用IBE功能作為暫行緩解。受影響版本涵蓋FortiMail 7.2.0–7.2.9、7.4.0–7.4.8、7.6.0–7.6.6與8.0.0–8.0.1，修補版本為8.0.2、7.6.7及7.4.9。目前尚無可靠的攻擊者歸因，Fortinet亦未公布受影響設備規模。本週各組織持續評估與部署修補，應優先處理對外曝露的FortiMail設備。",
+      "source": "Help Net Security / BleepingComputer / CISA",
+      "url": "https://www.helpnetsecurity.com/2026/10/02/fortinet-fortimail-vulnerability-cve-2026-104286/",
+      "date": "2026-10-02"
+    },
+    {
+      "title": "Rapid7揭露AVERAT Linux後門：偽裝SMTP流量，鎖定台灣ShareTech網路設備",
       "severity": "high",
-      "event_type": "勒索軟體攻擊",
-      "summary": "10月7日凌晨3時40分，SoftBank子公司IDC Frontier旗下IDCF Cloud服務遭第三方勒索軟體攻擊，東日本1區的企業及地方政府客戶共495家受影響，服務陷入中斷。受害機構涵蓋JR東日本郵件服務、多個縣市政府官網、新聞機構及冷鏈物流業者。攻擊者聲稱在七分鐘內突破基礎設施並加密3.6PB資料，IDC Frontier坦承部分受影響區域的資料極難復原，客戶僅能依靠自身備份進行還原。公司已暫停所有區域管理主控台存取，以防攻擊橫向擴散至其他區域，並委託外部資安專家調查入侵途徑。此事件凸顯雲端基礎設施遭勒索軟體攻擊時「共同命運」的連鎖效應——495個下游客戶因單一供應商遭攻擊而同時中斷服務。台灣使用IDCF Cloud或類似APAC雲端服務的企業應立即確認備份策略的完整性與可用性。",
-      "source": "SC World / tech-insider.org / thecybersecguru.com / neuracybintel.com",
-      "url": "https://scworld.com/brief/japanese-cloud-provider-idc-frontier-hit-by-ransomware-attack",
+      "event_type": "threat_intelligence",
+      "summary": "Rapid7於10月2日發布AVERAT六個版本的詳細技術分析，此Linux後門將C2通訊偽裝為SMTP流量（TCP 25埠），在郵件安全閘道設備上極難與正常外寄郵件流量區分。三個版本透過台灣境內受感染設備（Synology NAS、老舊企業設備、大華DVR）作為指令轉發節點，位於台南、板橋、桃園。Rapid7評估此後門針對ShareTech網路設備開發，與CISA 2026年4月發布的中國ORB網路公告有基礎設施重疊，但尚無法確認歸因於特定威脅行為者。攻擊者持久化方式為將payload複製至/sbin偽裝系統程式（ntpdate、udevds），啟動後即從磁碟刪除，致使傳統檔案掃描難以偵測。",
+      "source": "Infosecurity Magazine / The Hacker News / iThome",
+      "url": "https://www.infosecurity-magazine.com/news/smtp-linux-backdoors-network-edge/",
+      "date": "2026-10-02"
+    },
+    {
+      "title": "微軟2026年度數位防禦報告：台灣受網路威脅全球第4、亞太第1，193起國家級活動事件",
+      "severity": "high",
+      "event_type": "threat_intelligence_report",
+      "summary": "微軟於2026年10月初發布《2026年度數位防禦報告》，指出台灣在2026年上半年受各類網路威脅影響的國家排名升至全球第4（美國531起居首，以色列210起第2，台灣193起第4，日本172起），亞太地區排名第1。台灣相關國家級活動事件193起，較前一份報告的143起顯著上升。全球政府與公共服務部門遭受攻擊比例從2025年的17%升至27%，連續兩年成為最常被鎖定的產業。報告確認中國、俄羅斯、伊朗、北韓仍是主要國家級威脅行為者。",
+      "source": "Inside.com.tw / iThome",
+      "url": "https://www.inside.com.tw/article/42562-microsoft-digital-defense-report-2026-taiwan-government",
+      "date": "2026-10-02"
+    },
+    {
+      "title": "Android 10月安全更新修補25個漏洞（7個危急），System元件本機權限提升最嚴重",
+      "severity": "high",
+      "event_type": "patch_release",
+      "summary": "Google於10月5日發布Android 2026年10月安全公告（修補等級2026-10-01），修補25個漏洞，其中危急等級7個（Framework 1個、System 6個）。最嚴重漏洞位於System元件，無需使用者互動即可實現本機權限提升。目前未有任何漏洞遭野外利用的記錄。三星同步推出Galaxy裝置10月更新，涵蓋45個CVE。",
+      "source": "SecurityWeek / Google Android Security Bulletin",
+      "url": "https://www.securityweek.com/androids-october-2026-updates-patch-25-vulnerabilities/",
+      "date": "2026-10-05"
+    },
+    {
+      "title": "台灣遠端存取暴露風險調查：逾90家企業VPN/RDP服務對外曝露且版本過舊",
+      "severity": "medium",
+      "event_type": "vulnerability_assessment",
+      "summary": "一份針對台灣企業遠端存取曝露風險的調查指出，逾90家本土企業的VPN或遠端桌面服務直接曝露於網際網路，且多使用存在已知高危漏洞的舊版韌體或軟體。其中製造業、零售與中小企業比例最高。調查同時發現，Citrix NetScaler（CVE-2026-88771/88772）與Check Point VPN等已列入CISA KEV的設備，在台灣境內仍有大量未修補部署。此現象配合AVERAT後門與Flax Typhoon工具的持續活躍，顯示台灣企業遠端存取介面仍是高風險入侵路徑。",
+      "source": "ulane.com.tw / 資安研究調查",
+      "url": "https://www.ulane.com.tw/blog/taiwan-enterprise-remote-access-exposure-2026.html",
       "date": "2026-10-07"
-    },
-    {
-      "title": "Atlassian Data Center CVE-2026-21589 PoC發布後數小時即遭大規模掃描利用，Jira整合Crowd部署可達管理員接管（10/5-8）",
-      "severity": "high",
-      "event_type": "漏洞遭積極利用",
-      "summary": "Atlassian於10月5至6日發布安全公告，揭露CVE-2026-21589（CVSS v4.0 9.3），影響所有版本的Bitbucket、Confluence、Jira Software、Jira Service Management、Bamboo、Crowd、Crucible及Fisheye Data Center自管部署；雲端版本已自動修補。漏洞根因為共用套件 atlassian-plugins-webresource*.jar 中的路徑轉換邏輯缺陷——程式碼將雙冒號（::）轉換為斜線（/），允許攻擊者以「..::..::WEB-INF::web.xml」形式的輸入穿越目錄，未經驗證即可讀取Web應用程式根目錄外的敏感檔案。watchTowr發布PoC後數小時，Previdian蜜罐即記錄到來自日本及美國的三個IP位址的15次利用嘗試，研究人員確認活躍的大規模掃描已啟動。對整合Crowd的Jira部署尤為危險：攻擊者可讀取 WEB-INF/classes/crowd.properties 中的明文應用程式憑證，進而透過Crowd API建立Jira管理員帳號，達成完整平台接管。Nuclei模板亦已公開，進一步降低大規模自動化攻擊門檻。Atlassian已發布修補版本，建議台灣企業立即升級；無法立即修補者應部署WAF規則並限制外部網路存取。",
-      "source": "Infosecurity Magazine / Help Net Security / BleepingComputer / Akamai / watchTowr",
-      "url": "https://www.helpnetsecurity.com/?p=387226",
-      "date": "2026-10-08"
-    },
-    {
-      "title": "GhostAction GitHub Actions供應鏈攻擊，入侵維護者帳號後向345個Repo注入憑證竊取工作流程（10/8）",
-      "severity": "medium",
-      "event_type": "供應鏈攻擊",
-      "summary": "10月8日，攻擊組織GhostAction入侵兩個GitHub維護者帳號，在數分鐘內以自動化方式向345個公開Repository注入惡意GitHub Actions工作流程檔案 security-audit.yml。惡意工作流程的設計涵蓋工作樹及完整Git提交歷史的掃描，竊取目標包含GitHub Actions Secrets、AWS/GCP/Azure Token、Kubernetes憑證、AI服務API金鑰及SaaS平台憑證，並透過明文HTTP外傳。GitGuardian確認部分CI執行已成功外洩憑證。受影響Repo之一屬pyxel遊戲引擎作者，攻擊者藉此帳號注入了其27個Repository。GhostAction自2025年9月首度出現以來，已累計對327名開發者的817個Repository竊取逾3,000個機密，本次攻擊顯示其持續演進的自動化規模。Step Security研究人員警告：任何在2026年8月31日後新增的 security-audit.yml 或 github_actions_security.yml 工作流程均應視為已遭入侵，即便該次執行未發現憑證亦會持續送出心跳（beacon）。台灣使用GitHub Actions CI/CD的開發者及企業應立即核查所有Repo的工作流程清單並強制輪換相關憑證。",
-      "source": "Step Security / GitGuardian / letsdatascience.com / SC World",
-      "url": "https://letsdatascience.com/news/ghostaction-injects-credential-stealing-github-workflows-95439117",
-      "date": "2026-10-08"
-    },
-    {
-      "title": "Microsoft 2026數位防禦報告：台灣全球第4大攻擊目標，上半年193起國家級駭客事件，較去年增加35%（10月）",
-      "severity": "medium",
-      "event_type": "威脅情報",
-      "summary": "微軟本週發布《2026年數位防禦報告》（Microsoft Digital Defense Report 2026），涵蓋2025年7月至2026年6月的威脅態勢分析。報告揭示台灣在Microsoft客戶遭受網路攻擊的國家排名中位居全球第4（攻擊占比3.9%），僅次於美國（25.5%）、以色列及烏克蘭；2026年上半年針對台灣的國家級駭客活動共記錄193起，較報告書中2024年統計的143起增加約35%，在亞太地區中遠超日本（172起）。報告點名中國APT組織持續以台灣能源、政府及研究機構為高優先攻擊目標。本週FBI查封中國永信至誠FishHub/MicroScan工具與Talos揭露針對台灣研究機構的UAT-11985 AitM釣魚行動（可繞過TOTP及SMS多因素驗證，僅FIDO2/Passkeys有效防護），均與報告描繪的威脅趨勢相互印證。台灣組織面對的國家級威脅壓力已達歷史新高，需將資安防護提升至等同關鍵基礎設施的保護等級。",
-      "source": "Microsoft / trendingtopics.eu / the-sourcecode.com / Cisco Talos（UAT-11985）",
-      "url": "https://www.microsoft.com/en-us/corporate-responsibility/topics/cybersecurity/reports/microsoft-digital-defense-report/",
-      "date": "2026-10-06"
-    },
-    {
-      "title": "FortiBleed大規模憑證竊取，全球86,000台FortiGate設備遭入侵，攻擊者鎖定網路邊界管理帳號（10/6）",
-      "severity": "high",
-      "event_type": "漏洞遭積極利用",
-      "summary": "10月6日，FBI與特勤局（Secret Service）聯合發布資安諮詢，揭露全球規模的Fortinet防火牆憑證竊取攻擊活動。SOCRadar統計顯示，全球194個國家逾86,000台FortiGate設備遭到入侵，攻擊者竊取管理員憑證後，部分案例中進一步刪除或竄改原始管理員帳號，導致設備擁有者被鎖定在自身設備之外。此攻擊波段與Fortinet FortiMail CVE-2026-104286（CVSS 9.8，CISA KEV 10/1）的積極利用同步發生，顯示攻擊者正系統性針對企業網路邊界設備（防火牆、郵件閘道）發動複合式攻擊，一旦控制邊界設備即可監聽流量、修改路由規則或作為橫向移動的跳板。台灣企業應立即稽核所有Fortinet FortiGate及FortiMail設備的管理員帳號清單，確認無非預期帳號，並強制輪換所有管理員憑證；部署FortiMail的組織尤需套用FortiMail CVE-2026-104286暫時緩解措施（停用IBE功能或嚴格限制管理介面存取來源）。",
-      "source": "This Week in Security（Oct 11版）/ SOCRadar / FBI-Secret Service聯合諮詢",
-      "url": "https://this.weekinsecurity.com/this-week-in-security-october-11-2026-edition",
-      "date": "2026-10-06"
     }
   ],
   "vulnerabilities": [
     {
       "cve_id": "CVE-2026-104286",
-      "title": "Fortinet FortiMail 未驗證任意檔案寫入零時差（CVSS 9.8，CISA KEV 10/1，截止10/4，尚無修補版本）",
+      "title": "Fortinet FortiMail 路徑遍歷任意檔案寫入漏洞",
       "cvss": 9.8,
       "severity": "critical",
       "vendor": "Fortinet",
-      "product": "Fortinet FortiMail（8.0.0-8.0.1、7.6.0-7.6.6、7.4.0-7.4.8、7.2.0-7.2.9）",
-      "description": "CVE-2026-104286 是 Fortinet FortiMail 管理介面中的路徑遍歷與NULL-byte注入漏洞（CVSS 9.8），允許未驗證攻擊者透過特製HTTP/HTTPS請求在底層系統寫入任意檔案，無需任何有效帳號。Fortinet確認此為零時差漏洞，揭露時已有積極利用案例，CISA於10月1日列入KEV目錄，要求聯邦機構10月4日前完成鑑識分類並套用緩解措施。截至本報告發布時尚無修補版本（計畫版本：8.0.2、7.6.7、7.4.9；7.2分支使用者需升級至7.4以上）。暫時緩解措施：（1）停用IBE（Identity-Based Encryption）功能支援；或（2）完全停止FortiMail管理介面的網頁存取並限制僅信任來源可達。應立即核查Fortinet發布的IoC——包含可疑檔案、設定異動及特定IP位址，以確認是否已遭利用。"
+      "product": "FortiMail 7.2.x / 7.4.x / 7.6.x / 8.0.x",
+      "description": "未驗證攻擊者可透過特製HTTP/HTTPS請求在FortiMail伺服器寫入任意檔案，進而實現遠端程式碼執行。IBE功能啟用時風險最高。已遭積極利用，CISA KEV列管（政府機關期限2026-10-04）。修補版本：8.0.2、7.6.7、7.4.9。[KEV: 是 ⚠️]"
     },
     {
-      "cve_id": "CVE-2026-76504",
-      "title": "Cisco Catalyst SD-WAN Manager API驗證繞過（CVSS 9.8，CISA KEV 9/30，截止10/3，已發布修補）",
-      "cvss": 9.8,
+      "cve_id": "CVE-2026-88771",
+      "title": "Citrix NetScaler 驗證繞過漏洞",
+      "cvss": 9.1,
       "severity": "critical",
-      "vendor": "Cisco",
-      "product": "Cisco Catalyst SD-WAN Manager（所有版本，修補版本：20.9.10.1、20.12.8.2、20.15.6.1、20.18.4.1、26.1.2.1、26.2.1）",
-      "description": "CVE-2026-76504 是 Cisco Catalyst SD-WAN Manager API 會話驗證元件中的嚴重驗證繞過漏洞（CVSS 9.8），成因為 URI 編碼處理不當。攻擊者可向 j_security_check 端點發送含編碼字元（如 /%6a_security_check）的特製請求，繞過驗證機制以 admin/netadmin 身份存取所有管理API功能，無需任何有效憑證。Cisco確認自2026年9月起即有積極利用，CISA於9月30日列入KEV。無任何暫時緩解措施，應立即升級至修補版本；Cisco同時建議限制SD-WAN Manager的網際網路暴露面。受影響的所有SD-WAN Manager版本均存在此漏洞，與部署設定無關。"
+      "vendor": "Citrix",
+      "product": "NetScaler ADC / Gateway",
+      "description": "Citrix NetScaler存在驗證繞過漏洞，允許未驗證攻擊者取得特定功能的存取權限。已列入CISA KEV，台灣境內仍有大量未修補部署。[KEV: 是 ⚠️]"
     },
     {
-      "cve_id": "CVE-2026-21589",
-      "title": "Atlassian Data Center全產品線未驗證任意檔案讀取（CVSS 9.3，PoC發布後數小時遭大規模掃描，Jira+Crowd可達管理員接管）",
-      "cvss": 9.3,
-      "severity": "critical",
-      "vendor": "Atlassian",
-      "product": "Bitbucket、Confluence、Jira Software、Jira Service Management、Bamboo、Crowd、Crucible、Fisheye Data Center（所有版本，雲端版本已自動修補）",
-      "description": "CVE-2026-21589 是 Atlassian 多個 Data Center 產品中共用套件 atlassian-plugins-webresource*.jar 的路徑遍歷漏洞（CVSS v4.0 9.3），允許未驗證攻擊者透過「..::..::」目錄遍歷序列讀取 Web 應用程式根目錄外的任意檔案，包含 WEB-INF/web.xml 及 WEB-INF/classes/crowd.properties 等敏感設定。對整合 Crowd 的 Jira 部署最具危險性——攻擊者讀取 crowd.properties 後可取得明文應用程式憑證，進而透過 Crowd API 建立 Jira 管理員帳號，達成完整平台接管。watchTowr 發布 PoC 後數小時，Previdian 蜜罐記錄到活躍的利用嘗試，Nuclei 模板公開後掃描規模持續擴大。應立即升級至最新版本；Jira+Crowd 整合部署應在修補前主動輪換 crowd.properties 憑證，並透過 Crowd 管理介面確認無非預期的管理員帳號。"
+      "cve_id": "CVE-2026-32157",
+      "title": "Windows 遠端桌面客戶端遠端程式碼執行漏洞",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Windows Remote Desktop Client 1.2.0.0 ~ 2.0.1070.0",
+      "description": "Windows遠端桌面客戶端存在遠端程式碼執行漏洞，允許未經授權的攻擊者透過網路執行程式碼。TWCERT/CC已發布漏洞預警。[KEV: 否]"
+    },
+    {
+      "cve_id": "CVE-2026-20519",
+      "title": "Android System 元件本機權限提升漏洞（10月安全更新）",
+      "cvss": 8.4,
+      "severity": "high",
+      "vendor": "Google / Samsung",
+      "product": "Android（Galaxy裝置）",
+      "description": "Android System元件存在本機權限提升漏洞，無需使用者互動。已列入三星10月修補範圍。目前尚無已知野外利用紀錄。[KEV: 否]"
+    },
+    {
+      "cve_id": "CVE-2026-88772",
+      "title": "Citrix NetScaler 遠端程式碼執行漏洞",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Citrix",
+      "product": "NetScaler ADC / Gateway",
+      "description": "Citrix NetScaler存在遠端程式碼執行漏洞，已列入CISA KEV。建議優先修補並限制管理介面對外存取。[KEV: 是 ⚠️]"
     }
   ],
   "threat_trends": {
-    "summary": "本週威脅態勢以「網路邊界設備系統性攻擊」與「台灣作為高優先目標的多維度驗證」為兩條主線。最值得關注的是Fortinet FortiMail CVE-2026-104286（CVSS 9.8）零時差在尚無修補版本的情況下遭大規模積極利用，配合同期FortiBleed大規模憑證竊取活動（全球86,000台設備遭入侵）與Cisco Catalyst SD-WAN Manager CVE-2026-76504（CVSS 9.8）的持續利用——攻擊者正對企業網路邊界設備（防火牆、郵件閘道、SD-WAN）發動協同複合式攻擊，控制邊界設備即等同獲取全網路可視性與橫向移動能力。台灣威脅壓力同步升溫：微軟MDDR 2026確認台灣為全球第4大攻擊目標（193起國家級攻擊，比去年增35%），FBI同週查封Flax Typhoon相關中國駭客工具，確認約20所台灣大學已遭滲透——兩項數據構成對台灣威脅態勢的雙重驗證。Atlassian Data Center CVE-2026-21589在PoC發布後數小時即遭大規模掃描，修補窗口壓縮的趨勢再次得到驗證。GitHub Actions供應鏈攻擊（GhostAction）持續演進，將CI/CD管線轉化為憑證竊取的高效攻擊面，影響企業整體雲端安全態勢。",
+    "summary": "本週台灣面臨多重威脅夾擊：Flax Typhoon延伸行動（FishHub/Microscan）鎖定台灣大學與能源業，AVERAT後門持續潛伏台灣ShareTech設備，加上微軟報告確認台灣受國家級威脅攻擊頻率全球第4，顯示中國關聯威脅行為者對台灣的持續高強度關注未有消退跡象。個人資料方面，104人力銀行12萬筆履歷外洩揭示企業App安全監控不足的潛在風險。FortiMail零時差漏洞提醒企業郵件安全基礎設施面臨直接被入侵風險。整體威脅態勢維持高位，關鍵基礎設施、學術機構與人力資源平台均在攻擊者鎖定範圍內。",
     "active_actors": [
       {
-        "name": "Flax Typhoon / 永信至誠科技（中國國家級）",
-        "type": "國家級威脅行為者（APT）",
-        "activity": "FBI與DOJ於10月8日查封其旗下工具FishHub及MicroScan的七個域名，確認受害者涵蓋約20所台灣大專院校（新竹、埔里各一所確認早期入侵）、美國電力公司、日本及波蘭機場。CISA同日新增五個Flax Typhoon相關CVE至KEV，截止10月11日修補。FishHub最近仍在2026年3月感染台灣大學，顯示行動持續活躍。"
+        "name": "Flax Typhoon（翼沙，Integrity Technology Group）",
+        "origin": "中國",
+        "target": "台灣大學、台灣能源業、關鍵基礎設施",
+        "technique": "漏洞掃描（Microscan）、網路釣魚暨惡意程式投遞（FishHub）、IoT殭屍網路中繼"
       },
       {
-        "name": "GhostAction（財務動機，供應鏈攻擊組織）",
-        "type": "財務動機威脅行為者",
-        "activity": "10月8日發動新一波GitHub Actions供應鏈攻擊，入侵兩個維護者帳號後在數分鐘內向345個公開Repository注入惡意工作流程security-audit.yml，竊取GitHub Secrets、雲端Token及AI API金鑰。自2025年9月以來已累計竊取3,000+個機密，本次攻擊延伸至pyxel遊戲引擎等知名開源專案。"
-      },
-      {
-        "name": "不明勒索軟體集團（IDCF Cloud攻擊者）",
-        "type": "財務動機威脅行為者（勒索軟體集團）",
-        "activity": "10月7日針對IDC Frontier的IDCF Cloud東日本1區發動勒索軟體攻擊，聲稱在七分鐘內完成突破並加密3.6PB資料，495家客戶受影響。攻擊者身份及使用的勒索軟體家族尚未由IDC Frontier公開確認。"
+        "name": "未歸因AVERAT行為者（疑似中國關聯）",
+        "origin": "中國（評估中）",
+        "target": "台灣ShareTech網路設備",
+        "technique": "Linux後門植入、SMTP流量偽裝C2、ORB網路中繼"
       }
     ],
     "attack_techniques": [
-      "網路邊界設備零時差複合攻擊：同步利用FortiMail CVE-2026-104286（任意檔案寫入）、Cisco SD-WAN CVE-2026-76504（API驗證繞過）及大規模憑證竊取（FortiBleed），系統性針對企業網路邊界設備發動協同攻擊，控制邊界設備以監聽流量或實施橫向移動",
-      "多階段供應鏈憑證竊取：GhostAction利用維護者帳號接管，向熱門開源Repo注入惡意GitHub Actions工作流程，從CI/CD執行環境（工作樹+Git歷史）批次竊取雲端憑證、AI API金鑰及Kubernetes Token",
-      "任意檔案讀取升級至平台接管：Atlassian CVE-2026-21589允許讀取Crowd整合憑證後透過API建立管理員帳號，從低權限初始存取直接達成完整平台接管",
-      "中國APT持久化學術機構滲透：Flax Typhoon透過FishHub/MicroScan工具以釣魚郵件為入口、漏洞掃描為配套，長期滲透台灣大學及研究機構竊取研究資料與情報",
-      "進階AitM釣魚繞過多因素驗證：Talos記錄的UAT-11985針對台灣研究機構，使用AI生成的學術活動誘餌，透過中間人攻擊套件繞過TOTP及SMS MFA，僅FIDO2/Passkeys可有效防護"
+      "ORB網路（作戰中繼盒）：利用台灣境內受感染IoT設備隱藏攻擊來源",
+      "SMTP流量偽裝C2（AVERAT）：後門通訊混入正常郵件流量規避偵測",
+      "路徑遍歷漏洞利用（FortiMail CVE-2026-104286）：無需驗證寫入任意檔案",
+      "App異常存取：針對企業App API端點未授權讀取大量個人資料",
+      "殭屍網路掃描偽裝（Microscan）：透過Mirai IoT殭屍網路隱藏漏洞掃描來源",
+      "供應鏈情報蒐集：透過人力資源履歷資料建立目標清單"
     ]
   },
   "action_items": [
     {
       "priority": "high",
-      "action": "立即緩解Fortinet FortiMail CVE-2026-104286（CVSS 9.8，零時差，尚無修補版本）並啟動應急鑑識：（1）所有FortiMail部署立即執行兩項緩解措施之一——停用IBE（Identity-Based Encryption）功能支援，或完全停止管理介面的網頁存取並透過ACL/防火牆規則嚴格限制來源IP僅允許信任地址；（2）依Fortinet發布的入侵指標（IoC），掃描FortiMail系統的可疑檔案、設定異動及非預期連線至外部IP；（3）稽核所有FortiMail管理員帳號，確認無非預期帳號（FortiBleed同期活動已確認攻擊者會建立後門帳號）；（4）7.2分支使用者需同時升級至7.4以上版本，以在修補版本（7.4.9、7.6.7、8.0.2）發布時能立即套用；（5）持續監控Fortinet官方公告，有修補版本時立即部署。"
+      "action": "立即評估FortiMail版本（7.2.x/7.4.x/7.6.x/8.0.x），升級至修補版本（8.0.2/7.6.7/7.4.9）；無法立即升級者停用IBE功能並限制管理介面存取，期限已過（CISA KEV 2026-10-04）"
     },
     {
       "priority": "high",
-      "action": "立即修補Cisco Catalyst SD-WAN Manager CVE-2026-76504（CVSS 9.8，CISA KEV 9/30）並稽核入侵跡象：（1）確認所有Cisco Catalyst SD-WAN Manager部署版本，立即升級至修補版本（20.9.10.1、20.12.8.2、20.15.6.1、20.18.4.1、26.1.2.1或26.2.1）——Cisco明確指出無任何暫時緩解措施；（2）修補前或無法立即修補時，評估限制SD-WAN Manager管理介面的網際網路可達性；（3）稽核SD-WAN Manager稽核記錄（audit log）中，自9月起針對 /j_security_check 及 /%6a_security_check 路徑的異常請求；（4）確認所有SD-WAN Manager的管理員帳號列表，搜尋非預期帳號或組態異動；（5）若確認受損，應立即隔離受影響Manager並評估受管邊緣設備的完整性。"
+      "action": "台灣學術機構與能源業審查FishHub入侵指標（IOC）：檢查是否有未授權遠端存取、異常資料回傳跡象，並向TWCERT/CC通報，期限 2026-10-16"
     },
     {
       "priority": "high",
-      "action": "立即修補所有Atlassian Data Center產品CVE-2026-21589並針對Jira+Crowd整合部署啟動應急回應：（1）確認所有Bitbucket、Confluence、Jira Software、Jira Service Management、Bamboo、Crowd、Crucible及Fisheye Data Center自管部署版本，立即升級至最新修補版本；（2）Jira整合Crowd的部署優先處理：立即主動輪換crowd.properties中的應用程式憑證（即便尚未確認遭利用亦應輪換，因主動利用已確認），並透過Crowd管理介面稽核所有管理員帳號，刪除非預期帳號；（3）修補前的暫時緩解：透過WAF規則封鎖含「..::」序列的HTTP請求，並限制管理介面的外部網路存取；（4）稽核過去7天的存取記錄，搜尋對WEB-INF路徑的任何GET請求（攻擊特徵）；（5）雲端版本已自動修補，無需額外操作。"
-    },
-    {
-      "priority": "high",
-      "action": "稽核所有Fortinet設備管理員帳號並強制輪換憑證（對應FortiBleed大規模攻擊）：（1）立即盤點所有FortiGate及FortiMail設備，登入管理介面核查管理員帳號列表，刪除任何非預期帳號；（2）若無法登入自身設備（疑似帳號遭竄改），立即透過實體主控台重設管理員密碼；（3）強制輪換所有Fortinet設備的管理員密碼（包含服務帳號）並啟用多因素驗證；（4）確認Fortinet設備是否啟用管理員登入稽核，並設定異常登入告警（非工作時間、來自未知IP的登入）；（5）確認FortiGate SSL-VPN設定未遭異動（攻擊者常藉此建立持久後門通道）。"
-    },
-    {
-      "priority": "high",
-      "action": "台灣學術機構及關鍵基礎設施確認FishHub/MicroScan感染指標並配合CISA AA26-281A補丁截止：（1）依CISA通報AA26-281A核查所有新增至KEV的Flax Typhoon相關CVE，確認已在10月11日前完成修補或已套用緩解措施；（2）台灣大學及研究機構應立即核查主機及網路端點是否存在FishHub或MicroScan的已知IoC（聯繫TWCERT/CC或CISA取得最新IoC清單）；（3）稽核IT環境中是否有非預期的遠端管理工具、不明的外部SSH連線或異常的資料存取記錄；（4）確認電子郵件閘道的防釣魚設定，針對近期聲稱的學術活動或政策議題的可疑郵件加強警戒（對應Talos UAT-11985的AitM釣魚活動）；（5）若懷疑遭滲透，立即向TWCERT/CC（twcert.org.tw）報告並啟動鑑識調查。"
+      "action": "ShareTech設備用戶審查port 25異常外連、/sbin目錄下偽裝系統程式（ntpdate、udevds）及異常raw socket，確認是否遭AVERAT後門感染，期限 2026-10-16"
     },
     {
       "priority": "medium",
-      "action": "稽核GitHub Actions工作流程並強制輪換受GhostAction影響的CI/CD憑證：（1）核查所有公開及私有Repository中是否存在2026年8月31日後新增的 security-audit.yml 或 github_actions_security.yml 工作流程，若存在應視為已遭入侵；（2）受影響Repository立即強制輪換所有已暴露的GitHub Secrets、AWS/GCP/Azure Token、Kubernetes憑證及AI供應商API金鑰（OpenAI、Anthropic等），五個月後仍有效的竊取憑證顯示被動等待失效並不可靠；（3）稽核GitHub Organization的第三方App授權及已安裝的GitHub Actions，確認無非預期的高權限操作；（4）未來的安全強化措施：將工作流程依賴項固定至特定commit SHA（而非版本標籤），並啟用Step Security Harden-Runner等工具監控Actions執行環境中的可疑網路連線。"
+      "action": "全面盤點對外曝露的VPN/RDP設備，優先修補Citrix NetScaler（CVE-2026-88771/88772 KEV）與Windows遠端桌面客戶端（CVE-2026-32157），期限 2026-10-19"
     },
     {
       "priority": "medium",
-      "action": "確認備份策略應對雲端勒索軟體（對應IDCF Cloud事件）：（1）核查在APAC地區使用雲端服務（IDC Frontier、AWS、Azure、GCP或其他IaaS）的工作負載，確認是否有異地（跨雲或本地）的獨立備份，且備份資料與主要環境的帳號憑證完全隔離（防止攻擊者以相同憑證刪除備份）；（2）測試備份還原程序的實際可用性——IDCF Cloud事件揭示許多客戶依賴雲端服務商的備份而非維護獨立備份，造成資料難以復原；（3）參考3-2-1備份原則：三份備份、兩種媒體、一份離線或異地存放，確保單一供應商遭攻擊不會導致業務資料完全滅失；（4）評估關鍵系統（ERP、資料庫、郵件）的業務連續性計畫（BCP），確認雲端供應商服務中斷時的備援方案。"
+      "action": "Android裝置更新至2026-10-01以上修補等級；三星Galaxy設備部署10月資安更新，期限 2026-10-19"
+    },
+    {
+      "priority": "low",
+      "action": "104人力銀行用戶告知員工：收到疑似招募簡訊應從官方App或網站確認，勿點陌生連結，警覺以外洩履歷資料為基礎的社交工程攻擊"
     }
   ],
   "terms": [
     {
-      "term": "零時差漏洞（Zero-Day Vulnerability）",
-      "definition": "尚無官方修補程式即遭積極利用的漏洞，廠商從得知到發布修補的窗口期間使用者處於完全曝露狀態",
-      "url": "https://glossary.astroicers.link/glossary/zero_day"
+      "term": "通用漏洞評分系統 (CVSS)",
+      "definition": "評估漏洞嚴重程度的標準化計分系統",
+      "url": "https://glossary.astroicers.link/glossary/cvss"
     },
     {
-      "term": "任意檔案寫入（Arbitrary File Write）",
-      "definition": "攻擊者利用漏洞在目標系統上寫入任意位置的任意內容，常用於植入Webshell或修改系統設定以取得持久存取",
-      "url": "https://glossary.astroicers.link/glossary/arbitrary_file_write"
-    },
-    {
-      "term": "路徑遍歷（Path Traversal）",
-      "definition": "攻擊者利用不充分的路徑驗證，以「../」或類似序列存取伺服器上位於預期目錄之外的任意檔案或目錄",
-      "url": "https://glossary.astroicers.link/glossary/path_traversal"
-    },
-    {
-      "term": "CI/CD 管線（CI/CD Pipeline）",
-      "definition": "持續整合/持續交付的自動化軟體建置、測試及部署流程，常持有高權限雲端憑證，成為供應鏈攻擊的高價值目標",
-      "url": "https://glossary.astroicers.link/glossary/cicd_pipeline"
-    },
-    {
-      "term": "中間人攻擊（AitM, Adversary-in-the-Middle）",
-      "definition": "攻擊者在使用者與真實服務之間插入惡意代理，即時轉發並竊取會話令牌，可繞過TOTP及SMS等傳統多因素驗證機制",
-      "url": "https://glossary.astroicers.link/glossary/adversary_in_the_middle"
-    },
-    {
-      "term": "已知遭利用漏洞（KEV, Known Exploited Vulnerabilities）",
-      "definition": "CISA維護的漏洞目錄，收錄已確認在真實攻擊中遭積極利用的CVE，美國聯邦機構依法須在截止日前完成修補",
+      "term": "已知遭利用漏洞清單 (KEV)",
+      "definition": "CISA 維護的已確認遭實際利用的漏洞清單",
       "url": "https://glossary.astroicers.link/glossary/kev"
     },
     {
-      "term": "勒索軟體即服務（RaaS, Ransomware-as-a-Service）",
-      "definition": "勒索軟體集團以服務訂閱模式向加盟者提供攻擊工具與基礎設施，加盟者負責入侵部署，集團與加盟者按比例分成贖金",
-      "url": "https://glossary.astroicers.link/glossary/ransomware_as_a_service"
+      "term": "零時差漏洞 (Zero-Day Vulnerability)",
+      "definition": "尚無官方修補程式的安全漏洞",
+      "url": "https://glossary.astroicers.link/glossary/zero_day"
+    },
+    {
+      "term": "進階持續性威脅 (APT)",
+      "definition": "國家級駭客組織發動的長期網路攻擊",
+      "url": "https://glossary.astroicers.link/glossary/apt"
+    },
+    {
+      "term": "作戰中繼盒網路 (ORB Network)",
+      "definition": "駭客利用受感染設備建立的中繼基礎設施，用以隱藏攻擊來源",
+      "url": "https://glossary.astroicers.link/glossary/orb_network"
+    },
+    {
+      "term": "路徑遍歷攻擊 (Path Traversal)",
+      "definition": "利用不當路徑驗證存取系統任意檔案的攻擊手法",
+      "url": "https://glossary.astroicers.link/glossary/path_traversal"
+    },
+    {
+      "term": "殭屍網路 (Botnet)",
+      "definition": "大量受惡意程式感染並受攻擊者遠端控制的設備集合",
+      "url": "https://glossary.astroicers.link/glossary/botnet"
     }
   ],
   "references": [
     {
-      "title": "104人力銀行遭駭！12萬筆求職者個資恐外洩 官方發重訊證實 – 自由時報",
-      "url": "https://news.ltn.com.tw/news/life/breakingnews/5597618"
-    },
-    {
-      "title": "104 人力銀行遭駭客入侵，12 萬筆履歷資料遭未授權讀取 – 科技新報",
+      "title": "104人力銀行App系統遭未授權存取，12萬筆履歷資料外洩",
       "url": "https://finance.technews.tw/2026/10/06/104-corporation-hacked/"
     },
     {
-      "title": "104人力銀行12萬筆個資外洩！勞動部：依個資法啟動行政監督 – Yahoo 新聞",
-      "url": "https://tw.news.yahoo.com/104%E4%BA%BA%E5%8A%9B%E9%8A%80%E8%A1%8C12%E8%90%AC%E7%AD%86%E5%80%8B%E8%B3%87%E5%A4%96%E6%B4%A9%EF%BC%81%E5%8B%9E%E5%8B%95%E9%83%A8%EF%BC%9A%E4%BE%9D%E5%80%8B%E8%B3%87%E6%B3%95%E5%95%9F%E5%8B%95%E8%A1%8C%E6%94%BF%E7%9B%A3%E7%9D%A3-091848107.html"
+      "title": "FBI Seizes Microscan and FishHub Domains Behind File-Theft Operations",
+      "url": "https://blog.gridinsoft.com/fbi-microscan-fishhub-domains-seized/"
     },
     {
-      "title": "FBI disrupts Chinese hacking tools used to breach critical infrastructure – BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/fbi-disrupts-chinese-hacking-tools-used-to-breach-critical-infrastructure/"
+      "title": "DOJ, FBI seize Flax Typhoon-linked hacking tools Microscan, FishHub",
+      "url": "https://www.hendryadrian.com/doj-fbi-seize-flax-typhoon-linked-hacking-tools-microscan-fishhub/"
     },
     {
-      "title": "US disrupts Chinese hacking tools as 7 govts warn of PRC spies stealing sensitive data worldwide – The Register",
-      "url": "https://www.theregister.com/security/2026/10/08/us-disrupts-chinese-hacking-tools-as-7-govts-warn-of-prc-spies-stealing-sensitive-data-worldwide/5302107"
-    },
-    {
-      "title": "International coalition seizes tools used by cyber firm behind Flax Typhoon – The Record",
-      "url": "https://therecord.media/flax-typhoon-china-tools-integrity-tech-international-takedown"
-    },
-    {
-      "title": "Ransomware attack disrupts Japan's IDCF Cloud, affects 495 clients – SC World",
-      "url": "https://scworld.com/brief/japanese-cloud-provider-idc-frontier-hit-by-ransomware-attack"
-    },
-    {
-      "title": "IDCF Cloud Ransomware Attack Hits 495 Organizations in Japan – thecybersecguru.com",
-      "url": "https://thecybersecguru.com/news/idcf-cloud-ransomware-attack-japan/"
-    },
-    {
-      "title": "Critical Flaw in Multiple Atlassian Products Exploited in the Wild – Infosecurity Magazine",
-      "url": "https://www.infosecurity-magazine.com/news/critical-vulnerability-atlassian/"
-    },
-    {
-      "title": "Exploitation attempts against critical Atlassian flaw have begun (CVE-2026-21589) – Help Net Security",
-      "url": "https://www.helpnetsecurity.com/?p=387226"
-    },
-    {
-      "title": "Atlassian CVE-2026-21589 Exploited Within Two Hours of PoC Details – Daily Security Review",
-      "url": "https://dailysecurityreview.com/?p=44349"
-    },
-    {
-      "title": "CVE-2026-21589 Atlassian Arbitrary File Read Vulnerability – Akamai",
-      "url": "https://www.akamai.com/blog/security-research/cve-2026-21589-atlassian-arbitrary-file-read-vulnerability"
-    },
-    {
-      "title": "Critical FortiMail zero-day exploited in the wild (CVE-2026-104286) – Help Net Security",
+      "title": "Critical FortiMail zero-day exploited in the wild (CVE-2026-104286)",
       "url": "https://www.helpnetsecurity.com/2026/10/02/fortinet-fortimail-vulnerability-cve-2026-104286/"
     },
     {
-      "title": "Exploited Fortinet FortiMail Zero-Day Calls for Urgent Action – SecurityWeek",
-      "url": "https://www.securityweek.com/exploited-fortinet-fortimail-zero-day-calls-for-urgent-action/"
+      "title": "Critical FortiMail Zero-Day Flaw Exploited in Attacks Allows Unauthenticated Arbitrary File Writes",
+      "url": "https://thehackernews.com/2026/10/critical-fortimail-zero-day-flaw.html"
     },
     {
-      "title": "Fortinet warns of critical FortiMail flaw exploited in zero-day attacks – BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-fortimail-flaw-exploited-in-zero-day-attacks/"
+      "title": "BPFDoor and AVERAT Hide Linux Access in Mail-Gateway Traffic",
+      "url": "https://blog.gridinsoft.com/bpfdoor-averat-smtp-mail-gateway/"
     },
     {
-      "title": "Cisco Catalyst SD-WAN Manager Authentication Bypass Vulnerability Exploited in Attacks (CVE-2026-76504) – Qualys",
-      "url": "https://threatprotect.qualys.com/2026/09/30/cisco-catalyst-sd-wan-manager-authentication-bypass-vulnerability-exploited-in-attacks-cve-2026-76504/"
+      "title": "New Stealthy Linux Backdoors Target Telecoms, Masquerade as Email Traffic",
+      "url": "https://www.infosecurity-magazine.com/news/smtp-linux-backdoors-network-edge/"
     },
     {
-      "title": "Cisco SD-WAN Zero-Day CVE-2026-76504: Authentication Bypass Actively Exploited – Aviatrix",
-      "url": "https://aviatrix.ai/threat-research-center/cisco-sd-wan-zero-day-cve-2026-76504-authentication-bypass-exploited/"
+      "title": "微軟《數位防禦報告》出爐：台灣受資安威脅頻率排全球第4、亞太第1，政府機關成最大目標",
+      "url": "https://www.inside.com.tw/article/42562-microsoft-digital-defense-report-2026-taiwan-government"
     },
     {
-      "title": "GhostAction Injects Credential-Stealing GitHub Workflows – letsdatascience.com",
-      "url": "https://letsdatascience.com/news/ghostaction-injects-credential-stealing-github-workflows-95439117"
+      "title": "Android's October 2026 Updates Patch 25 Vulnerabilities",
+      "url": "https://www.securityweek.com/androids-october-2026-updates-patch-25-vulnerabilities/"
     },
     {
-      "title": "GhostAction Returns – Step Security",
-      "url": "https://www.stepsecurity.io/blog/ghostaction-returns"
-    },
-    {
-      "title": "Microsoft Digital Defense Report 2026 – Microsoft",
-      "url": "https://www.microsoft.com/en-us/corporate-responsibility/topics/cybersecurity/reports/microsoft-digital-defense-report/"
-    },
-    {
-      "title": "Microsoft Releases 2026 Digital Defense Report – gadget-innovations.com",
-      "url": "https://www.gadget-innovations.com/2026/10/microsoft-releases-2026-digital-defense.html"
-    },
-    {
-      "title": "This week in security — October 11, 2026 edition – This Week in Security",
-      "url": "https://this.weekinsecurity.com/this-week-in-security-october-11-2026-edition"
-    },
-    {
-      "title": "UAT-11985: AI-assisted event lures delivering real-time Google AitM phishing – Cisco Talos",
-      "url": "https://blog.talosintelligence.com/uat-11985"
-    },
-    {
-      "title": "Known Exploited Vulnerabilities Catalog – CISA",
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
-    },
-    {
-      "title": "Weekly Security Intelligence Briefing - Week of 2026-10-12 – TechJack Solutions",
-      "url": "https://techjacksolutions.com/security/briefing/weekly-security-intelligence-briefing-week-of-2026-10-12/"
+      "title": "台灣逾90家企業遭鎖定：從2026資安事件看企業遠端存取暴露風險",
+      "url": "https://www.ulane.com.tw/blog/taiwan-enterprise-remote-access-exposure-2026.html"
     }
   ]
 }
