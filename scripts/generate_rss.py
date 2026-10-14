@@ -103,14 +103,14 @@ def extract_terms_from_report(report: dict) -> list[dict]:
     # 掃描事件摘要
     for event in report.get("events", []):
         _, linked_terms, new_terms = add_term_links_html(
-            event.get("summary", ""), linked_terms
+            (event.get("summary") or ""), linked_terms
         )
         all_terms.extend(new_terms)
 
     # 掃描漏洞標題
     for vuln in report.get("vulnerabilities", []):
         _, linked_terms, new_terms = add_term_links_html(
-            vuln.get("title", ""), linked_terms
+            (vuln.get("title") or ""), linked_terms
         )
         all_terms.extend(new_terms)
 
@@ -152,7 +152,7 @@ def format_description(report: dict) -> str:
     if top_events:
         lines.append("重點新聞：")
         for event in top_events:
-            title = event.get("title", "")
+            title = (event.get("title") or "")
             # 移除 emoji 並截斷過長標題
             title = title.lstrip(" \u26a1\u2728\u2757\u274c\u2705")
             if len(title) > 60:
@@ -163,7 +163,7 @@ def format_description(report: dict) -> str:
     terms = extract_terms_from_report(report)
     if terms:
         lines.append("")
-        term_names = [t.get("term_en") or t.get("term_zh", "") for t in terms[:5]]
+        term_names = [t.get("term_en") or (t.get("term_zh") or "") for t in terms[:5]]
         lines.append(f"相關術語：{', '.join(term_names)}")
 
     return "\n".join(lines)
@@ -172,7 +172,7 @@ def format_description(report: dict) -> str:
 def generate_report_html(report: dict) -> str:
     """生成單篇週報的 HTML 頁面"""
     title = report.get("title", "資安週報")
-    report_id = report.get("report_id", "")
+    report_id = (report.get("report_id") or "")
     period = report.get("period", {})
     summary = report.get("summary", {})
     events = report.get("events", [])
@@ -196,11 +196,11 @@ def generate_report_html(report: dict) -> str:
     # 生成事件列表 HTML（加入術語連結）
     events_html = ""
     for event in events:
-        event_title = event.get("title", "")
-        event_summary = event.get("summary", "")[:200]
-        event_source = html.escape(event.get("source", ""))
+        event_title = (event.get("title") or "")
+        event_summary = (event.get("summary") or "")[:200]
+        event_source = html.escape((event.get("source") or ""))
         event_url = event.get("url", "#")
-        event_date = event.get("date", "")[:10]
+        event_date = (event.get("date") or "")[:10]
 
         # 為事件摘要加術語連結
         linked_summary, linked_terms, new_terms = add_term_links_html(event_summary, linked_terms)
@@ -217,8 +217,8 @@ def generate_report_html(report: dict) -> str:
     # 生成漏洞列表 HTML（加入術語連結）
     vulns_html = ""
     for vuln in vulnerabilities[:10]:  # 限制顯示 10 個
-        cve_id = html.escape(vuln.get("cve_id", ""))
-        vuln_title = vuln.get("title", "")[:100]
+        cve_id = html.escape((vuln.get("cve_id") or ""))
+        vuln_title = (vuln.get("title") or "")[:100]
         severity = vuln.get("severity", "low")
         cvss = vuln.get("cvss") or 0
 
@@ -247,7 +247,7 @@ def generate_report_html(report: dict) -> str:
     actions_html = ""
     for item in action_items:
         priority = item.get("priority", "low")
-        action = item.get("action", "")
+        action = (item.get("action") or "")
         priority_icons = {"high": "🔴", "medium": "🟡", "low": "🟢"}
         icon = priority_icons.get(priority, "⚪")
 
@@ -271,9 +271,9 @@ def generate_report_html(report: dict) -> str:
         terms_cards = ""
         for term in unique_terms[:10]:  # 最多顯示 10 個術語
             term_url = f"{GLOSSARY_BASE_URL}/{term['id']}"
-            term_en = html.escape(term.get("term_en", ""))
-            term_zh = html.escape(term.get("term_zh", ""))
-            term_def = html.escape(term.get("definition", ""))
+            term_en = html.escape((term.get("term_en") or ""))
+            term_zh = html.escape((term.get("term_zh") or ""))
+            term_def = html.escape((term.get("definition") or ""))
 
             terms_cards += f"""
             <div class="term-card">
@@ -534,8 +534,8 @@ def normalize_report(data: dict, filename_stem: str) -> None:
     # --- title ---
     if "title" not in data:
         period = data.get("period", {})
-        start = period.get("start", "")
-        end = period.get("end", "")
+        start = (period.get("start") or "")
+        end = (period.get("end") or "")
         if start and end:
             data["title"] = f"資安週報 {start} - {end}"
         else:
@@ -546,8 +546,8 @@ def normalize_report(data: dict, filename_stem: str) -> None:
         rp = data.get("report_period", {})
         if rp:
             data["period"] = {
-                "start": rp.get("start_date", ""),
-                "end": rp.get("end_date", ""),
+                "start": (rp.get("start_date") or ""),
+                "end": (rp.get("end_date") or ""),
             }
         else:
             data["period"] = {"start": "", "end": ""}
@@ -594,13 +594,13 @@ def normalize_report(data: dict, filename_stem: str) -> None:
     priority_map = {"critical": "high", "high": "high", "medium": "medium", "low": "low"}
     for item in data.get("action_items", []):
         if "action" not in item:
-            item["action"] = item.get("title", "") or item.get("description", "")
+            item["action"] = (item.get("title") or "") or (item.get("description") or "")
         item["priority"] = priority_map.get(item.get("priority", "low"), item.get("priority", "low"))
 
     # --- normalize events (summary field) ---
     for event in data.get("events", []):
         if "summary" not in event:
-            event["summary"] = event.get("description", "")
+            event["summary"] = (event.get("description") or "")
         if "source" not in event:
             event["source"] = ""
         if "url" not in event:
@@ -638,7 +638,7 @@ def main():
             items.append(data)
 
     # 按發布日期排序（最新在前）
-    items.sort(key=lambda x: x.get("publish_date", ""), reverse=True)
+    items.sort(key=lambda x: (x.get("publish_date") or ""), reverse=True)
 
     # 確保輸出目錄存在
     output_dir.mkdir(parents=True, exist_ok=True)
