@@ -1,0 +1,299 @@
+{
+  "title": "資安週報 2026/10/12 - 2026/10/18",
+  "report_id": "SEC-WEEKLY-2026-42",
+  "period": {
+    "start": "2026-10-12",
+    "end": "2026-10-18"
+  },
+  "publish_date": "2026-10-19",
+  "summary": {
+    "total_events": 7,
+    "total_vulnerabilities": 3,
+    "threat_level": "high"
+  },
+  "events": [
+    {
+      "title": "91APP Commerce Cloud 資料庫遭自動化攻擊，部分消費者個資遭非法擷取，詐騙陷阱已發動（10/16）",
+      "severity": "high",
+      "event_type": "資料外洩",
+      "summary": "10月16日，上櫃電商雲端服務商91APP（6741）公告其 Commerce Cloud 商務平台資料庫遭自動化攻擊，部分資料遭非法擷取，已向警方報案，公司評估對營運無重大影響。數位發展部數位產業署於10月19日到場執行行政檢查，指出部分資料已確認遭未授權擷取，涉及個人資料範圍、受影響消費者及品牌廠商人數仍待調查確認。受影響品牌包括快車肉乾、聯華食品、CAFE!N、摩曼頓、布朗博士、媽媽好、OB嚴選等。事件曝光後隨即出現衍生詐騙：攻擊者利用取得的消費資料發送偽裝成重複訂購或定期購通知的詐騙信件，並附有仿冒 LINE 客服連結。一份廠商說法指出，異常狀況在10月5日即已出現，但91APP直至10月16日才公告，若屬實則顯示偵測與通報存在逾十天的落差，可能觸及個資法72小時通報義務。",
+      "source": "科技新報 / 數位發展部 / CNA / 今周刊",
+      "url": "https://infosecu.technews.tw/2026/10/16/91app-ky-20261016/",
+      "date": "2026-10-16"
+    },
+    {
+      "title": "Zeabur 第二次遭駭：攻擊者讀取逾321萬筆環境變數及32萬筆帳號資料，平台宣布年底停止營運（10/14-15）",
+      "severity": "high",
+      "event_type": "資料外洩",
+      "summary": "台灣雲端部署新創 Zeabur 於10月19日公布調查報告，確認攻擊者於10月14至15日利用8月事件後未完成輪替的管理員憑證，以殘留的雲端存取金鑰入侵共享叢集與專用伺服器，讀取逾321萬筆環境變數及約32萬筆帳號資料。環境變數中可能包含使用者存放的 OpenAI、Anthropic、OpenRouter 等 AI 服務 API 金鑰、資料庫密碼及各類雲端憑證；攻擊資料量較8月首次事件大幅擴大。創辦人林沅霖宣布平台將於2026年底停止營運。此事件揭示兩個關鍵問題：首次資安事件後未完整執行憑證輪替，讓攻擊者以舊憑證發動第二波攻擊；雲端部署平台集中存放大量第三方憑證，一旦遭入侵即構成大規模供應鏈憑證外洩。",
+      "source": "iThome / TEISS / SC World",
+      "url": "https://www.ithome.com.tw/news/179804",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "中國 APT ARMORY CASTLE 自8月起積極利用 BeyondTrust Remote Support 零時差 CVE-2026-102764（CVSS 9.3），CISA KEV 截止10/19（10/15-16）",
+      "severity": "critical",
+      "event_type": "零時差漏洞積極利用",
+      "summary": "10月15日，BeyondTrust 揭露遠端支援設備（Remote Support，原名 Bomgar）的嚴重漏洞 CVE-2026-102764（CVSS 9.3），CISA 於10月16日列入 KEV，聯邦機構修補截止日為10月19日。漏洞根因為內部訊息元件未驗證訊息來源（CWE-290：原點驗證不當），允許未驗證遠端攻擊者觸發設備上的任意檔案操作。Google Mandiant 將利用活動歸因於 ARMORY CASTLE（亦稱 UNC5221、WARP PANDA），一個疑似中國國家支持的網路間諜組織，確認最早利用紀錄可追溯至2026年8月29日——距揭露已長達七週。入侵後手法包括：提升至 root 權限、部署 Webshell、竊取憑證，並系統性刪除系統記錄、Web 伺服器記錄及應用程式記錄以掩蓋蹤跡。SaaS 版本已自動修補，自管部署需手動套用修補程式 BT26-05-RS；24.3.1 之前的舊版本須先升級方能套用修補。BeyondTrust 設備在企業環境中通常持有高權限存取憑證，控制設備即可存取所有受管目標系統，風險遠高於一般邊界設備漏洞。",
+      "source": "Google Mandiant / SOCPrime / BankInfoSecurity / SecurityWeek / OpenVPN Blog",
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/armory-castle-exploits-beyondtrust",
+      "date": "2026-10-15"
+    },
+    {
+      "title": "Microsoft 10月 Patch Tuesday：1,413 個 CVE，Windows Shell 零時差 CVE-2026-96951（CVSS 8.8）積極利用中，CISA KEV 截止10/16（10/14）",
+      "severity": "medium",
+      "event_type": "廠商安全更新",
+      "summary": "10月14日，微軟發布史上單次修補量最大的 Patch Tuesday，涵蓋1,413個CVE，橫跨 Windows、Office、SharePoint、Exchange、SQL Server、Azure 及開發工具。唯一被確認積極利用的零時差漏洞為 CVE-2026-96951，是 Windows Shell 中的安全功能繞過漏洞（CVSS 8.8），允許攻擊者誘使受害者開啟特製檔案或點擊連結，繞過「標記網頁來源」（Mark of the Web, MoTW）保護機制，使下載自網路的惡意文件得以在無 SmartScreen 警告下靜默執行。Rapid7 指出這是2026年第二次 Windows Shell 的在野零時差，CISA 於10月13日列入 KEV，截止日為10月16日。微軟評級為「重要」，但研究人員普遍認為鑑於實際利用情形應升級處理優先度。CVE-2026-108398（.NET Framework WDAC 繞過）亦已在修補前公開揭露，應同步優先修補。",
+      "source": "BleepingComputer / SecurityWeek / Rapid7 / SOCPrime / Admin365.Blog",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1-411-flaws-3-zero-days/",
+      "date": "2026-10-14"
+    },
+    {
+      "title": "Eclipse 勒索軟體集團聲稱攻擊台灣大塚製藥，The Gentlemen 聲稱入侵新北市光學相機 ODM 製造商（10/14）",
+      "severity": "medium",
+      "event_type": "勒索軟體攻擊（暗網聲稱）",
+      "summary": "本週台灣製造及製藥業遭受兩起勒索軟體集團的暗網洩漏站台聲稱攻擊。Eclipse 勒索軟體集團於10月14日聲稱對台灣大塚製藥發動攻擊；The Gentlemen 勒索軟體集團亦在本週（CYFIRMA 10月16日週報）聲稱入侵新北市一家1965年成立、為全球主要數位影像與光學相機 ODM/OEM 製造商。兩起事件均為暗網洩漏站台單方面聲稱，受害企業尚未發出官方確認，影響範圍待查。從趨勢看，Dragos Q2 2026 報告指出製造業占全球工業勒索軟體受害者的65%，台灣與泰國並列亞太受攻擊量最高市場，顯示台灣製造業面對的勒索軟體壓力持續升溫。",
+      "source": "Ransomware.live / CYFIRMA Weekly Intelligence 16 Oct 2026 / Dragos",
+      "url": "https://qpulse.quasarcybertech.com/news/6808/eclipse-ransomware-group-claims-attack-on-taiwan-otsuka-pharmaceutical",
+      "date": "2026-10-14"
+    },
+    {
+      "title": "Qilin / Inc / Settra 勒索軟體集團持續利用 PAN-OS GlobalProtect 驗證繞過 CVE-2026-0257（CVSS 9.8）發動企業網路入侵（Unit 42 10/20 更新）",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "Unit 42 於10月20日更新 CVE-2026-0257 威脅簡報，確認 Qilin（Spikey Scorpius）、Inc（Tarnished Scorpius）及 Settra 三個勒索軟體集團持續積極利用 Palo Alto Networks PAN-OS GlobalProtect 的驗證繞過漏洞（CVSS 9.8）。Help Net Security 確認勒索軟體組織的利用活動自2026年6月起即已開始並延續至今。典型攻擊鏈：利用漏洞建立未授權 VPN 連線→以 AnyDesk、Atera 等 RMM 工具進行內網偵察→RDP/SMB 橫向移動→憑證竊取與資料外洩→部署勒索軟體加密檔案。CISA 早於5月13日將此漏洞列入 KEV，然而持續的利用活動顯示大量 PAN-OS 設備仍未修補或仍可從外部觸及。台灣企業若 GlobalProtect 版本低於修補版且對外開放，應立即視為可能已遭入侵，執行日誌稽核並進行入侵鑑識。",
+      "source": "Unit 42 / Help Net Security / Truesec / SecurityOnline",
+      "url": "https://unit42.paloaltonetworks.com/active-exploitation-of-pan-os-cve-2026-0257/",
+      "date": "2026-10-20"
+    },
+    {
+      "title": "台灣國安局報告：2026年每日平均260萬次網路攻擊，自6月起急增，中國 AI 攻擊工具鎖定學術研究、電信及國防供應鏈（10/21-22）",
+      "severity": "medium",
+      "event_type": "威脅情報",
+      "summary": "台灣國家安全局於10月21至22日向立法院提報，指出2026年前九個月台灣每日平均遭受約260萬次網路攻擊，且自六月以來明顯加劇，主要攻擊活動歸因於中國「網軍」，目標集中於學術與研究機構、電信網路及國防供應鏈，以竊取敏感技術情報為主。特別值得關注的是，報告確認攻擊者已開始使用 AI 驅動工具對政府網站進行自動化漏洞掃描，此趨勢與數位發展部資安署10月21日示警的「新興 AI 攻擊手法加劇」公告相互印證。同期，台灣情報機構記錄超過250萬則不實資訊，時間點恰逢11月地方選舉前，顯示資訊戰與網路攻擊的複合式威脅壓力同步升溫。此報告在量化層面印證了微軟 MDDR 2026（台灣全球第4大攻擊目標）的分析，以及上週 Flax Typhoon 工具被查封後中國 APT 的持續活躍。",
+      "source": "Taipei Times / Hong Kong Free Press / Manila Times / 數位發展部",
+      "url": "https://hongkongfp.com/2026/10/21/taiwan-says-china-cyberattacks-disinformation-up-ahead-of-local-elections/",
+      "date": "2026-10-21"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-102764",
+      "title": "BeyondTrust Remote Support 原點驗證不當（CVSS 9.3，CISA KEV 10/16，中國 APT ARMORY CASTLE 自8月積極利用，截止10/19）",
+      "cvss": 9.3,
+      "severity": "critical",
+      "vendor": "BeyondTrust",
+      "product": "BeyondTrust Remote Support（版本 24.3.1 至 26.2.3；SaaS 版本已自動修補）",
+      "description": "CVE-2026-102764 是 BeyondTrust Remote Support（原 Bomgar）設備內部訊息元件中的原點驗證不當漏洞（CWE-290，CVSS 9.3），允許未驗證遠端攻擊者透過偽造訊息來源觸發設備上的任意檔案操作，無需任何有效憑證。Google Mandiant 歸因給疑似中國國家支持的 APT 組織 ARMORY CASTLE（UNC5221/WARP PANDA），確認攻擊最早始於2026年8月29日；入侵後手法包括提升至 root 權限、植入 Webshell、竊取憑證，並系統性刪除系統記錄、Web 伺服器記錄及應用程式記錄以掩蓋蹤跡。自管部署需手動套用修補程式 BT26-05-RS；24.3.1 之前的版本須先升級至支援版本再套用修補。CISA 於10月16日列入 KEV，聯邦機構截止10月19日。重要性：BeyondTrust 設備通常作為 IT/OT 環境的特權存取跳板，攻擊者控制後可存取所有受管系統，風險遠高於一般邊界設備漏洞。"
+    },
+    {
+      "cve_id": "CVE-2026-96951",
+      "title": "Windows Shell 標記網頁來源安全功能繞過（CVSS 8.8，CISA KEV 10/13，截止10/16，積極利用中）",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Windows 10、Windows 11、Windows Server 2012 R2 至 2025（所有支援版本）",
+      "description": "CVE-2026-96951 是 Windows Shell 中的安全功能繞過漏洞（CVSS 8.8），允許攻擊者誘使受害者開啟特製檔案或點擊連結，繞過「標記網頁來源」（Mark of the Web, MoTW）保護機制。MoTW 是 Windows 用以標記從網路下載之檔案的安全標籤，SmartScreen 及其他防護機制依賴此標籤決定是否觸發安全警告；繞過後，惡意文件或可執行檔得以在無任何安全警告的情況下靜默執行。Rapid7 指出這是2026年第二次 Windows Shell 在野零時差，顯示此攻擊面對攻擊者仍具高度吸引力。CISA 於10月13日列入 KEV，截止10月16日；Microsoft 評級為「重要」，但研究人員普遍建議視實際利用情形提升修補優先度。此次 Patch Tuesday 同時修補 CVE-2026-108398（.NET Framework WDAC 繞過，修補前已公開揭露），兩者應同步優先修補。"
+    },
+    {
+      "cve_id": "CVE-2026-0257",
+      "title": "Palo Alto PAN-OS GlobalProtect 驗證繞過（CVSS 9.8，CISA KEV 5/13，Qilin/Inc/Settra 勒索軟體積極利用中，自6月起持續）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Palo Alto Networks",
+      "product": "PAN-OS GlobalProtect Portal/Gateway（含驗證覆寫 Cookie 及特定憑證設定的所有防火牆；修補版本：12.1.4-h6、12.1.7 及後續版本）",
+      "description": "CVE-2026-0257 是 Palo Alto Networks PAN-OS GlobalProtect 入口網站與閘道的驗證繞過漏洞（CVSS 9.8），成因為特定設定下防火牆對 Cookie 缺乏完整性驗證，允許未驗證遠端攻擊者建立未授權的 VPN 連線。Unit 42 10月20日更新確認，Qilin（Spikey Scorpius）、Inc（Tarnished Scorpius）及 Settra 勒索軟體集團自2026年6月起持續積極利用此漏洞作為企業網路初始存取入口。典型攻擊鏈：漏洞利用建立 VPN 存取→RMM 工具內網偵察→RDP/SMB 橫向移動→憑證竊取與資料外洩→勒索軟體部署。CISA 早於5月13日列入 KEV，但持續利用活動顯示大量設備仍未修補。組織若 GlobalProtect 版本低於修補版且對外開放，應立即視為可能已遭入侵，執行閘道連線日誌稽核（搜尋非預期 IP 的成功連線）並進行入侵鑑識。注意：PAN-OS 10.2 分支的修補資訊存在不一致，不應以 10.2.18 為完全修補的依據，請查閱 Palo Alto 官方公告確認正確版本。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢以「台灣企業接連資料外洩」與「中國 APT 針對高權限存取基礎設施發動長期潛伏間諜行動」為兩條主線。91APP 電商平台資料庫遭自動化攻擊、Zeabur 雲端平台第二次遭駭（321萬筆環境變數外洩），台灣在兩週內發生三起企業資料外洩（加計上週104人力銀行事件），凸顯台灣企業資料庫存取控制與憑證管理普遍存在可利用缺口。在 APT 層面，Google Mandiant 確認中國關聯 ARMORY CASTLE 自8月起針對 BeyondTrust Remote Support 零時差漏洞發動長達七週的間諜行動，目標鎖定特權存取遠端支援設備，延續了上週 Flax Typhoon 工具被查封後的攻擊趨勢——中國 APT 持續以高權限邊界與存取管理設備為優先攻擊入口。勒索軟體方面，Qilin/Inc/Settra 持續利用 PAN-OS CVE-2026-0257 作為 VPN 初始存取入口，Eclipse 及 The Gentlemen 集團於本週鎖定台灣製藥及光學製造業，與 Dragos Q2 2026 台灣製造業受攻擊量居亞太之首的數據一致。微軟 Patch Tuesday 規模達歷史新高（1,413 CVE），配合台灣國安局報告中 AI 自動化漏洞掃描趨勢，顯示各組織的修補反應窗口持續壓縮至數小時以內。",
+    "active_actors": [
+      {
+        "name": "ARMORY CASTLE（UNC5221 / WARP PANDA，疑似中國國家支持）",
+        "type": "國家級威脅行為者（APT）",
+        "activity": "自2026年8月29日起積極利用 BeyondTrust Remote Support CVE-2026-102764 零時差漏洞，以遠端支援設備為樞紐進入受管目標系統，入侵後提升至 root 權限、植入 Webshell、竊取憑證，並系統性刪除記錄檔掩蓋蹤跡。Google Mandiant 追蹤確認此組織與多個中國關聯 APT 別名重疊，攻擊模式以企業特權存取路徑為優先目標，在漏洞揭露前長達七週的利用窗口中維持隱密行動。"
+      },
+      {
+        "name": "Qilin（Spikey Scorpius）/ Inc（Tarnished Scorpius）/ Settra（財務動機勒索軟體集團）",
+        "type": "財務動機威脅行為者（勒索軟體集團）",
+        "activity": "三個勒索軟體集團自2026年6月起持續利用 PAN-OS CVE-2026-0257 取得企業 VPN 初始存取，Unit 42 10月20日更新確認上述三組攻擊者的持續活躍。典型手法為利用 RMM 工具橫向移動後竊取憑證與資料，最終部署勒索軟體，攻擊目標涵蓋製造業、企業等多個產業。"
+      },
+      {
+        "name": "Eclipse / The Gentlemen（財務動機勒索軟體集團）",
+        "type": "財務動機威脅行為者（勒索軟體集團）",
+        "activity": "本週於暗網洩漏站台分別聲稱攻擊台灣大塚製藥（Eclipse，10/14）及新北市主要光學相機 ODM/OEM 製造商（The Gentlemen，10/16週），延續台灣製造業遭多個勒索軟體集團並發鎖定的趨勢。兩起事件均為暗網單方面聲稱，受害企業尚未發出官方確認。"
+      }
+    ],
+    "attack_techniques": [
+      "遠端支援設備特權存取路徑劫持：ARMORY CASTLE 利用 BeyondTrust CVE-2026-102764 控制遠端支援設備，藉設備的高權限管理憑證樞紐進入受管目標系統，實現低噪音長期潛伏的 APT 間諜行動，且在揭露前七週已主動利用",
+      "VPN 邊界設備初始存取後鏈式勒索：Qilin/Inc/Settra 利用 PAN-OS CVE-2026-0257 建立未授權 VPN 連線，以正常流量掩護內網偵察（RMM 工具）→橫向移動（RDP/SMB）→憑證竊取→勒索軟體部署的完整攻擊鏈，自6月持續至今",
+      "標記網頁來源安全功能繞過輔助惡意文件執行：CVE-2026-96951 讓攻擊者藉社交工程誘使受害者開啟特製檔案，繞過 Windows SmartScreen 等 MoTW 依賴機制，使惡意文件靜默執行，為2026年第二次 Windows Shell 在野零時差",
+      "憑證輪替缺失導致多波次攻擊升級：Zeabur 事件呈現首次資安事件後未完整執行憑證輪替，攻擊者以殘留舊憑證在七週後發動規模更大的第二波攻擊，此次外洩資料量（321萬筆）遠超首次，平台最終宣布停止營運",
+      "AI 自動化漏洞掃描壓縮修補窗口：台灣國安局及數位發展部均確認攻擊者已廣泛使用 AI 驅動工具進行自動化漏洞掃描，配合本週 Patch Tuesday 史上最大規模的1,413個 CVE 修補，組織的有效修補窗口已從數週壓縮至數小時"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即修補 BeyondTrust Remote Support CVE-2026-102764（CVSS 9.3，CISA KEV，中國 APT 利用）並啟動應急鑑識：（1）自管 Remote Support 設備立即套用修補程式 BT26-05-RS；24.3.1 之前的版本須先升級至支援版本再套用修補；（2）稽核設備管理記錄，搜尋2026年8月29日後的異常檔案操作、非預期特權提升、外部 IP 存取及記錄檔缺口（攻擊者系統性刪除記錄，記錄缺口本身即為入侵指標）；（3）確認是否有 Webshell 被植入設備文件根目錄或管理介面目錄；（4）稽核透過 BeyondTrust 設備管理的所有受管系統的管理員帳號，搜尋8月29日後建立的非預期帳號；（5）SaaS 版本已自動修補，但仍應稽核同期存取記錄；（6）聯絡 BeyondTrust 取得官方入侵指標（IoC）清單，配合內部端點偵測工具進行全面掃描。"
+    },
+    {
+      "priority": "high",
+      "action": "緊急部署 Microsoft 10月 Patch Tuesday，優先修補 CVE-2026-96951（Windows Shell MoTW 繞過，CVSS 8.8，CISA KEV 截止10/16）及 CVE-2026-108398（.NET WDAC 繞過，修補前已公開）：（1）立即核查所有 Windows 10、Windows 11 及 Windows Server 2012 R2 至 2025 設備，確認已套用2026年10月安全更新；（2）CVE-2026-96951 的 CISA 截止日（10/16）已過，若仍未修補應最高優先處理；（3）稽核端點安全工具的事件記錄，確認修補前是否有 MoTW 相關異常事件；（4）CVE-2026-108398（.NET Framework WDAC 繞過）因在修補前即已公開，攻擊者有更多準備時間，應同步確認修補；（5）1,413 個 CVE 中，優先處理涉及 RCE、驗證繞過及已公開 PoC 的漏洞，管理主控台不應暴露於公開網路。"
+    },
+    {
+      "priority": "high",
+      "action": "確認 PAN-OS GlobalProtect CVE-2026-0257 修補狀態，並稽核是否已遭 Qilin/Inc/Settra 勒索軟體入侵：（1）核查所有 PAN-OS 防火牆版本，確認已升級至12.1.4-h6、12.1.7或更高（10.2 分支文件存在不一致，請直接查閱 Palo Alto 官方公告確認正確修補版本）；（2）稽核 GlobalProtect 閘道連線記錄，搜尋自2026年6月至今來自非預期 IP 的成功認證連線（攻擊建立的是正常 VPN 連線，傳統防火牆規則不會阻擋）；（3）核查修補前期間是否有大量資料從內網伺服器向外傳出（勒索軟體部署前通常先進行大量資料外洩）；（4）確認端點偵測回應（EDR）工具是否有偵測到 AnyDesk、Atera 等 RMM 工具在非預期設備上執行；（5）若無 EDR 覆蓋，應進行網路流量分析，搜尋 SMB/RDP 橫向移動特徵；（6）未修補設備應立即暫停對外開放 GlobalProtect 服務直至完成升級。"
+    },
+    {
+      "priority": "high",
+      "action": "Zeabur 曾用戶立即作廢所有存放於平台的憑證並稽核異常使用：（1）立即撤銷並重新產生在 Zeabur 存放過的所有 API 金鑰，包含 OpenAI、Anthropic、OpenRouter、Hugging Face 等 AI 服務，及 AWS、GCP、Azure、Cloudflare 等雲端平台憑證；（2）稽核 AI 服務提供商的帳單與用量，確認無非預期 API 呼叫或費用暴增；（3）作廢在 Zeabur 存放的資料庫連線字串，立即輪替相關資料庫密碼；（4）若無法確認平台上存放了哪些憑證，應假設「所有曾以環境變數部署在 Zeabur 的憑證均已外洩」，採保守策略全面輪替；（5）未來應避免在雲端平台的環境變數中存放高權限憑證，改採秘密管理服務（如 AWS Secrets Manager、HashiCorp Vault）並設定最小權限原則。"
+    },
+    {
+      "priority": "high",
+      "action": "91APP Commerce Cloud 品牌廠商因應資料外洩及詐騙風險：（1）立即向 91APP 確認本品牌消費者資料是否受波及，並依個人資料保護法評估通報義務（若確認外洩應於72小時內向主管機關通報）；（2）透過官方管道通知消費者識別詐騙：任何聲稱來自本品牌的退款、定期購或重複訂購通知，要求點擊連結或提供個人資料者均應高度懷疑；（3）稽核自2026年10月5日起的 Commerce Cloud 存取記錄（廠商說法指異常在5日已出現），評估是否有其他資料遭存取；（4）確認 Commerce Cloud 介面帳號是否啟用多因素驗證，若未啟用應立即強制啟用；（5）監控165反詐騙諮詢專線的相關投訴，追蹤詐騙信件活動規模。"
+    },
+    {
+      "priority": "medium",
+      "action": "台灣製造業因應勒索軟體威脅，稽核攻擊面與備份策略：（1）核查工廠 OT/IT 隔離措施是否妥當，確認工業控制系統（ICS）與企業 IT 網路有效隔離，防止勒索軟體橫向移動至生產線；（2）稽核所有對外暴露的 VPN 及遠端存取入口（包含 PAN-OS GlobalProtect、Fortinet SSL-VPN 等）的修補狀態及對外可達性；（3）確認備份符合3-2-1原則（三份備份、兩種媒體、一份離線），並定期測試從備份還原的實際可行性；（4）確認端點偵測回應（EDR）覆蓋率達100%，尤其是工廠管理用 Windows 工作站；（5）訂閱暗網洩漏站台監控服務，或委託資安廠商監控台灣企業相關的暗網討論，以提前掌握潛在入侵訊號。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "標記網頁來源（Mark of the Web, MoTW）",
+      "definition": "Windows 用以標記從網路下載之檔案的安全標籤（NTFS Zone.Identifier），SmartScreen 及其他防護機制依賴此標籤決定是否觸發安全警告；繞過後惡意文件可在無警告的情況下靜默執行",
+      "url": "https://glossary.astroicers.link/glossary/mark_of_the_web"
+    },
+    {
+      "term": "原點驗證不當（Improper Origin Validation, CWE-290）",
+      "definition": "軟體在接受訊息或請求時，未充分驗證其來源是否合法，允許攻擊者偽造來源以繞過授權控制，進而執行未授權操作，BeyondTrust CVE-2026-102764 即屬此類",
+      "url": "https://glossary.astroicers.link/glossary/improper_origin_validation"
+    },
+    {
+      "term": "環境變數（Environment Variable）",
+      "definition": "作業系統或容器中用於傳遞設定值（如 API 金鑰、資料庫密碼）給應用程式的鍵值對，常以明文存放於部署平台，外洩即等同於憑證外洩",
+      "url": "https://glossary.astroicers.link/glossary/environment_variable"
+    },
+    {
+      "term": "遠端支援設備（Remote Support Appliance）",
+      "definition": "提供IT支援人員遠端存取並控制端點的企業設備（如 BeyondTrust Remote Support），通常持有高權限管理憑證，攻擊者控制後可藉此進入所有受管系統，為高價值 APT 攻擊目標",
+      "url": "https://glossary.astroicers.link/glossary/remote_support_appliance"
+    },
+    {
+      "term": "橫向移動（Lateral Movement）",
+      "definition": "攻擊者在取得初始存取後，在目標網路內部逐步擴散至更多系統的攻擊技術，常用手法包括 Pass-the-Hash、RDP 遠端桌面及 SMB 共享，是勒索軟體攻擊部署前的必要步驟",
+      "url": "https://glossary.astroicers.link/glossary/lateral_movement"
+    },
+    {
+      "term": "暗網洩漏站台（Dark Web Leak Site）",
+      "definition": "勒索軟體集團在暗網（Tor 網路）架設的公開平台，用於恐嚇受害組織：若拒絕支付贖金則逐步公開竊取的機密資料，同時作為宣傳攻擊成果的管道；聲稱不等同受害方確認",
+      "url": "https://glossary.astroicers.link/glossary/dark_web_leak_site"
+    }
+  ],
+  "references": [
+    {
+      "title": "91APP遭駭！電商平台資料庫遭攻擊 部分資訊遭非法擷取 – 科技新報",
+      "url": "https://infosecu.technews.tw/2026/10/16/91app-ky-20261016/"
+    },
+    {
+      "title": "91APP資料庫遭未授權存取 數發部：釐清個資影響範圍 – CNA",
+      "url": "https://www.cna.com.tw/news/afe/202610200334.aspx"
+    },
+    {
+      "title": "91APP爆資安事件！Commerce Cloud資料庫遭攻擊 部分資訊遭非法擷取 – Yahoo 新聞",
+      "url": "https://tw.news.yahoo.com/91app%E7%88%86%E8%B3%87%E5%AE%89%E4%BA%8B%E4%BB%B6-commerce-cloud%E8%B3%87%E6%96%99%E5%BA%AB%E9%81%AD%E6%94%BB%E6%93%8A-%E9%83%A8%E5%88%86%E8%B3%87%E8%A8%8A%E9%81%AD%E9%9D%9E%E6%B3%95%E6%93%B7%E5%8F%96-044648493.html"
+    },
+    {
+      "title": "Zeabur再遭駭後公布調查結果，攻擊者讀取逾321萬筆環境變數 – iThome",
+      "url": "https://www.ithome.com.tw/news/179804"
+    },
+    {
+      "title": "Zeabur says leaked plaintext credentials exposed 321,810 accounts, announces shutdown – TEISS",
+      "url": "https://teiss.co.uk/news/zeabur-says-leaked-plaintext-credentials-exposed-321810-accounts-announces-shutdown-18337"
+    },
+    {
+      "title": "Zeabur to shut down following major security breach – SC World",
+      "url": "https://scworld.com/brief/zeabur-to-shut-down-following-major-security-breach"
+    },
+    {
+      "title": "ARMORY CASTLE Exploits BeyondTrust – Google Mandiant",
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/armory-castle-exploits-beyondtrust"
+    },
+    {
+      "title": "BeyondTrust Remote Support Zero-Day CVE-2026-102764 Exploited Since August by China-Nexus APT – OpenVPN Blog",
+      "url": "https://blog.openvpn.net/beyondtrust-remote-support-zero-day-cve-2026-102764-exploited-since-august-by-china-nexus-apt"
+    },
+    {
+      "title": "Chinese APT Exploited BeyondTrust Vulnerability as Zero-Day – SecurityWeek",
+      "url": "https://www.securityweek.com/chinese-apt-exploited-beyondtrust-vulnerability-as-zero-day/"
+    },
+    {
+      "title": "CVE-2026-102764: BeyondTrust Zero-Day Exploited – SOCRadar",
+      "url": "https://socradar.io/blog/cve-2026-102764-beyondtrust-zero-day/"
+    },
+    {
+      "title": "Zero-Day in BeyondTrust Remote Support Appliances Exploited – BankInfoSecurity",
+      "url": "https://www.bankinfosecurity.com/zero-day-in-beyondtrust-remote-support-appliances-exploited-a-33129"
+    },
+    {
+      "title": "Microsoft Patch Tuesday October 2026 fixes 1,411 flaws, 3 zero-days – BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1-411-flaws-3-zero-days/"
+    },
+    {
+      "title": "Microsoft Patches Record 1,413 Vulnerabilities, Including Exploited Windows Zero-Day – SecurityWeek",
+      "url": "https://www.securityweek.com/microsoft-patches-record-1413-vulnerabilities-including-exploited-windows-zero-day/"
+    },
+    {
+      "title": "CVE-2026-96951: Actively Exploited Windows Shell Zero-Day Bypasses Mark of the Web – SOCPrime",
+      "url": "https://socprime.com/blog/cve-2026-96951-analysis/"
+    },
+    {
+      "title": "Patch Tuesday - October 2026 – Rapid7",
+      "url": "https://www.rapid7.com/blog/post/em-patch-tuesday-october-2026/"
+    },
+    {
+      "title": "Eclipse Ransomware Group Claims Attack on Taiwan Otsuka Pharmaceutical – Quasar Cyber Tech",
+      "url": "https://qpulse.quasarcybertech.com/news/6808/eclipse-ransomware-group-claims-attack-on-taiwan-otsuka-pharmaceutical"
+    },
+    {
+      "title": "Weekly Intelligence Report - 16 Oct 2026 – CYFIRMA",
+      "url": "https://www.cyfirma.com/news/weekly-intelligence-report-16-oct-2026/"
+    },
+    {
+      "title": "Threat Brief: Active Exploitation of PAN-OS CVE-2026-0257 (Updated October 20) – Unit 42",
+      "url": "https://unit42.paloaltonetworks.com/active-exploitation-of-pan-os-cve-2026-0257/"
+    },
+    {
+      "title": "Ransomware gangs have been exploiting Palo Alto GlobalProtect VPN flaw since June – Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/10/21/ransomware-groups-exploit-palo-alto-globalprotect-cve-2026-0257/"
+    },
+    {
+      "title": "Qilin, Inc and Settra Ransomware Gangs Exploit PAN-OS Flaw CVE-2026-0257 for VPN Access – SecurityOnline",
+      "url": "https://securityonline.info/cve-2026-0257-globalprotect-ransomware/"
+    },
+    {
+      "title": "Taiwan says China cyberattacks, disinformation up ahead of local elections – Hong Kong Free Press",
+      "url": "https://hongkongfp.com/2026/10/21/taiwan-says-china-cyberattacks-disinformation-up-ahead-of-local-elections/"
+    },
+    {
+      "title": "Chinese cyberattacks, disinfo rise ahead of Taiwan polls – Manila Times",
+      "url": "https://www.manilatimes.net/2026/10/22/world/asia-oceania/chinese-cyberattacks-disinfo-rise-ahead-of-taiwan-polls/2450796"
+    },
+    {
+      "title": "CISA Urges Patching Critical Vulnerability in BeyondTrust Remote Support – CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/16/cisa-urges-patching-critical-vulnerability-beyondtrust-remote-support"
+    },
+    {
+      "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog (Oct 14) – CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/14/cisa-adds-four-known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "Known Exploited Vulnerabilities Catalog – CISA",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "Industrial Ransomware Analysis for Q2 2026 – Dragos",
+      "url": "https://www.dragos.com/blog/dragos-industrial-ransomware-analysis-q2-2026/"
+    }
+  ]
+}
