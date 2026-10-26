@@ -1,0 +1,296 @@
+{
+  "title": "資安週報 2026/10/19 - 2026/10/25",
+  "report_id": "SEC-WEEKLY-2026-43",
+  "period": {
+    "start": "2026-10-19",
+    "end": "2026-10-25"
+  },
+  "publish_date": "2026-10-26",
+  "summary": {
+    "total_events": 6,
+    "total_vulnerabilities": 5,
+    "threat_level": "high"
+  },
+  "events": [
+    {
+      "title": "Zeabur二度遭駭，322萬筆環境變數外洩，明文存放憑證、年底宣告停止營運（10/14-19）",
+      "severity": "high",
+      "event_type": "資料外洩",
+      "summary": "台灣雲端部署平台 Zeabur 於10月19日公布初步調查報告，攻擊者在10月14日至15日（UTC）利用外洩的內部憑證，入侵共享叢集、部分專用伺服器及內部管理系統。外洩規模達322萬筆環境變數及32萬1,810筆帳號資料，其中包含開發者存放的 AI 服務 API 金鑰（OpenAI、Anthropic 等）、資料庫連線字串及第三方服務憑證。Zeabur 承認一組建立於 2024 年的叢集管理權杖從未輪換，且以明文存放於系統中，係本次事件的關鍵弱點。這是 Zeabur 兩個月內第二度遭駭，公司已於同日宣布平台將在 2026年12月31日停止所有服務，並建議仍在使用的開發者立即更換所有存放於平台的金鑰與憑證。外洩的環境變數若含 AWS/GCP 憑證或 CI/CD Token，攻擊者可進一步橫向擴散至下游雲端環境。曾使用 Zeabur 部署服務的台灣企業應立即盤點並輪換所有相關憑證。",
+      "source": "iThome 資安週報 / 資安人 / 數位時代 / Yahoo 奇摩新聞",
+      "url": "https://n.yam.com/Article/20261024251406",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "91APP調查更新：ARTEX AI自動化工具從Appsmith入侵、透過GitLab取得金鑰，訂單資料庫遭非法存取（10/22）",
+      "severity": "high",
+      "event_type": "資料外洩",
+      "summary": "91APP 於10月22日公布階段調查報告，確認攻擊者於10月3日11時利用 ARTEX（一款 AI 自動化滲透工具）對 Commerce Cloud 訂單資料庫發動攻擊，入侵在10月14日被阻斷，前後持續超過11天。根據調查，攻擊者先利用未及時更新的內部工具 Appsmith 的已知漏洞取得內網存取，再從 GitLab 讀取明文存放的資料庫憑證，進而直接讀取訂單資料庫。外洩資料為訂單資訊，不含信用卡或支付工具資料。滿心（股票代號2916）等多家使用 91APP 平台的品牌客戶陸續發布重大訊息，部分消費者已收到冒用品牌名義的釣魚詐騙信件。數位發展部已於10月19日前往 91APP 總部進行行政檢查，評估是否符合個人資料保護法相關規定。此事件揭示「內部工具未及時修補」與「金鑰以明文存放於 GitLab」的雙重管理漏洞，是台灣企業數位供應鏈中常見的高風險組合。",
+      "source": "iThome 資安週報 / 聯合報 / 今周刊 / 中央社財經訊息平台",
+      "url": "https://udn.com/news/story/7240/9831937",
+      "date": "2026-10-22"
+    },
+    {
+      "title": "PHP2Shell（CVE-2026-109618/CVE-2026-109619）修補後48小時內逾千次攻擊嘗試，mod_php部署風險最高（10/21）",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "PHP 開發團隊於10月21日緊急發布 8.5.12、8.4.27、8.3.36、8.2.35，修補兩個被命名為「PHP2Shell」的核心引擎 RCE 漏洞（CVE-2026-109618 及 CVE-2026-109619，均為 CVSS v4.0 9.2）。CVE-2026-109618 源自 PHP 引擎處理 CGI/FastCGI 請求的狀態機缺陷，CVE-2026-109619 則涉及 session 上傳進度功能（session.upload_progress）中的競爭條件，兩者均可讓未驗證的攻擊者在伺服器上執行任意程式碼。Amazon Threat Intelligence 指出最早的利用嘗試出現在10月17日，即修補發布前四天。Zscaler 統計顯示，補丁發布後48小時內已記錄到來自156個獨特攻擊IP的1,156次利用嘗試，共針對70個組織。使用 Apache mod_php 架構的部署受影響最嚴重，watchTowr 已確認 CVE-2026-109619 在部分已更新至 8.2.35 的主機上仍存在透過 session.upload_progress 的繞過路徑。台灣有大量網站使用 PHP，企業應立即升級並同步停用 session.upload_progress 功能（將 php.ini 設定為 session.upload_progress.enabled = 0）。台灣金管會已因應本事件啟動3項措施，資安署也提醒政府網站儘速修補。",
+      "source": "Zscaler / watchTowr / Help Net Security / SOCRadar / BleepingComputer",
+      "url": "https://watchtowr.com/intelligence/php-remote-code-execution-php2shell/",
+      "date": "2026-10-21"
+    },
+    {
+      "title": "BRONZE SANDCASTLE濫用Sandboxie DLL側載部署後門、竊取AD資料庫，台灣與菲律賓等多國組織受害（10/21）",
+      "severity": "high",
+      "event_type": "國家級網路攻擊",
+      "summary": "Sophos CTU 與 SophosLabs 於10月21日發布研究報告，揭露疑似中國背景的威脅行為者 BRONZE SANDCASTLE 自2025年8月至2026年8月間的攻擊活動。該組織以 DLL 側載手法為核心：攻擊者將合法的 Sandboxie 執行檔與惡意 DLL 放置於同一目錄，程式在執行時自動載入惡意 DLL，達到無檔案特徵的後門部署。除 Sandboxie 外，攻擊者亦濫用 Java、Krita 繪圖軟體、NVDA 螢幕閱讀器、LINE 及 Sysinternals 工具執行相同手法。最終有效載荷為修改版 Meterpreter 後門，部分入侵案例中攻擊者進一步建立磁碟區陰影複製並複製 ntds.dit（Active Directory 資料庫），可讓攻擊者離線暴力破解所有網域帳號密碼雜湊值。受害組織涵蓋台灣、菲律賓、阿富汗、納米比亞及疑似的南韓。Sophos 指出攻擊者最活躍時段集中在 UTC+8 時區（符合北京工作時間），但歸因仍屬推測。台灣企業應透過EDR工具稽核是否有 Sandboxie、Krita 或 NVDA 在非預期路徑被執行的記錄，並確認 Active Directory 備份存於隔離環境。",
+      "source": "Sophos CTU / The Hacker News / GBHackers / Hackread / Cyberpress",
+      "url": "https://thehackernews.com/2026/10/china-aligned-bronze-sandcastle-abuses.html",
+      "date": "2026-10-21"
+    },
+    {
+      "title": "BeyondTrust Remote Support CVE-2026-102764零時差：中國關聯APT「ARMORY CASTLE」自8月起利用，CISA KEV 10/16（10/16）",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "BeyondTrust 於10月16日對外披露並發布修補，其 Remote Support 產品存在 CVE-2026-102764（CVSS v4.0 9.3），為驗證繞過漏洞（CWE-290，透過偽造消息來源繞過驗證），源自內部訊息處理元件對消息來源的驗證不足。未驗證攻擊者可對受影響設備執行任意檔案操作，包含任意檔案上傳。CISA 同日將其列入 KEV 目錄。Mandiant 將攻擊者歸因至 ARMORY CASTLE（疑似中國背景APT組織），分析指出攻擊自2026年8月下旬即已開始，惡意行動包含部署 Webshell、進行 root 提權及刪除稽核記錄以消除痕跡。BeyondTrust Remote Support 設備通常持有企業內大量遠端支援連線的最高權限憑證，一旦遭攻擊者控制，等同取得所有受管理端點的存取能力。受影響版本為 26.2.3 及更早版本，SaaS 版本已於10月8日完成修補，自管部署用戶須手動套用 BT26-05-RS 修補程式；版本早於 24.3.1 者須先升級至 24.3.1 以上才可套用修補。",
+      "source": "BleepingComputer / CISA / Mandiant / SOCRadar / Greenbone",
+      "url": "https://www.bleepingcomputer.com/news/security/beyondtrust-patches-zero-day-exploited-in-attacks-since-august/",
+      "date": "2026-10-16"
+    },
+    {
+      "title": "Ivanti Connect Secure零時差CVE-2026-104935：攻擊者鎖定憑證竊取與偵查，配套提權漏洞仍未修補（10/13）",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "Ivanti 於10月13日披露 Connect Secure 的零時差漏洞 CVE-2026-104935（CVSS 8.6），為未驗證命令執行漏洞，CISA 同日列入 KEV 目錄並要求聯邦機構10月16日前修補。Volexity 追蹤攻擊者為 UTA0576，分析顯示攻擊者刻意避免部署惡意程式或 Webshell，以規避 Ivanti 完整性檢查工具（Integrity Checker Tool）的偵測，改以憑證竊取與網路偵查為主要目標。更值得警惕的是，攻擊者在觀察到的入侵案例中同時串連另一個尚未公開修補的本地提權漏洞以達到 root 權限，Ivanti 表示該提權漏洞的修補程式預計數週內發布。受影響版本為 22.8R2.4 及更早版本、25.1.2.2 及更早版本，修補版本包含 22.8R2.5、25.1.1.2、25.1.3.0/25.1.3.1。企業在完成修補後應配合執行全面的鑑識掃描——鑑於攻擊者主動規避完整性工具，單純依賴 Ivanti ICS 內建掃描器可能無法偵測所有入侵跡象，建議輔以網路流量分析。",
+      "source": "Ivanti / Volexity / BleepingComputer / CISA / MSSPAlert",
+      "url": "https://www.bleepingcomputer.com/news/security/ivanti-warns-of-connect-secure-zero-day-exploited-in-attacks/",
+      "date": "2026-10-13"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-109618 / CVE-2026-109619",
+      "title": "PHP2Shell PHP引擎雙重RCE（CVSS 9.2，修補前已遭利用，配套繞過路徑仍存在）",
+      "cvss": 9.2,
+      "severity": "critical",
+      "vendor": "PHP",
+      "product": "PHP 8.2.x < 8.2.35、8.3.x < 8.3.36、8.4.x < 8.4.27、8.5.x < 8.5.12（8.1及更早版本已EOL，需設定緩解）",
+      "description": "CVE-2026-109618 及 CVE-2026-109619 是 PHP 核心引擎的兩個遠端程式碼執行漏洞（CVSS v4.0 均為 9.2），統稱「PHP2Shell」。CVE-2026-109618 源自 CGI/FastCGI 請求處理的狀態機邏輯缺陷，允許未驗證攻擊者透過特製請求執行任意伺服器端程式碼。CVE-2026-109619 涉及 session 上傳進度功能（session.upload_progress）中的競爭條件，攻擊者可藉此上傳並執行惡意 PHP 代碼片段。兩個漏洞均已有修補前的實際利用記錄（最早利用嘗試出現於10月17日），修補後48小時內 Zscaler 記錄到156個攻擊IP的1,156次嘗試。mod_php 架構的 Apache 部署面臨最高風險。研究人員（Abstract Security）發現即便升級至 8.2.35，透過 session.upload_progress 路徑的攻擊仍在特定設定下可行，建議同步停用該功能（session.upload_progress.enabled = 0）。PHP 8.1 及更早版本已達 EOL，無官方修補，須套用組態緩解並盡快升級。"
+    },
+    {
+      "cve_id": "CVE-2026-102764",
+      "title": "BeyondTrust Remote Support驗證繞過零時差（CVSS 9.3，中國APT自8月積極利用，CISA KEV 10/16）",
+      "cvss": 9.3,
+      "severity": "critical",
+      "vendor": "BeyondTrust",
+      "product": "BeyondTrust Remote Support 26.2.3及更早版本（SaaS已自動修補，自管部署需套用BT26-05-RS）",
+      "description": "CVE-2026-102764 是 BeyondTrust Remote Support 內部訊息處理元件的驗證繞過漏洞（CWE-290，CVSS v4.0 9.3），源自對訊息來源驗證不足。未驗證的遠端攻擊者可發送偽造的內部訊息，繞過驗證機制並對設備執行任意檔案操作（含檔案上傳）。Mandiant 將攻擊者歸因為 ARMORY CASTLE（疑似中國APT），自2026年8月下旬即開始零時差利用。已確認的後滲透活動包含 Webshell 部署、root 提權及刪除稽核日誌。BeyondTrust Remote Support 設備通常擁有企業內所有遠端支援端點的管理權限，一旦遭控制等同全面淪陷。CISA 於10月16日列入 KEV，聯邦機構修補截止日為10月16日。SaaS 版本已於10月8日修補；自管版本需套用 BT26-05-RS，版本早於 24.3.1 需先升版。"
+    },
+    {
+      "cve_id": "CVE-2026-104935",
+      "title": "Ivanti Connect Secure未驗證命令執行零時差（CVSS 8.6，配套提權漏洞仍未修補，CISA KEV 10/13）",
+      "cvss": 8.6,
+      "severity": "high",
+      "vendor": "Ivanti",
+      "product": "Ivanti Connect Secure 22.8R2.4及更早版本、25.1.2.2及更早版本（修補版本：22.8R2.5、25.1.1.2、25.1.3.0/25.1.3.1）",
+      "description": "CVE-2026-104935 是 Ivanti Connect Secure 的未驗證命令執行零時差漏洞（CVSS 8.6），披露時已有針對少數客戶的積極利用。CISA 於10月13日同步列入 KEV，要求聯邦機構10月16日前修補。Volexity 追蹤攻擊行動為 UTA0576，特點是刻意不部署惡意程式或 Webshell，以規避 Ivanti 完整性檢查工具偵測，攻擊目標集中在憑證竊取與網路偵查。攻擊者同時串連一個尚未公開修補的本地提權漏洞達到 root 存取，Ivanti 預計數週內發布修補。此情況意味著即使套用 CVE-2026-104935 的補丁，攻擊者若已取得初始存取，仍可利用提權漏洞維持 root 權限。建議修補後輔以網路流量分析執行完整鑑識，而非單純依賴 Ivanti ICS 內建掃描器。"
+    },
+    {
+      "cve_id": "CVE-2026-97229",
+      "title": "GitLab CI/CD引擎整數溢位RCE（CVSS 10.0，無需驗證，自管部署需立即更新）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "GitLab",
+      "product": "GitLab Community及Enterprise Edition自管部署 18.1至19.4.1（修補版本：19.2.8、19.3.5、19.4.2；GitLab.com及Dedicated已自動修補）",
+      "description": "CVE-2026-97229 是 GitLab CI/CD 正規表達式編譯器（Regular Expression Compiler）中的整數溢位漏洞（CWE-190，CVSS 10.0）。攻擊者可在 CI/CD 配置中植入特製正規表達式，觸發整數溢位並在伺服器上執行任意程式碼，無需任何帳號或驗證。CVSS 向量為 AV:N/AC:L/PR:N/UI:N，代表遠端、低複雜度、無需權限、無需使用者互動。GitLab 於10月12日發布修補版本 19.2.8、19.3.4（後更新為19.3.5）及 19.4.2，GitLab.com 及 GitLab Dedicated 已自動修補，僅自管部署受影響。截至本報告發布時尚無確認的積極利用案例，但 CVSS 10.0 的評級與無需驗證的利用條件使其成為高優先修補目標——任何能提交 .gitlab-ci.yml 的攻擊者（含公開專案的任何人）均可觸發此漏洞。"
+    },
+    {
+      "cve_id": "CVE-2026-96951",
+      "title": "Windows Shell Mark of the Web繞過零時差（CVSS 8.8，Patch Tuesday 10/13，CISA KEV 10/13）",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Windows（多版本，含 Windows 10/11 及 Windows Server；詳見 Microsoft 安全更新指南）",
+      "description": "CVE-2026-96951 是 Windows Shell 中 Mark of the Web（MotW）安全功能的繞過零時差漏洞（CVSS 8.8），Microsoft 在10月13日的 Patch Tuesday 中發布修補（本次共修補1,413個 CVE，史上最大規模單次更新）。MotW 是 Windows 對從網際網路下載的檔案附加「Zone.Identifier」屬性的機制，用於觸發 SmartScreen 及 Office 受保護模式等安全警告。攻擊者可利用此漏洞製作繞過 MotW 標記的惡意檔案，讓受害者開啟時不出現安全警告，常見於魚叉式網路釣魚攻擊的初始存取階段。CISA 同日列入 KEV，聯邦機構修補截止日為10月16日。這是 2026 年第三個在修補前即遭野外利用的 Windows Shell 零時差漏洞，顯示攻擊者持續以 MotW 繞過手法作為初始存取策略。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢以「台灣雲端平台憑證管理失當引發的連鎖外洩」與「多個遠端存取基礎設施零時差遭APT利用」為兩條主線。Zeabur 與 91APP 事件相隔不到一週接連曝光，揭示台灣企業在「內部工具未及時修補」、「金鑰明文存放於 GitLab/版本控制」與「雲端憑證長期未輪換」三大面向存在系統性弱點；更值得警惕的是，Zeabur 案例中竊得的 AI API 金鑰（OpenAI、Anthropic 等）可被直接用於後續 AI 輔助攻擊，形成惡意迴路。基礎設施安全方面，Ivanti Connect Secure（CVE-2026-104935）與 BeyondTrust Remote Support（CVE-2026-102764）兩個遠端存取設備的零時差漏洞均已遭 APT 組織積極利用，Ivanti 案例更有配套提權漏洞尚未修補，使修補後仍存在殘存風險；BeyondTrust 則由疑似中國 APT ARMORY CASTLE 自8月潛伏至今，顯示 APT 組織長期將遠端支援平台作為高價值攻擊目標。PHP2Shell（CVE-2026-109618/CVE-2026-109619）是本週全球影響範圍最廣的漏洞，修補後短時間內出現的大規模掃描攻擊顯示攻擊者反應速度與自動化程度持續提升，台灣金融業與政府機關的應對速度值得關注。BRONZE SANDCASTLE 的研究報告則提醒台灣企業，中國背景 APT 組織針對本地的攻擊手法已演進至利用合法且廣泛使用的商業軟體執行 DLL 側載，傳統基於特徵碼的偵測難以應對。",
+    "active_actors": [
+      {
+        "name": "ARMORY CASTLE（疑似中國背景APT）",
+        "type": "國家級威脅行為者（APT）",
+        "activity": "Mandiant 歸因 ARMORY CASTLE 自2026年8月下旬即開始零時差利用 BeyondTrust Remote Support CVE-2026-102764，後滲透活動包含 Webshell 部署、root 提權及刪除稽核日誌。BeyondTrust 設備持有大量企業遠端支援憑證，一旦淪陷等同企業全面遭控。CISA 於10月16日將此 CVE 列入 KEV。"
+      },
+      {
+        "name": "UTA0576（Ivanti Connect Secure攻擊者）",
+        "type": "國家級威脅行為者（APT，可能）",
+        "activity": "Volexity 追蹤的攻擊行動 UTA0576 利用 Ivanti Connect Secure CVE-2026-104935 零時差，以規避完整性檢查工具的手法執行憑證竊取與網路偵查，同時串連未公開修補的提權漏洞達到 root 存取。攻擊者身份及背景尚未公開歸因，但其操作安全意識高，顯示具備一定能力的 APT 特徵。"
+      },
+      {
+        "name": "BRONZE SANDCASTLE（疑似中國背景APT）",
+        "type": "國家級威脅行為者（APT，網路間諜）",
+        "activity": "Sophos CTU 記錄 BRONZE SANDCASTLE 自2025年8月至2026年8月間攻擊台灣、菲律賓、阿富汗及納米比亞等地組織，核心手法為濫用 Sandboxie、Java、Krita 等合法軟體的 DLL 側載機制部署修改版 Meterpreter 後門，並竊取 Active Directory 資料庫（ntds.dit）。攻擊者最活躍時間集中在 UTC+8 工作時段。"
+      }
+    ],
+    "attack_techniques": [
+      "明文憑證存放與長期未輪換：Zeabur 與 91APP 事件均源於版本控制（GitLab）或設定檔中明文存放的憑證長期未輪換，攻擊者取得憑證後可直接存取資料庫或雲端基礎設施，無需破解任何加密",
+      "AI自動化滲透工具（ARTEX）：91APP 事件中使用的 ARTEX 工具可自動化偵測、利用漏洞並持續讀取資料庫，顯示 AI 輔助攻擊工具已商業化，能大幅降低大規模入侵所需的人工成本",
+      "遠端存取基礎設施零時差APT利用：針對 Ivanti Connect Secure 及 BeyondTrust Remote Support 的零時差攻擊顯示 APT 組織持續將遠端存取設備列為高優先目標，控制此類設備可取得大量下游企業的存取能力",
+      "DLL側載隱蔽後門部署：BRONZE SANDCASTLE 濫用 Sandboxie、Krita 等合法商業軟體作為 DLL 側載載體，繞過基於可執行檔特徵的端點偵測，惡意程式碼隱藏於合法程式的執行上下文中",
+      "利用已知漏洞的大規模自動化掃描：PHP2Shell 修補發布後48小時內即出現大規模自動化掃描（156個IP、1,156次嘗試），顯示攻擊者具備快速武器化公開 CVE 並大規模掃描的能力，修補後的防護窗口極短"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即更新PHP至修補版本並停用session.upload_progress（PHP2Shell，CVSS 9.2，已有野外利用）：（1）確認所有伺服器的PHP版本，立即升級至 8.5.12、8.4.27、8.3.36 或 8.2.35；（2）無論是否已更新，同步在 php.ini 中設定 session.upload_progress.enabled = 0，以消除 CVE-2026-109619 的配套繞過路徑；（3）PHP 8.1 及更早 EOL 版本無官方修補，在升級至支援版本前必須套用上述組態緩解，並評估緊急升級計畫；（4）使用 Apache mod_php 架構的部署應優先處理；（5）稽核近一週的 PHP 錯誤日誌，搜尋異常的 CGI/FastCGI 錯誤或 session 上傳異常；（6）若使用共用主機，確認主機商是否已更新 PHP 版本。"
+    },
+    {
+      "priority": "high",
+      "action": "修補BeyondTrust Remote Support CVE-2026-102764並執行入侵後調查（CVSS 9.3，CISA KEV 10/16，中國APT自8月利用）：（1）確認 Remote Support 版本，立即套用 BT26-05-RS 修補程式；版本早於 24.3.1 者須先升版至 24.3.1 以上，SaaS 版本已於10月8日自動修補；（2）稽核設備上的所有使用者帳號清單，刪除任何非預期帳號；（3）審查稽核日誌，若存在稽核日誌遭刪除的跡象，須視為高優先入侵指標；（4）核查透過此設備管理的所有端點是否存在 Webshell 或異常持久化機制；（5）若攻擊自8月起即已開始，受影響時間窗口可能長達2個月，建議對此段期間的網路流量進行回溯分析。"
+    },
+    {
+      "priority": "high",
+      "action": "修補Ivanti Connect Secure CVE-2026-104935並執行獨立鑑識（CVSS 8.6，CISA KEV 10/13，配套提權漏洞仍未修補）：（1）確認版本並立即升級至 22.8R2.5、25.1.1.2 或 25.1.3.0/25.1.3.1；（2）完成修補後，勿僅依賴 Ivanti 完整性檢查工具（ICT），攻擊者已知主動規避該工具，建議輔以獨立的網路流量分析（檢查異常的外部連線與資料傳輸）；（3）注意攻擊者同時串連未公開修補的提權漏洞，已取得初始存取的攻擊者可能已達 root 權限，修補本漏洞不會驅逐已植入的持久化機制；（4）搜尋 VPN 稽核日誌中的異常連線，尤其是短暫連線後即斷線的模式（符合憑證竊取行為）；（5）在 Ivanti 發布提權漏洞修補前，持續監控此設備。"
+    },
+    {
+      "priority": "high",
+      "action": "更新GitLab自管部署至修補版本（CVE-2026-97229，CVSS 10.0，無需驗證RCE）：（1）確認所有自管 GitLab Community Edition 及 Enterprise Edition 的版本，立即升級至 19.2.8、19.3.5 或 19.4.2；（2）GitLab.com 及 GitLab Dedicated 已自動修補，無需額外操作；（3）暫時無法修補的自管部署可考慮限制 CI/CD 管線的執行來源（僅允許已知合法提交者），但此方式無法完全消除風險；（4）稽核 GitLab CI/CD 管線的執行記錄，搜尋含有異常正規表達式或觸發伺服器異常的執行記錄；（5）此漏洞影響範圍為 18.1 至 19.4.1，若版本低於 18.1 不受影響，但仍應評估是否存在其他已知漏洞。"
+    },
+    {
+      "priority": "high",
+      "action": "曾使用Zeabur服務的開發者及企業立即輪換所有外洩憑證：（1）全面盤點曾存放於 Zeabur 環境變數中的所有金鑰：AI 服務 API 金鑰（OpenAI、Anthropic、Google Gemini 等）、AWS/GCP/Azure 存取金鑰、資料庫連線字串、第三方 SaaS 服務憑證及 Webhook 秘密值；（2）立即輪換上述所有憑證，不論是否確認遭存取；（3）稽核過去兩個月（10月14日起）上述服務的 API 存取記錄，確認無異常的 API 呼叫或資源建立；（4）若 AI API 金鑰外洩，除重新核發金鑰外，應確認過去2個月是否有異常的 token 消耗或可疑的 API 請求；（5）評估目前仍在 Zeabur 運行的服務的遷移計畫，平台將於2026年12月31日停止服務。"
+    },
+    {
+      "priority": "medium",
+      "action": "套用Microsoft 10月Patch Tuesday並優先處理Windows Shell CVE-2026-96951（CVSS 8.8，CISA KEV 10/13）：（1）確認所有 Windows 系統已套用2026年10月份累積更新，此次共修補1,413個 CVE；（2）CVE-2026-96951（MotW 繞過）為已遭野外利用零時差，應優先完成修補；（3）部署前建議在測試環境驗證相容性，本次更新規模為史上最大，影響面廣；（4）使用 WSUS、Intune 或 SCCM 的環境應確認批次部署進度，尤其是不受自動更新管理的離線或隔離系統；（5）注意此次更新同時修補 .NET Framework 公開揭露漏洞（CVE-2026-108398），確認 .NET 應用程式相容性。"
+    },
+    {
+      "priority": "medium",
+      "action": "稽核DLL側載風險應對BRONZE SANDCASTLE攻擊手法：（1）透過 EDR 工具搜尋 Sandboxie（sbiedll.dll、sandboxie-plus 等）、Krita、NVDA、LINE 及 Sysinternals 工具在非標準安裝路徑的執行記錄；（2）檢視是否有 Java 執行檔從臨時目錄或使用者 AppData 路徑載入未知 JAR 或 DLL；（3）針對台灣、菲律賓業務或與政府/研究機構有往來的組織，應以更高優先級處理此檢查；（4）確認 Active Directory 備份的 ntds.dit 完整性，若懷疑已遭存取，應立即輪換所有網域帳號密碼及 Kerberos 票證（krbtgt）；（5）部署應用程式白名單或限制 DLL 側載（透過 SafeDllSearchMode 或 Exploit Protection）可有效降低此類攻擊的成功率。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "DLL側載（DLL Sideloading）",
+      "definition": "攻擊者將惡意DLL與合法執行檔放置於同一目錄，利用Windows的動態連結程式庫搜尋順序，讓合法程式在執行時自動載入惡意DLL，從而在合法程式的安全上下文中執行惡意程式碼",
+      "url": "https://glossary.astroicers.link/glossary/dll_sideloading"
+    },
+    {
+      "term": "Mark of the Web（MotW）",
+      "definition": "Windows對從網際網路下載的檔案附加的Zone.Identifier屬性標記，用於觸發SmartScreen警告及Office受保護模式等安全機制；攻擊者常試圖繞過此標記以讓惡意檔案在受害者電腦上不出現安全警告",
+      "url": "https://glossary.astroicers.link/glossary/mark_of_the_web"
+    },
+    {
+      "term": "環境變數（Environment Variable）",
+      "definition": "作業系統或應用程式執行環境中以鍵值對形式存放的組態值，常用於傳遞API金鑰、資料庫連線字串等敏感憑證；若以明文存放於版本控制或雲端平台，外洩風險極高",
+      "url": "https://glossary.astroicers.link/glossary/environment_variable"
+    },
+    {
+      "term": "驗證繞過（Authentication Bypass）",
+      "definition": "攻擊者利用應用程式驗證邏輯缺陷，在未提供合法憑證的情況下通過身份驗證，常見成因包括輸入驗證不足、URL編碼處理錯誤或訊息來源偽造（CWE-290）",
+      "url": "https://glossary.astroicers.link/glossary/authentication_bypass"
+    },
+    {
+      "term": "整數溢位（Integer Overflow）",
+      "definition": "當整數運算結果超出資料型別的最大儲存範圍時，數值繞回至最小值的軟體缺陷（CWE-190）；在安全敏感的上下文中（如緩衝區大小計算），可導致記憶體損壞進而引發遠端程式碼執行",
+      "url": "https://glossary.astroicers.link/glossary/integer_overflow"
+    },
+    {
+      "term": "Active Directory（AD）資料庫",
+      "definition": "Windows網域中儲存所有使用者帳號、群組及密碼雜湊值的核心資料庫（ntds.dit），一旦遭攻擊者複製並離線破解，可取得整個網域所有帳號的存取權限",
+      "url": "https://glossary.astroicers.link/glossary/active_directory"
+    }
+  ],
+  "references": [
+    {
+      "title": "【資安週報】1019～1022，91APP事件延燒、Zeabur再遭駭，AI自主網攻與PHP2Shell風暴引關注 – iThome",
+      "url": "https://www.ithome.com.tw/news/179896"
+    },
+    {
+      "title": "Zeabur再遭入侵逾321萬筆環境變數外洩 承認明文存放憑證、年底停止營運 – yam天空新聞",
+      "url": "https://n.yam.com/Article/20261024251406"
+    },
+    {
+      "title": "91APP個資外洩、Zeabur停運！企業資安自救懶人包 – 中央社財經訊息平台",
+      "url": "https://www.cna.com.tw/business/chinese/447682"
+    },
+    {
+      "title": "91APP遭駭客自動化攻擊！公布階段調查報告 承諾全面補償消費者財損 – 聯合報",
+      "url": "https://udn.com/news/story/7240/9831937"
+    },
+    {
+      "title": "91APP與Zeabur為何接連遭駭？解析6起重大資安事件與金鑰外洩風險 – 數位時代",
+      "url": "https://www.bnext.com.tw/article/92778/2026-october-cybersecurity-breaches-keys-91app-zeabur"
+    },
+    {
+      "title": "PHP2Shell: Critical PHP vulnerabilities patched, update now! – Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/10/21/php2shell-php-vulnerabilities-patched-cve-2026-109618-cve-2026-109619/"
+    },
+    {
+      "title": "PHP2Shell RCE Exploited: CVE-2026-109618 & CVE-2026-109619 – watchTowr",
+      "url": "https://watchtowr.com/intelligence/php-remote-code-execution-php2shell/"
+    },
+    {
+      "title": "CVE-2026-109618 and CVE-2026-109619: PHP2Shell – Zscaler",
+      "url": "https://www.zscaler.com/blogs/security-research/cve-2026-109618-and-cve-2026-109619-php-vulnerable-unauthenticated-rce"
+    },
+    {
+      "title": "PHP2Shell Checker: 59% Show a Pre-Fix PHP Version – Brandefense",
+      "url": "https://brandefense.io/blog/php2shell-php-rce-cve-2026-109618-109619/"
+    },
+    {
+      "title": "China-Aligned Bronze Sandcastle Abuses Sandboxie DLL Sideloading to Deploy Backdoors – The Hacker News",
+      "url": "https://thehackernews.com/2026/10/china-aligned-bronze-sandcastle-abuses.html"
+    },
+    {
+      "title": "BRONZE SANDCASTLE Hackers Steal Active Directory Database Using Hidden Windows Backdoors – GBHackers",
+      "url": "https://gbhackers.com/bronze-sandcastle-intrusions/"
+    },
+    {
+      "title": "BeyondTrust patches zero-day exploited in attacks since August – BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/beyondtrust-patches-zero-day-exploited-in-attacks-since-august/"
+    },
+    {
+      "title": "CISA Urges Patching Critical Vulnerability in BeyondTrust Remote Support – CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/16/cisa-urges-patching-critical-vulnerability-beyondtrust-remote-support"
+    },
+    {
+      "title": "BeyondTrust Remote Support Zero-Day CVE-2026-102764 Exploited Since August by China-Nexus APT – OpenVPN Blog",
+      "url": "https://blog.openvpn.net/beyondtrust-remote-support-zero-day-cve-2026-102764-exploited-since-august-by-china-nexus-apt"
+    },
+    {
+      "title": "Ivanti warns of Connect Secure zero-day exploited in attacks – BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/ivanti-warns-of-connect-secure-zero-day-exploited-in-attacks/"
+    },
+    {
+      "title": "CVE-2026-104935: Ivanti Connect Secure Vulnerability – watchTowr",
+      "url": "https://watchtowr.com/intelligence/ivanti-connect-secure-authentication-bypass-by-spoofing-cve-2026-104935/"
+    },
+    {
+      "title": "GitLab admins urged to patch critical RCE flaw (CVE-2026-97229) – Help Net Security",
+      "url": "https://helpnetsecurity.com/2026/10/13/gitlab-ci-cd-regular-expression-compiler-vulnerability-cve-2026-97229"
+    },
+    {
+      "title": "CVE-2026-97229: Critical GitLab RCE Flaw Enables Unauthenticated Code Execution – SOC Prime",
+      "url": "https://socprime.com/?p=54329"
+    },
+    {
+      "title": "Microsoft October 2026 Patch Tuesday fixes 1,411 flaws, 3 zero-days – BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1-411-flaws-3-zero-days/"
+    },
+    {
+      "title": "Windows Zero-Day CVE-2026-96951: MotW Bypass Fix – shattered.io",
+      "url": "https://shattered.io/windows-shell-cve-2026-96951-motw-bypass-2026/"
+    },
+    {
+      "title": "CISA Adds One Known Exploited Vulnerability to Catalog (Oct 23) – CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/23/cisa-adds-one-known-exploited-vulnerability-catalog"
+    },
+    {
+      "title": "Ransomware Attacks in October 2026 – HackerFeeds",
+      "url": "https://hackerfeeds.com/ransomware/reports/2026-10"
+    }
+  ]
+}
