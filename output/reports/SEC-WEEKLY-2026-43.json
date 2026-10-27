@@ -1,0 +1,312 @@
+{
+  "title": "資安週報 2026/10/19 - 2026/10/25",
+  "report_id": "SEC-WEEKLY-2026-43",
+  "period": {
+    "start": "2026-10-19",
+    "end": "2026-10-25"
+  },
+  "publish_date": "2026-10-26",
+  "summary": {
+    "total_events": 6,
+    "total_vulnerabilities": 6,
+    "threat_level": "critical"
+  },
+  "events": [
+    {
+      "title": "91APP 電商平台 Commerce Cloud 遭 ARTEX AI 自主攻擊工具入侵，多家合作品牌示警，消費者遭詐騙郵件鎖定，事件持續延燒",
+      "severity": "high",
+      "event_type": "資料外洩",
+      "summary": "台灣電商服務商 91APP 資料庫遭非法存取事件在本週持續延燒。91APP 於 10 月 16 日揭露 Commerce Cloud 資料庫遭攻擊，攻擊記錄最早可追溯至 10 月 3 日，攻擊者以自動化方式非法讀取資料庫內容。本週多家合作品牌陸續公告受影響情況，並已有消費者接獲疑似詐騙電子郵件，顯示外洩資料已被用於後續社交工程攻擊。資安研究人員發現攻擊痕跡指向 ARTEX——這是一款由 GMO Cybersecurity 本週揭露、與中國背景 APT 組織相關的 AI 自主滲透工具，可自動掃描目標、識別漏洞並執行攻擊，已與日本多起企業入侵事件相關聯。數位發展部資安署表示受影響人數及資料類型仍在調查中，但受害者所屬品牌涵蓋多個零售、時尚及生活品牌，外洩資料疑含姓名、電話及電子郵件等個人資訊。91APP 為台灣逾 2,000 個品牌提供電商服務，此事件對台灣零售供應鏈的資料安全影響深遠。",
+      "source": "iThome / 數位發展部資安署 / GMO Cybersecurity",
+      "url": "https://www.ithome.com.tw/news/179872",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "Zeabur 雲端部署平台再度遭駭，逾 321 萬筆環境變數及 32 萬筆帳號資料遭讀取，8 月舊憑證未輪替成破口，宣布年底停止營運",
+      "severity": "high",
+      "event_type": "資料外洩",
+      "summary": "台灣雲端部署平台 Zeabur 於 10 月 19 日公布初步調查結果，確認平台遭受第二次入侵，攻擊者讀取逾 321 萬筆環境變數（含 API 金鑰、資料庫連線字串等敏感設定）及超過 32 萬筆帳號資料。調查揭露，部分憑證在 8 月前次事件後未完成輪替，成為此次入侵的切入點。環境變數的大量外洩對下游客戶構成嚴重供應鏈風險——攻擊者掌握環境變數即可直接存取客戶自建的資料庫、雲端服務及第三方 API 服務，而無需直接攻擊客戶系統。Zeabur 服務對象以台灣開發者及新創公司為主，受影響的環境變數中可能涵蓋其客戶的生產系統連線資訊。公司創辦人同時宣布平台將於 2026 年底停止營運。受影響用戶應立即輪替所有透過 Zeabur 部署的應用程式中的 API 金鑰、資料庫憑證及第三方服務金鑰，並稽核相關服務自 8 月以來的異常存取記錄。",
+      "source": "iThome / Zeabur 官方聲明",
+      "url": "https://www.ithome.com.tw/news/179896",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "中國在台灣地方選舉前大幅升高網路攻擊力道，AI 代理掃描政府漏洞，台灣國安局揭露軍事諜報逮捕案，BRONZE SANDCASTLE 攻擊波及台灣",
+      "severity": "medium",
+      "event_type": "國家級 APT 攻擊",
+      "summary": "台灣國家安全局於 10 月 21 日前後發布報告，揭露中國在台灣地方選舉前夕大幅升高網路攻擊與資訊作戰強度。攻擊目標主要集中於學術研究機構、電信業者及國防供應鏈企業，中國網路部隊已開始使用 AI 代理自動掃描台灣政府網站的安全漏洞，顯示 AI 輔助攻擊已從試驗階段進入實際作戰部署。台灣每日遭受約 260 萬次網路攻擊，六月後呈上升趨勢。台灣檢察機關同期起訴三名退役軍人及一名現役軍人，指控洩漏機密軍事情報；美國 FBI 亦逮捕加州居民張萬瑩，指控以未登記外國代理人身份監控台灣總統賴清德之子。Sophos 本週記錄中國國家扶持 APT 組織 BRONZE SANDCASTLE 最新一波攻擊，利用改造版 Meterpreter 並濫用 Sandboxie 等合法軟體執行 DLL 側載技術，規避防毒偵測。受害範圍涵蓋台灣、菲律賓、阿富汗及納米比亞，顯示中國 APT 生態在台灣大選前持續擴大多線攻擊壓力。",
+      "source": "台灣 NSB / TaiwanPlus / Manila Times / Sophos / Al Jazeera",
+      "url": "https://www.taiwanplus.com/news/newscasts/taiwanplus-news/261021024/increase-in-china-cyberattacks-before-election-oct-21-2026",
+      "date": "2026-10-21"
+    },
+    {
+      "title": "ARMORY CASTLE（中國 APT，UNC5221）利用 BeyondTrust CVE-2026-102764 零日長達七週，竊取企業憑證庫並植入持久化後門，CISA KEV 10/16 截止已過",
+      "severity": "high",
+      "event_type": "國家級 APT 攻擊",
+      "summary": "Google Threat Intelligence Group 及 Mandiant 揭露，中國國家級 APT 組織 ARMORY CASTLE（亦追蹤為 UNC5221、WARP PANDA）從 8 月 29 日起利用 BeyondTrust Remote Support 零日漏洞 CVE-2026-102764 長達七週，在公告日期（10 月 15 日）前，攻擊者已在受害環境中橫行。BeyondTrust 遲至 9 月 28 日才識別漏洞，並於 10 月 8 日發布修補 BT26-05-RS。此漏洞位於 BeyondTrust RS 內部訊息處理元件的來源驗證機制，允許未驗證攻擊者執行任意檔案操作，Mandiant 確認可達 root 層級完整控制；CVSS 9.3，影響 26.2.3 及以下所有版本。攻擊者系統性竊取企業憑證庫（含特權帳號及服務帳號密碼），植入可在重開機後存活的持久化後門，並刪除安全記錄掩蓋足跡——入侵後的蹤跡清除使回溯調查極為困難。CISA 於 10 月 16 日將 CVE-2026-102764 列入 KEV，聯邦機構截止日期 10 月 19 日已過。BeyondTrust RS 廣泛用於企業遠端 IT 支援及特權存取管理，台灣金融、政府及大型企業部署數量可觀，所有曾暴露的設備應視為完全淪陷，需完整重建並輪替所有相關憑證。",
+      "source": "The Hacker News / SecurityWeek / Mandiant / CISA / BeyondTrust",
+      "url": "https://thehackernews.com/2026/10/china-linked-hackers-exploited.html",
+      "date": "2026-10-16"
+    },
+    {
+      "title": "PHP2Shell（CVE-2026-109618 / CVE-2026-109619，CVSSv4 9.2）：PHP 核心雙 RCE 漏洞，全球約 200 萬台伺服器暴露，10/21 緊急更新，台灣資安署同步發布警告",
+      "severity": "high",
+      "event_type": "重大漏洞揭露與緊急修補",
+      "summary": "PHP 開發團隊於 10 月 21 日緊急發布 8.2.35、8.3.36、8.4.27 及 8.5.12 版本，修補被命名為「PHP2Shell」的兩個重大遠端程式碼執行漏洞，CVSSv4.0 均為 9.2。CVE-2026-109618 為記憶體溢出（OOM）處理時的記憶體損壞漏洞；CVE-2026-109619 為跨請求狀態的 use-after-free 漏洞，兩者均影響 Apache mod_php 及 PHP-FPM，可讓未驗證攻擊者以 Web 伺服器的執行權限在目標系統上執行任意程式碼，且無需使用者互動。漏洞影響追溯至 PHP 5.4.0（2012 年），代表幾乎所有現存 PHP 部署版本均受波及，全球估計有約 200 萬台對外開放的 PHP 伺服器受影響。多個 PoC 已公開，Zscaler 回報掃描活動及利用嘗試已出現；台灣數位發展部資安署同步發布緊急警告，呼籲所有使用 PHP、Node.js 及 Go 的組織立即更新（三個生態系於同日發布安全更新）。8.1 及更舊版本無官方修補。CISA 於 10 月 26 日將兩漏洞列入 KEV。PHP 廣泛部署於台灣政府、學術機構、電商及中小企業網站，攻擊面極大。",
+      "source": "iThome / Unit 42 / Rapid7 / Zscaler / 數位發展部資安署",
+      "url": "https://www.ithome.com.tw/news/179870",
+      "date": "2026-10-21"
+    },
+    {
+      "title": "Plex2Shell 四 CVE 攻擊鏈（CVE-2026-96652 等）CISA KEV 10/20：PoC 公開不足 24 小時即被武器化，已部署挖礦程式及隱匿 Linux 後門",
+      "severity": "medium",
+      "event_type": "漏洞遭積極利用",
+      "summary": "CISA 於 10 月 20 日將 Plex Media Server 的四個漏洞（CVE-2026-96652、CVE-2026-96654、CVE-2026-96655、CVE-2026-96656，合稱「Plex2Shell」）列入 KEV。研究人員 Zach Main 於 10 月 16 日發布技術細節及 PoC，10 月 17 日即有野外利用報告出現——從技術披露到被武器化不足 24 小時。四個漏洞可串聯使用，讓未驗證攻擊者對暴露在網際網路的 Plex Media Server 執行任意程式碼。已觀察到的攻擊載荷包含加密貨幣挖礦程式及名為「myawesomeproxy」的隱匿 Linux 後門兼反向代理程式，後門具備持久化能力並可在後續升級為更高危攻擊。修補版本為 Plex Media Server 1.43.3.10861（8 月 3 日即已發布），意味著修補早已存在但大量用戶未更新。CISA 同日亦列入 Siemens Software Center CVE-2026-110936（ClickFix 攻擊鏈）及 SiteGuard CVE-2026-106931。在台灣家庭及企業 NAS 環境廣泛部署的 Plex 伺服器若對外開放，應立即確認版本並更新，或限制存取來源 IP。",
+      "source": "CISA / The Hacker News / SecurityWeek / SecurityAffairs",
+      "url": "https://thehackernews.com/2026/10/hackers-exploit-plex2shell-flaws-to.html",
+      "date": "2026-10-20"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-109618",
+      "title": "PHP 記憶體損壞遠端程式碼執行「PHP2Shell」（CVSSv4 9.2，未驗證 RCE，PoC 已公開，約 200 萬台伺服器暴露，CISA KEV 10/26）",
+      "cvss": 9.2,
+      "severity": "critical",
+      "vendor": "PHP Group",
+      "product": "PHP 8.4.x（< 8.4.27）、8.3.x（< 8.3.36）、8.2.x（< 8.2.35）、8.5.x（< 8.5.12）；8.1 及更舊版本無官方修補",
+      "description": "CVE-2026-109618 是 PHP 核心 OOM（記憶體溢出）處理路徑的記憶體損壞漏洞，影響 Apache mod_php 及 PHP-FPM 配置，允許未驗證的遠端攻擊者以 Web 伺服器權限執行任意程式碼。漏洞影響追溯至 PHP 5.4.0（2012 年），全球約 200 萬台對外開放的 PHP 伺服器受影響。多個 PoC 已公開，Zscaler 回報掃描及利用嘗試已出現，CISA 於 10/26 列入 KEV。應立即升級至 PHP 8.2.35、8.3.36、8.4.27 或 8.5.12；8.1 及更舊版本應立即規劃升級至受支援版本，無法升級者應隔離對外存取。確認更新後稽核 Web 伺服器記錄中的可疑 PHP 執行行為。"
+    },
+    {
+      "cve_id": "CVE-2026-109619",
+      "title": "PHP use-after-free 遠端程式碼執行「PHP2Shell」（CVSSv4 9.2，跨請求狀態漏洞，與 CVE-2026-109618 同批修補，CISA KEV 10/26）",
+      "cvss": 9.2,
+      "severity": "critical",
+      "vendor": "PHP Group",
+      "product": "PHP 8.4.x（< 8.4.27）、8.3.x（< 8.3.36）、8.2.x（< 8.2.35）、8.5.x（< 8.5.12）；8.1 及更舊版本無官方修補",
+      "description": "CVE-2026-109619 是 PHP 核心中跨請求狀態保留引發的 use-after-free 漏洞，與 CVE-2026-109618 同批於 10 月 21 日修補。此漏洞同樣影響 Apache mod_php 及 PHP-FPM，在特定作業系統與 PHP 版本組合下允許未驗證攻擊者執行任意程式碼。兩個漏洞需一起修補：升級至 PHP 8.2.35、8.3.36、8.4.27 或 8.5.12；8.1 及更舊版本無官方修補，仍持續暴露風險。Linux 發行版（Ubuntu/Debian/RHEL）可能以相同版本號提供修補包，應查詢套件 changelog 確認是否已包含 CVE-2026-109619 修補。"
+    },
+    {
+      "cve_id": "CVE-2026-102764",
+      "title": "BeyondTrust Remote Support 訊息來源驗證不當 RCE（CVSS 9.3，中國 APT ARMORY CASTLE 零日利用七週，CISA KEV 10/16，截止 10/19）",
+      "cvss": 9.3,
+      "severity": "critical",
+      "vendor": "BeyondTrust",
+      "product": "BeyondTrust Remote Support（RS）26.2.3 及以下所有版本",
+      "description": "CVE-2026-102764 是 BeyondTrust Remote Support 內部訊息處理元件的訊息來源驗證不當漏洞，允許未驗證遠端攻擊者執行任意檔案操作，Mandiant 確認可達 root 層級完整控制。中國 APT ARMORY CASTLE（UNC5221/WARP PANDA）自 8 月 29 日起利用此零日達七週，系統性竊取企業憑證庫並植入持久化後門，同時刪除安全記錄。CISA 10/16 列入 KEV，截止 10/19。修補版本 BT26-05-RS（10 月 8 日），SaaS 版本已自動更新，自架版本需手動套用。所有曾暴露的設備應視為完全淪陷，需完整重建並輪替所有透過 BeyondTrust 管理的憑證，並稽核 8 月 29 日以來的所有操作記錄（注意記錄可能已被刪除）。"
+    },
+    {
+      "cve_id": "CVE-2026-114625",
+      "title": "Arista VeloCloud Orchestrator SQL Injection 本機超級用戶接管（CVSS 9.9，零日，10/22 公告，積極利用中，已知攻擊者 IP 公布）",
+      "cvss": 9.9,
+      "severity": "critical",
+      "vendor": "Arista Networks",
+      "product": "Arista VeloCloud Orchestrator（VCO）5.2.x（< 5.2.3.18）、6.1.x（< 6.1.3.10）、6.4.x（< 6.4.2.12）",
+      "description": "CVE-2026-114625 是 Arista VeloCloud Orchestrator Web 介面的 SQL 注入零日漏洞，CVSS 9.9。攻擊者僅需低權限帳號（Enterprise Read Only 最低角色）即可利用，成功後可取得本機超級用戶（local superuser）存取，獲得對 VCO 的完整控制，進而存取整個 SD-WAN 網路拓撲設定。Arista 於 10 月 22 日發布安全公告，確認已有積極利用；已知攻擊者 IP：74.82.197.86 及 38.54.50.151（應立即封鎖）。修補版本：VCO 5.2.3.18、6.1.3.10、6.4.2.12；雲端代管及 Dedicated Orchestrator 已自動更新。VeloCloud SD-WAN 廣泛部署於台灣大型企業及電信業者，應立即確認版本並套用更新，並強制輪替 VCO 管理員憑證。"
+    },
+    {
+      "cve_id": "CVE-2026-96652",
+      "title": "Plex Media Server Plex2Shell 未驗證 RCE 攻擊鏈（CISA KEV 10/20，PoC 公開 24 小時內野外利用，挖礦程式及 Linux 後門已部署）",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Plex",
+      "product": "Plex Media Server（< 1.43.3.10861）",
+      "description": "CVE-2026-96652 為 Plex2Shell 四漏洞攻擊鏈的核心漏洞（與 CVE-2026-96654、96655、96656 串聯使用），允許未驗證攻擊者對暴露於網際網路的 Plex Media Server 執行任意程式碼。研究人員 10/16 公開 PoC 後，10/17 即出現野外利用，已觀察到的載荷為加密貨幣挖礦程式及「myawesomeproxy」隱匿 Linux 後門。CISA 10/20 列入 KEV。修補版本 1.43.3.10861 早於 8 月 3 日即已發布，更新缺失為主因。應立即更新 Plex Media Server 至最新版，並掃描是否有挖礦程序（高 CPU 使用率的不明程序）、異常後台程序及 crontab/systemd 持久化條目；未能立即升級者應關閉 Plex 的對外網路端口。"
+    },
+    {
+      "cve_id": "CVE-2026-96951",
+      "title": "Windows Shell Mark of the Web 繞過零日（CVSS 8.8，10 月 Patch Tuesday，微軟確認積極利用，1,413 CVE 記錄更新月份）",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Windows 10、Windows 11、Windows Server 2019/2022（多個支援版本）",
+      "description": "CVE-2026-96951 是 Windows Shell 的 Mark of the Web（MotW）保護繞過零日漏洞，CVSS 8.8。攻擊者可製作特殊惡意檔案，繞過 Windows 對從網際網路下載或電子郵件附件觸發的安全警告機制（SmartScreen 提示），誘導使用者在不觸發防護警告的情況下執行惡意程式碼。微軟確認此漏洞已遭野外積極利用。10 月 Patch Tuesday 共修補 1,413 個漏洞（歷史記錄），含本零日及 74 個 Critical 漏洞。應立即確保所有 Windows 端點已套用 10 月累積更新；電子郵件閘道應加強對惡意附件的深層掃描能力，避免依賴 MotW 作為唯一過濾機制。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢以「中國 APT 在台灣大選前全面加速攻擊」與「生態系核心元件（PHP）大規模漏洞引發 200 萬台伺服器曝險」為雙主線。台灣進入地方選舉前最敏感時間窗口，台灣國安局直接點名中國正升高網路攻擊強度，且確認 AI 代理已被用於自動掃描政府漏洞；91APP 與 Zeabur 兩起本土事件則揭示台灣中小企業與新創生態系的供應鏈安全高度脆弱，ARTEX AI 自主滲透工具的出現標誌 AI 驅動攻擊已從試驗階段進入常態作戰部署。ARMORY CASTLE 對 BeyondTrust 的七週零日作戰，再次印證中國 APT 組織對特權存取管理（PAM）基礎設施的長期鎖定策略——入侵 PAM 設施等同取得整個企業 IT 環境的萬能鑰匙，配合積極刪除記錄的反鑑識行為，使事後調查極為困難。PHP2Shell（CVSSv4 9.2）是近年波及面最大的生態系漏洞之一，台灣資安署罕見地同日發布跨語言（PHP、Node.js、Go）緊急警告，顯示此次漏洞的全球影響規模超出以往。Plex2Shell 從 PoC 到野外武器化不足 24 小時，確認現代漏洞利用速度持續加快，企業已幾乎無緩衝時間。",
+    "active_actors": [
+      {
+        "name": "ARMORY CASTLE（中國，亦稱 UNC5221、WARP PANDA，Google TIG/Mandiant 歸因）",
+        "type": "國家級威脅行為者（APT）",
+        "activity": "利用 BeyondTrust Remote Support CVE-2026-102764 零日（CVSS 9.3）自 8 月 29 日起攻擊達七週，CISA 10/16 列入 KEV。系統性竊取企業憑證庫、植入重開機後存活的持久化後門，並刪除安全記錄掩蓋足跡；目標針對企業特權存取管理（PAM）設施，目的是取得對受管理系統的持久控制。"
+      },
+      {
+        "name": "BRONZE SANDCASTLE（中國國家扶持 APT，Sophos 追蹤）",
+        "type": "國家級威脅行為者（APT）",
+        "activity": "本週 Sophos 記錄最新一波攻擊，利用改造版 Meterpreter 並濫用 Sandboxie 等合法軟體執行 DLL 側載，規避防毒偵測。受害範圍涵蓋台灣、菲律賓、阿富汗及納米比亞，在台灣大選前顯示持續活躍。"
+      },
+      {
+        "name": "中國國家網路部隊（ARTEX 活動，台灣大選前攻擊，台灣 NSB 歸因）",
+        "type": "國家級威脅行為者",
+        "activity": "台灣 NSB 報告確認中國在大選前使用 AI 代理自動掃描政府漏洞；AI 自主滲透工具 ARTEX 在日本及台灣電商（91APP）入侵事件中留下攻擊痕跡，顯示 AI 輔助攻擊已作為常態武器部署。台灣 FBI 亦逮捕一名監控台灣總統子女的中國特工，諜報活動與網路攻擊同步升溫。"
+      },
+      {
+        "name": "Qilin 勒索軟體集團",
+        "type": "財務動機威脅行為者（勒索軟體）",
+        "activity": "本週對多個目標發動攻擊：愛爾蘭軟體公司 Aryza（10/23 聲稱攻擊）及美國律師事務所 White & Case（10/25 列於洩漏頁面），AhnLab 週報另記錄一起針對日本投資管理公司的攻擊。Qilin 本月持續以法律、金融及科技服務業為主要目標。"
+      }
+    ],
+    "attack_techniques": [
+      "AI 自主滲透工具常態化部署（ARTEX）：中國 APT 組織使用 AI 代理工具 ARTEX 自動掃描目標、識別漏洞並執行攻擊，台灣 91APP 事件及台灣 NSB 報告均印證 AI 輔助攻擊已進入常態作戰，大幅降低 APT 發動精準攻擊的人力成本",
+      "PAM 設施零日鎖定：ARMORY CASTLE 刻意鎖定 BeyondTrust Remote Support 這類特權存取管理平台，入侵後竊取整個企業的憑證庫，一次滲透即可橫向移動至所有受管理系統，是高效能 APT 的典型進攻策略",
+      "零日靜默長期利用（七週）：ARMORY CASTLE 在 BeyondTrust 公告前七週即開始靜默利用，並積極刪除安全記錄，顯示頂級 APT 組織已具備系統性反鑑識能力，傳統的「等待廠商公告再修補」策略面臨根本性挑戰",
+      "生態系核心元件漏洞（PHP2Shell）：CVE-2026-109618/109619 源自 PHP 5.4.0（2012 年），修補需追蹤 Linux 發行版套件 changelog 而非僅 PHP 版本號，廣泛部署代表單一生態系漏洞可同時影響數百萬台伺服器",
+      "PoC 發布 24 小時內武器化（Plex2Shell）：從技術披露到野外攻擊不足 24 小時，企業已幾乎無緩衝修補時間；初始載荷為挖礦程式，後門植入可後續升級攻擊級別，代表消費性媒體設備成為企業網路新型入侵跳板",
+      "供應鏈憑證複用攻擊：Zeabur 案例中 8 月事件後未完成憑證輪替，成為二次入侵的直接切入點；環境變數外洩可讓攻擊者直接存取下游客戶生產系統，單一 PaaS 平台入侵可級聯影響數千個客戶應用程式"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即更新所有 PHP 至 PHP2Shell 修補版本（CVE-2026-109618/109619，CVSSv4 9.2，CISA KEV 10/26，PoC 已公開，積極掃描中）：（1）盤點所有伺服器、VPS、容器及 PaaS 服務的 PHP 版本，升級至 8.2.35、8.3.36、8.4.27 或 8.5.12；（2）Linux 發行版可能保留相同版本號但在套件修補中修復漏洞，應查詢 apt changelog 或 rpm changelog 確認是否包含 CVE-2026-109618/109619 修補；（3）8.1 及更舊版本無官方修補，應立即規劃升級至受支援版本或隔離對外存取；（4）台灣政府機關、教育機構及電商平台因大量部署 PHP 應用，應優先完成修補稽核；（5）修補後稽核 10 月 21 日以來的 Web 伺服器記錄，確認無異常的 PHP 程式碼執行行為。"
+    },
+    {
+      "priority": "high",
+      "action": "立即稽核並修補 BeyondTrust Remote Support（CVE-2026-102764，CVSS 9.3，ARMORY CASTLE 零日七週，CISA KEV 10/16，截止 10/19 已過）：（1）確認所有 BeyondTrust RS 版本；SaaS 版本應已於 10/9 自動更新，自架版本需手動套用修補 BT26-05-RS；（2）所有執行 26.2.3 或更早版本的設備應視為可能已自 8 月 29 日起遭 ARMORY CASTLE 控制；（3）輪替所有透過 BeyondTrust RS 管理的帳號憑證，包含特權帳號、服務帳號及 API 金鑰；（4）稽核 8 月 29 日以來的設備存取記錄（注意記錄可能已被刪除），並檢查系統持久化機制（cron job、systemd 服務、異常 SSH 金鑰）；（5）若確認入侵，完整重建設備後再連接生產環境，並啟動事件回應程序。"
+    },
+    {
+      "priority": "high",
+      "action": "立即輪替 Zeabur 平台所有環境變數，稽核 91APP 合作品牌個資外洩影響範圍：（1）所有曾使用 Zeabur 的開發者立即輪替環境變數中的 API 金鑰、資料庫連線字串、OAuth 機密及雲端服務憑證；（2）稽核上述憑證對應服務自 2026 年 8 月（前次 Zeabur 入侵）以來的所有異常存取記錄；（3）91APP 合作品牌應通知終端消費者注意詐騙郵件，並在確認受影響資料範圍後評估依個資保護法通報義務；（4）消費者若收到自稱 91APP 合作品牌的異常郵件，應直接以電話聯繫品牌官方確認，勿點擊連結；（5）使用第三方 PaaS 的企業應定期稽核平台安全事件歷史，並建立最小權限的環境變數存取策略與定期輪替機制。"
+    },
+    {
+      "priority": "high",
+      "action": "立即修補 Arista VeloCloud Orchestrator 並封鎖攻擊者 IP（CVE-2026-114625，CVSS 9.9，積極利用，10/22 公告）：（1）確認所有 VCO 部署版本，升級至 5.2.3.18、6.1.3.10 或 6.4.2.12；雲端代管及 Dedicated Orchestrator 已自動完成更新；（2）立即在邊界防火牆封鎖 74.82.197.86 及 38.54.50.151 兩個已知攻擊者 IP；（3）稽核 VCO 管理介面的存取記錄，確認無使用低權限帳號進行的可疑 SQL 查詢；（4）確認管理員設定及網路拓撲設定無未授權變更；（5）若無法立即更新，暫時限制 VCO 管理介面存取來源 IP 並啟用 MFA。"
+    },
+    {
+      "priority": "high",
+      "action": "立即更新 Plex Media Server 至 1.43.3.10861，掃描 Plex2Shell 入侵跡象（CISA KEV 10/20，PoC 公開 24 小時內野外利用）：（1）盤點所有對外開放的 Plex Media Server 實例，立即升級至 1.43.3.10861（8 月 3 日已發布）；（2）稽核 10 月 17 日以來的連線記錄，確認是否有可疑的未驗證連線；（3）掃描挖礦程序（高 CPU 使用率的不明程序）及「myawesomeproxy」後門（反向代理特徵）；（4）檢查 crontab、systemd 服務及 ~/.bashrc 等持久化位置是否有未知條目；（5）未能立即升級者應立即關閉 Plex 的對外網路端口，僅允許 VPN 存取。"
+    },
+    {
+      "priority": "medium",
+      "action": "套用 10 月 Patch Tuesday 更新並強化台灣大選期間網路防禦：（1）確認所有 Windows 端點已套用 10 月 Patch Tuesday 累積更新（含 CVE-2026-96951 MotW 繞過零日及 74 個 Critical 漏洞）；（2）台灣政府機關、學術機構及關鍵基礎設施業者，鑑於國安局警告中國使用 AI 代理掃描政府漏洞，應提升網路監控等級，加強 DNS 查詢日誌分析及可疑 IP 黑名單訂閱；（3）若收到自稱政府機關或合作廠商的電子郵件邀請（尤其研究機構），應透過官方電話二次確認——本週有針對台灣研究機構人員的 APT 魚叉式釣魚攻擊案例；（4）電子郵件閘道管理員應加強惡意附件深層掃描能力，避免依賴 MotW 作為唯一防護層。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "AI 自主攻擊（AI Autonomous Cyber Attack）",
+      "definition": "使用 AI 代理工具自動完成目標偵察、漏洞識別及攻擊執行的攻擊方式，可在無人工干預下持續進行多步驟滲透，大幅降低 APT 組織的人力成本",
+      "url": "https://glossary.astroicers.link/glossary/ai_autonomous_attack"
+    },
+    {
+      "term": "特權存取管理（PAM, Privileged Access Management）",
+      "definition": "集中管理特權帳號存取的安全框架，含密碼保管庫、工作階段錄製及最小權限執行；PAM 設施遭攻擊可讓攻擊者一次取得整個企業的所有特權憑證",
+      "url": "https://glossary.astroicers.link/glossary/pam"
+    },
+    {
+      "term": "Mark of the Web（MotW）",
+      "definition": "Windows 對從網際網路下載或電子郵件附件的檔案標記的安全屬性，用於觸發 SmartScreen 等安全警告；MotW 繞過漏洞可讓惡意檔案規避此保護",
+      "url": "https://glossary.astroicers.link/glossary/motw"
+    },
+    {
+      "term": "DLL 側載（DLL Sideloading）",
+      "definition": "攻擊者將惡意 DLL 偽裝成合法應用程式的相依程式庫，借助合法程式的信任身份載入並執行惡意程式碼，可規避基於簽名的防毒偵測",
+      "url": "https://glossary.astroicers.link/glossary/dll_sideloading"
+    },
+    {
+      "term": "use-after-free",
+      "definition": "程式在釋放記憶體後仍繼續參照該記憶體位址的漏洞類型，攻擊者可透過控制被釋放的記憶體內容來執行任意程式碼",
+      "url": "https://glossary.astroicers.link/glossary/use_after_free"
+    },
+    {
+      "term": "供應鏈攻擊（Supply Chain Attack）",
+      "definition": "攻擊者入侵目標的供應商、開發工具鏈或第三方服務，再透過信任路徑間接攻擊最終目標；Zeabur 案例屬雲端 PaaS 平台型供應鏈攻擊，一個平台被攻破可影響數千個下游客戶",
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
+    },
+    {
+      "term": "環境變數（Environment Variables）",
+      "definition": "應用程式執行時讀取的設定參數，通常包含 API 金鑰、資料庫密碼及第三方服務憑證；環境變數外洩可直接讓攻擊者存取對應的所有外部服務",
+      "url": "https://glossary.astroicers.link/glossary/env_variables"
+    }
+  ],
+  "references": [
+    {
+      "title": "【資安週報】1019～1022，91APP事件延燒、Zeabur再遭駭，AI自主網攻與PHP2Shell風暴引關注 – iThome",
+      "url": "https://www.ithome.com.tw/news/179896"
+    },
+    {
+      "title": "91APP資安事件持續延燒，多家合作品牌示警，消費者接獲疑似詐騙郵件 – iThome",
+      "url": "https://www.ithome.com.tw/news/179872"
+    },
+    {
+      "title": "PHP發布緊急安全更新，修補震驚全球的重大漏洞PHP2Shell – iThome",
+      "url": "https://www.ithome.com.tw/news/179870"
+    },
+    {
+      "title": "資安署針對PHP、Node.js、Go緊急更新提出警告，呼籲用戶儘速採取行動 – iThome",
+      "url": "https://www.ithome.com.tw/news/179878"
+    },
+    {
+      "title": "China-Linked Hackers Exploited BeyondTrust Zero-Day to Take Over Remote Support Servers – The Hacker News",
+      "url": "https://thehackernews.com/2026/10/china-linked-hackers-exploited.html"
+    },
+    {
+      "title": "Chinese APT Exploited BeyondTrust Vulnerability as Zero-Day – SecurityWeek",
+      "url": "https://www.securityweek.com/chinese-apt-exploited-beyondtrust-vulnerability-as-zero-day/"
+    },
+    {
+      "title": "CVE-2026-102764: BeyondTrust Zero-Day Exploited – SOCprime",
+      "url": "https://socprime.com/blog/cve-2026-102764-beyondtrust-zero-day-exploited/"
+    },
+    {
+      "title": "BeyondTrust Blog: ARMORY CASTLE and BT26-05 – BeyondTrust",
+      "url": "https://www.beyondtrust.com/blog/entry/bt26-05"
+    },
+    {
+      "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog (Oct 16) – CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/16/cisa-adds-two-known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog (Oct 26) – CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/26/cisa-adds-two-known-exploited-vulnerability-catalog"
+    },
+    {
+      "title": "CVE-2026-109618 and CVE-2026-109619: Critical Unauthenticated Remote Code Execution in PHP – Rapid7",
+      "url": "https://www.rapid7.com/blog/post/etr-cve-2026-109618-and-cve-2026-109619-critical-unauthenticated-remote-code-execution-in-php/"
+    },
+    {
+      "title": "Threat Brief: Critical Vulnerabilities in PHP (CVE-2026-109618, CVE-2026-109619, Updated Oct 25) – Unit 42",
+      "url": "https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/"
+    },
+    {
+      "title": "PHP2Shell: Critical PHP RCE Vulnerabilities – sansec.io",
+      "url": "https://sansec.io/research/php2shell"
+    },
+    {
+      "title": "Hackers Exploit Plex2Shell Flaws to Deploy Crypto Miners – The Hacker News",
+      "url": "https://thehackernews.com/2026/10/hackers-exploit-plex2shell-flaws-to.html"
+    },
+    {
+      "title": "CISA Orders Federal Agencies to Patch Plex2Shell – The Hacker News",
+      "url": "https://thehackernews.com/2026/10/cisa-orders-federal-agencies-to-patch.html"
+    },
+    {
+      "title": "Arista Networks Security Advisory SA0199 (CVE-2026-114625) – Arista",
+      "url": "https://www.arista.com/en/support/advisories-notices/security-advisory/24838-security-advisory-0199"
+    },
+    {
+      "title": "Arista Patches New VeloCloud Orchestrator Zero-Day Exploited in Attacks – BleepingComputer",
+      "url": "https://bleepingcomputer.com/news/security/arista-patches-new-velocloud-orchestrator-zero-day-exploited-in-attacks"
+    },
+    {
+      "title": "Microsoft Patches Record 1,413 Vulnerabilities (October Patch Tuesday) – SecurityWeek",
+      "url": "https://www.securityweek.com/microsoft-patches-record-1413-vulnerabilities-including-exploited-windows-zero-day/"
+    },
+    {
+      "title": "Increase in China Cyberattacks Before Election – TaiwanPlus",
+      "url": "https://www.taiwanplus.com/news/newscasts/taiwanplus-news/261021024/increase-in-china-cyberattacks-before-election-oct-21-2026"
+    },
+    {
+      "title": "Taiwan says China ramps up cyberattacks and disinformation before elections – Malay Mail",
+      "url": "https://www.malaymail.com/news/world/2026/10/21/taiwan-says-china-ramps-up-cyberattacks-and-disinformation-before-elections/240026"
+    },
+    {
+      "title": "Actively exploited this week: 8 new CISA KEV entries (19-25 October 2026) – DEV Community",
+      "url": "https://dev.to/devaland/actively-exploited-this-week-8-new-cisa-kev-entries-19-october-to-25-october-2026-4ok"
+    },
+    {
+      "title": "Known Exploited Vulnerabilities Catalog – CISA",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}
