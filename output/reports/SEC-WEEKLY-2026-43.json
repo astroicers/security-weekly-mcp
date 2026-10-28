@@ -1,0 +1,300 @@
+{
+  "title": "資安週報 2026/10/19 - 2026/10/25",
+  "report_id": "SEC-WEEKLY-2026-43",
+  "period": {
+    "start": "2026-10-19",
+    "end": "2026-10-25"
+  },
+  "publish_date": "2026-10-26",
+  "summary": {
+    "total_events": 6,
+    "total_vulnerabilities": 5,
+    "threat_level": "high"
+  },
+  "events": [
+    {
+      "title": "91APP Commerce Cloud 資料庫遭 AI 自動化工具入侵 18 天，公布調查報告承諾全額補償消費者財損，調查另揭 ARTEX 攻擊痕跡",
+      "severity": "high",
+      "event_type": "台灣企業資料外洩",
+      "summary": "台灣電商 SaaS 廠商 91APP 於 10 月 22 日公布《2026 遭受駭客攻擊事件 18 天調查報告》，說明攻擊者自 10 月 3 日即入侵 Commerce Cloud 訂單資料庫，直至 10 月 14 日晚間才完全阻斷。攻擊者利用未更新的內部開源工具 Appsmith 進入內網，隨後從 GitLab 取得資料庫金鑰，以 AI 自動化工具持續讀取訂單資訊。91APP 說明 Marketing Cloud、91APP Payments 及 iCHEF 不受影響，受影響範圍為訂單資訊，不含信用卡等支付工具資料；確切外洩筆數尚待釐清。多家合作品牌顧客收到含真實姓名及訂單內容的詐騙信，確認攻擊者已就資料進行二次利用。91APP 董事長何英圻坦承未及時通知品牌客戶為公司疏失，並承諾全額賠償經確認財損消費者。數位發展部數位產業署已於 10 月 19 日啟動行政檢查，若查有違反個資法將依法處理。值得關注的是，iThome 於本週另報導 91APP 遭駭事件中查出 ARTEX 攻擊痕跡，顯示此次事件可能與日韓地區已知的 ARTEX 威脅行為者相關，台灣亦出現相關攻擊案例。",
+      "source": "91APP 官方調查報告 / iThome 資安 / CNA / 數位發展部",
+      "url": "https://www.ithome.com.tw/news/179923",
+      "date": "2026-10-22"
+    },
+    {
+      "title": "Zeabur 二度遭駭公布調查：321 萬筆環境變數及 32 萬帳號資料遭讀取，明文存放憑證釀禍，宣布年底停止營運",
+      "severity": "high",
+      "event_type": "台灣新創資料外洩",
+      "summary": "台灣雲端部署平台新創 Zeabur 於 10 月 19 日公布 10 月 14 至 15 日（UTC）入侵事件的初步調查結果，確認攻擊者共讀取逾 321 萬筆環境變數及 321,810 筆帳號資料（含電子郵件、使用者名稱、電話）。攻擊者利用 8 月份事件已外洩但未完整輪替的 AWS 存取金鑰，取得初始存取權限；調查另確認攻擊者對 101 台 GCP 專用伺服器取得 root 存取，其中 50 台被植入攻擊者控制的 SSH 金鑰，攻擊持續逾 16 小時始被察覺。根本原因包括：一組 2024 年建立、無到期日的叢集管理權杖以明文存放於設定檔庫中，且 8 月事件後的憑證輪替存在缺漏。數位產業署已啟動行政檢查以釐清個資影響範圍。Zeabur 創辦人宣布平台將於 2026 年 12 月 31 日停止營運，並建議所有用戶立即更換存放在平台的 API 金鑰和憑證。環境變數欄位通常存放 API 金鑰、資料庫連線字串及服務憑證，外洩風險高於一般個資外洩，使用 Zeabur 的台灣開發者與企業應優先確認並輪替受影響憑證。",
+      "source": "iThome 資安 / yam 新聞 / Cybernews / SC World",
+      "url": "https://www.ithome.com.tw/news/179804",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "PHP2Shell 風暴延燒台灣：PHP CVE-2026-109618/109619 漏洞已遭積極利用，資安署呼籲約 200 個政府網站盡速修補或下架，CISA KEV 10/26 列入",
+      "severity": "high",
+      "event_type": "重大漏洞積極利用",
+      "summary": "PHP 於 10 月 21 日釋出安全更新，修補兩個可遭未驗證遠端程式碼執行的嚴重漏洞 CVE-2026-109618 及 CVE-2026-109619（CVSS v4.0 9.2），統稱「PHP2Shell」。Tenable 報告指出攻擊發生於漏洞公開揭露之前，Rapid7 確認攻擊者可在無需憑證或使用者互動的情況下，透過 Apache mod_php、PHP-FPM 等常見部署模式取得伺服器控制權，PoC 程式碼已公開流通。CISA 於 10 月 26 日將兩個 CVE 列入 KEV，要求聯邦民事機構於 10 月 29 日前完成修補。此事件對台灣影響尤為顯著：資安署本週呼籲約 200 個使用受影響 PHP 版本的政府網站盡速修補或下架，金管會亦啟動相關因應措施。受影響版本範圍涵蓋 PHP 8.1 以下所有版本及 8.2、8.3、8.4、8.5 的未修補版；官方修補版本為 8.5.12、8.4.27、8.3.36 及 8.2.35，須注意 8.4.27 及 8.5.12 存在已知迴歸問題，應確認套用最新修補。PHP 8.1 及更早版本無官方上游修補，需評估升級或商業延伸支援方案。另有第三個相關漏洞 CVE-2026-115560 目前仍無修補，僅有緩解措施。",
+      "source": "CISA / Rapid7 / Tenable / TWCERT/CC / iThome",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching",
+      "date": "2026-10-21"
+    },
+    {
+      "title": "中國對齊 APT 組織 BRONZE SANDCASTLE 澫用 Sandboxie DLL 旁載部署後門，台灣等亞非四國遭受長期間諜攻擊",
+      "severity": "high",
+      "event_type": "國家級 APT 攻擊",
+      "summary": "Sophos 於 10 月 20 日揭露一個先前未記錄的中國對齊威脅行為者 BRONZE SANDCASTLE 的長期間諜攻擊活動，受害者遍及台灣、菲律賓、阿富汗及納米比亞，南韓亦為可能受害位置。研究人員追蹤活動時間從 2025 年 8 月延伸至 2026 年 8 月，顯示攻擊活動持續超過一年。攻擊者的核心技術為 DLL 旁載（DLL Sideloading）：將惡意的 sbiedll.dll 投放至受害系統，使受信任的 Sandboxie 應用程式（SandboxieWUAU.exe）在執行時載入攻擊者控制的程式碼；除 Sandboxie 外，Java、Krita、NVDA 螢幕報讀軟體、LINE 及 Sysinternals 工具均遭澫用。部署的後門為改良版 Meterpreter 風格程式，可收集主機及程序資訊、擷取鍵盤輸入與螢幕截圖、竊取 Active Directory 憑證，並透過 GitHub 儲存庫傳遞加密設定以實現隱蔽 C2 通訊。The Hacker News 及多家資安媒體於 10 月 21 日跟進報導。BRONZE SANDCASTLE 無法直接歒因至已知 APT 組織（如 BRONZE PRESIDENT 或 BRONZE ATLAS），可能代表中國 APT 生態系的新增分支，顯示針對台灣的間諜活動持續多元化。",
+      "source": "Sophos / The Hacker News / Hackread / Brandefense",
+      "url": "https://thehackernews.com/2026/10/china-aligned-bronze-sandcastle-abuses.html",
+      "date": "2026-10-20"
+    },
+    {
+      "title": "Emperador 勒索軟體聲稱入侵 AB InBev Azure 雲端並竊取 PKI 憑證；GMO Internet 拒絕支付 5,000 萬美元贖金",
+      "severity": "medium",
+      "event_type": "勒索軟體攻擊",
+      "summary": "兩起值得關注的國際勒索軟體事件於本週登上資安媒體。其一，新興勒索軟體集團 Emperador 於 10 月 25 日聲稱對全球最大啤酒商 AB InBev（百威英博，旗下品牌包含百威、可樂娜）發動攻擊，指控已入侵其 Azure 雲端基礎設施並竊取 PKI 憑證資料，目前此聲稱尚未獲 AB InBev 官方證實。其二，日本最大網路服務商 GMO Internet Group 公告旗下 Onamae.com 遠端桌面平台遭未授權存取，且駭客集團要求支付 5,000 萬美元贖金，GMO Internet 明確宣布拒絕支付並已向執法機關報案。GMO Internet 的公開拒絕表態符合國際資安建議，但其 Onamae.com 平台為日本大型域名及雲端服務提供商，受影響的企業客戶資料保護狀況仍待進一步說明。Emperador 為近期新興集團，AB InBev PKI 憑證遭竊若屬實，可能產生廣泛的供應鏈及程式碼簽章信任問題，值得後續關注。",
+      "source": "Rescana / SC World / Cybernews / Yahoo Finance",
+      "url": "https://www.rescana.com/post/emperador-ransomware-attack-analysis-ab-inbev-azure-cloud-data-breach-and-pki-certificate-exposure-october-2026",
+      "date": "2026-10-25"
+    },
+    {
+      "title": "Node.js Brotli 解碼器 RCE 漏洞 CVE-2026-111497（CVSS 9.8）與 Microsoft 10 月 Patch Tuesday 修補 1,411 個 CVE（含 1 個零日），本週高強度修補壓力",
+      "severity": "medium",
+      "event_type": "修補程式發布",
+      "summary": "Node.js 於 10 月 21 日發布安全更新，修補包含 CVE-2026-111497 在內的 10 個漏洞。CVE-2026-111497 為 Node.js 內建 Brotli 解碼器中的越界寫入漏洞（CVSS v3.1 9.8），攻擊者可藉由讓伺服器解壓縮惡意 Brotli 資料，觸發記憶體損壞並執行任意程式碼。受影響版本包含 Node.js 22.x（早於 22.23.4）、24.x（早於 24.22.1）及 26.x（早於 26.12.1）；Node.js 20.x 已結束支援，無官方修補。目前尚無野外攻擊案例，但漏洞嚴重度高，應優先修補。新加坡 CSA 已發布相關警示。另一方面，微軟 10 月 Patch Tuesday（10 月 13 日）修補 1,411 個 CVE，其中 CVE-2026-96951（Windows Shell 安全功能繞過，CVSS 8.8）已遭實際利用，可讓攻擊者繞過 Mark of the Web 網路下載檔案保護機制；CVE-2026-108398（.NET Framework）已公開揭露技術細節。此外，CISA KEV 本週另新增 CVE-2026-110447（Collabora Online，CVSS 9.8）及 CVE-2026-96655（Plex Media Server）等多個積極利用漏洞。",
+      "source": "Node.js 官方 / Singapore CSA / Splashtop / BleepingComputer / CISA",
+      "url": "https://vercel.com/kb/bulletin/node-js-security-advisory",
+      "date": "2026-10-21"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-109618",
+      "title": "PHP 未驗證遠端程式碼執行（PHP2Shell，CVSS v4.0 9.2，已遭積極利用，CISA KEV 10/26，FCEB 截止 10/29）",
+      "cvss": 9.2,
+      "severity": "critical",
+      "vendor": "PHP Group",
+      "product": "PHP 全系列（Apache mod_php、PHP-FPM 等部署模式；修補版本：8.5.12、8.4.27、8.3.36、8.2.35；8.1 及以下無官方修補）",
+      "description": "CVE-2026-109618（與 CVE-2026-109619 合稱 PHP2Shell）是 PHP 核心中可由未驗證攻擊者遠端執行程式碼的嚴重漏洞（CVSS v4.0 9.2）。攻擊者無需憑證或使用者互動，僅需向執行 PHP 的 Web 伺服器發送特製 HTTP 請求即可取得伺服器控制權，適用於 Apache mod_php、PHP-FPM 等常見部署模式。攻擊在漏洞公開前已開始，PoC 程式碼現已公開流通。CISA 於 10 月 26 日列入 KEV，要求 FCEB 機構於 10 月 29 日前修補。台灣資安署呼籲約 200 個受影響政府網站盡速修補或下架。注意：8.4.27 及 8.5.12 存在已知迴歸問題，應確認套用最新釋出版本；另有第三個相關漏洞 CVE-2026-115560 目前仍無官方修補，僅有緩解措施（停用受影響功能）。"
+    },
+    {
+      "cve_id": "CVE-2026-109619",
+      "title": "PHP 未驗證遠端程式碼執行（PHP2Shell 第二漏洞，CVSS v4.0 9.2，與 CVE-2026-109618 同批修補，CISA KEV 10/26）",
+      "cvss": 9.2,
+      "severity": "critical",
+      "vendor": "PHP Group",
+      "product": "PHP 全系列（與 CVE-2026-109618 相同受影響範圍及修補版本）",
+      "description": "CVE-2026-109619 是 PHP2Shell 漏洞組合的第二個 CVE，性質與 CVE-2026-109618 相同，均為 PHP 核心中的未驗證 RCE 漏洞（CVSS v4.0 9.2）。兩個漏洞於 2026 年 10 月 21 日同批修補，修補版本及 CISA KEV 列入時程與 CVE-2026-109618 相同。建議以同一修補動作一次解決兩個 CVE，同時確認 PHP 執行環境的 Web 伺服器 access log 是否有異常的非預期請求特徵。"
+    },
+    {
+      "cve_id": "CVE-2026-111497",
+      "title": "Node.js Brotli 解碼器越界寫入可達 RCE（CVSS v3.1 9.8，10/21 修補，目前尚無野外攻擊）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Node.js Foundation",
+      "product": "Node.js 22.x（早於 22.23.4）、24.x（早於 24.22.1）、26.x（早於 26.12.1）；20.x 無官方修補",
+      "description": "CVE-2026-111497 是 Node.js 內建 Brotli 解碼器中的越界寫入漏洞（CVSS v3.1 9.8）。處理攻擊者控制的 Brotli 壓縮資料時，解碼器可被觸發損壞記憶體並執行任意程式碼。攻擊向量包括直接接受 Brotli 編碼請求體的 API 服務，以及發送 HTTP 請求至攻擊者控制伺服器並自動解壓 Brotli 回應的應用程式。新加坡 CSA 評定嚴重度為 Critical。臨時緩解措施：在 fetch() 的 Accept-Encoding 標頭中移除「br」，避免接受 Brotli 壓縮資料。Node.js 20.x 已結束支援，應評估升級至受支援版本。同批修補的 TLS 及 DNS 相關高風險漏洞（CVE-2026-105482、CVE-2026-105483、CVE-2026-106069）亦需同步修補。"
+    },
+    {
+      "cve_id": "CVE-2026-96951",
+      "title": "Windows Shell Mark of the Web 安全功能繞過（CVSS 8.8，已遭積極利用，Microsoft 10 月 Patch Tuesday）",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Windows（受影響版本涵蓋 Windows 10、11 及 Windows Server 系列；10 月 Patch Tuesday 已修補）",
+      "description": "CVE-2026-96951 是 Windows Shell 中的安全功能繞過漏洞（CVSS 8.8），允許攻擊者規避 Mark of the Web（MotW）保護機制，使從網路下載的惡意檔案在開啟時不觸發 Windows 安全警示或 Office Protected View。Microsoft 確認此漏洞已遭實際攻擊，為 10 月 Patch Tuesday（10 月 13 日，修補 1,411 個 CVE）中唯一確認野外利用的漏洞。攻擊者通常需誘騙使用者開啟特製檔案（如 ZIP 壓縮檔內的可執行文件），此漏洞常作為初始入侵媒介用於釣魚攻擊及惡意程式投放鏈。應確認 10 月 Patch Tuesday 更新已套用至所有 Windows 端點及伺服器，並加強對使用者提示不要開啟未知來源檔案的安全意識教育。"
+    },
+    {
+      "cve_id": "CVE-2026-0322",
+      "title": "Palo Alto PAN-OS 管理介面程式碼注入可達 root 執行（CISA KEV 10/14，需立即確認修補）",
+      "cvss": 9.0,
+      "severity": "critical",
+      "vendor": "Palo Alto Networks",
+      "product": "Palo Alto PAN-OS（管理介面暴露於網際網路的設備優先受影響）",
+      "description": "CVE-2026-0322 是 Palo Alto PAN-OS 管理介面中的程式碼注入漏洞，允許攻擊者在設備上以 root 身份執行任意程式碼，完全控制防火牆或 VPN 設備。CISA 於 10 月 14 日將此漏洞列入 KEV（略早於本週期間，但對台灣組織影響持續）。Palo Alto 防火牆及 Prisma Access VPN 廣泛部署於台灣企業和政府機關的網路邊界，取得此類設備控制權可使攻擊者完整監視或操控企業網路流量。應立即確認 PAN-OS 版本並套用官方修補，同時檢查管理介面是否對網際網路暴露（應限制為僅允許受信任管理 IP），並稽核過去 30 天的管理介面登入記錄確認無異常存取。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "2026 年第 43 週的威脅態勢呈現三個核心主題。其一，台灣電商及雲端新創連環失守，91APP 與 Zeabur 的事件揭示台灣數位服務業在憑證管理、內部工具更新及事件應變能力上的系統性缺口：前者因未更新內部工具 Appsmith 導致長達 18 天的非法存取，後者因明文憑證未完整輪替遭二度入侵；兩案均已引發主管機關行政檢查，資料外洩的二次詐騙利用亦已對消費者造成財損。其二，PHP2Shell（CVE-2026-109618/109619）是近期對台灣基礎設施影響最廣的單一漏洞事件：台灣約 200 個政府網站受影響，CISA 已列入 KEV 並要求 72 小時內修補，PHP 的廣泛部署性使此漏洞的攻擊面極大。其三，BRONZE SANDCASTLE 揭露顯示中國對齊 APT 生態系持續擴張，以全新未記錄組織對台灣等地發動超過一年的隱蔽間諜攻擊，DLL 旁載技術澫用合法受信任應用程式的手法使傳統端點防護難以偵測。本週同時有 Node.js、Windows 及 Palo Alto 等多個高優先修補項目，修補資源需合理分配：PHP2Shell 與 PAN-OS CVE-2026-0322 因已遭積極利用應最優先，Node.js CVE-2026-111497 雖嚴重度高但尚無野外攻擊可列次優先。",
+    "active_actors": [
+      {
+        "name": "BRONZE SANDCASTLE（中國對齊 APT，Sophos 新命名）",
+        "type": "國家級威脅行為者（APT）",
+        "activity": "Sophos 10 月 20 日揭露此先前未記錄的中國對齊威脅行為者，從 2025 年 8 月至 2026 年 8 月對台灣、菲律賓、阿富汗及納米比亞發動長期間諜攻擊，核心手法為澫用 Sandboxie、Java、LINE、NVDA 等受信任應用程式進行 DLL 旁載，部署具備鍵盤側錄、截圖及 AD 憑證竊取能力的改良版 Meterpreter 後門，並以 GitHub 儲存庫為加密 C2 通訊媒介。"
+      },
+      {
+        "name": "ARTEX（威脅行為者，日韓及台灣受害）",
+        "type": "威脅行為者（歒因調查中）",
+        "activity": "91APP 遭駭事件調查中查出 ARTEX 攻擊痕跡，顯示此先前主要在日韓記錄的威脅行為者已在台灣出現相關攻擊案例。ARTEX 的完整歒因及技術細節待後續分析披露。"
+      },
+      {
+        "name": "Emperador（新興勒索軟體集團）",
+        "type": "財務動機威脅行為者（勒索軟體集團）",
+        "activity": "10 月 25 日聲稱對 AB InBev 發動攻擊並竊取 Azure 雲端基礎設施資料及 PKI 憑證，為本週出現的新興勒索軟體集團，攻擊目標及手法仍在調查中。"
+      }
+    ],
+    "attack_techniques": [
+      "AI 自動化工具入侵（AI-Assisted Automated Attack）：91APP 事件攻擊者利用 AI 自動化工具持續讀取資料庫，長達 18 天未被察覺，顯示傳統基於規則的異常偵測對 AI 輔助低速讀取攻擊的偵測盲點",
+      "內部工具漏洞利用（Vulnerable Internal Tool Exploitation）：攻擊者利用未更新的 Appsmith 開源工具進入內網，再橫向移動至 GitLab 取得資料庫金鑰，揭示影子 IT 及未受管理內部工具的普遍風險",
+      "明文憑證持久化（Plaintext Credential Persistence）：Zeabur 案顯示無過期日的長效存取金鑰以明文存放於設定檔庫，即便發生資安事件後的憑證輪替流程不完整，均使攻擊者可重入系統，為常見但致命的憑證管理缺失",
+      "DLL 旁載（DLL Sideloading）：BRONZE SANDCASTLE 澫用多種合法受信任 Windows 應用程式（Sandboxie、Java、LINE、NVDA）載入惡意 DLL，規避應用程式允許清單及端點偵測，實現隱蔽的長期駐留",
+      "漏洞修補前搶先利用（Pre-Patch Zero-Day Exploitation）：PHP2Shell 攻擊在漏洞修補前已開始，攻擊者具備獨立識別或接獲通報未公開漏洞的能力，縮短組織可用的修補緩衝時間"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即修補 PHP2Shell（CVE-2026-109618、CVE-2026-109619，CISA KEV 截止 10/29）：（1）清查所有 PHP 部署環境版本，立即升級至 8.5.x、8.4.x、8.3.x 或 8.2.x 的最新安全版本（須確認非已知有迴歸問題的 8.4.27 或 8.5.12 首版）；（2）PHP 8.1 及以下版本無官方修補，需評估升級至 8.2 以上或購買商業延伸支援；（3）修補前臨時緩解：透過 WAF 規則封鎖可疑 PHP 請求，或將 PHP Web 服務限制僅對受信任網段開放；（4）稽核過去 14 天的 Web 伺服器 access log，搜尋可能與 PHP2Shell 利用相關的異常請求特徵；（5）台灣政府機關應配合資安署行政指引，評估受影響網站是否具備應急下架能力。",
+      "team": "資安團隊、系統管理團隊",
+      "deadline": "立即（24 小時內）"
+    },
+    {
+      "priority": "high",
+      "action": "確認 Zeabur 用戶憑證是否外洩並立即輪替：（1）確認組織是否有使用 Zeabur 平台部署服務；（2）若有使用，立即輪替所有存放於 Zeabur 環境變數中的 API 金鑰、資料庫連線字串、服務帳號憑證及其他敏感設定；（3）稽核被輪替憑證在 10 月 14 至 15 日期間是否有異常使用記錄；（4）若確認有外洩風險，依組織規定評估是否須通報主管機關或啟動個資外洩應變程序。",
+      "team": "開發團隊、資安團隊",
+      "deadline": "立即（24 小時內）"
+    },
+    {
+      "priority": "high",
+      "action": "確認 Palo Alto PAN-OS CVE-2026-0322 修補狀態（CISA KEV 10/14）：（1）確認所有 PAN-OS 設備版本，套用 Palo Alto 官方修補；（2）立即確認管理介面是否對網際網路暴露，應限制為僅允許受信任管理 IP 存取；（3）稽核過去 30 天的管理介面登入記錄，確認無異常存取來源；（4）若設備已部署超過 30 天且管理介面曾對外暴露，應進行完整的 IoC 排查。",
+      "team": "網路安全團隊、資安團隊",
+      "deadline": "立即（48 小時內）"
+    },
+    {
+      "priority": "high",
+      "action": "修補 Node.js CVE-2026-111497（CVSS 9.8，Brotli RCE）：（1）確認所有 Node.js 部署版本，升級至 22.23.4、24.22.1 或 26.12.1；（2）20.x 版本已結束支援，應評估升級計畫；（3）臨時緩解：在 fetch() 的 Accept-Encoding 移除「br」；（4）Vercel 平台已有 WAF 保護（入站），但 fetch() 獲取外部 Brotli 回應仍需運行時修補。",
+      "team": "開發團隊、DevOps 團隊",
+      "deadline": "本週內"
+    },
+    {
+      "priority": "high",
+      "action": "套用 Microsoft 10 月 Patch Tuesday 更新（特別關注 CVE-2026-96951 Windows Shell 零日）：（1）確認所有 Windows 端點及伺服器已套用 10 月 Patch Tuesday 更新；（2）CVE-2026-96951 已遭積極利用，可繞過 MotW 保護，需優先確認修補；（3）加強使用者安全意識。",
+      "team": "IT 管理團隊、資安團隊",
+      "deadline": "本週內"
+    },
+    {
+      "priority": "medium",
+      "action": "加強 BRONZE SANDCASTLE DLL 旁載攻擊偵測：（1）EDR 建立偵測規則監控 Sandboxie、Java、LINE、NVDA 載入非預期 DLL；（2）審查端點上 sbiedll.dll 等旁載特徵；（3）啟用 Sysmon Event ID 7 並設定監控詢警規則；（4）稽核組織內 Sandboxie 來源及完整性。",
+      "team": "資安維運團隊（SOC）",
+      "deadline": "兩週內"
+    },
+    {
+      "priority": "medium",
+      "action": "加強內部開源工具及第三方工具的資安管理（91APP 事件教訓）：（1）盤點 Appsmith、Retool、Metabase 等開源工具版本，納入定期更新管理；（2）確認 VPN 後才能存取且實施最小權限原則；（3）確認 GitLab/GitHub 不存放明文憑證，改用密鑰管理服務；（4）建立資料庫對低頻持續讀取行為的異常偵測基準。",
+      "team": "開發團隊、資安團隊",
+      "deadline": "兩週內"
+    }
+  ],
+  "terms": [
+    {
+      "term": "DLL 旁載（DLL Sideloading）",
+      "definition": "攻擊者將惡意 DLL 置於合法應用程式執行目錄，使應用程式在啟動時優先載入惡意程式碼的技術",
+      "url": "https://glossary.astroicers.link/glossary/dll_sideloading"
+    },
+    {
+      "term": "Mark of the Web（MotW）",
+      "definition": "Windows 對從網際網路下載的檔案標記的安全旗標，觸發額外安全警示及 Office Protected View 等防護機制",
+      "url": "https://glossary.astroicers.link/glossary/mark_of_the_web"
+    },
+    {
+      "term": "PHP2Shell",
+      "definition": "CVE-2026-109618 及 CVE-2026-109619 組合的俗稱，為 PHP 核心中允許未驗證遠端程式碼執行的嚴重漏洞",
+      "url": "https://glossary.astroicers.link/glossary/php2shell"
+    },
+    {
+      "term": "已知被利用漏洞（KEV）",
+      "definition": "CISA 維護的已知遭野外積極利用漏洞目錄，FCEB 機構須在指定期限內完成修補",
+      "url": "https://glossary.astroicers.link/glossary/kev"
+    },
+    {
+      "term": "Brotli",
+      "definition": "Google 開發的開源無損資料壓縮演算法，廣泛用於 Web 內容傳輸，Node.js 內建解碼器本週被發現嚴重 RCE 漏洞",
+      "url": "https://glossary.astroicers.link/glossary/brotli"
+    },
+    {
+      "term": "PKI 憑證（Public Key Infrastructure Certificate）",
+      "definition": "基於公開金鑰基礎設施的數位憑證，用於身份驗證、程式碼簽章及加密通訊；遭竊後可偽造受信任身份或惡意程式碼",
+      "url": "https://glossary.astroicers.link/glossary/pki_certificate"
+    },
+    {
+      "term": "資料外洩（Data Breach）",
+      "definition": "未授權方取得、揭露或使用組織所持有之敏感、受保護或機密資料的安全事件",
+      "url": "https://glossary.astroicers.link/glossary/data_breach"
+    },
+    {
+      "term": "遠端程式碼執行（RCE）",
+      "definition": "攻擊者在目標系統上遠端執行任意程式碼，通常可取得完整系統控制權",
+      "url": "https://glossary.astroicers.link/glossary/rce"
+    }
+  ],
+  "references": [
+    {
+      "title": "91APP公布《2026 遭受駭客攻擊事件 18 天調查報告》",
+      "url": "https://91app.com/blog/91app-202610-security-incident/"
+    },
+    {
+      "title": "91APP遭駭事件查出ARTEX攻擊痕跡，顯示不只日韓，臺灣也出現相關攻擊案例 – iThome",
+      "url": "https://www.ithome.com.tw/news/179923"
+    },
+    {
+      "title": "針對91APP資料庫遭非法存取事件，數產署已啟動行政檢查 – iThome",
+      "url": "https://www.ithome.com.tw/news/179873"
+    },
+    {
+      "title": "Zeabur再遭駭後公布調查結果，攻擊者讀取逾321萬筆環境變數 – iThome",
+      "url": "https://www.ithome.com.tw/news/179804"
+    },
+    {
+      "title": "Zeabur Is Shutting Down: Two Breaches, 3.2M Secrets Leaked – ByteIota",
+      "url": "https://byteiota.com/zeabur-shutdown-two-breaches-secrets-leaked/"
+    },
+    {
+      "title": "Critical Vulnerabilities in PHP Require Immediate Patching – CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching"
+    },
+    {
+      "title": "php2shell CVE-2026-109618 & CVE-2026-109619 FAQ – Tenable",
+      "url": "https://www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619-frequently-asked-questions-about-critical-php-remote"
+    },
+    {
+      "title": "CVE-2026-109618 and CVE-2026-109619: Critical PHP RCE – Rapid7",
+      "url": "https://www.rapid7.com/blog/post/etr-cve-2026-109618-and-cve-2026-109619-critical-unauthenticated-remote-code-execution-in-php/"
+    },
+    {
+      "title": "China-Aligned Bronze Sandcastle Abuses Sandboxie DLL Sideloading to Deploy Backdoors – The Hacker News",
+      "url": "https://thehackernews.com/2026/10/china-aligned-bronze-sandcastle-abuses.html"
+    },
+    {
+      "title": "Node.js Security Release October 2026: Brotli RCE + 9 CVEs – GetAstra",
+      "url": "https://www.getastra.com/blog/security-advisory/node-js-security-release/"
+    },
+    {
+      "title": "Node.js Security Advisory: Brotli Decoder RCE (CVE-2026-111497) – Vercel",
+      "url": "https://vercel.com/kb/bulletin/node-js-security-advisory"
+    },
+    {
+      "title": "Critical Vulnerability in Node.js – Singapore CSA",
+      "url": "https://www.csa.gov.sg/alerts-and-advisories/alerts/al-2026-154/"
+    },
+    {
+      "title": "Microsoft October 2026 Patch Tuesday Fixes 1,411 Flaws, 3 Zero-Days – BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1-411-flaws-3-zero-days/"
+    },
+    {
+      "title": "Emperador Ransomware Attack Analysis: AB InBev Azure Cloud Data Breach – Rescana",
+      "url": "https://www.rescana.com/post/emperador-ransomware-attack-analysis-ab-inbev-azure-cloud-data-breach-and-pki-certificate-exposure-october-2026"
+    },
+    {
+      "title": "Japan's GMO Internet warns users of impending ransomware attack – Yahoo Finance UK",
+      "url": "https://uk.finance.yahoo.com/news/japan-gmo-internet-warns-users-040609308.html"
+    },
+    {
+      "title": "【資安週報】1019～1022，91APP事件延燒、Zeabur再遭駭，AI自主網攻與PHP2Shell風暴引關注 – iThome",
+      "url": "https://www.ithome.com.tw/news/179896"
+    },
+    {
+      "title": "Known Exploited Vulnerabilities Catalog – CISA",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}
