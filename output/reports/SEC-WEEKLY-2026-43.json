@@ -1,0 +1,305 @@
+{
+  "title": "資安週報 2026/10/19 - 2026/10/25",
+  "report_id": "SEC-WEEKLY-2026-43",
+  "period": {
+    "start": "2026-10-19",
+    "end": "2026-10-25"
+  },
+  "publish_date": "2026-10-26",
+  "summary": {
+    "total_events": 7,
+    "total_vulnerabilities": 3,
+    "threat_level": "critical"
+  },
+  "events": [
+    {
+      "title": "Zeabur二度遭駭，322萬筆環境變數、32萬帳號外洩，無效期管理權杖明文暴露，年底宣告停止營運（10/14-15發生，10/19公開）",
+      "severity": "high",
+      "event_type": "資料外洩",
+      "summary": "10月14至15日（UTC），台灣雲端部署平台Zeabur再度遭入侵。攻擊者利用2024年建立、未設定到期日的叢集管理權杖，在8月事件後的輪替作業中被遺漏，且以明文形式存放並可從公網存取，成功入侵共享叢集、部分專用伺服器及內部系統，讀取約322萬筆環境變數與32萬1,810筆帳號資料。Zeabur於10月19日前後公開調查報告，確認入侵根因並宣布平台將於2026年12月31日停止營運。8月事件中已有Anthropic、OpenAI、OpenRouter等AI平台API金鑰遭盜用導致帳單暴增，本次規模更大，大量環境變數可能包含更廣泛的雲端憑證與資料庫密碼。此事件凸顯PaaS平台的共同命運風險：單一管理憑證洩露可波及全部租戶的機密資料，且未輪換的過期憑證在業者自身事件後成為最易遭忽視的攻擊面。曾在Zeabur儲存任何機密的開發者及企業應立即輪換所有相關憑證。",
+      "source": "數位時代 BusinessNext / n.yam.com / iThome / alphamatch.ai",
+      "url": "https://www.bnext.com.tw/article/92061/zeabur-env-var-leak-api-key-stolen",
+      "date": "2026-10-19"
+    },
+    {
+      "title": "91APP遭ARTEX AI自主滲透工具攻擊，調查確認從Appsmith漏洞到GitLab憑證竊取的完整攻擊鏈，同類手法已擴散至韓日美（10/22）",
+      "severity": "high",
+      "event_type": "AI輔助攻擊",
+      "summary": "91APP於10月22日公布事件調查報告，確認攻擊者透過公司內部一款未更新套件的效率工具Appsmith取得初始存取權限，隨後從GitLab取得資料庫金鑰，進而入侵訂單資料庫，存取商務雲訂單相關資訊。調查發現本次攻擊使用ARTEX AI自主滲透工具，91APP說明相同工具在2026年9月至10月間已鎖定韓國、日本及美國企業，顯示此攻擊手法正在跨國快速擴散。商務雲行銷模組、支付服務及iCHEF等產品確認未受影響，91APP已承諾對因本次事件遭詐騙而受有財損的消費者全額補償。事件延燒期間，數位發展部已介入並委外啟動獨立資安稽核，調查仍在進行中。ARTEX代表AI自主滲透測試能力進入實戰攻擊場景的新里程碑，此類工具能自動枚舉漏洞、橫向移動並竊取憑證，大幅壓縮傳統入侵所需的人力與時間，使攻擊更易規模化。台灣電商與SaaS平台業者應立即盤點所有委外管理工具的套件版本，並隔離內部開發工具與正式環境資料庫的網路存取。",
+      "source": "iThome / Global Views月刊 / 中時電子報 / 數位時代 BusinessNext",
+      "url": "https://www.ithome.com.tw/news/179923",
+      "date": "2026-10-22"
+    },
+    {
+      "title": "台灣多家上市公司委外平台同期遭自動化攻擊，歐都納、美食-KY、清淨海、科懋、天良相繼發布資安重訊（10/22-23）",
+      "severity": "high",
+      "event_type": "供應鏈攻擊／資料外洩",
+      "summary": "10月22日至23日，台灣上市興櫃公司歐都納（2940）、美食-KY（2723）子公司美食達人、清淨海生技（7516）、科懋生技（6496）相繼依證券法規發布資安重訊；10月27日天良（4127）與京站（2942）子公司亦陸續公告，顯示攻擊波段仍在延燒。多數公告指向共同特徵：委外廠商管理的電商或CRM平台資料庫遭自動化攻擊，消費者個人資料（姓名、電話、地址、訂單資訊等）疑似遭第三方不當取得，美食達人更明確表示其資訊系統直接遭駭客網路攻擊導致服務受影響。此事件集群與91APP事件在時間軸上高度重疊，攻擊者針對台灣電商委外服務鏈發動系統性自動化攻擊的模式已明朗。受影響企業均依規定啟動應變並配合數位發展部調查，多數表示截至公告時對財務無重大影響，惟受影響用戶規模仍在評估中。台灣使用共享電商SaaS或委外CRM平台的品牌商應立即要求服務商提供安全評估報告，並核查自身平台是否具備異常存取警示機制。",
+      "source": "iThome / Yahoo 股市公告 / KodeLab",
+      "url": "https://www.ithome.com.tw/news/179803",
+      "date": "2026-10-22"
+    },
+    {
+      "title": "PHP2Shell漏洞細節10/20提前洩露，PHP官方緊急提前於10/21發布RCE修補，CISA已列入KEV要求10/31前修補（10/20-21）",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "PHP存在CVE-2026-109618（記憶體超限處理缺陷）與CVE-2026-109619（use-after-free），兩者均允許未驗證攻擊者直接在伺服器端執行任意程式碼，CVSS v4.0分數9.2，被研究人員稱為「PHP2Shell」。由於漏洞細節於10月20日在CVE編號正式公告前即在網路流傳，PHP官方緊急提前至10月21日發布修補版本（8.5.12、8.4.27、8.3.36、8.2.35）；日本政府與FBI網路部門均公開呼籲立即修補。此漏洞影響所有以網頁服務模式運行的PHP安裝（PHP-FPM、Apache mod_php、php-cgi），且因攻擊發生在應用程式程式碼執行之前，應用層的驗證機制無法提供任何防護。watchTowr已觀察到實際利用案例，CISA於10月26日將此兩CVE列入KEV目錄，並將相關Linux核心漏洞CVE-2026-46300設定聯邦機構修補截止日為10月31日。另需注意8.4.27與8.5.12修補版本存在一個導致PHP崩潰的迴歸問題（regression），PHP官方已確認並建議在新版本發布前評估影響。PHP 7.x及更舊版本已停止維護，使用者須面臨更高風險。",
+      "source": "Tenable / watchTowr / Huntress / Datadog Security Labs / Unit 42 / CISA",
+      "url": "https://www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619-frequently-asked-questions-about-critical-php-remote",
+      "date": "2026-10-21"
+    },
+    {
+      "title": "SafePay勒索軟體CISA/FBI/USSS聯合通報AA26-293A，全球600+受害組織，主要入侵向量為VPN暴力破解與釣魚（10/20）",
+      "severity": "high",
+      "event_type": "威脅情報",
+      "summary": "10月20日，CISA、FBI、美國特勤局（USSS）聯合德國萊茵蘭-普法爾茨州刑事調查局、英國國家犯罪署（NCA）及英格蘭西北地區有組織犯罪部門，發布聯合資安諮詢AA26-293A，針對SafePay勒索軟體集團提出正式警告。SafePay自2024年8月出現以來，已在北美、南美、歐洲及澳洲各關鍵基礎設施產業造成逾600個組織受害。攻擊者主要透過弱密碼暴力破解、釣魚竊取VPN帳號及利用未修補的防火牆與備份伺服器漏洞取得初始存取，入侵後使用PowerShell、PsExec、Windows遠端管理、AnyDesk及TeamViewer等工具進行橫向移動，採雙重勒索模式（先竊取資料後加密），並主動清除備份以增加受害者復原壓力。加密後的檔案副檔名為「.SafePay」。SafePay此時獲得六國執法單位聯合點名，顯示其規模與威脅已達到需要國際協調的等級，台灣企業應比對已知入侵指標（IoC）並強化VPN存取控管。",
+      "source": "CISA AA26-293A / The Cyber Express / HSToday / Security Boulevard",
+      "url": "https://www.ic3.gov/CSA/2026/261020.pdf",
+      "date": "2026-10-20"
+    },
+    {
+      "title": "LiteLLM PyPI套件遭投毒攻擊，1.107.0版本在PyPI存活2小時，攻擊者利用Claude Code日誌洩露的GitHub OAuth Token入侵發布管線（10/21）",
+      "severity": "medium",
+      "event_type": "供應鏈攻擊",
+      "summary": "10月21日11:39至13:23（UTC），廣泛用於AI基礎設施開發的LiteLLM PyPI套件版本1.107.0遭投毒，惡意版本存活約兩小時。攻擊者取得LiteLLM三名工程師的GitHub帳號存取權限，利用GitHub CLI OAuth Token入侵其PyPI發布工作流程，在官方正式版本的套件檔案中植入惡意程式碼。LiteLLM官方調查指出，攻擊者疑從公開可及的內部部署環境日誌中取得上述Token；值得特別關注的是，LiteLLM說明已觀察到Claude Code在某些情境下會將使用者的GitHub CLI OAuth Token嵌入回應內容，若此類回應被記錄至日誌，Token即可能遭截取。企業版客戶使用私有套件倉庫者未受影響。此事件為LiteLLM今年第二次供應鏈攻擊（3月事件為Trivy Scanner遭入侵），凸顯AI基礎設施的供應鏈已成高價值攻擊目標。曾在10月21日安裝LiteLLM的開發者應立即輪換所有憑證，並審查是否有GitHub Token被記錄在應用程式日誌中。",
+      "source": "Help Net Security / The Next Web / Snyk / SlowMist / Integrity360",
+      "url": "https://www.helpnetsecurity.com/?p=388824",
+      "date": "2026-10-21"
+    },
+    {
+      "title": "APT28鎖定NATO防務承包商，使用Hookedge新型後門及反射式載入器執行長期諜報行動，10/20確認（10/20）",
+      "severity": "medium",
+      "event_type": "國家級網路攻擊",
+      "summary": "10月20日，賽門鐵克（Symantec）發布威脅情報報告，確認俄羅斯國家級組織APT28（與GRU有關聯，又稱Fancy Bear）對歐洲兩個未具名NATO成員國的三家防務相關組織發動諜報攻擊，活動期間至少自2026年7月24日持續至9月24日。攻擊者部署一個此前未被記錄的後門程式Hookedge，並搭配一個未知的反射式PE載入器（Reflective Loader）實現無檔案駐留，結合憑證竊取與隱蔽的網路存取手段，持續滲透目標內網竊取敏感資訊。APT28此役展現其工具鏈的持續演進能力，以新型隱蔽後門替換已被研究人員熟知的舊工具，顯示其資源充裕且具備長期維持作戰能力的意圖。台灣國防相關單位及與NATO成員國有業務往來的企業，應強化對未知後門程式行為的偵測能力（端點偵測與回應、記憶體掃描），並檢視過去三個月內的異常PowerShell執行記錄。",
+      "source": "Symantec / CyPro / UVCyber",
+      "url": "https://cypro.co.uk/insights/cyber-bulletins/apt28-nato-campaign-hits-defence-contractors/",
+      "date": "2026-10-20"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-109618 / CVE-2026-109619",
+      "title": "PHP「PHP2Shell」雙重RCE漏洞（CVSS 9.2，CISA KEV 10/26，聯邦機構10/31截止，修補版本存在迴歸問題）",
+      "cvss": 9.2,
+      "severity": "critical",
+      "vendor": "PHP Foundation",
+      "product": "PHP 8.2.x（<8.2.35）、8.3.x（<8.3.36）、8.4.x（<8.4.27）、8.5.x（<8.5.12）；PHP 7.x及以下不再維護",
+      "description": "CVE-2026-109618（記憶體超限處理缺陷）與CVE-2026-109619（use-after-free），CVSS v4.0均為9.2，允許未驗證攻擊者透過網路直接在目標伺服器執行任意程式碼，無需任何有效帳號。由於漏洞於PHP官方修補前洩露（10月20日），官方緊急提前於10月21日發布修補版本8.5.12、8.4.27、8.3.36、8.2.35；然而8.4.27與8.5.12存在一個已確認的迴歸問題（regression）可導致PHP崩潰，建議升級後持續監控官方後續版本。此漏洞影響所有以Web服務模式運行的PHP環境（FPM、mod_php、php-cgi），攻擊發生在應用層程式碼執行前，應用層驗證無法阻擋攻擊。CISA已於10月26日將兩CVE列入KEV，並連同相關鏈式利用的Linux核心漏洞CVE-2026-46300（截止10/31）一同追蹤。建議立即升級至修補版本；若因迴歸問題無法立即升級，應透過WAF規則或網路層限制減少外部暴露面，並持續監控PHP進程的異常子進程建立行為。"
+    },
+    {
+      "cve_id": "CVE-2026-110447",
+      "title": "Nextcloud Collabora Online Built-in CODE Server OS命令注入（CVSS 9.2，CISA KEV 10/23，攻擊者部署Webshell）",
+      "cvss": 9.2,
+      "severity": "critical",
+      "vendor": "Collabora Productivity / Nextcloud",
+      "product": "Nextcloud Collabora Online Built-in CODE Server（richdocumentscode，版本 < 26.4.303）；獨立Collabora Online伺服器、Docker/RPM/DEB安裝及Nextcloud All-in-One不受影響",
+      "description": "CVE-2026-110447是Nextcloud Collabora Online Built-in CODE Server中proxy.php端點的OS命令注入漏洞（CVSS 4.0 9.2），在CODE伺服器未運行狀態下（重啟、升級或崩潰期間），未驗證的攻擊者可透過網路對目標系統執行任意作業系統命令。CISA於10月23日依積極利用證據列入KEV，Nextcloud管理員已回報發現非預期PHP Webshell，部分攻擊疑在9月即已開始，早於公告日期。修補方案：升級至richdocumentscode 26.4.303、26.4.402或26.4.502；僅停用App不足以防護，應完全移除或升級。建議即刻升級，並排查Nextcloud安裝目錄下的richdocumentscode App子目錄（apps/richdocumentscode/），確認是否有非預期PHP檔案（疑似Webshell）。對無法立即升級的組織，應完全移除richdocumentscode App並改用獨立Collabora Online伺服器。"
+    },
+    {
+      "cve_id": "CVE-2026-0257",
+      "title": "Palo Alto PAN-OS GlobalProtect驗證繞過漏洞（CVSS 7.8，CISA KEV 5/29，Qilin與Inc勒索軟體集團持續積極利用）",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Palo Alto Networks",
+      "product": "PAN-OS 12.1、11.2、11.1、10.2（啟用Authentication Override Cookie時）；Prisma Access 11.2、10.2；Panorama及Cloud NGFW不受影響",
+      "description": "CVE-2026-0257是PAN-OS GlobalProtect閘道與入口中的驗證繞過漏洞（CVSS 7.8），成因為防火牆在啟用驗證覆寫Cookie（Authentication Override Cookies）並搭配特定憑證設定時，對Cookie缺乏充分驗證與完整性檢查。攻擊者可在無有效帳號的情況下建立合法VPN會話，隨後利用合法IT管理工具繞過多因素驗證進行橫向移動。Unit 42於10月19日公開點名Spikey Scorpius（與Qilin關聯）、Tarnished Scorpius（與Inc關聯）及Settra三個勒索軟體組織正在積極利用此漏洞，Help Net Security報導攻擊行為至少自2026年6月即開始。CISA已於5月29日列入KEV（聯邦機構截止6月1日），但ransomware組織的積極利用延續至本報告週。建議立即升級至修補版本，結束所有現有VPN連線並重新建立，確認是否啟用Authentication Override Cookies（如無必要應停用），並針對GlobalProtect稽核日誌中異常VPN登入來源進行威脅獵捕。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢呈現「AI工具賦能攻擊者」與「委外服務鏈系統性薄弱環節」兩條清晰主線。台灣市場首次出現AI自主滲透工具（ARTEX）在真實攻擊中被確認使用，91APP事件調查報告揭露此類工具已形成跨國攻擊浪潮，結合同週Zeabur二度遭駭（322萬筆環境變數外洩）與多家上市公司委外平台集中遭自動化攻擊，指向台灣電商生態系的委外服務鏈已成為系統性攻擊目標，且攻擊者正大量採用自動化工具壓縮人力成本、擴大攻擊規模。國際面，PHP2Shell（CVE-2026-109618/109619，CVSS 9.2）因漏洞細節提前洩露，修補窗口壓縮至接近零，CISA同步追蹤其與Linux核心CVE-2026-46300的鏈式利用，此模式顯示攻擊者越來越擅長在官方修補前搶佔先機。SafePay勒索軟體獲六國執法單位聯合點名（600+受害組織），再次確認勒索軟體集團的規模化、服務化趨勢。LiteLLM供應鏈攻擊則顯示AI開發工具鏈已成為新興高價值攻擊目標，且攻擊者藉由記錄在日誌中的OAuth Token打通整個發布流程，暴露出AI基礎設施日誌安全管理的普遍缺口。",
+    "active_actors": [
+      {
+        "name": "ARTEX AI攻擊工具使用者（財務動機，具AI自主攻擊能力）",
+        "type": "財務動機威脅行為者（使用AI自主滲透工具）",
+        "activity": "使用ARTEX AI自主滲透工具攻擊91APP，透過Appsmith漏洞取得初始存取後橫向移動至GitLab竊取資料庫金鑰。相同工具在2026年9月至10月間已在韓國、日本及美國被確認使用，顯示此攻擊能力已商業化並跨國擴散。ARTEX能自動化完成從漏洞枚舉、初始存取到憑證竊取的完整攻擊鏈，大幅降低攻擊門檻。"
+      },
+      {
+        "name": "Qilin（Spikey Scorpius）/ Inc（Tarnished Scorpius）勒索軟體集團",
+        "type": "財務動機威脅行為者（勒索軟體集團）",
+        "activity": "本週持續積極利用Palo Alto PAN-OS GlobalProtect CVE-2026-0257驗證繞過漏洞（Unit 42於10月19日公開點名），在取得VPN存取後利用合法IT工具橫向移動，繞過多因素驗證。此外ASEC Week 5報告亦記錄Qilin在本週對日本投資公司的攻擊行動。"
+      },
+      {
+        "name": "SafePay勒索軟體集團",
+        "type": "財務動機威脅行為者（勒索軟體即服務）",
+        "activity": "CISA/FBI/USSS於10月20日發布聯合通報AA26-293A，確認SafePay自2024年8月以來已造成全球600+組織受害，涵蓋北美、南美、歐洲及澳洲關鍵基礎設施。採VPN暴力破解及釣魚為主要入侵管道，雙重勒索並系統性清除備份。"
+      },
+      {
+        "name": "APT28（Fancy Bear，俄羅斯GRU關聯）",
+        "type": "國家級威脅行為者（APT）",
+        "activity": "賽門鐵克10月20日揭露APT28對歐洲兩個NATO成員國三家防務承包商發動諜報攻擊（2026年7月24日至9月24日），部署此前未知的Hookedge後門及反射式PE載入器，執行長期隱蔽諜報行動，竊取防務相關敏感資訊。"
+      }
+    ],
+    "attack_techniques": [
+      "AI自主攻擊工具商業化擴散：ARTEX等AI滲透工具實現從漏洞枚舉到憑證竊取的全流程自動化，攻擊者無需高度技術背景即可對企業應用執行完整攻擊鏈，且相同工具已被觀察跨越多個國家的攻擊活動",
+      "委外平台共同攻擊面：攻擊者針對台灣多個品牌商共用的電商/CRM委外服務平台發動系統性自動化攻擊，以一次攻擊取得多家企業的消費者資料，供應鏈的共同弱點成為規模化攻擊的高效跳板",
+      "漏洞細節洩露導致修補窗口歸零：PHP2Shell漏洞在官方修補前一天洩露，導致攻擊者搶在大多數組織完成修補之前即開始掃描與利用，CISA與PHP官方均發出緊急應對指引",
+      "VPN驗證繞過鏈式橫向移動：Palo Alto CVE-2026-0257允許攻擊者無憑證建立合法VPN會話後，利用內建IT工具繞過MFA進行橫向移動，勒索軟體集團將此類技術整合至標準化入侵劇本中",
+      "AI基礎設施供應鏈日誌竊密：LiteLLM事件揭示攻擊者從可公開存取的部署日誌中竊取GitHub CLI OAuth Token，再利用此Token入侵PyPI發布管線，AI工具開發者在日誌安全管理上的普遍缺口被系統性利用"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即修補所有PHP安裝至最新安全版本（PHP2Shell，CVE-2026-109618/CVE-2026-109619，CVSS 9.2，CISA KEV）：（1）立即升級至PHP 8.2.35、8.3.36，或評估升級後的迴歸風險後決定是否升級8.4.27/8.5.12（官方已確認8.4.27與8.5.12存在可致崩潰的迴歸問題，建議在確認官方補丁後再決定升級至最新點版本）；PHP 7.x不再維護、無修補版本，使用者應立即升級至8.2+；（2）此漏洞在應用層驗證之前即可利用，WAF只能提供部分緩解，無法完全替代修補；（3）修補前優先透過WAF規則限制對PHP服務的異常外部存取，並監控PHP進程建立的異常子進程（如bash、sh、cmd等）；（4）PHP-FPM、mod_php及php-cgi等所有部署模式均受影響，應全面盤點；（5）CISA聯邦機構修補截止日為10月31日，台灣企業應參照此期限設定內部修補優先級。"
+    },
+    {
+      "priority": "high",
+      "action": "曾在Zeabur儲存機密的開發者及企業立即輪換所有相關憑證，並評估受影響範圍：（1）立即到所有曾在Zeabur環境變數中存放的服務後台（雲端供應商AWS/GCP/Azure、AI平台Anthropic/OpenAI/OpenRouter、資料庫、第三方SaaS等）撤銷並更換金鑰與憑證；（2）審查受影響服務的用量紀錄與帳單，確認是否有異常消費（8月事件已有用戶因此帳單暴增）；（3）評估外洩環境變數是否包含可存取客戶資料的憑證，如是則應依個資法規進行通報評估；（4）Zeabur已宣布12月31日停止營運，建議儘早規劃遷移至其他平台，遷移過程中所有新平台同樣不應明文存放憑證，應改用Secret Manager服務。"
+    },
+    {
+      "priority": "high",
+      "action": "立即修補或停用Nextcloud Collabora Online Built-in CODE Server（CVE-2026-110447，CVSS 9.2，CISA KEV 10/23，Webshell植入已確認）：（1）立即升級richdocumentscode至26.4.303、26.4.402或26.4.502；（2）若無法立即升級，完全移除richdocumentscode App（僅停用不足以防護），可改用獨立Collabora Online伺服器；（3）無論是否已升級，立即排查richdocumentscode App目錄下的所有PHP檔案，確認是否存在非預期的Webshell（攻擊可能在9月即已開始）；（4）獨立Collabora Online伺服器、Docker/RPM/DEB安裝及Nextcloud All-in-One部署不受影響，無需額外操作。"
+    },
+    {
+      "priority": "high",
+      "action": "台灣電商品牌商盤點委外服務鏈安全狀態，對應多家上市公司集中遭委外平台自動化攻擊事件：（1）立即要求所有電商、CRM及行銷自動化等委外服務商提供最近一次的滲透測試報告或資安評估報告；（2）確認委外服務商的資料庫是否具備異常大量查詢的偵測與警報機制；（3）盤點自身品牌在哪些共享SaaS平台上有消費者資料，評估若該平台遭攻擊的擴散範圍；（4）確認委外服務商發生事件時的通報義務與時間要求，確保符合台灣個資法及金管會的重訊發布要求；（5）與法律顧問確認若發現遭委外廠商波及時的個資外洩通報程序，以維護上市公司的即時揭露義務。"
+    },
+    {
+      "priority": "high",
+      "action": "修補Palo Alto PAN-OS GlobalProtect CVE-2026-0257並確認是否已遭Qilin/Inc勒索軟體利用：（1）確認所有PAN-OS 12.1、11.2、11.1、10.2部署版本，立即升級至官方修補版本（已於5月發布）；（2）升級後強制結束所有現有GlobalProtect VPN連線並要求使用者重新建立，確保現有的任何未授權VPN會話中斷；（3）確認Authentication Override Cookies功能是否已啟用——若非必要應立即停用；（4）稽核GlobalProtect存取日誌中自6月以來異常的VPN登入記錄，特別關注非工作時間、來自未知地理位置的成功登入；（5）Unit 42已確認Spikey Scorpius（Qilin）及Tarnished Scorpius（Inc）正積極利用此漏洞，若懷疑已遭入侵應立即啟動事件回應程序。"
+    },
+    {
+      "priority": "medium",
+      "action": "使用LiteLLM的AI開發團隊立即輪換憑證並審查日誌安全設定（對應PyPI投毒事件）：（1）確認是否在10月21日11:39至13:23（UTC）期間安裝LiteLLM，若是應立即輪換所有在該環境中可用的憑證（GitHub Token、雲端憑證、AI API金鑰等）；（2）審查LiteLLM部署環境的日誌設定，確認回應內容（response body）是否被記錄至日誌——LiteLLM已指出GitHub CLI OAuth Token可能出現在回應體中；（3）對所有依賴LiteLLM的AI應用審查其日誌稽核範圍，確保敏感Token不會記錄在可公開存取的位置；（4）套用2025年LiteLLM 3月事件與本次事件的共同教訓：將PyPI依賴固定至特定版本並使用雜湊驗證，啟用依賴包的完整性檢查，避免在CI/CD中自動安裝最新版本。"
+    },
+    {
+      "priority": "medium",
+      "action": "依SafePay勒索軟體聯合通報AA26-293A強化VPN存取控管與備份保護：（1）審查所有VPN閘道（Fortinet、Palo Alto、Cisco等）的帳號密碼強度，強制停用預設密碼，並對VPN帳號啟用多因素驗證；（2）確認VPN登入失敗嘗試是否有警報機制，設定針對短時間內大量登入失敗的自動封鎖或告警；（3）確認備份環境與主要IT環境的憑證完全隔離（使用獨立帳號），防止勒索軟體以相同憑證刪除備份；（4）測試最近一次備份的實際可還原性，確保備份資料的完整性；（5）下載並參閱CISA官方通報AA26-293A，核對組織環境是否存在SafePay的已知入侵指標（IoC）。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "AI自主滲透攻擊（AI-Driven Autonomous Penetration Attack）",
+      "definition": "利用AI技術自動化執行從漏洞枚舉、初始存取到憑證竊取的完整攻擊鏈，無需人工介入每一步骤，大幅降低高技術攻擊的門檻並提升攻擊規模",
+      "url": "https://glossary.astroicers.link/glossary/ai_autonomous_attack"
+    },
+    {
+      "term": "供應鏈攻擊（Supply Chain Attack）",
+      "definition": "攻擊者透過入侵目標組織信任的軟體供應商、套件倉庫或服務提供商，間接危害最終目標，常見於套件投毒、第三方軟體後門植入及委外服務商遭入侵等場景",
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
+    },
+    {
+      "term": "Webshell",
+      "definition": "攻擊者在已入侵的網頁伺服器上植入的惡意指令碼，通常以PHP、ASP或JSP撰寫，可透過瀏覽器發送HTTP請求遠端執行系統命令，常用於維持持久存取及橫向移動",
+      "url": "https://glossary.astroicers.link/glossary/webshell"
+    },
+    {
+      "term": "雙重勒索（Double Extortion）",
+      "definition": "勒索軟體集團在加密受害者資料前先將資料竊出，同時以公開洩露和加密解密兩種威脅施壓，使受害者即使有備份仍面臨資料外洩的額外壓力",
+      "url": "https://glossary.astroicers.link/glossary/double_extortion"
+    },
+    {
+      "term": "反射式PE載入器（Reflective PE Loader）",
+      "definition": "一種無檔案惡意程式技術，直接在記憶體中載入並執行PE（可攜執行檔）格式的惡意程式，不需寫入磁碟，可繞過傳統以檔案為基礎的防毒偵測",
+      "url": "https://glossary.astroicers.link/glossary/reflective_pe_loader"
+    },
+    {
+      "term": "驗證覆寫Cookie（Authentication Override Cookie）",
+      "definition": "網路設備或VPN閘道中用於在已驗證會話間傳遞信任狀態的特殊Cookie，若實作不嚴謹（缺乏完整性驗證或有效期控管），攻擊者可偽造以繞過整個驗證流程",
+      "url": "https://glossary.astroicers.link/glossary/auth_override_cookie"
+    },
+    {
+      "term": "OS命令注入（OS Command Injection）",
+      "definition": "應用程式在未充分驗證使用者輸入的情況下，將其作為作業系統命令的一部分執行，允許攻擊者在目標系統上執行任意指令，OWASP列為最高風險類別之一",
+      "url": "https://glossary.astroicers.link/glossary/os_command_injection"
+    }
+  ],
+  "references": [
+    {
+      "title": "Zeabur再遭入侵逾321萬筆環境變數外洩 承認明文存放憑證、年底停止營運 - Yam新聞",
+      "url": "https://n.yam.com/Article/20261024251406"
+    },
+    {
+      "title": "Zeabur遭駭懶人包：一組外洩AWS憑證，如何偷走用戶AI金鑰？ - 數位時代 BusinessNext",
+      "url": "https://www.bnext.com.tw/article/92061/zeabur-env-var-leak-api-key-stolen"
+    },
+    {
+      "title": "91APP遭駭事件查出ARTEX攻擊痕跡，顯示不只日韓，臺灣也出現相關攻擊案例 - iThome",
+      "url": "https://www.ithome.com.tw/news/179923"
+    },
+    {
+      "title": "91APP資安事件怎麼賠？91APP遭駭財損全額補償、登記管道 - 數位時代 BusinessNext",
+      "url": "https://www.bnext.com.tw/article/92753/91app-data-breach-compensation-security-measures"
+    },
+    {
+      "title": "服飾公司滿心接獲消費者反映個資疑似外洩，茅頭指向委外平臺資料庫遭自動化攻擊 - iThome",
+      "url": "https://www.ithome.com.tw/news/179803"
+    },
+    {
+      "title": "【資安週報】1019～1022，91APP事件延燒、Zeabur再遭駭，AI自主網攻與PHP2Shell風暴引關注 - iThome",
+      "url": "https://www.ithome.com.tw/news/179896"
+    },
+    {
+      "title": "php2shell (CVE-2026-109618, CVE-2026-109619): Critical PHP RCE FAQ - Tenable",
+      "url": "https://www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619-frequently-asked-questions-about-critical-php-remote"
+    },
+    {
+      "title": "CVE-2026-109618: Exploited Remote Code Execution in PHP - watchTowr",
+      "url": "https://watchtowr.com/intelligence/php-cve-2026-109618-faq/"
+    },
+    {
+      "title": "Rapid Response: php2shell, Leaked Critical PHP Vulnerabilities - Huntress",
+      "url": "https://www.huntress.com/blog/php2shell-leaked-critical-php-vulnerabilities"
+    },
+    {
+      "title": "Threat Brief: Critical Vulnerabilities in PHP (CVE-2026-109618, CVE-2026-109619) - Unit 42",
+      "url": "https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/"
+    },
+    {
+      "title": "CISA Adds Linux Kernel Flaw Chained With PHP2Shell and VMware ESX Bug to KEV - Security Online",
+      "url": "https://securityonline.info/cisa-kev-linux-kernel-php2shell-vmware-esx/"
+    },
+    {
+      "title": "#StopRansomware: SafePay Ransomware (AA26-293A) - FBI IC3",
+      "url": "https://www.ic3.gov/CSA/2026/261020.pdf"
+    },
+    {
+      "title": "SafePay Ransomware Hit 600+ Victims, FBI And CISA Warn - The Cyber Express",
+      "url": "https://thecyberexpress.com/safepay-ransomware-hit-600-victims/"
+    },
+    {
+      "title": "LiteLLM hit by second supply chain attack this year, users urged to rotate credentials - Help Net Security",
+      "url": "https://www.helpnetsecurity.com/?p=388824"
+    },
+    {
+      "title": "LiteLLM says hackers poisoned it with GitHub tokens leaked via Claude Code - The Next Web",
+      "url": "https://thenextweb.com/news/litellm-hack-github-tokens-logs-claude-code"
+    },
+    {
+      "title": "How a Poisoned Security Scanner Became the Key to Backdooring LiteLLM - Snyk",
+      "url": "https://snyk.io/articles/poisoned-security-scanner-backdooring-litellm"
+    },
+    {
+      "title": "Ransomware gangs have been exploiting Palo Alto GlobalProtect flaw since June - Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/10/21/ransomware-groups-exploit-palo-alto-globalprotect-cve-2026-0257/"
+    },
+    {
+      "title": "CVE-2026-0257: Qilin Hits Palo Alto VPN Flaw - tech-insider.org",
+      "url": "https://tech-insider.org/cve-2026-0257-qilin-inc-palo-alto-globalprotect-ransomware-2026/"
+    },
+    {
+      "title": "U.S. CISA adds Collabora Online flaw to its Known Exploited Vulnerabilities catalog - Security Affairs",
+      "url": "https://securityaffairs.com/?p=201652"
+    },
+    {
+      "title": "CVE-2026-110447 Collabora CODE: Update or Remove the App - braindetox.kr",
+      "url": "https://braindetox.kr/en/posts/collabora_online_cve_2026_110447_command_injection_kev.html"
+    },
+    {
+      "title": "APT28 NATO Campaign Targets Defence Contractors - CyPro",
+      "url": "https://cypro.co.uk/insights/cyber-bulletins/apt28-nato-campaign-hits-defence-contractors/"
+    },
+    {
+      "title": "Actively exploited this week: 8 new CISA KEV entries (19 October to 25 October 2026) - DEV Community",
+      "url": "https://dev.to/devaland/actively-exploited-this-week-8-new-cisa-kev-entries-19-october-to-25-october-2026-4ok"
+    },
+    {
+      "title": "Critical Vulnerabilities in PHP Require Immediate Patching - CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching"
+    },
+    {
+      "title": "Known Exploited Vulnerabilities Catalog - CISA",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}
