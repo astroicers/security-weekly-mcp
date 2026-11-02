@@ -1,0 +1,279 @@
+{
+  "title": "資安週報 2026/10/26 - 2026/11/01",
+  "report_id": "SEC-WEEKLY-2026-44",
+  "period": {
+    "start": "2026-10-26",
+    "end": "2026-11-01"
+  },
+  "publish_date": "2026-11-02",
+  "summary": {
+    "total_events": 6,
+    "total_vulnerabilities": 4,
+    "threat_level": "critical"
+  },
+  "events": [
+    {
+      "title": "91APP調查報告揭露ARTEX AI自主滲透系統攻擊，最大影響479.8萬消費者、1,329品牌，全家行動購受波及（10/29）",
+      "severity": "high",
+      "event_type": "資料外洩",
+      "summary": "10月29日，91APP（九易宇軒，股票代號6741）召開記者會，資安長林大維公布最終調查報告，確認訂單資料庫遭自動化攻擊。最大可能影響範圍為1,329個品牌、約479.8萬名消費者，涵蓋2025年4月4日至2026年10月14日期間在91APP系統建置之品牌官網或App消費的用戶；外洩欄位包含姓名、電話、地址、電子郵件與訂單紀錄，不含信用卡與密碼。91APP指出，攻擊由ARTEX（AI自主滲透測試系統）執行，破口源自兩大技術失誤：未及時更新含已知漏洞的第三方套件，以及開發人員將存取金鑰直接存放於專案程式碼中。資安長坦承初期調查方向錯誤，導致掌握破口時機延誤。全家便利商店（5903）確認旗下行動購會員部分資料遭非法擷取，並已通知受影響用戶。數位發展部介入調查，要求91APP釐清實際外洩範圍。依個資法每人最高500元試算，損害賠償金額恐高達24億元。多家合作品牌的消費者已收到使用真實訂單資訊的針對性詐騙郵件，顯示外洩資料已流入後續攻擊鏈。此事件標誌台灣首次有上市公司在公開調查報告中確認遭AI自主滲透測試系統攻擊，攻擊工具自動化程度已超越大多數企業的防護能力。",
+      "source": "iThome / 聯合新聞網 / 數位時代 / 遠見雜誌",
+      "url": "https://www.ithome.com.tw/news/179900",
+      "date": "2026-10-29"
+    },
+    {
+      "title": "PHP2Shell CVE-2026-109618/119 已確認遭積極利用，台灣1.3萬PHP執行個體暴露，CISA KEV 10/26加入，金管會對金融業啟動3項因應（10/26）",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "CISA於10月26日將PHP2Shell雙漏洞CVE-2026-109618（記憶體溢位導致RCE）與CVE-2026-109619（use-after-free導致RCE）加入KEV目錄，要求聯邦機構10月29日前完成處置；兩者CVSS v3.1均達9.8。PHP安全團隊10月21日發布修補版本（8.5.12、8.4.27、8.3.36、8.2.35），但Amazon威脅情報指出攻擊者早在修補前四天即已取得可行的利用方式。蜜罐資料顯示10月24日攻擊者已從兩個IP對Apache mod_php環境成功執行35次Shell，確認漏洞完全武器化。VulnCheck研究員公布在ASLR保護的x86-64系統上達成RCE的完整PoC，進一步降低攻擊門檻。台灣面臨的暴露面嚴峻：全球約90萬個舊版PHP執行個體無法直接修補，其中台灣有約1.3萬個。金管會已對金融業啟動三項因應措施，要求各機構確認並更新受影響版本、部署WAF緩解規則，並向金管會通報處置進度。CISA另確認CVE-2026-46300（Linux kernel「Fragnesia」漏洞，CVSS 7.8，同日加入KEV）正與PHP2Shell搭配使用，攻擊者利用核心漏洞提升至root後植入持久Webshell，形成完整主機接管的組合攻擊鏈。",
+      "source": "BleepingComputer / Recorded Future / CISA / SecurityWeek / Infosecurity Magazine",
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-confirms-php2shell-vulnerabilities-now-exploited-in-attacks/",
+      "date": "2026-10-26"
+    },
+    {
+      "title": "GitLab CVE-2026-97229 CVSS 10.0未驗證RCE已遭積極利用，CISA KEV 10/30加入截止11/1，PoC公開後大規模掃描擴大（10/30）",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "CISA於10月30日將GitLab CVE-2026-97229加入KEV目錄，要求聯邦機構11月1日前完成修補；這是本週CVSS評分最高的加入案例（10.0，最高值）。漏洞根因位於GitLab CI/CD的正則表達式編譯引擎，攻擊者無需任何驗證即可透過推送含惡意正則表達式的分支到公開專案觸發遠端程式碼執行——以GitLab的git服務帳號身份執行任意命令。GitLab於10月12日發布修補版本19.2.8、19.3.4及19.4.2，GitLab.com及Dedicated版已自動修補；受影響版本涵蓋18.1至19.4.1的所有自管部署。PoC公開後watchTowr研究員確認大規模自動化掃描已對未修補實例展開，CISA在修補發布約17天後確認積極利用。修補窗口壓縮趨勢再次得到驗證：台灣使用GitLab自管部署的軟體開發企業、科技公司及研究機構凡允許外部使用者向公開專案提交程式碼，應將此漏洞列為本週最高優先修補項目。",
+      "source": "Help Net Security / BleepingComputer / The Hacker News / SOC Prime / CISA",
+      "url": "https://helpnetsecurity.com/2026/10/13/gitlab-ci-cd-regular-expression-compiler-vulnerability-cve-2026-97229",
+      "date": "2026-10-30"
+    },
+    {
+      "title": "Cisco ASA/FTD CVE-2026-76418 SSL VPN 零時差揭露，無需登入即可遠端重啟防火牆，CISA KEV截止11/1（10/28）",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "Cisco於10月28日發布安全公告，揭露ASA及FTD防火牆軟體中的零時差拒絕服務漏洞CVE-2026-76418（CVSS 8.6）。漏洞成因為SSL VPN啟用時次要驗證邏輯錯誤，攻擊者無需成功登入即可發送特製請求使防火牆設備強制重啟，持續攻擊可導致設備陷入重啟迴圈使SSL VPN服務完全中斷。Cisco確認PSIRT已接獲積極利用案例報告，CISA於10月29日將其列入KEV，要求截止11月1日完成修補。這是繼2026年8月CVE-2026-20349之後，Cisco ASA/FTD在三個月內發生的第二起SSL VPN零時差遭積極利用案例，顯示攻擊者對Cisco VPN基礎設施持有系統性的漏洞研究投資。Cisco明確指出唯一修復方案為升級至修補版本，並不建議以停用次要驗證作為緩解措施，因該設定調整會降低整體VPN安全性。台灣使用Cisco ASA或FTD系列防火牆並啟用SSL VPN的企業應立即查詢官方安全公告並執行升級。",
+      "source": "BleepingComputer / SecurityWeek / SOC Prime / Neoteo / CISA",
+      "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-firewall-zero-day-exploited-to-crash-ssl-vpn-devices/",
+      "date": "2026-10-28"
+    },
+    {
+      "title": "VMware ESXi CVE-2026-41709與Linux CVE-2026-46300同列CISA KEV，CrowdStrike歸因中國Warp Panda利用ESXi日誌盲區（10/28）",
+      "severity": "medium",
+      "event_type": "漏洞通報",
+      "summary": "CISA於10月28日同時將VMware ESXi的CVE-2026-41709（日誌記錄不足，CVSS 2.7）與Linux kernel的CVE-2026-46300（「Fragnesia」，CVSS 7.8）加入KEV目錄，截止日分別為11月11日（ESXi）與10月31日（Linux）。VMware ESXi CVE-2026-41709雖評分偏低，但允許攻擊者在虛擬化基礎設施上執行特定操作而不留下完整稽核軌跡——CrowdStrike將此漏洞歸因於中國關聯組織Warp Panda的零時差利用，受影響版本為ESXi 8.x及9.1.x，修補版本包含ESXi80U3j-25429389及ESXi 9.1.0.0-25370933。Linux CVE-2026-46300的修補截止僅設至10月31日，顯示CISA評估其被串聯利用的急迫性更高：攻擊者正將此核心漏洞與PHP2Shell組合，先透過CVE-2026-109618/119取得低權限Web Shell，再利用CVE-2026-46300提升至root並植入持久Webshell。兩個漏洞同時列入KEV的組合揭示攻擊者正從Web層（PHP）、核心層（Linux）到虛擬化層（VMware）系統性突破現代企業基礎設施的每一層，縱深防禦的每個層次均面臨主動利用威脅。",
+      "source": "Security Affairs / SC World / Daily Security Review / BleepingComputer / CrowdStrike",
+      "url": "https://securityaffairs.com/?p=202050",
+      "date": "2026-10-28"
+    },
+    {
+      "title": "Ivanti Connect Secure CVE-2026-111357/118527列入CISA KEV，疑UTA0576持續利用形成三CVE漏洞鏈（10/30）",
+      "severity": "medium",
+      "event_type": "漏洞遭積極利用",
+      "summary": "CISA於10月30日將Ivanti Connect Secure的CVE-2026-111357及CVE-2026-118527加入KEV目錄，要求聯邦機構11月2日前完成修補。這是10月13日CVE-2026-104935（驗證繞過）加入KEV後，三週內第二批Ivanti Connect Secure漏洞進入KEV。Volexity將CVE-2026-104935的積極利用歸因予威脅行為者UTA0576，其活動模式與中國關聯APT高度重合，一旦突破Ivanti Connect Secure即可直接存取企業內網並發動橫向移動。三個CVE形成持續的攻擊面：CVE-2026-104935作為初始驗證繞過入口，後續CVE可用於維持存取或進一步擴展權限。台灣企業若使用Ivanti Connect Secure作為遠端存取VPN，應立即確認所有三個CVE的修補狀態，並稽核存取記錄以識別UTA0576典型IoC（非預期地理位置登入、異常會話時間及登入後的內網掃描行為）。Ivanti建議在懷疑遭入侵時優先執行完整出廠重置而非僅套用修補，以確保清除所有可能植入的持久化惡意程式。",
+      "source": "The Hacker News / Security Affairs / CISA",
+      "url": "https://thehackernews.com/2026/10/cisa-adds-actively-exploited-gitlab-rce.html",
+      "date": "2026-10-30"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-97229",
+      "title": "GitLab CI/CD正則表達式編譯引擎未驗證RCE（CVSS 10.0，CISA KEV 10/30，截止11/1，PoC公開後大規模掃描）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "GitLab",
+      "product": "GitLab CE/EE 自管部署（18.1 至 19.4.1，修補版本：19.2.8、19.3.4、19.4.2）",
+      "description": "CVE-2026-97229 是 GitLab CI/CD 正則表達式編譯引擎中的未驗證遠端程式碼執行漏洞（CVSS 10.0），攻擊者無需任何帳號即可向公開專案推送含惡意正則表達式的分支觸發任意命令執行，執行身份為 GitLab 的 git 服務帳號。GitLab 10月12日發布修補版本，CISA 10月30日確認積極利用並加入 KEV，截止11月1日。公開 PoC 已出現，watchTowr 記錄持續擴大的自動化掃描嘗試。受影響範圍：GitLab CE/EE 自管部署版本 18.1 至 19.4.1；GitLab.com 及 Dedicated 已自動修補。建議立即升級至 19.4.2；無法立即升級者應在 WAF/防火牆層封鎖外部使用者觸發 CI/CD 管線執行的請求，並在系統層監控以 gitlab-shell 或 gitlab-workhorse 為父進程的非預期子程序執行。"
+    },
+    {
+      "cve_id": "CVE-2026-109618",
+      "title": "PHP2Shell PHP記憶體溢位遠端程式碼執行（CVSS 9.8，CISA KEV 10/26，截止10/29，蜜罐確認35次Shell）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "The PHP Group",
+      "product": "PHP（8.2.x < 8.2.35、8.3.x < 8.3.36、8.4.x < 8.4.27、8.5.x < 8.5.12，及所有終止支援分支）",
+      "description": "CVE-2026-109618 是 PHP 核心中的記憶體越界存取漏洞（CVSS 9.8），攻擊者可透過特製的 HTTP multipart 請求觸發記憶體損壞並執行任意程式碼，無需驗證；CVE-2026-109619 則透過 use-after-free 達成相同效果（CVSS 9.8），兩者合稱 PHP2Shell。PHP 10月21日發布修補版本，但攻擊者早於修補前四天已開始利用（Amazon 威脅情報確認）；蜜罐資料顯示 10月24日已有 35 次確認的 Shell 執行。CISA 10月26日加入 KEV，截止10月29日，同時確認 CVE-2026-46300（Linux kernel）與本漏洞鏈式使用以取得 root 並植入持久 Webshell。台灣約 1.3 萬個舊版 PHP 執行個體暴露於公開網路。建議立即升級至 8.5.12/8.4.27/8.3.36/8.2.35；無法立即修補者部署 WAF/IPS 規則並限制 HTTP multipart 請求大小、欄位數與部分數量。"
+    },
+    {
+      "cve_id": "CVE-2026-76418",
+      "title": "Cisco ASA/FTD SSL VPN 拒絕服務零時差（CVSS 8.6，CISA KEV 10/29，截止11/1，無需登入即可觸發）",
+      "cvss": 8.6,
+      "severity": "high",
+      "vendor": "Cisco",
+      "product": "Cisco ASA 及 FTD 軟體（啟用 SSL VPN 的所有受影響版本，參閱 Cisco Security Advisory）",
+      "description": "CVE-2026-76418 是 Cisco ASA 及 FTD 防火牆軟體中的拒絕服務零時差漏洞（CVSS 8.6），根因為 SSL VPN 次要驗證邏輯錯誤。攻擊者無需成功登入，僅需向啟用 SSL VPN（含 webvpn 設定）的設備發送特製請求即可觸發強制重啟，持續攻擊導致 VPN 服務完全中斷。Cisco 確認積極利用，10月28日發布安全公告，CISA 10月29日加入 KEV，截止11月1日。這是繼 2026年8月 CVE-2026-20349 後三個月內第二起 Cisco SSL VPN 零時差遭利用案例。Cisco 建議升級至修補版本而非停用次要驗證；未啟用 SSL VPN 的設備不受本漏洞影響。"
+    },
+    {
+      "cve_id": "CVE-2026-46300",
+      "title": "Linux kernel「Fragnesia」網路緩衝區漏洞（CVSS 7.8，CISA KEV 10/28，截止10/31，與PHP2Shell鏈式達成root持久化）",
+      "cvss": 7.8,
+      "severity": "high",
+      "vendor": "Linux Foundation",
+      "product": "Linux kernel（受影響版本見 CVE 資料庫；主流發行版 RHEL、Debian、Ubuntu 已發布安全更新）",
+      "description": "CVE-2026-46300（代號「Fragnesia」）是 Linux kernel 網路緩衝區處理中的共用分片標記處理漏洞（CVSS 7.8），攻擊者可利用此漏洞提升至 root 權限。CISA 10月28日加入 KEV，截止10月31日——截止日最短，反映其被鏈式利用的急迫性更高：攻擊者正將此漏洞與 PHP2Shell（CVE-2026-109618/119）組合：先透過 PHP2Shell 取得 Web 伺服器層的低權限 Shell，再利用 CVE-2026-46300 提升至 root 並植入持久 Webshell，實現對 Linux 伺服器的完整控制。任何暴露 PHP 應用程式的 Linux 伺服器若同時存在此核心漏洞，面臨的是完整根層級持久化入侵風險，而非僅僅臨時的 Web Shell 存取。建議立即套用 Linux 核心安全更新；雲端環境應確認虛擬機器或容器主機的核心版本已涵蓋此修補。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週威脅態勢以「漏洞武器化加速」與「AI攻擊工具台灣實戰驗證」為雙主軸。CISA單週新增8個KEV條目（PHP2Shell、Linux kernel、VMware ESXi、Cisco ASA/FTD、GitLab、Ivanti），創近期單週新高；最值得關注的是PHP2Shell + Linux CVE-2026-46300組合攻擊鏈的確認：攻擊者可從普通Web Shell直接提升至root持久化，使台灣1.3萬個暴露PHP執行個體的風險等級從「高危漏洞」上升至「完整伺服器接管」。台灣直接衝擊包含：91APP ARTEX事件揭示AI自主滲透工具已在台灣電商場景實戰使用（479.8萬消費者、1,329品牌受影響），這是台灣有記錄以來最大規模電商資料外洩案之一，且攻擊工具的自動化程度已超越大多數企業的修補與偵測能力。國際層面，Cisco ASA/FTD三個月內第二起SSL VPN零時差顯示攻擊者對VPN基礎設施持有系統性研究投資；VMware ESXi被中國Warp Panda利用日誌盲區、Ivanti被UTA0576持續利用，兩條歸因線索均指向中國關聯APT正對台灣及APAC常見的企業基礎設施（虛擬化、遠端存取VPN）發動持續性攻擊。GitLab CVSS 10.0在PoC公開17天後即遭積極利用，「修補窗口壓縮」趨勢再次驗證——靜態的月度修補週期已無法應對當前態勢。",
+    "active_actors": [
+      {
+        "name": "ARTEX運營者（AI自主滲透測試平台攻擊者）",
+        "type": "未知威脅行為者（使用AI自主攻擊工具）",
+        "activity": "10月29日91APP調查報告確認，攻擊者使用名為ARTEX的AI自主滲透測試系統對91APP訂單資料庫發動攻擊，破口為未更新的第三方套件與存放在專案程式碼中的明文金鑰。事件影響1,329個台灣品牌、479.8萬消費者。攻擊者身份尚未公開，但ARTEX工具的使用顯示攻擊者具備將AI Agent能力整合入滲透測試流程的技術能力，可自主識別漏洞、選擇攻擊路徑並執行入侵，攻擊效率遠超傳統手動滲透。"
+      },
+      {
+        "name": "UTA0576（Volexity歸因，疑中國關聯APT）",
+        "type": "疑國家級威脅行為者（APT）",
+        "activity": "Volexity將Ivanti Connect Secure CVE-2026-104935（10月13日KEV）的積極利用歸因UTA0576，此組織活動模式與中國關聯APT高度重合。10月30日CISA新增CVE-2026-111357與CVE-2026-118527至KEV，三週內三個Ivanti漏洞遭同一組織利用，顯示其對Ivanti VPN產品持有深度研究，目標為取得企業內網初始存取後進行橫向移動與情報竊取。"
+      },
+      {
+        "name": "Warp Panda（CrowdStrike歸因，中國關聯APT）",
+        "type": "國家級威脅行為者（APT）",
+        "activity": "CrowdStrike將VMware ESXi CVE-2026-41709的積極利用歸因中國關聯的Warp Panda組織，此漏洞允許在虛擬化基礎設施上執行特定操作而不留下完整稽核軌跡。此歸因與中國APT長期針對虛擬化基礎設施發動隱蔽性攻擊的模式一致，日誌盲區的利用顯示其具備對抗SIEM偵測的能力。"
+      }
+    ],
+    "attack_techniques": [
+      "PHP2Shell + Linux CVE-2026-46300鏈式根層級持久化：攻擊者透過PHP記憶體溢位（CVE-2026-109618）取得Web Server Shell後，利用Linux核心「Fragnesia」漏洞（CVE-2026-46300）提升至root並植入持久Webshell，實現對Linux伺服器的完整控制，繞過傳統Web應用程式沙箱隔離",
+      "AI自主滲透工具武器化（ARTEX攻擊模式）：AI Agent驅動的自主滲透測試平台自動化識別目標環境的第三方套件漏洞與暴露的API金鑰，在無需人工持續介入的情況下完成從偵察到資料存取的完整攻擊鏈，大幅壓縮從漏洞識別到入侵成功的時間",
+      "漏洞武器化窗口持續收縮：GitLab CVE-2026-97229在修補17天後確認積極利用；PHP2Shell在修補前即已利用；CISA本週8個新KEV條目的截止日最短僅三天（PHP2Shell：10/26加入，10/29截止），傳統的「幾週修補窗口」假設已不成立",
+      "VPN基礎設施系統性攻擊：Cisco ASA/FTD三個月內第二起SSL VPN零時差（CVE-2026-76418）與Ivanti三個CVE持續遭利用，攻擊者對遠端存取VPN基礎設施持有系統性研究投資，VPN的高網路可見性使其成為最高投資回報率的突破目標",
+      "虛擬化層日誌盲區利用：CVE-2026-41709被中國Warp Panda利用在ESXi上執行操作而不留完整稽核軌跡，攻擊者正針對SIEM可見性盲區選擇攻擊手法，使傳統的「日誌分析偵測」策略失效"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即升級GitLab自管部署至19.4.2（CVSS 10.0，CISA KEV截止11/1）：（1）確認所有GitLab CE/EE自管實例版本，立即升級至19.4.2（或19.3.4、19.2.8，依對應版本線）；（2）升級前備份GitLab資料庫與儲存庫；（3）升級後在系統層監控以gitlab-shell或gitlab-workhorse為父進程的非預期子程序執行；（4）稽核過去30天的CI/CD管線執行記錄，搜尋包含不尋常正則表達式的.gitlab-ci.yml提交；（5）無法立即升級者在WAF層封鎖外部使用者觸發CI/CD管線的請求，並將Git push限制為已驗證的內部用戶。GitLab.com及Dedicated版無需操作。"
+    },
+    {
+      "priority": "high",
+      "action": "立即修補PHP至安全版本並同步更新Linux核心（PHP2Shell + Fragnesia組合攻擊，CISA KEV截止10/29與10/31）：（1）確認所有PHP部署版本，立即升級至8.5.12/8.4.27/8.3.36/8.2.35；EOL分支以WAF緩解並規劃遷移；（2）同步確認Linux伺服器核心版本並套用CVE-2026-46300安全更新（主流發行版均已發布）；（3）在反向代理或WAF設定嚴格的multipart請求限制（大小上限建議4MB、部分數量上限100個）；（4）部署CVE-2026-109618/119的WAF/IPS規則，Snort/Sigma規則已在社群公開；（5）台灣金融業依金管會要求完成處置並回報。"
+    },
+    {
+      "priority": "high",
+      "action": "立即修補Cisco ASA/FTD（CVE-2026-76418，CISA KEV截止11/1）：（1）確認所有Cisco ASA及FTD設備版本，查詢Cisco Security Advisory取得修補版本並立即升級；（2）確認設備是否含webvpn設定且啟用SSL VPN，未啟用者不受影響；（3）修補前評估維護窗口，此漏洞可在無需登入的情況下觸發設備重啟，若無法立即停機應評估備用VPN路徑；（4）若設備在10月28日後有非預期重啟記錄，確認是否為遭利用跡象；（5）同時確認2026年8月CVE-2026-20349的修補狀態，兩個SSL VPN零時差均需處置。"
+    },
+    {
+      "priority": "high",
+      "action": "確認VMware ESXi版本並套用CVE-2026-41709修補，強化稽核監控對抗Warp Panda日誌盲區利用（CISA KEV截止11/11）：（1）確認所有VMware ESXi部署版本，升級至修補版本（ESXi 8.x：ESXi80U3j-25429389；ESXi 9.x：9.1.0.0-25370933或9.0.2.0100-25595025），參閱Broadcom VMSA-2026-0006；（2）CVE-2026-41709為日誌記錄漏洞，修補前在ESXi管理介面確認所有已安裝VIB清單，識別非預期的自訂VIB（常見持久化手法）；（3）在SIEM加強VMware操作日誌監控，特別針對非工作時間的快照建立、複製或匯出操作；（4）ESXi管理介面應確保不直接暴露於公開網路，僅允許來自信任管理網段的存取。"
+    },
+    {
+      "priority": "high",
+      "action": "稽核Ivanti Connect Secure並確認三個KEV漏洞修補狀態，識別UTA0576入侵跡象（截止11/2）：（1）確認Ivanti Connect Secure版本，驗證CVE-2026-104935、CVE-2026-111357及CVE-2026-118527均已修補；（2）若懷疑已遭入侵，優先執行Ivanti建議的完整出廠重置（Factory Reset）而非僅套用修補，以清除可能植入的持久化惡意程式；（3）稽核存取記錄，搜尋UTA0576典型IoC：非預期地理位置登入（特別是亞太地區IP）、異常長的會話時間及登入後的內網掃描行為；（4）確認與Ivanti整合的內網資源（AD/LDAP、雲端服務）存取記錄，確認無橫向移動痕跡；（5）聯繫Ivanti或Volexity取得最新IoC清單。"
+    },
+    {
+      "priority": "high",
+      "action": "91APP事件後台灣電商與零售平台立即自查第三方套件與金鑰管理（對應ARTEX AI自主攻擊）：（1）稽核所有生產環境程式碼庫，確認無存放明文API金鑰、資料庫連線字串或雲端憑證（應使用Secret Manager如AWS Secrets Manager、HashiCorp Vault或環境變數）；（2）執行軟體組成分析（SCA），識別所有第三方套件的已知CVE並立即更新CVSS 7.0以上的漏洞；（3）若使用91APP作為電商平台，確認數位發展部調查進度，並依個資法對受影響消費者履行通知義務；（4）警示消費者針對使用真實訂單資訊的詐騙郵件提高警覺；（5）將API金鑰輪換自動化列為本季度優先改善項目，並評估導入零信任架構的時程。"
+    },
+    {
+      "priority": "medium",
+      "action": "建立「KEV快速回應流程」因應漏洞武器化加速趨勢（本週8個新KEV，截止日最短3天）：（1）訂閱CISA KEV目錄的RSS/API更新，在新增條目後24小時內評估是否影響自身環境；（2）建立資產管理與漏洞掃描的自動化對接，使KEV新增後能立即交叉比對受影響資產清單；（3）採用比一般修補週期更短的KEV專屬SLA：CVSS 9.0+設為48小時、CVSS 7.0-8.9設為一週；（4）本週8個新KEV涵蓋PHP、Linux、GitLab、Cisco、VMware及Ivanti，顯示攻擊者正系統性橫掃企業技術棧所有層次，月度修補排程已無法應對此態勢。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "AI自主滲透測試（Autonomous Penetration Testing / AI Red Team）",
+      "definition": "使用AI Agent自動化執行滲透測試的攻擊框架，可自主識別目標環境的漏洞、選擇攻擊路徑並執行入侵，無需人工持續介入；ARTEX為此類工具之一，已被確認用於91APP資料外洩攻擊",
+      "url": "https://glossary.astroicers.link/glossary/ai_red_team"
+    },
+    {
+      "term": "鏈式漏洞利用（Exploit Chaining）",
+      "definition": "攻擊者串聯多個個別漏洞以達成原本無法實現的攻擊目標，例如以Web層漏洞取得低權限Shell後，利用核心漏洞提升至root並植入持久Webshell；本週PHP2Shell加Linux CVE-2026-46300即為典型案例",
+      "url": "https://glossary.astroicers.link/glossary/exploit_chaining"
+    },
+    {
+      "term": "已知遭利用漏洞（KEV, Known Exploited Vulnerabilities）",
+      "definition": "CISA維護的漏洞目錄，收錄已確認在真實攻擊中遭積極利用的CVE，美國聯邦機構依BOD指令須在截止日前完成修補；本週單週新增8個條目",
+      "url": "https://glossary.astroicers.link/glossary/kev"
+    },
+    {
+      "term": "Webshell植入",
+      "definition": "攻擊者在受害伺服器上放置惡意網頁腳本（通常為PHP、ASP或JSP），透過Web伺服器執行系統命令作為持久存取後門；CVE-2026-46300與PHP2Shell的組合攻擊以此為最終目標",
+      "url": "https://glossary.astroicers.link/glossary/webshell"
+    },
+    {
+      "term": "軟體組成分析（SCA, Software Composition Analysis）",
+      "definition": "自動識別應用程式中所有開源套件及其版本，並交叉比對已知CVE資料庫評估供應鏈安全風險的工具；91APP事件中因未及時執行SCA導致過時第三方套件成為ARTEX攻擊的入侵破口",
+      "url": "https://glossary.astroicers.link/glossary/sca"
+    },
+    {
+      "term": "拒絕服務攻擊（DoS, Denial of Service）",
+      "definition": "使目標系統或服務無法正常回應合法請求的攻擊，透過強制重啟、資源耗盡或邏輯錯誤使服務中斷；CVE-2026-76418可使Cisco防火牆在無需登入的情況下觸發重啟，導致SSL VPN服務中斷",
+      "url": "https://glossary.astroicers.link/glossary/denial_of_service"
+    }
+  ],
+  "references": [
+    {
+      "title": "91APP召開記者會確認ARTEX AI攻擊，最大影響479.8萬消費者 – iThome",
+      "url": "https://www.ithome.com.tw/news/179900"
+    },
+    {
+      "title": "91APP個資外洩、幣安爆資安疑雲！台股殺破半年線 – 聯合新聞網",
+      "url": "https://money.udn.com/money/amp/story/5607/9846502"
+    },
+    {
+      "title": "2026 October Cybersecurity Breaches: 91APP & Zeabur – 數位時代",
+      "url": "https://www.bnext.com.tw/article/92778/2026-october-cybersecurity-breaches-keys-91app-zeabur"
+    },
+    {
+      "title": "GitLab admins urged to patch critical RCE flaw CVE-2026-97229 – Help Net Security",
+      "url": "https://helpnetsecurity.com/2026/10/13/gitlab-ci-cd-regular-expression-compiler-vulnerability-cve-2026-97229"
+    },
+    {
+      "title": "Hackers now exploiting max-severity GitLab flaw in attacks – BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-now-exploiting-max-severity-gitlab-flaw-in-attacks/"
+    },
+    {
+      "title": "CISA Adds Actively Exploited GitLab RCE and Cisco Firewall DoS Flaws to KEV – The Hacker News",
+      "url": "https://thehackernews.com/2026/10/cisa-adds-actively-exploited-gitlab-rce.html"
+    },
+    {
+      "title": "CISA confirms PHP2Shell vulnerabilities now exploited in attacks – BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-confirms-php2shell-vulnerabilities-now-exploited-in-attacks/"
+    },
+    {
+      "title": "PHP2Shell Exploitation: Two Critical PHP Flaws Explained – Recorded Future",
+      "url": "https://www.recordedfuture.com/blog/php2shell-vulnerability-exploitation"
+    },
+    {
+      "title": "PHP2Shell Exploitation Attempt Detected by Amazon Four Days Before Vulnerability Disclosure – Infosecurity Magazine",
+      "url": "https://infosecurity-magazine.com/news/php2shell-exploitation-attempt"
+    },
+    {
+      "title": "PHP存在2個重大資安漏洞(CVE-2026-109618和CVE-2026-109619) – TWCERT/CC",
+      "url": "https://www.twcert.org.tw/tw/cp-169-11303-1d68a-1.html"
+    },
+    {
+      "title": "Cisco warns of firewall zero-day exploited to crash SSL VPN devices – BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-firewall-zero-day-exploited-to-crash-ssl-vpn-devices/"
+    },
+    {
+      "title": "CVE-2026-76418: Cisco Secure Firewall Zero-Day Exploited in SSL VPN Attacks – SOC Prime",
+      "url": "https://socprime.com/blog/cve-2026-76418-cisco-secure-firewall-zero-day/"
+    },
+    {
+      "title": "New Cisco firewall zero-day exploited to crash SSL VPN devices – SecurityWeek",
+      "url": "https://securityweek.com/attackers-exploit-second-cisco-firewall-vpn-zero-day-since-august"
+    },
+    {
+      "title": "U.S. CISA adds Linux Kernel and Broadcom VMWare ESX flaws to Known Exploited Vulnerabilities catalog – Security Affairs",
+      "url": "https://securityaffairs.com/?p=202050"
+    },
+    {
+      "title": "CISA Flags ESXi CVE-2026-41709 and Fragnesia Linux Flaw as Exploited – Daily Security Review",
+      "url": "https://dailysecurityreview.com/?p=45109"
+    },
+    {
+      "title": "U.S. CISA adds Ivanti Connect Secure flaws to Known Exploited Vulnerabilities catalog – Security Affairs",
+      "url": "https://securityaffairs.com/202175/security/u-s-cisa-adds-ivanti-connect-secure-flaws-to-its-known-exploited-vulnerabilities-catalog.html"
+    },
+    {
+      "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog (Oct 28, 2026) – CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/28/cisa-adds-two-known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "Critical Vulnerabilities in PHP Require Immediate Patching – CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/26/critical-vulnerabilities-php-require-immediate-patching"
+    },
+    {
+      "title": "資安事件新聞週報 2026/10/26 ~ 2026/10/30 – HackMD",
+      "url": "https://hackmd.io/@9dCJrgb6QHGd8dRfgHO0zg/Byi7jmzTMx"
+    },
+    {
+      "title": "10月資安事故接連發生｜PHP、nginx、Linux、Python、Node.js – KodeLab",
+      "url": "https://klab.tw/2026/10/october-2026-security-incidents/"
+    }
+  ]
+}
