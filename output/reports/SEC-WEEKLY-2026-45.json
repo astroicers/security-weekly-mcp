@@ -1,0 +1,239 @@
+{
+  "title": "資安週報 2026/11/02 - 2026/11/08",
+  "report_id": "SEC-WEEKLY-2026-45",
+  "period": {
+    "start": "2026-11-02",
+    "end": "2026-11-08"
+  },
+  "publish_date": "2026-11-09",
+  "summary": {
+    "total_events": 5,
+    "total_vulnerabilities": 3,
+    "threat_level": "high"
+  },
+  "events": [
+    {
+      "title": "永豐銀行供應商安全設定遭利用，418客戶帳戶427筆異常轉帳4176萬元，金管會要求11/12前提報（11/3）",
+      "severity": "high",
+      "event_type": "金融供應鏈攻擊",
+      "summary": "11月3日，永豐銀行傳出418名客戶帳戶發生未授權轉帳，共427筆，總金額4176萬元，全數匯入台北富邦銀行同一帳戶。銀行於4日確認為外部駭客利用新網銀交易系統供應商的安全設定漏洞（非程式碼本身的漏洞，而是供應商安全設定瑕疵），攻擊手法已完成阻斷、無個資外洩跡象，款項亦已於3日全數返還。永豐銀行同時下架新網銀APP，並宣示將向供應商求償。金管會於5日要求永豐銀行高層說明，並規定於11月12日前提交重大偶發事件報告；台北地方檢察署已分案偵辦。事件焦點集中於銀行的委外廠商管理疏失——供應商系統的安全設定未達金融業資安標準，使外部攻擊者得以在未持有客戶帳號密碼的情況下批量發起轉帳，對台灣金融機構委外管理機制的監理強度構成考驗。",
+      "source": "iThome / 中央社 / 東森新聞 / 經理人 / Yahoo新聞",
+      "url": "https://www.ithome.com.tw/news/180233",
+      "date": "2026-11-03"
+    },
+    {
+      "title": "台灣電商服務供應鏈資安風波：Cyberbiz等多家平台資料庫遭異常存取，宏碁智新、台鹽等上市公司暫停線上商店（11/5-6）",
+      "severity": "high",
+      "event_type": "供應鏈攻擊/資料外洩",
+      "summary": "本週台灣電商服務供應鏈爆發連鎖資安風波。電商SaaS業者Cyberbiz（順立智慧）的資料庫遭未授權異常存取；另有1shop懷疑第三方郵件服務API金鑰外洩、meepShop與莫筆克科技（Mallbic）傳出惡意指令執行事件，Shopline亦因莫筆克事件預防性更換相關API金鑰。受影響的下游客戶包括多家上市公司：宏碁智新（6616）於11月6日公告，因委外廠商Cyberbiz發生資訊安全事件，部分資料遭未授權存取，即日起暫停線上商店營運；台鹽（1737）與精材科技（3374）亦發布類似公告。各電商服務業者及品牌商的調查仍在進行中，受影響的消費者資料範圍與事件起因尚待釐清。此波風波在91APP事件後延燒，呈現「電商SaaS平台遭攻擊 → 下游多家品牌商資料連帶外洩」的放大效應。",
+      "source": "iThome / 中央社 / Yahoo新聞 / 宏碁智新公告",
+      "url": "https://www.ithome.com.tw/news/180291",
+      "date": "2026-11-06"
+    },
+    {
+      "title": "Google聯合日本警察廳瓦解XCPE供應鏈後門殭屍網路：1.3M+ Android TV設備廠端預植後門，台灣受影響近9萬台（11/2）",
+      "severity": "medium",
+      "event_type": "供應鏈攻擊/殭屍網路",
+      "summary": "11月2日，Google與日本警察廳（NPA）及多家私部門資安廠商宣布聯合查封XCPE殭屍網路。Google以高度信心將後門歸因於深圳製造商Videostrong Technology——攻擊者將「x.cpe」後門刻意預裝於韌體出廠，並向犯罪集團販售設備控制存取。TrendAI統計顯示，2026年6月至10月間共有逾132萬台設備（206種型號）確認感染，分布170餘國；台灣受影響設備約達9萬台，與馬來西亞、巴西、伊拉克、墨西哥並列全球前五大受害國。後門核心風險在於其駐留於裝置/oem/分區，即使手動刪除，重開機後仍可自動重新安裝。Google已對Videostrong提起法律訴訟並強制下架相關設備，但現役設備上的後門無法遠端消除。台灣企業數位看板、IP-box或廉價Android媒體盒的採購若涉及Videostrong品牌設備（包括OEM/ODM貼牌），應立即核查並規劃替換。",
+      "source": "The Register / GBHackers / CyberScoop / The Next Web / Aviatrix",
+      "url": "https://www.theregister.com/cyber-crime/2026/11/02/cops-bust-botnet-of-13m-infected-android-tv-boxes/5307045",
+      "date": "2026-11-02"
+    },
+    {
+      "title": "Siemens SIMATIC IoT2050 Node-RED未驗證RCE（CVE-2026-58115，CVSS 10.0）遭積極利用，攻擊者植入Linux殭屍程式與持久後門（10/30起）",
+      "severity": "high",
+      "event_type": "OT/IoT漏洞遭積極利用",
+      "summary": "Siemens SIMATIC IoT2050 Advanced工業IoT閘道器中的Node-RED HTTP介面缺少驗證機制（CVE-2026-58115，CVSS 3.1/4.0均為10.0），允許未授權遠端攻擊者透過單一HTTP POST請求向/flows端點注入任意工作流程以達成遠端程式碼執行。VulnCheck自10月30日起觀察到積極利用案例：攻擊者投遞自動執行的shell指令工作流程，部分攻擊直接植入Node-RED命令後門（重開機後持續存活），其餘則下載並執行Linux殭屍程式。Siemens已於8月11日發布安全公告（SSA-834709）並提供修補版本（Industrial OS V4.3.4.1），但OT環境受限於高可用性要求而延遲更新，使漏洞在修補程式發布逾兩個月後仍遭持續利用。由於Node-RED在自動化工廠設備、智慧製造及關鍵基礎設施中廣泛用於流程控制，受害後果不限於資料竊取，更可能影響生產流程完整性。台灣製造業與關鍵基礎設施的OT/IoT環境若部署Siemens IoT2050設備，應立即升級至Industrial OS V4.3.4.1或停用Node-RED HTTP介面並封鎖外部網路存取。",
+      "source": "SC World / SecurityPointBreak / VulnCheck / Siemens SSA-834709 / cipherssecurity.com",
+      "url": "https://www.scworld.com/brief/critical-vulnerability-in-node-red-exploited-to-deploy-linux-bot",
+      "date": "2026-11-02"
+    },
+    {
+      "title": "CISA將WordPress Core競態條件RCE（CVE-2026-119977）加入KEV，聯邦機構修補截止11/6（11/3）",
+      "severity": "medium",
+      "event_type": "漏洞通報/CISA KEV",
+      "summary": "CISA於11月3日確認WordPress Core存在競態條件漏洞（CVE-2026-119977），攻擊者可在軟體升級期間利用此漏洞觸發任意程式碼執行，並將其列入已知遭利用漏洞（KEV）目錄，要求美國聯邦機構於11月6日前完成修補。WordPress作為全球逾40%網站的基礎平台，此漏洞影響面廣泛，尤其對使用自管（self-hosted）WordPress且未啟用自動更新的組織構成風險。台灣大量政府機關、企業及媒體使用WordPress架設網站，應立即確認WordPress版本並套用安全更新；管理介面（wp-admin）應限制為信任IP存取，並停用不必要的第三方外掛以縮小攻擊面。",
+      "source": "The Hacker News / CISA KEV",
+      "url": "https://thehackernews.com/2026/11/cisa-confirms-hackers-exploiting.html",
+      "date": "2026-11-03"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-58115",
+      "title": "Siemens SIMATIC IoT2050 Node-RED未驗證RCE（CVSS 10.0，積極利用中，OT設備持久後門風險）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "Siemens",
+      "product": "Siemens SIMATIC IoT2050 Advanced（Industrial OS V4.3.4.1以前的所有版本）",
+      "description": "CVE-2026-58115 是 Siemens SIMATIC IoT2050 Advanced 工業IoT閘道器中Node-RED HTTP介面缺少驗證的嚴重漏洞（CVSS 3.1/4.0均為10.0，CWE-306 Missing Authentication for Critical Function）。攻擊者無需任何身份驗證，僅需向/flows端點發送一個特製HTTP POST請求，即可在目標設備上執行任意指令。Siemens已於8月11日發布安全公告（SSA-834709），修補版本為Industrial OS V4.3.4.1。VulnCheck自10月30日起確認積極利用，觀察到的攻擊手法包括：植入可自動執行shell指令的Node-RED工作流程、植入重開機後持續存在的Node-RED命令後門，以及下載Linux殭屍程式（bot）。由於Node-RED廣泛應用於工廠自動化、智慧製造及關鍵基礎設施的流程控制，受害後果可能影響生產流程完整性。應立即升級至Industrial OS V4.3.4.1；若無法立即升級，應停用Node-RED功能或確保Node-RED HTTP介面（預設port 1880）對外部網路不可達，並啟用adminAuth憑證驗證。核查設備現有工作流程清單，搜尋非預期的shell執行節點或外部連線節點，以確認是否已遭入侵。"
+    },
+    {
+      "cve_id": "CVE-2026-107441",
+      "title": "Zyxel GS1900系列交換器OOB Write未驗證指令執行（大規模掃描利用中，韌體更新已發布）",
+      "cvss": 9.8,
+      "severity": "critical",
+      "vendor": "Zyxel",
+      "product": "Zyxel GS1900系列網路管理交換器（修補韌體已發布，請核查Zyxel官方公告確認版本）",
+      "description": "CVE-2026-107441 是 Zyxel GS1900系列網路管理交換器中的越界寫入（Out-of-Bounds Write）漏洞，允許未驗證的遠端攻擊者觸發任意指令執行，完全控制受影響設備。該漏洞已確認在本週遭到大規模掃描利用，攻擊者鎖定暴露於網際網路的交換器管理介面發動攻擊。Zyxel已發布韌體修補程式，建議立即更新。由於GS1900系列廣泛部署於企業、校園及中小企業網路基礎設施，受控交換器可用於流量攔截、橫向移動或拒絕服務攻擊，對台灣企業網路邊界安全構成風險。應立即套用Zyxel官方修補韌體，並確認管理介面未暴露於外部網路，應僅可由內部管理VLAN存取。（CVSS分數9.8為未驗證指令執行漏洞的估計值，以Zyxel官方公告為準。）"
+    },
+    {
+      "cve_id": "CVE-2026-119977",
+      "title": "WordPress Core軟體升級期間競態條件RCE（CISA KEV 11/3，聯邦機構截止11/6，已確認積極利用）",
+      "cvss": 8.1,
+      "severity": "high",
+      "vendor": "WordPress",
+      "product": "WordPress Core（所有受影響版本，請套用最新版本）",
+      "description": "CVE-2026-119977 是 WordPress Core 軟體升級流程中的競態條件（Race Condition）漏洞，攻擊者可在升級操作期間利用時序漏洞達成任意程式碼執行。CISA於11月3日確認此漏洞已遭積極利用並列入KEV目錄，要求美國聯邦機構於11月6日前完成修補。WordPress作為全球超過4,000萬個網站的基礎平台，此漏洞影響所有使用自管WordPress且未及時更新的組織。應立即更新至最新版本的WordPress Core；啟用自動安全性更新可防止此類升級期間窗口被利用；應限制wp-admin存取來源IP並啟用多因素驗證。（CVSS分數8.1為RCE漏洞的估計值，以NIST NVD官方記錄為準。）"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週台灣本土面臨「金融供應鏈漏洞攻擊」與「電商服務供應鏈資安風波」雙重衝擊，兩起事件均非直接攻擊目標企業，而是透過委外廠商的系統安全疏失滲透。永豐銀行事件的攻擊者精準鎖定新網銀供應商安全設定漏洞批量發起轉帳，顯示攻擊者對台灣金融委外生態具備深度事前調查能力；電商供應鏈的Cyberbiz等事件則呈現「SaaS平台遭攻擊 → 下游多家品牌商資料連帶外洩」的放大效應，宏碁智新、台鹽等上市公司均受波及。在全球層面，XCPE供應鏈後門事件揭示消費性電子產品「出廠即帶後門」的系統性風險，台灣以9萬台受感染設備位列全球前五大受害國，OT/IoT領域的Siemens IoT2050 Node-RED CVE-2026-58115（CVSS 10.0）則顯示工業設備的修補延遲問題使漏洞在公告逾兩個月後仍持續被利用。整體威脅態勢顯示攻擊者正系統性鎖定「第三方供應商」這一最薄弱的環節，無論是金融、電商或工業領域均呈現相同模式。",
+    "active_actors": [
+      {
+        "name": "不明金融攻擊組織（永豐銀行供應商漏洞利用）",
+        "type": "財務動機威脅行為者",
+        "activity": "11月3日利用永豐銀行新網銀交易系統供應商的安全設定漏洞，以自動化方式對418名客戶帳戶發起427筆未授權轉帳，總金額4176萬元，全部匯入同一帳戶，顯示具備對台灣金融委外架構的深入了解及自動化批量操作能力。案件目前由台北地方檢察署偵辦中。"
+      },
+      {
+        "name": "Videostrong Technology關聯犯罪集團（XCPE殭屍網路）",
+        "type": "財務動機威脅行為者（供應鏈後門）",
+        "activity": "深圳製造商Videostrong Technology被Google以高度信心認定為將XCPE後門預裝於Android TV設備韌體的主要責任方，並對外販售設備的殭屍控制存取。Google已提起法律訴訟；日本警察廳主導的國際聯合執法行動已查封相關控制基礎設施，但現役設備上的後門無法遠端消除，全球132萬台設備仍處於潛在受控狀態。"
+      }
+    ],
+    "attack_techniques": [
+      "委外廠商安全設定漏洞利用：攻擊者鎖定銀行新網銀交易系統供應商的系統安全設定瑕疵（非原始碼漏洞），繞過正常客戶驗證流程批量發起自動化轉帳，呈現對台灣金融委外生態的深度事前偵察",
+      "SaaS平台供應鏈放大攻擊：針對電商SaaS業者（Cyberbiz等）資料庫的未授權存取，藉由單一平台業者被攻擊後，造成其下游多家品牌商客戶資料連帶外洩",
+      "消費性硬體供應鏈後門：於Android TV設備出廠韌體中植入後門並駐留於/oem/分區，使後門在消費者購得設備時即已存在且難以徹底清除（恢復出廠設定無效）",
+      "OT設備未驗證RCE持久化：利用SIMATIC IoT2050的Node-RED未驗證HTTP介面投遞持久後門工作流程，目標為工業製造環境的流程控制設備，修補延遲使漏洞在公告逾兩個月後仍被持續利用"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "金融機構立即核查委外廠商安全設定（對應永豐銀行供應鏈攻擊）：（1）清查所有與金融交易相關的委外廠商系統架構，確認供應商系統無法未經授權發起批量轉帳——永豐案顯示供應商系統安全設定瑕疵（非程式碼漏洞）即可讓外部攻擊者批量操作客戶帳戶；（2）重新評估委外廠商是否具備金融業資安要求的等級（依金管會「金融資訊系統委外作業管理辦法」），要求高風險委外廠商提供最新滲透測試報告；（3）部署異常轉帳行為分析（大量短時間轉帳至同一帳戶的交易模式），作為當日即時監控告警的補充防護；（4）金管會要求金融機構於11月12日前提交重大偶發事件報告，同業可參照此時程自主核查類似委外架構的安全狀態。"
+    },
+    {
+      "priority": "high",
+      "action": "立即升級Siemens SIMATIC IoT2050至Industrial OS V4.3.4.1修補CVE-2026-58115（CVSS 10.0，積極利用中）：（1）清點所有OT/IoT環境中部署Siemens SIMATIC IoT2050 Advanced設備的場景，確認Industrial OS版本；（2）立即升級至V4.3.4.1（Siemens安全公告SSA-834709）；（3）無法立即升級者，立即停用Node-RED功能或確保Node-RED HTTP介面（port 1880）對外部網路完全不可達，並在防火牆/VLAN層級實施控制；（4）確認Node-RED設定是否啟用adminAuth憑證驗證，未啟用者立即補強；（5）核查IoT2050設備的現有工作流程清單，搜尋非預期的shell執行節點或外部連線節點，以確認是否已遭入侵；（6）此漏洞同樣提醒企業核查其他OT環境中使用Node-RED的設備，確認均啟用驗證。"
+    },
+    {
+      "priority": "high",
+      "action": "電商品牌商核查委外電商服務平台資安狀態（對應Cyberbiz等供應鏈風波）：（1）使用Cyberbiz（順立智慧）、1shop、meepShop、莫筆克科技（Mallbic）等平台的品牌商，立即聯繫平台業者確認是否受影響，並要求提供調查結果及個資外洩通知時程；（2）依個人資料保護法第12條，企業若確認消費者個資遭外洩，應通知當事人及主管機關；（3）受影響平台業者應立即確認受損資料範圍（消費者姓名、聯絡方式、訂單資料、付款資訊等），評估是否需要向個人資料保護委員會通報；（4）中短期措施：評估電商委外廠商時增加資安要求，包含年度滲透測試報告與資安事件通知義務，並確認契約中明訂委外廠商的資安責任。"
+    },
+    {
+      "priority": "medium",
+      "action": "核查並替換Videostrong品牌Android TV設備，防範XCPE後門（1.3M設備受影響，台灣近9萬台）：（1）清點企業環境（尤其是數位看板、會議室顯示、IP-box等）是否使用Videostrong品牌或其OEM貼牌Android TV設備；（2）確認使用受影響設備後，建議規劃替換，或至少確保該設備隔離於獨立的VLAN或訪客網段，防止後門滲透企業或家庭主網路；（3）後門駐留於/oem/分區，僅靠恢復出廠設定無法清除，需對設備網路活動進行持續監控或流量封鎖。"
+    },
+    {
+      "priority": "medium",
+      "action": "立即更新WordPress Core並核查Zyxel GS1900韌體（對應CISA KEV CVE-2026-119977及CVE-2026-107441）：（1）清查所有使用自管WordPress的網站，確認WordPress Core版本並更新至最新版本，啟用自動安全性更新；限制wp-admin僅允許信任IP位址存取並啟用多因素驗證；（2）清查網路環境中所有Zyxel GS1900系列交換器，立即從Zyxel官方下載並套用最新修補韌體；確認交換器管理介面均非暴露於外部網路，應僅可由內部管理VLAN存取；稽核GS1900設備系統記錄，確認是否有異常登入或設定異動跡象。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "供應鏈攻擊（Supply Chain Attack）",
+      "definition": "攻擊者鎖定目標組織信任的第三方廠商或軟硬體供應商，藉由供應商的安全疏失或植入後門，間接入侵最終目標",
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
+    },
+    {
+      "term": "競態條件（Race Condition）",
+      "definition": "程式在多執行緒或多進程環境中因操作時序不當而產生的安全漏洞，攻擊者可利用時序窗口注入惡意行為",
+      "url": "https://glossary.astroicers.link/glossary/race_condition"
+    },
+    {
+      "term": "委外廠商風險管理（Third-Party Risk Management）",
+      "definition": "企業對外部服務提供者的資安風險評估與監督機制，包含合約要求、定期稽核及事件通知義務",
+      "url": "https://glossary.astroicers.link/glossary/third_party_risk_management"
+    },
+    {
+      "term": "越界寫入（Out-of-Bounds Write）",
+      "definition": "程式將資料寫入超出預期記憶體範圍的位置，常被攻擊者利用以覆蓋控制流程資料進而執行任意程式碼",
+      "url": "https://glossary.astroicers.link/glossary/out_of_bounds_write"
+    },
+    {
+      "term": "工業物聯網安全（OT/IIoT Security）",
+      "definition": "用於工業製造、關鍵基礎設施監控的網路化設備與控制系統安全，OT環境強調高可用性，修補週期長，資安風險難以快速因應",
+      "url": "https://glossary.astroicers.link/glossary/ot_iot"
+    },
+    {
+      "term": "已知遭利用漏洞（KEV, Known Exploited Vulnerabilities）",
+      "definition": "CISA維護的漏洞目錄，收錄已確認在真實攻擊中遭積極利用的CVE，美國聯邦機構依法須在截止日前完成修補",
+      "url": "https://glossary.astroicers.link/glossary/kev"
+    }
+  ],
+  "references": [
+    {
+      "title": "永豐銀行異常轉帳確認為駭客攻擊，供應商安全設定漏洞遭利用 – iThome",
+      "url": "https://www.ithome.com.tw/news/180233"
+    },
+    {
+      "title": "永豐銀遭駭客盜轉 金管會找銀行高層說明、要求全面釐清 – 中央社",
+      "url": "https://www.cna.com.tw/news/afe/202611050282.aspx"
+    },
+    {
+      "title": "永豐銀盜轉事件正式回應 3 重點：款項已全退、新 App 下架、無個資外洩 – 經理人",
+      "url": "https://www.managertoday.com.tw/articles/view/73257"
+    },
+    {
+      "title": "永豐銀行帳戶爆異常轉帳427筆原因出爐 新網銀交易系統安全設定遭駭 – Yahoo新聞",
+      "url": "https://tw.news.yahoo.com/%E6%B0%B8%E8%B1%90%E9%8A%80%E8%A1%8C%E5%B8%B3%E6%88%B6%E7%88%86%E7%95%B0%E5%B8%B8%E8%BD%89%E5%B8%B3427%E7%AD%86%E5%8E%9F%E5%9B%A0%E5%87%BA%E7%88%90-%E6%96%B0%E7%B6%B2%E9%8A%80%E4%BA%A4%E6%98%93%E7%B3%BB%E7%B5%B1%E5%AE%89%E5%85%A8%E8%A8%AD%E5%AE%9A%E9%81%AD%E9%A7%AD-101037051.html"
+    },
+    {
+      "title": "【資安週報】1102～1106，電商服務供應鏈資安風波延燒、永豐銀行異常轉帳確認為資安事件 – iThome",
+      "url": "https://www.ithome.com.tw/news/180291"
+    },
+    {
+      "title": "宏碁智新：委外廠商傳資安事件 線上商店暫停營運 – 中央社",
+      "url": "https://www.cna.com.tw/news/afe/202611060287.aspx"
+    },
+    {
+      "title": "宏碁智新 公告本公司線上商店委外服務廠商發生資訊安全事件之處理情形 – Yahoo新聞",
+      "url": "https://tw.stock.yahoo.com/news/%E5%AE%8F%E7%A2%81%E6%99%BA%E6%96%B0-%E5%85%AC%E5%91%8A%E6%9C%AC%E5%85%AC%E5%8F%B8%E7%B7%9A%E4%B8%8A%E5%95%86%E5%BA%97%E5%A7%94%E5%A4%96%E6%9C%8D%E5%8B%99%E5%BB%A0%E5%95%86%E7%99%BC%E7%94%9F%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6%E4%B9%8B%E8%99%95%E7%90%86%E6%83%85%E5%BD%A2-091400604.html"
+    },
+    {
+      "title": "Cops bust botnet of 1.3M infected Android TV boxes – The Register",
+      "url": "https://www.theregister.com/cyber-crime/2026/11/02/cops-bust-botnet-of-13m-infected-android-tv-boxes/5307045"
+    },
+    {
+      "title": "Google Dismantles XCPE Botnet That Infected 1.3 Million Android TV Devices With Preinstalled Malware – GBHackers",
+      "url": "https://gbhackers.com/google-dismantles-xcpe-botnet/amp/"
+    },
+    {
+      "title": "Google shuts down global botnet running on certified Android devices – CyberScoop",
+      "url": "https://cyberscoop.com/google-disrupts-xcpe-botnet-videostrong-android-devices/"
+    },
+    {
+      "title": "Critical vulnerability in Node-RED exploited to deploy Linux bot – SC World",
+      "url": "https://www.scworld.com/brief/critical-vulnerability-in-node-red-exploited-to-deploy-linux-bot"
+    },
+    {
+      "title": "Siemens IoT2050 Node-RED Flaw CVE-2026-58115 Exploited – SQ Magazine",
+      "url": "https://sqmagazine.co.uk/siemens-iot2050-flaw-exploited-node-red-backdoors/"
+    },
+    {
+      "title": "Node-RED CVE-2026-58115 exploited: IoT2050 fix and adminAuth check – hol.org",
+      "url": "https://hol.org/blog/cve-2026-58115-node-red-no-login-exploited-siemens-iot2050"
+    },
+    {
+      "title": "CISA Confirms Hackers Exploiting WordPress Core Flaw During Software Upgrades – The Hacker News",
+      "url": "https://thehackernews.com/2026/11/cisa-confirms-hackers-exploiting.html"
+    },
+    {
+      "title": "CISA Adds One Known Exploited Vulnerability to Catalog – CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/11/03/cisa-adds-one-known-exploited-vulnerability-catalog"
+    },
+    {
+      "title": "Debian APT Flaw, OpenSSH Alpine Bug and Zyxel Zero-Day: Digest for November 6, 2026 – or1k.net",
+      "url": "https://or1k.net/digests/daily-digest-2026-11-06/"
+    },
+    {
+      "title": "November 2026 Patch Tuesday forecast: Old software continues to bite – Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/11/06/november-2026-patch-tuesday-forecast/"
+    },
+    {
+      "title": "Weekly Intelligence Report - 06 Nov 2026 – CYFIRMA",
+      "url": "https://www.cyfirma.com/news/weekly-intelligence-report-06-nov-2026/"
+    }
+  ]
+}
