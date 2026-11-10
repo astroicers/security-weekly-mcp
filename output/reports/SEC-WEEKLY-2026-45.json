@@ -7,233 +7,264 @@
   },
   "publish_date": "2026-11-09",
   "summary": {
-    "total_events": 5,
+    "total_events": 6,
     "total_vulnerabilities": 3,
     "threat_level": "high"
   },
   "events": [
     {
-      "title": "永豐銀行供應商安全設定遭利用，418客戶帳戶427筆異常轉帳4176萬元，金管會要求11/12前提報（11/3）",
+      "title": "台灣電商服務供應鏈連環資安事件：Cyberbiz、1shop、meepShop、莫筆克科技相繼傳出訂單及個資遭未授權存取（11/2-11/8）",
       "severity": "high",
-      "event_type": "金融供應鏈攻擊",
-      "summary": "11月3日，永豐銀行傳出418名客戶帳戶發生未授權轉帳，共427筆，總金額4176萬元，全數匯入台北富邦銀行同一帳戶。銀行於4日確認為外部駭客利用新網銀交易系統供應商的安全設定漏洞（非程式碼本身的漏洞，而是供應商安全設定瑕疵），攻擊手法已完成阻斷、無個資外洩跡象，款項亦已於3日全數返還。永豐銀行同時下架新網銀APP，並宣示將向供應商求償。金管會於5日要求永豐銀行高層說明，並規定於11月12日前提交重大偶發事件報告；台北地方檢察署已分案偵辦。事件焦點集中於銀行的委外廠商管理疏失——供應商系統的安全設定未達金融業資安標準，使外部攻擊者得以在未持有客戶帳號密碼的情況下批量發起轉帳，對台灣金融機構委外管理機制的監理強度構成考驗。",
-      "source": "iThome / 中央社 / 東森新聞 / 經理人 / Yahoo新聞",
-      "url": "https://www.ithome.com.tw/news/180233",
+      "event_type": "供應鏈攻擊",
+      "summary": "11月第一週，台灣電商服務生態系出現多起連環資安事件。Cyberbiz通知旗下廠商客戶（包含台灣Merrell、日本Hayashi等品牌）訂單資料遭異常讀取；1shop（10月28日首發，11月持續延燒）通報「訂單成立通知信」遭竊，消費者收到含真實訂單資訊的詐騙郵件；meepShop也有品牌商示警可能涉及個資安全疑慮。最具系統性意義的是Shopline於11月3日公告：旗下商家使用的第三方雲端ERP廠商莫筆克科技（Mallbic）發生資安事件，Shopline已緊急更換相關API金鑰，平台本身未受入侵。91APP先前也曾公布遭AI滲透工具ARTEX攻擊，根因為未更新的第三方套件及專案中存放的金鑰。這波攻擊揭示台灣電商訂單資料流向高度碎片化——從開店平台、雲端ERP、電子發票、第三方行銷追蹤，每個節點的帳號、API金鑰遭盜用均可導致大規模個資外洩與詐騙衍生風險。目前各事件影響人數及資料類別仍在調查中，台灣消費者應提高警覺，對含個人真實訂單資訊的陌生聯繫保持懷疑。",
+      "source": "iThome 資安週報 1102～1106 / 工商時報 / 聯合報 / 遠見雜誌",
+      "url": "https://www.ithome.com.tw/news/180291",
       "date": "2026-11-03"
     },
     {
-      "title": "台灣電商服務供應鏈資安風波：Cyberbiz等多家平台資料庫遭異常存取，宏碁智新、台鹽等上市公司暫停線上商店（11/5-6）",
+      "title": "永豐銀行異常轉帳確認為駭客攻擊：利用第三方新網銀系統供應商安全設定漏洞，418人受害、4176萬元遭盜轉（11/3-4）",
       "severity": "high",
-      "event_type": "供應鏈攻擊/資料外洩",
-      "summary": "本週台灣電商服務供應鏈爆發連鎖資安風波。電商SaaS業者Cyberbiz（順立智慧）的資料庫遭未授權異常存取；另有1shop懷疑第三方郵件服務API金鑰外洩、meepShop與莫筆克科技（Mallbic）傳出惡意指令執行事件，Shopline亦因莫筆克事件預防性更換相關API金鑰。受影響的下游客戶包括多家上市公司：宏碁智新（6616）於11月6日公告，因委外廠商Cyberbiz發生資訊安全事件，部分資料遭未授權存取，即日起暫停線上商店營運；台鹽（1737）與精材科技（3374）亦發布類似公告。各電商服務業者及品牌商的調查仍在進行中，受影響的消費者資料範圍與事件起因尚待釐清。此波風波在91APP事件後延燒，呈現「電商SaaS平台遭攻擊 → 下游多家品牌商資料連帶外洩」的放大效應。",
-      "source": "iThome / 中央社 / Yahoo新聞 / 宏碁智新公告",
-      "url": "https://www.ithome.com.tw/news/180291",
-      "date": "2026-11-06"
+      "event_type": "金融資安事件",
+      "summary": "11月3日，永豐銀行發現客戶帳戶出現異常轉帳，4日晚間召開記者會說明。銀行確認事件成因為外部駭客利用第三方新網銀交易系統供應商的安全設定漏洞入侵，共418人、427筆交易受影響，總金額4,176萬元，受影響款項已於3日完成全數攔阻與補償。涉案的新網銀APP已緊急下架，外部攻擊隨之停止。駭客手法為利用特定技術隨機嘗試相同身分證字號首碼的帳戶，取得有效帳戶資料後進行盜轉；銀行稱目前無個人資料外洩軌跡。該第三方系統供應商為國外廠商，目前在台灣另有約5家業者導入同一系統，永豐已透過F-ISAC向金融同業分享威脅情資，並宣布將向供應商求償。此事件凸顯金融業對第三方軟體供應商安全管理的系統性盲點：供應商的安全設定缺失可直接造成銀行客戶帳戶損失，且波及範圍潛在擴及使用同一系統的其他金融機構。",
+      "source": "自由時報 / 中央社 / 科技新報 / 今周刊 / uanalyze",
+      "url": "https://ec.ltn.com.tw/article/breakingnews/5629505",
+      "date": "2026-11-04"
     },
     {
-      "title": "Google聯合日本警察廳瓦解XCPE供應鏈後門殭屍網路：1.3M+ Android TV設備廠端預植後門，台灣受影響近9萬台（11/2）",
+      "title": "Node-RED CVSS 10.0零時差漏洞（CVE-2026-58115）遭積極利用：攻擊者部署Linux bot及後門，針對工控與IoT環境（11/3）",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "VulnCheck於10月30日記錄到攻擊者積極利用CVE-2026-58115，SecurityWeek等多家媒體於11月3日跟進報導，Help Net Security確認攻擊者已成功在目標設備部署流程（flow）並植入後門。CVE-2026-58115是Siemens於2026年8月在SIMATIC IoT2050工控設備上揭露的最高嚴重程度漏洞（CVSS 10.0），根因為Node-RED HTTP介面缺少驗證機制，未驗證攻擊者可存取能執行系統指令的程式節點，藉此取得設備完整控制權。受影響設備：Siemens SIMATIC IoT2050 Advanced（版本低於V4.3.4.1且已安裝Node-RED的所有設備）。攻擊者利用此漏洞下載並執行Linux bot，並嘗試部署Webshell以建立持久遠端指令執行能力。VulnCheck已將CVE-2026-58115列入其KEV目錄，但CISA官方KEV尚未收錄。受影響設備多部署於工廠自動化、SCADA及IoT網關場景，一旦遭入侵可成為攻擊工業網路的跳板。",
+      "source": "SecurityWeek / Help Net Security / VulnCheck / iThome / Siemens SSA-834709",
+      "url": "https://www.helpnetsecurity.com/?p=390123",
+      "date": "2026-11-03"
+    },
+    {
+      "title": "OpenSSH SSHole驗證繞過漏洞（CVE-2026-123158）揭露後數小時即遭積極利用，緊急釋出10.6p2修補版本（11/5）",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "11月5日，OpenSSH緊急釋出10.6p2修補版本，修補研究員Özgün Kültekin發現的驗證繞過漏洞CVE-2026-123158（CVSS 8.1），漏洞揭露後數小時即被攻擊者利用。漏洞成因為OpenSSH在使用musl C函式庫且停用PAM的Linux環境（即Alpine Linux預設建置）下，password驗證路徑的邊界處理缺陷——超長密碼輸入可繞過驗證邏輯，讓攻擊者以無密碼帳戶身份登入。受影響範圍侷限於Alpine Linux預設建置；使用glibc、啟用PAM、OpenBSD及Dropbear的系統均不受影響。Alpine Linux已同步釋出系統更新。由於Alpine Linux廣泛用於Docker容器基礎映像，大量容器化微服務環境若使用Alpine作為底層並以密碼驗證方式配置SSH，均屬高風險範疇。OpenSSH維護者對漏洞歸因仍有爭議，表示問題源於musl的行為差異而非自身程式碼，但仍主動提供修補。",
+      "source": "SecurityWeek / Help Net Security / The Hacker News / CSO Online / SOCRadar",
+      "url": "https://www.helpnetsecurity.com/?p=390599",
+      "date": "2026-11-05"
+    },
+    {
+      "title": "群暉Synology NAS遭C3RB3R勒索軟體攻擊：Synology於11/2發出警告，呼籲立即更新DSM（10月下旬至11月初）",
       "severity": "medium",
-      "event_type": "供應鏈攻擊/殭屍網路",
-      "summary": "11月2日，Google與日本警察廳（NPA）及多家私部門資安廠商宣布聯合查封XCPE殭屍網路。Google以高度信心將後門歸因於深圳製造商Videostrong Technology——攻擊者將「x.cpe」後門刻意預裝於韌體出廠，並向犯罪集團販售設備控制存取。TrendAI統計顯示，2026年6月至10月間共有逾132萬台設備（206種型號）確認感染，分布170餘國；台灣受影響設備約達9萬台，與馬來西亞、巴西、伊拉克、墨西哥並列全球前五大受害國。後門核心風險在於其駐留於裝置/oem/分區，即使手動刪除，重開機後仍可自動重新安裝。Google已對Videostrong提起法律訴訟並強制下架相關設備，但現役設備上的後門無法遠端消除。台灣企業數位看板、IP-box或廉價Android媒體盒的採購若涉及Videostrong品牌設備（包括OEM/ODM貼牌），應立即核查並規劃替換。",
-      "source": "The Register / GBHackers / CyberScoop / The Next Web / Aviatrix",
-      "url": "https://www.theregister.com/cyber-crime/2026/11/02/cops-bust-botnet-of-13m-infected-android-tv-boxes/5307045",
+      "event_type": "勒索軟體攻擊",
+      "summary": "11月2日，群暉（Synology）正式發出安全警告，指出其NAS設備自10月初起持續遭C3RB3R勒索軟體攻擊——C3RB3R為Cerber家族變種，加密受害者檔案後附加.L0CK3D副檔名，留下比特幣勒索訊息。目前尚無免費解密工具。Synology呼籲用戶立即安裝可用的DSM更新並啟用自動更新，但未公開具體的入侵路徑或所利用的CVE。奇虎360的分析指向Synology於2026年9月修補的兩個DSM嚴重漏洞，官方尚未確認。此事件凸顯企業與個人NAS設備的安全管理盲點：NAS常作為備份儲存使用，一旦遭勒索軟體加密將導致主機與備份同時滅失。台灣企業廣泛使用Synology NAS作為本地備份設備，應立即確認DSM版本並驗證備份策略中是否維護了與主要環境網路隔離的離線備份。",
+      "source": "BleepingComputer / The Hacker News / SC World / TechRadar / Techaeris",
+      "url": "https://bleepingcomputer.com/news/security/synology-warns-customers-of-ongoing-c3rb3r-ransomware-attacks",
       "date": "2026-11-02"
     },
     {
-      "title": "Siemens SIMATIC IoT2050 Node-RED未驗證RCE（CVE-2026-58115，CVSS 10.0）遭積極利用，攻擊者植入Linux殭屍程式與持久後門（10/30起）",
-      "severity": "high",
-      "event_type": "OT/IoT漏洞遭積極利用",
-      "summary": "Siemens SIMATIC IoT2050 Advanced工業IoT閘道器中的Node-RED HTTP介面缺少驗證機制（CVE-2026-58115，CVSS 3.1/4.0均為10.0），允許未授權遠端攻擊者透過單一HTTP POST請求向/flows端點注入任意工作流程以達成遠端程式碼執行。VulnCheck自10月30日起觀察到積極利用案例：攻擊者投遞自動執行的shell指令工作流程，部分攻擊直接植入Node-RED命令後門（重開機後持續存活），其餘則下載並執行Linux殭屍程式。Siemens已於8月11日發布安全公告（SSA-834709）並提供修補版本（Industrial OS V4.3.4.1），但OT環境受限於高可用性要求而延遲更新，使漏洞在修補程式發布逾兩個月後仍遭持續利用。由於Node-RED在自動化工廠設備、智慧製造及關鍵基礎設施中廣泛用於流程控制，受害後果不限於資料竊取，更可能影響生產流程完整性。台灣製造業與關鍵基礎設施的OT/IoT環境若部署Siemens IoT2050設備，應立即升級至Industrial OS V4.3.4.1或停用Node-RED HTTP介面並封鎖外部網路存取。",
-      "source": "SC World / SecurityPointBreak / VulnCheck / Siemens SSA-834709 / cipherssecurity.com",
-      "url": "https://www.scworld.com/brief/critical-vulnerability-in-node-red-exploited-to-deploy-linux-bot",
-      "date": "2026-11-02"
-    },
-    {
-      "title": "CISA將WordPress Core競態條件RCE（CVE-2026-119977）加入KEV，聯邦機構修補截止11/6（11/3）",
+      "title": "SonicWall GMS已終止支援，兩個高危漏洞（CVE-2026-109593 CVSS 9.1）無修補版本，官方要求遷移至NSM（11/3）",
       "severity": "medium",
-      "event_type": "漏洞通報/CISA KEV",
-      "summary": "CISA於11月3日確認WordPress Core存在競態條件漏洞（CVE-2026-119977），攻擊者可在軟體升級期間利用此漏洞觸發任意程式碼執行，並將其列入已知遭利用漏洞（KEV）目錄，要求美國聯邦機構於11月6日前完成修補。WordPress作為全球逾40%網站的基礎平台，此漏洞影響面廣泛，尤其對使用自管（self-hosted）WordPress且未啟用自動更新的組織構成風險。台灣大量政府機關、企業及媒體使用WordPress架設網站，應立即確認WordPress版本並套用安全更新；管理介面（wp-admin）應限制為信任IP存取，並停用不必要的第三方外掛以縮小攻擊面。",
-      "source": "The Hacker News / CISA KEV",
-      "url": "https://thehackernews.com/2026/11/cisa-confirms-hackers-exploiting.html",
+      "event_type": "漏洞通報",
+      "summary": "11月3日，SonicWall公布SonicWall Global Management System（GMS）9.5.2及以下版本存在兩個未驗證漏洞：CVE-2026-109593（CVSS 9.1，未驗證任意檔案讀取）及CVE-2026-109594（高權限SQL注入）。SonicWall明確表示，由於GMS已於2026年9月30日終止支援，兩個漏洞均不會發布修補版本，唯一解決方案為遷移至Network Security Manager（NSM）平台。CVE-2026-109593允許網路可存取的未驗證攻擊者讀取GMS系統內部檔案，若讀取到管理員憑證，可進一步危及NSM平台安全。此漏洞尚未列入CISA KEV，但現有的CVSS 9.1評分反映其嚴重程度。對台灣企業的核心啟示：已終止支援的資安產品不僅不再獲得修補，其漏洞還會被主動公告，形成可預期的攻擊視窗——EOL產品清查與遷移計畫需列為資安治理常態工作。",
+      "source": "BleepingComputer / SOCRadar / SC World / Daily Security Review",
+      "url": "https://bleepingcomputer.com/news/security/sonicwall-warns-of-unpatched-flaws-in-end-of-life-gms-software",
       "date": "2026-11-03"
     }
   ],
   "vulnerabilities": [
     {
       "cve_id": "CVE-2026-58115",
-      "title": "Siemens SIMATIC IoT2050 Node-RED未驗證RCE（CVSS 10.0，積極利用中，OT設備持久後門風險）",
+      "title": "Node-RED/Siemens SIMATIC IoT2050 未驗證任意命令執行（CVSS 10.0，已遭積極利用，部署Linux bot及後門）",
       "cvss": 10.0,
       "severity": "critical",
-      "vendor": "Siemens",
-      "product": "Siemens SIMATIC IoT2050 Advanced（Industrial OS V4.3.4.1以前的所有版本）",
-      "description": "CVE-2026-58115 是 Siemens SIMATIC IoT2050 Advanced 工業IoT閘道器中Node-RED HTTP介面缺少驗證的嚴重漏洞（CVSS 3.1/4.0均為10.0，CWE-306 Missing Authentication for Critical Function）。攻擊者無需任何身份驗證，僅需向/flows端點發送一個特製HTTP POST請求，即可在目標設備上執行任意指令。Siemens已於8月11日發布安全公告（SSA-834709），修補版本為Industrial OS V4.3.4.1。VulnCheck自10月30日起確認積極利用，觀察到的攻擊手法包括：植入可自動執行shell指令的Node-RED工作流程、植入重開機後持續存在的Node-RED命令後門，以及下載Linux殭屍程式（bot）。由於Node-RED廣泛應用於工廠自動化、智慧製造及關鍵基礎設施的流程控制，受害後果可能影響生產流程完整性。應立即升級至Industrial OS V4.3.4.1；若無法立即升級，應停用Node-RED功能或確保Node-RED HTTP介面（預設port 1880）對外部網路不可達，並啟用adminAuth憑證驗證。核查設備現有工作流程清單，搜尋非預期的shell執行節點或外部連線節點，以確認是否已遭入侵。"
+      "vendor": "Siemens / Node-RED",
+      "product": "Siemens SIMATIC IoT2050 Advanced（所有版本 < V4.3.4.1，已安裝含 adminAuth 未啟用的 Node-RED）",
+      "description": "CVE-2026-58115 是 Siemens SIMATIC IoT2050 工控設備中 Node-RED HTTP 介面的驗證缺失漏洞（CVSS 10.0）。未啟用 adminAuth 設定的 Node-RED 實例對外完全開放，未驗證攻擊者可直接存取並修改 Flow 配置，包含能執行任意系統命令的 Exec、Function 及 HTTP In/Out 節點，取得設備底層作業系統的完整控制權。VulnCheck 蜜罐於 10 月 30 日記錄到首批利用活動，攻擊者透過植入惡意 Flow 下載並執行 Linux bot，並嘗試部署 Webshell 以建立持久遠端指令執行。Siemens 已發布修補版本 V4.3.4.1（Security Advisory SSA-834709）。建議行動：（1）立即更新至 V4.3.4.1 或更高版本；（2）更新後稽核現有 Flow 是否含有非預期的 Exec/HTTP In 節點或未知的外部連線端點；（3）即使已更新，亦應強制啟用 Node-RED adminAuth 並限制編輯介面的網路存取來源——修補不會移除攻擊者已植入的惡意 Flow。"
     },
     {
-      "cve_id": "CVE-2026-107441",
-      "title": "Zyxel GS1900系列交換器OOB Write未驗證指令執行（大規模掃描利用中，韌體更新已發布）",
-      "cvss": 9.8,
-      "severity": "critical",
-      "vendor": "Zyxel",
-      "product": "Zyxel GS1900系列網路管理交換器（修補韌體已發布，請核查Zyxel官方公告確認版本）",
-      "description": "CVE-2026-107441 是 Zyxel GS1900系列網路管理交換器中的越界寫入（Out-of-Bounds Write）漏洞，允許未驗證的遠端攻擊者觸發任意指令執行，完全控制受影響設備。該漏洞已確認在本週遭到大規模掃描利用，攻擊者鎖定暴露於網際網路的交換器管理介面發動攻擊。Zyxel已發布韌體修補程式，建議立即更新。由於GS1900系列廣泛部署於企業、校園及中小企業網路基礎設施，受控交換器可用於流量攔截、橫向移動或拒絕服務攻擊，對台灣企業網路邊界安全構成風險。應立即套用Zyxel官方修補韌體，並確認管理介面未暴露於外部網路，應僅可由內部管理VLAN存取。（CVSS分數9.8為未驗證指令執行漏洞的估計值，以Zyxel官方公告為準。）"
-    },
-    {
-      "cve_id": "CVE-2026-119977",
-      "title": "WordPress Core軟體升級期間競態條件RCE（CISA KEV 11/3，聯邦機構截止11/6，已確認積極利用）",
+      "cve_id": "CVE-2026-123158",
+      "title": "OpenSSH SSHole 密碼驗證繞過（CVSS 8.1，僅影響 Alpine Linux musl+PAM 停用環境，揭露後數小時遭利用，修補版本 10.6p2）",
       "cvss": 8.1,
       "severity": "high",
-      "vendor": "WordPress",
-      "product": "WordPress Core（所有受影響版本，請套用最新版本）",
-      "description": "CVE-2026-119977 是 WordPress Core 軟體升級流程中的競態條件（Race Condition）漏洞，攻擊者可在升級操作期間利用時序漏洞達成任意程式碼執行。CISA於11月3日確認此漏洞已遭積極利用並列入KEV目錄，要求美國聯邦機構於11月6日前完成修補。WordPress作為全球超過4,000萬個網站的基礎平台，此漏洞影響所有使用自管WordPress且未及時更新的組織。應立即更新至最新版本的WordPress Core；啟用自動安全性更新可防止此類升級期間窗口被利用；應限制wp-admin存取來源IP並啟用多因素驗證。（CVSS分數8.1為RCE漏洞的估計值，以NIST NVD官方記錄為準。）"
+      "vendor": "OpenSSH / Alpine Linux",
+      "product": "OpenSSH < 10.6p2（僅限 Alpine Linux 預設建置：musl libc + PAM 停用）",
+      "description": "CVE-2026-123158（暱稱 SSHole）是 OpenSSH 在使用 musl C 函式庫且停用 PAM 的 Linux 環境下，密碼驗證路徑的邊界處理缺陷（CVSS 8.1）。攻擊者可透過傳送超長密碼輸入觸發邏輯錯誤，繞過驗證機制以無密碼帳戶身份登入。受影響範圍侷限於 Alpine Linux 預設建置；glibc 環境（Debian/Ubuntu/CentOS/RHEL）、已啟用 PAM 的系統、OpenBSD 及 Dropbear 均不受影響。Alpine Linux 廣泛用於 Docker 容器基礎映像，大量容器化服務若以密碼驗證方式配置 SSH 均屬高風險。OpenSSH 已於 11 月 5 日緊急釋出 10.6p2，Alpine Linux 同步更新。漏洞揭露後數小時即記錄到利用活動。建議行動：（1）Docker/容器環境優先稽核使用 Alpine Linux 基礎映像且暴露 SSH 的服務；（2）立即升級 OpenSSH 至 10.6p2，或停用密碼驗證改為金鑰驗證（`PasswordAuthentication no`）；（3）審查無密碼或弱密碼的 SSH 帳戶。"
+    },
+    {
+      "cve_id": "CVE-2026-19868",
+      "title": "SonicWall SonicOS SSLVPN SAML/MFA 繞過（CVSS 7.1，CISA KEV 11/6 加入，聯邦截止日 11/20，修補版本已發布）",
+      "cvss": 7.1,
+      "severity": "high",
+      "vendor": "SonicWall",
+      "product": "SonicOS SSLVPN（Gen7 修補版本：7.3.4-7013；Gen8 修補版本：8.2.3-8015）",
+      "description": "CVE-2026-19868 是 SonicWall SonicOS SSLVPN 的 SAML 驗證元件中的驗證繞過漏洞（SonicWall CVSS 7.1，NVD/CISA-ADP 7.5），僅影響已啟用 SAML 作為 SSLVPN 登入方式的部署。漏洞允許持有其他有效憑證的攻擊者繞過 SAML 強制執行的 MFA 要求，以另一用戶身份取得 VPN 存取。CISA 於 11 月 6 日將 CVE-2026-19868 列入 KEV 目錄，要求美國聯邦機構於 11 月 20 日前完成修補（BOD 26-04）。SonicWall 表示無任何暫時緩解措施，唯一解法為韌體升級，官方 Advisory 為 SNWLID-2026-0014。建議行動：（1）確認部署環境是否啟用 SAML for SSLVPN；（2）立即升級至修補韌體版本（Gen7: 7.3.4-7013，Gen8: 8.2.3-8015）；（3）修補前或無法立即修補時，評估暫時停用 SAML 認證方式或限制 SSLVPN 外部存取來源；（4）稽核 VPN 存取記錄，確認近期無異常登入。"
     }
   ],
   "threat_trends": {
-    "summary": "本週台灣本土面臨「金融供應鏈漏洞攻擊」與「電商服務供應鏈資安風波」雙重衝擊，兩起事件均非直接攻擊目標企業，而是透過委外廠商的系統安全疏失滲透。永豐銀行事件的攻擊者精準鎖定新網銀供應商安全設定漏洞批量發起轉帳，顯示攻擊者對台灣金融委外生態具備深度事前調查能力；電商供應鏈的Cyberbiz等事件則呈現「SaaS平台遭攻擊 → 下游多家品牌商資料連帶外洩」的放大效應，宏碁智新、台鹽等上市公司均受波及。在全球層面，XCPE供應鏈後門事件揭示消費性電子產品「出廠即帶後門」的系統性風險，台灣以9萬台受感染設備位列全球前五大受害國，OT/IoT領域的Siemens IoT2050 Node-RED CVE-2026-58115（CVSS 10.0）則顯示工業設備的修補延遲問題使漏洞在公告逾兩個月後仍持續被利用。整體威脅態勢顯示攻擊者正系統性鎖定「第三方供應商」這一最薄弱的環節，無論是金融、電商或工業領域均呈現相同模式。",
+    "summary": "本週台灣威脅態勢以「供應鏈安全管理失效」為核心主線。電商服務平台Cyberbiz、1shop、meepShop、莫筆克科技連環資安事件，以及永豐銀行第三方新網銀系統供應商漏洞遭利用造成4,176萬元盜轉，同時揭露台灣兩個關鍵產業（電商與金融）的第三方服務管理薄弱環節：API金鑰管控鬆散、供應商安全設定缺乏稽核、事件通報機制遲滯。技術層面，Node-RED CVE-2026-58115（CVSS 10.0）的積極利用標誌工控與IoT自動化平台成為高優先攻擊目標，VulnCheck蜜罐記錄到攻擊者在揭露後數日內即完成武器化；OpenSSH SSHole漏洞（CVE-2026-123158）揭露後數小時遭利用，顯示以Docker容器為核心的雲原生環境中，Alpine Linux映像的攻擊面管理成為新興盲點。另一值得注意的趨勢是EOL產品漏洞管理：SonicWall GMS（CVSS 9.1）終止支援後官方直接宣告無修補，將漏洞風險留給仍在使用的組織自行承擔。11月28日台灣地方選舉即將舉行，選舉前數週已出現疑似針對特定候選人的網路攻擊活動，這一模式與歷次選舉前的威脅升溫態勢一致，需密切關注後續發展。",
     "active_actors": [
       {
-        "name": "不明金融攻擊組織（永豐銀行供應商漏洞利用）",
+        "name": "不明駭客組織（台灣電商供應鏈攻擊）",
         "type": "財務動機威脅行為者",
-        "activity": "11月3日利用永豐銀行新網銀交易系統供應商的安全設定漏洞，以自動化方式對418名客戶帳戶發起427筆未授權轉帳，總金額4176萬元，全部匯入同一帳戶，顯示具備對台灣金融委外架構的深入了解及自動化批量操作能力。案件目前由台北地方檢察署偵辦中。"
+        "activity": "11月第一週針對台灣電商生態系實施協同攻擊，利用多家電商服務商（Cyberbiz、1shop）及ERP廠商（莫筆克科技）的系統或API金鑰漏洞竊取訂單資料，衍生詐騙郵件攻擊（以真實訂單資訊為誘餌）。攻擊面涵蓋電商開店平台、雲端ERP整合節點，顯示攻擊者對台灣電商服務架構有相當程度的預先偵察。"
       },
       {
-        "name": "Videostrong Technology關聯犯罪集團（XCPE殭屍網路）",
-        "type": "財務動機威脅行為者（供應鏈後門）",
-        "activity": "深圳製造商Videostrong Technology被Google以高度信心認定為將XCPE後門預裝於Android TV設備韌體的主要責任方，並對外販售設備的殭屍控制存取。Google已提起法律訴訟；日本警察廳主導的國際聯合執法行動已查封相關控制基礎設施，但現役設備上的後門無法遠端消除，全球132萬台設備仍處於潛在受控狀態。"
+        "name": "不明駭客（永豐銀行攻擊者）",
+        "type": "財務動機威脅行為者",
+        "activity": "11月3日利用第三方新網銀交易系統供應商的安全設定漏洞，以自動化方式對同一身分證字號首碼的帳戶進行暴力嘗試，取得有效帳戶後實施盜轉，418筆交易、4,176萬元遭盜轉，攻擊在新網銀APP下架後停止。同一系統供應商服務的另外約5家台灣金融機構可能存在相同風險。"
+      },
+      {
+        "name": "C3RB3R 勒索軟體集團",
+        "type": "財務動機威脅行為者（勒索軟體集團）",
+        "activity": "10月初開始針對未更新 Synology NAS 設備實施勒索軟體攻擊，使用 Cerber 家族變種 C3RB3R，加密檔案附加 .L0CK3D 副檔名，索取比特幣贖金。Synology 於 11 月 2 日正式公開警告，目前無免費解密工具，攻擊持續進行中。"
       }
     ],
     "attack_techniques": [
-      "委外廠商安全設定漏洞利用：攻擊者鎖定銀行新網銀交易系統供應商的系統安全設定瑕疵（非原始碼漏洞），繞過正常客戶驗證流程批量發起自動化轉帳，呈現對台灣金融委外生態的深度事前偵察",
-      "SaaS平台供應鏈放大攻擊：針對電商SaaS業者（Cyberbiz等）資料庫的未授權存取，藉由單一平台業者被攻擊後，造成其下游多家品牌商客戶資料連帶外洩",
-      "消費性硬體供應鏈後門：於Android TV設備出廠韌體中植入後門並駐留於/oem/分區，使後門在消費者購得設備時即已存在且難以徹底清除（恢復出廠設定無效）",
-      "OT設備未驗證RCE持久化：利用SIMATIC IoT2050的Node-RED未驗證HTTP介面投遞持久後門工作流程，目標為工業製造環境的流程控制設備，修補延遲使漏洞在公告逾兩個月後仍被持續利用"
+      "第三方服務商API金鑰與系統整合憑證竊取：攻擊者針對電商平台與ERP廠商之間的API整合節點，竊取服務端API金鑰後橫向讀取所有接入廠商的客戶訂單資料",
+      "第三方軟體供應商安全設定缺失利用：攻擊者不直接攻擊銀行本體，而是利用銀行導入的第三方交易系統的設定漏洞，以身分證字號首碼配對方式暴力嘗試帳戶",
+      "工控/IoT裝置無驗證介面直接部署惡意載荷：利用 Node-RED 未啟用 adminAuth 的裝置，直接操作 Flow 編輯器植入包含系統命令執行的惡意流程及後門",
+      "NAS設備備份加密攻擊：針對企業常用作備份儲存的 Synology NAS 設備，利用未修補 DSM 漏洞植入 C3RB3R，同時破壞主要資料與備份",
+      "SAML/MFA多因素驗證繞過：CVE-2026-19868 允許持有替代登入憑證的攻擊者繞過 SSLVPN 中 SAML 強制執行的 MFA，直接取得 VPN 存取權限"
     ]
   },
   "action_items": [
     {
       "priority": "high",
-      "action": "金融機構立即核查委外廠商安全設定（對應永豐銀行供應鏈攻擊）：（1）清查所有與金融交易相關的委外廠商系統架構，確認供應商系統無法未經授權發起批量轉帳——永豐案顯示供應商系統安全設定瑕疵（非程式碼漏洞）即可讓外部攻擊者批量操作客戶帳戶；（2）重新評估委外廠商是否具備金融業資安要求的等級（依金管會「金融資訊系統委外作業管理辦法」），要求高風險委外廠商提供最新滲透測試報告；（3）部署異常轉帳行為分析（大量短時間轉帳至同一帳戶的交易模式），作為當日即時監控告警的補充防護；（4）金管會要求金融機構於11月12日前提交重大偶發事件報告，同業可參照此時程自主核查類似委外架構的安全狀態。"
+      "action": "立即更新 Siemens SIMATIC IoT2050 至 V4.3.4.1（CVE-2026-58115 CVSS 10.0 已遭積極利用）並稽核現有 Node-RED Flow：（1）確認所有 Siemens SIMATIC IoT2050 Advanced 設備的 Industrial OS 與 Node-RED 版本，立即升級至 V4.3.4.1（Siemens Advisory SSA-834709）；（2）更新後稽核 Node-RED 中的所有現有 Flow，重點檢查：是否有非預期的 Exec 節點、Function 節點中的 child_process 或 require 呼叫、非預期的 HTTP In/HTTP Out 端點，以及未知的外部 URL 連線——攻擊者已植入的惡意 Flow 不會隨韌體更新自動移除；（3）強制啟用 Node-RED adminAuth，限制 Node-RED 編輯介面（預設 1880 port）僅允許信任的本地網路地址存取；（4）在工控網路中確認 IoT 設備與 OT/ICS 網段的防火牆規則，限制設備向外部 IP 的出站連線。"
     },
     {
       "priority": "high",
-      "action": "立即升級Siemens SIMATIC IoT2050至Industrial OS V4.3.4.1修補CVE-2026-58115（CVSS 10.0，積極利用中）：（1）清點所有OT/IoT環境中部署Siemens SIMATIC IoT2050 Advanced設備的場景，確認Industrial OS版本；（2）立即升級至V4.3.4.1（Siemens安全公告SSA-834709）；（3）無法立即升級者，立即停用Node-RED功能或確保Node-RED HTTP介面（port 1880）對外部網路完全不可達，並在防火牆/VLAN層級實施控制；（4）確認Node-RED設定是否啟用adminAuth憑證驗證，未啟用者立即補強；（5）核查IoT2050設備的現有工作流程清單，搜尋非預期的shell執行節點或外部連線節點，以確認是否已遭入侵；（6）此漏洞同樣提醒企業核查其他OT環境中使用Node-RED的設備，確認均啟用驗證。"
+      "action": "Docker/容器環境立即確認 Alpine Linux + OpenSSH 暴露面並修補 CVE-2026-123158（OpenSSH SSHole，揭露後數小時遭利用）：（1）盤點所有生產容器映像，找出使用 Alpine Linux 為基礎映像且暴露 22 port 的容器；（2）立即升級 OpenSSH 至 10.6p2 或更新 Alpine Linux 套件（`apk upgrade openssh`）；（3）不論是否已修補，對所有 SSH 服務強制停用密碼驗證（`PasswordAuthentication no` in `/etc/ssh/sshd_config`），改用金鑰驗證；（4）稽核所有無密碼或空密碼的系統帳號——CVE-2026-123158 的漏洞特性使無密碼帳戶成為直接入侵目標；（5）對使用 Alpine Linux 的 Kubernetes Pod 及 CI/CD 環境，確認 SSH 服務是否有業務需要，無必要應完全停用。"
     },
     {
       "priority": "high",
-      "action": "電商品牌商核查委外電商服務平台資安狀態（對應Cyberbiz等供應鏈風波）：（1）使用Cyberbiz（順立智慧）、1shop、meepShop、莫筆克科技（Mallbic）等平台的品牌商，立即聯繫平台業者確認是否受影響，並要求提供調查結果及個資外洩通知時程；（2）依個人資料保護法第12條，企業若確認消費者個資遭外洩，應通知當事人及主管機關；（3）受影響平台業者應立即確認受損資料範圍（消費者姓名、聯絡方式、訂單資料、付款資訊等），評估是否需要向個人資料保護委員會通報；（4）中短期措施：評估電商委外廠商時增加資安要求，包含年度滲透測試報告與資安事件通知義務，並確認契約中明訂委外廠商的資安責任。"
+      "action": "立即修補 SonicWall SonicOS SSLVPN CVE-2026-19868（CISA KEV 11/6，聯邦截止日 11/20）並稽核異常 VPN 存取：（1）確認所有 SonicWall SSLVPN 部署是否啟用 SAML 作為登入方式——未啟用 SAML 的部署不受影響；（2）立即升級至修補韌體版本（Gen7：7.3.4-7013；Gen8：8.2.3-8015），官方聲明無任何暫時緩解措施（官方 Advisory：SNWLID-2026-0014）；（3）無法立即修補時，評估暫時停用 SAML 登入方式，改用非 SAML 的 MFA 方案，並限制 SSLVPN 存取來源 IP；（4）稽核 SSLVPN 存取記錄，重點確認自 10 月底以來是否有來自異常 IP 或在異常時段的成功登入；（5）台灣企業使用 SonicWall 設備者應確認目前使用的認證方式，向 SonicWall 或代理商確認修補韌體的取得流程。"
+    },
+    {
+      "priority": "high",
+      "action": "電商與零售業者立即稽核第三方服務商的 API 整合安全並強制輪換金鑰（對應電商供應鏈連環事件）：（1）盤點與所有第三方服務商的 API 整合清單——開店平台、雲端 ERP、電子發票平台、第三方行銷追蹤服務，確認每個整合節點使用的 API 金鑰及存取範圍；（2）立即輪換可能已暴露的 API 金鑰，尤其是存放在應用程式代碼倉庫、設定檔或不安全環境變數中的金鑰；（3）確認第三方服務商對訂單及個資資料庫的存取是否有最小權限原則——服務商應只能讀取業務所需的最小欄位，不應有全資料庫讀取權限；（4）要求關鍵第三方服務商說明其安全事件應急通報機制（包含通報時效），並在合約中明確事件責任；（5）對消費者通訊管道加強防詐警語，主動通知客戶本公司不會以訂單資訊為由索取額外帳號密碼或匯款資訊。"
+    },
+    {
+      "priority": "high",
+      "action": "金融業者稽核第三方軟體供應商整合安全並向F-ISAC取得永豐銀行事件威脅情資（對應永豐銀行資安事件）：（1）盤點所有第三方軟體廠商提供的系統整合元件，重點確認網銀交易系統、身分驗證元件及帳戶管理模組的安全設定是否依最高安全標準設定（非廠商預設值）；（2）同一新網銀系統供應商的用戶（約5家台灣金融業者）應立即聯繫該廠商，確認自身系統的安全設定狀態；（3）向金融資安資訊分享與分析中心（F-ISAC）取得永豐銀行事件的威脅情資包（IoC、攻擊手法描述），評估是否需採取相應防護措施；（4）加強帳戶交易監控規則，針對多帳戶批次小額快速轉帳（特別是相同身分識別特徵）設定異常告警；（5）對供應商合約中的安全責任條款進行法務審查，確認第三方廠商安全事件的賠償責任已清楚界定。"
     },
     {
       "priority": "medium",
-      "action": "核查並替換Videostrong品牌Android TV設備，防範XCPE後門（1.3M設備受影響，台灣近9萬台）：（1）清點企業環境（尤其是數位看板、會議室顯示、IP-box等）是否使用Videostrong品牌或其OEM貼牌Android TV設備；（2）確認使用受影響設備後，建議規劃替換，或至少確保該設備隔離於獨立的VLAN或訪客網段，防止後門滲透企業或家庭主網路；（3）後門駐留於/oem/分區，僅靠恢復出廠設定無法清除，需對設備網路活動進行持續監控或流量封鎖。"
+      "action": "立即更新 Synology NAS DSM 並驗證備份與主環境網路隔離（對應 C3RB3R 勒索軟體持續攻擊）：（1）登入 Synology NAS 管理介面，確認 DSM 版本並立即安裝所有可用更新，啟用自動更新功能；（2）核查 NAS 是否直接暴露在公網（特別是 5000/5001 port 的 DSM 管理介面），若有應立即關閉外部存取或僅允許已知 IP；（3）驗證備份架構符合 3-2-1 原則：確認 NAS 上的備份與主要環境帳號憑證完全隔離（攻擊者常以已入侵環境的憑證存取 NAS 刪除備份），並維護一份完全離線或異地的備份副本；（4）Synology 的 HBS 3、Snapshot Replication 或 C2 Backup 等服務若使用弱密碼或與主機相同密碼，應立即強制重設為強密碼並啟用 MFA；（5）確認「回收站」與「版本歷史」功能已啟用，以利勒索軟體攻擊後的部分復原。"
     },
     {
       "priority": "medium",
-      "action": "立即更新WordPress Core並核查Zyxel GS1900韌體（對應CISA KEV CVE-2026-119977及CVE-2026-107441）：（1）清查所有使用自管WordPress的網站，確認WordPress Core版本並更新至最新版本，啟用自動安全性更新；限制wp-admin僅允許信任IP位址存取並啟用多因素驗證；（2）清查網路環境中所有Zyxel GS1900系列交換器，立即從Zyxel官方下載並套用最新修補韌體；確認交換器管理介面均非暴露於外部網路，應僅可由內部管理VLAN存取；稽核GS1900設備系統記錄，確認是否有異常登入或設定異動跡象。"
+      "action": "排程遷移 SonicWall GMS 至 NSM，並在遷移完成前限制 GMS 存取面（CVE-2026-109593 CVSS 9.1 無修補）：（1）確認組織是否仍在使用 SonicWall GMS——其已於 2026 年 9 月 30 日正式終止支援，所有使用中的部署均暴露於 CVE-2026-109593（未驗證任意檔案讀取）及 CVE-2026-109594（高權限 SQL 注入）；（2）立即限制 GMS 管理介面的網路存取範圍，僅允許已知的管理員 IP 存取，降低未驗證存取風險；（3）評估 CVE-2026-109593 的潛在暴露：該漏洞可讀取 GMS 內部檔案，若檔案中含有管理員憑證，可能進一步危及 NSM 平台安全；（4）確認遷移至 NSM 的優先級並排定完成時程，與 SonicWall 或代理商確認遷移方案；（5）本事件可作為組織內 EOL 產品清查的驅動點：盤點所有即將或已終止支援的資安及網路設備，建立遷移計畫。"
     }
   ],
   "terms": [
     {
       "term": "供應鏈攻擊（Supply Chain Attack）",
-      "definition": "攻擊者鎖定目標組織信任的第三方廠商或軟硬體供應商，藉由供應商的安全疏失或植入後門，間接入侵最終目標",
+      "definition": "攻擊者透過入侵目標組織的上游廠商、軟體套件、API整合節點，間接影響原本防護較強的下游目標，達到橫跨多個組織的攻擊效果",
       "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
     },
     {
-      "term": "競態條件（Race Condition）",
-      "definition": "程式在多執行緒或多進程環境中因操作時序不當而產生的安全漏洞，攻擊者可利用時序窗口注入惡意行為",
-      "url": "https://glossary.astroicers.link/glossary/race_condition"
+      "term": "驗證繞過（Authentication Bypass）",
+      "definition": "攻擊者利用系統驗證機制的缺陷，在不提供正確憑證的情況下取得系統存取權限，常見於實作錯誤、設定缺失或邊界條件處理不當",
+      "url": "https://glossary.astroicers.link/glossary/authentication_bypass"
     },
     {
-      "term": "委外廠商風險管理（Third-Party Risk Management）",
-      "definition": "企業對外部服務提供者的資安風險評估與監督機制，包含合約要求、定期稽核及事件通知義務",
-      "url": "https://glossary.astroicers.link/glossary/third_party_risk_management"
+      "term": "工業控制系統（ICS / Industrial Control System）",
+      "definition": "用於監控和控制工業流程的電腦化系統，包含SCADA、DCS等，廣泛用於能源、製造、水處理等關鍵基礎設施，一旦遭入侵可導致實體世界損害",
+      "url": "https://glossary.astroicers.link/glossary/industrial_control_system"
     },
     {
-      "term": "越界寫入（Out-of-Bounds Write）",
-      "definition": "程式將資料寫入超出預期記憶體範圍的位置，常被攻擊者利用以覆蓋控制流程資料進而執行任意程式碼",
-      "url": "https://glossary.astroicers.link/glossary/out_of_bounds_write"
+      "term": "終止支援（End of Life / EOL）",
+      "definition": "廠商停止對產品提供安全更新與技術支援的時間點，之後新發現的漏洞將不再發布修補程式，繼續使用 EOL 產品等同接受無法修補的持續暴露風險",
+      "url": "https://glossary.astroicers.link/glossary/end_of_life"
     },
     {
-      "term": "工業物聯網安全（OT/IIoT Security）",
-      "definition": "用於工業製造、關鍵基礎設施監控的網路化設備與控制系統安全，OT環境強調高可用性，修補週期長，資安風險難以快速因應",
-      "url": "https://glossary.astroicers.link/glossary/ot_iot"
+      "term": "多因素驗證（MFA / Multi-Factor Authentication）",
+      "definition": "要求使用者在登入時提供兩種以上驗證因素（如密碼加TOTP、硬體金鑰）的驗證機制，可大幅降低帳號被盜風險；但SAML整合配置缺陷仍可能導致繞過",
+      "url": "https://glossary.astroicers.link/glossary/multi_factor_authentication"
     },
     {
-      "term": "已知遭利用漏洞（KEV, Known Exploited Vulnerabilities）",
-      "definition": "CISA維護的漏洞目錄，收錄已確認在真實攻擊中遭積極利用的CVE，美國聯邦機構依法須在截止日前完成修補",
-      "url": "https://glossary.astroicers.link/glossary/kev"
+      "term": "勒索軟體（Ransomware）",
+      "definition": "惡意程式在入侵受害者系統後加密目標檔案，向受害者勒索贖金以換取解密金鑰；現代勒索軟體集團常同時竊取資料進行雙重勒索",
+      "url": "https://glossary.astroicers.link/glossary/ransomware"
     }
   ],
   "references": [
     {
-      "title": "永豐銀行異常轉帳確認為駭客攻擊，供應商安全設定漏洞遭利用 – iThome",
-      "url": "https://www.ithome.com.tw/news/180233"
-    },
-    {
-      "title": "永豐銀遭駭客盜轉 金管會找銀行高層說明、要求全面釐清 – 中央社",
-      "url": "https://www.cna.com.tw/news/afe/202611050282.aspx"
-    },
-    {
-      "title": "永豐銀盜轉事件正式回應 3 重點：款項已全退、新 App 下架、無個資外洩 – 經理人",
-      "url": "https://www.managertoday.com.tw/articles/view/73257"
-    },
-    {
-      "title": "永豐銀行帳戶爆異常轉帳427筆原因出爐 新網銀交易系統安全設定遭駭 – Yahoo新聞",
-      "url": "https://tw.news.yahoo.com/%E6%B0%B8%E8%B1%90%E9%8A%80%E8%A1%8C%E5%B8%B3%E6%88%B6%E7%88%86%E7%95%B0%E5%B8%B8%E8%BD%89%E5%B8%B3427%E7%AD%86%E5%8E%9F%E5%9B%A0%E5%87%BA%E7%88%90-%E6%96%B0%E7%B6%B2%E9%8A%80%E4%BA%A4%E6%98%93%E7%B3%BB%E7%B5%B1%E5%AE%89%E5%85%A8%E8%A8%AD%E5%AE%9A%E9%81%AD%E9%A7%AD-101037051.html"
-    },
-    {
-      "title": "【資安週報】1102～1106，電商服務供應鏈資安風波延燒、永豐銀行異常轉帳確認為資安事件 – iThome",
+      "title": "【資安週報】1102～1106，電商服務供應鏈資安風波多家同時延燒、永豐銀行異常轉帳確認為資安事件 – iThome",
       "url": "https://www.ithome.com.tw/news/180291"
     },
     {
-      "title": "宏碁智新：委外廠商傳資安事件 線上商店暫停營運 – 中央社",
-      "url": "https://www.cna.com.tw/news/afe/202611060287.aspx"
+      "title": "最終答案公布了！永豐銀行：異常轉帳為供應商安全設定遭駭客利用資安事件 – 自由時報",
+      "url": "https://ec.ltn.com.tw/article/breakingnews/5629505"
     },
     {
-      "title": "宏碁智新 公告本公司線上商店委外服務廠商發生資訊安全事件之處理情形 – Yahoo新聞",
-      "url": "https://tw.stock.yahoo.com/news/%E5%AE%8F%E7%A2%81%E6%99%BA%E6%96%B0-%E5%85%AC%E5%91%8A%E6%9C%AC%E5%85%AC%E5%8F%B8%E7%B7%9A%E4%B8%8A%E5%95%86%E5%BA%97%E5%A7%94%E5%A4%96%E6%9C%8D%E5%8B%99%E5%BB%A0%E5%95%86%E7%99%BC%E7%94%9F%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6%E4%B9%8B%E8%99%95%E7%90%86%E6%83%85%E5%BD%A2-091400604.html"
+      "title": "永豐銀新網銀APP釀資安危機 還原遭駭時間軸、向系統商求償 – 中央社",
+      "url": "https://cna.com.tw/news/afe/202611040331.aspx"
     },
     {
-      "title": "Cops bust botnet of 1.3M infected Android TV boxes – The Register",
-      "url": "https://www.theregister.com/cyber-crime/2026/11/02/cops-bust-botnet-of-13m-infected-android-tv-boxes/5307045"
+      "title": "〈永豐資安事件〉銀行董總二度鞠躬致歉、還原遭駭始末 4176萬元已全數歸還 – uanalyze",
+      "url": "https://uanalyze.com.tw/articles/4611158374"
     },
     {
-      "title": "Google Dismantles XCPE Botnet That Infected 1.3 Million Android TV Devices With Preinstalled Malware – GBHackers",
-      "url": "https://gbhackers.com/google-dismantles-xcpe-botnet/amp/"
+      "title": "Critical Node-RED Flaw Exploited in Attacks – SecurityWeek",
+      "url": "https://securityweek.com/critical-node-red-flaw-exploited-in-attacks/"
     },
     {
-      "title": "Google shuts down global botnet running on certified Android devices – CyberScoop",
-      "url": "https://cyberscoop.com/google-disrupts-xcpe-botnet-videostrong-android-devices/"
+      "title": "Attackers exploit critical Node-RED flaw to deploy Linux bot and backdoors (CVE-2026-58115) – Help Net Security",
+      "url": "https://www.helpnetsecurity.com/?p=390123"
     },
     {
-      "title": "Critical vulnerability in Node-RED exploited to deploy Linux bot – SC World",
-      "url": "https://www.scworld.com/brief/critical-vulnerability-in-node-red-exploited-to-deploy-linux-bot"
+      "title": "Exploitation Targeting Node-RED – VulnCheck",
+      "url": "https://www.vulncheck.com/blog/exploitation-targeting-node-red"
     },
     {
-      "title": "Siemens IoT2050 Node-RED Flaw CVE-2026-58115 Exploited – SQ Magazine",
-      "url": "https://sqmagazine.co.uk/siemens-iot2050-flaw-exploited-node-red-backdoors/"
+      "title": "Siemens Security Advisory SSA-834709: Node-RED Vulnerability in SIMATIC IoT2050 – Siemens",
+      "url": "https://cert-portal.siemens.com/productcert/html/ssa-834709.html"
     },
     {
-      "title": "Node-RED CVE-2026-58115 exploited: IoT2050 fix and adminAuth check – hol.org",
-      "url": "https://hol.org/blog/cve-2026-58115-node-red-no-login-exploited-siemens-iot2050"
+      "title": "OpenSSH rushes patches for SSHole authentication bypass – SecurityWeek",
+      "url": "https://securityweek.com/openssh-rushes-patches-for-sshole-authentication-bypass"
     },
     {
-      "title": "CISA Confirms Hackers Exploiting WordPress Core Flaw During Software Upgrades – The Hacker News",
-      "url": "https://thehackernews.com/2026/11/cisa-confirms-hackers-exploiting.html"
+      "title": "OpenSSH flaw exploited in the wild just hours after disclosure (CVE-2026-123158) – Help Net Security",
+      "url": "https://www.helpnetsecurity.com/?p=390599"
     },
     {
-      "title": "CISA Adds One Known Exploited Vulnerability to Catalog – CISA",
-      "url": "https://www.cisa.gov/news-events/alerts/2026/11/03/cisa-adds-one-known-exploited-vulnerability-catalog"
+      "title": "Hackers Exploited OpenSSH SSHole Flaw – The Hacker News",
+      "url": "https://thehackernews.com/2026/11/hackers-exploited-openssh-sshole-flaw.html"
     },
     {
-      "title": "Debian APT Flaw, OpenSSH Alpine Bug and Zyxel Zero-Day: Digest for November 6, 2026 – or1k.net",
-      "url": "https://or1k.net/digests/daily-digest-2026-11-06/"
+      "title": "U.S. CISA adds SonicWall SonicOS SSLVPN flaw to its Known Exploited Vulnerabilities catalog – Security Affairs",
+      "url": "https://securityaffairs.com/?p=202581"
     },
     {
-      "title": "November 2026 Patch Tuesday forecast: Old software continues to bite – Help Net Security",
-      "url": "https://www.helpnetsecurity.com/2026/11/06/november-2026-patch-tuesday-forecast/"
+      "title": "SonicWall SSLVPN MFA Bypass: CISA KEV Alert (CVE-2026-19868) – SesameDisk",
+      "url": "https://sesamedisk.com/sonicwall-sslvpn-mfa-bypass-cisa-kev/"
     },
     {
-      "title": "Weekly Intelligence Report - 06 Nov 2026 – CYFIRMA",
-      "url": "https://www.cyfirma.com/news/weekly-intelligence-report-06-nov-2026/"
+      "title": "SonicWall warns of unpatched flaws in end-of-life GMS software – BleepingComputer",
+      "url": "https://bleepingcomputer.com/news/security/sonicwall-warns-of-unpatched-flaws-in-end-of-life-gms-software"
+    },
+    {
+      "title": "SonicWall GMS Flaws Unpatched After End of Life – SOCRadar",
+      "url": "https://socradar.io/blog/sonicwall-gms-flaws-unpatched-after-end-of-life/"
+    },
+    {
+      "title": "Synology warns customers of ongoing C3RB3R ransomware attacks – BleepingComputer",
+      "url": "https://bleepingcomputer.com/news/security/synology-warns-customers-of-ongoing-c3rb3r-ransomware-attacks"
+    },
+    {
+      "title": "Synology NAS devices targeted in C3RB3R ransomware campaign – The Hacker News",
+      "url": "https://thehackernews.com/2026/11/synology-nas-devices-targeted-in.html"
+    },
+    {
+      "title": "CISA Adds One Known Exploited Vulnerability to Catalog (CVE-2026-19868) – CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/11/06/cisa-adds-one-known-exploited-vulnerability-catalog"
+    },
+    {
+      "title": "櫻花購物商城爆資安事件！委外平台資料庫遭異常存取 – 工商時報",
+      "url": "https://www.ctee.com.tw/news/20261109701978-430503"
+    },
+    {
+      "title": "Known Exploited Vulnerabilities Catalog – CISA",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
     }
   ]
 }
