@@ -1,0 +1,252 @@
+{
+  "title": "資安週報 2026/11/02 - 2026/11/08",
+  "report_id": "SEC-WEEKLY-2026-45",
+  "period": {
+    "start": "2026-11-02",
+    "end": "2026-11-08"
+  },
+  "publish_date": "2026-11-09",
+  "summary": {
+    "total_events": 5,
+    "total_vulnerabilities": 3,
+    "threat_level": "high"
+  },
+  "events": [
+    {
+      "title": "91APP電商訂單資料庫外洩後續：11/2起通知480萬消費者，攻擊者藉Appsmith→GitLab→資料庫金鑰鏈取得完整訂單資料",
+      "severity": "high",
+      "event_type": "資料外洩",
+      "summary": "91APP（91科技股份有限公司，台灣電商SaaS平台）自11月2日起陸續通知受影響消費者，確認10月中旬的訂單資料庫入侵事件影響規模為約480萬名消費者及近1,400個品牌商。攻擊手法呈現典型「第三方工具→原始碼→憑證→資料」的鏈狀入侵路徑：攻擊者利用企業內部長期未更新的低代碼開發工具Appsmith（已知安全漏洞）取得內網存取後，轉向GitLab程式碼倉庫取得資料庫連線金鑰，最終成功存取訂單資料庫。91APP官方聲明使用AI自動化工具ARTEX在攻擊過程中扮演角色，但未公開說明具體功能範圍。受外洩資料範圍可能涵蓋消費者姓名、電話、地址及購買記錄，可供後續社交工程攻擊使用。受影響消費者已可申請補償，品牌商應檢視是否需向消費者額外說明資料外洩範圍及應對措施。",
+      "source": "科技新報 / 數位時代 / iThome",
+      "url": "https://www.bnext.com.tw/article/92937/91app-artex-ai-hacker-7-security-defenses",
+      "date": "2026-11-02"
+    },
+    {
+      "title": "永豐銀行異常轉帳確認為資安事件：419名客戶逾4,176萬元遭非法轉出，根因為網銀中台供應商安全設定漏洞（11/3）",
+      "severity": "high",
+      "event_type": "金融資安事件",
+      "summary": "永豐銀行11月3日發生大規模異常轉帳事件，金管會調查確認影響範圍為419名客戶、427筆交易、合計逾4,176萬元新台幣遭非法轉出。永豐銀行調查指出，根因為新導入的「網路銀行交易系統」之國外供應商在系統設定上存在安全缺陷，駭客利用此缺陷繞過驗證機制（authentication bypass），直接執行轉帳指令，整個入侵路徑完全未觸及網路銀行前台與後台系統，而是針對「中台」（middle-tier）——亦即銀行前台應用層與核心後台主機之間的交易處理及商業邏輯層。永豐銀行已將該系統全面下架停止服務，表示受影響款項將全數返還，並宣示將向國外供應商追究賠償責任。金管會將要求11月12日前提出重大偶發事件調查報告，並宣布將要求所有金融機構全面強化中台防護，意味著台灣整體金融業的「中台安全」將面臨監管強化。此事件顯示供應商風險管理的盲點：金融機構嚴格管控自研系統，卻可能對引入的第三方平台缺乏同等安全要求。",
+      "source": "鉅亨 / 中央社 / 金管會 / Yahoo財經",
+      "url": "https://news.cnyes.com/news/id/6646798",
+      "date": "2026-11-03"
+    },
+    {
+      "title": "台灣電商服務供應鏈資安風波延燒：Cyberbiz等SaaS商疑遭入侵，葡萄王等多家上市公司發布資安重訊（11/4-6）",
+      "severity": "medium",
+      "event_type": "供應鏈資安疑慮",
+      "summary": "11月4日起，台灣多家上市櫃公司（包括葡萄王生技、中天生技等）陸續在台灣證交所發布資安重訊，說明旗下線上商城的訂單或個人資料可能受到資安事件影響，共同指向其電商平台服務商「順立智慧（Cyberbiz）」。事件發展與91APP案呈現相似樣態，均為第三方電商SaaS平台遭入侵，導致客戶企業被迫發布重訊並通知消費者。另一電商服務商meepShop及1shop同期亦傳出資安疑慮，台灣iThome將這波事件彙整為「電商服務供應鏈資安風波多家同時延燒」。今年截至11月初，台灣上市櫃企業的資安重訊件數已達118件，較去年全年成長近6成，顯示供應鏈資安已成台灣企業資安治理的核心薄弱環節。使用第三方電商平台的台灣品牌商應立即要求平台商提供資安事故調查報告，並評估是否啟動消費者通知程序。",
+      "source": "iThome / 科技新報 / 民視",
+      "url": "https://www.ithome.com.tw/news/180291",
+      "date": "2026-11-04"
+    },
+    {
+      "title": "台灣AI攻擊激增，數發部確認10多家企業受害、攻擊來源涉及香港：資安院示警攻擊尚未結束（11/4-11）",
+      "severity": "high",
+      "event_type": "威脅情報",
+      "summary": "台灣數位發展部（MDA）本週宣布已接獲逾10家台灣企業通報受害，涉及電商平台及金融服務業；台灣資安院院長表示「目前只能說攻擊還沒有結束」。MDA說明，本波攻擊流量部分來自香港，約有近半數事件與AI攻擊手法有關，攻擊者疑似透過AI工具自動化發動高效率的憑證填充（credential stuffing）、帳戶接管（account takeover）及自動化轉帳等攻擊。資安専家分析，今年台灣資安事件急速增加的背景原因包含：CVE數量較去年增加2.2倍，但企業的平均修補中位數從32天延長至43天，使攻擊者窗口期擴大；加上AI攻擊工具的普及使攻擊者可以更低的技術門檻發動更大規模的攻擊。台北時報（Taipei Times）同期報導，中國網路行動在台灣11/28地方選舉前夕的網路攻擊與輿論操作同步升溫，NSB確認針對DPP台北市長候選人的疑似中國bot攻擊：一小時內發出逾7萬次驗證碼請求，意圖癱瘓選舉相關網站。",
+      "source": "中央社 / 自由財經 / Taipei Times / AI Coding by Wisely Chen",
+      "url": "https://www.cna.com.tw/news/afe/202611110270.aspx",
+      "date": "2026-11-05"
+    },
+    {
+      "title": "SonicWall SonicOS SSLVPN CVE-2026-19868 SAML MFA繞過漏洞列入CISA KEV，要求11/20前完成修補（11/6）",
+      "severity": "high",
+      "event_type": "漏洞遭積極利用",
+      "summary": "11月6日，CISA將SonicWall SonicOS SSL-VPN漏洞CVE-2026-19868列入已知遭利用漏洞（KEV）目錄，要求美國聯邦民事機構於11月20日前完成修補。此漏洞為SonicOS SSLVPN服務中的驗證執行弱點（authentication enforcement weakness），允許持有有效替代憑證的使用者繞過SAML強制多因素驗證（MFA），直接建立VPN連線，完全規避企業部署MFA的防護效果。漏洞追蹤編號SNWLID-2026-0014為SonicWall安全公告中七個漏洞之一，CVE-2026-19868為唯一確認遭積極利用者。受影響版本涵蓋SonicOS 7.3.3-7015及以下、8.2.2-8015及以下。目前無已知暫時緩解措施，唯一修補途徑為升級至修補版本。台灣企業廣泛使用SonicWall設備作為遠端存取VPN閘道，使用受影響版本的組織應立即確認修補狀態；即便已停用SAML，亦應確認是否受其他七個漏洞影響。",
+      "source": "CISA / Help Net Security / BleepingComputer / eSecurityPlanet",
+      "url": "https://www.helpnetsecurity.com/?p=390676",
+      "date": "2026-11-06"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-19868",
+      "title": "SonicWall SonicOS SSLVPN SAML MFA繞過（CVSS 7.5，CISA KEV 11/6，截止11/20，已發布修補）",
+      "cvss": 7.5,
+      "severity": "high",
+      "vendor": "SonicWall",
+      "product": "SonicWall SonicOS（7.3.3-7015及以下、8.2.2-8015及以下）",
+      "description": "CVE-2026-19868 是 SonicWall SonicOS SSLVPN 服務的驗證執行弱點（Authentication Enforcement Weakness），允許持有有效替代憑證的攻擊者繞過SAML及強制MFA設定，直接建立VPN連線，無需通過多因素驗證程序。SAML身份聯合部署通常被企業視為零信任（Zero Trust）網路存取的強化措施，此漏洞實質上使SAML/MFA的防護失效。SonicWall在SNWLID-2026-0014安全公告中揭露此漏洞，CISA於11月6日確認有積極利用案例並加入KEV目錄，聯邦機構需於11/20前完成修補。目前無暫時緩解措施，需升級至修補版本。受影響的台灣企業應立即升級，並核查過去30天的VPN存取紀錄以確認是否有未授權連線。"
+    },
+    {
+      "cve_id": "CVE-2026-44756",
+      "title": "SAP OVERPASS：Extended Passport Processing未驗證遠端程式碼執行（CVSS 10.0，SAP 9月修補，TWCERT 本週公告，暫無野外利用）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "SAP",
+      "product": "SAP NetWeaver（使用Extended Passport Processing功能的部署；SAP Kernel 7.22-9.12等多個版本）",
+      "description": "CVE-2026-44756（研究人員命名為\"OVERPASS\"）是Onapsis Research Labs發現的SAP Extended Passport（EPP）Processing模組中的記憶體損壞（memory corruption）漏洞，CVSS 10.0（最高嚴重等級）。未驗證的遠端攻擊者可透過網路存取觸發漏洞，執行任意命令、竊取機密資料並修改資料。SAP已於9月Security Patch Day發布修補，同批修補還包含CVE-2026-58240（CVSS 9.8，NetWeaver Message Server缺少驗證）。截至本報告發布時，尚無野外利用（in-the-wild exploitation）報告，但鑑於CVSS 10.0的最高評分及SAP在台灣企業ERP部署的廣泛應用，運行NetWeaver的台灣企業應確認已套用9月安全修補，並核查是否啟用EPP功能。新加坡CSA已同步發布緊急修補公告（AL-2026-119）。"
+    },
+    {
+      "cve_id": "CVE-2026-90436",
+      "title": "Apache Axis XML-RPC遠端程式碼執行（CVSS 9.3，影響Confluence Data Center XML-RPC和SOAP API端點）",
+      "cvss": 9.3,
+      "severity": "critical",
+      "vendor": "Apache / Atlassian（間接）",
+      "product": "Apache Axis（所有使用Axis的應用程式，包含Atlassian Confluence Data Center的XML-RPC端點）",
+      "description": "CVE-2026-90436 是 Apache Axis XML-RPC 及 SOAP API 中的遠端程式碼執行漏洞（CVSS 9.3），影響所有依賴Apache Axis處理XML-RPC請求的應用程式。受影響範圍包含Atlassian Confluence Data Center的XML-RPC整合，攻擊者可透過向公開的Confluence XML-RPC端點（通常位於/rpc/xmlrpc路徑）發送惡意構造的XML請求觸發RCE。在Atlassian上週（W41）發布的Data Center路徑遍歷CVE-2026-21589之後，本週Apache Axis漏洞為Confluence部署帶來第二個高嚴重度風險面。尚無確認的野外利用案例，但PoC已公開，攻擊門檻低。建議企業確認Confluence Data Center的XML-RPC端點是否暴露於外網，考慮透過WAF封鎖或停用XML-RPC功能（若業務不需使用），並追蹤Apache Axis修補版本。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週台灣資安事件密集爆發，以「電商/金融供應鏈系統性攻擊」與「AI輔助自動化攻擊浪潮延燒」為兩條主線。91APP（480萬消費者）、永豐銀行（419名客戶、4,176萬元非法轉帳）和Cyberbiz多家供應鏈事件同週發生，數發部確認10多家企業受害，資安院表示「攻擊尚未結束」——今年台灣資安重訊已達118件，較去年全年成長近6成，呈現攻擊者系統性掃描台灣電商與金融中台的跡象。攻擊模式高度相似：利用企業對「第三方SaaS工具」或「供應商中台系統」安全審查不足的盲點，以未更新漏洞（如Appsmith）或供應商設定缺陷（如永豐銀行網銀中台）為入口。漏洞面同步升溫：SonicWall CVE-2026-19868 MFA繞過（CISA KEV 11/6）使廣泛部署於台灣企業的VPN設備面臨實際威脅；SAP OVERPASS（CVSS 10.0）與Apache Axis CVE-2026-90436（CVSS 9.3）則對運行ERP/協作平台的企業提出高嚴重度要求。在地緣政治威脅面，台灣11/28地方選舉前夕，NSB確認中國連結網路行動針對政治人物及選舉相關系統升溫，AI代理攻擊在8月首次大規模入侵台灣政府系統後，已被攻擊者納入常規工具箱，部分本週攻擊流量疑來自香港。",
+    "active_actors": [
+      {
+        "name": "不明AI自動化攻擊者（台灣電商/金融攻擊波段）",
+        "type": "財務動機威脅行為者",
+        "activity": "本週針對台灣91APP、永豐銀行、Cyberbiz等電商與金融平台的波段攻擊中，數發部確認約半數事件使用AI攻擊手法，部分流量來自香港。攻擊者利用AI工具自動化執行憑證填充、帳戶接管及中台交易系統漏洞利用，使攻擊效率大幅提升。資安院指出攻擊尚未結束，顯示這波攻擊仍在持續進行中。"
+      },
+      {
+        "name": "中國連結APT（選舉前網路行動）",
+        "type": "國家級威脅行為者（疑似APT）",
+        "activity": "台灣NSB確認針對DPP台北市長候選人Puma Shen的疑似中國bot攻擊：一小時內發出逾7萬次驗證碼請求，意圖癱瘓選舉相關網站。NSB表示11/28地方選舉前夕的網路干預及輿論操作活動正在升溫。此活動與8月首次記錄的中國連結自主AI攻擊台灣政府系統事件（12個攻擊波段、85個政府帳號受損）同屬台灣選舉週期前的惡意網路行動模式。"
+      }
+    ],
+    "attack_techniques": [
+      "第三方SaaS工具漏洞利用：攻擊者針對企業內部未及更新的低代碼/整合工具（如Appsmith）取得內網初始存取，繞過企業對核心系統的嚴格安全管控",
+      "中台驗證繞過：針對銀行/金融機構的交易中台（middle-tier）系統，利用供應商安全設定缺陷繞過前台驗證機制直接執行金融交易",
+      "AI輔助自動化攻擊：使用AI代理工具自動化憑證填充、帳戶接管及漏洞利用流程，大幅提升攻擊規模效率，部分攻擊者使用工具可自適應防禦調整策略",
+      "SAML/MFA繞過（CVE-2026-19868）：利用SonicWall SSLVPN身份驗證執行弱點繞過SAML強制的多因素驗證，直接存取企業VPN而無需通過MFA程序",
+      "供應鏈橫向傳播：攻擊單一SaaS供應商，造成數百個下游客戶企業同時承擔資安外洩與重訊發布責任，「一擊多傷」效率高於直接攻擊個別企業"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即升級SonicWall SSLVPN至修補版本並核查過去30天VPN存取紀錄（應對CVE-2026-19868 CISA KEV 11/6）：（1）確認所有SonicWall SonicOS部署版本，受影響版本為7.3.3-7015及以下、8.2.2-8015及以下，立即升級至修補版本；（2）目前無任何暫時緩解措施，升級是唯一解法，不可用停用SAML取代；（3）升級前後均應匯出SSLVPN存取日誌，重點核查：非辦公時間的VPN連線（尤其深夜及週末）、來自非企業常用IP範圍的連線、單一帳號短時間內建立大量連線；（4）強制所有VPN使用者於升級後重新完成MFA註冊，確認新版本MFA機制正常運作；（5）除CVE-2026-19868外，SonicWall SNWLID-2026-0014公告還包含另外六個漏洞，應確認全部已獲修補。"
+    },
+    {
+      "priority": "high",
+      "action": "金融機構全面稽核第三方交易中台系統安全設定（應對永豐銀行事件及金管會要求）：（1）金管會已要求所有金融機構於11月12日前提出重大偶發事件調查報告，並宣布將要求全面強化中台防護；（2）立即盤點使用的所有第三方金融交易中台、支付閘道及網銀交易系統，確認供應商已提供最新版本的安全設定指南；（3）針對近年導入的第三方系統，驗證驗證機制（authentication）是否存在繞過風險——包含檢查跨系統的session token傳遞邏輯、API授權控制及中台與後台間的信任鏈；（4）要求供應商提供最近一次滲透測試報告或資安稽核報告，若無法提供，應立即啟動委外滲透測試；（5）強化對中台系統的監控，設定超出業務正常模式的交易量異常告警（如單一帳號短時間內發起超過閾值的交易）。"
+    },
+    {
+      "priority": "high",
+      "action": "使用第三方電商/ERP SaaS服務的企業執行供應鏈資安緊急稽核（應對91APP/Cyberbiz波段事件）：（1）確認目前使用的所有第三方SaaS電商平台、訂單管理系統及ERP連接器是否受到本週資安事件波及——主要確認對象為使用91APP、Cyberbiz（順立智慧）、meepShop、1shop服務者；（2）要求各SaaS供應商提供正式書面資安事故調查報告，說明事件範圍、外洩資料欄位及已採取的修補措施；（3）依據個人資料保護法第12條，評估是否需對可能受影響的消費者發出通知；（4）核查企業的SaaS服務合約中是否包含資安事故通知義務條款（SLA），以及供應商維護的資安基準是否符合企業要求；（5）中長期措施：建立第三方供應商資安評估流程，要求新供應商提供SOC 2報告或等同的資安認證。"
+    },
+    {
+      "priority": "high",
+      "action": "確認SAP NetWeaver系統已套用9月Security Patch Day修補（應對CVE-2026-44756 OVERPASS CVSS 10.0）：（1）確認SAP NetWeaver的SAP Kernel版本，核查9月Security Patch Day是否已完整套用（包含CVE-2026-44756及CVE-2026-58240）；（2）確認企業是否啟用Extended Passport（EPP）Processing功能：若無業務需求，考慮停用以降低攻擊面；（3）SAP系統管理員應確認SAP Solution Manager或SAP Cloud ALM是否可用，以自動化偵測尚未套用的安全Note；（4）同步確認另一個9月修補的CVE-2026-66768（SAP GUI for Java，CVSS 9.0，任意命令執行）亦已修補；（5）目前雖無野外利用案例，但CVSS 10.0的最高嚴重等級及SAP系統在企業核心業務中的關鍵地位，使修補時程不應超過14天。"
+    },
+    {
+      "priority": "medium",
+      "action": "停用或隔離Confluence Data Center的XML-RPC端點，降低CVE-2026-90436的攻擊面（CVSS 9.3）：（1）確認Confluence Data Center的XML-RPC端點（/rpc/xmlrpc路徑）是否暴露於外部網路或可從未信任網段存取；（2）若無業務需求依賴XML-RPC整合，建議透過WAF規則封鎖或在Confluence設定層級停用XML-RPC功能；（3）追蹤Apache Axis的修補版本發布情況，有修補版本時在下次維護窗口優先套用；（4）此漏洞與上週（W41）Atlassian Data Center CVE-2026-21589路徑遍歷漏洞疊加，使Confluence部署在短期內面臨兩個CVSS 9+高風險漏洞——應將Confluence的整體安全態勢審查列為本月優先工作項目；（5）確認Confluence的存取日誌中是否有針對/rpc/xmlrpc路徑的異常請求。"
+    },
+    {
+      "priority": "medium",
+      "action": "AI攻擊防禦強化：縮短修補週期並啟用行為基礎異常偵測（應對台灣AI攻擊波段）：（1）資安院和數發部均指出攻擊尚未結束；企業應檢視目前的修補流程，目標將平均修補週期從43天縮短至14天以內，重點優先處理對外公開的系統（VPN、Web應用程式、API閘道）；（2）針對AI輔助憑證填充攻擊，在所有對外系統啟用CAPTCHA、Rate Limiting及IP信譽封鎖（使用Cloudflare、AWS Shield或等同服務）；（3）部署帳戶行為分析（User and Entity Behavior Analytics, UEBA）：對異常登入模式（短時間多次失敗嘗試後成功、來自新地理位置的登入、非工作時間的帳號活動）設定告警；（4）針對金融交易和電商訂單操作，啟用交易行為異常偵測，設定超出消費者歷史模式的金額或頻率閾值；（5）確認所有面向外網的SaaS工具和整合元件已完成最新版本更新，重點核查低代碼工具、API整合平台及第三方SSO元件。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "MFA繞過（MFA Bypass）",
+      "definition": "攻擊者利用協定缺陷、供應商整合弱點或社交工程，在不完成多因素驗證程序的情況下取得授權存取的技術",
+      "url": "https://glossary.astroicers.link/glossary/mfa_bypass"
+    },
+    {
+      "term": "SAML（安全性聲明標記語言，Security Assertion Markup Language）",
+      "definition": "一種開放標準，允許身份提供者（IdP）向服務提供者（SP）傳遞驗證聲明，常用於企業SSO與VPN的身份聯合部署",
+      "url": "https://glossary.astroicers.link/glossary/saml"
+    },
+    {
+      "term": "供應鏈攻擊（Supply Chain Attack）",
+      "definition": "攻擊者不直接針對目標組織，而是入侵目標使用的軟體供應商、SaaS平台或服務提供者，藉此間接影響大量下游客戶",
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
+    },
+    {
+      "term": "憑證填充（Credential Stuffing）",
+      "definition": "攻擊者使用從其他外洩事件取得的帳號密碼清單，自動化嘗試登入多個服務，利用使用者重複使用密碼的習慣進行帳戶接管",
+      "url": "https://glossary.astroicers.link/glossary/credential_stuffing"
+    },
+    {
+      "term": "AI代理攻擊（Agentic AI Attack）",
+      "definition": "利用具有自主規劃和執行能力的AI代理（AI Agent）進行的網路攻擊，代理可自行決策攻擊策略、自適應調整手法，無需人工持續介入",
+      "url": "https://glossary.astroicers.link/glossary/agentic_ai_attack"
+    },
+    {
+      "term": "第三方風險（Third-party Risk）",
+      "definition": "企業因使用外部供應商、服務提供者或軟體而面臨的資安風險，涵蓋供應商系統遭入侵後對企業造成的連帶損害",
+      "url": "https://glossary.astroicers.link/glossary/third_party_risk"
+    }
+  ],
+  "references": [
+    {
+      "title": "91APP、永豐銀遇駭客，資安專家：企業先守住7道防線 – 數位時代",
+      "url": "https://www.bnext.com.tw/article/92937/91app-artex-ai-hacker-7-security-defenses"
+    },
+    {
+      "title": "求職、網購、銀行帳戶都出事！近期資安事件頻傳，民眾如何自保？ – 科技新報",
+      "url": "https://infosecu.technews.tw/2026/11/04/mobile-app-security"
+    },
+    {
+      "title": "〈永豐資安事件〉「金錢無損但商譽受創」 已下架新網銀系統並將向國外供應商求償 – 鉅亨",
+      "url": "https://news.cnyes.com/news/id/6646798"
+    },
+    {
+      "title": "永豐銀遭駭客盜轉 金管會：要求金融機構全面防護中台 – Yahoo財經",
+      "url": "https://tw.stock.yahoo.com/news/%E6%B0%B8%E8%B1%90%E9%8A%80%E9%81%AD%E9%A7%AD%E5%AE%A2%E7%9B%9C%E8%BD%89-%E9%87%91%E7%AE%A1%E6%9C%83-%E8%A6%81%E6%B1%82%E9%87%91%E8%9E%8D%E6%A9%9F%E6%A7%8B%E5%85%A8%E9%9D%A2%E9%98%B2%E8%AD%B7%E4%B8%AD%E5%8F%B0-033358372.html"
+    },
+    {
+      "title": "【資安週報】1102～1106，電商服務供應鏈資安風波多家同時延燒、永豐銀行異常轉帳確認為資安事件 – iThome",
+      "url": "https://www.ithome.com.tw/news/180291"
+    },
+    {
+      "title": "91APP、永豐銀遭駭只是開端！資安事件激增近6成，AI攻擊手法有哪些？企業和民眾如何自保？ – 今周刊",
+      "url": "https://www.businesstoday.com.tw/article/category/183027/post/202611110002/"
+    },
+    {
+      "title": "AI資安攻擊升溫 數發部：已接獲10多家企業通報受害 – 中央社",
+      "url": "https://www.cna.com.tw/news/afe/202611110270.aspx"
+    },
+    {
+      "title": "AI網攻延燒各國！台灣逾10家企業受害 資安院：攻擊還沒結束 – 自由財經",
+      "url": "https://ec.ltn.com.tw/article/breakingnews/5637709"
+    },
+    {
+      "title": "AI used in cyberattacks, some originating in HK – Taipei Times",
+      "url": "https://www.taipeitimes.com/News/taiwan/archives/2026/11/12/2003867610"
+    },
+    {
+      "title": "AI intensifying cybersecurity risks – Taipei Times",
+      "url": "https://www.taipeitimes.com/News/editorials/archives/2026/11/10/2003867453"
+    },
+    {
+      "title": "Exploited SonicWall SSL-VPN flaw lets attackers bypass SAML-enforced MFA (CVE-2026-19868) – Help Net Security",
+      "url": "https://www.helpnetsecurity.com/?p=390676"
+    },
+    {
+      "title": "CISA Adds Exploited SonicWall SSLVPN Authentication Bypass to KEV: What Admins Must Fix – eSecurityPlanet",
+      "url": "https://www.esecurityplanet.com/vulnerabilities/news-sonicwall-sslvpn-authentication-bypass-cve-2026-19868/"
+    },
+    {
+      "title": "CISA Flags SonicWall SonicOS MFA Bypass – The Hacker News",
+      "url": "https://thehackernews.com/2026/11/cisa-flags-sonicwall-sonicos-mfa-bypass.html"
+    },
+    {
+      "title": "SonicWall warns of new SSL-VPN MFA bypass flaw exploited in attacks – BleepingComputer",
+      "url": "https://bleepingcomputer.com/news/security/sonicwall-warns-of-new-ssl-vpn-mfa-bypass-flaw-exploited-in-attacks"
+    },
+    {
+      "title": "SAP Patches Maximum Severity \"Overpass\" Flaw (CVE-2026-44756) – Infosecurity Magazine",
+      "url": "https://infosecurity-magazine.com/news/sap-patches-maximum-severity"
+    },
+    {
+      "title": "SAP Patches CVSS 10.0 Kernel Flaw – The Hacker News",
+      "url": "https://thehackernews.com/2026/09/sap-patches-cvss-100-kernel-flaw.html"
+    },
+    {
+      "title": "Critical Vulnerabilities in SAP Products – CSA Singapore",
+      "url": "https://www.csa.gov.sg/alerts-and-advisories/alerts/al-2026-119/"
+    },
+    {
+      "title": "從91APP到永豐銀行異常轉帳：AI自動化攻擊、第三方平台與金融交易風險的交會 – CCChen / vocus.cc",
+      "url": "https://vocus.cc/article/6aec018afd8978000171c49f"
+    },
+    {
+      "title": "為什麼最近資安事件這麼多：CVE 多了 2.2 倍，修補中位數卻從 32 天變 43 天 – AI Coding by WiselyChen",
+      "url": "https://ai-coding.wiselychen.com/why-security-incidents-surge-ai-attacker-defender-speed-mismatch/"
+    },
+    {
+      "title": "Known Exploited Vulnerabilities Catalog – CISA",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    }
+  ]
+}
