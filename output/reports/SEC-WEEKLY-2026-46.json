@@ -1,0 +1,279 @@
+{
+  "title": "資安週報 2026/11/09 - 2026/11/15",
+  "report_id": "SEC-WEEKLY-2026-46",
+  "period": {
+    "start": "2026-11-09",
+    "end": "2026-11-15"
+  },
+  "publish_date": "2026-11-16",
+  "summary": {
+    "total_events": 7,
+    "total_vulnerabilities": 3,
+    "threat_level": "critical"
+  },
+  "events": [
+    {
+      "title": "外交部領務局網站遭駭，逾7.2萬筆護照大頭照、2.6萬件授權書與774件ABTC資料外洩（11/4發現，11/12公告）",
+      "severity": "high",
+      "event_type": "資料外洩",
+      "summary": "外交部領事事務局11月4日下午陸續發現部分網站疑似遭駭客入侵，當日隔離主機、保存證據並通報資安主管機關。11月12日領務局公告確認外洩範圍：一是72,702個護照大頭照檔案，涉及2026年9月3日至11月2日期間，透過個人網路預約、旅行社團件及有條件式線上申換護照管道上傳的照片；二是駐紐約辦事處授權書掃描檔26,072個；三是774件亞太商務旅行卡（ABTC）申請資料，三類合計近10萬筆。領務局確認護照號碼、身分證字號、姓名及出生日期目前尚未發現遭取得，現有護照效力不受影響。此事件高度暴露身份冒用及深度偽造（Deepfake）衍生風險——護照大頭照結合姓名資料，可用於製造偽裝成特定人士的詐騙內容，或在KYC驗證較弱的平台開設帳戶。領務局已致歉並提醒受影響民眾留意個資遭不當利用的情形，調查仍進行中，攻擊手法與入侵途徑尚未對外說明。",
+      "source": "外交部領事事務局官方公告 / iThome / 今周刊 / Yahoo 新聞",
+      "url": "https://www.ithome.com.tw/news/180446",
+      "date": "2026-11-12"
+    },
+    {
+      "title": "91APP電商供應鏈攻擊後續：790萬筆訂單資料暗網兜售，波及全家、寶雅、康是美等四大電商（11/11）",
+      "severity": "high",
+      "event_type": "供應鏈攻擊／資料外洩",
+      "summary": "11月11日，駭客在中國大陸暗網「長安不夜城」釋出790萬筆訂單資料，宣稱資料來源為91APP，涉及全家、寶雅、康是美、無印良品等台灣主要零售品牌，開價2,997美元。此事件源頭為91APP（6741-KY） Commerce Cloud系統於2026年10月初遭入侵，攻擊者利用第三方整合工具AppSmith的未修補漏洞取得內網存取權，再從GitLab倉庫取得資料庫金鑰，於10月14日遭91APP阻斷前完成資料存取。91APP公告最大受影響範圍為1,329個品牌、479.8萬名消費者，外洩資料包含姓名、電話、配送地址、電子郵件及訂單紀錄；信用卡資料與會員登入密碼確認未受影響。金管會表示已接獲近70家受害企業向91APP求償，總金額接近百萬元。民眾陸續收到含真實訂單內容的詐騙信，顯示攻擊者正利用外洩資料實施精準社交工程攻擊。另有SHOPLINE、康德科技等其他電商平台也出現類似事件通報，外界關注台灣整體電商SaaS供應鏈的結構性資安問題。",
+      "source": "科技新報 / 鏡週刊 / 今周刊 / CyberQ",
+      "url": "https://infosecu.technews.tw/2026/11/11/91app-security-4-e-commerce-data-breach/",
+      "date": "2026-11-11"
+    },
+    {
+      "title": "AI輔助自動化攻擊台灣企業，數發部確認10多家受害，年度資安事件較去年暴增近六成（11/11-12）",
+      "severity": "high",
+      "event_type": "威脅情報",
+      "summary": "11月11日至12日，數位發展部及台灣資安院（NICS）公開揭露本波攻擊趨勢：2026年迄今台灣資安事件累計達118件，較2025年全年成長近六成。數發部表示已接獲10多家企業通報受害，資安院院長更指出「攻擊尚未結束」。關鍵特徵為中國開發的ARTEX AI Agent自動化工具被用於執行攻擊，無需人工介入即可持續嘗試入侵，部分攻擊流量溯源至香港出口IP。91APP事件調查也確認ARTEX是本次供應鏈入侵的執行工具。台北時報11月12日報導引述數發部資料，指本波攻擊近半數使用AI技術，呈現三大特徵：自動化掃描與漏洞利用速度顯著加快、釣魚內容品質大幅提升（由AI生成本土化繁體中文誘餌），以及攻擊對象從單一目標轉向供應鏈上下游的系統性橫掃。11月28日台灣地方選舉臨近，台灣國安局亦警告疑似中國網路攻擊已鎖定民進黨台北市長候選人彭振聲的競選網站，數位選舉干預風險持續升高。",
+      "source": "中央社 / 台北時報 / 自由財經 / 今周刊",
+      "url": "https://www.cna.com.tw/news/afe/202611110270.aspx",
+      "date": "2026-11-11"
+    },
+    {
+      "title": "SilentAir劫持亞洲電信SS7/Diameter節點，主要攻擊台灣手機用戶以竊取SMS 2FA驗證碼（11月）",
+      "severity": "high",
+      "event_type": "國家級網路攻擊",
+      "summary": "電信資安公司Enea本週發布研究報告，揭露新型國家級威脅行為者SilentAir長期潛伏於亞洲六個以上國家電信業者的內部設備，利用SS7（移動信令系統7號）及Diameter協定漏洞，以假冒位置更新的手法將特定用戶的通話及簡訊重導至攻擊者控制的節點，實時攔截SMS 2FA驗證碼。受害者絕大多數為台灣手機用戶，攻擊通常在深夜發動（以規避用戶警覺），靜默SMS（silent SMS）則幾乎全數發送至台灣用戶。Enea以低信心度評估SilentAir與中國相關組織的活動吻合，依據包括：攻擊目標以台灣為主且刻意迴避中國境內用戶、活動時間符合中國工作日時區，以及攻擊手法與LIMINAL PANDA（已知中國APT）高度重疊。此行動的核心危害在於：攻擊者無需接觸受害者設備，直接在電信核心網路層截取SMS，傳統端點安全與個人防護措施均無法偵測或阻止。受害者即便啟用手機2FA，帳號仍可能遭到接管。高風險族群包括政府官員、軍事人員、記者及關鍵基礎設施人員。",
+      "source": "Enea報告 / SecurityWeek / SC World / DEV Community / Risky Business Media",
+      "url": "https://www.securityweek.com/silentair-hackers-intercept-calls-sms-from-inside-mobile-networks/",
+      "date": "2026-11-10"
+    },
+    {
+      "title": "Microsoft 11月 Patch Tuesday修補逾千個CVE，Outlook零時差CVE-2026-124194已遭積極利用可竊取NTLM憑證（11/10）",
+      "severity": "high",
+      "event_type": "漏洞通報",
+      "summary": "11月10日，微軟發布本年度規模最大的 Patch Tuesday 更新，修補約1,093至1,235個CVE（來源差異源於統計口徑不同），其中63個評級為危急（Critical）。本次唯一已確認遭積極利用的零時差為CVE-2026-124194——Microsoft Outlook Spoofing漏洞，CVSS 6.5，已被評為中等嚴重，但積極利用狀態大幅提升其優先處理等級。攻擊者利用此漏洞製作特製郵件檔案，受害者只需在Outlook開啟或預覽該郵件，Outlook即會在未顯示任何外部內容警告的情況下，自動連線至攻擊者控制的網路端點，洩露受害者帳號的NTLMv2密碼雜湊值。攻擊者取得NTLMv2雜湊後，可實施離線暴力破解或Pass-the-Hash（傳遞雜湊）攻擊以接管帳號。此漏洞修補程式透過 Office 更新而非 Windows 累積更新發布，僅安裝 Windows 修補而未更新 Office 的系統仍然暴露。此外，本次更新亦包含Google Chrome零時差CVE-2026-125350（已積極利用，Chrome 2026年第8個零時差）及OpenSSH CVE-2026-123158等多個高風險漏洞。",
+      "source": "BleepingComputer / Tenable / CSO Online / SOCRadar / The Hacker News",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-november-2026-patch-tuesday-fixes-1-235-flaws-outlook-zero-day/",
+      "date": "2026-11-10"
+    },
+    {
+      "title": "SAP 11月修補四個CVSS 10.0漏洞：ICM2SHELL遠端程式碼執行與PROXYGATE影響NetWeaver等核心產品（11/11）",
+      "severity": "high",
+      "event_type": "漏洞通報",
+      "summary": "11月11日，SAP Security Patch Day發布42個安全公告，其中9個危急等級，最引人注目的是Onapsis研究團隊回報的四個CVSS 10.0滿分漏洞。CVE-2026-76964與CVE-2026-89126（統稱ICM2SHELL）影響SAP NetWeaver Application Server ABAP的Internet Communication Manager（ICM）元件，允許未驗證遠端攻擊者透過特製HTTP請求寫入或執行任意程式碼，完全控制受影響伺服器。CVE-2026-89103（PROXYGATE）同樣為未驗證遠端程式碼執行。上述漏洞目前尚無已確認的實際利用案例，但研究人員已發布PoC，大規模自動化掃描可能隨時啟動——參考同年Atlassian CVE-2026-21589的案例，PoC發布後數小時即遭大規模掃描利用。SAP NetWeaver ABAP廣泛部署於台灣大型製造業、金融業及政府機關的ERP核心系統，一旦遭成功利用，攻擊者可存取財務資料、供應鏈資訊及人事資料，業務衝擊極為嚴重。",
+      "source": "BleepingComputer / The Hacker News / SecurityWeek / Daily Security Review / Onapsis",
+      "url": "https://thehackernews.com/2026/11/sap-patches-four-cvss-100-flaws.html",
+      "date": "2026-11-11"
+    },
+    {
+      "title": "WhiteArmor勒索軟體集團攻擊馬士基（Maersk），透過2022年收購LF Logistics的遺留系統入侵（11月）",
+      "severity": "medium",
+      "event_type": "勒索軟體攻擊",
+      "summary": "全球最大航運公司馬士基（Maersk Line）確認遭WhiteArmor勒索軟體集團入侵，攻擊者聲稱通過馬士基2022年收購LF Logistics時繼承的一個遺留（legacy）平台突破防線。攻擊細節與影響範圍尚未完整披露，但此事件再次印證企業合併與收購（M&A）後整合的資安盲點：被收購方的老舊系統往往缺少現代企業的完整資安控管措施，成為攻擊者的低阻力入口。馬士基是全球供應鏈的關鍵節點，其物流系統與台灣眾多製造業出口廠商直接掛鉤。WhiteArmor是本月另一個活躍的勒索軟體集團，其他已確認的受害者包括日本一家企業（Qilin勒索軟體）、瑞士醫療中心及英國律師事務所A&O Shearman（SilentRansomGroup聲稱）。全球11月勒索軟體活動密度高於往常，製造業與物流業是本月主要攻擊對象。",
+      "source": "Seatrade Maritime / CYFIRMA 週報 13 Nov 2026 / konbriefing.com",
+      "url": "https://www.seatrade-maritime.com/containers/maersk-hit-by-ransomware-cyber-attack",
+      "date": "2026-11-09"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "cve_id": "CVE-2026-124194",
+      "title": "Microsoft Outlook Spoofing零時差，開啟郵件即洩露NTLMv2雜湊（CVSS 6.5，11/10 Patch Tuesday，積極利用中，須更新Office）",
+      "cvss": 6.5,
+      "severity": "medium",
+      "vendor": "Microsoft",
+      "product": "Microsoft Outlook（所有受支援版本；修補透過Office更新發布，非Windows累積更新）",
+      "description": "CVE-2026-124194 是 Microsoft Outlook 中的 Spoofing 漏洞（CVSS 6.5，CWE-356：不安全操作缺少警告），微軟將其評為「中等」嚴重，但已確認積極利用，優先處理等級因此顯著提升。攻擊者製作特製郵件檔案後，受害者在 Outlook 開啟或預覽該郵件時，Outlook 會在未顯示任何外部內容警告的情況下，自動向攻擊者控制的 UNC 路徑或 URL 發起 SMB/HTTP 連線，洩露受害者帳號的 NTLMv2 密碼雜湊值。攻擊者取得雜湊後可進行離線暴力破解或 Pass-the-Hash 攻擊接管帳號，在 Active Directory 環境中可橫向移動至整個域。此漏洞修補透過 Microsoft Office 更新（非 Windows 累積更新）發布，僅安裝 Windows 修補而未更新 Office 的系統仍暴露此漏洞。建議立即透過 Microsoft Update 或 WSUS 部署 Office 更新，並在網路邊界封鎖對外的 SMB（TCP 445）及 WebDAV 流量以降低 NTLM 中繼攻擊風險。"
+    },
+    {
+      "cve_id": "CVE-2026-76964",
+      "title": "SAP NetWeaver ABAP ICM2SHELL 未驗證遠端程式碼執行（CVSS 10.0，PoC已公開，尚無已知實際利用，11/11修補發布）",
+      "cvss": 10.0,
+      "severity": "critical",
+      "vendor": "SAP",
+      "product": "SAP NetWeaver Application Server ABAP（Internet Communication Manager元件；另含CVE-2026-89126同為ICM2SHELL，CVE-2026-89103為PROXYGATE）",
+      "description": "CVE-2026-76964（與 CVE-2026-89126 合稱 ICM2SHELL）是 SAP NetWeaver AS ABAP 的 Internet Communication Manager（ICM）元件中的滿分漏洞（CVSS 10.0），允許未驗證遠端攻擊者透過特製 HTTP 請求，不需任何帳號即可在底層作業系統上執行任意程式碼，完全控制 SAP 應用伺服器。ICM 元件負責處理所有進出 SAP 系統的 HTTP/HTTPS 流量，且通常直接暴露於企業內網或 DMZ。同一批更新還包含 CVE-2026-89103（PROXYGATE），同為 CVSS 10.0 未驗證 RCE。Onapsis 研究團隊已發布技術分析，PoC 細節流通後大規模自動化掃描的風險極高。受影響的 SAP NetWeaver ABAP 系統廣泛部署於製造業、金融業及政府機關 ERP 環境，成功入侵後可讀取財務資料、採購合約及人員資料。建議立即套用 11 月 SAP Security Patch Day 的所有修補，並透過網路 ACL 限制 ICM 服務埠（通常為 HTTP/HTTPS）的存取來源，優先保護直接暴露於網路的 SAP 系統。"
+    },
+    {
+      "cve_id": "CVE-2026-19868",
+      "title": "SonicWall SonicOS SSLVPN MFA驗證繞過（CISA KEV，聯邦機構截止11/20，建議立即修補）",
+      "cvss": 8.1,
+      "severity": "high",
+      "vendor": "SonicWall",
+      "product": "SonicWall SonicOS SSLVPN（受影響版本詳見 SonicWall 安全公告）",
+      "description": "CVE-2026-19868 是 SonicWall SonicOS SSLVPN 元件中的多因素驗證繞過漏洞，已確認遭積極利用並由 CISA 列入 KEV 目錄，要求美國聯邦機構於 11 月 20 日前完成修補或套用緩解措施。攻擊者利用此漏洞可在已要求 MFA 的 SSLVPN 環境中繞過第二因素驗證，以有效帳號密碼直接建立 VPN 連線，取得與完整 MFA 驗證相同的網路存取權限。SonicWall 防火牆廣泛部署於台灣企業、金融機構及中小企業的遠端存取架構，此漏洞被利用後可成為進入內網的跳板，配合後續橫向移動或勒索軟體部署的高風險入口點。建議立即升級至 SonicWall 安全公告指定的修補版本；無法立即修補者應強制所有 SSLVPN 連線改用 FIDO2/Passkeys 驗證（對應前週 UAT-11985 AitM 繞過 TOTP/SMS MFA 的案例），並限制 SSLVPN 管理介面的外部存取來源 IP。"
+    }
+  ],
+  "threat_trends": {
+    "summary": "本週台灣面臨多線並行的高強度攻擊：政府機關（外交部領務局）、電商供應鏈（91APP）與金融業（永豐銀行）接連爆發資料外洩，合計近百萬名消費者及敏感政府身份資料受波及。其中最值得關注的是兩個結構性威脅：一是Enea揭露的SilentAir SS7/Diameter電信信令攻擊，代表攻擊者已深入電信核心網路層截取SMS，傳統端點防禦與個人操作習慣均無法阻止，SMS 2FA的防護效力在台灣已出現實質性缺口；二是ARTEX AI Agent自動化工具的規模化部署，使攻擊無需人工介入即可系統性掃描、入侵和提取資料，台灣年度資安事件數量因此暴增六成。漏洞面則出現SAP ICM2SHELL（CVSS 10.0）、Microsoft Outlook零時差（積極利用）與SonicWall SSLVPN MFA繞過（CISA KEV）三條同時開啟的高風險修補急迫線。11月28日台灣地方選舉臨近，選舉相關的網路干預與DDoS攻擊風險預計在未來兩週持續上升。",
+    "active_actors": [
+      {
+        "name": "SilentAir（疑似中國關聯，國家級威脅行為者）",
+        "type": "國家級威脅行為者（疑似APT）",
+        "activity": "Enea報告揭露SilentAir長期潛伏於亞洲六個以上國家電信業者的SS7/Diameter節點，以假冒位置更新手法截取台灣手機用戶的通話與SMS，主要目標為竊取SMS 2FA驗證碼。攻擊呈現週期性爆發，單次攻擊波段從數個至數千個用戶不等。Enea以低信心度評估與中國相關組織活動吻合，依據包括台灣作為主要目標、迴避中國境內用戶，以及活動時間符合中國工作時區。"
+      },
+      {
+        "name": "ARTEX AI Agent攻擊行為者（疑似中國相關，財務或間諜動機）",
+        "type": "AI輔助威脅行為者",
+        "activity": "台灣數發部及資安院確認，使用中國開發的ARTEX AI Agent自動化工具發動本波攻擊浪潮，已有10多家台灣企業受害，其中確認91APP供應鏈入侵使用此工具。部分攻擊流量透過香港出口，攻擊特徵為自動化持續嘗試、高速漏洞掃描與本土化社交工程內容生成。"
+      },
+      {
+        "name": "WhiteArmor勒索軟體集團（財務動機）",
+        "type": "財務動機威脅行為者（勒索軟體集團）",
+        "activity": "本週聲稱入侵全球最大航運公司馬士基（Maersk），攻擊路徑為2022年收購LF Logistics時繼承的遺留系統。攻擊細節尚未完整披露。WhiteArmor是本月新興活躍勒索軟體集團，主要鎖定大型物流與製造業目標。"
+      }
+    ],
+    "attack_techniques": [
+      "SS7/Diameter電信信令劫持：SilentAir在電信業者核心網路內植入惡意邏輯，以假冒位置更新重導呼叫與SMS，繞過所有端點防護機制，直接在電信基礎設施層截取SMS 2FA驗證碼",
+      "AI Agent自動化供應鏈攻擊：ARTEX等AI Agent工具持續自動化執行漏洞掃描、利用與資料提取，無需人工操作，使攻擊規模、速度與持續性大幅超越傳統手動攻擊能力",
+      "第三方SaaS供應鏈滲透：攻擊者不直接攻擊品牌商系統，而是鎖定整合型電商SaaS平台（91APP、Cyberbiz）的未修補第三方整合工具（AppSmith），取得平台內網存取後再橫向提取所有客戶資料庫金鑰",
+      "NTLMv2雜湊竊取透過Outlook零時差：CVE-2026-124194讓攻擊者透過特製郵件靜默觸發NTLM認證流量，在受害者無感知的情況下洩露帳號雜湊，配合Pass-the-Hash或離線暴力破解完成帳號接管",
+      "M&A遺留系統利用：WhiteArmor透過馬士基收購LF Logistics後未充分整合的遺留系統入侵，利用企業合併後資安管控的常見空窗期"
+    ]
+  },
+  "action_items": [
+    {
+      "priority": "high",
+      "action": "立即更新 Microsoft Office 以修補 CVE-2026-124194 Outlook Spoofing 零時差，並稽核 NTLM 憑證竊取跡象：（1）確認所有 Outlook 客戶端（含桌面版及行動版）已套用 11 月 Patch Tuesday Office 更新——此修補透過 Office 更新而非 Windows 累積更新發布，僅安裝 Windows 修補的系統仍然暴露；（2）在網路防火牆或 Web Proxy 設定規則，封鎖工作站發出的對外 SMB（TCP 445）及 WebDAV 流量，防止 NTLM 雜湊被傳遞至攻擊者控制的外部端點；（3）稽核過去 14 天的 Active Directory 認證記錄，搜尋由非常用 IP 或時間的異常帳號登入，特別是伴隨 NTLM 認證的事件（Event ID 4624, LogonType 3）；（4）評估在組織策略允許的情況下，針對高風險帳號（管理員、高階主管）停用 NTLM 或僅允許 Kerberos 認證，以根本性降低此類攻擊的可行性。"
+    },
+    {
+      "priority": "high",
+      "action": "緊急修補 SAP 11月份 CVSS 10.0 漏洞（ICM2SHELL CVE-2026-76964、CVE-2026-89126 及 PROXYGATE CVE-2026-89103），並主動監控掃描活動：（1）清點所有 SAP NetWeaver Application Server ABAP 部署版本，立即套用 11 月 SAP Security Patch Day 發布的修補；（2）修補前的緊急緩解措施：透過網路 ACL 或防火牆規則限制 ICM 服務埠（HTTP/HTTPS）的存取來源，僅允許已知合法使用者或內網 IP 範圍存取，防止未驗證的外部存取；（3）在 SAP 系統及網路邊界的存取記錄中，搜尋針對 ICM 路徑的異常請求模式（特別是來自外部 IP 的 POST 請求）；（4）確認 SAP 系統是否暴露於公開網際網路，並評估是否有非必要的 SAP 服務直接面向外部——SAP ERP 核心系統不應直接暴露於公網，應透過 SAP Web Dispatcher 或 Reverse Proxy 隔離；（5）同步套用本次更新中的其他危急漏洞（CVE-2026-109803、CVE-2026-76965 等 NetWeaver 相關 CVE）。"
+    },
+    {
+      "priority": "high",
+      "action": "修補 SonicWall SSLVPN CVE-2026-19868 MFA 繞過漏洞（CISA KEV，聯邦機構截止 11/20，企業組織亦應比照辦理）：（1）確認所有 SonicWall 防火牆的 SonicOS 版本，對照 SonicWall 安全公告確認是否受影響，立即升級至修補版本；（2）修補前或無法立即修補時，評估暫時停用 SSLVPN 服務並改由其他遠端存取方式提供服務，或至少限制 SSLVPN 存取來源 IP 範圍；（3）稽核過去 30 天的 SSLVPN 連線記錄，搜尋任何非預期帳號或異常時間的成功連線——若發現可疑連線，應假設 MFA 保護已遭繞過並啟動事件回應；（4）長期強化：評估將 SSLVPN 的 2FA 升級為 FIDO2/Passkeys，以防範 AitM 中間人攻擊同時繞過 TOTP/SMS 的場景（與本週 SilentAir 攻擊手法呼應）。"
+    },
+    {
+      "priority": "high",
+      "action": "外交部領務局護照資料外洩後的應對措施（企業與個人）：（1）【個人】2026 年 9 月 3 日至 11 月 2 日期間曾透過網路預約或線上申換護照管道上傳大頭照的民眾，應立即提高警覺，注意聲稱來自政府機關、外交部或旅行社的可疑電話及電子郵件，攻擊者可能已持有您的護照照片用於深度偽造或身份冒用；（2）【金融/電信業】對使用「護照大頭照」進行KYC（認識您的客戶）驗證的業者，應立即評估照片比對機制的防偽造能力，考慮加入活體偵測（Liveness Detection）或搭配其他身份驗證因素；（3）【HR/企業】涉及雇用非本國籍人員並要求護照驗證的業務，應強化文件真實性核查程序；（4）持續關注外交部領事事務局的調查進展，確認攻擊手法是否涉及更廣泛的系統滲透，以評估是否有進一步的資料暴露風險。"
+    },
+    {
+      "priority": "high",
+      "action": "電商品牌方及SaaS電商平台業者稽核第三方供應鏈資安，對應91APP事件延燒與ARTEX AI自動化攻擊：（1）清查所有與電商系統整合的第三方工具（AppSmith、Zapier、Make等低程式碼整合工具）的版本，確認是否有未套用的安全更新；（2）審視第三方供應商的最小權限原則：供應商應只擁有完成其業務功能所需的最低資料庫存取權限，資料庫金鑰不應儲存於可被第三方工具存取的 Git 倉庫；（3）部署或啟用 Web Application Firewall（WAF）並設定針對異常資料查詢（大量 SELECT、異常速率的 API 呼叫）的速率限制告警；（4）確認訂閱客戶（品牌商）能在供應商發生資安事件時，及時獲得通知並取得受影響帳號清單，以便啟動使用者通知程序——此次 91APP 事件顯示供應鏈事件的通知時效存在明顯落差；（5）AI 攻擊特徵識別：如發現非工作時間的高頻 API 呼叫或異常的資料庫查詢模式，應立即升級告警等級，ARTEX 等工具的攻擊特徵為持續自動化的系統性掃描。"
+    },
+    {
+      "priority": "medium",
+      "action": "電信業者稽核 SS7/Diameter 信令安全，對應 SilentAir 行動；高風險個人評估改用 FIDO2 驗證：（1）【電信業者】聯繫行動網路安全資安廠商（如 Enea、CELLUSYS 等）評估現有 SS7/Diameter 防火牆設定，確認是否有異常的位置更新請求或跨業者的可疑 MAP/Diameter 訊息流量，特別關注來自亞洲其他國家業者節點的請求；（2）向台灣國家通訊傳播委員會（NCC）及 TWCERT/CC 通報任何疑似 SS7/Diameter 異常活動，並請求 Enea 報告中提及的入侵指標（IoC）清單；（3）【高風險個人】政府官員、記者、選舉候選人及關鍵基礎設施人員應立即將主要帳號的 2FA 升級為 FIDO2/Passkeys（Google Titan、YubiKey 等實體金鑰，或 Apple/Google Passkeys），SMS 2FA 在 SS7 攻擊環境中已無法提供有效保護；（4）選前兩週（至 11/28）期間，各政黨及選舉委員會應強化競選網站及選務系統的 DDoS 防護與入侵偵測能力。"
+    }
+  ],
+  "terms": [
+    {
+      "term": "SS7信令攻擊（SS7 Signaling Attack）",
+      "definition": "利用電話網路信令協定SS7的設計缺陷，在未授權的情況下攔截通話、簡訊及取得位置資訊，可繞過SMS 2FA驗證",
+      "url": "https://glossary.astroicers.link/glossary/ss7_attack"
+    },
+    {
+      "term": "NTLMv2雜湊竊取（NTLMv2 Hash Capture）",
+      "definition": "攻擊者誘使Windows系統發出NTLM認證請求，擷取帳號密碼雜湊值後進行離線暴力破解或Pass-the-Hash攻擊以接管帳號",
+      "url": "https://glossary.astroicers.link/glossary/ntlm_hash_capture"
+    },
+    {
+      "term": "AI Agent自動化攻擊（AI Agent Attack）",
+      "definition": "以大型語言模型驅動的自主代理程式執行網路攻擊，可持續自動化完成漏洞掃描、利用與資料提取，無需人工操作介入",
+      "url": "https://glossary.astroicers.link/glossary/ai_agent_attack"
+    },
+    {
+      "term": "深度偽造（Deepfake）",
+      "definition": "使用AI生成技術製作高度逼真的假冒影片、語音或圖像，可用於身份冒用、詐騙及社交工程攻擊",
+      "url": "https://glossary.astroicers.link/glossary/deepfake"
+    },
+    {
+      "term": "Pass-the-Hash",
+      "definition": "攻擊者使用從記憶體或網路流量中竊取的NTLM密碼雜湊值直接進行身份驗證，無需知道明文密碼即可橫向移動至其他系統",
+      "url": "https://glossary.astroicers.link/glossary/pass_the_hash"
+    },
+    {
+      "term": "KYC（認識您的客戶）",
+      "definition": "金融機構驗證客戶身份的合規程序，常使用身份證件與人臉辨識，資料外洩後偽造文件攻擊的風險顯著提升",
+      "url": "https://glossary.astroicers.link/glossary/kyc"
+    }
+  ],
+  "references": [
+    {
+      "title": "外交部領務局網站遭駭，逾7.2萬個護照大頭照外洩，另有授權書及ABTC資料遭取得 – iThome",
+      "url": "https://www.ithome.com.tw/news/180446"
+    },
+    {
+      "title": "外交部領務局網站遭駭致歉 7.2萬張護照大頭照外洩 – Yahoo 新聞",
+      "url": "https://tw.news.yahoo.com/%E5%A4%96%E4%BA%A4%E9%83%A8%E9%A0%98%E5%8B%99%E5%B1%80%E7%B6%B2%E7%AB%99%E9%81%AD%E9%A7%AD-7-2%E8%90%AC%E5%BC%B5%E8%AD%B7%E7%85%A7%E5%A4%A7%E9%A0%AD%E7%85%A7%E5%A4%96%E6%B4%A9-050200336.html"
+    },
+    {
+      "title": "91APP 個資外洩事件延燒，駭客兜售四電商 790 萬筆訂單資料 – 科技新報",
+      "url": "https://infosecu.technews.tw/2026/11/11/91app-security-4-e-commerce-data-breach/"
+    },
+    {
+      "title": "91APP 資安事件後續：從第三方工具漏洞到資料庫金鑰 – CyberQ",
+      "url": "https://cyberq.tw/2026/11/02/91app-data-breach-involving-cyber-security/"
+    },
+    {
+      "title": "AI資安攻擊升溫 數發部：已接獲10多家企業通報受害 – 中央社",
+      "url": "https://www.cna.com.tw/news/afe/202611110270.aspx"
+    },
+    {
+      "title": "AI網攻延燒各國！台灣逾10家企業受害 資安院：攻擊還沒結束 – 自由財經",
+      "url": "https://ec.ltn.com.tw/article/breakingnews/5637709"
+    },
+    {
+      "title": "AI used in cyberattacks, some originating in HK – Taipei Times",
+      "url": "https://www.taipeitimes.com/News/taiwan/archives/2026/11/12/2003867610"
+    },
+    {
+      "title": "SilentAir Hackers Intercept Calls, SMS From Inside Mobile Networks – SecurityWeek",
+      "url": "https://www.securityweek.com/silentair-hackers-intercept-calls-sms-from-inside-mobile-networks/"
+    },
+    {
+      "title": "The Enemy Within. Tracking LIMINAL PANDA and SilentAir through Mobile Networks – Enea",
+      "url": "https://www.enea.com/insights/the-enemy-within-tracking-liminal-panda-and-silentair-through-mobile-networks/"
+    },
+    {
+      "title": "SilentAir SS7 Attack: Inside Asian Mobile Operators – thecybersecguru.com",
+      "url": "https://thecybersecguru.com/news/silentair-ss7-attack-asian-mobile-operators/"
+    },
+    {
+      "title": "Microsoft November 2026 Patch Tuesday fixes 1,235 flaws, Outlook zero-day – BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-november-2026-patch-tuesday-fixes-1-235-flaws-outlook-zero-day/"
+    },
+    {
+      "title": "November 2026 Microsoft Patch Tuesday Addresses 1,093 CVEs: CVE-2026-124194 – Tenable",
+      "url": "https://www.tenable.com/blog/microsoft-november-2026-patch-tuesday-addresses-1093-cves-cve-2026-124194"
+    },
+    {
+      "title": "November 2026 Patch Tuesday: 1,094 Flaws, One Exploited – SOCRadar",
+      "url": "https://socradar.io/blog/november-2026-patch-tuesday-zero-day/"
+    },
+    {
+      "title": "SAP patches four maximum severity security vulnerabilities (ICM2SHELL, PROXYGATE) – BleepingComputer",
+      "url": "https://bleepingcomputer.com/news/security/sap-patches-four-maximum-severity-security-vulnerabilities"
+    },
+    {
+      "title": "SAP Patches Four CVSS 10.0 Flaws Including ICM2SHELL RCE – The Hacker News",
+      "url": "https://thehackernews.com/2026/11/sap-patches-four-cvss-100-flaws.html"
+    },
+    {
+      "title": "SAP Patches Critical ICM2SHELL, PROXYGATE Vulnerabilities – SecurityWeek",
+      "url": "https://www.securityweek.com/sap-patches-critical-icm2shell-proxygate-vulnerabilities/"
+    },
+    {
+      "title": "Maersk confirms hit by ransomware cyber-attack – Seatrade Maritime",
+      "url": "https://www.seatrade-maritime.com/containers/maersk-hit-by-ransomware-cyber-attack"
+    },
+    {
+      "title": "Weekly Intelligence Report - 13 Nov 2026 – CYFIRMA",
+      "url": "https://www.cyfirma.com/news/weekly-intelligence-report-13-nov-2026/"
+    },
+    {
+      "title": "November 2026 Attacks Tracker: Breaches, Exploits and AI-Run Attacks – AgentBeam",
+      "url": "https://agentbeam.com/attacks/2026-11"
+    },
+    {
+      "title": "Known Exploited Vulnerabilities Catalog – CISA",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "title": "Critical Vulnerabilities in SAP Products – CSA Singapore",
+      "url": "https://www.csa.gov.sg/alerts-and-advisories/alerts/al-2026-119/"
+    }
+  ]
+}
