@@ -7,293 +7,342 @@
   },
   "publish_date": "2026-11-16",
   "summary": {
-    "total_events": 6,
-    "total_vulnerabilities": 4,
-    "threat_level": "critical"
+    "total_events": 9,
+    "total_vulnerabilities": 9,
+    "threat_level": "elevated"
   },
   "events": [
     {
-      "title": "AI 輔助網路攻擊浪潮席捲台灣企業：數發部逾10起通報、上市櫃資安事件暴增近六成（11/11）",
-      "severity": "high",
-      "event_type": "威脅情報",
-      "summary": "11月11日，行政院數位發展部表示已接獲逾10家企業通報遭AI輔助攻擊受害，財團法人資安院進一步指出其中近半數事件與AI攻擊手法相關，並強調攻擊尚未結束。從台灣整體資安態勢來看，今年迄今上市櫃公司發布資安事件重訊已達118件，較去年全年成長近六成。攻擊者大量利用AI代理（AI Agent）自動化工具發動高速、大規模的入侵行動，大幅壓縮防禦者的偵測與回應時間窗口。資安院另指出，駭客已成功入侵國家資通安全研究院（指去年7月事件，現持續監控中）。此波攻擊浪潮中，AI技術的引入使傳統以特徵碼為基礎的偵測機制有效性顯著下降；企業應評估是否具備行為基礎偵測（Behavior-based Detection）能力，並檢視現有安全監控對AI自動化攻擊的可見度。數發部鼓勵受害企業積極通報，以取得跨機關協調支援。",
-      "source": "中央社 / 自由財經 / 今周刊 / 四季線上",
-      "url": "https://www.cna.com.tw/news/afe/202611110270.aspx",
-      "date": "2026-11-11"
+      "title": "外交部領事事務局遭駭，近10萬筆護照個資外洩（72,702張大頭照）",
+      "severity": "critical",
+      "event_type": "data_breach",
+      "summary": "11月9日外交部領事事務局公布網站遭駭，異常存取發生於11月4日。外洩資料包含72,702個護照大頭照（來自線上申換護照管道，區間9月3日至11月2日）、26,072份駐外辦事處驗證授權書掃描檔，以及APEC商務旅行卡（ABTC）申請資料共774件，合計近10萬筆。領務局表示姓名、身分證字號等直接識別資料尚未發現遭取得，護照效力不受影響，相關系統已修復並移送司法機關偵辦。大頭照資料可用於身份偽造及精準社交工程，民眾應提高警覺。",
+      "source": "iThome / 中央社",
+      "url": "https://www.ithome.com.tw/news/180446",
+      "date": "2026-11-09"
     },
     {
-      "title": "台灣電商供應鏈安全骨牌效應：Cyberbiz、1shop、meepShop資料庫相繼遭未授權存取，受竊790萬筆訂單疑流入地下市場（11/7-11/9）",
-      "severity": "high",
-      "event_type": "供應鏈攻擊",
-      "summary": "91APP於10月底宣布479萬消費者訂單資料遭駭（影響1,329個品牌）後，骨牌效應持續延燒：電商服務商Cyberbiz於11月初通知商家資料庫部分資料遭未授權存取，1shop發現第三方郵件服務API金鑰遭竊，meepShop於11月2日確認外部惡意攻擊造成訂單資料可能外洩；11月7日，駭客在中國地下交易平台「長安不夜城」刊登廣告，宣稱掌握全家行動購、寶雅、康是美及無印良品等四家業者共790萬筆訂單資料。攻擊者利用ARTEX等自動化工具，透過第三方SaaS整合服務的API金鑰弱點作為初始入口，系統性滲透多個採用相同第三方服務的電商品牌。此波事件揭示台灣電商生態圈的共同弱點：品牌商大量依賴第三方SaaS整合管理消費者資料，但對供應商的安全要求與監控往往不足。外洩的姓名、電話、地址、電子郵件及訂單記錄極易成為下游精準詐騙的素材，台灣消費者應特別防範假冒品牌客服或配送公司的詐騙聯繫，企業應立即輪換所有第三方整合API金鑰。",
-      "source": "iThome / cyberq.tw / Musk-IS / limitpress.com / udn.com",
+      "title": "台灣電商供應鏈連環事件：Cyberbiz遭駭波及13家上市公司，1shop、meepShop接連示警",
+      "severity": "critical",
+      "event_type": "supply_chain_attack",
+      "summary": "電商技術服務商Cyberbiz（順立智慧）遭入侵，11月4日起葡萄王、美吾華、崇越等13家上市櫃公司陸續發布重訊，確認姓委外軟體服務商的資料庫遭異常存取。同週電商平台1shop、meepShop亦接連傳出資安警訊，另Shopline公告第三方雲端ERP業者莫筆克科技發生資安事件，已更換商家API金鑰。此波連環事件延續10月底91APP遭駭波及1,329個品牌、約480萬名消費者的衝擊，顯示台灣電商生態圈的供應鏈資安防護存在系統性缺口，攻擊者可藉由鎖定中間服務商一次危害數十家品牌。",
+      "source": "iThome",
       "url": "https://www.ithome.com.tw/news/180209",
-      "date": "2026-11-09"
+      "date": "2026-11-04"
     },
     {
-      "title": "永豐銀行帳戶盜轉案後續：金管會要求全面強化中台防護，供應商盡職調查不足恐依法開罰（11/11）",
+      "title": "永豐銀行供應商系統遭入侵，418名客戶4,176萬元遭盜轉",
+      "severity": "high",
+      "event_type": "financial_fraud",
+      "summary": "11月3日永豐銀行爆發資安事件，共有418名客戶的427筆轉帳遭盜，金額達4,176萬元。永豐說明攻擊者利用新網路銀行系統供應商程式原生瑕疵，以隨機試誤方式取得存取權限並執行盜轉，非AI輔助群攻模式。金管會隨後要求全體銀行、證券期貨及保險業落實六項緊急措施，涵蓋強化第三方存取管控、MFA部署及異常轉帳偵測機制。事件再次印證供應商層已成台灣金融業最脆弱的防線。",
+      "source": "CSRone / 今周刊",
+      "url": "https://csrone.com/news/10195",
+      "date": "2026-11-03"
+    },
+    {
+      "title": "Microsoft 11月Patch Tuesday修補1,235個漏洞，Outlook零時差CVE-2026-124194已遭積極利用",
+      "severity": "high",
+      "event_type": "vulnerability_exploitation",
+      "summary": "11月10日發布的Patch Tuesday修補1,235個CVE，含63個危急等級，規模創歷史新高。其中CVE-2026-124194（Outlook NTLMv2雜湊外洩，CVSS 6.5）已於修補前遭積極利用並列入CISA KEV，聯邦機構修補期限11月24日。受害者開啟特製郵件後Outlook自動連接攻擊者控制端點並洩露NTLMv2雜湊，可用於密碼破解或中繼攻擊。另有CVE-2026-110043、CVE-2026-110068、CVE-2026-111309三個Outlook嚴重遠端程式碼執行漏洞（尚無已知攻擊案例）一併修補。此次更新透過Office更新通道而非Windows Update部署。",
+      "source": "CybersecurityNews / SecurityOnline",
+      "url": "https://cybersecuritynews.com/microsoft-november-2026-patch-tuesday/",
+      "date": "2026-11-10"
+    },
+    {
+      "title": "Perforce Puppet Enterprise CVE-2026-115731遭積極利用，CISA列入KEV（聯邦期限12月1日）",
+      "severity": "high",
+      "event_type": "vulnerability_exploitation",
+      "summary": "Puppet Enterprise存在嚴重反序列化漏洞CVE-2026-115731（CVSS 9.4），持有Puppet CA簽署憑證的用戶端可透過惡意設計的報告請求（HTTP PUT）遠端執行程式碼，可能暴露憑證簽署金鑰。11月3日已釋出修補（PE 2026.0.1、2025.12.1、2023.8.13），11月4日確認遭積極利用，17日列入CISA KEV，聯邦機構修補期限12月1日。相關漏洞CVE-2026-115732（憑證主機名稱驗證缺失，CVSS 9.0）同時影響OpenVox，PoC已公開，使攻擊門檻進一步降低。Puppet廣泛用於大規模基礎設施組態管理，遭入侵後可橫向擴散至全數受管伺服器。",
+      "source": "SecurityWeek / The Hacker News",
+      "url": "https://www.securityweek.com/critical-perforce-puppet-rce-exploited-in-attacks/",
+      "date": "2026-11-04"
+    },
+    {
+      "title": "N-able N-central Able2Shell：研究人員公開30+個零時差漏洞（附PoC），廠商已修補其中七個",
+      "severity": "high",
+      "event_type": "zero_day_disclosure",
+      "summary": "11月12日資安研究人員公開逾30個針對N-able N-central RMM平台的零時差漏洞，統稱Able2Shell，並附有概念驗證程式碼。N-able緊急發布Hotfix 2修補其中七個CVE，其餘漏洞修補程式尚未到位。N-central廣泛應用於MSP（受管服務提供商）遠端管理大量企業端點，漏洞若遭利用可能形成大規模橫向滲透路徑。台灣使用MSP服務的中小企業面臨潛在風險，應確認MSP已完成修補並持續關注後續更新。",
+      "source": "Daily Cybersecurity News Roundup",
+      "url": "https://cybersecurityhunter.com/daily-cybersecurity-news-roundup-november-12-2026/",
+      "date": "2026-11-12"
+    },
+    {
+      "title": "CISA新增15項KEV漏洞，AI基礎設施GPUStack CVE-2026-102895首登清單",
       "severity": "medium",
-      "event_type": "金融資安事件",
-      "summary": "11月11日，金管會針對11月3日發生的永豐銀行帳戶盜轉案（418名客戶、427筆異常轉帳、總金額4,176萬元）作出具體監理要求：由於此次事件起源於網銀中台（非前台或後台），金管會表示將要求所有金融機構全面檢視並補強中台防護機制，並認定永豐銀行對外包供應商的盡職調查不足，可能依法開罰。事件原委：外部駭客利用永豐銀委外的新網銀交易系統廠商的安全設定漏洞，以隨機試誤方式取得有效帳號（身分證字號首碼相同），在無客戶個資洩露的前提下直接操控中台執行批次轉帳；遭竊款項已全數返還，永豐銀已向系統供應商求償。此案凸顯台灣金融業委外供應商安全管理的系統性缺口：供應商系統的安全設定錯誤可直接導致客戶資金損失。金管會此次明確將供應商風險管理納入監理要求，預示後續對第三方安全稽核的規範將更為嚴格。",
-      "source": "udn.com / 壹蘋新聞 / 大紀元 / 世界日報 / Yahoo財經",
-      "url": "https://www.epochtimes.com/b5/26/11/11/n14887150.htm",
-      "date": "2026-11-11"
-    },
-    {
-      "title": "台灣選舉前中國網路攻擊急升：DPP候選人競選網站遭滲透、AI代理全自主入侵政府目標竊取2,500人個資（11/9-11/11）",
-      "severity": "high",
-      "event_type": "國家級網路攻擊",
-      "summary": "台灣11月28日地方選舉前，中國網路攻擊顯著升溫。國安局向立法院報告指出，2026年上半年全台每日遭受約260萬次網路攻擊，攻擊者重點鎖定學術研究、電信及國防供應鏈；11月4日，總統賴清德警告針對競選網站的假訊息與攻擊將持續加劇。10月28日，民進黨台北市長候選人沈伯洋辦公室發現競選網站主機伺服器自10月23日起遭持續性滲透，呈現「有計畫、持續性」特徵，雖未波及內部系統，仍顯示攻擊者積極鎖定選舉相關基礎設施。資安研究機構已記錄中國連結駭客部署AI代理全自主掃描政府網站漏洞，以及一起於2026年7月發生的全自主AI網路攻擊——攻擊者使用開源AI工具，以無人工介入的方式持續演化攻擊策略，成功入侵政府目標、竊取逾2,500名人員個資，所有內部通訊均使用簡體中文，研究人員評估中國連結可能性極高，但歸因尚未正式確認。此類AI自主攻擊代表威脅態勢的質變——傳統以規則為基礎的入侵偵測系統難以應對不斷演化的攻擊模式。",
-      "source": "AEI/ISW / Hong Kong Free Press / The Edge Malaysia / Tom's Hardware / CyberMagazine / gregorioslodge.org",
-      "url": "https://hongkongfp.com/2026/10/21/taiwan-says-china-cyberattacks-disinformation-up-ahead-of-local-elections/",
-      "date": "2026-11-11"
-    },
-    {
-      "title": "Microsoft 11月 Patch Tuesday：Outlook 零時差 CVE-2026-124194 已遭積極利用竊取 NTLM 雜湊值，Exchange 收信即觸發 RCE（11/11）",
-      "severity": "high",
-      "event_type": "漏洞遭積極利用",
-      "summary": "微軟11月11日發布安全更新，修補逾1,000個漏洞，63個列為危急等級，其中包含一個已遭積極利用的零時差。CVE-2026-124194 是 Outlook 經典桌面版本的偽裝漏洞（CVSS 6.5），攻擊者透過特製郵件附件使 Outlook 開啟時自動向攻擊者控制的網路位置發起 NTLM 驗證請求，洩露使用者的 NTLMv2 帳號雜湊值；取得 hash 後可離線暴力破解明文密碼或發動 NTLM 中繼攻擊，以一封郵件為入口橫向存取域內多個系統。此漏洞的修補需透過 Office 安全更新而非 Windows Update，系統管理員需確認 Office 更新政策已涵蓋此修補——這是此次最容易被忽略的部署盲點。同月修補的 CVE-2026-118207 是 Exchange Server 危急等級 RCE 漏洞，攻擊者只需向組織發送一封郵件即可觸發，部署 Exchange Server 的台灣企業應列為最高優先修補。SAP 本月另修補了 ICM2Shell 記憶體損壞漏洞（CVSS 10.0），屬最高嚴重等級，SAP 環境管理者不應遺漏。",
-      "source": "BleepingComputer / CSO Online / CybersecurityNews / SecPod / TechRepublic / SOCPrime",
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-november-2026-patch-tuesday-fixes-1-235-flaws-outlook-zero-day/",
-      "date": "2026-11-11"
-    },
-    {
-      "title": "CISA KEV 11/9 緊急更新：GPUStack AI 伺服器身份驗證完全繞過（CVSS 9.8）與 OpenSSH「SSHole」密碼繞過遭積極利用，聯邦截止 11/12（11/9）",
-      "severity": "high",
-      "event_type": "漏洞遭積極利用",
-      "summary": "CISA於11月9日一次新增四個漏洞至已知遭利用漏洞（KEV）目錄，聯邦機構修補截止日11月12日，台灣企業應參照此時程評估優先處理。最嚴重的 CVE-2026-102895（CVSS 9.8）是 AI GPU 叢集管理工具 GPUStack（2.2.0 以前版本）的身份驗證完全繞過漏洞——因登入程式碼中的來源確認缺陷（CWE-346）與 IP 偽造漏洞（CWE-290），未驗證攻擊者可在網路可及的情況下建立永久管理員 API 金鑰、在 GPU 主機節點執行任意程式碼，並讀取所有雲端提供者金鑰及工作節點機密，直接導致 AI 基礎設施被完全接管。台灣正在快速擴建 AI 訓練叢集的企業及學術機構應立即確認 GPUStack 管理介面是否暴露於外部網路，暴露狀態下的未修補部署等同開放無鎖後門。同批 KEV 的 CVE-2026-123158（OpenSSH SSHole，CVSS 8.1）影響使用 musl libc 且未啟用 PAM 的 Linux 環境（以 Alpine Linux 為代表），允許密碼驗證繞過；概念驗證程式碼已在 GitHub 公開，大量使用 Alpine Linux 容器映像的台灣雲端環境應立即確認受影響範圍。FreeSWITCH CVE-2026-116779 與 IBM Aspera Faspex CVE-2026-123218 亦列入同批 KEV。此外，SonicWall SSLVPN CVE-2026-19868（CVSS 7.1）已於 11月6日列入 KEV，影響啟用 SAML 的 SSL-VPN 部署，可繞過 SAML 強制 MFA，聯邦截止日為 11月20日，SonicWall 確認無設定層面緩解措施，只能透過韌體升級修復。",
-      "source": "The Hacker News / eSecurityPlanet / securityonline.info / Cloud Security Alliance / BrandeFense / invadel.com / Help Net Security",
-      "url": "https://thehackernews.com/2026/11/cisa-warns-of-active-exploitation-of.html",
+      "event_type": "kev_alert",
+      "summary": "11月9日CISA新增四項KEV漏洞（GPUStack CVE-2026-102895、SignalWire FreeSWITCH、OpenBSD OpenSSH、IBM Aspera Faspex），聯邦機構修補期限11月12日。AI推論平台GPUStack的驗證不當漏洞（CVE-2026-102895）為AI基礎設施漏洞首次進入KEV清單，顯示攻擊者已開始積極鎖定企業AI部署。11月上半月KEV總新增量達15筆，逾7筆已過修補期限；另Adobe ColdFusion路徑遍歷漏洞（CVE-2026-48282）及Microsoft SharePoint反序列化漏洞（CVE-2026-45659）亦已列入KEV，企業應優先清查修補狀態。",
+      "source": "CISA / eSecurity Planet",
+      "url": "https://www.esecurityplanet.com/vulnerabilities/news-cisa-kev-gpustack-freeswitch-openssh-ibm-november-2026/",
       "date": "2026-11-09"
+    },
+    {
+      "title": "Microsoft 365全球服務中斷逾20小時（11/12-13），軟體異動引發流量失衡",
+      "severity": "medium",
+      "event_type": "service_disruption",
+      "summary": "11月12日16:20 UTC至11月13日16:10 UTC，Microsoft 365發生全球規模服務中斷，影響Exchange Online、Teams及SharePoint Online。初步事故報告（11月15日）指出，軟體異動導致流量分配路徑偏移，結合伺服器容量不足引發連鎖中斷，未涉及安全入侵。事件凸顯高度依賴雲端服務的組織需制定即時備援計畫，建議評估雲端單點依賴風險並建立離線作業流程。",
+      "source": "CybersecurityNews",
+      "url": "https://cybersecuritynews.com/microsoft-outage-incident-report",
+      "date": "2026-11-12"
+    },
+    {
+      "title": "台灣2026年資安通報達118件（較去年增近六成），AI輔助攻擊至800萬筆個資受影響",
+      "severity": "medium",
+      "event_type": "trend_report",
+      "summary": "數發部資安署表示截至11月中旬已有10逾家業者通報遭駭，約800萬筆個資受影響；今年上市櫃公司資安事件重訊總計118件，較2025年全年74件增近六成。與此同時，全球CVE總量年增2.2倍，企業平均修補時程卻從32天拉長至43天，攻防差距持續擴大。行政院11月18日發函各部會，要求發生個資外洩的機構立即依《個人資料保護法》通知當事人。金管會亦提出六項緊急措施應對金融業資安風險，強調第三方風險管理為當前首要課題。",
+      "source": "中央社 / 今周刊",
+      "url": "https://www.cna.com.tw/news/aipl/202611120178.aspx",
+      "date": "2026-11-12"
     }
   ],
   "vulnerabilities": [
     {
-      "cve_id": "CVE-2026-102895",
-      "title": "GPUStack 未驗證管理員完全接管（CVSS 9.8，CISA KEV 11/9，截止 11/12，AI 叢集管理平台）",
-      "cvss": 9.8,
+      "cve_id": "CVE-2026-115731",
+      "title": "Perforce Puppet Enterprise 反序列化遠端程式碼執行漏洞",
+      "cvss": 9.4,
       "severity": "critical",
-      "vendor": "GPUStack",
-      "product": "GPUStack（2.2.0 以前所有版本；修補版本：2.2.2 以上）",
-      "description": "CVE-2026-102895 是 GPUStack（開源 GPU 叢集管理平台）登入邏輯中的來源確認缺陷（CWE-346）與 IP 偽造漏洞（CWE-290）組合，CVSS 9.8。預設情況下 force_auth_localhost 為 false，攻擊者可透過偽造本地回環來源的請求完全繞過身份驗證，無需任何憑證即可建立永久管理員 API 金鑰、在 GPU 主機節點執行任意程式碼，並讀取所有雲端提供者金鑰（AWS/GCP/Azure）及工作節點機密，直接導致 AI 基礎設施被完全接管。CISA 於 11/9 列入 KEV，聯邦截止 11/12，確認已有實際攻擊案例（NVD 記錄對 2.1.1 版部署的攻擊）。概念驗證程式碼已公開。建議行動：(1) 立即升級至 GPUStack 2.2.2 或更高版本；(2) 升級前透過防火牆或安全群組封鎖管理介面（預設 8080 端口）的外部存取；(3) 稽核所有已建立的管理員 API 金鑰，刪除非預期金鑰，強制輪換所有憑證；(4) 核查 GPU 節點的異常工作負載及出站連線；(5) 同步修補相關漏洞 CVE-2026-102894（CVSS 9.1，SAML 相關）。"
+      "vendor": "Perforce",
+      "product": "Puppet Enterprise ≤2026.0.0、≤2025.12.0、≤2023.8.12",
+      "description": "Puppet Enterprise報告處理模組存在反序列化不受信任資料漏洞，持有Puppet CA憑證的用戶端可透過HTTP PUT請求執行任意程式碼，可能暴露CA金鑰。已遭積極利用並列入CISA KEV，政府機關修補期限2026-12-01。修補版本：PE 2026.0.1、2025.12.1、2023.8.13。[KEV: 是 ⚠️]"
+    },
+    {
+      "cve_id": "CVE-2026-115732",
+      "title": "Puppet Enterprise / OpenVox 憑證主機名稱驗證缺失漏洞",
+      "cvss": 9.0,
+      "severity": "critical",
+      "vendor": "Perforce / OpenVox",
+      "product": "Puppet Enterprise / OpenVox",
+      "description": "憑證驗證流程未確認主機名稱，允許中間人攻擊（MITM）。PoC已公開，與CVE-2026-115731結合使用可大幅降低攻擊門檻。[KEV: 否，PoC已公開 ⚠️]"
+    },
+    {
+      "cve_id": "CVE-2026-110043",
+      "title": "Microsoft Outlook 嚴重遠端程式碼執行漏洞（Patch Tuesday 11月）",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Microsoft Outlook",
+      "description": "Microsoft Outlook存在嚴重遠端程式碼執行漏洞，於11月10日Patch Tuesday一併修補。目前尚無已知積極利用案例，建議與CVE-2026-124194一併优先部署。[KEV: 否]"
+    },
+    {
+      "cve_id": "CVE-2026-110068",
+      "title": "Microsoft Outlook 嚴重遠端程式碼執行漏洞（Patch Tuesday 11月）",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Microsoft Outlook",
+      "description": "Microsoft Outlook嚴重遠端程式碼執行漏洞，與CVE-2026-110043、CVE-2026-111309同為11月Patch Tuesday三個高危Outlook RCE弱點之一。[KEV: 否]"
+    },
+    {
+      "cve_id": "CVE-2026-111309",
+      "title": "Microsoft Outlook 嚴重遠端程式碼執行漏洞（Patch Tuesday 11月）",
+      "cvss": 8.8,
+      "severity": "high",
+      "vendor": "Microsoft",
+      "product": "Microsoft Outlook",
+      "description": "Microsoft Outlook嚴重遠端程式碼執行漏洞，同屬11月Patch Tuesday三個高危Outlook RCE修補之一。[KEV: 否]"
     },
     {
       "cve_id": "CVE-2026-124194",
-      "title": "Microsoft Outlook 零時差 NTLM 雜湊值竊取（CVSS 6.5，已遭積極利用，修補需 Office 更新，非 Windows Update）",
+      "title": "Microsoft Outlook NTLMv2 雜湊外洩漏洞（零時差，已遭積極利用）",
       "cvss": 6.5,
+      "severity": "medium",
+      "vendor": "Microsoft",
+      "product": "Microsoft Outlook",
+      "description": "Outlook存在NTLM憑證外洩漏洞，用戶開啟特製郵件檔案後Outlook自動連接攻擊者控制端點並洩露NTLMv2雜湊。已於修補前遭積極利用，列入CISA KEV，聯邦機構修補期限2026-11-24。透過Office更新而非Windows Update部署。[KEV: 是 ⚠️]"
+    },
+    {
+      "cve_id": "CVE-2026-102895",
+      "title": "GPUStack AI推論平台驗證不當漏洞",
+      "cvss": 8.0,
+      "severity": "high",
+      "vendor": "GPUStack",
+      "product": "GPUStack",
+      "description": "AI推論平台GPUStack存在驗證不當漏洞，攻擊者利用後可建立持久化後門帳號。11月9日列入CISA KEV，聯邦機構修補期限2026-11-12。為AI基礎設施漏洞首次進入KEV清單。[KEV: 是 ⚠️]"
+    },
+    {
+      "cve_id": "CVE-2026-45659",
+      "title": "Microsoft SharePoint Server 反序列化遠端程式碼執行漏洞",
+      "cvss": 8.0,
       "severity": "high",
       "vendor": "Microsoft",
-      "product": "Microsoft Outlook 經典桌面版本（所有受支援版本）；修補透過 Office 安全更新部署",
-      "description": "CVE-2026-124194 是 Outlook 經典桌面版本（非網頁版 OWA）的偽裝漏洞（CVSS 6.5），微軟確認已遭積極利用（零時差）。攻擊者發送含特製附件的郵件，受害者開啟附件後 Outlook 自動向攻擊者控制的網路位置（例如攻擊者架設的 SMB 伺服器）發起 NTLM 驗證請求，洩露使用者的 NTLMv2 帳號雜湊值。攻擊者取得 NTLMv2 hash 後可離線暴力破解明文密碼，或在內網中發動 NTLM 中繼攻擊，冒充受害者帳號存取域內其他系統（如 Exchange、SharePoint、內部應用）。此漏洞無法透過預覽窗格觸發（需開啟附件），但一旦觸發即自動完成 NTLM 驗證請求，使用者不會收到警告。重點：修補必須透過 Office 安全更新而非 Windows Update——確認組織的 Office 更新政策已部署此月份修補，否則即使 Windows Update 完全套用仍無法緩解此零時差。短期緩解：Windows 11 環境確認已啟用 NTLM 訊息簽章預設設定；評估封鎖對外部不受信任目的地的出站 NTLM 連線。"
+      "product": "Microsoft SharePoint Server",
+      "description": "Microsoft SharePoint Server存在不受信任資料反序列化漏洞，授權攻擊者可透過網路執行任意程式碼。已列入CISA KEV。[KEV: 是 ⚠️]"
     },
     {
-      "cve_id": "CVE-2026-123158",
-      "title": "OpenSSH「SSHole」密碼驗證繞過（CVSS 8.1，CISA KEV 11/9，截止 11/12，Alpine Linux 重點受影響，PoC 已公開）",
-      "cvss": 8.1,
+      "cve_id": "CVE-2026-48282",
+      "title": "Adobe ColdFusion 路徑遍歷任意檔案讀取漏洞",
+      "cvss": 7.5,
       "severity": "high",
-      "vendor": "OpenBSD",
-      "product": "OpenSSH sshd（使用 musl libc、未啟用 PAM 的 Linux 環境，以 Alpine Linux 為代表；修補版本：OpenSSH 10.6p2）",
-      "description": "CVE-2026-123158（又稱 SSHole）是 OpenSSH 在特定組態下的密碼驗證繞過漏洞（CVSS 8.1），CISA 於 11/9 列入 KEV，聯邦截止 11/12，GitHub 已有公開概念驗證程式碼。漏洞成立需同時滿足三個條件：(1) 使用 musl libc 而非 glibc 的 Linux 環境（Alpine Linux 為最常見案例），(2) sshd 未啟用 PAM，(3) 啟用密碼驗證。符合上述條件的 sshd 在處理無效使用者帳號密碼欄位時存在邏輯缺陷，允許攻擊者繞過密碼驗證取得 SSH 存取。台灣大量容器化環境及雲端基礎設施使用 Alpine Linux 基礎映像，應立即清查受影響範圍：執行 ldd --version 確認 libc 類型；受影響節點升級至 OpenSSH 10.6p2 或安裝 Alpine Linux 官方修補套件；無法立即升級者設定 PasswordAuthentication no（強制金鑰驗證），此為 SSH 安全最佳實踐；更新 Docker 基礎映像並重建受影響容器映像。"
-    },
-    {
-      "cve_id": "CVE-2026-19868",
-      "title": "SonicWall SonicOS SSLVPN SAML MFA 繞過（CVSS 7.1，CISA KEV 11/6，截止 11/20，無設定緩解措施，需韌體升級）",
-      "cvss": 7.1,
-      "severity": "high",
-      "vendor": "SonicWall",
-      "product": "SonicWall SonicOS（7.3.3-7015 及更舊版本、8.2.2-8015 及更舊版本；修補版本：7.3.4-7013 / 8.2.3-8015）",
-      "description": "CVE-2026-19868 是 SonicWall SonicOS SSLVPN 的身份驗證執行缺陷（CVSS 7.1），僅影響啟用 SAML 驗證的 SSL-VPN 部署。漏洞允許持有替代驗證方法有效憑證的使用者繞過 SAML 驗證控制，可同時繞過 SAML 強制 MFA，讓攻擊者以低安全標準的認證方式取得 VPN 存取。CISA 於 11/6 列入 KEV，SonicWall 確認已有積極利用案例但未公開攻擊細節。SonicWall 明確指出無任何設定層面的暫時緩解措施，只能透過韌體升級修復。台灣企業廣泛部署 SonicWall 裝置作為 SSL-VPN 閘道，此漏洞直接威脅遠端辦公存取管控的完整性。建議立即升級至修補韌體版本（7.3.4-7013 或 8.2.3-8015）；升級前稽核過去14天的 VPN 登入記錄，尋找使用非 SAML 方式成功登入的異常記錄，特別是來自非預期地區或時間的存取。"
+      "vendor": "Adobe",
+      "product": "Adobe ColdFusion",
+      "description": "Adobe ColdFusion存在路徑遍歷漏洞，攻擊者無需驗證即可讀取任意系統檔案。已列入CISA KEV。[KEV: 是 ⚠️]"
     }
   ],
   "threat_trends": {
-    "summary": "本週台灣資安威脅態勢以「AI 輔助自動化攻擊全面升溫」與「供應鏈安全骨牌效應持續擴散」為兩條主軸。數發部逾10起企業AI攻擊通報、全台每日260萬次攻擊的背景下，AI代理的引入使傳統特徵碼偵測機制有效性顯著下降，且已出現全自主AI攻擊成功滲透政府目標的具體案例，台灣威脅態勢出現質變而非量變。電商供應鏈骨牌效應（91APP→Cyberbiz/1shop/meepShop）揭示台灣數位化程度高但供應商安全治理薄弱的結構性矛盾：品牌商大量依賴第三方SaaS整合，卻缺乏對API金鑰生命週期的有效管理。國際面，本週最急迫的操作風險來自 Microsoft Patch Tuesday 的 Outlook 零時差（CVE-2026-124194）——已遭積極利用且修補路徑（需 Office 更新而非 Windows Update）容易被 IT 團隊誤認為已覆蓋。CISA KEV 11/9 更新中 GPUStack（CVSS 9.8）的列入，代表 AI 訓練基礎設施本身已成為攻擊目標，對台灣正在快速擴建 AI 叢集的企業構成直接且具體的威脅。選舉前的中國網路攻擊壓力預計在11月28日選舉前持續居高。",
+    "summary": "本週台灣資安事件達到近年高峰：外交部、電商平台、金融機構三大領域同週遭駭，顯示攻擊者已掌握台灣數位供應鏈結構，採多點滲透策略。數發部揭露的800萬筆個資外洩與118件事件重訊（較去年增六成）印證AI輔助攻擊正重塑威脅環境。國際面，企業IT管理平台（Puppet Enterprise、N-central RMM）成為新型高價值攻擊目標——攻破組態管理工具可一步進入數發受管客戶環境。Microsoft生態圈单一Patch Tuesday修補逾1,200個CVE，Outlook系列漏洞連環出現顯示Office攻擊面持續擴大。AI基礎設施漏洞（GPUStack）首次列入CISA KEV，預示企業AI部署安全將成2026年第四季至2027年的核心攻擊面。",
     "active_actors": [
       {
-        "name": "中國 APT 組織（台灣選舉前行動）",
-        "type": "國家級威脅行為者（APT）",
-        "activity": "台灣11月28日地方選舉前，中國網路攻擊顯著升溫：每日260萬次攻擊達歷史高點，AI代理主動掃描政府網站漏洞，DPP台北市長候選人競選網站於10月23日起遭持續性滲透。資安研究機構記錄一起2026年7月的全自主AI網路攻擊，以開源AI工具無人工介入地成功竊取逾2,500名政府人員個資，所有內部通訊使用簡體中文，歸因仍在確認中。重點鎖定學術研究、電信及國防供應鏈。"
+        "name": "不明（台灣電商/金融攻擊者群體）",
+        "origin": "未確認",
+        "target": "台灣電商SaaS、ERP業者、金融機構",
+        "technique": "供應鏈滲透、API存取濫用、網路銀行系統瑕疵利用"
       },
       {
-        "name": "不明 AI 輔助攻擊組織（台灣企業電商攻擊）",
-        "type": "財務動機威脅行為者",
-        "activity": "利用 ARTEX 等自動化攻擊工具，透過第三方SaaS整合服務的API金鑰弱點，系統性滲透台灣電商生態圈（91APP、Cyberbiz、1shop、meepShop），受竊資料疑流入中國地下市場；數發部通報的AI攻擊行動仍在持續，近半數通報事件與AI攻擊手法相關。"
-      },
-      {
-        "name": "TraderTraitor（北韓 Lazarus Group 子組織）",
-        "type": "國家級威脅行為者（財務動機APT）",
-        "activity": "10月29日以一名工程師遭入侵的筆記型電腦為初始入口，完成史上最大加密貨幣竊案（幣安，約63億美元），FBI確認歸因。TraderTraitor除鎖定加密貨幣交易所外，積極滲透科技公司、AI新創及供應鏈；台灣半導體及科技業工程師端點安全應比照金融機構等級管理。"
+        "name": "Storm-0940（中國關聯，持續活躍）",
+        "origin": "中國（評估）",
+        "target": "全球企業雲端環境（延續10月ConnectWise攻擊行動）",
+        "technique": "AI代理輔助憑證暴破、供應鏈滲透、特權帳號接管"
       }
     ],
     "attack_techniques": [
-      "AI 代理全自主攻擊：攻擊者部署具自主推理能力的 AI 代理，使其能在無人工介入的情況下持續演化攻擊策略、自動掃描漏洞並執行多步驟入侵，大幅壓縮防禦者的偵測與回應時間窗口，並有效規避傳統特徵碼偵測",
-      "供應鏈 API 金鑰批次橫向滲透：以一個 SaaS 整合服務的 API 金鑰弱點為入口，利用 ARTEX 等自動化工具在短時間內橫向滲透多個採用相同第三方服務的電商品牌後台，數量規模遠超人工攻擊能力",
-      "NTLM 雜湊值竊取與中繼：透過惡意 Office 附件使 Outlook 自動發起 NTLM 驗證請求，洩露 NTLMv2 hash 後可離線暴力破解或在內網執行 NTLM 中繼攻擊，以一封郵件為入口橫向存取域內多個系統",
-      "供應商中台安全設定錯誤利用：針對外包 IT 供應商（尤其是網銀中台系統廠商）的安全設定缺陷發動攻擊，直接操控中台執行批次轉帳，繞過前台使用者側的防護機制",
-      "AI 基礎設施管理介面未驗證接管：針對未正確隔離管理介面的 AI GPU 叢集管理工具（如 GPUStack）利用 IP 偽造漏洞繞過身份驗證，取得完整管理員控制並讀取雲端憑證，危及 AI 訓練基礎設施完整性"
+      "供應鏈滲透（電商SaaS、ERP、RMM管理平台）",
+      "AI輔助攻擊（加速憑證暴破與目標偵察）",
+      "NTLM雜湊竊取與中繼攻擊（Outlook CVE-2026-124194）",
+      "反序列化遠端程式碼執行（Puppet Enterprise、SharePoint）",
+      "企業IT管理平台漏洞利用（N-central Able2Shell、Puppet RCE）",
+      "API金鑰竊取與第三方存取濫用（電商ERP供應鏈）"
     ]
   },
   "action_items": [
     {
       "priority": "high",
-      "action": "立即套用 Microsoft 11月安全更新，特別確認 CVE-2026-124194 的 Office 更新路徑已部署（此修補不透過 Windows Update 推送）：（1）確認組織的 Outlook 更新政策——許多環境的 Office 更新與 Windows Update 分開管理，系統管理員需主動確認，而非假設 Windows Update 完整覆蓋；（2）部署此月份的 Office 累積安全更新，確認所有使用 Outlook 經典桌面版本的裝置已套用；（3）同步修補 Exchange Server CVE-2026-118207（Critical RCE），此漏洞攻擊者只需發送一封郵件即可觸發；（4）SAP 環境管理者同步確認 ICM2Shell（CVSS 10.0）修補已套用；（5）稽核高權限帳號（管理員、IT主管、財務）在過去 30 天的異常出站 NTLM 驗證連線，尋找目的地為外部不明主機的請求。"
+      "action": "立即部署11月Patch Tuesday更新，優先修補Outlook系列漏洞（CVE-2026-124194 KEV期限2026-11-24、CVE-2026-110043/110068/111309三個嚴重RCE），透過Office更新通道部署"
     },
     {
       "priority": "high",
-      "action": "立即升級 GPUStack 至 2.2.2 以上版本，並確認 AI 基礎設施管理介面未對外暴露（CISA KEV 截止 11/12）：（1）清查所有 GPUStack 部署版本，立即升級至 2.2.2 或更高版本（同時修補 CVE-2026-102895 及 CVE-2026-102894）；（2）升級前立即確認 GPUStack 管理介面（預設 8080 端口）的外部可達性，若有外部IP可直接存取，立即透過防火牆或安全群組封鎖；（3）稽核所有已建立的 GPUStack 管理員 API 金鑰，刪除非預期金鑰，強制輪換所有既有憑證；（4）核查 GPU 節點上的非預期工作負載及異常的出站網路連線；（5）審視 GPU 節點使用的雲端提供者金鑰（AWS/GCP/Azure）近期使用記錄，確認未遭竊取後濫用。"
+      "action": "升級Puppet Enterprise至2026.0.1、2025.12.1或2023.8.13（CVE-2026-115731，CVSS 9.4，KEV期限2026-12-01），修補後立即稽核Puppet CA憑證完整性"
     },
     {
       "priority": "high",
-      "action": "Alpine Linux 及容器化環境立即更新 OpenSSH（CVE-2026-123158，CISA KEV 截止 11/12）：（1）清查所有 Linux 環境 libc 類型，重點確認 Alpine Linux 容器映像、Kubernetes 節點及裸機伺服器（執行 ldd --version 確認為 musl libc 環境）；（2）受影響節點（musl libc + 未啟用 PAM + 啟用密碼驗證，三個條件同時成立）立即升級至 OpenSSH 10.6p2 或安裝 Alpine Linux 官方修補套件；（3）無法立即升級的節點設定 PasswordAuthentication no（強制金鑰驗證），此為 SSH 安全最佳實踐；（4）更新 Docker 基礎映像（FROM alpine:latest）並透過 CI/CD 管線批次重建部署受影響容器。"
+      "action": "升級N-able N-central至最新Hotfix 2版本，強制所有N-central管理帳號啟用MFA，稽核過去30天的異常遠端存取記錄"
     },
     {
       "priority": "high",
-      "action": "立即升級 SonicWall SonicOS 至修補韌體（CVE-2026-19868，CISA KEV 截止 11/20）並稽核 VPN 存取記錄：（1）確認所有 SonicWall SSL-VPN 設備韌體版本，立即升級至 7.3.4-7013 或 8.2.3-8015（SonicWall 明確指出無設定層面緩解措施）；（2）稽核過去14天的 VPN 登入記錄，尋找在 SAML 應為唯一允許方式的部署中以替代驗證方法成功登入的記錄；（3）暫時嚴格限制 SSLVPN 存取的來源 IP 白名單至僅信任地區，以降低未修補期間的攻擊面。"
+      "action": "電商/金融業：全面稽核所有第三方SaaS與ERP廠商的API存取憑證，立即輪換可疑金鑰，要求供應商提交最新滲透測試報告"
     },
     {
       "priority": "medium",
-      "action": "電商及 SaaS 整合服務業者稽核第三方 API 金鑰並強化供應商安全治理（對應電商供應鏈骨牌效應）：（1）建立完整的第三方整合服務清單，確認每個整合的 API 金鑰擁有者、存取範圍及有效期限；（2）強制輪換所有在 2026 年 10 月後未輪換的第三方服務 API 金鑰，特別是有存取客戶訂單資料庫權限的金鑰；（3）審視第三方服務的最小必要存取原則，API 金鑰應僅授予完成任務所需的最低權限；（4）金融機構依金管會要求立即啟動對所有外包 IT 供應商的安全設定稽核，確認供應商系統無設定錯誤；（5）評估部署 Secrets Management 解決方案（如 HashiCorp Vault）集中管理 API 金鑰生命週期，取代在環境變數或設定檔中明文儲存。"
+      "action": "修補GPUStack（CVE-2026-102895，KEV）、SharePoint（CVE-2026-45659，KEV）、Adobe ColdFusion（CVE-2026-48282，KEV），期限2026-11-22"
     },
     {
       "priority": "medium",
-      "action": "選舉前強化網站與公開系統的抗攻擊韌性，部署 AI 自動化掃描防禦：（1）競選網站、政府機關及公眾服務管理員立即確認所有面向網際網路的服務已套用最新安全更新，選舉前30天強化告警靈敏度；（2）部署 Web 應用防火牆（WAF）並啟用對 AI 自動化掃描工具的速率限制規則；（3）設定選舉期間每日安全事件回顧機制，特別關注異常登入嘗試及設定變更；（4）與 TWCERT/CC 保持聯繫，訂閱選舉前的威脅情報分享；（5）AI 相關企業攻擊通報可向數發部（moda.gov.tw）提交取得跨機關協調支援。"
+      "action": "建立Microsoft 365服務降級應急計畫，避免業務流程對單一雲端服務的過度依賴"
+    },
+    {
+      "priority": "medium",
+      "action": "AI基礎設施（GPUStack等推論平台）部署網路隔離，對AI服務帳號實施最小權限原則"
+    },
+    {
+      "priority": "low",
+      "action": "受91APP或Cyberbiz資料外洩波及的消費者：密切監控帳號異常，提防精準釣魚攻擊"
     }
   ],
   "terms": [
     {
-      "term": "NTLMv2 雜湊值（NTLMv2 Hash）",
-      "definition": "Windows 網路驗證協定 NTLM 第二版產生的帳號密碼雜湊值，可透過中繼攻擊冒充身份或離線暴力破解，常作為橫向移動的入口",
-      "url": "https://glossary.astroicers.link/glossary/ntlm_relay"
+      "term": "通用漏洞評分系統 (CVSS)",
+      "definition": "評估漏洞嚴重程度的標準化計分系統",
+      "url": "https://glossary.astroicers.link/glossary/cvss"
     },
     {
-      "term": "AI 代理攻擊（AI-Powered Autonomous Attack）",
-      "definition": "攻擊者部署具自主推理能力的 AI 代理，使其在無人工介入的情況下持續演化攻擊策略、自動掃描漏洞並執行多步驟入侵，大幅壓縮防禦者回應時間窗口",
-      "url": "https://glossary.astroicers.link/glossary/ai_attack"
-    },
-    {
-      "term": "供應鏈攻擊（Supply Chain Attack）",
-      "definition": "攻擊者不直接鎖定目標組織，而是入侵其信任的供應商或第三方服務，藉此間接滲透多個下游客戶，達成一次攻擊影響多個目標的效果",
-      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
-    },
-    {
-      "term": "SAML（Security Assertion Markup Language）",
-      "definition": "企業身份聯合標準，允許身份提供者向服務提供者傳遞驗證聲明，常用於實現企業 SSO 與 MFA，SonicWall 等 VPN 閘道普遍支援",
-      "url": "https://glossary.astroicers.link/glossary/saml"
-    },
-    {
-      "term": "已知遭利用漏洞目錄（KEV, Known Exploited Vulnerabilities）",
-      "definition": "CISA 維護的漏洞目錄，收錄已確認在真實攻擊中遭積極利用的 CVE，美國聯邦機構依法須在指定截止日前完成修補，全球企業應視為高優先處理依據",
+      "term": "已知遭利用漏洞清單 (KEV)",
+      "definition": "CISA 維護的已確認遭實際利用的漏洞清單",
       "url": "https://glossary.astroicers.link/glossary/kev"
     },
     {
-      "term": "TraderTraitor（北韓 Lazarus Group 子組織）",
-      "definition": "北韓國家級駭客集團 Lazarus Group 中專注加密貨幣竊取的子組織，以入侵交易所、DeFi 協定及科技公司為主，所得資金被認為用於支持北韓核武計畫",
-      "url": "https://glossary.astroicers.link/glossary/trader_traitor"
+      "term": "供應鏈攻擊 (Supply Chain Attack)",
+      "definition": "藉由第三方軟體或服務入侵目標的攻擊手法",
+      "url": "https://glossary.astroicers.link/glossary/supply_chain_attack"
+    },
+    {
+      "term": "零時差漏洞 (Zero-Day Vulnerability)",
+      "definition": "尚無官方修補程式的安全漏洞",
+      "url": "https://glossary.astroicers.link/glossary/zero_day"
+    },
+    {
+      "term": "受管服務提供商 (MSP)",
+      "definition": "代客戶管理IT基礎設施和終端設備的第三方服務商",
+      "url": "https://glossary.astroicers.link/glossary/msp"
+    },
+    {
+      "term": "NTLMv2 中繼攻擊",
+      "definition": "竊取Windows NTLMv2雜湊後轉發以偽裝身份的攻擊",
+      "url": "https://glossary.astroicers.link/glossary/ntlm_relay"
+    },
+    {
+      "term": "反序列化漏洞 (Deserialization Vulnerability)",
+      "definition": "攻擊者透過操控序列化物件執行任意程式碼的漏洞類型",
+      "url": "https://glossary.astroicers.link/glossary/deserialization"
+    },
+    {
+      "term": "遠端監控與管理 (RMM)",
+      "definition": "MSP用於遠端監控和管理客戶IT環境的平台工具",
+      "url": "https://glossary.astroicers.link/glossary/rmm"
+    },
+    {
+      "term": "進階持續性威脅 (APT)",
+      "definition": "國家級駭客組織發動的長期網路攻擊",
+      "url": "https://glossary.astroicers.link/glossary/apt"
     }
   ],
   "references": [
     {
-      "title": "AI網攻延燒各國！台灣逾10家企業受害 資安院：攻擊還沒結束 – 自由財經",
-      "url": "https://ec.ltn.com.tw/article/breakingnews/5637709"
+      "title": "外交部領務局網站遭駭，逾7.2萬個護照大頭照外洩",
+      "url": "https://www.ithome.com.tw/news/180446"
     },
     {
-      "title": "AI資安攻擊升溫 數發部：已接獲10多家企業通報受害 – 中央社",
-      "url": "https://www.cna.com.tw/news/afe/202611110270.aspx"
+      "title": "逾7萬張大頭照外洩 領務局：不影響已核發護照效力",
+      "url": "https://www.cna.com.tw/news/ahel/202611120091.aspx"
     },
     {
-      "title": "91APP、永豐銀遭駭只是開端！資安事件激增近6成，AI攻擊手法有哪些？– 今周刊",
-      "url": "https://www.businesstoday.com.tw/article/category/183027/post/202611110002/"
-    },
-    {
-      "title": "繼91APP遭駭後，1shop、Cyberbiz與meepShop等電商技術服務業者接連傳出資安警訊 – iThome",
+      "title": "繼91APP遭駭後，1shop、Cyberbiz與meepShop等電商技術服務業者接連傳出資安警訊",
       "url": "https://www.ithome.com.tw/news/180209"
     },
     {
-      "title": "【資安週報】1102～1106，電商服務供應鏈資安風波多家同時延燒、永豐銀行異常轉帳確認為資安事件 – iThome",
-      "url": "https://www.ithome.com.tw/news/180291"
+      "title": "永豐銀4,176萬元遭駭客盜轉！第三方系統成資安破口",
+      "url": "https://csrone.com/news/10195"
     },
     {
-      "title": "91APP 資安事件後續：從第三方工具漏洞到資料庫金鑰，多家電商開店平台的資安防線出了什麼問題？– cyberq.tw",
-      "url": "https://cyberq.tw/2026/11/02/91app-data-breach-involving-cyber-security/"
+      "title": "Microsoft November 2026 Patch Tuesday fixes 1,235 flaws, Outlook zero-day",
+      "url": "https://cybersecuritynews.com/microsoft-november-2026-patch-tuesday/"
     },
     {
-      "title": "電商服務商 Cyberbiz 遭未授權存取，諾貝兒與宏碁智新等多家企業啟動防護 – limitpress.com",
-      "url": "https://limitpress.com/cyberbiz-third-party-data-breach/"
+      "title": "Microsoft Outlook Zero-Day CVE-2026-124194 Exploited in the Wild Before November Patch",
+      "url": "https://securityonline.info/outlook-zero-day-cve-2026-124194/"
     },
     {
-      "title": "479萬消費者個資外洩！91APP遭駭「公布補償範圍」 – TVBS",
-      "url": "https://news.tvbs.com.tw/money/4043232"
+      "title": "Critical Perforce Puppet RCE Exploited in Attacks",
+      "url": "https://www.securityweek.com/critical-perforce-puppet-rce-exploited-in-attacks/"
     },
     {
-      "title": "永豐銀遭駭客盜轉 金管會：金融機構須全面強化中台防護 – 大紀元",
-      "url": "https://www.epochtimes.com/b5/26/11/11/n14887150.htm"
+      "title": "Hackers Exploiting Critical Puppet RCE Flaw Affecting Enterprise Management Servers",
+      "url": "https://thehackernews.com/2026/11/hackers-exploiting-critical-puppet-rce.html"
     },
     {
-      "title": "快訊｜永豐銀419人遭盜轉逾4000萬！駭客攻擊手法曝光 – 壹蘋新聞",
-      "url": "https://news.nextapple.com/finance/20261104/C9B3E7621C86AA3B5574AFB401645FF0"
+      "title": "CISA adds critical Perforce Puppet Enterprise vulnerability to known exploited list",
+      "url": "https://www.scworld.com/brief/cisa-adds-critical-perforce-puppet-enterprise-vulnerability-to-known-exploited-list"
     },
     {
-      "title": "遇駭存款遭盜轉 永豐銀向程式商求償 – 世界日報",
-      "url": "https://www.worldjournal.com/wj/story/121222/9859027"
-    },
-    {
-      "title": "Taiwan says China cyberattacks, disinformation up ahead of local elections – Hong Kong Free Press",
-      "url": "https://hongkongfp.com/2026/10/21/taiwan-says-china-cyberattacks-disinformation-up-ahead-of-local-elections/"
-    },
-    {
-      "title": "Suspected China-linked hackers used AI to run the first-ever end-to-end autonomous cyberattack on Taiwan's government – Tom's Hardware",
-      "url": "https://www.tomshardware.com/tech-industry/cyber-security/suspected-china-linked-hackers-used-ai-to-run-the-first-ever-end-to-end-autonomous-cyberattack-on-taiwans-government-israeli-firm-says-open-source-built-tool-continuously-devised-effective-hack-strategies-in-real-time"
-    },
-    {
-      "title": "Microsoft November 2026 Patch Tuesday fixes 1,235 flaws, Outlook zero-day – BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-november-2026-patch-tuesday-fixes-1-235-flaws-outlook-zero-day/"
-    },
-    {
-      "title": "November 2026 Patch Tuesday: 63 Critical Microsoft fixes, plus an Outlook zero day – CSO Online",
-      "url": "https://www.csoonline.com/article/4247015/november-2026-patch-tuesday-63-critical-microsoft-fixes-plus-an-outlook-zero-day-that-allows-theft-of-hashed-credentials.html"
-    },
-    {
-      "title": "CVE-2026-124194: Outlook Zero-Day Exposes NTLM Hashes – SOCPrime",
-      "url": "https://socprime.com/blog/cve-2026-124194-microsoft-outlook-zero-day-exploited-to-steal-ntlm-hashes/"
-    },
-    {
-      "title": "Microsoft November 2026 Patch Tuesday Fixes 1,093 Vulnerabilities – CybersecurityNews",
-      "url": "https://cybersecuritynews.com/microsoft-november-2026-patch-tuesday/amp/"
-    },
-    {
-      "title": "CISA Warns of Active Exploitation of OpenSSH, GPUStack, FreeSWITCH, and IBM Flaws – The Hacker News",
-      "url": "https://thehackernews.com/2026/11/cisa-warns-of-active-exploitation-of.html"
-    },
-    {
-      "title": "CISA Adds 4 Exploited Flaws to KEV: Nov. 12 Deadline – eSecurityPlanet",
+      "title": "CISA Adds Four Exploited Flaws to KEV, Sets Nov. 12 Patch Deadline",
       "url": "https://www.esecurityplanet.com/vulnerabilities/news-cisa-kev-gpustack-freeswitch-openssh-ibm-november-2026/"
     },
     {
-      "title": "GPUStack CVE-2026-102895 KEV Listing: Security Implications and Guidance – Cloud Security Alliance",
-      "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-gpustack-cve-2026-102895-kev-20261110-csa/"
+      "title": "Daily Cybersecurity News Roundup - November 12, 2026",
+      "url": "https://cybersecurityhunter.com/daily-cybersecurity-news-roundup-november-12-2026/"
     },
     {
-      "title": "GPUStack Auth Bypass CVE-2026-102895 Exploited on AI Servers – Daily Security Review",
-      "url": "https://dailysecurityreview.com/?p=45400"
+      "title": "Microsoft Reveals How a Hidden Windows Bug Took Down Microsoft 365 Services Worldwide",
+      "url": "https://cybersecuritynews.com/microsoft-outage-incident-report"
     },
     {
-      "title": "CVE-2026-123158: OpenSSH SSHole Bypass, Fix Status – BrandeFense",
-      "url": "https://brandefense.io/knowledge-hub/vulnerabilities/cve-2026-123158/"
+      "title": "資安署：駭客用AI網攻成趨勢 約800萬筆個資受影響",
+      "url": "https://www.cna.com.tw/news/aipl/202611120178.aspx"
     },
     {
-      "title": "An OpenSSH bug lets attackers skip the password on some Linux servers – DEV Community",
-      "url": "https://dev.to/circuitsfit/an-openssh-bug-lets-attackers-skip-the-password-on-some-linux-servers-cisas-deadline-is-november-52pj"
+      "title": "91APP、永豐銀遭駭只是開端！資安事件激增近6成，AI攻擊手法有哪些？企業和民眾如何自保？",
+      "url": "https://www.businesstoday.com.tw/article/category/183027/post/202611110002/"
     },
     {
-      "title": "CISA Adds Exploited SonicWall SSLVPN Authentication Bypass to KEV – eSecurityPlanet",
-      "url": "https://www.esecurityplanet.com/vulnerabilities/news-sonicwall-sslvpn-authentication-bypass-cve-2026-19868/"
-    },
-    {
-      "title": "Exploited SonicWall SSL-VPN flaw lets attackers bypass SAML-enforced MFA (CVE-2026-19868) – Help Net Security",
-      "url": "https://www.helpnetsecurity.com/?p=390676"
-    },
-    {
-      "title": "Known Exploited Vulnerabilities Catalog – CISA",
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+      "title": "供應商層已成台灣金融最脆弱的防線",
+      "url": "https://buzzhongkong.com/top-story/%E4%BE%9B%E6%87%89%E5%95%86%E5%B1%A4%E5%B7%B2%E6%88%90%E5%8F%B0%E7%81%A3%E9%87%91%E8%9E%8D%E6%9C%80%E8%84%86%E5%BC%B1%E7%9A%84%E9%98%B2%E7%B7%9A/"
     }
   ]
 }
